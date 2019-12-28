@@ -1,0 +1,239 @@
+#container {
+    margin: 8rem 12rem;
+    background: #fff;
+    height: 297mm;
+    width: 210mm;
+}
+
+.header-inner {
+    display: flex;
+}
+
+.photo {
+    margin: 8px 0 0 8px;
+}
+
+img {
+    border-radius: 50%;
+    border: 3px solid #3dbaf7;
+}
+
+.introduction {
+    width: 100%;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+
+.name {
+    padding-top: 15px;
+    font-size: 2rem;
+}
+
+.title {
+    font-size: 1.3rem;
+    color: #3dbaf7;
+}
+
+.summary {
+    font-size: 0.8rem;
+}
+
+.contact {
+    background-color: #d3d3d382;
+    margin-bottom: 15px;
+    padding-left: 37.5px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 70px;
+}
+
+.contact-row-1,
+.contact-row-2,
+.contact-row-3 {
+    display: flex;
+}
+
+.contact-1,
+.contact-2,
+.contact-3,
+.contact-4,
+.contact-5,
+.contact-6 {
+    flex-grow: 1;
+}
+
+.wrap {
+    display: flex;
+    padding-left: 37.5px;
+    padding-right: 27px;
+}
+
+.left {
+    width: 100%;
+}
+
+.education {
+    margin-bottom: 15px;
+}
+
+.education-label {
+    margin-bottom: 5px;
+    color: #3dbaf7;
+}
+
+.subject {
+    font-weight: bold;
+}
+
+.time-loc {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    font-style: italic;
+    font-size: 12px;
+}
+
+.experience {
+    margin-bottom: 15px;
+}
+
+.experience-label {
+    margin-bottom: 5px;
+    color: #3dbaf7;
+}
+
+.role {
+    font-weight: bold;
+}
+
+.company {
+    margin-bottom: 3px;
+}
+
+
+.time-loc {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    font-style: italic;
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+
+.achiev-task {
+    color: grey;
+    font-style: italic;
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+
+.task-list {
+    font-size: 12px;
+}
+
+.right {
+    width: 100%;
+    padding-left: 37.5px;
+    padding-right: 27px;
+}
+
+.skills {
+    margin-bottom: 5px;
+}
+
+.skills-label {
+    margin-bottom: 5px;
+    color: #3dbaf7;
+}
+
+
+.skill-boxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.skill-box {
+    display: flex;
+    padding: 12px;
+    align-items: center;
+    color: #3dbaf7;
+    margin-top: 15px;
+    -left: 5px;
+    height: 20px;
+    float: left;
+    margin: 10px 5px 0px 0px;
+    border-radius: 5px;
+    background: #3dbaf7;
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+.projects-label {
+    margin-bottom: 7px;
+    color: #3dbaf7;
+    margin-top: 15px;
+}
+
+.project-title {
+    font-size: 15px;
+}
+
+
+.project-list {
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+
+.cert {
+    margin-bottom: 15px;
+}
+
+.cert-label {
+    margin-bottom: 5px;
+    color: #3dbaf7;
+    margin-top: 15px;
+}
+
+.cert-group {
+    font-size: 12px;
+}
+
+.achiev {
+    margin-bottom: 15px;
+}
+
+.achiev-label {
+    margin-bottom: 5px;
+    color: #3dbaf7;
+    margin-top: 15px;
+}
+
+.achiev-group {
+    font-size: 12px;
+}
+
+.lang {
+    margin-bottom: 15px;
+}
+
+.lang-label {
+    margin-bottom: 5px;
+    color: #3dbaf7;
+    margin-top: 15px;
+}
+
+.lang-group {
+    font-size: 12px;
+}
+
+.lang-level {
+    color: #3dbaf7;
+    font-style: italic;
+    font-size: 10px;
+}

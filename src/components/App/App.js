@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
+import TemplateNav from "../TemplateNav/TemplateNav";
+import TemplateMain from "../TemplateMain/TemplateMain";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>CVFY website coming soon...</p>
-      </header>
+      <TemplateNav></TemplateNav>
+      <TemplateMain></TemplateMain>
     </div>
   );
 }
