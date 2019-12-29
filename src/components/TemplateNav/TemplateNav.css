@@ -1,6 +1,6 @@
 .menu {
     width: 100%;
-    height: 100px;
+    height: 60px;
     background: linear-gradient(to left, #3dbaf7, #1d3b8b);
     font-size: 28px;
     display: flex;
@@ -8,6 +8,8 @@
     justify-content: left;
     padding-left: 20px;
     color: #fff;
+    position: fixed;
+    top: 0;
 }
 
 .design {
@@ -33,11 +35,16 @@
 
 .first-icon {
     font-size: 1.1rem;
+    color: #fff;
 }
 
 .template-icon {
-    width: 15px;
-    height: 15px;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.template-icon:hover {
+    color: rgb(43, 181, 185);
 }
 
 .tool-desc {
@@ -45,10 +52,79 @@
     font-size: 0.8rem;
 }
 
+.font-btn,
+.theme-btn,
+.layout-btn,
+.template-btn,
+.back-btn,
+.fwd-btn,
+.my-docs-btn,
+.template-menu-btn {
+    background-color: #ffff0000;
+    color: #fff;
+}
+
+.theme-btn,
+.layout-btn,
+.template-btn,
+.fwd-btn {
+    margin-left: 20px;
+}
+
+.font-btn:hover,
+.theme-btn:hover,
+.layout-btn:hover,
+.template-btn:hover,
+.back-btn:hover,
+.fwd-btn:hover {
+    /* border-bottom: 1px solid #fff; */
+    cursor: pointer;
+    color: rgb(43, 181, 185);
+}
+
+.download-btn {
+    height: 60px;
+    background-color: #2bb5b963;
+}
+
+.download-btn:hover {
+    background-color: #2bb5b99e;
+    cursor: pointer;
+}
+
+.my-docs-btn:hover {
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+}
+
+.template-menu-btn:hover {
+    cursor: pointer;
+}
+
+.font-btn:focus,
+.theme-btn:focus,
+.layout-btn:focus,
+.template-btn:focus,
+.back-btn:focus,
+.fwd-btn:focus,
+.download-btn:focus,
+.my-docs-btn:focus,
+.template-menu-btn:focus {
+    outline: none;
+}
+
 .tool-download {
     font-size: 0.9rem;
     font-weight: bold;
+    color: #fff;
 }
+
+.tool-mydoc {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+
 
 .brush-icon {
     color: #fff;
@@ -59,4 +135,11 @@
     flex-direction: column;
 }
 
-.tool-menu-bar {}
+.tool-menu-bar {
+    font-size: x-large;
+    height: 8px;
+}
+
+.last-bar {
+    margin-bottom: 25px;
+}
