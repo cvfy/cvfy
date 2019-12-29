@@ -2,9 +2,61 @@
     width: 100%;
     height: 100px;
     background: linear-gradient(to left, #3dbaf7, #1d3b8b);
-    font-size: 50px;
+    font-size: 28px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
+    padding-left: 20px;
     color: #fff;
 }
+
+.design {
+    padding-left: 120px;
+}
+
+.utilities,
+.download,
+.my-documents,
+.template-menu {
+    padding-left: 80px;
+}
+
+.tool-label {
+    font-size: 0.6rem;
+    font-style: italic;
+}
+
+.tool-icon:not(:first-child) {
+    padding-left: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.first-icon {
+    font-size: 1.1rem;
+}
+
+.template-icon {
+    width: 15px;
+    height: 15px;
+}
+
+.tool-desc {
+    padding-left: 5px;
+    font-size: 0.8rem;
+}
+
+.tool-download {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.brush-icon {
+    color: #fff;
+}
+
+.temp-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.tool-menu-bar {}

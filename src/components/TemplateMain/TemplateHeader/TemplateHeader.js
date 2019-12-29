@@ -6,7 +6,13 @@ class TemplateHeader extends React.Component {
       <div className="header">
         <div className="header-inner">
           <div className="photo">
-            <img src="./dogFather.png" alt="dog" height="100px" width="100px" />
+            <img
+              src="./dogFather.png"
+              alt="dog"
+              height="100px"
+              width="100px"
+              className="profile-photo"
+            />
           </div>
           <div className="introduction">
             <div className="name">Babylonian Dog</div>
