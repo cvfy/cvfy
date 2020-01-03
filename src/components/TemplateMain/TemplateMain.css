@@ -111,9 +111,17 @@ textarea {
 .time-loc {
     display: flex;
     justify-content: space-between;
+
+}
+
+.period {
     color: grey;
     font-style: italic;
     font-size: 12px;
+}
+
+.education-group {
+    margin-bottom: 16.5px;
 }
 
 .experience {

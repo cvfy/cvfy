@@ -33,8 +33,45 @@ class Education extends React.Component {
               ></input>
             </div>
             <div className="time-loc">
-              <div className="period">03/2019 - 04/2020</div>
+              <div>
+                <input
+                  className="period"
+                  type="text"
+                  defaultValue={"03 / 2019  -  present"}
+                  onClick={this.handleTextChange}
+                ></input>
+              </div>
               <div className="location">Berlin, Germany</div>
+            </div>
+          </div>
+
+          <div className="education-group">
+            <div>
+              <input
+                className="subject"
+                type="text"
+                defaultValue={"Study Program"}
+                onClick={this.handleTextChange}
+              ></input>
+            </div>
+            <div>
+              <input
+                className="institution"
+                type="text"
+                defaultValue={"Institution"}
+                onClick={this.handleTextChange}
+              ></input>
+            </div>
+            <div className="time-loc">
+              <div>
+                <input
+                  className="period"
+                  type="text"
+                  defaultValue={"mm / yyyy  -  mm / yyyy"}
+                  onClick={this.handleTextChange}
+                ></input>
+              </div>
+              <div className="location">City, Country</div>
             </div>
           </div>
         </div>
