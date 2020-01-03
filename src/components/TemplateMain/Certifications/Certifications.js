@@ -7,7 +7,15 @@ class Certifications extends React.Component {
         <div className="cert-label">CERTIFICATIONS</div>
         <div className="cert-body">
           <div className="cert-group">
-            Da bomb mauris. Gangsta fizzle metizzle, bizzle crackalackin yo'.
+            <div>
+              <textarea
+                className="cert-desc"
+                max-rows="1"
+                cols="37"
+                placeholder="- best dog 2020 - who let the dogs out award"
+                maxlength="80"
+              ></textarea>
+            </div>
           </div>
         </div>
       </div>
