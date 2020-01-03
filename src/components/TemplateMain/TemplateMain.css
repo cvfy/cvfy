@@ -10,7 +10,7 @@
 }
 
 .photo {
-    margin: 8px 0 0 8px;
+    margin: 19px 10px 0 20px;
 }
 
 .profile-photo {
@@ -36,6 +36,18 @@
 
 .summary {
     font-size: 0.8rem;
+    margin-right: 30px;
+}
+
+input {
+    outline: none;
+}
+
+textarea {
+    outline: none;
+    overflow: auto;
+    resize: none;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .contact {
@@ -83,8 +95,17 @@
     color: #3dbaf7;
 }
 
-.subject {
+.subject,
+.role {
     font-weight: bold;
+    width: -webkit-fill-available;
+    font-size: 1rem;
+}
+
+.institution,
+.company {
+    font-size: 1rem;
+    width: -webkit-fill-available;
 }
 
 .time-loc {
@@ -104,15 +125,6 @@
     color: #3dbaf7;
 }
 
-.role {
-    font-weight: bold;
-}
-
-.company {
-    margin-bottom: 3px;
-}
-
-
 .time-loc {
     display: flex;
     justify-content: space-between;
@@ -122,14 +134,12 @@
     margin-bottom: 3px;
 }
 
-
 .achiev-task {
     color: grey;
     font-style: italic;
     font-size: 12px;
     margin-bottom: 3px;
 }
-
 
 .task-list {
     font-size: 12px;
@@ -150,12 +160,10 @@
     color: #3dbaf7;
 }
 
-
 .skill-boxes {
     display: flex;
     flex-wrap: wrap;
 }
-
 
 .skill-box {
     display: flex;
@@ -183,12 +191,10 @@
     font-size: 15px;
 }
 
-
 .project-list {
     font-size: 12px;
     margin-bottom: 15px;
 }
-
 
 .cert {
     margin-bottom: 15px;
