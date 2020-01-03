@@ -120,7 +120,8 @@ textarea {
     font-size: 12px;
 }
 
-.education-group {
+.education-group,
+.experience-group {
     margin-bottom: 16.5px;
 }
 
@@ -149,9 +150,17 @@ textarea {
     margin-bottom: 3px;
 }
 
-.task-list {
-    font-size: 12px;
+.task-ul {
+    padding-inline-start: 15px;
 }
+
+.task-list {
+    font-size: 0.8rem;
+    margin-right: 5px;
+    width: -webkit-fill-available;
+}
+
+
 
 .right {
     width: 100%;
