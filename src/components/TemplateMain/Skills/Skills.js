@@ -1,6 +1,15 @@
 import React from "react";
 
 class Skills extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleTextChange = this.handleTextChange.bind(this);
+  }
+
+  handleTextChange = event => {
+    return event.target.value;
+  };
+
   render() {
     return (
       <div className="skills">
