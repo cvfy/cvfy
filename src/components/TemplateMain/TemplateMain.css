@@ -65,6 +65,11 @@ textarea {
 .contact-row-2,
 .contact-row-3 {
     display: flex;
+    flex: 0 50%;
+}
+
+.contact-row-1 {
+    margin-top: 7px;
 }
 
 .contact-1,
@@ -74,6 +79,11 @@ textarea {
 .contact-5,
 .contact-6 {
     flex-grow: 1;
+    flex: 0 50%;
+}
+
+.user-contact {
+    margin-left: 5px;
 }
 
 .wrap {

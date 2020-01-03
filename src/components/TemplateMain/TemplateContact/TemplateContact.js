@@ -7,37 +7,38 @@ class TemplateContact extends React.Component {
         <div className="contact-row-1">
           <div className="contact-1">
             <div className="icone">
-              <i className="far fa-envelope"></i> dogfather@bd.com
+              <i className="far fa-envelope"></i>
+              <span className="user-contact">dogfather@bd.com</span>
             </div>
           </div>
           <div className="contact-2">
             <div className="icone"></div>
             <i className="fas fa-map-marker-alt"></i>
-            Dog street, 6666
+            <span className="user-contact">Dog street, 6666</span>
           </div>
         </div>
         <div className="contact-row-2">
           <div className="contact-3">
             <div className="icone"></div>
             <i className="fab fa-skype"></i>
-            babylonian.dog
+            <span className="user-contact">babylonian.dog</span>
           </div>
           <div className="contact-4">
             <div className="icone"></div>
             <i className="fas fa-mobile-alt"></i>
-            178 9899 999
+            <span className="user-contact">178 9899 999</span>
           </div>
         </div>
         <div className="contact-row-3">
           <div className="contact-5">
             <div className="icone"></div>
             <i className="fas fa-globe"></i>
-            www.babyloniandog.com
+            <span className="user-contact">www.babyloniandog.com</span>
           </div>
           <div className="contact-6">
             <div className="icone"></div>
             <i className="fab fa-github"></i>
-            https://snoopy.github.io
+            <span className="user-contact">https://snoopy.github.io</span>
           </div>
         </div>
       </div>
