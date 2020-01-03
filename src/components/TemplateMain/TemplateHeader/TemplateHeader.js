@@ -45,7 +45,7 @@ class TemplateHeader extends React.Component {
                 className="summary"
                 placeholder="Lorizzle ipsum dolor sit gangster, pot adipiscing elit. Nullam shizznit velizzle, sizzle volutpat, suscipizzle quis, blackvizzle, shut the shizzle up. Pellentesque dope tortizzle. Sederos. Shizzlin dizzle at dolizzle dapibizzle turpizzle tempizzlehizzle."
                 cols="90"
-                rows="5"
+                rows="4"
                 onClick={this.handleTextChange}
               ></textarea>
             </div>

@@ -21,7 +21,7 @@
 .introduction {
     width: 100%;
     margin-left: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 3px;
 }
 
 .name {
@@ -254,12 +254,24 @@ textarea {
     margin-top: 15px;
 }
 
+.lang-body {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 .lang-group {
     font-size: 12px;
+    flex: 0 50%;
+}
+
+.lang-header {
+    margin-bottom: 3px;
 }
 
 .lang-level {
     color: #3dbaf7;
     font-style: italic;
     font-size: 10px;
+    margin-bottom: 7px;
 }
