@@ -18,7 +18,7 @@ if(Validator.isEmpty(data.name)) {
 //Email checks
 if(Validator.isEmpty(data.email)) {
     errors.email = 'Email field in required';
-} else  if(Validator.isEmail(data.email)){
+} else  if(!Validator.isEmail(data.email)){
     errors.email = "Email is invalid";
 }
 
@@ -37,7 +37,7 @@ if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
 
 return  {
     errors,
-    isValid: isEmpty(errors);
+    isValid: isEmpty(errors)
 }
 
 }
