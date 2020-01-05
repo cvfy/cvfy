@@ -29,18 +29,24 @@
     font-size: 2rem;
 }
 
+.titleDiv {
+    max-width: 654px;
+}
+
 .title {
     font-size: 1.3rem;
-    color: #3dbaf7;
+    color: #414242;
 }
 
 .summary {
     font-size: 0.8rem;
     margin-right: 30px;
+    max-width: inherit;
 }
 
 input {
     outline: none;
+    font-family: 'Work Sans', sans-serif;
 }
 
 textarea {

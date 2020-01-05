@@ -9,27 +9,34 @@ import Projects from "./Projects/Projects";
 import Certifications from "./Certifications/Certifications";
 import Achievements from "./Achievements/Achievements";
 import Languages from "./Languages/Languages";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 class TemplateMain extends React.Component {
   render() {
     return (
-      <div id="container">
-        <TemplateHeader></TemplateHeader>
-        <TemplateContact></TemplateContact>
-        <div class="wrap">
-          <div class="left">
-            <Education></Education>
-            <Experience></Experience>
-          </div>
-          <div class="right">
-            <Skills></Skills>
-            <Projects></Projects>
-            <Certifications></Certifications>
-            <Achievements></Achievements>
-            <Languages></Languages>
-          </div>
-        </div>
-      </div>
+      <ThemeContext.Consumer>
+        {context => {
+          return (
+            <div id="container" style={{ fontFamily: context.font }}>
+              <TemplateHeader></TemplateHeader>
+              <TemplateContact></TemplateContact>
+              <div className="wrap">
+                <div className="left">
+                  <Education></Education>
+                  <Experience></Experience>
+                </div>
+                <div className="right">
+                  <Skills></Skills>
+                  <Projects></Projects>
+                  <Certifications></Certifications>
+                  <Achievements></Achievements>
+                  <Languages></Languages>
+                </div>
+              </div>
+            </div>
+          );
+        }}
+      </ThemeContext.Consumer>
     );
   }
 }
