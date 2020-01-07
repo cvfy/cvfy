@@ -3,6 +3,7 @@
     background: #fff;
     height: 297mm;
     width: 210mm;
+
 }
 
 .header-inner {
@@ -15,7 +16,7 @@
 
 .profile-photo {
     border-radius: 50%;
-    border: 3px solid #3dbaf7;
+    border: 1px solid gray;
 }
 
 .introduction {
@@ -30,7 +31,8 @@
 }
 
 .titleDiv {
-    max-width: 654px;
+    max-width: 653x;
+
 }
 
 .title {
@@ -40,13 +42,13 @@
 
 .summary {
     font-size: 0.8rem;
-    margin-right: 30px;
     max-width: inherit;
 }
 
 input {
     outline: none;
     font-family: 'Work Sans', sans-serif;
+
 }
 
 textarea {
@@ -134,6 +136,13 @@ textarea {
     color: grey;
     font-style: italic;
     font-size: 12px;
+}
+
+.place {
+    color: grey;
+    font-style: italic;
+    font-size: 12px;
+    text-align: end;
 }
 
 .education-group,

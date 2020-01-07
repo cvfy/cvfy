@@ -19,9 +19,12 @@ class Languages extends React.Component {
                       <input
                         className="lang-level"
                         type="text"
-                        style={{ color: context.color }}
+                        style={{
+                          color: context.color,
+                          fontFamily: context.font
+                        }}
                         defaultValue={"Mother tongue"}
-                      ></input>
+                      />
                     </div>
                   </div>
                 </div>
@@ -33,8 +36,11 @@ class Languages extends React.Component {
                         className="lang-level"
                         type="text"
                         defaultValue={"Professional Proficiency"}
-                        style={{ color: context.color }}
-                      ></input>
+                        style={{
+                          color: context.color,
+                          fontFamily: context.font
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -46,8 +52,11 @@ class Languages extends React.Component {
                         className="lang-level"
                         type="text"
                         defaultValue={"Sehr schlecht"}
-                        style={{ color: context.color }}
-                      ></input>
+                        style={{
+                          color: context.color,
+                          fontFamily: context.font
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -59,8 +68,11 @@ class Languages extends React.Component {
                         className="lang-level"
                         type="text"
                         defaultValue={"I like the food"}
-                        style={{ color: context.color }}
-                      ></input>
+                        style={{
+                          color: context.color,
+                          fontFamily: context.font
+                        }}
+                      />
                     </div>
                   </div>
                 </div>

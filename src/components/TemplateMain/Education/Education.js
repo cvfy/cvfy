@@ -18,14 +18,16 @@ class Education extends React.Component {
                       className="subject"
                       type="text"
                       defaultValue={"Full Stack Web Development"}
-                    ></input>
+                      style={{ fontFamily: context.font }}
+                    />
                   </div>
                   <div>
                     <input
                       className="institution"
                       type="text"
                       defaultValue={"DCI - Digital Career Institute"}
-                    ></input>
+                      style={{ fontFamily: context.font }}
+                    />
                   </div>
                   <div className="time-loc">
                     <div>
@@ -33,9 +35,17 @@ class Education extends React.Component {
                         className="period"
                         type="text"
                         defaultValue={"03 / 2019  -  present"}
-                      ></input>
+                        style={{ fontFamily: context.font }}
+                      />
                     </div>
-                    <div className="location">Berlin, Germany</div>
+                    <div className="location">
+                      <input
+                        className="place"
+                        type="text"
+                        defaultValue={"City, Country"}
+                        style={{ fontFamily: context.font }}
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -45,14 +55,16 @@ class Education extends React.Component {
                       className="subject"
                       type="text"
                       defaultValue={"Study Program"}
-                    ></input>
+                      style={{ fontFamily: context.font }}
+                    />
                   </div>
                   <div>
                     <input
                       className="institution"
                       type="text"
                       defaultValue={"Institution"}
-                    ></input>
+                      style={{ fontFamily: context.font }}
+                    />
                   </div>
                   <div className="time-loc">
                     <div>
@@ -60,9 +72,17 @@ class Education extends React.Component {
                         className="period"
                         type="text"
                         defaultValue={"mm / yyyy  -  mm / yyyy"}
-                      ></input>
+                        style={{ fontFamily: context.font }}
+                      />
                     </div>
-                    <div className="location">City, Country</div>
+                    <div className="location">
+                      <input
+                        className="place"
+                        type="text"
+                        defaultValue={"City, Country"}
+                        style={{ fontFamily: context.font }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

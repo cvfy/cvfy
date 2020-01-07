@@ -9,7 +9,7 @@ class Projects extends React.Component {
           return (
             <div className="projects">
               <div className="projects-label" style={{ color: context.color }}>
-                WEB DEVELOPMENT PROJECTS
+                PROJECTS
               </div>
               <div className="projects-body">
                 <div className="project-group">
@@ -18,6 +18,7 @@ class Projects extends React.Component {
                       className="project-title"
                       type="text"
                       defaultValue={"CVFY"}
+                      style={{ fontFamily: context.font }}
                     ></input>
                   </div>
                   <div>
@@ -27,6 +28,7 @@ class Projects extends React.Component {
                       cols="37"
                       placeholder="A full stack platform developed with React, Node.js, Mongoose and Puppeteer"
                       maxLength="120"
+                      style={{ fontFamily: context.font }}
                     ></textarea>
                   </div>
                 </div>

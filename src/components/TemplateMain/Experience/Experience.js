@@ -21,14 +21,16 @@ class Experience extends React.Component {
                       className="role"
                       type="text"
                       defaultValue={"Title/function"}
-                    ></input>
+                      style={{ fontFamily: context.font }}
+                    />
                   </div>
                   <div>
                     <input
                       className="company"
                       type="text"
                       defaultValue={"Company"}
-                    ></input>
+                      style={{ fontFamily: context.font }}
+                    />
                   </div>
                   <div className="time-loc">
                     <div>
@@ -36,9 +38,17 @@ class Experience extends React.Component {
                         className="period"
                         type="text"
                         defaultValue={"mm / yyyy  -  mm / yyyy"}
-                      ></input>
+                        style={{ fontFamily: context.font }}
+                      />
                     </div>
-                    <div className="location">City, Country</div>
+                    <div className="location">
+                      <input
+                        className="place"
+                        type="text"
+                        defaultValue={"City, Country"}
+                        style={{ fontFamily: context.font }}
+                      />
+                    </div>
                   </div>
                   <div className="achiev-task">Achivements / Tasks</div>
                   <div>
@@ -48,7 +58,8 @@ class Experience extends React.Component {
                           className="task-list"
                           type="text"
                           defaultValue={"Short description of a task"}
-                        ></input>
+                          style={{ fontFamily: context.font }}
+                        />
                       </li>
                     </ul>
                   </div>
@@ -60,14 +71,16 @@ class Experience extends React.Component {
                       className="role"
                       type="text"
                       defaultValue={"Title/function"}
-                    ></input>
+                      style={{ fontFamily: context.font }}
+                    />
                   </div>
                   <div>
                     <input
                       className="company"
                       type="text"
                       defaultValue={"Company"}
-                    ></input>
+                      style={{ fontFamily: context.font }}
+                    />
                   </div>
                   <div className="time-loc">
                     <div>
@@ -75,9 +88,17 @@ class Experience extends React.Component {
                         className="period"
                         type="text"
                         defaultValue={"mm / yyyy  -  mm / yyyy"}
-                      ></input>
+                        style={{ fontFamily: context.font }}
+                      />
                     </div>
-                    <div className="location">City, Country</div>
+                    <div className="location">
+                      <input
+                        className="place"
+                        type="text"
+                        defaultValue={"City, Country"}
+                        style={{ fontFamily: context.font }}
+                      />
+                    </div>
                   </div>
                   <div className="achiev-task">Achivements / Tasks</div>
                   <div>
@@ -87,7 +108,8 @@ class Experience extends React.Component {
                           className="task-list"
                           type="text"
                           defaultValue={"Short description of a task"}
-                        ></input>
+                          style={{ fontFamily: context.font }}
+                        />
                       </li>
                     </ul>
                   </div>

@@ -19,6 +19,7 @@ class Achievements extends React.Component {
                       cols="37"
                       placeholder="- Won the 2nd prize at DCI Hackathon 2019"
                       maxLength="100"
+                      style={{ fontFamily: context.font }}
                     ></textarea>
                   </div>
                 </div>

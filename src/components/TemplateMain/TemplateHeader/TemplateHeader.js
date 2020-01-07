@@ -13,10 +13,9 @@ class TemplateHeader extends React.Component {
                   <img
                     src="./dogFather.png"
                     alt="dog"
-                    height="100px"
-                    width="100px"
+                    height="110px"
+                    width="110px"
                     className="profile-photo"
-                    style={{ border: context.bc }}
                   />
                 </div>
                 <div className="introduction">
@@ -25,6 +24,7 @@ class TemplateHeader extends React.Component {
                       className="name"
                       type="text"
                       defaultValue={"BABYLONIAN DOG"}
+                      style={{ fontFamily: context.font }}
                     ></input>
                   </div>
                   <div>
@@ -32,6 +32,7 @@ class TemplateHeader extends React.Component {
                       className="title"
                       type="text"
                       defaultValue={"Full Stack Dog"}
+                      style={{ fontFamily: context.font }}
                     ></input>
                   </div>
                   <div className="titleDiv">
@@ -40,6 +41,7 @@ class TemplateHeader extends React.Component {
                       placeholder="Lorizzle ipsum dolor sit gangster, pot adipiscing elit. Nullam shizznit velizzle, sizzle volutpat, suscipizzle quis, blackvizzle, shut the shizzle up. Pellentesque dope tortizzle. Sederos. Shizzlin dizzle at dolizzle dapibizzle turpizzle tempizzlehizzle."
                       cols="90"
                       rows="4"
+                      style={{ fontFamily: context.font }}
                     ></textarea>
                   </div>
                 </div>
