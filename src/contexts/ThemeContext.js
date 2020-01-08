@@ -5,7 +5,7 @@ export const ThemeContext = createContext();
 class ThemeContextProvider extends Component {
   state = {
     color: "",
-    font: ""
+    font: "'Open Sans', sans-serif"
   };
 
   changeColor = () => {
@@ -13,7 +13,15 @@ class ThemeContextProvider extends Component {
   };
 
   changeFontFamily = () => {
-    this.setState({ font: "monospace" });
+    this.setState({ font: "Kurale" });
+
+    // font-family: 'Quicksand', sans-serif;
+    // font-family: 'Ubuntu', sans-serif;
+    // font-family: 'Roboto Condensed', sans-serif;
+    // font-family: 'Merriweather', serif;
+    // font-family: 'Hind', sans-serif;
+    // font-family: 'Raleway', sans-serif;
+    // font-family: 'Kurale', serif;
   };
 
   render() {

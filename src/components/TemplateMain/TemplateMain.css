@@ -3,7 +3,6 @@
     background: #fff;
     height: 297mm;
     width: 210mm;
-
 }
 
 .header-inner {
@@ -31,7 +30,7 @@
 }
 
 .titleDiv {
-    max-width: 653x;
+    max-width: 640px;
 
 }
 

@@ -1,3 +1,4 @@
+/* Main Menu Section */
 .menu {
     width: 100%;
     height: 60px;
@@ -28,14 +29,13 @@
     font-style: italic;
 }
 
-.tool-icon:not(:first-child) {
-    padding-left: 1.5rem;
-    font-size: 1.1rem;
-}
-
 .first-icon {
     font-size: 1.1rem;
     color: #fff;
+}
+
+.tool-icon {
+    font-size: 1rem;
 }
 
 .template-icon {
@@ -77,10 +77,11 @@
 .template-btn:hover,
 .back-btn:hover,
 .fwd-btn:hover {
-    /* border-bottom: 1px solid #fff; */
     cursor: pointer;
     color: rgb(43, 181, 185);
 }
+
+.font-btn:hover {}
 
 .download-btn {
     height: 60px;
@@ -124,12 +125,6 @@
     font-weight: bold;
 }
 
-
-
-.brush-icon {
-    color: #fff;
-}
-
 .temp-menu {
     display: flex;
     flex-direction: column;
@@ -142,4 +137,75 @@
 
 .last-bar {
     margin-bottom: 25px;
+}
+
+/* ========================================= */
+/* Sub Nav Section */
+/* ========================================= */
+
+.fontSubNav {
+    position: fixed;
+    background: #2b3a42;
+    top: 65px;
+    width: 170px;
+    height: 290px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: -5px 0 20px 5px rgba(0, 0, 0, .5);
+    display: block;
+}
+
+.fontFamilyDiv {
+    padding: 13px;
+}
+
+.fontLists {
+    list-style: none;
+    padding: 0;
+    line-height: 33px;
+}
+
+.openSansLi:hover,
+.quickSandLi:hover,
+.ubuntuLi:hover,
+.hindLi:hover,
+.kuraLi:hover,
+.robotLi:hover,
+.merryLi:hover,
+.ralewayLi:hover {
+    cursor: pointer;
+    color: rgb(43, 181, 185);
+}
+
+.openSansLi {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.quickSandLi {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.ubuntuLi {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.robotLi {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.merryLi {
+    font-family: 'Merriweather', sans-serif;
+}
+
+.hindLi {
+    font-family: 'Hind', sans-serif;
+}
+
+.ralewayLi {
+    font-family: 'Raleway', sans-serif;
+}
+
+.kuraLi {
+    font-family: 'Kurale', sans-serif;
 }

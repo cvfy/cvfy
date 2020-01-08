@@ -1,6 +1,7 @@
 import React from "react";
 import "./TemplateNav.css";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import FontSubNav from "./FontSubNav/FontSubNav";
 
 class TemplateNav extends React.Component {
   render() {
@@ -15,26 +16,17 @@ class TemplateNav extends React.Component {
                 <div className="tool-label">Design</div>
                 <div className="tools">
                   <button className="font-btn" onClick={changeFontFamily}>
-                    <span className="tool-icon first-icon">
-                      <img
-                        src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/text-icon-18-256.png"
-                        alt="text icon"
-                        title="text icon"
-                        className="template-icon"
-                      />
-                    </span>
+                    <span className="tool-icon">A</span>
                     <span className="tool-desc">Font</span>
                   </button>
+                  <FontSubNav />
                   <button className="theme-btn" onClick={changeColor}>
-                    <span className="tool-icon">
-                      <img
-                        src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/brush-icon-18-256.png"
-                        alt="brush icon"
-                        title="brush icon"
-                        className="template-icon"
-                      />
-                    </span>
-                    <span className="tool-desc">Theme</span>
+                    <span className="tool-icon">✎</span>
+                    <span className="tool-desc">Color</span>
+                  </button>
+                  <button className="layout-btn">
+                    <span className="tool-icon">↕</span>
+                    <span className="tool-desc">Font-size</span>
                   </button>
                   <button className="layout-btn">
                     <span className="tool-icon">☷</span>
@@ -43,17 +35,6 @@ class TemplateNav extends React.Component {
                   <button className="template-btn">
                     <span className="tool-icon">❏</span>
                     <span className="tool-desc">Template</span>
-                  </button>
-                </div>
-              </div>
-              <div className="utilities">
-                <div className="tool-label">Utilities</div>
-                <div className="tools">
-                  <button className="back-btn">
-                    <span className="tool-icon">❰</span>
-                  </button>
-                  <button className="fwd-btn">
-                    <span className="tool-icon">❱</span>
                   </button>
                 </div>
               </div>
