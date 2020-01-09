@@ -8,8 +8,8 @@ class ThemeContextProvider extends Component {
     font: "'Open Sans', sans-serif"
   };
 
-  changeColor = () => {
-    this.setState({ color: "blue" });
+  changeColor = e => {
+    this.setState({ color: e.target.name });
   };
 
   changeFontFamily = e => {

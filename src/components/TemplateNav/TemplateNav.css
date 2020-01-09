@@ -147,6 +147,7 @@
 /* Sub Nav Section */
 /* ========================================= */
 
+/* font sub-menu */
 .fontSubMenu {
     position: fixed;
     background: #2b3a42;
@@ -231,4 +232,73 @@
 
 .kuraLi {
     font-family: 'Kurale', sans-serif;
+}
+
+
+/* color sub-menu */
+.colorOptionsDiv {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.colorBtn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0.5rem;
+}
+
+.yellowBtn {
+    background: yellow;
+}
+
+.redBtn {
+    background: red;
+}
+
+.blackBtn {
+    background: black;
+}
+
+.blueBtn {
+    background: blue;
+}
+
+.greenBtn {
+    background: green;
+}
+
+.orangeBtn {
+    background: orange;
+}
+
+.purpleBtn {
+    background: purple;
+}
+
+.tomatoBtn {
+    background: tomato;
+}
+
+.brownBtn {
+    background: brown;
+}
+
+.burlywoodBtn {
+    background: burlywood;
+}
+
+.cornflowerblueBtn {
+    background: cornflowerblue;
+}
+
+.aquaBtn {
+    background: aqua;
+}
+
+.darkgreyBtn {
+    background: darkgrey;
 }

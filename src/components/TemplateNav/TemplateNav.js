@@ -1,15 +1,15 @@
 import React from "react";
 import "./TemplateNav.css";
 import { ThemeContext } from "../../contexts/ThemeContext";
-// import FontSubNav from "./FontSubNav/FontSubNav";
-import FontSubMenu from "./FontSubMenu/FontSubMenu";
+import FontSubMenu from "./SubMenus/FontSubMenu";
+import ColorSubMenu from "./SubMenus/ColorSubMenu";
 
 class TemplateNav extends React.Component {
   render() {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { changeColor, changeFontFamily, displaySubNav } = context;
+          const { changeColor } = context;
           return (
             <div className="CvMenu">
               <span className="logo-template">CVFY</span>
@@ -17,15 +17,11 @@ class TemplateNav extends React.Component {
                 <div className="tool-label">Design</div>
                 <div className="tools">
                   <FontSubMenu></FontSubMenu>
-                  {/* <button className="font-btn" onClick={displaySubNav}>
-                    <span className="tool-icon">A</span>
-                    <span className="tool-desc">Font</span>
-                  </button>
-                  <FontSubNav style={{ displaySubNav }} /> */}
-                  <button className="theme-btn" onClick={changeColor}>
+                  {/* <button className="theme-btn" onClick={changeColor}>
                     <span className="tool-icon">✎</span>
                     <span className="tool-desc">Color</span>
-                  </button>
+                  </button> */}
+                  <ColorSubMenu></ColorSubMenu>
                   <button className="layout-btn">
                     <span className="tool-icon">↕</span>
                     <span className="tool-desc">Font-size</span>
