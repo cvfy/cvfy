@@ -1,5 +1,5 @@
 /* Main Menu Section */
-.menu {
+.CvMenu {
     width: 100%;
     height: 60px;
     background: linear-gradient(to left, #3dbaf7, #1d3b8b);
@@ -17,16 +17,20 @@
     padding-left: 120px;
 }
 
-.utilities,
 .download,
 .my-documents,
 .template-menu {
-    padding-left: 80px;
+    padding-left: 100px;
 }
 
 .tool-label {
     font-size: 0.6rem;
     font-style: italic;
+}
+
+.tools {
+    display: flex;
+    align-items: baseline;
 }
 
 .first-icon {
@@ -143,7 +147,7 @@
 /* Sub Nav Section */
 /* ========================================= */
 
-.fontSubNav {
+.fontSubMenu {
     position: fixed;
     background: #2b3a42;
     top: 65px;
@@ -153,17 +157,13 @@
     text-align: center;
     font-size: 0.9rem;
     box-shadow: -5px 0 20px 5px rgba(0, 0, 0, .5);
-    display: block;
 }
 
 .fontFamilyDiv {
-    padding: 13px;
-}
-
-.fontLists {
-    list-style: none;
-    padding: 0;
-    line-height: 33px;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
 }
 
 .openSansLi:hover,
@@ -176,6 +176,29 @@
 .ralewayLi:hover {
     cursor: pointer;
     color: rgb(43, 181, 185);
+}
+
+.openSansLi:focus,
+.quickSandLi:focus,
+.ubuntuLi:focus,
+.hindLi:focus,
+.kuraLi:focus,
+.robotLi:focus,
+.merryLi:focus,
+.ralewayLi:focus {
+    outline: none;
+}
+
+.openSansLi,
+.quickSandLi,
+.ubuntuLi,
+.hindLi,
+.kuraLi,
+.robotLi,
+.merryLi,
+.ralewayLi {
+    background: #2b3a42;
+    color: #fff;
 }
 
 .openSansLi {

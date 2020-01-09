@@ -12,16 +12,8 @@ class ThemeContextProvider extends Component {
     this.setState({ color: "blue" });
   };
 
-  changeFontFamily = () => {
-    this.setState({ font: "Kurale" });
-
-    // font-family: 'Quicksand', sans-serif;
-    // font-family: 'Ubuntu', sans-serif;
-    // font-family: 'Roboto Condensed', sans-serif;
-    // font-family: 'Merriweather', serif;
-    // font-family: 'Hind', sans-serif;
-    // font-family: 'Raleway', sans-serif;
-    // font-family: 'Kurale', serif;
+  changeFontFamily = e => {
+    this.setState({ font: e.target.name });
   };
 
   render() {
@@ -30,7 +22,7 @@ class ThemeContextProvider extends Component {
         value={{
           ...this.state,
           changeColor: this.changeColor,
-          changeBorderColor: this.changeBorderColor,
+          displaySubNav: this.displaySubNav,
           changeFontFamily: this.changeFontFamily
         }}
       >
