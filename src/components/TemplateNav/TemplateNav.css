@@ -251,6 +251,10 @@
     margin: 0.5rem;
 }
 
+.colorBtn:focus {
+    outline: none;
+}
+
 .yellowBtn {
     background: yellow;
 }
@@ -301,4 +305,18 @@
 
 .darkgreyBtn {
     background: darkgrey;
+}
+
+
+/* font-size sub-menu */
+.fontSizeSubMenu {
+    position: fixed;
+    background: #2b3a42;
+    top: 65px;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: -5px 0 20px 5px rgba(0, 0, 0, .5);
 }

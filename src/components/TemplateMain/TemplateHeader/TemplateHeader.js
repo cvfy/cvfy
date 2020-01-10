@@ -31,8 +31,12 @@ class TemplateHeader extends React.Component {
                     <input
                       className="title"
                       type="text"
+                      name="size1"
                       defaultValue={"Full Stack Dog"}
-                      style={{ fontFamily: context.font }}
+                      style={{
+                        fontFamily: context.font,
+                        fontSize: context.size1
+                      }}
                     ></input>
                   </div>
                   <div className="titleDiv">
@@ -41,7 +45,11 @@ class TemplateHeader extends React.Component {
                       placeholder="Lorizzle ipsum dolor sit gangster, pot adipiscing elit. Nullam shizznit velizzle, sizzle volutpat, suscipizzle quis, blackvizzle, shut the shizzle up. Pellentesque dope tortizzle. Sederos. Shizzlin dizzle at dolizzle dapibizzle turpizzle tempizzlehizzle."
                       cols="90"
                       rows="4"
-                      style={{ fontFamily: context.font }}
+                      name="size3"
+                      style={{
+                        fontFamily: context.font,
+                        fontSize: context.size3
+                      }}
                     ></textarea>
                   </div>
                 </div>

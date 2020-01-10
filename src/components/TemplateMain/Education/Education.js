@@ -18,7 +18,10 @@ class Education extends React.Component {
                       className="subject"
                       type="text"
                       defaultValue={"Full Stack Web Development"}
-                      style={{ fontFamily: context.font }}
+                      style={{
+                        fontFamily: context.font,
+                        fontSize: context.size2
+                      }}
                     />
                   </div>
                   <div>
@@ -26,7 +29,10 @@ class Education extends React.Component {
                       className="institution"
                       type="text"
                       defaultValue={"DCI - Digital Career Institute"}
-                      style={{ fontFamily: context.font }}
+                      style={{
+                        fontFamily: context.font,
+                        fontSize: context.size2
+                      }}
                     />
                   </div>
                   <div className="time-loc">
@@ -35,7 +41,10 @@ class Education extends React.Component {
                         className="period"
                         type="text"
                         defaultValue={"03 / 2019  -  present"}
-                        style={{ fontFamily: context.font }}
+                        style={{
+                          fontFamily: context.font,
+                          fontSize: context.size4
+                        }}
                       />
                     </div>
                     <div className="location">
@@ -43,7 +52,10 @@ class Education extends React.Component {
                         className="place"
                         type="text"
                         defaultValue={"City, Country"}
-                        style={{ fontFamily: context.font }}
+                        style={{
+                          fontFamily: context.font,
+                          fontSize: context.size4
+                        }}
                       />
                     </div>
                   </div>
@@ -55,7 +67,10 @@ class Education extends React.Component {
                       className="subject"
                       type="text"
                       defaultValue={"Study Program"}
-                      style={{ fontFamily: context.font }}
+                      style={{
+                        fontFamily: context.font,
+                        fontSize: context.size2
+                      }}
                     />
                   </div>
                   <div>
@@ -63,7 +78,10 @@ class Education extends React.Component {
                       className="institution"
                       type="text"
                       defaultValue={"Institution"}
-                      style={{ fontFamily: context.font }}
+                      style={{
+                        fontFamily: context.font,
+                        fontSize: context.size2
+                      }}
                     />
                   </div>
                   <div className="time-loc">
@@ -72,7 +90,10 @@ class Education extends React.Component {
                         className="period"
                         type="text"
                         defaultValue={"mm / yyyy  -  mm / yyyy"}
-                        style={{ fontFamily: context.font }}
+                        style={{
+                          fontFamily: context.font,
+                          fontSize: context.size4
+                        }}
                       />
                     </div>
                     <div className="location">
@@ -80,7 +101,10 @@ class Education extends React.Component {
                         className="place"
                         type="text"
                         defaultValue={"City, Country"}
-                        style={{ fontFamily: context.font }}
+                        style={{
+                          fontFamily: context.font,
+                          fontSize: context.size4
+                        }}
                       />
                     </div>
                   </div>

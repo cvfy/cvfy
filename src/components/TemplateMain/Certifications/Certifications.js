@@ -20,7 +20,10 @@ class Certifications extends React.Component {
                       cols="37"
                       placeholder="- best dog 2020 - who let the dogs out award"
                       maxLength="80"
-                      style={{ fontFamily: context.font }}
+                      style={{
+                        fontFamily: context.font,
+                        fontSize: context.size4
+                      }}
                     ></textarea>
                   </div>
                 </div>

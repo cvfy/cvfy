@@ -14,14 +14,20 @@ class Languages extends React.Component {
               <div className="lang-body">
                 <div className="lang-group">
                   <div className="language">
-                    <div className="lang-header">Doggish</div>
+                    <div
+                      className="lang-header"
+                      style={{ fontSize: context.size3 }}
+                    >
+                      Doggish
+                    </div>
                     <div>
                       <input
                         className="lang-level"
                         type="text"
                         style={{
                           color: context.color,
-                          fontFamily: context.font
+                          fontFamily: context.font,
+                          fontSize: context.size4
                         }}
                         defaultValue={"Mother tongue"}
                       />
@@ -30,7 +36,12 @@ class Languages extends React.Component {
                 </div>
                 <div className="lang-group">
                   <div className="language">
-                    <div className="lang-header">English</div>
+                    <div
+                      className="lang-header"
+                      style={{ fontSize: context.size3 }}
+                    >
+                      English
+                    </div>
                     <div>
                       <input
                         className="lang-level"
@@ -38,7 +49,8 @@ class Languages extends React.Component {
                         defaultValue={"Professional Proficiency"}
                         style={{
                           color: context.color,
-                          fontFamily: context.font
+                          fontFamily: context.font,
+                          fontSize: context.size4
                         }}
                       />
                     </div>
@@ -46,7 +58,12 @@ class Languages extends React.Component {
                 </div>
                 <div className="lang-group">
                   <div className="language">
-                    <div className="lang-header">German</div>
+                    <div
+                      className="lang-header"
+                      style={{ fontSize: context.size3 }}
+                    >
+                      German
+                    </div>
                     <div>
                       <input
                         className="lang-level"
@@ -54,7 +71,8 @@ class Languages extends React.Component {
                         defaultValue={"Sehr schlecht"}
                         style={{
                           color: context.color,
-                          fontFamily: context.font
+                          fontFamily: context.font,
+                          fontSize: context.size4
                         }}
                       />
                     </div>
@@ -62,7 +80,12 @@ class Languages extends React.Component {
                 </div>
                 <div className="lang-group">
                   <div className="language">
-                    <div className="lang-header">Chinese</div>
+                    <div
+                      className="lang-header"
+                      style={{ fontSize: context.size3 }}
+                    >
+                      Chinese
+                    </div>
                     <div>
                       <input
                         className="lang-level"
@@ -70,7 +93,8 @@ class Languages extends React.Component {
                         defaultValue={"I like the food"}
                         style={{
                           color: context.color,
-                          fontFamily: context.font
+                          fontFamily: context.font,
+                          fontSize: context.size4
                         }}
                       />
                     </div>

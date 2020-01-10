@@ -21,7 +21,10 @@ class Experience extends React.Component {
                       className="role"
                       type="text"
                       defaultValue={"Title/function"}
-                      style={{ fontFamily: context.font }}
+                      style={{
+                        fontFamily: context.font,
+                        fontSize: context.size2
+                      }}
                     />
                   </div>
                   <div>
@@ -29,7 +32,10 @@ class Experience extends React.Component {
                       className="company"
                       type="text"
                       defaultValue={"Company"}
-                      style={{ fontFamily: context.font }}
+                      style={{
+                        fontFamily: context.font,
+                        fontSize: context.size2
+                      }}
                     />
                   </div>
                   <div className="time-loc">
@@ -38,7 +44,10 @@ class Experience extends React.Component {
                         className="period"
                         type="text"
                         defaultValue={"mm / yyyy  -  mm / yyyy"}
-                        style={{ fontFamily: context.font }}
+                        style={{
+                          fontFamily: context.font,
+                          fontSize: context.size4
+                        }}
                       />
                     </div>
                     <div className="location">
@@ -46,7 +55,10 @@ class Experience extends React.Component {
                         className="place"
                         type="text"
                         defaultValue={"City, Country"}
-                        style={{ fontFamily: context.font }}
+                        style={{
+                          fontFamily: context.font,
+                          fontSize: context.size4
+                        }}
                       />
                     </div>
                   </div>
@@ -58,7 +70,10 @@ class Experience extends React.Component {
                           className="task-list"
                           type="text"
                           defaultValue={"Short description of a task"}
-                          style={{ fontFamily: context.font }}
+                          style={{
+                            fontFamily: context.font,
+                            fontSize: context.size3
+                          }}
                         />
                       </li>
                     </ul>
@@ -71,7 +86,10 @@ class Experience extends React.Component {
                       className="role"
                       type="text"
                       defaultValue={"Title/function"}
-                      style={{ fontFamily: context.font }}
+                      style={{
+                        fontFamily: context.font,
+                        fontSize: context.size2
+                      }}
                     />
                   </div>
                   <div>
@@ -79,7 +97,10 @@ class Experience extends React.Component {
                       className="company"
                       type="text"
                       defaultValue={"Company"}
-                      style={{ fontFamily: context.font }}
+                      style={{
+                        fontFamily: context.font,
+                        fontSize: context.size2
+                      }}
                     />
                   </div>
                   <div className="time-loc">
@@ -88,7 +109,10 @@ class Experience extends React.Component {
                         className="period"
                         type="text"
                         defaultValue={"mm / yyyy  -  mm / yyyy"}
-                        style={{ fontFamily: context.font }}
+                        style={{
+                          fontFamily: context.font,
+                          fontSize: context.size4
+                        }}
                       />
                     </div>
                     <div className="location">
@@ -96,7 +120,10 @@ class Experience extends React.Component {
                         className="place"
                         type="text"
                         defaultValue={"City, Country"}
-                        style={{ fontFamily: context.font }}
+                        style={{
+                          fontFamily: context.font,
+                          fontSize: context.size4
+                        }}
                       />
                     </div>
                   </div>
@@ -108,7 +135,10 @@ class Experience extends React.Component {
                           className="task-list"
                           type="text"
                           defaultValue={"Short description of a task"}
-                          style={{ fontFamily: context.font }}
+                          style={{
+                            fontFamily: context.font,
+                            fontSize: context.size3
+                          }}
                         />
                       </li>
                     </ul>

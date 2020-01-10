@@ -1,10 +1,42 @@
+/* ================== GLOBAL STYLE ================== */
 #container {
     margin: 8rem 12rem;
-    background: #fff;
+    background: #fff center center;
     height: 297mm;
     width: 210mm;
 }
 
+input {
+    outline: none;
+    font-family: 'Work Sans', sans-serif;
+}
+
+textarea {
+    outline: none;
+    overflow: auto;
+    resize: none;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.wrap {
+    display: flex;
+    padding-left: 37.5px;
+    padding-right: 27px;
+}
+
+.left {
+    width: 100%;
+}
+
+.right {
+    width: 100%;
+    padding-left: 37.5px;
+    padding-right: 27px;
+}
+
+/* ==================================================== */
+/* ================== HEADER SECTION ================== */
+/* ==================================================== */
 .header-inner {
     display: flex;
 }
@@ -44,19 +76,9 @@
     max-width: inherit;
 }
 
-input {
-    outline: none;
-    font-family: 'Work Sans', sans-serif;
-
-}
-
-textarea {
-    outline: none;
-    overflow: auto;
-    resize: none;
-    font-family: 'Work Sans', sans-serif;
-}
-
+/* ==================================================== */
+/* ================== CONTACT SECTION ================== */
+/* ==================================================== */
 .contact {
     background-color: #d3d3d382;
     margin-bottom: 15px;
@@ -93,23 +115,24 @@ textarea {
     margin-left: 5px;
 }
 
-.wrap {
-    display: flex;
-    padding-left: 37.5px;
-    padding-right: 27px;
-}
-
-.left {
-    width: 100%;
-}
-
+/* ==================================================== */
+/* ================== EDUCATION SECTION ================== */
+/* ==================================================== */
 .education {
     margin-bottom: 15px;
 }
 
-.education-label {
+.education-label,
+.experience-label,
+.skills-label,
+.projects-label,
+.cert-label,
+.achiev-label,
+.lang-label {
     margin-bottom: 5px;
     color: #3dbaf7;
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 
 .subject,
@@ -128,19 +151,18 @@ textarea {
 .time-loc {
     display: flex;
     justify-content: space-between;
-
 }
 
 .period {
     color: grey;
     font-style: italic;
-    font-size: 12px;
+    font-size: 0.7rem;
 }
 
 .place {
     color: grey;
     font-style: italic;
-    font-size: 12px;
+    font-size: 0.7rem;
     text-align: end;
 }
 
@@ -149,28 +171,31 @@ textarea {
     margin-bottom: 16.5px;
 }
 
+/* ==================================================== */
+/* ================== EXPERIENCE SECTION ================== */
+/* ==================================================== */
 .experience {
     margin-bottom: 15px;
 }
 
-.experience-label {
+/* .experience-label {
     margin-bottom: 5px;
     color: #3dbaf7;
-}
+} */
 
 .time-loc {
     display: flex;
     justify-content: space-between;
     color: grey;
     font-style: italic;
-    font-size: 12px;
+    font-size: 0.7rem;
     margin-bottom: 3px;
 }
 
 .achiev-task {
     color: grey;
     font-style: italic;
-    font-size: 12px;
+    font-size: 0.7rem;
     margin-bottom: 3px;
 }
 
@@ -184,12 +209,9 @@ textarea {
     width: -webkit-fill-available;
 }
 
-.right {
-    width: 100%;
-    padding-left: 37.5px;
-    padding-right: 27px;
-}
-
+/* ==================================================== */
+/* ================== SKILLS SECTION ================== */
+/* ==================================================== */
 .skills {
     margin-bottom: 5px;
 }
@@ -218,16 +240,20 @@ textarea {
     background: #3dbaf7;
     color: #fff;
     font-size: 0.8rem;
+    font-weight: 600;
 }
 
-.projects-label {
+/* ==================================================== */
+/* ================== PROJECTS SECTION ================== */
+/* ==================================================== */
+/* .projects-label {
     margin-bottom: 7px;
     color: #3dbaf7;
     margin-top: 15px;
-}
+} */
 
 .project-title {
-    font-size: 15px;
+    font-size: 0.8rem;
 }
 
 .project-ul {
@@ -235,48 +261,57 @@ textarea {
 }
 
 .project-list {
-    font-size: 12px;
+    font-size: 0.7rem;
     margin-bottom: 15px;
     width: -webkit-fill-available;
 }
 
+/* ==================================================== */
+/* ================== CERTIFICATION SECTION ================== */
+/* ==================================================== */
 .cert {
     margin-bottom: 15px;
 }
 
-.cert-label {
+/* .cert-label {
     margin-bottom: 5px;
     color: #3dbaf7;
     margin-top: 15px;
-}
+} */
 
 .cert-group {
-    font-size: 12px;
+    font-size: 0.8rem;
 }
 
+/* ==================================================== */
+/* ================== ACHIEVEMENTS SECTION ================== */
+/* ==================================================== */
 .achiev {
     margin-bottom: 15px;
 }
 
-.achiev-label {
+/* .achiev-label {
     margin-bottom: 5px;
     color: #3dbaf7;
     margin-top: 15px;
-}
+} */
 
 .achiev-group {
-    font-size: 12px;
+    font-size: 0.8rem;
 }
 
+/* ==================================================== */
+/* ================== LANGUAGES SECTION ================== */
+/* ==================================================== */
 .lang {
     margin-bottom: 15px;
 }
 
-.lang-label {
+/* .lang-label {
     margin-bottom: 5px;
     color: #3dbaf7;
     margin-top: 15px;
-}
+} */
 
 .lang-body {
     display: flex;
@@ -285,7 +320,7 @@ textarea {
 }
 
 .lang-group {
-    font-size: 12px;
+    font-size: 0.8rem;
     flex: 0 50%;
 }
 
@@ -296,6 +331,6 @@ textarea {
 .lang-level {
     color: #3dbaf7;
     font-style: italic;
-    font-size: 10px;
+    font-size: 0.7rem;
     margin-bottom: 7px;
 }

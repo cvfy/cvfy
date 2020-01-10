@@ -3,6 +3,7 @@ import "./TemplateNav.css";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import FontSubMenu from "./SubMenus/FontSubMenu";
 import ColorSubMenu from "./SubMenus/ColorSubMenu";
+import FontSizeSubMenu from "./SubMenus/FontSizeSubMenu";
 
 class TemplateNav extends React.Component {
   render() {
@@ -22,10 +23,11 @@ class TemplateNav extends React.Component {
                     <span className="tool-desc">Color</span>
                   </button> */}
                   <ColorSubMenu></ColorSubMenu>
-                  <button className="layout-btn">
+                  {/* <button className="layout-btn">
                     <span className="tool-icon">↕</span>
                     <span className="tool-desc">Font-size</span>
-                  </button>
+                  </button> */}
+                  <FontSizeSubMenu></FontSizeSubMenu>
                   <button className="layout-btn">
                     <span className="tool-icon">☷</span>
                     <span className="tool-desc">Layout</span>
