@@ -1,13 +1,17 @@
-import React from "react";
-import "./App.css";
+import React, { useState } from 'react';
+import Navbar from '../navbar/Navbar';
+import '../navbar/Navbar.css'
 
-function App() {
+import GlobalStyle from '../../styles/Global'
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>CVFY website coming soon...</p>
-      </header>
-    </div>
+    <>
+      <Navbar 
+      />
+      <GlobalStyle />
+    </>
   );
 }
 
