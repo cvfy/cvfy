@@ -34,6 +34,43 @@ textarea {
     padding-right: 27px;
 }
 
+.editableDiv {
+    max-width: "22em";
+    word-break: "break-word";
+}
+
+.dateDivider {
+    margin: 0 5px;
+}
+
+.monthSpan:empty:before,
+.yearSpan:empty:before,
+.place:empty:before,
+.taskSpan:empty:before,
+.roleSpan:empty:before,
+.companySpan:empty:before,
+.titleSpan:empty:before,
+.summarySpan:empty:before,
+.studyProgramSpan:empty:before,
+.institutionSpan:empty:before,
+.projectTitleSpan:empty:before,
+.projectDescSpan:empty:before,
+.certificationTitleSpan:empty:before,
+.achievementDescSpan:empty:before,
+.langHeaderSpan:empty:before {
+    color: #808080;
+    display: block;
+    border-bottom: 1px dotted #808080;
+    font-style: italic;
+}
+
+.section-label {
+    margin-bottom: 5px;
+    color: #3dbaf7;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
 /* ==================================================== */
 /* ================== HEADER SECTION ================== */
 /* ==================================================== */
@@ -48,6 +85,14 @@ textarea {
 .profile-photo {
     border-radius: 50%;
     border: 1px solid gray;
+}
+
+.editableHeaderDiv {
+    max-width: "38em";
+}
+
+.title {
+    margin: -5px 0 5px 0;
 }
 
 .introduction {
@@ -66,14 +111,39 @@ textarea {
 
 }
 
-.title {
+.titleSpan {
     font-size: 1.3rem;
     color: #414242;
 }
 
-.summary {
+*:focus {
+    outline: none;
+}
+
+.titleSpan:empty:before {
+    content: "Professional title";
+    border-bottom: none;
+}
+
+.titleSpan:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.summarySpan {
+    padding-top: 5px;
     font-size: 0.8rem;
     max-width: inherit;
+}
+
+.summarySpan:empty:before {
+    content: "Short engaging pitch about yourself";
+    border-bottom: none;
+}
+
+.summarySpan:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 17em;
 }
 
 /* ==================================================== */
@@ -87,7 +157,7 @@ textarea {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 70px;
+    height: 90px;
 }
 
 .contact-row-1,
@@ -95,10 +165,11 @@ textarea {
 .contact-row-3 {
     display: flex;
     flex: 0 50%;
+    margin-top: 10px;
 }
 
-.contact-row-1 {
-    margin-top: 7px;
+.contact-row-3 {
+    margin-bottom: 10px;
 }
 
 .contact-1,
@@ -111,8 +182,76 @@ textarea {
     flex: 0 50%;
 }
 
+.iconeColor {
+    color: #3dbaf7;
+}
+
 .user-contact {
     margin-left: 5px;
+}
+
+/* .userEmailSpan {
+    font-size: 0.7rem;
+} */
+
+.userEmailSpan:empty:before {
+    content: 'E-mail';
+    color: rgb(61, 58, 58);
+}
+
+.userEmailSpan:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 5em;
+}
+
+.userSkypeSpan:empty:before {
+    content: 'Skype';
+    color: rgb(61, 58, 58);
+}
+
+.userSkypeSpan:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.userSiteSpan:empty:before {
+    content: 'Website';
+    color: rgb(61, 58, 58);
+}
+
+.userSiteSpan:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.userAddressSpan:empty:before {
+    content: 'Address';
+    color: rgb(61, 58, 58);
+}
+
+.userAddressSpan:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.userPhoneSpan:empty:before {
+    content: 'Phone';
+    color: rgb(61, 58, 58);
+}
+
+.userPhoneSpan:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.userGitHubSpan:empty:before {
+    content: 'GitHub';
+    color: rgb(61, 58, 58);
+}
+
+.userGithubSpan:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
 }
 
 /* ==================================================== */
@@ -122,24 +261,15 @@ textarea {
     margin-bottom: 15px;
 }
 
-.education-label,
-.experience-label,
-.skills-label,
-.projects-label,
-.cert-label,
-.achiev-label,
-.lang-label {
-    margin-bottom: 5px;
-    color: #3dbaf7;
-    font-weight: 600;
-    font-size: 1.2rem;
-}
-
 .subject,
 .role {
     font-weight: bold;
     width: -webkit-fill-available;
     font-size: 1rem;
+}
+
+.monthSpan:empty:before {
+    content: "mm";
 }
 
 .institution,
@@ -157,6 +287,7 @@ textarea {
     color: grey;
     font-style: italic;
     font-size: 0.7rem;
+    display: flex;
 }
 
 .place {
@@ -167,8 +298,25 @@ textarea {
 }
 
 .education-group,
-.experience-group {
+.experience-group,
+.project-group,
+.cert-group,
+.skills-body,
+.achiev-group {
     margin-bottom: 16.5px;
+}
+
+.studyProgramSpan {
+    font-weight: bold;
+}
+
+.studyProgramSpan:empty:before {
+    content: "Study Program";
+    font-weight: bold;
+}
+
+.institutionSpan:empty:before {
+    content: "Institution / Place of education";
 }
 
 /* ==================================================== */
@@ -176,20 +324,6 @@ textarea {
 /* ==================================================== */
 .experience {
     margin-bottom: 15px;
-}
-
-/* .experience-label {
-    margin-bottom: 5px;
-    color: #3dbaf7;
-} */
-
-.time-loc {
-    display: flex;
-    justify-content: space-between;
-    color: grey;
-    font-style: italic;
-    font-size: 0.7rem;
-    margin-bottom: 3px;
 }
 
 .achiev-task {
@@ -200,14 +334,78 @@ textarea {
 }
 
 .task-ul {
-    padding-inline-start: 15px;
+    padding-inline-start: 0;
+}
+
+li {
+    list-style: none;
 }
 
 .task-list {
     font-size: 0.8rem;
     margin-right: 5px;
     width: -webkit-fill-available;
+    word-break: break-all;
 }
+
+.taskSpan {
+    font-size: 0.8em;
+}
+
+.taskSpan::before {
+    content: '- ';
+}
+
+.taskSpan:empty {
+    position: relative;
+}
+
+.roleSpan {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.companySpan {
+    font-size: 1em;
+}
+
+.monthSpan:empty:before {
+    content: "mm";
+}
+
+.yearSpan:empty:before {
+    content: "yyyy";
+}
+
+.place:empty:before {
+    content: "City, Country";
+}
+
+.taskSpan:empty:before {
+    content: "- Accomplishment/Responsability/Task";
+}
+
+.roleSpan:empty:before {
+    content: "Title / Position";
+    font-weight: bold;
+}
+
+.companySpan:empty:before {
+    content: "Company / Workplace";
+}
+
+/* ==================================================== */
+/* ================== TIME-LOC SECTION ================== */
+/* ==================================================== */
+.time-loc {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    font-style: italic;
+    font-size: 0.7rem;
+    margin-bottom: 3px;
+}
+
 
 /* ==================================================== */
 /* ================== SKILLS SECTION ================== */
@@ -243,6 +441,10 @@ textarea {
     font-weight: 600;
 }
 
+.skillTextSpan:empty:before {
+    content: 'Skill'
+}
+
 /* ==================================================== */
 /* ================== PROJECTS SECTION ================== */
 /* ==================================================== */
@@ -252,19 +454,34 @@ textarea {
     margin-top: 15px;
 } */
 
-.project-title {
+.projectTitleSpan {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.projectTitleSpan:empty:before {
+    content: 'Project name';
+    font-weight: bold
+}
+
+.projectDescSpan {
     font-size: 0.8rem;
+    /* padding-bottom: 30px;margin */
+}
+
+.projectDescSpan:empty:before {
+    content: 'Short description of the project';
 }
 
 .project-ul {
     list-style: none;
 }
 
-.project-list {
+/* .project-list {
     font-size: 0.7rem;
     margin-bottom: 15px;
     width: -webkit-fill-available;
-}
+} */
 
 /* ==================================================== */
 /* ================== CERTIFICATION SECTION ================== */
@@ -283,12 +500,21 @@ textarea {
     font-size: 0.8rem;
 }
 
+.certificationTitleSpan {
+    /* font-size: 0.7rem; */
+    margin-bottom: 15px;
+}
+
+.certificationTitleSpan:empty:before {
+    content: 'Certification title';
+}
+
 /* ==================================================== */
 /* ================== ACHIEVEMENTS SECTION ================== */
 /* ==================================================== */
-.achiev {
+/* .achiev {
     margin-bottom: 15px;
-}
+} */
 
 /* .achiev-label {
     margin-bottom: 5px;
@@ -298,6 +524,10 @@ textarea {
 
 .achiev-group {
     font-size: 0.8rem;
+}
+
+.achievementDescSpan:empty:before {
+    content: 'Achievement description';
 }
 
 /* ==================================================== */
@@ -322,15 +552,32 @@ textarea {
 .lang-group {
     font-size: 0.8rem;
     flex: 0 50%;
+    margin-bottom: 10px;
 }
 
-.lang-header {
+.language {
+    display: flex;
+    flex-direction: column;
+}
+
+.langHeaderSpan {
     margin-bottom: 3px;
 }
 
-.lang-level {
-    color: #3dbaf7;
+.langHeaderSpan:empty:before {
+    content: 'Language';
+    border-bottom: none;
+}
+
+.langLevelSpan {
     font-style: italic;
     font-size: 0.7rem;
     margin-bottom: 7px;
+    color: #3dbaf7;
+}
+
+.langLevelSpan:empty:before {
+    content: 'Level';
+    display: block;
+    font-style: italic;
 }

@@ -17,7 +17,10 @@ class TemplateMain extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           return (
-            <div id="container" style={{ fontFamily: context.font }}>
+            <div
+              id="container"
+              style={{ fontFamily: context.font, fontSize: context.size3 }}
+            >
               <TemplateHeader></TemplateHeader>
               <TemplateContact></TemplateContact>
               <div className="wrap">

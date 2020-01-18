@@ -19,38 +19,28 @@ class TemplateHeader extends React.Component {
                   />
                 </div>
                 <div className="introduction">
-                  <div>
-                    <input
-                      className="name"
-                      type="text"
-                      defaultValue={"BABYLONIAN DOG"}
-                      style={{ fontFamily: context.font }}
-                    ></input>
+                  <div className="name" style={{ fontFamily: context.font }}>
+                    BABYLONIAN DOG
                   </div>
-                  <div>
-                    <input
-                      className="title"
-                      type="text"
-                      name="size1"
-                      defaultValue={"Full Stack Dog"}
+
+                  <div className="editableHeaderDiv title">
+                    <span
+                      className="titleSpan"
+                      contentEditable="true"
                       style={{
-                        fontFamily: context.font,
                         fontSize: context.size1
                       }}
-                    ></input>
+                    ></span>
                   </div>
-                  <div className="titleDiv">
-                    <textarea
-                      className="summary"
-                      placeholder="Lorizzle ipsum dolor sit gangster, pot adipiscing elit. Nullam shizznit velizzle, sizzle volutpat, suscipizzle quis, blackvizzle, shut the shizzle up. Pellentesque dope tortizzle. Sederos. Shizzlin dizzle at dolizzle dapibizzle turpizzle tempizzlehizzle."
-                      cols="90"
-                      rows="4"
-                      name="size3"
+
+                  <div className="editableHeaderDiv">
+                    <span
+                      className="summarySpan"
+                      contentEditable="true"
                       style={{
-                        fontFamily: context.font,
                         fontSize: context.size3
                       }}
-                    ></textarea>
+                    ></span>
                   </div>
                 </div>
               </div>

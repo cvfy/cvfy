@@ -8,96 +8,87 @@ class Languages extends React.Component {
         {context => {
           return (
             <div className="lang">
-              <div className="lang-label" style={{ color: context.color }}>
+              <div className="section-label" style={{ color: context.color }}>
                 LANGUAGES
               </div>
               <div className="lang-body">
                 <div className="lang-group">
-                  <div className="language">
-                    <div
-                      className="lang-header"
-                      style={{ fontSize: context.size3 }}
-                    >
-                      Doggish
-                    </div>
-                    <div>
-                      <input
-                        className="lang-level"
-                        type="text"
-                        style={{
-                          color: context.color,
-                          fontFamily: context.font,
-                          fontSize: context.size4
-                        }}
-                        defaultValue={"Mother tongue"}
-                      />
-                    </div>
+                  <div className="editableDiv language">
+                    <span
+                      className="langHeaderSpan"
+                      contentEditable="true"
+                      style={{
+                        fontSize: context.size3
+                      }}
+                    ></span>
+                    <span
+                      className="langLevelSpan"
+                      contentEditable="true"
+                      style={{
+                        color: context.color,
+                        fontSize: context.size4
+                      }}
+                    ></span>
                   </div>
                 </div>
+
                 <div className="lang-group">
-                  <div className="language">
-                    <div
-                      className="lang-header"
-                      style={{ fontSize: context.size3 }}
-                    >
-                      English
-                    </div>
-                    <div>
-                      <input
-                        className="lang-level"
-                        type="text"
-                        defaultValue={"Professional Proficiency"}
-                        style={{
-                          color: context.color,
-                          fontFamily: context.font,
-                          fontSize: context.size4
-                        }}
-                      />
-                    </div>
+                  <div className="editableDiv language">
+                    <span
+                      className="langHeaderSpan"
+                      contentEditable="true"
+                      style={{
+                        fontSize: context.size3
+                      }}
+                    ></span>
+                    <span
+                      className="langLevelSpan"
+                      contentEditable="true"
+                      style={{
+                        color: context.color,
+                        fontSize: context.size4
+                      }}
+                    ></span>
                   </div>
                 </div>
+
                 <div className="lang-group">
-                  <div className="language">
-                    <div
-                      className="lang-header"
-                      style={{ fontSize: context.size3 }}
-                    >
-                      German
-                    </div>
-                    <div>
-                      <input
-                        className="lang-level"
-                        type="text"
-                        defaultValue={"Sehr schlecht"}
-                        style={{
-                          color: context.color,
-                          fontFamily: context.font,
-                          fontSize: context.size4
-                        }}
-                      />
-                    </div>
+                  <div className="editableDiv language">
+                    <span
+                      className="langHeaderSpan"
+                      contentEditable="true"
+                      style={{
+                        fontSize: context.size3
+                      }}
+                    ></span>
+                    <span
+                      className="langLevelSpan"
+                      contentEditable="true"
+                      style={{
+                        color: context.color,
+                        fontSize: context.size4
+                      }}
+                    ></span>
                   </div>
                 </div>
+
                 <div className="lang-group">
-                  <div className="language">
-                    <div
-                      className="lang-header"
-                      style={{ fontSize: context.size3 }}
-                    >
-                      Chinese
-                    </div>
-                    <div>
-                      <input
-                        className="lang-level"
-                        type="text"
-                        defaultValue={"I like the food"}
-                        style={{
-                          color: context.color,
-                          fontFamily: context.font,
-                          fontSize: context.size4
-                        }}
-                      />
-                    </div>
+                  <div className="editableDiv language">
+                    <span
+                      className="langHeaderSpan"
+                      contentEditable="true"
+                      style={{
+                        fontSize: context.size3
+                      }}
+                    ></span>
+                    <span
+                      className="langLevelSpan"
+                      contentEditable="true"
+                      style={{
+                        color: context.color,
+                        fontSize: context.size4
+                      }}
+                    ></span>
                   </div>
                 </div>
               </div>

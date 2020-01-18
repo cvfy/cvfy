@@ -8,23 +8,32 @@ class Projects extends React.Component {
         {context => {
           return (
             <div className="projects">
-              <div className="projects-label" style={{ color: context.color }}>
+              <div className="section-label" style={{ color: context.color }}>
                 PROJECTS
               </div>
               <div className="projects-body">
                 <div className="project-group">
-                  <div>
-                    <input
-                      className="project-title"
-                      type="text"
-                      defaultValue={"CVFY"}
+                  <div className="editableDiv">
+                    <span
+                      className="projectTitleSpan"
+                      contentEditable="true"
                       style={{
-                        fontFamily: context.font,
                         fontSize: context.size3
                       }}
-                    ></input>
+                    ></span>
                   </div>
-                  <div>
+
+                  <div className="editableDiv">
+                    <span
+                      className="projectDescSpan"
+                      contentEditable="true"
+                      style={{
+                        fontSize: context.size4
+                      }}
+                    ></span>
+                  </div>
+
+                  {/* <div>
                     <textarea
                       className="project-ul"
                       max-rows="2"
@@ -36,7 +45,7 @@ class Projects extends React.Component {
                         fontSize: context.size4
                       }}
                     ></textarea>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

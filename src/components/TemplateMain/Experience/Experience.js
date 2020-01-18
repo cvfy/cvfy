@@ -2,146 +2,140 @@ import React from "react";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 
 class Experience extends React.Component {
+  //   render() {
+  //     return (
+  //       <div className="Terminal">
+  //         <div className="Input-Terminal">
+  //           <div id="terminalOutput">{this.renderTerminalOutput()}</div>&nbsp;<span> >>> </span> &nbsp;
+  //           <input value={this.state.value} onKeyDown={this.keyPress} onChange={this.handleChange}  id="terminalInput" ></input>
+  //         </div>
+  //       </div>
+  //     );
+  //   }
   render() {
     return (
       <ThemeContext.Consumer>
         {context => {
+          // const { renderTasksOutput, keyPress, handleChange } = context;
           return (
             <div className="experience">
-              <div
-                className="experience-label"
-                style={{ color: context.color }}
-              >
+              <div className="section-label" style={{ color: context.color }}>
                 WORK EXPERIENCE
               </div>
+
               <div className="experience-body">
                 <div className="experience-group">
-                  <div>
-                    <input
-                      className="role"
-                      type="text"
-                      defaultValue={"Title/function"}
+                  <div className="editableDiv">
+                    <span
+                      className="roleSpan"
+                      contentEditable="true"
                       style={{
-                        fontFamily: context.font,
                         fontSize: context.size2
                       }}
-                    />
+                    ></span>
                   </div>
-                  <div>
-                    <input
-                      className="company"
-                      type="text"
-                      defaultValue={"Company"}
-                      style={{
-                        fontFamily: context.font,
-                        fontSize: context.size2
-                      }}
-                    />
-                  </div>
-                  <div className="time-loc">
-                    <div>
-                      <input
-                        className="period"
-                        type="text"
-                        defaultValue={"mm / yyyy  -  mm / yyyy"}
-                        style={{
-                          fontFamily: context.font,
-                          fontSize: context.size4
-                        }}
-                      />
-                    </div>
-                    <div className="location">
-                      <input
-                        className="place"
-                        type="text"
-                        defaultValue={"City, Country"}
-                        style={{
-                          fontFamily: context.font,
-                          fontSize: context.size4
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="achiev-task">Achivements / Tasks</div>
-                  <div>
-                    <ul className="task-ul">
-                      <li>
-                        <input
-                          className="task-list"
-                          type="text"
-                          defaultValue={"Short description of a task"}
-                          style={{
-                            fontFamily: context.font,
-                            fontSize: context.size3
-                          }}
-                        />
-                      </li>
-                    </ul>
-                  </div>
-                </div>
 
-                <div className="experience-group">
-                  <div>
-                    <input
-                      className="role"
-                      type="text"
-                      defaultValue={"Title/function"}
+                  <div className="editableDiv">
+                    <span
+                      className="companySpan"
+                      contentEditable="true"
                       style={{
-                        fontFamily: context.font,
                         fontSize: context.size2
                       }}
-                    />
+                    ></span>
                   </div>
-                  <div>
-                    <input
-                      className="company"
-                      type="text"
-                      defaultValue={"Company"}
-                      style={{
-                        fontFamily: context.font,
-                        fontSize: context.size2
-                      }}
-                    />
-                  </div>
+
                   <div className="time-loc">
-                    <div>
-                      <input
-                        className="period"
-                        type="text"
-                        defaultValue={"mm / yyyy  -  mm / yyyy"}
+                    <div className="period">
+                      <span
+                        className="monthSpan"
                         style={{
-                          fontFamily: context.font,
                           fontSize: context.size4
                         }}
-                      />
+                        contentEditable="true"
+                      ></span>
+                      <span
+                        className="dateDivider"
+                        style={{
+                          fontSize: context.size4
+                        }}
+                      >
+                        /
+                      </span>
+                      <span
+                        className="yearSpan"
+                        style={{
+                          fontSize: context.size4
+                        }}
+                        contentEditable="true"
+                      ></span>
+                      <span
+                        className="dateDivider"
+                        style={{
+                          fontSize: context.size4
+                        }}
+                      >
+                        -
+                      </span>
+                      <span
+                        className="monthSpan"
+                        style={{
+                          fontSize: context.size4
+                        }}
+                        contentEditable="true"
+                      ></span>
+                      <span
+                        className="dateDivider"
+                        style={{
+                          fontSize: context.size4
+                        }}
+                      >
+                        /
+                      </span>
+                      <span
+                        className="yearSpan"
+                        style={{
+                          fontSize: context.size4
+                        }}
+                        contentEditable="true"
+                      ></span>
                     </div>
+
                     <div className="location">
-                      <input
+                      <span
                         className="place"
-                        type="text"
-                        defaultValue={"City, Country"}
                         style={{
-                          fontFamily: context.font,
                           fontSize: context.size4
                         }}
-                      />
+                        contentEditable="true"
+                      ></span>
                     </div>
                   </div>
-                  <div className="achiev-task">Achivements / Tasks</div>
+
+                  <div
+                    className="achiev-task"
+                    style={{
+                      fontFamily: context.font,
+                      fontSize: context.size4
+                    }}
+                  >
+                    Achivements / Tasks
+                  </div>
                   <div>
-                    <ul className="task-ul">
-                      <li>
-                        <input
-                          className="task-list"
-                          type="text"
-                          defaultValue={"Short description of a task"}
-                          style={{
-                            fontFamily: context.font,
-                            fontSize: context.size3
-                          }}
-                        />
-                      </li>
-                    </ul>
+                    <div className="editableDiv">
+                      {/* <div id="tasksOutput">{renderTasksOutput}</div> */}
+                      <span
+                        // value={this.state.value}
+                        // onKeyDown={keyPress}
+                        // onChange={handleChange}
+                        // id="terminalInput"
+                        className="taskSpan"
+                        contenteditable="true"
+                        style={{
+                          fontSize: context.size3
+                        }}
+                      ></span>
+                    </div>
                   </div>
                 </div>
               </div>

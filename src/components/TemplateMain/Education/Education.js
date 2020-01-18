@@ -8,104 +8,95 @@ class Education extends React.Component {
         {context => {
           return (
             <div className="education">
-              <div className="education-label" style={{ color: context.color }}>
+              <div className="section-label" style={{ color: context.color }}>
                 EDUCATION
               </div>
               <div className="education-body">
                 <div className="education-group">
-                  <div>
-                    <input
-                      className="subject"
-                      type="text"
-                      defaultValue={"Full Stack Web Development"}
+                  <div className="editableDiv">
+                    <span
+                      className="studyProgramSpan"
+                      contentEditable="true"
                       style={{
-                        fontFamily: context.font,
                         fontSize: context.size2
                       }}
-                    />
+                    ></span>
                   </div>
-                  <div>
-                    <input
-                      className="institution"
-                      type="text"
-                      defaultValue={"DCI - Digital Career Institute"}
-                      style={{
-                        fontFamily: context.font,
-                        fontSize: context.size2
-                      }}
-                    />
-                  </div>
-                  <div className="time-loc">
-                    <div>
-                      <input
-                        className="period"
-                        type="text"
-                        defaultValue={"03 / 2019  -  present"}
-                        style={{
-                          fontFamily: context.font,
-                          fontSize: context.size4
-                        }}
-                      />
-                    </div>
-                    <div className="location">
-                      <input
-                        className="place"
-                        type="text"
-                        defaultValue={"City, Country"}
-                        style={{
-                          fontFamily: context.font,
-                          fontSize: context.size4
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
 
-                <div className="education-group">
-                  <div>
-                    <input
-                      className="subject"
-                      type="text"
-                      defaultValue={"Study Program"}
+                  <div className="editableDiv">
+                    <span
+                      className="institutionSpan"
+                      contentEditable="true"
                       style={{
-                        fontFamily: context.font,
                         fontSize: context.size2
                       }}
-                    />
+                    ></span>
                   </div>
-                  <div>
-                    <input
-                      className="institution"
-                      type="text"
-                      defaultValue={"Institution"}
-                      style={{
-                        fontFamily: context.font,
-                        fontSize: context.size2
-                      }}
-                    />
-                  </div>
+
                   <div className="time-loc">
-                    <div>
-                      <input
-                        className="period"
-                        type="text"
-                        defaultValue={"mm / yyyy  -  mm / yyyy"}
+                    <div className="period">
+                      <span
+                        className="monthSpan"
                         style={{
-                          fontFamily: context.font,
                           fontSize: context.size4
                         }}
-                      />
+                        contentEditable="true"
+                      ></span>
+                      <span
+                        className="dateDivider"
+                        style={{
+                          fontSize: context.size4
+                        }}
+                      >
+                        /
+                      </span>
+                      <span
+                        className="yearSpan"
+                        style={{
+                          fontSize: context.size4
+                        }}
+                        contentEditable="true"
+                      ></span>
+                      <span
+                        className="dateDivider"
+                        style={{
+                          fontSize: context.size4
+                        }}
+                      >
+                        -
+                      </span>
+                      <span
+                        className="monthSpan"
+                        style={{
+                          fontSize: context.size4
+                        }}
+                        contentEditable="true"
+                      ></span>
+                      <span
+                        className="dateDivider"
+                        style={{
+                          fontSize: context.size4
+                        }}
+                      >
+                        /
+                      </span>
+                      <span
+                        className="yearSpan"
+                        style={{
+                          fontSize: context.size4
+                        }}
+                        contentEditable="true"
+                      ></span>
                     </div>
+
                     <div className="location">
-                      <input
+                      <span
                         className="place"
-                        type="text"
-                        defaultValue={"City, Country"}
                         style={{
-                          fontFamily: context.font,
                           fontSize: context.size4
                         }}
-                      />
+                        contentEditable="true"
+                      ></span>
                     </div>
                   </div>
                 </div>

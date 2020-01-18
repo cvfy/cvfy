@@ -7,23 +7,19 @@ class Achievements extends React.Component {
         {context => {
           return (
             <div className="achiev">
-              <div className="achiev-label" style={{ color: context.color }}>
+              <div className="section-label" style={{ color: context.color }}>
                 ACHIEVEMENTS
               </div>
               <div className="achiev-body">
                 <div className="achiev-group">
-                  <div>
-                    <textarea
-                      className="cert-desc"
-                      max-rows="2"
-                      cols="37"
-                      placeholder="- Won the 2nd prize at DCI Hackathon 2019"
-                      maxLength="100"
+                  <div className="editableDiv">
+                    <span
+                      className="achievementDescSpan"
+                      contentEditable="true"
                       style={{
-                        fontFamily: context.font,
                         fontSize: context.size3
                       }}
-                    ></textarea>
+                    ></span>
                   </div>
                 </div>
               </div>

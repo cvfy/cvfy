@@ -8,23 +8,19 @@ class Certifications extends React.Component {
         {context => {
           return (
             <div className="cert">
-              <div className="cert-label" style={{ color: context.color }}>
+              <div className="section-label" style={{ color: context.color }}>
                 CERTIFICATIONS
               </div>
               <div className="cert-body">
                 <div className="cert-group">
-                  <div>
-                    <textarea
-                      className="cert-desc"
-                      max-rows="1"
-                      cols="37"
-                      placeholder="- best dog 2020 - who let the dogs out award"
-                      maxLength="80"
+                  <div className="editableDiv">
+                    <span
+                      className="certificationTitleSpan"
+                      contentEditable="true"
                       style={{
-                        fontFamily: context.font,
                         fontSize: context.size4
                       }}
-                    ></textarea>
+                    ></span>
                   </div>
                 </div>
               </div>

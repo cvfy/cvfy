@@ -7,7 +7,7 @@ class Skills extends React.Component {
         {context => {
           return (
             <div className="skills">
-              <div className="skills-label" style={{ color: context.color }}>
+              <div className="section-label" style={{ color: context.color }}>
                 SKILLS
               </div>
               <div className="skills-body">
@@ -19,8 +19,12 @@ class Skills extends React.Component {
                       fontSize: context.size3
                     }}
                   >
-                    <div className="skill-text">JavaScript</div>
+                    <span
+                      className="skillTextSpan"
+                      contentEditable="true"
+                    ></span>
                   </div>
+
                   <div
                     className="skill-box"
                     style={{
@@ -28,8 +32,12 @@ class Skills extends React.Component {
                       fontSize: context.size3
                     }}
                   >
-                    <div className="skill-text">React</div>
+                    <span
+                      className="skillTextSpan"
+                      contentEditable="true"
+                    ></span>
                   </div>
+
                   <div
                     className="skill-box"
                     style={{
@@ -37,8 +45,12 @@ class Skills extends React.Component {
                       fontSize: context.size3
                     }}
                   >
-                    <div className="skill-text">Node.js</div>
+                    <span
+                      className="skillTextSpan"
+                      contentEditable="true"
+                    ></span>
                   </div>
+
                   <div
                     className="skill-box"
                     style={{
@@ -46,8 +58,12 @@ class Skills extends React.Component {
                       fontSize: context.size3
                     }}
                   >
-                    <div className="skill-text">MongoDB</div>
+                    <span
+                      className="skillTextSpan"
+                      contentEditable="true"
+                    ></span>
                   </div>
+
                   <div
                     className="skill-box"
                     style={{
@@ -55,7 +71,23 @@ class Skills extends React.Component {
                       fontSize: context.size3
                     }}
                   >
-                    <div className="skill-text">Bootstrap</div>
+                    <span
+                      className="skillTextSpan"
+                      contentEditable="true"
+                    ></span>
+                  </div>
+
+                  <div
+                    className="skill-box"
+                    style={{
+                      background: context.color,
+                      fontSize: context.size3
+                    }}
+                  >
+                    <span
+                      className="skillTextSpan"
+                      contentEditable="true"
+                    ></span>
                   </div>
                 </div>
               </div>
