@@ -124,7 +124,7 @@ class ExperienceGroup extends React.Component {
                     // onChange={handleChange}
                     // id="terminalInput"
                     className="task"
-                    contenteditable="true"
+                    contentEditable="true"
                     style={{
                       fontSize: context.size3
                     }}

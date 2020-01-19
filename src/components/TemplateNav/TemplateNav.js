@@ -5,16 +5,17 @@ import FontSubMenu from "./SubMenus/FontSubMenu";
 import ColorSubMenu from "./SubMenus/ColorSubMenu";
 import FontSizeSubMenu from "./SubMenus/FontSizeSubMenu";
 import LayoutSubMenu from "./SubMenus/LayoutSubMenu";
+import TemplatesSubMenu from "./SubMenus/TemplatesSubMenu";
 
 class TemplateNav extends React.Component {
   render() {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { changeColor } = context;
           return (
             <div className="CvMenu">
               <span className="logo-template">CVFY</span>
+
               <div className="design">
                 <div className="tool-label">Design</div>
                 <div className="tools">
@@ -22,14 +23,7 @@ class TemplateNav extends React.Component {
                   <ColorSubMenu></ColorSubMenu>
                   <FontSizeSubMenu></FontSizeSubMenu>
                   <LayoutSubMenu></LayoutSubMenu>
-                  {/* <button className="layout-btn">
-                    <span className="tool-icon">☷</span>
-                    <span className="tool-desc">Layout</span>
-                  </button> */}
-                  <button className="template-btn">
-                    <span className="tool-icon">❏</span>
-                    <span className="tool-desc">Template</span>
-                  </button>
+                  <TemplatesSubMenu></TemplatesSubMenu>
                 </div>
               </div>
 

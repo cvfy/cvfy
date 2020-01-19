@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ThemeContext } from "../../../contexts/ThemeContext";
-import { Button, Container } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 class LayoutSubMenu extends Component {
   constructor() {
@@ -42,7 +42,6 @@ class LayoutSubMenu extends Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { changeColor } = context;
           return (
             <div>
               <button className="layout-btn " onClick={this.showMenu}>
