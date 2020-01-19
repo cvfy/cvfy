@@ -11,18 +11,12 @@ class TemplateContact extends React.Component {
               <div className="contact-row-1">
                 <div className="contact-1">
                   <div className="icone">
-                    {/* <i
-                      className="far fa-envelope"
+                    <i
+                      className="far fa-envelope iconeColor"
                       style={{ color: context.color }}
-                    ></i> */}
+                    ></i>
                     <span
-                      style={{ color: context.color }}
-                      className="iconeColor"
-                    >
-                      ✉
-                    </span>
-                    <span
-                      className="user-contact userEmailSpan"
+                      className="user-contact userEmail"
                       contentEditable="true"
                     ></span>
                   </div>
@@ -34,7 +28,7 @@ class TemplateContact extends React.Component {
                     style={{ color: context.color }}
                   ></i>
                   <span
-                    className="user-contact userAddressSpan"
+                    className="user-contact userAddress"
                     contentEditable="true"
                   ></span>
                 </div>
@@ -46,7 +40,7 @@ class TemplateContact extends React.Component {
                     style={{ color: context.color }}
                   ></i>
                   <span
-                    className="user-contact userSkypeSpan"
+                    className="user-contact userSkype"
                     contentEditable="true"
                   ></span>
                 </div>
@@ -57,7 +51,7 @@ class TemplateContact extends React.Component {
                     style={{ color: context.color }}
                   ></i>
                   <span
-                    className="user-contact userPhoneSpan"
+                    className="user-contact userPhone"
                     contentEditable="true"
                   ></span>
                 </div>
@@ -70,7 +64,7 @@ class TemplateContact extends React.Component {
                     style={{ color: context.color }}
                   ></i>
                   <span
-                    className="user-contact userSiteSpan"
+                    className="user-contact userSite"
                     contentEditable="true"
                   ></span>
                 </div>
@@ -81,7 +75,7 @@ class TemplateContact extends React.Component {
                     style={{ color: context.color }}
                   ></i>
                   <span
-                    className="user-contact userGitHubSpan"
+                    className="user-contact userGitHub"
                     contentEditable="true"
                   ></span>
                 </div>

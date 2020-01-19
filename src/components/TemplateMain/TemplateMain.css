@@ -6,18 +6,6 @@
     width: 210mm;
 }
 
-input {
-    outline: none;
-    font-family: 'Work Sans', sans-serif;
-}
-
-textarea {
-    outline: none;
-    overflow: auto;
-    resize: none;
-    font-family: 'Work Sans', sans-serif;
-}
-
 .wrap {
     display: flex;
     padding-left: 37.5px;
@@ -43,21 +31,21 @@ textarea {
     margin: 0 5px;
 }
 
-.monthSpan:empty:before,
-.yearSpan:empty:before,
+.month:empty:before,
+.year:empty:before,
 .place:empty:before,
-.taskSpan:empty:before,
-.roleSpan:empty:before,
-.companySpan:empty:before,
-.titleSpan:empty:before,
-.summarySpan:empty:before,
-.studyProgramSpan:empty:before,
-.institutionSpan:empty:before,
-.projectTitleSpan:empty:before,
-.projectDescSpan:empty:before,
-.certificationTitleSpan:empty:before,
-.achievementDescSpan:empty:before,
-.langHeaderSpan:empty:before {
+.task:empty:before,
+.role:empty:before,
+.company:empty:before,
+.title:empty:before,
+.summary:empty:before,
+.studyProgram:empty:before,
+.institution:empty:before,
+.projectTitle:empty:before,
+.projectDesc:empty:before,
+.certificationTitle:empty:before,
+.achievementDesc:empty:before,
+.langHeader:empty:before {
     color: #808080;
     display: block;
     border-bottom: 1px dotted #808080;
@@ -69,6 +57,10 @@ textarea {
     color: #3dbaf7;
     font-weight: 600;
     font-size: 1.2rem;
+}
+
+*:focus {
+    outline: none;
 }
 
 /* ==================================================== */
@@ -87,10 +79,6 @@ textarea {
     border: 1px solid gray;
 }
 
-.editableHeaderDiv {
-    max-width: "38em";
-}
-
 .title {
     margin: -5px 0 5px 0;
 }
@@ -106,42 +94,33 @@ textarea {
     font-size: 2rem;
 }
 
-.titleDiv {
-    max-width: 640px;
-
-}
-
-.titleSpan {
+.title {
     font-size: 1.3rem;
     color: #414242;
 }
 
-*:focus {
-    outline: none;
-}
-
-.titleSpan:empty:before {
+.title:empty:before {
     content: "Professional title";
     border-bottom: none;
 }
 
-.titleSpan:empty:hover:before {
+.title:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 8em;
 }
 
-.summarySpan {
+.summary {
     padding-top: 5px;
     font-size: 0.8rem;
     max-width: inherit;
 }
 
-.summarySpan:empty:before {
+.summary:empty:before {
     content: "Short engaging pitch about yourself";
     border-bottom: none;
 }
 
-.summarySpan:empty:hover:before {
+.summary:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 17em;
 }
@@ -190,66 +169,62 @@ textarea {
     margin-left: 5px;
 }
 
-/* .userEmailSpan {
-    font-size: 0.7rem;
-} */
-
-.userEmailSpan:empty:before {
+.userEmail:empty:before {
     content: 'E-mail';
     color: rgb(61, 58, 58);
 }
 
-.userEmailSpan:empty:hover:before {
+.userEmail:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 5em;
 }
 
-.userSkypeSpan:empty:before {
+.userSkype:empty:before {
     content: 'Skype';
     color: rgb(61, 58, 58);
 }
 
-.userSkypeSpan:empty:hover:before {
+.userSkype:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 8em;
 }
 
-.userSiteSpan:empty:before {
+.userSite:empty:before {
     content: 'Website';
     color: rgb(61, 58, 58);
 }
 
-.userSiteSpan:empty:hover:before {
+.userSite:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 8em;
 }
 
-.userAddressSpan:empty:before {
+.userAddress:empty:before {
     content: 'Address';
     color: rgb(61, 58, 58);
 }
 
-.userAddressSpan:empty:hover:before {
+.userAddress:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 8em;
 }
 
-.userPhoneSpan:empty:before {
+.userPhone:empty:before {
     content: 'Phone';
     color: rgb(61, 58, 58);
 }
 
-.userPhoneSpan:empty:hover:before {
+.userPhone:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 8em;
 }
 
-.userGitHubSpan:empty:before {
+.userGitHub:empty:before {
     content: 'GitHub';
     color: rgb(61, 58, 58);
 }
 
-.userGithubSpan:empty:hover:before {
+.userGithub:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 8em;
 }
@@ -257,30 +232,83 @@ textarea {
 /* ==================================================== */
 /* ================== EDUCATION SECTION ================== */
 /* ==================================================== */
-.education {
-    margin-bottom: 15px;
+
+.education-group,
+.experience-group,
+.project-group,
+.cert-group,
+.skills-body,
+.achiev-group {
+    margin-bottom: 16.5px;
 }
 
-.subject,
-.role {
+.studyProgram {
     font-weight: bold;
-    width: -webkit-fill-available;
-    font-size: 1rem;
 }
 
-.monthSpan:empty:before {
-    content: "mm";
+.studyProgram:empty:before {
+    content: "Study Program";
+    font-weight: bold;
 }
 
-.institution,
+.institution:empty:before {
+    content: "Institution / Place of education";
+}
+
+/* ==================================================== */
+/* ================== EXPERIENCE SECTION ================== */
+/* ==================================================== */
+.achiev-task {
+    color: grey;
+    font-style: italic;
+    font-size: 0.7rem;
+    margin-bottom: 3px;
+}
+
+.task {
+    font-size: 0.8em;
+}
+
+.task::before {
+    content: '- ';
+}
+
+.task:empty {
+    position: relative;
+}
+
+.role {
+    font-size: 1em;
+    font-weight: bold;
+}
+
 .company {
-    font-size: 1rem;
-    width: -webkit-fill-available;
+    font-size: 1em;
 }
 
+.task:empty:before {
+    content: "- Accomplishment/Responsability/Task";
+}
+
+.role:empty:before {
+    content: "Title / Position";
+    font-weight: bold;
+}
+
+.company:empty:before {
+    content: "Company / Workplace";
+}
+
+/* ==================================================== */
+/* ================== TIME-LOC SECTION ================== */
+/* ==================================================== */
 .time-loc {
     display: flex;
     justify-content: space-between;
+    color: grey;
+    font-style: italic;
+    font-size: 0.7rem;
+    margin-bottom: 3px;
 }
 
 .period {
@@ -297,115 +325,17 @@ textarea {
     text-align: end;
 }
 
-.education-group,
-.experience-group,
-.project-group,
-.cert-group,
-.skills-body,
-.achiev-group {
-    margin-bottom: 16.5px;
-}
-
-.studyProgramSpan {
-    font-weight: bold;
-}
-
-.studyProgramSpan:empty:before {
-    content: "Study Program";
-    font-weight: bold;
-}
-
-.institutionSpan:empty:before {
-    content: "Institution / Place of education";
-}
-
-/* ==================================================== */
-/* ================== EXPERIENCE SECTION ================== */
-/* ==================================================== */
-.experience {
-    margin-bottom: 15px;
-}
-
-.achiev-task {
-    color: grey;
-    font-style: italic;
-    font-size: 0.7rem;
-    margin-bottom: 3px;
-}
-
-.task-ul {
-    padding-inline-start: 0;
-}
-
-li {
-    list-style: none;
-}
-
-.task-list {
-    font-size: 0.8rem;
-    margin-right: 5px;
-    width: -webkit-fill-available;
-    word-break: break-all;
-}
-
-.taskSpan {
-    font-size: 0.8em;
-}
-
-.taskSpan::before {
-    content: '- ';
-}
-
-.taskSpan:empty {
-    position: relative;
-}
-
-.roleSpan {
-    font-size: 1em;
-    font-weight: bold;
-}
-
-.companySpan {
-    font-size: 1em;
-}
-
-.monthSpan:empty:before {
+.month:empty:before {
     content: "mm";
 }
 
-.yearSpan:empty:before {
+.year:empty:before {
     content: "yyyy";
 }
 
 .place:empty:before {
     content: "City, Country";
 }
-
-.taskSpan:empty:before {
-    content: "- Accomplishment/Responsability/Task";
-}
-
-.roleSpan:empty:before {
-    content: "Title / Position";
-    font-weight: bold;
-}
-
-.companySpan:empty:before {
-    content: "Company / Workplace";
-}
-
-/* ==================================================== */
-/* ================== TIME-LOC SECTION ================== */
-/* ==================================================== */
-.time-loc {
-    display: flex;
-    justify-content: space-between;
-    color: grey;
-    font-style: italic;
-    font-size: 0.7rem;
-    margin-bottom: 3px;
-}
-
 
 /* ==================================================== */
 /* ================== SKILLS SECTION ================== */
@@ -428,12 +358,9 @@ li {
     display: flex;
     padding: 12px;
     align-items: center;
-    color: #3dbaf7;
-    margin-top: 15px;
-    -left: 5px;
     height: 20px;
     float: left;
-    margin: 10px 5px 0px 0px;
+    margin: 15px 5px 0px 0px;
     border-radius: 5px;
     background: #3dbaf7;
     color: #fff;
@@ -441,92 +368,54 @@ li {
     font-weight: 600;
 }
 
-.skillTextSpan:empty:before {
+.skillText:empty:before {
     content: 'Skill'
 }
 
 /* ==================================================== */
 /* ================== PROJECTS SECTION ================== */
 /* ==================================================== */
-/* .projects-label {
-    margin-bottom: 7px;
-    color: #3dbaf7;
-    margin-top: 15px;
-} */
-
-.projectTitleSpan {
+.projectTitle {
     font-size: 0.9rem;
     font-weight: bold;
 }
 
-.projectTitleSpan:empty:before {
+.projectTitle:empty:before {
     content: 'Project name';
     font-weight: bold
 }
 
-.projectDescSpan {
+.projectDesc {
     font-size: 0.8rem;
-    /* padding-bottom: 30px;margin */
 }
 
-.projectDescSpan:empty:before {
+.projectDesc:empty:before {
     content: 'Short description of the project';
 }
-
-.project-ul {
-    list-style: none;
-}
-
-/* .project-list {
-    font-size: 0.7rem;
-    margin-bottom: 15px;
-    width: -webkit-fill-available;
-} */
 
 /* ==================================================== */
 /* ================== CERTIFICATION SECTION ================== */
 /* ==================================================== */
-.cert {
-    margin-bottom: 15px;
-}
-
-/* .cert-label {
-    margin-bottom: 5px;
-    color: #3dbaf7;
-    margin-top: 15px;
-} */
-
 .cert-group {
     font-size: 0.8rem;
 }
 
-.certificationTitleSpan {
-    /* font-size: 0.7rem; */
+.certificationTitle {
     margin-bottom: 15px;
 }
 
-.certificationTitleSpan:empty:before {
+.certificationTitle:empty:before {
     content: 'Certification title';
 }
 
 /* ==================================================== */
 /* ================== ACHIEVEMENTS SECTION ================== */
 /* ==================================================== */
-/* .achiev {
-    margin-bottom: 15px;
-} */
-
-/* .achiev-label {
-    margin-bottom: 5px;
-    color: #3dbaf7;
-    margin-top: 15px;
-} */
-
 .achiev-group {
     font-size: 0.8rem;
 }
 
-.achievementDescSpan:empty:before {
+.achievementDesc:empty:before {
     content: 'Achievement description';
 }
 
@@ -536,12 +425,6 @@ li {
 .lang {
     margin-bottom: 15px;
 }
-
-/* .lang-label {
-    margin-bottom: 5px;
-    color: #3dbaf7;
-    margin-top: 15px;
-} */
 
 .lang-body {
     display: flex;
@@ -560,23 +443,23 @@ li {
     flex-direction: column;
 }
 
-.langHeaderSpan {
+.langHeader {
     margin-bottom: 3px;
 }
 
-.langHeaderSpan:empty:before {
+.langHeader:empty:before {
     content: 'Language';
     border-bottom: none;
 }
 
-.langLevelSpan {
+.langLevel {
     font-style: italic;
     font-size: 0.7rem;
     margin-bottom: 7px;
     color: #3dbaf7;
 }
 
-.langLevelSpan:empty:before {
+.langLevel:empty:before {
     content: 'Level';
     display: block;
     font-style: italic;

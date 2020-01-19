@@ -36,14 +36,14 @@ class ColorSubMenu extends Component {
           const { changeColor } = context;
           return (
             <div>
-              <button className="font-btn" onClick={this.showMenu}>
+              <button className="theme-btn " onClick={this.showMenu}>
                 <span className="tool-icon">✎</span>
                 <span className="tool-desc">Color</span>
               </button>
 
               {this.state.showMenu ? (
                 <div
-                  className="fontSubMenu"
+                  className="colorSubMenu"
                   ref={element => {
                     this.dropdownMenu = element;
                   }}

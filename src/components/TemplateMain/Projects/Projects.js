@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeContext } from "../../../contexts/ThemeContext";
+import ProjectsGroup from "./ProjectsGroup";
 
 class Projects extends React.Component {
   render() {
@@ -12,41 +13,12 @@ class Projects extends React.Component {
                 PROJECTS
               </div>
               <div className="projects-body">
-                <div className="project-group">
-                  <div className="editableDiv">
-                    <span
-                      className="projectTitleSpan"
-                      contentEditable="true"
-                      style={{
-                        fontSize: context.size3
-                      }}
-                    ></span>
-                  </div>
-
-                  <div className="editableDiv">
-                    <span
-                      className="projectDescSpan"
-                      contentEditable="true"
-                      style={{
-                        fontSize: context.size4
-                      }}
-                    ></span>
-                  </div>
-
-                  {/* <div>
-                    <textarea
-                      className="project-ul"
-                      max-rows="2"
-                      cols="37"
-                      placeholder="A full stack platform developed with React, Node.js, Mongoose and Puppeteer"
-                      maxLength="120"
-                      style={{
-                        fontFamily: context.font,
-                        fontSize: context.size4
-                      }}
-                    ></textarea>
-                  </div> */}
-                </div>
+                <ProjectsGroup></ProjectsGroup>
+                <ProjectsGroup></ProjectsGroup>
+                <ProjectsGroup></ProjectsGroup>
+                <ProjectsGroup></ProjectsGroup>
+                <ProjectsGroup></ProjectsGroup>
+                <ProjectsGroup></ProjectsGroup>
               </div>
             </div>
           );

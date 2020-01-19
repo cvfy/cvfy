@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeContext } from "../../../contexts/ThemeContext";
+import LanguagesGroup from "./LanguagesGroup";
 
 class Languages extends React.Component {
   render() {
@@ -12,85 +13,10 @@ class Languages extends React.Component {
                 LANGUAGES
               </div>
               <div className="lang-body">
-                <div className="lang-group">
-                  <div className="editableDiv language">
-                    <span
-                      className="langHeaderSpan"
-                      contentEditable="true"
-                      style={{
-                        fontSize: context.size3
-                      }}
-                    ></span>
-                    <span
-                      className="langLevelSpan"
-                      contentEditable="true"
-                      style={{
-                        color: context.color,
-                        fontSize: context.size4
-                      }}
-                    ></span>
-                  </div>
-                </div>
-
-                <div className="lang-group">
-                  <div className="editableDiv language">
-                    <span
-                      className="langHeaderSpan"
-                      contentEditable="true"
-                      style={{
-                        fontSize: context.size3
-                      }}
-                    ></span>
-                    <span
-                      className="langLevelSpan"
-                      contentEditable="true"
-                      style={{
-                        color: context.color,
-                        fontSize: context.size4
-                      }}
-                    ></span>
-                  </div>
-                </div>
-
-                <div className="lang-group">
-                  <div className="editableDiv language">
-                    <span
-                      className="langHeaderSpan"
-                      contentEditable="true"
-                      style={{
-                        fontSize: context.size3
-                      }}
-                    ></span>
-                    <span
-                      className="langLevelSpan"
-                      contentEditable="true"
-                      style={{
-                        color: context.color,
-                        fontSize: context.size4
-                      }}
-                    ></span>
-                  </div>
-                </div>
-
-                <div className="lang-group">
-                  <div className="editableDiv language">
-                    <span
-                      className="langHeaderSpan"
-                      contentEditable="true"
-                      style={{
-                        fontSize: context.size3
-                      }}
-                    ></span>
-                    <span
-                      className="langLevelSpan"
-                      contentEditable="true"
-                      style={{
-                        color: context.color,
-                        fontSize: context.size4
-                      }}
-                    ></span>
-                  </div>
-                </div>
+                <LanguagesGroup></LanguagesGroup>
+                <LanguagesGroup></LanguagesGroup>
+                <LanguagesGroup></LanguagesGroup>
+                <LanguagesGroup></LanguagesGroup>
               </div>
             </div>
           );

@@ -1,5 +1,7 @@
 import React from "react";
 import { ThemeContext } from "../../../contexts/ThemeContext";
+import AchievementGroup from "./AchievementGroup";
+
 class Achievements extends React.Component {
   render() {
     return (
@@ -11,17 +13,8 @@ class Achievements extends React.Component {
                 ACHIEVEMENTS
               </div>
               <div className="achiev-body">
-                <div className="achiev-group">
-                  <div className="editableDiv">
-                    <span
-                      className="achievementDescSpan"
-                      contentEditable="true"
-                      style={{
-                        fontSize: context.size3
-                      }}
-                    ></span>
-                  </div>
-                </div>
+                <AchievementGroup></AchievementGroup>
+                <AchievementGroup></AchievementGroup>
               </div>
             </div>
           );

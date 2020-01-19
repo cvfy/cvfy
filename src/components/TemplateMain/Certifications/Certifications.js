@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeContext } from "../../../contexts/ThemeContext";
+import CertificationGroup from "./CertificationGroup";
 
 class Certifications extends React.Component {
   render() {
@@ -12,17 +13,8 @@ class Certifications extends React.Component {
                 CERTIFICATIONS
               </div>
               <div className="cert-body">
-                <div className="cert-group">
-                  <div className="editableDiv">
-                    <span
-                      className="certificationTitleSpan"
-                      contentEditable="true"
-                      style={{
-                        fontSize: context.size4
-                      }}
-                    ></span>
-                  </div>
-                </div>
+                <CertificationGroup></CertificationGroup>
+                <CertificationGroup></CertificationGroup>
               </div>
             </div>
           );

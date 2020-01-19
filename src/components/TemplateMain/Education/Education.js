@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeContext } from "../../../contexts/ThemeContext";
+import EducationGroup from "./EducationGroup";
 
 class Education extends React.Component {
   render() {
@@ -12,94 +13,9 @@ class Education extends React.Component {
                 EDUCATION
               </div>
               <div className="education-body">
-                <div className="education-group">
-                  <div className="editableDiv">
-                    <span
-                      className="studyProgramSpan"
-                      contentEditable="true"
-                      style={{
-                        fontSize: context.size2
-                      }}
-                    ></span>
-                  </div>
-
-                  <div className="editableDiv">
-                    <span
-                      className="institutionSpan"
-                      contentEditable="true"
-                      style={{
-                        fontSize: context.size2
-                      }}
-                    ></span>
-                  </div>
-
-                  <div className="time-loc">
-                    <div className="period">
-                      <span
-                        className="monthSpan"
-                        style={{
-                          fontSize: context.size4
-                        }}
-                        contentEditable="true"
-                      ></span>
-                      <span
-                        className="dateDivider"
-                        style={{
-                          fontSize: context.size4
-                        }}
-                      >
-                        /
-                      </span>
-                      <span
-                        className="yearSpan"
-                        style={{
-                          fontSize: context.size4
-                        }}
-                        contentEditable="true"
-                      ></span>
-                      <span
-                        className="dateDivider"
-                        style={{
-                          fontSize: context.size4
-                        }}
-                      >
-                        -
-                      </span>
-                      <span
-                        className="monthSpan"
-                        style={{
-                          fontSize: context.size4
-                        }}
-                        contentEditable="true"
-                      ></span>
-                      <span
-                        className="dateDivider"
-                        style={{
-                          fontSize: context.size4
-                        }}
-                      >
-                        /
-                      </span>
-                      <span
-                        className="yearSpan"
-                        style={{
-                          fontSize: context.size4
-                        }}
-                        contentEditable="true"
-                      ></span>
-                    </div>
-
-                    <div className="location">
-                      <span
-                        className="place"
-                        style={{
-                          fontSize: context.size4
-                        }}
-                        contentEditable="true"
-                      ></span>
-                    </div>
-                  </div>
-                </div>
+                <EducationGroup></EducationGroup>
+                <EducationGroup></EducationGroup>
+                <EducationGroup></EducationGroup>
               </div>
             </div>
           );

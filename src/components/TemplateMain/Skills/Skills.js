@@ -1,5 +1,7 @@
 import React from "react";
 import { ThemeContext } from "../../../contexts/ThemeContext";
+import SkillsBox from "./SkillsBox";
+
 class Skills extends React.Component {
   render() {
     return (
@@ -12,83 +14,15 @@ class Skills extends React.Component {
               </div>
               <div className="skills-body">
                 <div className="skill-boxes">
-                  <div
-                    className="skill-box"
-                    style={{
-                      background: context.color,
-                      fontSize: context.size3
-                    }}
-                  >
-                    <span
-                      className="skillTextSpan"
-                      contentEditable="true"
-                    ></span>
-                  </div>
-
-                  <div
-                    className="skill-box"
-                    style={{
-                      background: context.color,
-                      fontSize: context.size3
-                    }}
-                  >
-                    <span
-                      className="skillTextSpan"
-                      contentEditable="true"
-                    ></span>
-                  </div>
-
-                  <div
-                    className="skill-box"
-                    style={{
-                      background: context.color,
-                      fontSize: context.size3
-                    }}
-                  >
-                    <span
-                      className="skillTextSpan"
-                      contentEditable="true"
-                    ></span>
-                  </div>
-
-                  <div
-                    className="skill-box"
-                    style={{
-                      background: context.color,
-                      fontSize: context.size3
-                    }}
-                  >
-                    <span
-                      className="skillTextSpan"
-                      contentEditable="true"
-                    ></span>
-                  </div>
-
-                  <div
-                    className="skill-box"
-                    style={{
-                      background: context.color,
-                      fontSize: context.size3
-                    }}
-                  >
-                    <span
-                      className="skillTextSpan"
-                      contentEditable="true"
-                    ></span>
-                  </div>
-
-                  <div
-                    className="skill-box"
-                    style={{
-                      background: context.color,
-                      fontSize: context.size3
-                    }}
-                  >
-                    <span
-                      className="skillTextSpan"
-                      contentEditable="true"
-                    ></span>
-                  </div>
+                  <SkillsBox></SkillsBox>
+                  <SkillsBox></SkillsBox>
+                  <SkillsBox></SkillsBox>
+                  <SkillsBox></SkillsBox>
+                  <SkillsBox></SkillsBox>
+                  <SkillsBox></SkillsBox>
+                  <SkillsBox></SkillsBox>
+                  <SkillsBox></SkillsBox>
+                  <SkillsBox></SkillsBox>
                 </div>
               </div>
             </div>

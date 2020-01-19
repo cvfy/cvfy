@@ -85,7 +85,9 @@
     color: rgb(43, 181, 185);
 }
 
-.font-btn:hover {}
+.font-btn {
+    padding-left: 0;
+}
 
 .download-btn {
     height: 60px;
@@ -148,7 +150,8 @@
 /* ========================================= */
 
 /* font sub-menu */
-.fontSubMenu {
+.fontSubMenu,
+.colorSubMenu {
     position: fixed;
     background: #2b3a42;
     top: 65px;
@@ -319,4 +322,145 @@
     text-align: center;
     font-size: 0.9rem;
     box-shadow: -5px 0 20px 5px rgba(0, 0, 0, .5);
+}
+
+/* Layout sub-menu */
+.layoutSubMenu {
+    position: fixed;
+    background: #2b3a42;
+    top: 65px;
+    left: 180px;
+    width: 870px;
+    height: 550px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: -5px 0 20px 5px rgba(0, 0, 0, .5);
+}
+
+.headerElements {
+    height: 65px;
+    border-bottom: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 150px;
+}
+
+.headerContainer {
+    direction: rtl;
+    cursor: pointer;
+}
+
+/* Hide the browser's default radio button */
+.headerContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    background-color: #eee;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* On mouse-over, add a grey background color */
+.headerContainer:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.headerContainer input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.headerContainer input:checked~.checkmark:after {
+    display: block;
+    position: absolute;
+    top: 4px;
+    right: 3.7px;
+}
+
+/* Style the indicator (dot/circle) */
+.headerContainer .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+
+.layoutToggle {
+    margin-top: 22px;
+}
+
+.layoutToggle .toggleButton {
+    border: 1px solid blue;
+    color: #fff;
+    background-color: blue;
+}
+
+.layoutToggle .active {
+    background-color: blue;
+    color: #fff;
+}
+
+.layoutCV {
+    margin: 2rem 3rem;
+    background: #fff center center;
+    height: 94.334625mm;
+    width: 66.70125mm;
+}
+
+.dndText {
+    color: #fff;
+    position: relative;
+    top: -391px;
+    left: 33px;
+}
+
+.checkedInput {
+    position: relative;
+    left: -24.33px;
+}
+
+.dndContainer {
+    width: 480px;
+    height: 320px;
+    background: #0000004d;
+    position: relative;
+    bottom: 370px;
+    left: 335px;
+    display: grid;
+    grid-template-columns: 31% 31% 31%;
+    grid-template-rows: 40px 40px 40px;
+    grid-gap: 6px;
+    justify-content: space-around;
+    padding-top: 7px;
+    border-radius: 5px;
+    padding: 12px;
+}
+
+.dndSection {
+    background: grey;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
