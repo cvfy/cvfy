@@ -16,7 +16,6 @@ const App = () => {
   return (
     <div className="MainPage">
       <Navbar />
-      
       <Jumbotron />
       <CV_Templates />
       <Footer />

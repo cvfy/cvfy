@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import JumboPic from '../images/JumboPic2.png'
-
 
 const Jumbotron = () => {
 

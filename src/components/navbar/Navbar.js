@@ -25,7 +25,7 @@ const Navbar = (props) => {
 
   return (
     <>
-      <NavBar style={barAnimation}>
+      <nav style={barAnimation}>
         <div className="FlexContainer">
           <Brand />
           <NavLinks style={linkAnimation}>
@@ -41,7 +41,7 @@ const Navbar = (props) => {
             />
           </div>
         </div>
-      </NavBar>
+      </nav>
       <CollapseMenu 
         navbarState={navbarState} 
         handleNavbar={handleNavbar}
@@ -52,17 +52,18 @@ const Navbar = (props) => {
 
 export default Navbar
 
-const NavBar = styled(animated.nav)`
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: white;
-  box-shadow: 2px 2px 2px 2px rgba(34,36,38,.15);
-  z-index: 1;
-  font-size: 1.4rem;
+// const NavBar = styled(animated.nav)`
+//   position: fixed;
+//   width: 100%;
+//   top: 0;
+//   left: 0;
+//   background: white;
+//   box-shadow: 2px 2px 2px 2px rgba(34,36,38,.15);
+//   z-index: 10;
+//   font-size: 1.4rem;
 
-`;
+
+// `;
 
 // const FlexContainer = styled.div`
 //   max-width: 120rem;
@@ -118,11 +119,3 @@ const NavLinks = styled(animated.ul)`
    
   }
 `;
-
-// const BurgerWrapper = styled.div`
-//   margin: auto 0;
-
-//   @media (min-width: 769px) {
-//     display: none;
-//   }
-// `;
