@@ -1,22 +1,13 @@
 import React from "react";
-import { ThemeContext } from "../../../contexts/ThemeContext";
+import { CoverLetterContext } from "../../contexts/CoverLetterContext";
 
-class TemplateHeader extends React.Component {
+class CoverLetterHeader extends React.Component {
   render() {
     return (
-      <ThemeContext.Consumer>
+      <CoverLetterContext.Consumer>
         {context => {
           return (
             <div className="header-inner">
-              <div className="photo">
-                <img
-                  src="./dogFather.png"
-                  alt="dog"
-                  height="110px"
-                  width="110px"
-                  className="profile-photo"
-                />
-              </div>
               <div className="introduction">
                 <div className="name" style={{ fontFamily: context.font }}>
                   BABYLONIAN DOG
@@ -45,9 +36,9 @@ class TemplateHeader extends React.Component {
             </div>
           );
         }}
-      </ThemeContext.Consumer>
+      </CoverLetterContext.Consumer>
     );
   }
 }
 
-export default TemplateHeader;
+export default CoverLetterHeader;

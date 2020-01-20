@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ThemeContext } from "../../../contexts/ThemeContext";
+import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 
 class FontSubMenu extends Component {
   constructor() {
@@ -31,7 +31,7 @@ class FontSubMenu extends Component {
 
   render() {
     return (
-      <ThemeContext.Consumer>
+      <CoverLetterContext.Consumer>
         {context => {
           const { changeFontFamily } = context;
           return (
@@ -111,7 +111,7 @@ class FontSubMenu extends Component {
             </div>
           );
         }}
-      </ThemeContext.Consumer>
+      </CoverLetterContext.Consumer>
     );
   }
 }

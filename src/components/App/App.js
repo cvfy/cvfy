@@ -1,16 +1,16 @@
 import React from "react";
 import "./App.css";
-import TemplateNav from "../TemplateNav/TemplateNav";
-import TemplateMain from "../TemplateMain/TemplateMain";
-import ThemeContextProvider from "../../contexts/ThemeContext";
+import CoverLetterNav from "../CoverLetterNav/CoverLetterNav";
+import CoverLetterMain from "../CoverLetterMain/CoverLetterMain";
+import ThemeContextProvider from "../../contexts/CoverLetterContext";
 
 class App extends React.Component {
   render() {
     return (
       <ThemeContextProvider>
         <div className="App">
-          <TemplateNav></TemplateNav>
-          <TemplateMain></TemplateMain>
+          <CoverLetterNav></CoverLetterNav>
+          <CoverLetterMain></CoverLetterMain>
         </div>
       </ThemeContextProvider>
     );

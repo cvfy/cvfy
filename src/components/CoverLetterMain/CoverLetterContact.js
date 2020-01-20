@@ -1,10 +1,10 @@
 import React from "react";
-import { ThemeContext } from "../../../contexts/ThemeContext";
+import { CoverLetterContext } from "../../contexts/CoverLetterContext";
 
-class TemplateContact extends React.Component {
+class CoverLetterContact extends React.Component {
   render() {
     return (
-      <ThemeContext.Consumer>
+      <CoverLetterContext.Consumer>
         {context => {
           return (
             <div className="contact">
@@ -83,9 +83,9 @@ class TemplateContact extends React.Component {
             </div>
           );
         }}
-      </ThemeContext.Consumer>
+      </CoverLetterContext.Consumer>
     );
   }
 }
 
-export default TemplateContact;
+export default CoverLetterContact;

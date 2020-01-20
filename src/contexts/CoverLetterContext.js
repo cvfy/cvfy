@@ -1,8 +1,8 @@
 import React, { Component, createContext } from "react";
 
-export const ThemeContext = createContext();
+export const CoverLetterContext = createContext();
 
-class ThemeContextProvider extends Component {
+class CoverLetterContextProvider extends Component {
   state = {
     color: "",
     font: "'Open Sans', sans-serif",
@@ -77,7 +77,7 @@ class ThemeContextProvider extends Component {
 
   render() {
     return (
-      <ThemeContext.Provider
+      <CoverLetterContext.Provider
         value={{
           ...this.state,
           changeColor: this.changeColor,
@@ -87,9 +87,9 @@ class ThemeContextProvider extends Component {
         }}
       >
         {this.props.children}
-      </ThemeContext.Provider>
+      </CoverLetterContext.Provider>
     );
   }
 }
 
-export default ThemeContextProvider;
+export default CoverLetterContextProvider;

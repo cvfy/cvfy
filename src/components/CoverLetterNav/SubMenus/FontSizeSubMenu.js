@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ThemeContext } from "../../../contexts/ThemeContext";
+import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 
 class FontSizeSubMenu extends Component {
   constructor() {
@@ -31,7 +31,7 @@ class FontSizeSubMenu extends Component {
 
   render() {
     return (
-      <ThemeContext.Consumer>
+      <CoverLetterContext.Consumer>
         {context => {
           const { handleFontSize } = context;
           return (
@@ -76,7 +76,7 @@ class FontSizeSubMenu extends Component {
             </div>
           );
         }}
-      </ThemeContext.Consumer>
+      </CoverLetterContext.Consumer>
     );
   }
 }

@@ -1,16 +1,16 @@
 import React from "react";
-import "./TemplateNav.css";
-import { ThemeContext } from "../../contexts/ThemeContext";
+import "../../css/CoverLetterNav.css";
+import { CoverLetterContext } from "../../contexts/CoverLetterContext";
 import FontSubMenu from "./SubMenus/FontSubMenu";
 import ColorSubMenu from "./SubMenus/ColorSubMenu";
 import FontSizeSubMenu from "./SubMenus/FontSizeSubMenu";
 import LayoutSubMenu from "./SubMenus/LayoutSubMenu";
 import TemplatesSubMenu from "./SubMenus/TemplatesSubMenu";
 
-class TemplateNav extends React.Component {
+class CoverLetterNav extends React.Component {
   render() {
     return (
-      <ThemeContext.Consumer>
+      <CoverLetterContext.Consumer>
         {context => {
           return (
             <div className="CvMenu">
@@ -56,9 +56,9 @@ class TemplateNav extends React.Component {
             </div>
           );
         }}
-      </ThemeContext.Consumer>
+      </CoverLetterContext.Consumer>
     );
   }
 }
 
-export default TemplateNav;
+export default CoverLetterNav;

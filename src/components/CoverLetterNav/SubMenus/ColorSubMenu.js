@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ThemeContext } from "../../../contexts/ThemeContext";
+import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 
 class ColorSubMenu extends Component {
   constructor() {
@@ -31,7 +31,7 @@ class ColorSubMenu extends Component {
 
   render() {
     return (
-      <ThemeContext.Consumer>
+      <CoverLetterContext.Consumer>
         {context => {
           const { changeColor } = context;
           return (
@@ -115,7 +115,7 @@ class ColorSubMenu extends Component {
             </div>
           );
         }}
-      </ThemeContext.Consumer>
+      </CoverLetterContext.Consumer>
     );
   }
 }
