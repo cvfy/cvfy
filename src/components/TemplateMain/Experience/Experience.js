@@ -14,8 +14,6 @@ class Experience extends React.Component {
               </div>
               <div className="experience-body">
                 <ExperienceGroup></ExperienceGroup>
-                <ExperienceGroup></ExperienceGroup>
-                <ExperienceGroup></ExperienceGroup>
               </div>
             </div>
           );

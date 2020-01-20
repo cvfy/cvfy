@@ -33,7 +33,6 @@ class FontSubMenu extends Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { changeFontFamily } = context;
           return (
             <div>
               <button className="template-btn" onClick={this.showMenu}>

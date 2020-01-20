@@ -1,4 +1,10 @@
 /* ================== GLOBAL STYLE ================== */
+.alignContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #container {
     margin: 8rem 12rem;
     background: #fff center center;
