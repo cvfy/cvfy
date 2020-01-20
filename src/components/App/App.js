@@ -11,6 +11,7 @@ import '../Footer.css'
 import GlobalStyle from '../../styles/Global'
 import CV_Dashboard from '../CV_Dashboard';
 import Cover_Dashboard from '../Cover_Dashboard';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const App = () => {
 

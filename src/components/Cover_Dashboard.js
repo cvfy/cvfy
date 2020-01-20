@@ -16,7 +16,7 @@ const Cover_Dashboard = () => {
       <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-0s"><div className="AddCV"><img className="ADD" src={ADD2} /><p>ADD New Cover Letter</p></div></ScrollAnimation>
       <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-1s"><img src={Cover2} /></ScrollAnimation>
       <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-2s"><img src={Cover3} /></ScrollAnimation>
-      <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-0s"><img src={Cover4} /></ScrollAnimation>
+      <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-3s"><img src={Cover4} /></ScrollAnimation>
   </div>
   );
 }
