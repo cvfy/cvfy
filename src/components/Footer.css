@@ -1,66 +1,77 @@
-.row {
+.FooterContainer {
+  width: 100%;
+  height: 100%;
+}
+.FooterUpperBorder {
+  width: 100%;
+  height: 40px;
+  background-color: rgb(239, 239, 247);
+  box-shadow: 2px 2px 2px 2px rgba(34,36,38,.15);
+}
+.FirstFooterRow {
   width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   justify-content: center;
   color: black;
-  align-items: center;
   margin: 30px 0;
 }
 .text-justify {
   text-align: left;
 }
 
-.AboutSection {
+.FooterAboutSection {
   width: 200px;
   height: 100%;
   margin: 20px 50px;
   padding: 0;
 }
-.CategoriesSection {
+.FooterCategoriesSection {
   width: 300px;
   height: 100%;
   margin: 20px 50px;
   padding: 0;
   text-align: justify;
 }
-ul {
+.FooterContainer ul {
   padding: 0;
 }
-ul li a {
+.FooterContainer ul li a {
   color: black;
 }
-.LinksSection {
+.FooterContainer .LinksSection {
   width: 200px;
   height: 100%;
   margin: 20px 50px;
   padding: 0;
 }
-.Copyright {
+.FooterContainer .Copyright {
   width: 400px;
   margin: 0 30px;
 }
-.SocialMedia {
+.FooterContainer .SocialMedia {
   width: 300px;
   margin: 0 30px;
   color: black;
 }
-.copyright-text {
+.FooterContainer .copyright-text {
   color: black;
 }
-.row2 {
+.FooterContainer .SecondFooterRow {
   background-color: rgb(239, 239, 247);
   width: 100%;
-  height: 100px;
+  height: 70px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   color: black;
   align-items: center;
   margin: 0;
+  box-shadow: 2px 2px 2px 2px rgba(34,36,38,.15);
 }
-.social-icons {
+.FooterContainer .social-icons {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -68,22 +79,27 @@ ul li a {
   margin: 0 30px;
   height: 100%;
 }
-.social-icons li {
+.FooterContainer .social-icons li {
   height: 45px;
   display: flex;
   align-content: center;
+  margin-top: 10px;
 }
-.social-icons li:hover {
+.FooterContainer .social-icons li:hover {
   border-bottom: 2px solid black;
   padding-bottom: 5px;
 }
 
-.socialIcon {
+.FooterContainer .socialIcon {
   height: 35px;
   align-self: center;
 }
-h6 {
+.FooterContainer h6 {
   margin: 0;
   padding: 0;
   font-size: 2rem;
 }
+.FooterContainer ul li {
+  list-style: none;
+}
+
