@@ -1,5 +1,4 @@
 /* BURGER_MENU STYLE */
-
 .wrapper {
   position: relative;
   padding-top: 0.7rem;
@@ -39,6 +38,9 @@
   justify-content: center;
   color: black;
 }
+h1 {
+  font-size: 2.5rem;
+}
 
 /* COLLAPSE_WRAPPER STYLE */
 
@@ -52,12 +54,25 @@
 ul {
   list-style-type: none;
   padding: 2rem 1rem 2rem 2rem;
+  height: 40px;
+padding: 0;
+margin-top: 5px;
 }
 ul li {
   transition: all 300ms linear 0s;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: white;
 }
 
 ul li a {
+  color: black!important;
   font-size: 1.4rem;
   line-height: 2;
   color: #dfe6e9;
@@ -65,9 +80,9 @@ ul li a {
   text-decoration: none;
   cursor: pointer;
 }
-ul li a:hover {
-  color: #fdcb6e;
-  border-bottom: 1px solid #fdcb6e;
+ul.minMenu li a:hover {
+  color: #2438f1!important; 
+  border-bottom: 1px solid #2438f1;
 }
 
 /* NAVBAR STYLE */
@@ -79,6 +94,7 @@ ul li a:hover {
   padding: 0 2rem;
   justify-content: space-between;
   height: 5rem;
+  z-index: 10;
 }
 div.BurgerWrapper {
   margin: auto 0;
@@ -87,14 +103,12 @@ div.BurgerWrapper {
   div.BurgerWrapper {
     display: none;
   }
+  ul.minMenu {
+    display: none;
+  }
 }
-nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: white;
-  box-shadow: 2px 2px 2px 2px rgba(34,36,38,.15);
-  z-index: 10;
-  font-size: 1.4rem;
+
+@media (max-width: 768px) {
+  ul div.DropMenu {display: none}
+ 
 }

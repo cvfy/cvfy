@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
+import DropdownMenu from './DropdownMenu/DropdownMenu'
 
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
-import Image from '../../images/user.png'
-
 const Navbar = (props) => {
   const [ navbarState, setNavbarState ] = useState(false)
   
@@ -25,14 +24,14 @@ const Navbar = (props) => {
 
   return (
     <>
-      <nav style={barAnimation}>
+      <NavBar>
         <div className="FlexContainer">
           <Brand />
           <NavLinks style={linkAnimation}>
             <div><a href="/">CV Templates</a></div>
             <div><a href="/">Cover Letter Templates</a></div>
             <div><a href="/"><b>My Documents</b></a></div>
-            <div><a href="/"><img src={Image} /></a></div>
+            <div className="DropMenu"><DropdownMenu /></div>
           </NavLinks>
           <div className="BurgerWrapper">
             <BurgerMenu
@@ -41,7 +40,7 @@ const Navbar = (props) => {
             />
           </div>
         </div>
-      </nav>
+      </NavBar>
       <CollapseMenu 
         navbarState={navbarState} 
         handleNavbar={handleNavbar}
@@ -52,27 +51,17 @@ const Navbar = (props) => {
 
 export default Navbar
 
-// const NavBar = styled(animated.nav)`
-//   position: fixed;
-//   width: 100%;
-//   top: 0;
-//   left: 0;
-//   background: white;
-//   box-shadow: 2px 2px 2px 2px rgba(34,36,38,.15);
-//   z-index: 10;
-//   font-size: 1.4rem;
+const NavBar = styled(animated.nav)`
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: white;
+  box-shadow: 2px 2px 2px 2px rgba(34,36,38,.15);
+  z-index: 1;
+  font-size: 1.4rem;
 
-
-// `;
-
-// const FlexContainer = styled.div`
-//   max-width: 120rem;
-//   display: flex;
-//   margin: auto;
-//   padding: 0 2rem;;
-//   justify-content: space-between;
-//   height: 5rem;
-// `;
+`;
 
 const NavLinks = styled(animated.ul)`
   justify-self: end;
@@ -109,12 +98,13 @@ const NavLinks = styled(animated.ul)`
   height: 20px;
 }
     &:hover {
-      color: #8784E7;
-      
+      color: #2438f1;
+      border-bottom: 1px solid #2438f1;
     }
 
     @media (max-width: 768px) {
       display: none;
+     
     }
    
   }

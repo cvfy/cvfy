@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { useSpring, animated } from 'react-spring';
+import DropdownMenu from './DropdownMenu/DropdownMenu';
 
 const CollapseMenu = (props) => {
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
@@ -15,11 +16,11 @@ const CollapseMenu = (props) => {
         }).interpolate(openValue => `translate3d(0, ${openValue}px, 0`),
       }}
       >
-        <ul>
+        <ul className="minMenu">
           <li><a href="/" onClick={props.handleNavbar}>CV Templates</a></li>
           <li><a href="/" onClick={props.handleNavbar}>Cover Letter Templates</a></li>
           <li><a href="/" onClick={props.handleNavbar}>My Documents</a></li>
-          <li><a href="/" onClick={props.handleNavbar}>My Account</a></li>
+          <li><div><DropdownMenu /></div></li>
         </ul>
       </ CollapseWrapper>
     );
@@ -35,6 +36,4 @@ const CollapseWrapper = styled(animated.div)`
   top: 4.5rem;
   left: 0;
   right: 0;
-  z-index: 100;
 `;
-

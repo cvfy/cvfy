@@ -10,11 +10,13 @@ const Footer = () => {
 
   return (
       <div className="FooterContainer">
+        <div className="FooterUpperBorder"></div>
     <footer class="site-footer">
       <div class="container">
-        <div class="row">
-        <ScrollAnimation animateIn="fadeInLeft delay-0s"><div class="AboutSection">
-            <h6>About</h6>
+        <div class="FirstFooterRow">
+        <ScrollAnimation animateIn="fadeInLeft delay-0s">
+          <div class="FooterAboutSection">
+            <h6>ABOUT</h6>
             <br />
             <hr />
             <br />
@@ -22,7 +24,7 @@ const Footer = () => {
           </div>
           </ScrollAnimation>
 
-          <ScrollAnimation animateIn="fadeIn delay-0s"><div class="CategoriesSection">
+          <ScrollAnimation animateIn="fadeIn delay-0s"><div class="FooterCategoriesSection">
             <h6>CAREER RESOURCES</h6>
             <br />
             <hr />
@@ -38,7 +40,7 @@ const Footer = () => {
 
           <ScrollAnimation animateIn="fadeInRight delay-0s">
             <div class="LinksSection">
-            <h6>Quick Links</h6>
+            <h6>QUICK LINKS</h6>
             <br />
             <hr />
             <br />
@@ -54,18 +56,18 @@ const Footer = () => {
         </div>
         <hr />
       </div>
-      <div class="row2">
+      <div class="SecondFooterRow">
     <div class="Copyright">
-           <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by     <a href="#">CV|FY</a>.
-            </p>
+    <ScrollAnimation animateIn="bounceInUp delay-0s"><p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by     <a href="#">CV|FY</a>.
+            </p></ScrollAnimation>
           </div>
           <div class="SocialMedia">
-            <ul class="social-icons">
+          <ScrollAnimation animateIn="bounceInUp delay-0s"><ul class="social-icons">
               <li><a class="facebook" href="#"><img className="socialIcon"  src={Linkedin} alt="icon" /></a></li>
               <li><a class="twitter" href="#"><img className="socialIcon" src={Facebook} alt="icon" /></a></li>
               <li><a class="dribbble" href="#"><img className="socialIcon" src={Twitter} alt="icon" /></a></li>
               <li><a class="linkedin" href="#"><img className="socialIcon" src={Instagram} alt="icon" /></a></li>   
-            </ul>
+            </ul></ScrollAnimation>
           </div>
       </div>
 </footer>
