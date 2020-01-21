@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
-import DropdownMenu from './DropdownMenu'
+import DropdownMenu from './DropdownMenu/DropdownMenu'
 
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
-import Image from '../../images/user.png'
-
 const Navbar = (props) => {
   const [ navbarState, setNavbarState ] = useState(false)
   
@@ -33,7 +31,7 @@ const Navbar = (props) => {
             <div><a href="/">CV Templates</a></div>
             <div><a href="/">Cover Letter Templates</a></div>
             <div><a href="/"><b>My Documents</b></a></div>
-            <DropdownMenu />
+            <div className="DropMenu"><DropdownMenu /></div>
           </NavLinks>
           <div className="BurgerWrapper">
             <BurgerMenu
@@ -64,15 +62,6 @@ const NavBar = styled(animated.nav)`
   font-size: 1.4rem;
 
 `;
-
-// const FlexContainer = styled.div`
-//   max-width: 120rem;
-//   display: flex;
-//   margin: auto;
-//   padding: 0 2rem;;
-//   justify-content: space-between;
-//   height: 5rem;
-// `;
 
 const NavLinks = styled(animated.ul)`
   justify-self: end;
@@ -109,21 +98,14 @@ const NavLinks = styled(animated.ul)`
   height: 20px;
 }
     &:hover {
-      color: #fdcb6e;
-      border-bottom: 1px solid #fdcb6e;
+      color: #2438f1;
+      border-bottom: 1px solid #2438f1;
     }
 
     @media (max-width: 768px) {
       display: none;
+     
     }
    
   }
 `;
-
-// const BurgerWrapper = styled.div`
-//   margin: auto 0;
-
-//   @media (min-width: 769px) {
-//     display: none;
-//   }
-// `;

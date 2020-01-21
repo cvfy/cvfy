@@ -9,9 +9,8 @@
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-dropdown": "^1.6.4",
     "react-scripts": "3.3.0",
-    "react-simple-dropdown": "^3.2.3",
+    "react-animate-on-scroll": "^2.1.5",
     "react-spring": "^8.0.27",
     "styled-components": "^5.0.0"
   },

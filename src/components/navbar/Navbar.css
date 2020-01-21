@@ -39,6 +39,9 @@
   justify-content: center;
   color: black;
 }
+h1 {
+  font-size: 2.5rem;
+}
 
 /* COLLAPSE_WRAPPER STYLE */
 
@@ -52,12 +55,25 @@
 ul {
   list-style-type: none;
   padding: 2rem 1rem 2rem 2rem;
+  height: 40px;
+padding: 0;
+margin-top: 5px;
 }
 ul li {
   transition: all 300ms linear 0s;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: white;
 }
 
 ul li a {
+  color: black!important;
   font-size: 1.4rem;
   line-height: 2;
   color: #dfe6e9;
@@ -65,9 +81,9 @@ ul li a {
   text-decoration: none;
   cursor: pointer;
 }
-ul li a:hover {
-  color: #fdcb6e;
-  border-bottom: 1px solid #fdcb6e;
+ul.minMenu li a:hover {
+  color: #2438f1!important; 
+  border-bottom: 1px solid #2438f1;
 }
 
 /* NAVBAR STYLE */
@@ -87,4 +103,13 @@ div.BurgerWrapper {
   div.BurgerWrapper {
     display: none;
   }
+  ul.minMenu {
+    display: none;
+  }
+
+}
+
+@media (max-width: 768px) {
+  ul div.DropMenu {display: none}
+ 
 }
