@@ -1,14 +1,13 @@
 import React from 'react';
-import Navbar from '../navbar/Navbar';
-import '../navbar/Navbar.css'
 
 import GlobalStyle from '../../styles/Global'
+import DropdownMenu from '../DropdownMenu/DropdownMenu';
 
 const App = () => {
 
   return (
     <>
-      <Navbar 
+      <DropdownMenu 
       />
       <GlobalStyle />
     </>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './DropdownMenu.css'
-import Image from '../../../images/user.png'
+import Image from '../../images/user.png'
 
 const DropdownMenu = () => {
 
