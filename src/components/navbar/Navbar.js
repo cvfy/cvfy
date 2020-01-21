@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
+import DropdownMenu from './DropdownMenu'
 
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
@@ -32,7 +33,7 @@ const Navbar = (props) => {
             <div><a href="/">CV Templates</a></div>
             <div><a href="/">Cover Letter Templates</a></div>
             <div><a href="/"><b>My Documents</b></a></div>
-            <div><a href="/"><img src={Image} /></a></div>
+            <DropdownMenu />
           </NavLinks>
           <div className="BurgerWrapper">
             <BurgerMenu
