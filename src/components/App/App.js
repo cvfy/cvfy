@@ -6,11 +6,12 @@ import DropdownMenu from '../DropdownMenu/DropdownMenu';
 const App = () => {
 
   return (
-    <>
+    <div style={{padding: "20px"}}>
       <DropdownMenu 
       />
       <GlobalStyle />
-    </>
+      </div>
+
   );
 }
 
