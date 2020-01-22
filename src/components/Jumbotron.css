@@ -22,7 +22,7 @@
     height: 130px;
 }
 .ProfilePicContainer {
-width: calc(100%/3);
+width: 50%;
 height: 100%;
 display: flex;
 flex-direction: column;
@@ -39,6 +39,27 @@ color: white;
 }
 .JumboPic img {
     width: 350px;
+}
+.ProfileData {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.ProfileMainData {
+    height: 56%;
+    width: 80%;
+    border: 5px solid white;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px rgba(34,36,38,.15);
+}
+.ProfileMainDataSmall {
+    height: 28%;
+    width: 80%;
+    border: 5px solid white;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px rgba(34,36,38,.15);
 }
 .JumboText {
     width: 50%;

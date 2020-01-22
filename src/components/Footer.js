@@ -58,16 +58,17 @@ const Footer = () => {
       </div>
       <div class="SecondFooterRow">
     <div class="Copyright">
-    <ScrollAnimation animateIn="bounceInUp delay-0s"><p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by     <a href="#">CV|FY</a>.
-            </p></ScrollAnimation>
+    <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by     <a href="#">CV|FY</a>.
+            </p>
           </div>
           <div class="SocialMedia">
-          <ScrollAnimation animateIn="bounceInUp delay-0s"><ul class="social-icons">
-              <li><a class="facebook" href="#"><img className="socialIcon"  src={Linkedin} alt="icon" /></a></li>
+          <ul class="social-icons">
+          <ScrollAnimation animateIn="bounceInRight flex"><li><a class="facebook" href="#"><img className="socialIcon"  src={Linkedin} alt="icon" /></a></li>
               <li><a class="twitter" href="#"><img className="socialIcon" src={Facebook} alt="icon" /></a></li>
               <li><a class="dribbble" href="#"><img className="socialIcon" src={Twitter} alt="icon" /></a></li>
               <li><a class="linkedin" href="#"><img className="socialIcon" src={Instagram} alt="icon" /></a></li>   
-            </ul></ScrollAnimation>
+            </ScrollAnimation>
+            </ul>
           </div>
       </div>
 </footer>
