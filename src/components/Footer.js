@@ -62,7 +62,7 @@ const Footer = () => {
             </p></ScrollAnimation>
           </div>
           <div class="SocialMedia">
-          <ScrollAnimation animateIn="bounceInUp delay-0s"><ul class="social-icons">
+          <ScrollAnimation animateIn="bounceInRight delay-0s"><ul class="social-icons">
               <li><a class="facebook" href="#"><img className="socialIcon"  src={Linkedin} alt="icon" /></a></li>
               <li><a class="twitter" href="#"><img className="socialIcon" src={Facebook} alt="icon" /></a></li>
               <li><a class="dribbble" href="#"><img className="socialIcon" src={Twitter} alt="icon" /></a></li>
