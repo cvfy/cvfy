@@ -54,7 +54,7 @@ const Footer = () => {
           </div>
           </ScrollAnimation>
         </div>
-        <hr />
+        {/* <hr /> */}
       </div>
       <div class="SecondFooterRow">
     <div class="Copyright">

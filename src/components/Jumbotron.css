@@ -18,6 +18,12 @@
   align-items: center;
   margin-bottom: 20px;
 }
+.ProfilePic:hover {
+    border: 5px solid whitesmoke;
+}
+.ProfilePic:hover img {
+opacity: 0.5;
+}
 
 .ProfilePic img {
   height: 130px;
