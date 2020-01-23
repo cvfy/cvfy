@@ -47,7 +47,6 @@ class CoverLetterHeader extends React.Component {
                       }}
                     ></span>
                   </div>
-
                   <div className="editableHeaderDiv">
                     <span
                       className="editDate"

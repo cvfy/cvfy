@@ -15,7 +15,6 @@ class CoverLetterNav extends React.Component {
           return (
             <div className="CvMenu">
               <span className="logo-template">CVFY</span>
-
               <div className="design">
                 <div className="tool-label">Design</div>
                 <div className="tools">
@@ -26,7 +25,6 @@ class CoverLetterNav extends React.Component {
                   <TemplatesSubMenu></TemplatesSubMenu>
                 </div>
               </div>
-
               <div className="download">
                 <button className="download-btn" onClick={this.doc}>
                   <div className="downloadDiv">
@@ -35,7 +33,6 @@ class CoverLetterNav extends React.Component {
                   </div>
                 </button>
               </div>
-
               <div className="my-documents">
                 <button className="my-docs-btn">
                   <div className="docsDiv">
@@ -43,7 +40,6 @@ class CoverLetterNav extends React.Component {
                   </div>
                 </button>
               </div>
-
               <div className="template-menu">
                 <button className="template-menu-btn">
                   <div className="temp-menu">
