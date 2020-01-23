@@ -1,7 +1,6 @@
 import React from "react";
 import "../../css/CoverLetterMain.css";
 import CoverLetterHeader from "./CoverLetterHeader";
-import CoverLetterContact from "./CoverLetterContact";
 import CoverLetterBody from "./CoverLetterBody";
 import { CoverLetterContext } from "../../contexts/CoverLetterContext";
 
@@ -17,7 +16,6 @@ class CoverLetterMain extends React.Component {
                 style={{ fontFamily: context.font, fontSize: context.size3 }}
               >
                 <CoverLetterHeader></CoverLetterHeader>
-                <CoverLetterContact></CoverLetterContact>
                 <div className="wrap">
                   <CoverLetterBody></CoverLetterBody>
                 </div>

@@ -6,26 +6,13 @@
 }
 
 #container {
-    margin: 8rem 12rem;
+    width: 892.5px !important;
+    min-height: 1263px !important;
     background: #fff center center;
-    height: 297mm;
-    width: 210mm;
-}
-
-.wrap {
-    display: flex;
-    padding-left: 37.5px;
-    padding-right: 27px;
-}
-
-.left {
-    width: 100%;
-}
-
-.right {
-    width: 100%;
-    padding-left: 37.5px;
-    padding-right: 27px;
+    margin-bottom: 40rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10rem;
 }
 
 .editableDiv {
@@ -33,36 +20,14 @@
     word-break: "break-word";
 }
 
-.dateDivider {
-    margin: 0 5px;
-}
-
-.month:empty:before,
-.year:empty:before,
-.place:empty:before,
-.task:empty:before,
-.role:empty:before,
-.company:empty:before,
 .title:empty:before,
-.summary:empty:before,
-.studyProgram:empty:before,
-.institution:empty:before,
-.projectTitle:empty:before,
-.projectDesc:empty:before,
-.certificationTitle:empty:before,
-.achievementDesc:empty:before,
-.langHeader:empty:before {
+.to:empty:before,
+.company:empty:before,
+.editDate:empty:before,
+.coverLetterBody:empty:before {
     color: #808080;
     display: block;
     border-bottom: 1px dotted #808080;
-    font-style: italic;
-}
-
-.section-label {
-    margin-bottom: 5px;
-    color: #3dbaf7;
-    font-weight: 600;
-    font-size: 1.2rem;
 }
 
 *:focus {
@@ -72,17 +37,15 @@
 /* ==================================================== */
 /* ================== HEADER SECTION ================== */
 /* ==================================================== */
+.header-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 15px;
+}
+
 .header-inner {
     display: flex;
-}
-
-.photo {
-    margin: 19px 10px 0 20px;
-}
-
-.profile-photo {
-    border-radius: 50%;
-    border: 1px solid gray;
 }
 
 .title {
@@ -91,7 +54,7 @@
 
 .introduction {
     width: 100%;
-    margin-left: 10px;
+    margin-left: 2rem;
     margin-bottom: 3px;
 }
 
@@ -103,6 +66,7 @@
 .title {
     font-size: 1.3rem;
     color: #414242;
+    margin-bottom: 1.5rem;
 }
 
 .title:empty:before {
@@ -115,18 +79,51 @@
     max-width: 8em;
 }
 
-.summary {
+.to {
     padding-top: 5px;
     font-size: 0.8rem;
     max-width: inherit;
+    font-style: italic;
 }
 
-.summary:empty:before {
-    content: "Short engaging pitch about yourself";
+.to:empty:before {
+    content: "To";
     border-bottom: none;
+    font-style: none;
 }
 
-.summary:empty:hover:before {
+.company {
+    padding-top: 5px;
+    font-size: 1.3rem;
+    max-width: inherit;
+    font-weight: bold;
+}
+
+.company:empty:before {
+    content: "Company Details";
+    border-bottom: none;
+    color: black;
+}
+
+.company:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 17em;
+}
+
+.editDate {
+    padding-top: 5px;
+    font-size: 1.3rem;
+    max-width: inherit;
+    font-weight: bold;
+}
+
+.editDate:empty:before {
+    content: "22 Januar, 2020";
+    border-bottom: none;
+    font-style: italic;
+}
+
+.editDate:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 17em;
 }
@@ -135,36 +132,19 @@
 /* ================== CONTACT SECTION ================== */
 /* ==================================================== */
 .contact {
-    background-color: #d3d3d382;
-    margin-bottom: 15px;
-    padding-left: 37.5px;
+    padding-right: 37.5px;
     font-size: 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 90px;
+    height: 100%;
 }
 
-.contact-row-1,
-.contact-row-2,
-.contact-row-3 {
-    display: flex;
-    flex: 0 50%;
-    margin-top: 10px;
-}
-
-.contact-row-3 {
-    margin-bottom: 10px;
-}
-
-.contact-1,
-.contact-2,
-.contact-3,
-.contact-4,
-.contact-5,
-.contact-6 {
+.contactGroup {
     flex-grow: 1;
     flex: 0 50%;
+    padding-bottom: 5px;
+    direction: rtl;
 }
 
 .iconeColor {
@@ -172,7 +152,7 @@
 }
 
 .user-contact {
-    margin-left: 5px;
+    margin-right: 10px;
 }
 
 .userEmail:empty:before {
@@ -236,242 +216,68 @@
 }
 
 /* ==================================================== */
-/* ================== EDUCATION SECTION ================== */
+/* ================== BODY SECTION ================== */
 /* ==================================================== */
-
-.education-group,
-.experience-group,
-.project-group,
-.cert-group,
-.skills-body,
-.achiev-group {
-    margin-bottom: 16.5px;
+.cover-letter-body-wrapper {
+    width: 100%;
 }
 
-.studyProgram {
-    font-weight: bold;
+.cover-letter-body {
+    width: 100%;
+    margin-top: 30px;
+    border: 1px solid black;
+    min-height: 50px;
 }
 
-.studyProgram:empty:before {
-    content: "Study Program";
-    font-weight: bold;
-}
-
-.institution:empty:before {
-    content: "Institution / Place of education";
-}
-
-/* ==================================================== */
-/* ================== EXPERIENCE SECTION ================== */
-/* ==================================================== */
-.achiev-task {
-    color: grey;
-    font-style: italic;
-    font-size: 0.7rem;
-    margin-bottom: 3px;
-}
-
-.task {
-    font-size: 0.8em;
-}
-
-.task::before {
-    content: '- ';
-}
-
-.task:empty {
-    position: relative;
-}
-
-.role {
-    font-size: 1em;
-    font-weight: bold;
-}
-
-.company {
-    font-size: 1em;
-}
-
-.task:empty:before {
-    content: "- Accomplishment/Responsability/Task";
-}
-
-.role:empty:before {
-    content: "Title / Position";
-    font-weight: bold;
-}
-
-.company:empty:before {
-    content: "Company / Workplace";
-}
-
-/* ==================================================== */
-/* ================== TIME-LOC SECTION ================== */
-/* ==================================================== */
-.time-loc {
-    display: flex;
-    justify-content: space-between;
-    color: grey;
-    font-style: italic;
-    font-size: 0.7rem;
-    margin-bottom: 3px;
-}
-
-.period {
-    color: grey;
-    font-style: italic;
-    font-size: 0.7rem;
-    display: flex;
-}
-
-.place {
-    color: grey;
-    font-style: italic;
-    font-size: 0.7rem;
-    text-align: end;
-}
-
-.month:empty:before {
-    content: "mm";
-}
-
-.year:empty:before {
-    content: "yyyy";
-}
-
-.place:empty:before {
-    content: "City, Country";
-}
-
-/* ==================================================== */
-/* ================== SKILLS SECTION ================== */
-/* ==================================================== */
-.skills {
-    margin-bottom: 5px;
-}
-
-.skills-label {
-    margin-bottom: 5px;
-    color: #3dbaf7;
-}
-
-.skill-boxes {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.skill-box {
-    display: flex;
-    padding: 12px;
-    align-items: center;
-    height: 20px;
-    float: left;
-    margin: 15px 5px 0px 0px;
-    border-radius: 5px;
-    background: #3dbaf7;
-    color: #fff;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.skillText:empty:before {
-    content: 'Skill'
-}
-
-/* ==================================================== */
-/* ================== PROJECTS SECTION ================== */
-/* ==================================================== */
-.projectTitle {
+.coverLetterBody {
+    padding-top: 5px;
     font-size: 0.9rem;
-    font-weight: bold;
+    color: black;
 }
 
-.projectTitle:empty:before {
-    content: 'Project name';
-    font-weight: bold
-}
-
-.projectDesc {
-    font-size: 0.8rem;
-}
-
-.projectDesc:empty:before {
-    content: 'Short description of the project';
-}
-
-/* ==================================================== */
-/* ================== CERTIFICATION SECTION ================== */
-/* ==================================================== */
-.cert-group {
-    font-size: 0.8rem;
-}
-
-.certificationTitle {
-    margin-bottom: 15px;
-}
-
-.certificationTitle:empty:before {
-    content: 'Certification title';
-}
-
-/* ==================================================== */
-/* ================== ACHIEVEMENTS SECTION ================== */
-/* ==================================================== */
-.achiev-group {
-    font-size: 0.8rem;
-}
-
-.achievementDesc:empty:before {
-    content: 'Achievement description';
-}
-
-/* ==================================================== */
-/* ================== LANGUAGES SECTION ================== */
-/* ==================================================== */
-.lang {
-    margin-bottom: 15px;
-}
-
-.lang-body {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.lang-group {
-    font-size: 0.8rem;
-    flex: 0 50%;
-    margin-bottom: 10px;
-}
-
-.language {
-    display: flex;
-    flex-direction: column;
-}
-
-.langHeader {
-    margin-bottom: 3px;
-}
-
-.langHeader:empty:before {
-    content: 'Language';
+.coverLetterBody:empty:before {
+    color: black;
     border-bottom: none;
 }
 
-.langLevel {
-    font-style: italic;
-    font-size: 0.7rem;
-    margin-bottom: 7px;
-    color: #3dbaf7;
+.wrap {
+    width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
 }
 
-.langLevel:empty:before {
-    content: 'Level';
-    display: block;
-    font-style: italic;
+.editableDiv {
+    max-width: "22em";
+    word-break: "break-word";
 }
 
+.signatureDiv {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 7px;
+}
 
-.cover-letter-body {
-    background: #3dbaf7;
+.coverLetterRegards {
+    font-size: 0.9rem;
+    color: black;
+}
+
+.coverLetterRegards:empty:before {
+    content: "Best Regards,";
+    color: black;
+    border-bottom: none;
+}
+
+.coverLetterSignature {
+    font-size: 0.9rem;
+    color: black;
+}
+
+.coverLetterSignature:empty:before {
+    content: "FULL NAME";
+    border-bottom: none;
 }

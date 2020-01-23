@@ -29,7 +29,7 @@ class CoverLetterNav extends React.Component {
 
               <div className="download">
                 <button className="download-btn" onClick={this.doc}>
-                  <div className="tools">
+                  <div className="downloadDiv">
                     <span className="tool-icon first-icon">⤓</span>
                     <span className="tool-desc tool-download">Download</span>
                   </div>
@@ -38,7 +38,7 @@ class CoverLetterNav extends React.Component {
 
               <div className="my-documents">
                 <button className="my-docs-btn">
-                  <div className="tools">
+                  <div className="docsDiv">
                     <span className="tool-icon tool-mydoc">My Documents</span>
                   </div>
                 </button>
@@ -46,7 +46,7 @@ class CoverLetterNav extends React.Component {
 
               <div className="template-menu">
                 <button className="template-menu-btn">
-                  <div className="tools temp-menu">
+                  <div className="temp-menu">
                     <span className="tool-menu-bar first-icon">―</span>
                     <span className="tool-menu-bar first-icon">―</span>
                     <span className="tool-menu-bar first-icon last-bar">―</span>
