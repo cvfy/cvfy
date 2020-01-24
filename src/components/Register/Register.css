@@ -1,0 +1,30 @@
+.registerWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.registerContainer {
+    position: fixed;
+    background: #2b3a42;
+    top: 90px;
+    width: 80vw;
+    height: 80vh;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: -5px 0 20px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+}
+
+.registerLeftDiv {
+    background-color: #fff;
+    color: black;
+    width: 40vw;
+    border-radius: 10px 0 0 10px;
+}
+
+.registerRightDiv {
+    color: #fff;
+}
