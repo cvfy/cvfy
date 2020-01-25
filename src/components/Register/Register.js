@@ -7,7 +7,7 @@ const Register = () => {
     <div className="registerWrapper">
       <div className="registerContainer">
         <div className="registerLeftDiv">
-            <div className='closeRegistrationForm'>X</div>
+          <div className="closeRegistrationForm">X</div>
           <div className="form_wrapper">
             <div className="form_container">
               <div className="title_container">
@@ -98,13 +98,20 @@ const Register = () => {
                       <input type="checkbox" id="cb1" />
                       <label for="cb1">I agree with terms and conditions</label>
                     </div>
-                    <div className='submitDiv'>
-                    <input className="button" type="submit" value="Register" />
+                    <div className="submitDiv">
+                      <input
+                        className="button"
+                        type="submit"
+                        value="Register"
+                      />
                     </div>
                   </form>
                 </div>
               </div>
             </div>
+          </div>
+          <div className="alreadyMember">
+            Already a member? <span className="addLink">Click here</span>
           </div>
         </div>
 
