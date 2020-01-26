@@ -18,7 +18,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  /* display: flex; */
 }
 
 .registerLeftDiv {
@@ -80,6 +79,7 @@
   width: 70%;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 h2 {
@@ -87,6 +87,13 @@ h2 {
   line-height: 1.5em;
   margin: 0;
 }
+
+/* === added for Login === */
+.pleaseLoginText {
+  font-size: 2em;
+}
+
+/* ======================= */
 
 .autoRegistration {
   display: flex;
@@ -409,11 +416,26 @@ select:focus {
 
 .alreadyMember {
   font-size: 1.1em;
+  margin-top: 1rem;
 }
 
 .addLink {
   color: blue;
+  cursor: pointer;
 }
+
+/* ====== added for login ====== */
+.rememberAndForgotPasswordDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.changePassword {
+  font-weight: bold;
+}
+
+/* ============================= */
 
 @-webkit-keyframes check {
   0% {
@@ -586,8 +608,20 @@ select:focus {
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 450px) {
   .googleSignUpDiv {
     width: 80vw;
   }
+
+  /* ====== added for login ====== */
+  h2 {
+    font-size: 2.5em;
+  }
+
+  .pleaseLoginText {
+    font-size: 1.2em;
+  }
+
+  /* ============================= */
+
 }

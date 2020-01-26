@@ -96,7 +96,10 @@ const Register = () => {
                     </div> */}
                     <div className="input_field checkbox_option">
                       <input type="checkbox" id="cb1" />
-                      <label for="cb1">I agree with terms and conditions</label>
+                      <label for="cb1">
+                        I agree with{" "}
+                        <span className="addLink"> terms and conditions</span>
+                      </label>
                     </div>
                     <div className="submitDiv">
                       <input
@@ -109,9 +112,9 @@ const Register = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="alreadyMember">
-            Already a member? <span className="addLink">Click here</span>
+            <div className="alreadyMember">
+              Already a member? <span className="addLink">Click here</span>
+            </div>
           </div>
         </div>
 
