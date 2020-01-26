@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./DropdownMenu.css";
 import Image from "../../../images/user.png";
-import Register from "../../Register/Register";
+import Login from "../../Login/Login";
 
 const DropdownMenu = () => {
   //Here we can set Dropdown Menu to Open or closed

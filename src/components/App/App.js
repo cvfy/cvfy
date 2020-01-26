@@ -7,7 +7,7 @@ import "./App.css";
 import "../../styles/animate.css";
 import Footer from "../Footer";
 import "../Footer.css";
-import Register from "../Register/Register";
+import Login from "../Login/Login";
 
 import GlobalStyle from "../../styles/Global";
 
@@ -16,7 +16,7 @@ const App = () => {
     <div className="MainPage">
       <Navbar />
       <Jumbotron />
-      <Register />
+      <Login />
       <Footer />
       <GlobalStyle />
     </div>

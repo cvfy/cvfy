@@ -80,12 +80,17 @@
   width: 70%;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 h2 {
   font-size: 3em;
   line-height: 1.5em;
   margin: 0;
+}
+
+.pleaseLoginText {
+  font-size: 2em;
 }
 
 .autoRegistration {
@@ -103,6 +108,10 @@ h2 {
   justify-content: center;
   border-radius: 30px;
   cursor: pointer;
+}
+
+.googleSignUpDiv:hover {
+  background: rgba(0, 0, 255, 0.89);
 }
 
 .googleIcon {
@@ -226,14 +235,18 @@ input[type="submit"] {
   cursor: pointer;
   color: #fff;
   font-size: 1.5em;
-  /* margin-bottom: 0.6rem; */
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
-input[value="Register"] {
+input[type="submit"]:hover {
+  background: rgba(0, 0, 255, 0.89);
+}
+
+input[value="Register"],
+input[value="Login"] {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -400,8 +413,20 @@ select:focus {
   border-top-color: black;
 }
 
+
+.rememberAndForgotPasswordDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.changePassword {
+  font-weight: bold;
+}
+
 .alreadyMember {
   font-size: 1.1em;
+  margin-top: 1rem;
 }
 
 .addLink {
