@@ -6,6 +6,7 @@ import ColorSubMenu from "./SubMenus/ColorSubMenu";
 import FontSizeSubMenu from "./SubMenus/FontSizeSubMenu";
 import LayoutSubMenu from "./SubMenus/LayoutSubMenu";
 import TemplatesSubMenu from "./SubMenus/TemplatesSubMenu";
+import ExtraToolsMenu from "./ExtraToolsMenu";
 
 class CoverLetterNav extends React.Component {
   render() {
@@ -13,42 +14,47 @@ class CoverLetterNav extends React.Component {
       <CoverLetterContext.Consumer>
         {context => {
           return (
-            <div className="CvMenu">
-              <span className="logo-template">CVFY</span>
-              <div className="design">
-                <div className="tool-label">Design</div>
-                <div className="tools">
-                  <FontSubMenu></FontSubMenu>
-                  <ColorSubMenu></ColorSubMenu>
-                  <FontSizeSubMenu></FontSizeSubMenu>
-                  <LayoutSubMenu></LayoutSubMenu>
-                  <TemplatesSubMenu></TemplatesSubMenu>
+            <div className="CvMenuWrapper">
+              <div className="CvMenu">
+                <span className="logo-template">CVFY</span>
+                <div className="design">
+                  <div className="tool-label">Design</div>
+                  <div className="tools">
+                    <FontSubMenu></FontSubMenu>
+                    <ColorSubMenu></ColorSubMenu>
+                    <FontSizeSubMenu></FontSizeSubMenu>
+                    <LayoutSubMenu></LayoutSubMenu>
+                    <TemplatesSubMenu></TemplatesSubMenu>
+                  </div>
+                </div>
+                <div className="download">
+                  <button className="download-btn" onClick={this.doc}>
+                    <div className="downloadDiv">
+                      <span className="tool-icon first-icon">⤓</span>
+                      <span className="tool-desc tool-download">Download</span>
+                    </div>
+                  </button>
+                </div>
+                <div className="my-documents">
+                  <button className="my-docs-btn">
+                    <div className="docsDiv">
+                      <span className="tool-icon tool-mydoc">My Documents</span>
+                    </div>
+                  </button>
+                </div>
+                <div className="template-menu">
+                  <button className="template-menu-btn">
+                    <div className="temp-menu">
+                      <span className="tool-menu-bar first-icon">―</span>
+                      <span className="tool-menu-bar first-icon">―</span>
+                      <span className="tool-menu-bar first-icon last-bar">
+                        ―
+                      </span>
+                    </div>
+                  </button>
                 </div>
               </div>
-              <div className="download">
-                <button className="download-btn" onClick={this.doc}>
-                  <div className="downloadDiv">
-                    <span className="tool-icon first-icon">⤓</span>
-                    <span className="tool-desc tool-download">Download</span>
-                  </div>
-                </button>
-              </div>
-              <div className="my-documents">
-                <button className="my-docs-btn">
-                  <div className="docsDiv">
-                    <span className="tool-icon tool-mydoc">My Documents</span>
-                  </div>
-                </button>
-              </div>
-              <div className="template-menu">
-                <button className="template-menu-btn">
-                  <div className="temp-menu">
-                    <span className="tool-menu-bar first-icon">―</span>
-                    <span className="tool-menu-bar first-icon">―</span>
-                    <span className="tool-menu-bar first-icon last-bar">―</span>
-                  </div>
-                </button>
-              </div>
+              <ExtraToolsMenu />
             </div>
           );
         }}

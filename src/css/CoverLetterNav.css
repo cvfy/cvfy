@@ -9,8 +9,6 @@
   align-items: center;
   padding-left: 20px;
   color: #fff;
-  position: fixed;
-  top: 0;
 }
 
 .template-menu {
@@ -82,6 +80,10 @@
 
 .font-btn {
   padding-left: 0;
+}
+
+.download {
+  text-align: center;
 }
 
 .download-btn {
@@ -496,6 +498,50 @@
   height: 120px;
   margin-top: 12px;
 }
+
+/* Here starts cv extra tools section */
+
+.CvMenuWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.cvExtraToolsDiv {
+  background: #375061;
+  height: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.extra-tools-btn {
+  padding-right: 2em;
+  background: #375061;
+  color: #fff;
+  cursor: pointer;
+}
+
+.extra-tools-btn:hover {
+  color: #2196f3;
+}
+
+.extra-tool {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.italicStyle {
+  font-style: italic;
+}
+
+.underStyle {
+  font-size: 0.9em;
+}
+
 
 @media (max-width: 1015px) {
   .tool-desc {
