@@ -4,35 +4,18 @@
   height: 60px;
   background: linear-gradient(to left, #3dbaf7, #1d3b8b);
   font-size: 28px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
   align-items: center;
-  justify-content: left;
   padding-left: 20px;
   color: #fff;
   position: fixed;
   top: 0;
 }
 
-.design {
-  padding-left: 120px;
-}
-
-.download {
-  width: 100%;
-  text-align: right;
-}
-
-.my-documents {
-  width: 100%;
-  margin-left: 5rem;
-  text-align: right;
-}
-
 .template-menu {
   display: flex;
-  width: 100%;
-  justify-content: flex-end;
-  margin-right: 5rem;
+  justify-content: center;
 }
 
 .tool-label {
@@ -42,8 +25,6 @@
 
 .tools {
   display: flex;
-  /* align-items: baseline; */
-  width: 22vw;
   text-align: right;
 }
 
@@ -111,6 +92,13 @@
 .download-btn:hover {
   background-color: #2bb5b99e;
   cursor: pointer;
+}
+
+.downloadDiv,
+.my-documents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .my-docs-btn:hover {
@@ -507,4 +495,14 @@
   background: #fff;
   height: 120px;
   margin-top: 12px;
+}
+
+@media (max-width: 1015px) {
+  .tool-desc {
+    display: none;
+  }
+
+  .tool-download {
+    display: flex;
+  }
 }
