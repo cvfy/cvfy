@@ -89,9 +89,12 @@ h2 {
   margin: 0;
 }
 
+/* === added for Login === */
 .pleaseLoginText {
   font-size: 2em;
 }
+
+/* ======================= */
 
 .autoRegistration {
   display: flex;
@@ -413,7 +416,16 @@ select:focus {
   border-top-color: black;
 }
 
+.alreadyMember {
+  font-size: 1.1em;
+  margin-top: 1rem;
+}
 
+.addLink {
+  color: blue;
+}
+
+/* ====== added for login ====== */
 .rememberAndForgotPasswordDiv {
   display: flex;
   align-items: center;
@@ -424,14 +436,7 @@ select:focus {
   font-weight: bold;
 }
 
-.alreadyMember {
-  font-size: 1.1em;
-  margin-top: 1rem;
-}
-
-.addLink {
-  color: blue;
-}
+/* ============================= */
 
 @-webkit-keyframes check {
   0% {
@@ -584,8 +589,6 @@ select:focus {
 
   .closeRegistrationForm {
     color: black;
-    /* top: 15px;
-    right: 15px; */
   }
 }
 
@@ -604,8 +607,20 @@ select:focus {
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 450px) {
   .googleSignUpDiv {
     width: 80vw;
   }
+
+  /* ====== added for login ====== */
+  h2 {
+    font-size: 2.5em;
+  }
+
+  .pleaseLoginText {
+    font-size: 1.2em;
+  }
+
+  /* ============================= */
+
 }
