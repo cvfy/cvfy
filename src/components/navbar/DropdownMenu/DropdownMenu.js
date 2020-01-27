@@ -9,7 +9,7 @@ const DropdownMenu = () => {
 
   // Here ypu can modify the Array to change the items from te dropdown menu
   const [DropdownItemsList, SetDropdownItemsList] = useState([
-    { Title: "Register", Path: "#" },
+    { Title: "Register", Path: "/" },
     { Title: "Login/Log Out", Path: "#" },
     { Title: "My Account", Path: "#" }
   ]);
