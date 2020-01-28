@@ -1,0 +1,25 @@
+.wrapper {
+  height: 500px;
+  width: 100%;
+  padding-top: 50px;
+  box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.topContainer {
+  background: rgb(245, 241, 241);
+}
+
+.bottomContainer {
+  background: #fff;
+}
+
+.h2AboutUs {
+  position: absolute;
+  top: 4em;
+  left: 8em;
+  width: 50vw;
+  text-align: center;
+  font-size: 3rem;
+}
