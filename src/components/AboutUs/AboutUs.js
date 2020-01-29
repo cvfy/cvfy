@@ -5,20 +5,25 @@ import Team from "../Team/Team";
 class AboutUs extends Component {
   state = {
     text:
-      "„We ask recruiters what makes for a successful resume. Then we take these insights and build them into our resume templates. Thus, when you use our online resume builder, you know you are giving recruiters exactly what they want.”"
+      "„Casamentiss faiz malandris se pirulitá. Atirei o pau no gatis, per gatis num morreus. Manduma pindureta quium dia nois paga. Aenean aliquam molestie leo, vitae iaculis nisl.”"
   };
 
-  handleDisplay = e => {
-    console.log(e.target.name);
-    if (e.target.name === "mission") {
+  changeText = e => {
+    console.log(e.currentTarget.title);
+    if (e.currentTarget.title === "mission") {
       this.setState({
-        text: "Thats the missionnnnn"
+        text:
+          "„Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Viva Forevis aptent taciti sociosqu ad litora torquent.  Atirei o pau no gatis, per gatis num morreus. Mé faiz elementum girarzis, nisi eros vermeio.”"
       });
-    } else if (e.target.name === "vision") {
-      return this.setState({ text: "I can seee!! " });
+    } else if (e.currentTarget.title === "vision") {
+      return this.setState({
+        text:
+          "„Per aumento de cachacis, eu reclamis. Todo mundo vê os porris que eu tomo, mas ninguém vê os tombis que eu levo! Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis. Si num tem leite então bota uma pinga aí cumpadi!”"
+      });
     } else {
       return this.setState({
-        text: ""
+        text:
+          "„Casamentiss faiz malandris se pirulitá. Atirei o pau no gatis, per gatis num morreus. Manduma pindureta quium dia nois paga. Aenean aliquam molestie leo, vitae iaculis nisl.”"
       });
     }
   };
@@ -27,27 +32,25 @@ class AboutUs extends Component {
     return (
       <div className="wrapper">
         <div className="topContainer">
-          <div className="textDiv" contentEditable="true">
-            {this.state.text}
-          </div>
+          <div className="textDiv">{this.state.text}</div>
           <div className="diagram">
-            <div className="whatWeDo" title="weDo">
+            <div className="whatWeDo" title="weDo" onClick={this.changeText}>
               <p className="diagramText">What we do?</p>
             </div>
-            <button
-              type="button"
+            <div
               className="ourMission"
-              value="mission"
-              onClick={this.handleDisplay}
+              title="mission"
+              onClick={this.changeText}
             >
               <p className="diagramText">Our Mission</p>
-            </button>
-            <div className="ourVision" title="vision">
+            </div>
+            <div className="ourVision" title="vision" onClick={this.changeText}>
               <p className="diagramText">Our Vision</p>
             </div>
           </div>
         </div>
         <div className="bottomContainer"></div>
+
         <Team></Team>
       </div>
     );
