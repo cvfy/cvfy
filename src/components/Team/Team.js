@@ -23,7 +23,12 @@ const Team = () => {
                 https://ajedelmann.github.io/portfolio/
               </a>
             </div>
-            <div className="gitHub">Github account</div>
+            <div className="gitHub">
+              <a href="https://github.com/AJEdelmann">
+                <i class="fab fa-github githubIcon"></i>
+                https://github.com/AJEdelmann
+              </a>
+            </div>
           </div>
         </div>
 
@@ -40,7 +45,12 @@ const Team = () => {
                 https://ajedelmann.github.io/portfolio/
               </a>
             </div>
-            <div className="gitHub">Github account</div>
+            <div className="gitHub">
+              <a href="https://github.com/AJEdelmann">
+                <i class="fab fa-github githubIcon"></i>
+                https://github.com/AJEdelmann
+              </a>
+            </div>
           </div>
         </div>
 
@@ -57,7 +67,12 @@ const Team = () => {
                 https://ajedelmann.github.io/portfolio/
               </a>
             </div>
-            <div className="gitHub">Github account</div>
+            <div className="gitHub">
+              <a href="https://github.com/AJEdelmann">
+                <i class="fab fa-github githubIcon"></i>
+                https://github.com/AJEdelmann
+              </a>
+            </div>
           </div>
         </div>
       </div>

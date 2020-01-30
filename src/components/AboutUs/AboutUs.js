@@ -52,6 +52,8 @@ class AboutUs extends Component {
         <div className="bottomContainer"></div>
 
         <Team></Team>
+
+        <div className="contactUs">Contact us</div>
       </div>
     );
   }
