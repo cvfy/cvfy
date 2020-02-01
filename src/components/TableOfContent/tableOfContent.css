@@ -1,0 +1,27 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.table-of-content {
+  margin-top: 50px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.termsParagraphs {
+  margin-top: 50px;
+}
+
+button {
+  background: linear-gradient(to left, #3dbaf7, #1d3b8b);
+  height: 40px;
+  margin: 5px;
+  width: 50%;
+  font-weight: 800;
+  border-radius: 20px;
+}
+button:focus {
+  outline: 0;
+}
