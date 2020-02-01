@@ -7,7 +7,7 @@ import "../../styles/animate.css";
 import Footer from "../Footer";
 import "../Footer.css";
 
-import IntroTerms from "../IntroTerms/IntroTerms";
+import IntroPrivacy from "../IntroPrivacy/IntroPrivacy";
 import TableOfContent from "../TableOfContent/TableOfContent";
 
 import GlobalStyle from "../../styles/Global";
@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className="MainPage">
       <Navbar />
-      <IntroTerms />
+      <IntroPrivacy />
       <TableOfContent />
       <Footer />
       <GlobalStyle />

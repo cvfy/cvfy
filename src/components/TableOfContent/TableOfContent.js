@@ -13,7 +13,7 @@ const TableOfContent = () => {
         <h2>Table Of Content:</h2>
         <ul>
           <li>
-            <button onClick={handleClick}>The CVFY Content</button>
+            <button onClick={handleClick}>The CVFY Privacy Policy</button>
           </li>
           <li>
             <button onClick={handleClick}>Acceptable Use</button>
