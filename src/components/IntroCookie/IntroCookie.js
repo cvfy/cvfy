@@ -1,13 +1,13 @@
 import React from "react";
-import "./introPrivacy.css";
+import "./introCookie.css";
 
-const IntroTerms = () => {
+const IntroCookie = () => {
   return (
     <div className="intro">
       <h1>
         CVFY
         <br />
-        Privacy Policy
+        Cookie Policy
       </h1>
 
       <p>
@@ -29,4 +29,4 @@ const IntroTerms = () => {
   );
 };
 
-export default IntroTerms;
+export default IntroCookie;
