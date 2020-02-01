@@ -1,4 +1,5 @@
 import React, { Component, createContext } from "react";
+import EducationGroup from "../components/TemplateMain/Education/EducationGroup";
 
 export const ThemeContext = createContext();
 
@@ -14,38 +15,6 @@ class ThemeContextProvider extends Component {
     tasksOutput: [],
     value: ""
   };
-
-  // renderTasksOutput = () => {
-  //   return this.state.tasksOutput
-  //     .map(t => <div style={{ display: "flex" }}>{t}</div>)
-  //     .reverse();
-  // };
-
-  // handleChange(e) {
-  //   this.setState({
-  //     value: e.target.value
-  //   });
-  // }
-
-  // keyPress(e) {
-  //   if (e.keyCode === 13) {
-  //     console.log(e.target.value);
-  //     var newArray = this.state.tasksHistory;
-  //     newArray.push(e.target.value);
-  //     //console.log(newArray);
-  //     this.setState({
-  //       tasksHistory: newArray,
-  //       tasksOutput: [e.target.value, ...this.state.tasksOutput],
-  //       value: ""
-  //     });
-
-  //     // var terminalOutput=document.getElementById('terminalOutput');
-  //     // terminalOutput.append(e.target.value+ &carr;);
-  //     //terminalOutput.append(``);
-  //     console.log(tasksOutput);
-  //     console.log(this.state.tasksHistory);
-  //   }
-  // }
 
   changeColor = e => {
     this.setState({ color: e.target.name });

@@ -261,6 +261,80 @@
     content: "Institution / Place of education";
 }
 
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.addSkillDiv {
+    display: none;
+}
+
+.skills:hover .addSkillDiv {
+    display: block;
+}
+
+.addLanguageDiv {
+    display: none;
+}
+
+.lang:hover .addLanguageDiv {
+    display: block;
+}
+
+.addAchievementDiv {
+    display: none;
+}
+
+.achiev:hover .addAchievementDiv {
+    display: block;
+}
+
+.addCertificationDiv {
+    display: none;
+}
+
+.cert:hover .addCertificationDiv {
+    display: block;
+}
+
+.addProjectDiv {
+    display: none;
+}
+
+.projects:hover .addProjectDiv {
+    display: block;
+}
+
+.addExperienceDiv {
+    display: none;
+}
+
+.experience:hover .addExperienceDiv {
+    display: block;
+}
+
+.addEducationDiv {
+    display: none;
+}
+
+.education:hover .addEducationDiv {
+    display: block;
+}
+
+.addGroupBtn {
+    background: linear-gradient(to left, #3dbaf7, #1d3b8b);
+    color: #fff;
+    border-radius: 30px;
+    font-size: 0.7em;
+    padding: 7px 11px;
+}
+
+.addGroupBtn:hover {
+    background: linear-gradient(to right, #3dbaf7, #1d3b8b);
+    cursor: pointer;
+}
+
 /* ==================================================== */
 /* ================== EXPERIENCE SECTION ================== */
 /* ==================================================== */
