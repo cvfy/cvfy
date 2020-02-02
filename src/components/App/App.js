@@ -7,16 +7,14 @@ import "../../styles/animate.css";
 import Footer from "../Footer";
 import "../Footer.css";
 
-import IntroCookie from "../IntroCookie/IntroCookie";
-import TableOfContent from "../TableOfContent/TableOfContent";
+import FormContainer from "../FormContainer/FormContainer";
 
 import GlobalStyle from "../../styles/Global";
 const App = () => {
   return (
     <div className="MainPage">
       <Navbar />
-      <IntroCookie />
-      <TableOfContent />
+      <FormContainer />
       <Footer />
       <GlobalStyle />
     </div>
