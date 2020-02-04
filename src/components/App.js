@@ -8,6 +8,7 @@ import Home from "./Home/Home";
 import Footer from "./Footer";
 import CV_Templates from "./CV_Templates/CV_Templates";
 import CoverLetter_Templates from "./CoverLetter_Templates/CoverLetter_Templates";
+import MyDocuments from "./MyDocuments/MyDocuments";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
             path="/cover_letter-templates"
             component={CoverLetter_Templates}
           />
+          <Route exact path="/my-documents" component={MyDocuments} />
         </Switch>
         <Footer />
         <GlobalStyle />

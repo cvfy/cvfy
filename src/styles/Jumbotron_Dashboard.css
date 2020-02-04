@@ -1,0 +1,85 @@
+.Jumbotron_Dashboard {
+    height: 120px;
+    width: 100%;
+    background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15);
+    z-index: 0;
+}
+
+.Jumbotron_Dashboard h1 {
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+    color: whitesmoke;
+}
+
+.JumboPic {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.JumboPic img {
+    width: 350px;
+}
+
+.JumboText {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.JumboTextBox {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.JumboText .JumboTextBox h1 {
+    font-size: 4rem;
+}
+
+.JumboText .JumboTextBox p {
+    font-size: 1.6rem;
+    text-align: justify;
+    line-height: 3rem;
+}
+
+.CVTitle {
+    width: 100%;
+    height: 60px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.CVTitle p,
+.CoverLetterTitle p {
+    font-size: 3rem;
+}
+
+.CoverLetterTitle {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}

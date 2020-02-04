@@ -48,9 +48,7 @@ const Navbar = props => {
               </NavLink>
             </div>
             <div>
-              <a href="/">
-                <b>My Documents</b>
-              </a>
+              <NavLink to="/my-documents">My Documents</NavLink>
             </div>
             <div className="DropMenu">
               <DropdownMenu />
