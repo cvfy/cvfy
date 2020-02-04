@@ -7,6 +7,7 @@ import Navbar from "./navbar/Navbar";
 import Home from "./Home/Home";
 import Footer from "./Footer";
 import CV_Templates from "./CV_Templates/CV_Templates";
+import CoverLetter_Templates from "./CoverLetter_Templates/CoverLetter_Templates";
 
 const App = () => {
   return (
@@ -16,6 +17,11 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/cv-templates" component={CV_Templates} />
+          <Route
+            exact
+            path="/cover_letter-templates"
+            component={CoverLetter_Templates}
+          />
         </Switch>
         <Footer />
         <GlobalStyle />

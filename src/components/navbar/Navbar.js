@@ -43,7 +43,9 @@ const Navbar = props => {
               <NavLink to="/cv-templates">CV Templates</NavLink>
             </div>
             <div>
-              <a href="/">Cover Letter Templates</a>
+              <NavLink to="/cover_letter-templates">
+                Cover Letter Templates
+              </NavLink>
             </div>
             <div>
               <a href="/">
