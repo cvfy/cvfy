@@ -4,6 +4,7 @@ import Facebook from "../assets/Facebook.png";
 import Twitter from "../assets/Twitter.png";
 import Instagram from "../assets/Instagram.png";
 import ScrollAnimation from "react-animate-on-scroll";
+import "../styles/Footer.css";
 
 const Footer = () => {
   return (

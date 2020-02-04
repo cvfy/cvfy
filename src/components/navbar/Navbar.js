@@ -1,25 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
-import DropdownMenu from './DropdownMenu/DropdownMenu'
+import DropdownMenu from "./DropdownMenu/DropdownMenu";
+import "../../styles/Navbar.css";
 
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
-const Navbar = (props) => {
-  const [ navbarState, setNavbarState ] = useState(false)
-  
-  const handleNavbar = () => setNavbarState(!navbarState)
+const Navbar = props => {
+  const [navbarState, setNavbarState] = useState(false);
+
+  const handleNavbar = () => setNavbarState(!navbarState);
   const barAnimation = useSpring({
-    from: { transform: 'translate3d(0, -10rem, 0)' },
-    transform: 'translate3d(0, 0, 0)',
+    from: { transform: "translate3d(0, -10rem, 0)" },
+    transform: "translate3d(0, 0, 0)"
   });
 
   const linkAnimation = useSpring({
-    from: { transform: 'translate3d(0, 30px, 0)', opacity: 0 },
-    to: { transform: 'translate3d(0, 0, 0)', opacity: 1 },
+    from: { transform: "translate3d(0, 30px, 0)", opacity: 0 },
+    to: { transform: "translate3d(0, 0, 0)", opacity: 1 },
     delay: 800,
-    config: config.wobbly,
+    config: config.wobbly
   });
 
   return (
@@ -28,28 +29,32 @@ const Navbar = (props) => {
         <div className="FlexContainer">
           <Brand />
           <NavLinks style={linkAnimation}>
-            <div><a href="/">CV Templates</a></div>
-            <div><a href="/">Cover Letter Templates</a></div>
-            <div><a href="/"><b>My Documents</b></a></div>
-            <div className="DropMenu"><DropdownMenu /></div>
+            <div>
+              <a href="/">CV Templates</a>
+            </div>
+            <div>
+              <a href="/">Cover Letter Templates</a>
+            </div>
+            <div>
+              <a href="/">
+                <b>My Documents</b>
+              </a>
+            </div>
+            <div className="DropMenu">
+              <DropdownMenu />
+            </div>
           </NavLinks>
           <div className="BurgerWrapper">
-            <BurgerMenu
-              navbarState={navbarState} 
-              handleNavbar={handleNavbar}
-            />
+            <BurgerMenu navbarState={navbarState} handleNavbar={handleNavbar} />
           </div>
         </div>
       </NavBar>
-      <CollapseMenu 
-        navbarState={navbarState} 
-        handleNavbar={handleNavbar}
-      />
-   </>
-  )
-}
+      <CollapseMenu navbarState={navbarState} handleNavbar={handleNavbar} />
+    </>
+  );
+};
 
-export default Navbar
+export default Navbar;
 
 const NavBar = styled(animated.nav)`
   position: fixed;
@@ -57,10 +62,9 @@ const NavBar = styled(animated.nav)`
   top: 0;
   left: 0;
   background: white;
-  box-shadow: 2px 2px 2px 2px rgba(34,36,38,.15);
+  box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15);
   z-index: 1;
   font-size: 1.4rem;
-
 `;
 
 const NavLinks = styled(animated.ul)`
@@ -72,10 +76,10 @@ const NavLinks = styled(animated.ul)`
   align-items: center;
   justify-content: center;
   & div {
-      height:100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   & a {
@@ -93,10 +97,10 @@ const NavLinks = styled(animated.ul)`
     cursor: pointer;
     display: flex;
     align-items: center;
-    
-& img {
-  height: 20px;
-}
+
+    & img {
+      height: 20px;
+    }
     &:hover {
       color: #2438f1;
       border-bottom: 1px solid #2438f1;
@@ -104,8 +108,6 @@ const NavLinks = styled(animated.ul)`
 
     @media (max-width: 768px) {
       display: none;
-     
     }
-   
   }
 `;
