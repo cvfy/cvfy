@@ -35,13 +35,12 @@ const Navbar = props => {
 
   return (
     <>
-      <NavBar style={barAnimation}>
+      <NavBar style={barAnimation} className="navWrapper">
         <div className="FlexContainer">
           <Brand />
           <NavLinks style={linkAnimation}>
             <div>
               <NavLink to="/cv-templates">CV Templates</NavLink>
-              {/* <a href="/">CV Templates</a> */}
             </div>
             <div>
               <a href="/">Cover Letter Templates</a>
