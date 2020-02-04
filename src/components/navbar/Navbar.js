@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
 import DropdownMenu from "./DropdownMenu/DropdownMenu";
 import "../../styles/Navbar.css";
-
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
+import { Link, NavLink } from "react-router-dom";
+
 const Navbar = props => {
   const [navbarState, setNavbarState] = useState(false);
 
@@ -23,6 +24,15 @@ const Navbar = props => {
     config: config.wobbly
   });
 
+  const toggleSidebar = e => {
+    const sidebar = document.querySelector("#sidebar");
+    sidebar.classList.toggle("slide-right");
+  };
+
+  const active = {
+    color: "#6bc774"
+  };
+
   return (
     <>
       <NavBar style={barAnimation}>
@@ -30,7 +40,8 @@ const Navbar = props => {
           <Brand />
           <NavLinks style={linkAnimation}>
             <div>
-              <a href="/">CV Templates</a>
+              <NavLink to="/cv-templates">CV Templates</NavLink>
+              {/* <a href="/">CV Templates</a> */}
             </div>
             <div>
               <a href="/">Cover Letter Templates</a>

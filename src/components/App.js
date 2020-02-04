@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./navbar/Navbar";
 import Home from "./Home/Home";
 import Footer from "./Footer";
+import CV_Templates from "./CV_Templates/CV_Templates";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/cv-templates" component={CV_Templates} />
         </Switch>
         <Footer />
         <GlobalStyle />
