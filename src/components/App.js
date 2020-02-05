@@ -14,6 +14,7 @@ import Login from "./Login";
 import MyAccount from "./MyAccount";
 import AboutUs from "./AboutUs/AboutUs";
 import ContactUs from "./ContactUs";
+import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route exact path="/my-account" component={MyAccount} />
           <Route exact path="/about-us" component={AboutUs} />
           <Route exact path="/contact-us" component={ContactUs} />
+          <Route exact path="/privacy-policy" component={PrivacyPolicy} />
         </Switch>
         <Footer />
         <GlobalStyle />
