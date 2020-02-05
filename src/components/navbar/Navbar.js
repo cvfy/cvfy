@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
-import DropdownMenu from "./DropdownMenu/DropdownMenu";
+import DropdownMenu from "./DropdownMenu";
 import "../../styles/Navbar.css";
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
