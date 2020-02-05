@@ -66,7 +66,7 @@ const Footer = () => {
                     <NavLink to="/about-us">About Us</NavLink>
                   </li>
                   <li>
-                    <a href="http://scanfcode.com/contact/">Contact Us</a>
+                    <NavLink to="/contact-us">Contact Us</NavLink>
                   </li>
                   <li>
                     <a href="http://scanfcode.com/contribute-at-scanfcode/">

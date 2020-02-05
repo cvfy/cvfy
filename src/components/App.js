@@ -13,6 +13,7 @@ import Register from "./Register";
 import Login from "./Login";
 import MyAccount from "./MyAccount";
 import AboutUs from "./AboutUs/AboutUs";
+import ContactUs from "./ContactUs";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/my-account" component={MyAccount} />
           <Route exact path="/about-us" component={AboutUs} />
+          <Route exact path="/contact-us" component={ContactUs} />
         </Switch>
         <Footer />
         <GlobalStyle />
