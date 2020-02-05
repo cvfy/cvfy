@@ -8,9 +8,9 @@ const DropdownMenu = () => {
 
   // Here ypu can modify the Array to change the items from te dropdown menu
   const [DropdownItemsList, SetDropdownItemsList] = useState([
-    { Title: "Register", Path: "#" },
-    { Title: "Login/Log Out", Path: "#" },
-    { Title: "My Account", Path: "#" }
+    { Title: "Sign Up", Path: "/register" },
+    { Title: "Login", Path: "/login" },
+    { Title: "My Account", Path: "/my-account" }
   ]);
 
   // Here you can set the Main Title of the Dropdown menu in the return of this function

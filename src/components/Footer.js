@@ -5,6 +5,7 @@ import Twitter from "../assets/Twitter.png";
 import Instagram from "../assets/Instagram.png";
 import ScrollAnimation from "react-animate-on-scroll";
 import "../styles/Footer.css";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -62,7 +63,7 @@ const Footer = () => {
                 <br />
                 <ul class="footer-links">
                   <li>
-                    <a href="http://scanfcode.com/about/">About Us</a>
+                    <NavLink to="/about-us">About Us</NavLink>
                   </li>
                   <li>
                     <a href="http://scanfcode.com/contact/">Contact Us</a>

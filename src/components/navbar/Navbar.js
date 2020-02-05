@@ -6,7 +6,7 @@ import "../../styles/Navbar.css";
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = props => {
   const [navbarState, setNavbarState] = useState(false);

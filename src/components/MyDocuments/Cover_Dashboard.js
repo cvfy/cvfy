@@ -4,8 +4,6 @@ import ADD2 from "../../assets/add.png";
 import Cover2 from "../../assets/Cover2.png";
 import Cover3 from "../../assets/Cover3.png";
 import Cover4 from "../../assets/Cover4.png";
-import Cover5 from "../../assets/Cover5.png";
-import Cover6 from "../../assets/Cover6.png";
 import ScrollAnimation from "react-animate-on-scroll";
 
 const Cover_Dashboard = () => {

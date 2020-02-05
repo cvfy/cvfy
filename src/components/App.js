@@ -9,6 +9,10 @@ import Footer from "./Footer";
 import CV_Templates from "./CV_Templates/CV_Templates";
 import CoverLetter_Templates from "./CoverLetter_Templates/CoverLetter_Templates";
 import MyDocuments from "./MyDocuments/MyDocuments";
+import Register from "./Register";
+import Login from "./Login";
+import MyAccount from "./MyAccount";
+import AboutUs from "./AboutUs/AboutUs";
 
 const App = () => {
   return (
@@ -24,6 +28,10 @@ const App = () => {
             component={CoverLetter_Templates}
           />
           <Route exact path="/my-documents" component={MyDocuments} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/my-account" component={MyAccount} />
+          <Route exact path="/about-us" component={AboutUs} />
         </Switch>
         <Footer />
         <GlobalStyle />
