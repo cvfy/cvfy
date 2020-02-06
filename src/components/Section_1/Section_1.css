@@ -1,0 +1,40 @@
+.Section_1_Main_Container {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.Section_1_Card {
+    width: 250px;
+    height: 80%;
+    border-radius: 15px;
+    margin: 0 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Section_1_Card h2{
+font-size: 4rem;
+}
+.Section_1_Card p{
+font-size: 2rem;
+margin: 30px;
+}
+
+.Card1_color {
+    background-color: #FFF6D5;
+}
+.Card2_color {
+    background-color: #EBDCF9;
+}
+.Card3_color {
+    background-color: #DDF5FD
+}
+.Card4_color {
+    background-color: #DCF6E8;
+}
