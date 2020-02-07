@@ -21,7 +21,7 @@ const App = () => {
   return (
     <div className="MainPage">
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/cv-templates" component={CV_Templates} />
@@ -38,9 +38,10 @@ const App = () => {
           <Route exact path="/contact-us" component={ContactUs} />
           <Route exact path="/privacy-policy" component={PrivacyPolicy} />
           <Route exact path="/create-cv" component={CvBuilder} />
+          <Route exact path="/create-cover-letter" component={CvBuilder} />
         </Switch>
-        <Footer />
-        <GlobalStyle />
+        {/* <Footer />
+        <GlobalStyle /> */}
       </BrowserRouter>
     </div>
   );

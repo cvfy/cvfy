@@ -40,6 +40,12 @@ const Navbar = props => {
           <Brand />
           <NavLinks style={linkAnimation}>
             <div>
+              <NavLink to="/create-cv">Create CV</NavLink>
+            </div>
+            <div>
+              <NavLink to="/create-cover-letter">Create Cover Letter</NavLink>
+            </div>
+            <div>
               <NavLink to="/cv-templates">CV Templates</NavLink>
             </div>
             <div>
