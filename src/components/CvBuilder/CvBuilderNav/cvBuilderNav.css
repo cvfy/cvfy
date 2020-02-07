@@ -1,0 +1,508 @@
+/* Main Menu Section */
+.CvMenu {
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to left, #3dbaf7, #1d3b8b);
+    font-size: 28px;
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
+    align-items: center;
+    padding-left: 20px;
+    color: #fff;
+    position: fixed;
+    top: 0;
+}
+
+.template-menu {
+    display: flex;
+    justify-content: center;
+}
+
+.tool-label {
+    font-size: 0.6rem;
+    font-style: italic;
+}
+
+.tools {
+    display: flex;
+    text-align: right;
+}
+
+.first-icon {
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.tool-icon {
+    font-size: 1rem;
+}
+
+.template-icon {
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.template-icon:hover {
+    color: rgb(43, 181, 185);
+}
+
+.tool-desc {
+    padding-left: 5px;
+    font-size: 0.8rem;
+}
+
+.font-btn,
+.theme-btn,
+.layout-btn,
+.template-btn,
+.back-btn,
+.fwd-btn,
+.my-docs-btn,
+.template-menu-btn {
+    background-color: #ffff0000;
+    color: #fff;
+}
+
+.theme-btn,
+.layout-btn,
+.template-btn,
+.fwd-btn {
+    margin-left: 20px;
+}
+
+.font-btn:hover,
+.theme-btn:hover,
+.layout-btn:hover,
+.template-btn:hover,
+.back-btn:hover,
+.fwd-btn:hover {
+    cursor: pointer;
+    color: rgb(43, 181, 185);
+}
+
+.font-btn {
+    padding-left: 0;
+}
+
+.download-btn {
+    height: 60px;
+    background-color: #2bb5b963;
+}
+
+.download-btn:hover {
+    background-color: #2bb5b99e;
+    cursor: pointer;
+}
+
+.downloadDiv,
+.my-documents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-docs-btn:hover {
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+}
+
+.template-menu-btn:hover {
+    cursor: pointer;
+}
+
+.font-btn:focus,
+.theme-btn:focus,
+.layout-btn:focus,
+.template-btn:focus,
+.back-btn:focus,
+.fwd-btn:focus,
+.download-btn:focus,
+.my-docs-btn:focus,
+.template-menu-btn:focus {
+    outline: none;
+}
+
+.tool-download {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.tool-mydoc {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.temp-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.tool-menu-bar {
+    font-size: x-large;
+    height: 8px;
+}
+
+.last-bar {
+    margin-bottom: 25px;
+}
+
+/* ========================================= */
+/* Sub Nav Section */
+/* ========================================= */
+
+/* font sub-menu */
+.fontSubMenu,
+.colorSubMenu {
+    position: fixed;
+    background: #2b3a42;
+    top: 65px;
+    width: 170px;
+    height: 290px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: -5px 0 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+.fontFamilyDiv {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.openSansLi:hover,
+.quickSandLi:hover,
+.ubuntuLi:hover,
+.hindLi:hover,
+.kuraLi:hover,
+.robotLi:hover,
+.merryLi:hover,
+.ralewayLi:hover {
+    cursor: pointer;
+    color: rgb(43, 181, 185);
+}
+
+.openSansLi:focus,
+.quickSandLi:focus,
+.ubuntuLi:focus,
+.hindLi:focus,
+.kuraLi:focus,
+.robotLi:focus,
+.merryLi:focus,
+.ralewayLi:focus {
+    outline: none;
+}
+
+.openSansLi,
+.quickSandLi,
+.ubuntuLi,
+.hindLi,
+.kuraLi,
+.robotLi,
+.merryLi,
+.ralewayLi {
+    background: #2b3a42;
+    color: #fff;
+}
+
+.openSansLi {
+    font-family: "Open Sans", sans-serif;
+}
+
+.quickSandLi {
+    font-family: "Quicksand", sans-serif;
+}
+
+.ubuntuLi {
+    font-family: "Ubuntu", sans-serif;
+}
+
+.robotLi {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.merryLi {
+    font-family: "Merriweather", sans-serif;
+}
+
+.hindLi {
+    font-family: "Hind", sans-serif;
+}
+
+.ralewayLi {
+    font-family: "Raleway", sans-serif;
+}
+
+.kuraLi {
+    font-family: "Kurale", sans-serif;
+}
+
+/* color sub-menu */
+.colorOptionsDiv {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.colorBtn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0.5rem;
+}
+
+.colorBtn:focus {
+    outline: none;
+}
+
+.yellowBtn {
+    background: yellow;
+}
+
+.redBtn {
+    background: red;
+}
+
+.blackBtn {
+    background: black;
+}
+
+.blueBtn {
+    background: blue;
+}
+
+.greenBtn {
+    background: green;
+}
+
+.orangeBtn {
+    background: orange;
+}
+
+.purpleBtn {
+    background: purple;
+}
+
+.tomatoBtn {
+    background: tomato;
+}
+
+.brownBtn {
+    background: brown;
+}
+
+.burlywoodBtn {
+    background: burlywood;
+}
+
+.cornflowerblueBtn {
+    background: cornflowerblue;
+}
+
+.aquaBtn {
+    background: aqua;
+}
+
+.darkgreyBtn {
+    background: darkgrey;
+}
+
+/* font-size sub-menu */
+.fontSizeSubMenu {
+    position: fixed;
+    background: #2b3a42;
+    top: 65px;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: -5px 0 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Layout sub-menu */
+.layoutSubMenu {
+    position: fixed;
+    background: #2b3a42;
+    top: 65px;
+    left: 180px;
+    width: 870px;
+    height: 550px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: -5px 0 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+.headerElements {
+    height: 65px;
+    border-bottom: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 150px;
+}
+
+.headerContainer {
+    direction: rtl;
+    cursor: pointer;
+}
+
+/* Hide the browser's default radio button */
+.headerContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    background-color: #eee;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* On mouse-over, add a grey background color */
+.headerContainer:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.headerContainer input:checked~.checkmark {
+    background-color: #2196f3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.headerContainer input:checked~.checkmark:after {
+    display: block;
+    position: absolute;
+    top: 4px;
+    right: 3.7px;
+}
+
+/* Style the indicator (dot/circle) */
+.headerContainer .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.layoutToggle {
+    margin-top: 22px;
+}
+
+.layoutToggle .toggleButton {
+    border: 1px solid blue;
+    color: #fff;
+    background-color: blue;
+}
+
+.layoutToggle .active {
+    background-color: blue;
+    color: #fff;
+}
+
+.layoutCV {
+    margin: 2rem 3rem;
+    background: #fff center center;
+    height: 94.334625mm;
+    width: 66.70125mm;
+}
+
+.dndText {
+    color: #fff;
+    position: relative;
+    top: -391px;
+    left: 33px;
+}
+
+.checkedInput {
+    position: relative;
+    left: -24.33px;
+}
+
+.dndContainer {
+    width: 480px;
+    height: 320px;
+    background: #0000004d;
+    position: relative;
+    bottom: 370px;
+    left: 335px;
+    display: grid;
+    grid-template-columns: 31% 31% 31%;
+    grid-template-rows: 40px 40px 40px;
+    grid-gap: 6px;
+    justify-content: space-around;
+    padding-top: 7px;
+    border-radius: 5px;
+    padding: 12px;
+}
+
+.dndSection {
+    background: grey;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Templates sub-menu */
+.templatesSubMenu {
+    position: fixed;
+    background: #2b3a42;
+    top: 65px;
+    left: 180px;
+    width: 800px;
+    height: 200px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: -5px 0 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+.templatesSubMenuTitle {
+    padding-top: 5px;
+}
+
+.templatesSubMenuCarousel {
+    /* background: green; */
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 45px 45px 45px;
+    grid-gap: 6px;
+    justify-content: space-around;
+    padding-top: 5px;
+}
+
+.templatesSubMenuModels {
+    background: #fff;
+    height: 120px;
+    margin-top: 12px;
+}
+
+@media (max-width: 1015px) {
+    .tool-desc {
+        display: none;
+    }
+
+    .tool-download {
+        display: flex;
+    }
+}

@@ -15,6 +15,7 @@ import MyAccount from "./MyAccount";
 import AboutUs from "./AboutUs/AboutUs";
 import ContactUs from "./ContactUs";
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
+import CvBuilder from "./CvBuilder/CvBuilder";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
           <Route exact path="/about-us" component={AboutUs} />
           <Route exact path="/contact-us" component={ContactUs} />
           <Route exact path="/privacy-policy" component={PrivacyPolicy} />
+          <Route exact path="/create-cv" component={CvBuilder} />
         </Switch>
         <Footer />
         <GlobalStyle />

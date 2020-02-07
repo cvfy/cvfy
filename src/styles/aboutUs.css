@@ -60,7 +60,7 @@
     justify-content: center;
     transition: width 0.5s ease;
     transition: height 0.5s ease;
-    background-color: #87cff3;
+    background-color: #3dbaf7;
 }
 
 .whatWeDo {
@@ -92,6 +92,7 @@
 
 .diagramText {
     font-size: 2em;
+    display: contents;
 }
 
 @media (max-width: 1015px) {
@@ -118,7 +119,7 @@
     }
 
     .diagram {
-        width: 100vw;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
@@ -142,44 +143,21 @@
 
 @media (max-width: 700px) {
     .textDiv {
-        font-size: 1.2em;
         margin-top: 3.5em;
-    }
-
-    .whatWeDo,
-    .ourMission,
-    .ourVision {
-        width: 150px;
-        height: 150px;
     }
 
     .diagram {
         margin-top: 9em;
     }
-
-    .diagramText {
-        font-size: 1.3em;
-    }
 }
 
 @media (max-width: 485px) {
     .textDiv {
-        font-size: 1.1em;
+        height: 50vh;
         margin-top: 3.5em;
-    }
-
-    .whatWeDo,
-    .ourMission,
-    .ourVision {
-        width: 100px;
-        height: 100px;
     }
 
     .diagram {
         margin-top: 6em;
-    }
-
-    .diagramText {
-        font-size: 1.1em;
     }
 }

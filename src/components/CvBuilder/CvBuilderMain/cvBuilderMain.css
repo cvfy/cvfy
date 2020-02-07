@@ -1,0 +1,546 @@
+/* ================== GLOBAL STYLE ================== */
+.alignContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container {
+    margin: 8rem 12rem;
+    background: #fff center center;
+    height: 297mm;
+    width: 210mm;
+}
+
+.wrap {
+    display: flex;
+    padding-left: 37.5px;
+    padding-right: 27px;
+}
+
+.left {
+    width: 100%;
+}
+
+.right {
+    width: 100%;
+    padding-left: 37.5px;
+    padding-right: 27px;
+}
+
+.editableDiv {
+    max-width: "22em";
+    word-break: "break-word";
+}
+
+.dateDivider {
+    margin: 0 5px;
+}
+
+.month:empty:before,
+.year:empty:before,
+.place:empty:before,
+.task:empty:before,
+.role:empty:before,
+.company:empty:before,
+.title:empty:before,
+.summary:empty:before,
+.studyProgram:empty:before,
+.institution:empty:before,
+.projectTitle:empty:before,
+.projectDesc:empty:before,
+.certificationTitle:empty:before,
+.achievementDesc:empty:before,
+.langHeader:empty:before {
+    color: #808080;
+    display: block;
+    border-bottom: 1px dotted #808080;
+    font-style: italic;
+}
+
+.section-label {
+    margin-bottom: 5px;
+    color: #3dbaf7;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+*:focus {
+    outline: none;
+}
+
+/* ==================================================== */
+/* ================== HEADER SECTION ================== */
+/* ==================================================== */
+.header-inner {
+    display: flex;
+}
+
+.photo {
+    margin: 19px 10px 0 20px;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+
+.title {
+    margin: -5px 0 5px 0;
+}
+
+.introduction {
+    width: 100%;
+    margin-left: 10px;
+    margin-bottom: 3px;
+}
+
+.name {
+    padding-top: 15px;
+    font-size: 2rem;
+}
+
+.title {
+    font-size: 1.3rem;
+    color: #414242;
+}
+
+.title:empty:before {
+    content: "Professional title";
+    border-bottom: none;
+}
+
+.title:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.summary {
+    padding-top: 5px;
+    font-size: 0.8rem;
+    max-width: inherit;
+}
+
+.summary:empty:before {
+    content: "Short engaging pitch about yourself";
+    border-bottom: none;
+}
+
+.summary:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 17em;
+}
+
+/* ==================================================== */
+/* ================== CONTACT SECTION ================== */
+/* ==================================================== */
+.contact {
+    background-color: #d3d3d382;
+    margin-bottom: 15px;
+    padding-left: 37.5px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 90px;
+}
+
+.contact-row-1,
+.contact-row-2,
+.contact-row-3 {
+    display: flex;
+    flex: 0 50%;
+    margin-top: 10px;
+}
+
+.contact-row-3 {
+    margin-bottom: 10px;
+}
+
+.contact-1,
+.contact-2,
+.contact-3,
+.contact-4,
+.contact-5,
+.contact-6 {
+    flex-grow: 1;
+    flex: 0 50%;
+}
+
+.iconeColor {
+    color: #3dbaf7;
+}
+
+.user-contact {
+    margin-left: 5px;
+}
+
+.userEmail:empty:before {
+    content: 'E-mail';
+    color: rgb(61, 58, 58);
+}
+
+.userEmail:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 5em;
+}
+
+.userSkype:empty:before {
+    content: 'Skype';
+    color: rgb(61, 58, 58);
+}
+
+.userSkype:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.userSite:empty:before {
+    content: 'Website';
+    color: rgb(61, 58, 58);
+}
+
+.userSite:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.userAddress:empty:before {
+    content: 'Address';
+    color: rgb(61, 58, 58);
+}
+
+.userAddress:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.userPhone:empty:before {
+    content: 'Phone';
+    color: rgb(61, 58, 58);
+}
+
+.userPhone:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.userGitHub:empty:before {
+    content: 'GitHub';
+    color: rgb(61, 58, 58);
+}
+
+.userGithub:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+/* ==================================================== */
+/* ================== EDUCATION SECTION ================== */
+/* ==================================================== */
+
+.education-group,
+.experience-group,
+.project-group,
+.cert-group,
+.skills-body,
+.achiev-group {
+    margin-bottom: 16.5px;
+}
+
+.studyProgram {
+    font-weight: bold;
+}
+
+.studyProgram:empty:before {
+    content: "Study Program";
+    font-weight: bold;
+}
+
+.institution:empty:before {
+    content: "Institution / Place of education";
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.addSkillDiv {
+    display: none;
+}
+
+.skills:hover .addSkillDiv {
+    display: block;
+}
+
+.addLanguageDiv {
+    display: none;
+}
+
+.lang:hover .addLanguageDiv {
+    display: block;
+}
+
+.addAchievementDiv {
+    display: none;
+}
+
+.achiev:hover .addAchievementDiv {
+    display: block;
+}
+
+.addCertificationDiv {
+    display: none;
+}
+
+.cert:hover .addCertificationDiv {
+    display: block;
+}
+
+.addProjectDiv {
+    display: none;
+}
+
+.projects:hover .addProjectDiv {
+    display: block;
+}
+
+.addExperienceDiv {
+    display: none;
+}
+
+.experience:hover .addExperienceDiv {
+    display: block;
+}
+
+.addEducationDiv {
+    display: none;
+}
+
+.education:hover .addEducationDiv {
+    display: block;
+}
+
+.addGroupBtn {
+    background: linear-gradient(to left, #3dbaf7, #1d3b8b);
+    color: #fff;
+    border-radius: 30px;
+    font-size: 0.7em;
+    padding: 7px 11px;
+}
+
+.addGroupBtn:hover {
+    background: linear-gradient(to right, #3dbaf7, #1d3b8b);
+    cursor: pointer;
+}
+
+/* ==================================================== */
+/* ================== EXPERIENCE SECTION ================== */
+/* ==================================================== */
+.achiev-task {
+    color: grey;
+    font-style: italic;
+    font-size: 0.7rem;
+    margin-bottom: 3px;
+}
+
+.task {
+    font-size: 0.8em;
+}
+
+.task::before {
+    content: '- ';
+}
+
+.task:empty {
+    position: relative;
+}
+
+.role {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.company {
+    font-size: 1em;
+}
+
+.task:empty:before {
+    content: "- Accomplishment/Responsability/Task";
+}
+
+.role:empty:before {
+    content: "Title / Position";
+    font-weight: bold;
+}
+
+.company:empty:before {
+    content: "Company / Workplace";
+}
+
+/* ==================================================== */
+/* ================== TIME-LOC SECTION ================== */
+/* ==================================================== */
+.time-loc {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    font-style: italic;
+    font-size: 0.7rem;
+    margin-bottom: 3px;
+}
+
+.period {
+    color: grey;
+    font-style: italic;
+    font-size: 0.7rem;
+    display: flex;
+}
+
+.place {
+    color: grey;
+    font-style: italic;
+    font-size: 0.7rem;
+    text-align: end;
+}
+
+.month:empty:before {
+    content: "mm";
+}
+
+.year:empty:before {
+    content: "yyyy";
+}
+
+.place:empty:before {
+    content: "City, Country";
+}
+
+/* ==================================================== */
+/* ================== SKILLS SECTION ================== */
+/* ==================================================== */
+.skills {
+    margin-bottom: 5px;
+}
+
+.skills-label {
+    margin-bottom: 5px;
+    color: #3dbaf7;
+}
+
+.skill-boxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skill-box {
+    display: flex;
+    padding: 12px;
+    align-items: center;
+    height: 20px;
+    float: left;
+    margin: 15px 5px 0px 0px;
+    border-radius: 5px;
+    background: #3dbaf7;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.skillText:empty:before {
+    content: 'Skill'
+}
+
+/* ==================================================== */
+/* ================== PROJECTS SECTION ================== */
+/* ==================================================== */
+.projectTitle {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.projectTitle:empty:before {
+    content: 'Project name';
+    font-weight: bold
+}
+
+.projectDesc {
+    font-size: 0.8rem;
+}
+
+.projectDesc:empty:before {
+    content: 'Short description of the project';
+}
+
+/* ==================================================== */
+/* ================== CERTIFICATION SECTION ================== */
+/* ==================================================== */
+.cert-group {
+    font-size: 0.8rem;
+}
+
+.certificationTitle {
+    margin-bottom: 15px;
+}
+
+.certificationTitle:empty:before {
+    content: 'Certification title';
+}
+
+/* ==================================================== */
+/* ================== ACHIEVEMENTS SECTION ================== */
+/* ==================================================== */
+.achiev-group {
+    font-size: 0.8rem;
+}
+
+.achievementDesc:empty:before {
+    content: 'Achievement description';
+}
+
+/* ==================================================== */
+/* ================== LANGUAGES SECTION ================== */
+/* ==================================================== */
+.lang {
+    margin-bottom: 15px;
+}
+
+.lang-body {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.lang-group {
+    font-size: 0.8rem;
+    flex: 0 50%;
+    margin-bottom: 10px;
+}
+
+.language {
+    display: flex;
+    flex-direction: column;
+}
+
+.langHeader {
+    margin-bottom: 3px;
+}
+
+.langHeader:empty:before {
+    content: 'Language';
+    border-bottom: none;
+}
+
+.langLevel {
+    font-style: italic;
+    font-size: 0.7rem;
+    margin-bottom: 7px;
+    color: #3dbaf7;
+}
+
+.langLevel:empty:before {
+    content: 'Level';
+    display: block;
+    font-style: italic;
+}
