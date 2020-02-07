@@ -6,7 +6,7 @@ import Cover3 from "../../assets/Cover3.png";
 import Cover4 from "../../assets/Cover4.png";
 import ScrollAnimation from "react-animate-on-scroll";
 
-const Cover_Dashboard = () => {
+const CoverDashboard = () => {
   return (
     <div className="Cover_Dashboard_MainContainer">
       <div className="CoverLetterTitle">
@@ -33,4 +33,4 @@ const Cover_Dashboard = () => {
   );
 };
 
-export default Cover_Dashboard;
+export default CoverDashboard;

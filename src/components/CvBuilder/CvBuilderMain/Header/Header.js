@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
+import ProfilePhoto from "../../../../assets/dogFather.png";
 
 class Header extends React.Component {
   render() {
@@ -10,7 +11,7 @@ class Header extends React.Component {
             <div className="header-inner">
               <div className="photo">
                 <img
-                  src="./dogFather.png"
+                  src={ProfilePhoto}
                   alt="dog"
                   height="110px"
                   width="110px"

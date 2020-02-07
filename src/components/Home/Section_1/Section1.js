@@ -2,7 +2,7 @@ import React from "react";
 import "./Section_1.css";
 import ScrollAnimation from "react-animate-on-scroll";
 
-const Section_1 = () => {
+const Section1 = () => {
   return (
     <div className="Section_1_Main_Container">
       <ScrollAnimation
@@ -72,4 +72,4 @@ const Section_1 = () => {
   );
 };
 
-export default Section_1;
+export default Section1;

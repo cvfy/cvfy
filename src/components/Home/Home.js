@@ -1,20 +1,26 @@
 import React from "react";
 import Desktop from "./Desktop";
-import Section_1 from "./Section_1/Section_1";
-import Section_2 from "./Section_2/Section_2";
-import Section_3 from "./Section_3/Section_3";
-import Section_4 from "./Section_4/Section_4";
-import Section_5 from "./Section_5/Section_5";
+import Section1 from "./Section_1/Section1";
+import Section2 from "./Section_2/Section2";
+import Section3 from "./Section_3/Section3";
+import Section4 from "./Section_4/Section4";
+import Section5 from "./Section_5/Section5";
+import Navbar from "../navbar/Navbar";
+import Footer from "../Footer";
+import GlobalStyle from "../../styles/Global";
 
 const Home = () => {
   return (
     <>
+      <Navbar />
       <Desktop />
-      <Section_1 />
-      <Section_2 />
-      <Section_3 />
-      <Section_4 />
-      <Section_5 />
+      <Section1 />
+      <Section2 />
+      <Section3 />
+      <Section4 />
+      <Section5 />
+      <Footer />
+      <GlobalStyle />
     </>
   );
 };

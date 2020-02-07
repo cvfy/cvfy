@@ -3,7 +3,7 @@ import "./Section_5.css";
 import Image from "../../../assets/undraw_folder.png";
 import ScrollAnimation from "react-animate-on-scroll";
 
-const Section_5 = () => {
+const Section5 = () => {
   return (
     <div className="Section_5_Main_Container">
       <ScrollAnimation
@@ -18,4 +18,4 @@ const Section_5 = () => {
     </div>
   );
 };
-export default Section_5;
+export default Section5;

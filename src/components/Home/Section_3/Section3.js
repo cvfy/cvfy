@@ -1,13 +1,19 @@
 import React from "react";
-import "./Section_4.css";
-import Image from "../../../assets/undraw_folder.png";
+import "./Section_3.css";
+import Image from "../../../assets/undraw_select.png";
 import ScrollAnimation from "react-animate-on-scroll";
 
-const Section_4 = () => {
+const Section3 = () => {
   return (
-    <div className="Section_4_Main_Container">
+    <div className="Section_3_Main_Container">
       <ScrollAnimation
-        className="S4_TextContainer"
+        className="S3_Img_Container"
+        animateIn="fadeInLeft delay-0s"
+      >
+        ><img src={Image} alt="image" />
+      </ScrollAnimation>
+      <ScrollAnimation
+        className="S3_TextContainer"
         animateIn="fadeInUp delay-0s"
       >
         <h2>Long long long Title....</h2>
@@ -20,13 +26,7 @@ const Section_4 = () => {
           remaining{" "}
         </p>
       </ScrollAnimation>
-      <ScrollAnimation
-        className="S2_Img_Container"
-        animateIn="fadeInRight delay-0s"
-      >
-        <img src={Image} alt="image" />
-      </ScrollAnimation>
     </div>
   );
 };
-export default Section_4;
+export default Section3;

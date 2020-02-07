@@ -4,11 +4,9 @@ import ADD from "../../assets/add.png";
 import CV2 from "../../assets/CV2.png";
 import CV3 from "../../assets/CV3.jpg";
 import CV4 from "../../assets/CV4.png";
-import CV5 from "../../assets/CV5.jpg";
-import CV6 from "../../assets/CV6.jpg";
 import ScrollAnimation from "react-animate-on-scroll";
 
-const CV_Dashboard = () => {
+const CvDashboard = () => {
   return (
     <div className="CV_Dashboard_MainContainer">
       <div className="CVTitle">
@@ -35,4 +33,4 @@ const CV_Dashboard = () => {
   );
 };
 
-export default CV_Dashboard;
+export default CvDashboard;

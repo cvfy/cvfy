@@ -1,4 +1,7 @@
 import React from "react";
+import Navbar from "../navbar/Navbar";
+import Footer from "../Footer";
+import GlobalStyle from "../../styles/Global";
 import "../../styles/CV_Templates.css";
 import CV1 from "../../assets/CV1.jpeg";
 import CV2 from "../../assets/CV2.png";
@@ -12,6 +15,7 @@ import Jumbotron from "./Jumbotron";
 const CV_Templates = () => {
   return (
     <>
+      <Navbar />
       <Jumbotron />
       <div className="CV_Templates_MainContainer">
         <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-0s">
@@ -33,6 +37,8 @@ const CV_Templates = () => {
           <img src={CV6} />
         </ScrollAnimation>
       </div>
+      <Footer />
+      <GlobalStyle />
     </>
   );
 };

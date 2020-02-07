@@ -1,13 +1,13 @@
 import React from "react";
-import "./Section_2.css";
-import Image from "../../../assets/undraw_resume.png";
+import "./Section_4.css";
+import Image from "../../../assets/undraw_folder.png";
 import ScrollAnimation from "react-animate-on-scroll";
 
-const Section_2 = () => {
+const Section4 = () => {
   return (
-    <div className="Section_2_Main_Container">
+    <div className="Section_4_Main_Container">
       <ScrollAnimation
-        className="S2_TextContainer"
+        className="S4_TextContainer"
         animateIn="fadeInUp delay-0s"
       >
         <h2>Long long long Title....</h2>
@@ -29,4 +29,4 @@ const Section_2 = () => {
     </div>
   );
 };
-export default Section_2;
+export default Section4;

@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Navbar from "../navbar/Navbar";
+import Footer from "../Footer";
+import GlobalStyle from "../../styles/Global";
 import "../../styles/aboutUs.css";
 import Team from "./Team";
 
@@ -30,31 +33,40 @@ class AboutUs extends Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <div className="topContainer">
-          <div className="textDiv">{this.state.text}</div>
-          <div className="diagram">
-            <div className="whatWeDo" title="weDo" onClick={this.changeText}>
-              <p className="diagramText">What we do?</p>
-            </div>
-            <div
-              className="ourMission"
-              title="mission"
-              onClick={this.changeText}
-            >
-              <p className="diagramText">Our Mission</p>
-            </div>
-            <div className="ourVision" title="vision" onClick={this.changeText}>
-              <p className="diagramText">Our Vision</p>
+      <>
+        <Navbar />
+        <div className="wrapper">
+          <div className="topContainer">
+            <div className="textDiv">{this.state.text}</div>
+            <div className="diagram">
+              <div className="whatWeDo" title="weDo" onClick={this.changeText}>
+                <p className="diagramText">What we do?</p>
+              </div>
+              <div
+                className="ourMission"
+                title="mission"
+                onClick={this.changeText}
+              >
+                <p className="diagramText">Our Mission</p>
+              </div>
+              <div
+                className="ourVision"
+                title="vision"
+                onClick={this.changeText}
+              >
+                <p className="diagramText">Our Vision</p>
+              </div>
             </div>
           </div>
+          <div className="bottomContainer"></div>
+
+          <Team></Team>
+
+          <div className="contactUs">Contact us</div>
         </div>
-        <div className="bottomContainer"></div>
-
-        <Team></Team>
-
-        <div className="contactUs">Contact us</div>
-      </div>
+        <Footer />
+        <GlobalStyle />
+      </>
     );
   }
 }

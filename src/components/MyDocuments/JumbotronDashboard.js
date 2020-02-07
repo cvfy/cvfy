@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Jumbotron_Dashboard.css";
 
-const Jumbotron_Dashboard = () => {
+const JumbotronDashboard = () => {
   return (
     <div className="Jumbotron_Dashboard">
       <h1>Dashboard</h1>
@@ -9,4 +9,4 @@ const Jumbotron_Dashboard = () => {
   );
 };
 
-export default Jumbotron_Dashboard;
+export default JumbotronDashboard;

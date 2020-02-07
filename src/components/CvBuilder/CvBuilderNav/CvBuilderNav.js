@@ -6,6 +6,7 @@ import ColorSubMenu from "./SubMenus/ColorSubMenu";
 import FontSizeSubMenu from "./SubMenus/FontSizeSubMenu";
 import LayoutSubMenu from "./SubMenus/LayoutSubMenu";
 import TemplatesSubMenu from "./SubMenus/TemplatesSubMenu";
+import { NavLink } from "react-router-dom";
 
 class CvBuilderNav extends React.Component {
   render() {
@@ -14,8 +15,9 @@ class CvBuilderNav extends React.Component {
         {context => {
           return (
             <div className="CvMenu">
-              <span className="logo-template">CVFY</span>
-
+              <NavLink to="/">
+                <span className="logo-template">CV|FY</span>
+              </NavLink>
               <div className="design">
                 <div className="tool-label">Design</div>
                 <div className="tools">

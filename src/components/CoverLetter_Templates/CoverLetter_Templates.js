@@ -1,4 +1,7 @@
 import React from "react";
+import Navbar from "../navbar/Navbar";
+import Footer from "../Footer";
+import GlobalStyle from "../../styles/Global";
 import "../../styles/CV_Templates.css";
 import Cover1 from "../../assets/Cover1.png";
 import Cover2 from "../../assets/Cover2.png";
@@ -12,6 +15,7 @@ import JumbotronCL from "./JumbotronCL";
 const CoverLetter_Templates = () => {
   return (
     <>
+      <Navbar />
       <JumbotronCL />
       <div className="CV_Templates_MainContainer">
         <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-0s">
@@ -33,6 +37,8 @@ const CoverLetter_Templates = () => {
           <img src={Cover6} />
         </ScrollAnimation>
       </div>
+      <Footer />
+      <GlobalStyle />
     </>
   );
 };

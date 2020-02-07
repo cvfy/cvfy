@@ -1,17 +1,23 @@
 import React from "react";
+import Navbar from "../navbar/Navbar";
+import Footer from "../Footer";
+import GlobalStyle from "../../styles/Global";
 import "../../styles/myDocuments.css";
-import Jumbotron_Dashboard from "./JumbotronDashboard";
-import CV_Dashboard from "./CV_Dashboard";
-import Cover_Dashboard from "./Cover_Dashboard";
+import JumbotronDashboard from "./JumbotronDashboard";
+import CvDashboard from "./CvDashboard";
+import CoverDashboard from "./CoverDashboard";
 
 const MyDocuments = () => {
   return (
     <>
-      <Jumbotron_Dashboard />
+      <Navbar />
+      <JumbotronDashboard />
       <div className="dashboard">
-        <CV_Dashboard />
-        <Cover_Dashboard />
+        <CvDashboard />
+        <CoverDashboard />
       </div>
+      <Footer />
+      <GlobalStyle />
     </>
   );
 };
