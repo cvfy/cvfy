@@ -1,0 +1,41 @@
+.Section_3_Main_Container {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Section_3_Main_Container .S3_TextContainer {
+    width: 65%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.Section_3_Main_Container .S3_TextContainer h2 {
+    font-size: 5rem;
+    margin: 0 3%;
+    align-self: flex-start;
+}
+
+.Section_3_Main_Container .S3_TextContainer p {
+    margin: 0 3%;
+    font-size: 2rem;
+}
+
+.S3_Img_Container {
+    height: 80%;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.S3_Img_Container img {
+    width: 400px;
+}

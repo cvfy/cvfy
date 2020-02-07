@@ -1,22 +1,35 @@
 import React from 'react';
 import '../../styles/Desktop.css';
+import wallpaper from '../../assets/wallpaper.png';
+import ScrollAnimation from 'react-animate-on-scroll';
+
 
 const Desktop = () => {
     return ( 
         <div className="Desktop_Main_Container">
             <div className="Desktop_ColoredPart">
+            <ScrollAnimation animateIn="fadeIn delay-0s"><div className="TitleText">
+                <h1>Here will be a very very cool Title!</h1>
+                <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+                </p></div></ScrollAnimation>
+                <ScrollAnimation animateIn="fadeInDown delay-0s"><div className="MonitorLeftSide">
                 <div className="Monitor">
-                    <div className="MonitorFrame"></div>
+                    <div className="MonitorFrame">
+                        <img src={wallpaper} alt="wallpaper"/>
+                    </div>
                     <div className="MonitorFoot"></div>
                     <div className="MonitorStand"></div>
                 </div>
+                </div></ScrollAnimation>
             </div>
             <div className="Desktop_WhitePart">
                 <div className="Table_Items">
+                <ScrollAnimation className='Desktop_Button' animateIn="bounceInLeft delay-0s"><div>SIGN UP</div></ScrollAnimation>
                     <div className="TextNote"><h4>To do:</h4><p>Build a <br />Cool CV</p></div>
                     <div className="MobilePhone">
                         <div className="MobileScreen">
-                            
+
                         </div>
                         <div className="MobileButton"></div>
                     </div>
@@ -236,7 +249,7 @@ const Desktop = () => {
       <span>&#9654;</span>
     </div>
   </div>
-</div>
+</div>   
 </div>
 <div className="compMouse">
     <div className="mouseLeftButton"></div>
@@ -260,6 +273,7 @@ const Desktop = () => {
                     </div>
                 </div>
             </div>
+            <div className="FooterUpperBorder"></div>
 
         </div>
      );

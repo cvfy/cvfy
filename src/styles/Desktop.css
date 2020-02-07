@@ -1,7 +1,10 @@
 .Desktop_Main_Container {
     width: 100%;
     height: 800px;
-    border: 1px solid black;
+}
+
+.MonitorFrame img {
+    height: 250px;
 }
 
 .Desktop_Main_Container .Desktop_ColoredPart {
@@ -28,6 +31,8 @@
     height: 300px;
     border: 8px solid lightgrey;
     border-radius: 5px 5px;
+    display: flex;
+    justify-content: center;
 }
 
 .MonitorFoot {
@@ -58,12 +63,28 @@
     position: relative;
 }
 
+.Desktop_Button {
+    width: 250px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    /* background-color: #6C63FF; */
+    border-radius: 6px;
+    border: 5px solid lightgrey;
+    font-size: 3rem;
+    color: black;
+}
+
 .TextNote {
     position: absolute;
-    top: 100px;
-    left: 300px;
+    top: 70px;
+    left: 550px;
     border: 3px solid lightgrey;
-    transform: rotate(15deg);
+    transform: rotate(-15deg);
     width: 80px;
     height: 80px;
 }
@@ -83,8 +104,8 @@
 
 .MobilePhone {
     position: absolute;
-    top: 250px;
-    left: 200px;
+    top: 140px;
+    left: 400px;
     border: 3px solid lightgrey;
     border-radius: 10px;
     transform: rotate(-15deg);
@@ -99,7 +120,7 @@
 .MobilePhone .MobileScreen {
     width: 68px;
     height: 100px;
-    border: 1px solid lightgrey
+    border: 1px solid lightgrey;
 }
 
 .MobilePhone .MobileButton {
@@ -110,10 +131,30 @@
     margin: 3px 0;
 }
 
+.TitleText {
+    position: absolute;
+    top: 90px;
+    left: 100px;
+    width: 400px;
+    height: 100%;
+}
+
+.TitleText h1 {
+    font-size: 3em;
+    position: absolute;
+    top: 0px;
+}
+
+.TitleText p {
+    position: absolute;
+    top: 130px;
+    line-height: 2em;
+}
+
 .coffeeCup {
     position: absolute;
-    top: 60px;
-    right: 300px;
+    top: 10px;
+    right: 20px;
     width: 150px;
     height: 150px;
     display: flex;
@@ -125,6 +166,7 @@
     width: 500px;
     display: flex;
     justify-content: space-around;
+    margin-left: 615px;
 }
 
 .compMouse {
@@ -324,7 +366,6 @@
     left: 6px;
     font-size: 1.5em;
     color: lightgrey;
-
 }
 
 .cup .smoke {
@@ -345,7 +386,6 @@
     transform: skewY(0deg);
     z-index: -1;
     filter: blur(1px);
-
 }
 
 .plate {
@@ -407,4 +447,12 @@
         padding: 0px 20px;
         opacity: 0;
     }
+}
+
+.FooterUpperBorder {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(239, 239, 247);
+    box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15);
+    margin-top: 50px;
 }
