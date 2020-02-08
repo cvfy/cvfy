@@ -1,0 +1,283 @@
+/* ================== GLOBAL STYLE ================== */
+.alignContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container {
+    width: 892.5px !important;
+    min-height: 1263px !important;
+    background: #fff center center;
+    margin-bottom: 40rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10rem;
+}
+
+.editableDiv {
+    max-width: "22em";
+    word-break: "break-word";
+}
+
+.title:empty:before,
+.to:empty:before,
+.company:empty:before,
+.editDate:empty:before,
+.coverLetterBody:empty:before {
+    color: #808080;
+    display: block;
+    border-bottom: 1px dotted #808080;
+}
+
+*:focus {
+    outline: none;
+}
+
+/* ==================================================== */
+/* ================== HEADER SECTION ================== */
+/* ==================================================== */
+.header-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 15px;
+}
+
+.header-inner {
+    display: flex;
+}
+
+.title {
+    margin: -5px 0 5px 0;
+}
+
+.introduction {
+    width: 100%;
+    margin-left: 2rem;
+    margin-bottom: 3px;
+}
+
+.name {
+    padding-top: 15px;
+    font-size: 2rem;
+}
+
+.title {
+    font-size: 1.3rem;
+    color: #414242;
+    margin-bottom: 1.5rem;
+}
+
+.title:empty:before {
+    content: "Professional title";
+    border-bottom: none;
+}
+
+.title:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.to {
+    padding-top: 5px;
+    font-size: 0.8rem;
+    max-width: inherit;
+    font-style: italic;
+}
+
+.to:empty:before {
+    content: "To";
+    border-bottom: none;
+    font-style: none;
+}
+
+.company {
+    padding-top: 5px;
+    font-size: 1.3rem;
+    max-width: inherit;
+    font-weight: bold;
+}
+
+.company:empty:before {
+    content: "Company Details";
+    border-bottom: none;
+    color: black;
+}
+
+.company:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 17em;
+}
+
+.editDate {
+    padding-top: 5px;
+    font-size: 1.3rem;
+    max-width: inherit;
+    font-weight: bold;
+}
+
+.editDate:empty:before {
+    content: "22 Januar, 2020";
+    border-bottom: none;
+    font-style: italic;
+}
+
+.editDate:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 17em;
+}
+
+/* ==================================================== */
+/* ================== CONTACT SECTION ================== */
+/* ==================================================== */
+.coverLetterContact {
+    padding-right: 37.5px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.contactGroup {
+    flex-grow: 1;
+    flex: 0 50%;
+    padding-bottom: 5px;
+    direction: rtl;
+}
+
+.iconeColor {
+    color: #3dbaf7;
+}
+
+.user-contact {
+    margin-right: 10px;
+}
+
+.userEmail:empty:before {
+    content: 'E-mail';
+    color: rgb(61, 58, 58);
+}
+
+.userEmail:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 5em;
+}
+
+.userSkype:empty:before {
+    content: 'Skype';
+    color: rgb(61, 58, 58);
+}
+
+.userSkype:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.userSite:empty:before {
+    content: 'Website';
+    color: rgb(61, 58, 58);
+}
+
+.userSite:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.userAddress:empty:before {
+    content: 'Address';
+    color: rgb(61, 58, 58);
+}
+
+.userAddress:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.userPhone:empty:before {
+    content: 'Phone';
+    color: rgb(61, 58, 58);
+}
+
+.userPhone:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+.userGitHub:empty:before {
+    content: 'GitHub';
+    color: rgb(61, 58, 58);
+}
+
+.userGithub:empty:hover:before {
+    border-bottom: 1px solid blue;
+    max-width: 8em;
+}
+
+/* ==================================================== */
+/* ================== BODY SECTION ================== */
+/* ==================================================== */
+.cover-letter-body-wrapper {
+    width: 100%;
+}
+
+.cover-letter-body {
+    width: 100%;
+    margin-top: 30px;
+    border: 1px solid black;
+    min-height: 50px;
+}
+
+.coverLetterBody {
+    padding-top: 5px;
+    font-size: 0.9rem;
+    color: black;
+}
+
+.coverLetterBody:empty:before {
+    color: black;
+    border-bottom: none;
+}
+
+.wrap {
+    width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+}
+
+.editableDiv {
+    max-width: "22em";
+    word-break: "break-word";
+}
+
+.signatureDiv {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 7px;
+}
+
+.coverLetterRegards {
+    font-size: 0.9rem;
+    color: black;
+}
+
+.coverLetterRegards:empty:before {
+    content: "Best Regards,";
+    color: black;
+    border-bottom: none;
+}
+
+.coverLetterSignature {
+    font-size: 0.9rem;
+    color: black;
+}
+
+.coverLetterSignature:empty:before {
+    content: "FULL NAME";
+    border-bottom: none;
+}
