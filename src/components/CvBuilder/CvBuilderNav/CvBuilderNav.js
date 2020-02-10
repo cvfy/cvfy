@@ -30,30 +30,30 @@ class CvBuilderNav extends React.Component {
               </div>
 
               <div className="download">
-                <button className="download-btn" onClick={this.doc}>
+                <div className="download-btn" onClick={this.doc}>
                   <div className="tools">
                     <span className="tool-icon first-icon">⤓</span>
                     <span className="tool-desc tool-download">Download</span>
                   </div>
-                </button>
+                </div>
               </div>
 
               <div className="my-documents">
-                <button className="my-docs-btn">
+                <div className="my-docs-btn">
                   <div className="tools">
                     <span className="tool-icon tool-mydoc">My Documents</span>
                   </div>
-                </button>
+                </div>
               </div>
 
               <div className="template-menu">
-                <button className="template-menu-btn">
+                <div className="template-menu-btn">
                   <div className="tools temp-menu">
                     <span className="tool-menu-bar first-icon">―</span>
                     <span className="tool-menu-bar first-icon">―</span>
                     <span className="tool-menu-bar first-icon last-bar">―</span>
                   </div>
-                </button>
+                </div>
               </div>
             </div>
           );

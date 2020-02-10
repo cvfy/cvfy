@@ -35,10 +35,10 @@ class FontSubMenu extends Component {
         {context => {
           return (
             <div>
-              <button className="template-btn" onClick={this.showMenu}>
+              <div className="template-btn" onClick={this.showMenu}>
                 <span className="tool-icon">❏</span>
                 <span className="tool-desc">Templates</span>
-              </button>
+              </div>
 
               {this.state.showMenu ? (
                 <div

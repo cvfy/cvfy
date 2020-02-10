@@ -36,10 +36,10 @@ class FontSizeSubMenu extends Component {
           const { handleFontSize } = context;
           return (
             <div>
-              <button className="layout-btn" onClick={this.showMenu}>
+              <div className="layout-btn" onClick={this.showMenu}>
                 <span className="tool-icon">↕</span>
                 <span className="tool-desc">Font-size</span>
-              </button>
+              </div>
 
               {this.state.showMenu ? (
                 <div

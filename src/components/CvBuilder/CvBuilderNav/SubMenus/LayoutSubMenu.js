@@ -44,10 +44,10 @@ class LayoutSubMenu extends Component {
         {context => {
           return (
             <div>
-              <button className="layout-btn " onClick={this.showMenu}>
+              <div className="layout-btn " onClick={this.showMenu}>
                 <span className="tool-icon">☷</span>
                 <span className="tool-desc">Layout</span>
-              </button>
+              </div>
 
               {this.state.showMenu ? (
                 <div

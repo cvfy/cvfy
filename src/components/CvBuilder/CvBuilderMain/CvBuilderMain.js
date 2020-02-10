@@ -24,7 +24,7 @@ class CvBuilderMain extends React.Component {
               >
                 <Header />
                 <Contacts />
-                <div className="wrap">
+                <div className="A4ContentWrap">
                   <div className="left">
                     <Education />
                     <Experience />

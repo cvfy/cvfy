@@ -61,6 +61,8 @@
 .template-menu-btn {
     background-color: #ffff0000;
     color: #fff;
+    border: 0;
+    padding: 0;
 }
 
 .theme-btn,
@@ -86,7 +88,10 @@
 
 .download-btn {
     height: 60px;
+    display: flex;
     background-color: #2bb5b963;
+    align-items: center;
+    justify-content: center;
 }
 
 .download-btn:hover {
@@ -144,7 +149,7 @@
 }
 
 .last-bar {
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
 /* ========================================= */

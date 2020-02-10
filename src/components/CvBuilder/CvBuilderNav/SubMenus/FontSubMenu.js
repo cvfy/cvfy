@@ -36,10 +36,10 @@ class FontSubMenu extends Component {
           const { changeFontFamily } = context;
           return (
             <div>
-              <button className="font-btn" onClick={this.showMenu}>
+              <div className="font-btn" onClick={this.showMenu}>
                 <span className="tool-icon">A</span>
                 <span className="tool-desc">Font</span>
-              </button>
+              </div>
 
               {this.state.showMenu ? (
                 <div

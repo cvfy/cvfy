@@ -36,10 +36,10 @@ class ColorSubMenu extends Component {
           const { changeColor } = context;
           return (
             <div>
-              <button className="theme-btn " onClick={this.showMenu}>
+              <div className="theme-btn " onClick={this.showMenu}>
                 <span className="tool-icon">✎</span>
                 <span className="tool-desc">Color</span>
-              </button>
+              </div>
 
               {this.state.showMenu ? (
                 <div
