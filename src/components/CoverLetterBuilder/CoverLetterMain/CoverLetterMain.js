@@ -1,5 +1,5 @@
 import React from "react";
-import "./CoverLetterMain.css";
+import "../../../styles/CoverLetterMain.css";
 import CoverLetterHeader from "./CoverLetterHeader";
 import CoverLetterBody from "./CoverLetterBody";
 import { ThemeContext } from "../../../contexts/ThemeContext";

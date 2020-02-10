@@ -11,6 +11,10 @@ class AboutUs extends Component {
       "„Casamentiss faiz malandris se pirulitá. Atirei o pau no gatis, per gatis num morreus. Manduma pindureta quium dia nois paga. Aenean aliquam molestie leo, vitae iaculis nisl.”"
   };
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   changeText = e => {
     console.log(e.currentTarget.title);
     if (e.currentTarget.title === "mission") {
