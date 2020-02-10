@@ -23,9 +23,9 @@ class Header extends React.Component {
                   BABYLONIAN DOG
                 </div>
 
-                <div className="editableHeaderDiv title">
+                <div className="editableHeaderDiv CvTitle">
                   <span
-                    className="title"
+                    className="CvTitle"
                     contentEditable="true"
                     style={{
                       fontSize: context.size1

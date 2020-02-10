@@ -31,7 +31,7 @@ class ExperienceGroup extends React.Component {
 
               <div className="editableDiv">
                 <span
-                  className="company"
+                  className="CvCompany"
                   contentEditable="true"
                   style={{
                     fontSize: context.size2
