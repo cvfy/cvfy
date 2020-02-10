@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./CoverLetterNav.css";
-import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 
 class ExtraToolsMenu extends Component {
   state = {};
   render() {
     return (
-      <CoverLetterContext.Consumer>
+      <ThemeContext.Consumer>
         {context => {
           return (
             <div className="cvExtraToolsDiv">
@@ -65,7 +65,7 @@ class ExtraToolsMenu extends Component {
             </div>
           );
         }}
-      </CoverLetterContext.Consumer>
+      </ThemeContext.Consumer>
     );
   }
 }

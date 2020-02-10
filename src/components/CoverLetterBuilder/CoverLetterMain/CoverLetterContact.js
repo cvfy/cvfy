@@ -1,10 +1,10 @@
 import React from "react";
-import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 
 class CoverLetterContact extends React.Component {
   render() {
     return (
-      <CoverLetterContext.Consumer>
+      <ThemeContext.Consumer>
         {context => {
           return (
             <div className="coverLetterContact">
@@ -88,7 +88,7 @@ class CoverLetterContact extends React.Component {
             </div>
           );
         }}
-      </CoverLetterContext.Consumer>
+      </ThemeContext.Consumer>
     );
   }
 }

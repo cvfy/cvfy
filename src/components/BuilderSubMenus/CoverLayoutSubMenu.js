@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { CoverLetterContext } from "../../../../contexts/CoverLetterContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import { Button } from "@material-ui/core";
 
-class LayoutSubMenu extends Component {
+class CoverLayoutSubMenu extends Component {
   constructor() {
     super();
 
@@ -40,14 +40,14 @@ class LayoutSubMenu extends Component {
 
   render() {
     return (
-      <CoverLetterContext.Consumer>
+      <ThemeContext.Consumer>
         {context => {
           return (
             <div>
-              <button className="layout-btn " onClick={this.showMenu}>
+              <div className="layout-btn " onClick={this.showMenu}>
                 <span className="tool-icon">☷</span>
                 <span className="tool-desc">Layout</span>
-              </button>
+              </div>
 
               {this.state.showMenu ? (
                 <div
@@ -128,9 +128,9 @@ class LayoutSubMenu extends Component {
             </div>
           );
         }}
-      </CoverLetterContext.Consumer>
+      </ThemeContext.Consumer>
     );
   }
 }
 
-export default LayoutSubMenu;
+export default CoverLayoutSubMenu;

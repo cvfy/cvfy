@@ -1,7 +1,7 @@
 import React from "react";
 import CoverLetterNav from "./CoverLetterNav/CoverLetterNav";
 import CoverLetterMain from "./CoverLetterMain/CoverLetterMain";
-import ThemeContextProvider from "../../contexts/CoverLetterContext";
+import ThemeContextProvider from "../../contexts/ThemeContext";
 
 class CoverLetterBuilder extends React.Component {
   render() {

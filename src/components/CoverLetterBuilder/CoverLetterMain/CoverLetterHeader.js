@@ -1,18 +1,18 @@
 import React from "react";
-import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 import CoverLetterContact from "./CoverLetterContact";
 
 class CoverLetterHeader extends React.Component {
   render() {
     return (
-      <CoverLetterContext.Consumer>
+      <ThemeContext.Consumer>
         {context => {
           return (
             <div className="header-wrap">
               <div className="header-inner">
                 <div className="introduction">
                   <div
-                    className="name"
+                    className="coverLetterName"
                     style={{ fontFamily: context.font, color: context.color }}
                   >
                     BABYLONIAN DOG
@@ -64,7 +64,7 @@ class CoverLetterHeader extends React.Component {
             </div>
           );
         }}
-      </CoverLetterContext.Consumer>
+      </ThemeContext.Consumer>
     );
   }
 }

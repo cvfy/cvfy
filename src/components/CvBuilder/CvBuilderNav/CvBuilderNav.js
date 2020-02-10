@@ -1,11 +1,11 @@
 import React from "react";
 import "./cvBuilderNav.css";
 import { ThemeContext } from "../../../contexts/ThemeContext";
-import FontSubMenu from "./SubMenus/FontSubMenu";
-import ColorSubMenu from "./SubMenus/ColorSubMenu";
-import FontSizeSubMenu from "./SubMenus/FontSizeSubMenu";
-import LayoutSubMenu from "./SubMenus/LayoutSubMenu";
-import TemplatesSubMenu from "./SubMenus/TemplatesSubMenu";
+import FontSubMenu from "../../BuilderSubMenus/FontSubMenu";
+import ColorSubMenu from "../../BuilderSubMenus/ColorSubMenu";
+import FontSizeSubMenu from "../../BuilderSubMenus/FontSizeSubMenu";
+import LayoutSubMenu from "../../BuilderSubMenus/LayoutSubMenu";
+import TemplatesSubMenu from "../../BuilderSubMenus/TemplatesSubMenu";
 import { NavLink } from "react-router-dom";
 
 class CvBuilderNav extends React.Component {

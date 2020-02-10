@@ -48,26 +48,24 @@
     display: flex;
 }
 
-.title {
-    margin: -5px 0 5px 0;
-}
-
 .introduction {
     width: 100%;
     margin-left: 2rem;
     margin-bottom: 3px;
 }
 
-.name {
-    padding-top: 15px;
-    font-size: 2rem;
-}
-
 .title {
     font-size: 1.3rem;
     color: #414242;
     margin-bottom: 1.5rem;
+    margin-top: 15px;
 }
+
+.coverLetterName {
+    padding-top: 2rem;
+    font-size: 2rem;
+}
+
 
 .title:empty:before {
     content: "Professional title";

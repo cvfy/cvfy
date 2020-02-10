@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ThemeContext } from "../../../../contexts/ThemeContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 class FontSubMenu extends Component {
   constructor() {
