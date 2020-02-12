@@ -14,6 +14,7 @@ import ContactUs from "./ContactUs";
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
 import CvBuilder from "./CvBuilder/CvBuilder";
 import CoverLetterBuilder from "./CoverLetterBuilder/CoverLetterBuilder";
+import TermsAndConditions from "./TermsAndConditions";
 
 const App = () => {
   return (
@@ -39,6 +40,11 @@ const App = () => {
             exact
             path="/create-cover-letter"
             component={CoverLetterBuilder}
+          />
+          <Route
+            exact
+            path="/terms-and-conditions"
+            component={TermsAndConditions}
           />
         </Switch>
       </BrowserRouter>
