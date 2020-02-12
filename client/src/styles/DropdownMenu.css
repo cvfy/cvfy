@@ -1,0 +1,91 @@
+.DropdownContainer {
+  height: 20px;
+  width: 130px;
+  display: flex;
+  flex-direction: column;
+  z-index: 800;
+}
+
+.DropdownContainer .DropdownHiddenContainerOpen {
+  position: absolute;
+  top: 60px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 130px;
+  height: 400px;
+  z-index: 900;
+}
+
+.DropdownItemClosed {
+  display: none;
+}
+
+.DropdownItemOpen {
+  display: flex;
+  border-radius: 10px;
+  margin: 2px;
+  padding: 4px;
+  width: 100%;
+  height: 30px !important;
+  box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  opacity: 0.9;
+  z-index: 1000;
+}
+.DropdownItemOpen a {
+  width: 100%;
+  
+}
+.DropdownHiddenContainerClosed {
+  display: none !important;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userImg {
+  height: 25px;
+  margin-left: 10px;
+}
+
+.DropdownTitle span {
+  margin-left: 3px;
+}
+
+.scaling {
+  scale: 1.2;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+}
