@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import { Button } from "@material-ui/core";
 
 class CoverLayoutSubMenu extends Component {
   constructor() {
@@ -35,7 +34,6 @@ class CoverLayoutSubMenu extends Component {
   handleUserChange(e) {
     const userId = e.currentTarget.dataset.userId;
     this.setState({ userId });
-    // or this.setState({userId: userId})
   }
 
   render() {
@@ -80,32 +78,8 @@ class CoverLayoutSubMenu extends Component {
                   </div>
 
                   <div className="layoutToggle">
-                    <Button
-                      className={
-                        this.state.userId === "user-1"
-                          ? "toggleButton active"
-                          : "toggleButton"
-                      }
-                      variant="outlined"
-                      color="primary"
-                      onClick={this.handleUserChange}
-                      data-user-id="user-1"
-                    >
-                      Suggested
-                    </Button>
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      onClick={this.handleUserChange}
-                      data-user-id="user-2"
-                      className={
-                        this.state.userId === "user-2"
-                          ? "toggleButton active"
-                          : "toggleButton"
-                      }
-                    >
-                      Custom
-                    </Button>
+                    <div>Suggested</div>
+                    <div>Custom</div>
                   </div>
 
                   <div className="layoutCV"></div>
