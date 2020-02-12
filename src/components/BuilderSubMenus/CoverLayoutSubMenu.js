@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import { Button } from "@material-ui/core";
+//import { Button } from "@material-ui/core";
 
 class CoverLayoutSubMenu extends Component {
   constructor() {
