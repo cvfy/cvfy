@@ -11,16 +11,16 @@ const Footer = () => {
   return (
     <div className="FooterContainer">
       <div className="FooterUpperBorder"></div>
-      <footer class="site-footer">
-        <div class="container">
-          <div class="FirstFooterRow">
+      <footer className="site-footer">
+        <div className="container">
+          <div className="FirstFooterRow">
             <ScrollAnimation animateIn="fadeInLeft delay-0s">
-              <div class="FooterAboutSection">
+              <div className="FooterAboutSection">
                 <h6>ABOUT</h6>
                 <br />
                 <hr />
                 <br />
-                <p class="text-justify">
+                <p className="text-justify">
                   CVFY.io<i>Filling CV was never so Easy </i> is an initiative
                   to help the upcoming programmers with the code. Scanfcode
                   focuses on providing the most efficient code or snippets as
@@ -30,12 +30,12 @@ const Footer = () => {
             </ScrollAnimation>
 
             <ScrollAnimation animateIn="fadeIn delay-0s">
-              <div class="FooterCategoriesSection">
+              <div className="FooterCategoriesSection">
                 <h6>CAREER RESOURCES</h6>
                 <br />
                 <hr />
                 <br />
-                <ul class="footer-links">
+                <ul className="footer-links">
                   <li>
                     <a href="#">How to Write a CV</a>
                   </li>
@@ -56,12 +56,12 @@ const Footer = () => {
             </ScrollAnimation>
 
             <ScrollAnimation animateIn="fadeInRight delay-0s">
-              <div class="LinksSection">
+              <div className="LinksSection">
                 <h6>QUICK LINKS</h6>
                 <br />
                 <hr />
                 <br />
-                <ul class="footer-links">
+                <ul className="footer-links">
                   <li>
                     <NavLink to="/about-us">About Us</NavLink>
                   </li>
@@ -93,33 +93,33 @@ const Footer = () => {
           </div>
           {/* <hr /> */}
         </div>
-        <div class="SecondFooterRow">
-          <div class="Copyright">
-            <p class="copyright-text">
+        <div className="SecondFooterRow">
+          <div className="Copyright">
+            <p className="copyright-text">
               Copyright &copy; 2020 All Rights Reserved by <a href="#">CV|FY</a>
               .
             </p>
           </div>
-          <div class="SocialMedia">
-            <ul class="social-icons">
+          <div className="SocialMedia">
+            <ul className="social-icons">
               <ScrollAnimation animateIn="fadeInRight flex">
                 <li>
-                  <a class="facebook" href="#">
+                  <a className="facebook" href="#">
                     <img className="socialIcon" src={Linkedin} alt="icon" />
                   </a>
                 </li>
                 <li>
-                  <a class="twitter" href="#">
+                  <a className="twitter" href="#">
                     <img className="socialIcon" src={Facebook} alt="icon" />
                   </a>
                 </li>
                 <li>
-                  <a class="dribbble" href="#">
+                  <a className="dribbble" href="#">
                     <img className="socialIcon" src={Twitter} alt="icon" />
                   </a>
                 </li>
                 <li>
-                  <a class="linkedin" href="#">
+                  <a className="linkedin" href="#">
                     <img className="socialIcon" src={Instagram} alt="icon" />
                   </a>
                 </li>
