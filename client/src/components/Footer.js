@@ -77,6 +77,14 @@ const Footer = () => {
                     <NavLink to="/privacy-policy">Privacy Policy</NavLink>
                   </li>
                   <li>
+                    <NavLink to="/cookies-policy">Cookies Policy</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/terms-and-conditions">
+                      Terms and Conditions
+                    </NavLink>
+                  </li>
+                  <li>
                     <a href="http://scanfcode.com/sitemap/">Sitemap</a>
                   </li>
                 </ul>
