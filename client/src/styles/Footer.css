@@ -42,6 +42,10 @@
 .FooterContainer ul li a {
   color: black;
 }
+
+.FooterContainer ul {
+  height: 100%;
+}
 .FooterContainer .LinksSection {
   width: 200px;
   height: 100%;
