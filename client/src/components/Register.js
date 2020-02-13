@@ -204,6 +204,8 @@ return (
                   invalid: errors.name
                 })}
               />
+                           <label htmlFor="name">Name</label>
+               <div className="red-text">{errors.name}</div>
                     </div>
 
                     <div className="input_field">
@@ -220,6 +222,8 @@ return (
                   invalid: errors.email
                 })}
               />
+               <label htmlFor="email">Email</label>
+               <div className="red-text">{errors.email}</div>
                     </div>
 
                     <div className="input_field">
@@ -236,6 +240,8 @@ return (
                   invalid: errors.password
                 })}
               />
+               <label htmlFor="password">Password</label>
+               <div className="red-text">{errors.password}</div>
                     </div>
 
                     <div className="input_field">
@@ -252,6 +258,8 @@ return (
                   invalid: errors.password2
                 })}
               />
+              <label htmlFor="password2">Confirm Password</label>
+               <div className="red-text">{errors.password2}</div>
                     </div>
 
                     <div className="input_field checkbox_option">
@@ -273,7 +281,7 @@ return (
               </div>
             </div>
             <div className="alreadyMember">
-              Already a member? <span className="addLink">Click here</span>
+              Already a member? <span className="addLink"><a href="/login">Click here</a></span>
             </div>
           </div>
         </div>

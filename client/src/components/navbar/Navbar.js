@@ -6,7 +6,8 @@ import "../../styles/Navbar.css";
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
+import { logoutUser } from "../../actions/authActions";
 
 const Navbar = props => {
   const [navbarState, setNavbarState] = useState(false);
@@ -32,7 +33,10 @@ const Navbar = props => {
   const active = {
     color: "#6bc774"
   };
-
+  const onLogoutClick = e => {
+    e.preventDefault();
+    localStorage.removeItem("jwtToken")
+    window.location.reload();  }
   return (
     <>
       <NavBar style={barAnimation} className="navWrapper">
@@ -58,6 +62,9 @@ const Navbar = props => {
             </div>
             <div className="DropMenu">
               <DropdownMenu />
+            </div>
+            <div>
+              <NavLink to="#" onClick={onLogoutClick}>Log Out</NavLink>
             </div>
           </NavLinks>
           <div className="BurgerWrapper">
