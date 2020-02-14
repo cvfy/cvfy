@@ -42,30 +42,9 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-<<<<<<< HEAD
-      <Router>
-        <div className="MainPage">
-        { (window.location.href.includes('create-cv') || window.location.href.includes('create-cover-letter')) ? `` : `${<Navbar />}` }
-          <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/cv-templates" component={CV_Templates} />
-          <Route
-            exact
-            path="/cover_letter-templates"
-            component={CoverLetter_Templates}
-          />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/about-us" component={AboutUs} />
-          <Route exact path="/contact-us" component={ContactUs} />
-          <Route exact path="/privacy-policy" component={PrivacyPolicy} />
-          <PrivateRoute exact path="/create-cover-letter" component={CoverLetterBuilder} />
-          <PrivateRoute exact path="/create-cv" component={CvBuilder} />
-          <PrivateRoute exact path="/my-account" component={MyAccount} />
-=======
         <Router>
           <div className="MainPage">
-            <Navbar />
+          { (window.location.href.includes('create-cv') || window.location.href.includes('create-cover-letter')) ? `` : `${<Navbar />}` }
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/cv-templates" component={CV_Templates} />
@@ -86,7 +65,6 @@ class App extends Component {
                 component={CoverLetterBuilder}
               />
               <PrivateRoute exact path="/my-account" component={MyAccount} />
->>>>>>> 6e3ad6aa62f13050ab5db247a6c51b008d9e44ee
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute
                 exact
