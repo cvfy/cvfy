@@ -75,6 +75,28 @@ const Team = () => {
             </div>
           </div>
         </div>
+
+        <div className="memberDiv">
+          <div className="memberPhoto">
+            <img src={Member} className="memberImg" alt="member"></img>
+          </div>
+          <div className="memberName">ALMAS</div>
+          <div className="memberTitle">Frontend</div>
+          <div className="memberContact">
+            <div className="portfolio">
+              Portfolio:{" "}
+              <a href="https://ajedelmann.github.io/portfolio/">
+                https://ajedelmann.github.io/portfolio/
+              </a>
+            </div>
+            <div className="gitHub">
+              <a href="https://github.com/AJEdelmann">
+                <i class="fab fa-github githubIcon"></i>
+                https://github.com/AJEdelmann
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
