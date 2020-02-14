@@ -17,8 +17,8 @@ function aFunction(){
 }
 const newState = aFunction();
 const Navbar = props => {
-  let display = (window.location.href == 'http://localhost:3000/create-cv' || window.location.href == 'http://localhost:3000/create-cover-letter') ? "none" : "block";
   console.log(window.location.href)
+  let display = (window.location.href == 'http://localhost:3000/create-cv' || window.location.href == 'http://localhost:3000/create-cover-letter') ? "none" : "block";
   const [navbarState, setNavbarState] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
