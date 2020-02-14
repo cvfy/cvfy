@@ -44,36 +44,30 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
-          <div className="MainPage">
-            <Navbar />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/cv-templates" component={CV_Templates} />
-              <Route
-                exact
-                path="/cover_letter-templates"
-                component={CoverLetter_Templates}
-              />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/about-us" component={AboutUs} />
-              <Route exact path="/contact-us" component={ContactUs} />
-              <Route exact path="/privacy-policy" component={PrivacyPolicy} />
-              <Route exact path="/cookies-policy" component={CookiesPolicy} />
-              <Route
-                exact
-                path="/terms-and-conditions"
-                component={TermsAndConditions}
-              />
+      <Router>
+        <div className="MainPage">
+        { (window.location.href.includes('create-cv') || window.location.href.includes('create-cover-letter')) ? `` : `${<Navbar />}` }
+          <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/cv-templates" component={CV_Templates} />
+          <Route
+            exact
+            path="/cover_letter-templates"
+            component={CoverLetter_Templates}
+          />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/about-us" component={AboutUs} />
+          <Route exact path="/contact-us" component={ContactUs} />
+          <Route exact path="/privacy-policy" component={PrivacyPolicy} />
+          <PrivateRoute exact path="/create-cover-letter" component={CoverLetterBuilder} />
+          <PrivateRoute exact path="/create-cv" component={CvBuilder} />
+          <PrivateRoute exact path="/my-account" component={MyAccount} />
               <PrivateRoute
                 exact
                 path="/create-cover-letter"
                 component={CoverLetterBuilder}
               />
-              <PrivateRoute exact path="/create-cv" component={CvBuilder} />
-              <PrivateRoute exact path="/my-account" component={MyAccount} />
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute
                 exact
                 path="/my-documents"
