@@ -8,8 +8,17 @@ import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
 import { NavLink, Redirect } from "react-router-dom";
 import { logoutUser } from "../../actions/authActions";
+import store from "./../../store.js"
 
+function aFunction(){
+  var newState = store.getState();
+  console.log(newState.auth.user.name)
+  return newState.auth.user.name;
+}
+const newState = aFunction();
 const Navbar = props => {
+  console.log(window.location.href)
+  let display = (window.location.href == 'http://localhost:3000/create-cv' || window.location.href == 'http://localhost:3000/create-cover-letter') ? "none" : "block";
   const [navbarState, setNavbarState] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
@@ -17,7 +26,6 @@ const Navbar = props => {
     from: { transform: "translate3d(0, -10rem, 0)" },
     transform: "translate3d(0, 0, 0)"
   });
-
   const linkAnimation = useSpring({
     from: { transform: "translate3d(0, 30px, 0)", opacity: 0 },
     to: { transform: "translate3d(0, 0, 0)", opacity: 1 },
@@ -40,7 +48,7 @@ const Navbar = props => {
   };
   return (
     <>
-      <NavBar style={barAnimation} className="navWrapper">
+      <NavBar style={barAnimation} className="navWrapper" style={{display: `${display}`}}>
         <div className="FlexContainer">
           <Brand />
           <NavLinks style={linkAnimation}>
@@ -59,7 +67,7 @@ const Navbar = props => {
               </NavLink>
             </div>
             <div>
-              <NavLink to="/my-documents">My Documents</NavLink>
+              <NavLink to="/my-documents">MyDocuments</NavLink>
             </div>
             <div className="DropMenu">
               <DropdownMenu />
@@ -79,7 +87,7 @@ const Navbar = props => {
     </>
   );
 };
-
+store.subscribe(aFunction)
 export default Navbar;
 
 const NavBar = styled(animated.nav)`
