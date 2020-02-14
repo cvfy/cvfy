@@ -44,25 +44,6 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-<<<<<<< HEAD
-        <Router>
-          <div className="MainPage">
-          { (window.location.href.includes('create-cv') || window.location.href.includes('create-cover-letter')) ? `` : `${<Navbar />}` }
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/cv-templates" component={CV_Templates} />
-              <Route
-                exact
-                path="/cover_letter-templates"
-                component={CoverLetter_Templates}
-              />
-              <Route path="/register" component={Register} />
-              <Route path="/login" component={Login} />
-              <Route exact path="/about-us" component={AboutUs} />
-              <Route exact path="/contact-us" component={ContactUs} />
-              <Route exact path="/privacy-policy" component={PrivacyPolicy} />
-              <PrivateRoute exact path="/create-cv" component={CvBuilder} />
-=======
       <Router>
         <div className="MainPage">
         { (window.location.href.includes('create-cv') || window.location.href.includes('create-cover-letter')) ? `` : `${<Navbar />}` }
@@ -82,17 +63,11 @@ class App extends Component {
           <PrivateRoute exact path="/create-cover-letter" component={CoverLetterBuilder} />
           <PrivateRoute exact path="/create-cv" component={CvBuilder} />
           <PrivateRoute exact path="/my-account" component={MyAccount} />
->>>>>>> f8180f716216fbcf8d990af450812ef20e5b4762
               <PrivateRoute
                 exact
                 path="/create-cover-letter"
                 component={CoverLetterBuilder}
               />
-<<<<<<< HEAD
-              <PrivateRoute exact path="/my-account" component={MyAccount} />
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-=======
->>>>>>> f8180f716216fbcf8d990af450812ef20e5b4762
               <PrivateRoute
                 exact
                 path="/my-documents"
