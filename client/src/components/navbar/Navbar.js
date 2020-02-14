@@ -18,13 +18,12 @@ function aFunction(){
 const newState = aFunction();
 const Navbar = props => {
   console.log(window.location.href)
-  let display = (window.location.href == 'http://localhost:3000/create-cv' || window.location.href == 'http://localhost:3000/create-cover-letter') ? "none" : "block";
   const [navbarState, setNavbarState] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
   const barAnimation = useSpring({
     from: { transform: "translate3d(0, -10rem, 0)" },
-    transform: "translate3d(0, 0, 0)"
+    to: {transform: "translate3d(0, 0, 0)"}
   });
   const linkAnimation = useSpring({
     from: { transform: "translate3d(0, 30px, 0)", opacity: 0 },
@@ -47,7 +46,7 @@ const Navbar = props => {
     window.location.reload();  }
   return (
     <>
-      <NavBar style={barAnimation} className="navWrapper" style={{display: `${display}`}}>
+      <NavBar style={barAnimation} className="navWrapper">
         <div className="FlexContainer">
           <Brand />
           <NavLinks style={linkAnimation}>
