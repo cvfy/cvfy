@@ -42,8 +42,9 @@ const Navbar = props => {
   };
   const onLogoutClick = e => {
     e.preventDefault();
-    localStorage.removeItem("jwtToken")
-    window.location.reload();  }
+    localStorage.removeItem("jwtToken");
+    window.location.reload();
+  };
   return (
     <>
       <NavBar style={barAnimation} className="navWrapper">
@@ -71,7 +72,9 @@ const Navbar = props => {
               <DropdownMenu />
             </div>
             <div>
-              <NavLink to="#" onClick={onLogoutClick}>Log Out</NavLink>
+              <NavLink to="#" onClick={onLogoutClick}>
+                Log Out
+              </NavLink>
             </div>
           </NavLinks>
           <div className="BurgerWrapper">
