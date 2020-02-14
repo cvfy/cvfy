@@ -25,7 +25,7 @@ const Desktop = () => {
             </div>
             <div className="Desktop_WhitePart">
                 <div className="Table_Items">
-                <ScrollAnimation className='Desktop_Button' animateIn="bounceInLeft delay-0s"><div>SIGN UP</div></ScrollAnimation>
+                <ScrollAnimation className='Desktop_Button' animateIn="bounceInLeft delay-0s"><div><a href="/register">SIGN UP</a></div></ScrollAnimation>
                     <div className="TextNote"><h4>To do:</h4><p>Build a <br />Cool CV</p></div>
                     <div className="MobilePhone">
                         <div className="MobileScreen">
