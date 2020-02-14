@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "../../styles/DropdownMenu.css";
 import Image from "../../assets/user.png";
-import store from "./../../store.js"
+import store from "./../../store.js";
 
-
-function aFunction(){
+function aFunction() {
   var newState = store.getState();
-  console.log(newState.auth.user.name)
+  console.log(newState.auth.user.name);
   return newState.auth.user.name;
 }
 
@@ -15,12 +14,14 @@ const DropdownMenu = () => {
   const [State, SetState] = useState({ OpenMenu: false });
 
   // Here ypu can modify the Array to change the items from te dropdown menu
-  const [DropdownItemsList, SetDropdownItemsList] = useState(aFunction() ? [
-    { Title: "My Account", Path: "/my-account" },
-  ] : [
-    { Title: "Sign Up", Path: "/register" },
-    { Title: "Login", Path: "/login" },
-  ]);
+  const [DropdownItemsList, SetDropdownItemsList] = useState(
+    aFunction()
+      ? [{ Title: "My Account", Path: "/my-account" }]
+      : [
+          { Title: "Sign Up", Path: "/register" },
+          { Title: "Login", Path: "/login" }
+        ]
+  );
 
   // Here you can set the Main Title of the Dropdown menu in the return of this function
   const setTitle = () => {
@@ -30,7 +31,7 @@ const DropdownMenu = () => {
           className={State.OpenMenu ? "userImg scaling" : "userImg"}
           src={Image}
         />
-        <h6 style={{color: "black", marginLeft: "5px"}}>{aFunction()}</h6>
+        <h6 style={{ color: "black", marginLeft: "5px" }}>{aFunction()}</h6>
       </div>
     );
   };
@@ -65,5 +66,5 @@ const DropdownMenu = () => {
     </div>
   );
 };
-store.subscribe(aFunction)
+store.subscribe(aFunction);
 export default DropdownMenu;
