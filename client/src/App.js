@@ -17,10 +17,11 @@ import MyAccount from "./components/MyAccount";
 import AboutUs from "./components/AboutUs/AboutUs";
 import ContactUs from "./components/ContactUs";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
+import CookiesPolicy from "./components/CookiesPolicy";
+import TermsAndConditions from "./components/TermsAndConditions";
 import CvBuilder from "./components/CvBuilder/CvBuilder";
 import CoverLetterBuilder from "./components/CoverLetterBuilder/CoverLetterBuilder";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/dashboard/Dashboard"; // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
   const token = localStorage.jwtToken;
@@ -43,7 +44,10 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="MainPage">
-            <Navbar />
+            {window.location.href.includes("create-cv") ||
+            window.location.href.includes("create-cover-letter")
+              ? ``
+              : `${(<Navbar />)}`}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/cv-templates" component={CV_Templates} />
@@ -52,19 +56,29 @@ class App extends Component {
                 path="/cover_letter-templates"
                 component={CoverLetter_Templates}
               />
-              <Route path="/register" component={Register} />
-              <Route path="/login" component={Login} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
               <Route exact path="/about-us" component={AboutUs} />
               <Route exact path="/contact-us" component={ContactUs} />
               <Route exact path="/privacy-policy" component={PrivacyPolicy} />
-              <PrivateRoute exact path="/create-cv" component={CvBuilder} />
+              <Route exact path="/cookies-policy" component={CookiesPolicy} />
+              <Route
+                exact
+                path="/terms-and-conditions"
+                component={TermsAndConditions}
+              />
               <PrivateRoute
                 exact
                 path="/create-cover-letter"
                 component={CoverLetterBuilder}
               />
+              <PrivateRoute exact path="/create-cv" component={CvBuilder} />
               <PrivateRoute exact path="/my-account" component={MyAccount} />
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute
+                exact
+                path="/create-cover-letter"
+                component={CoverLetterBuilder}
+              />
               <PrivateRoute
                 exact
                 path="/my-documents"
