@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
+const giveMeData = require ('../../puppeteer_Data/Puppeteer.js');
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -49,8 +50,6 @@ router.post("/register", (req, res) => {
     });
 });
 
-
-/////////////////////////////////////////////////////
 
 // @route POST api/users/login
 // @desc Login user and return JWT token
@@ -106,4 +105,22 @@ router.post("/login", (req, res) => {
     });
 });
 
+//ROUTE  TO GET LINKEDIN USER DATA
+router.get("/data/:profile", sendData)
+
+
+// THE PUPPETEER FUNCTION THAT GET THE LINKEDIN DATA
+const sendData = async (req, res, next) => {
+    try {
+      const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}/`);
+       console.log(datas)
+    
+      res.status(200).send(datas);
+    } catch (e) {
+      next(e);
+    }
+  };
+/////////////////////////////////////////////////////
+
 module.exports = router;
+
