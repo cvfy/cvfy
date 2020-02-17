@@ -12,7 +12,61 @@ class ThemeContextProvider extends Component {
     size4: "",
     tasksHistory: [],
     tasksOutput: [],
-    value: ""
+    value: "",
+    userData: {
+      fullName: "Steve Jobs",
+      intro: "Frontend Developer",
+      about: "I like apple, bacon and mushrooms",
+      contact: [
+        { email: "steve.jobs@apple.com" },
+        { phone: "0170 999888888" },
+        { linkedIn: "linkedin.com/in/steve.jobs" },
+        { skype: "steve.jobs" },
+        { address: "Kingston, Jamaica" },
+        { website: "https://ajedelmann.github.io/portfolio/" }
+      ],
+      experience: [
+        {
+          position: "Frontend developer",
+          company: "Burger King",
+          startMonth: "02",
+          startYear: "2005",
+          endMonth: "02",
+          endYear: "2012",
+          place: "Berlin, Germany",
+          tasks: ["I did craaazy stuff", "planted a tree"]
+        }
+      ],
+      education: [
+        {
+          studyProgram: "Full Stack MERN",
+          institution: "DCI - Digital Career Institute",
+          startMonth: "03",
+          startYear: "2019",
+          endMonth: "04",
+          endYear: "2020",
+          place: "Berlin, Germany"
+        }
+      ],
+      skills: ["JavaScript", "React", "MongoDB", "Express", "Node.js"],
+      projects: [
+        { title: "todo app", desc: "a todo list with react" },
+        {
+          title: "piano-player",
+          desc: "Piano player build with pure javascript"
+        }
+      ],
+      certifications: ["Best dog - who let the dog's out award"],
+      achievements: ["Spit fire in 3 ways - hemorrhoids academy"],
+      courses: [
+        { title: "Barbq master", desc: "How to be a a master on the grill" }
+      ],
+      languages: [
+        { language: "English", level: "Terrible" },
+        { language: "German", level: "none" },
+        { language: "Japanese", level: "for lunch?" }
+      ]
+    }
   };
 
   changeColor = e => {

@@ -15,7 +15,9 @@ class AchievementGroup extends React.Component {
                   style={{
                     fontSize: context.size3
                   }}
-                ></span>
+                >
+                  {context.userData.achievements[0]}
+                </span>
               </div>
             </div>
           );

@@ -2,21 +2,10 @@ import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
 
 class ExperienceGroup extends React.Component {
-  //   render() {
-  //     return (
-  //       <div className="Terminal">
-  //         <div className="Input-Terminal">
-  //           <div id="terminalOutput">{this.renderTerminalOutput()}</div>&nbsp;<span> >>> </span> &nbsp;
-  //           <input value={this.state.value} onKeyDown={this.keyPress} onChange={this.handleChange}  id="terminalInput" ></input>
-  //         </div>
-  //       </div>
-  //     );
-  //   }
   render() {
     return (
       <ThemeContext.Consumer>
         {context => {
-          // const { renderTasksOutput, keyPress, handleChange } = context;
           return (
             <div className="experience-group">
               <div className="editableDiv">
@@ -26,7 +15,9 @@ class ExperienceGroup extends React.Component {
                   style={{
                     fontSize: context.size2
                   }}
-                ></span>
+                >
+                  {context.userData.experience[0].position}
+                </span>
               </div>
 
               <div className="editableDiv">
@@ -36,7 +27,9 @@ class ExperienceGroup extends React.Component {
                   style={{
                     fontSize: context.size2
                   }}
-                ></span>
+                >
+                  {context.userData.experience[0].company}
+                </span>
               </div>
 
               <div className="time-loc">
@@ -47,7 +40,9 @@ class ExperienceGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.experience[0].startMonth}
+                  </span>
                   <span
                     className="dateDivider"
                     style={{
@@ -62,7 +57,9 @@ class ExperienceGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.experience[0].startYear}
+                  </span>
                   <span
                     className="dateDivider"
                     style={{
@@ -77,7 +74,9 @@ class ExperienceGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.experience[0].endMonth}
+                  </span>
                   <span
                     className="dateDivider"
                     style={{
@@ -92,7 +91,9 @@ class ExperienceGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.experience[0].endYear}
+                  </span>
                 </div>
 
                 <div className="location">
@@ -102,7 +103,9 @@ class ExperienceGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.experience[0].place}
+                  </span>
                 </div>
               </div>
 
@@ -117,18 +120,15 @@ class ExperienceGroup extends React.Component {
               </div>
               <div>
                 <div className="editableDiv">
-                  {/* <div id="tasksOutput">{renderTasksOutput}</div> */}
                   <span
-                    // value={this.state.value}
-                    // onKeyDown={keyPress}
-                    // onChange={handleChange}
-                    // id="terminalInput"
                     className="task"
                     contentEditable="true"
                     style={{
                       fontSize: context.size3
                     }}
-                  ></span>
+                  >
+                    {context.userData.experience[0].tasks[0]}
+                  </span>
                 </div>
               </div>
             </div>

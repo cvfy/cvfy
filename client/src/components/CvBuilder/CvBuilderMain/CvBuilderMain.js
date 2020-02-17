@@ -10,6 +10,7 @@ import Certifications from "./Certifications/Certifications";
 import Achievements from "./Achievements/Achievements";
 import Languages from "./Languages/Languages";
 import { ThemeContext } from "../../../contexts/ThemeContext";
+import Courses from "./Courses/Courses";
 
 class CvBuilderMain extends React.Component {
   render() {
@@ -26,14 +27,15 @@ class CvBuilderMain extends React.Component {
                 <Contacts />
                 <div className="A4ContentWrap">
                   <div className="left">
-                    <Education />
                     <Experience />
+                    <Education />
                   </div>
                   <div className="right">
                     <Skills />
                     <Projects />
                     <Certifications />
                     <Achievements />
+                    <Courses />
                     <Languages />
                   </div>
                 </div>

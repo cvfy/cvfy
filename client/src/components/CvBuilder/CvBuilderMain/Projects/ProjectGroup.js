@@ -15,7 +15,9 @@ class ProjectGroup extends React.Component {
                   style={{
                     fontSize: context.size3
                   }}
-                ></span>
+                >
+                  {context.userData.projects[1].title}
+                </span>
               </div>
 
               <div className="editableDiv">
@@ -25,7 +27,9 @@ class ProjectGroup extends React.Component {
                   style={{
                     fontSize: context.size4
                   }}
-                ></span>
+                >
+                  {context.userData.projects[1].desc}
+                </span>
               </div>
             </div>
           );

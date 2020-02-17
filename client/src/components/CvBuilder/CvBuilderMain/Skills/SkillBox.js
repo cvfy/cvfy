@@ -14,7 +14,9 @@ class SkillBox extends React.Component {
                 fontSize: context.size3
               }}
             >
-              <span className="skillText" contentEditable="true"></span>
+              <span className="skillText" contentEditable="true">
+                {context.userData.skills[0]}
+              </span>
             </div>
           );
         }}

@@ -18,7 +18,9 @@ class Contacts extends React.Component {
                     <span
                       className="user-contact userEmail"
                       contentEditable="true"
-                    ></span>
+                    >
+                      {context.userData.contact[0].email}
+                    </span>
                   </div>
                 </div>
                 <div className="contact-2">
@@ -30,7 +32,9 @@ class Contacts extends React.Component {
                   <span
                     className="user-contact userAddress"
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.contact[4].address}
+                  </span>
                 </div>
               </div>
               <div className="contact-row-2">
@@ -42,7 +46,9 @@ class Contacts extends React.Component {
                   <span
                     className="user-contact userSkype"
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.contact[3].skype}
+                  </span>
                 </div>
                 <div className="contact-4">
                   <div className="icone"></div>
@@ -53,7 +59,9 @@ class Contacts extends React.Component {
                   <span
                     className="user-contact userPhone"
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.contact[1].phone}
+                  </span>
                 </div>
               </div>
               <div className="contact-row-3">
@@ -66,7 +74,9 @@ class Contacts extends React.Component {
                   <span
                     className="user-contact userSite"
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.contact[5].website}
+                  </span>
                 </div>
                 <div className="contact-6">
                   <div className="icone"></div>

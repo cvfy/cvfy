@@ -1,32 +1,34 @@
 import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
 
-class LanguageGroup extends React.Component {
+class CourseGroup extends React.Component {
   render() {
     return (
       <ThemeContext.Consumer>
         {context => {
           return (
-            <div className="lang-group">
-              <div className="editableDiv language">
+            <div className="project-group">
+              <div className="editableDiv">
                 <span
-                  className="langHeader"
+                  className="projectTitle"
                   contentEditable="true"
                   style={{
                     fontSize: context.size3
                   }}
                 >
-                  {context.userData.languages[1].language}
+                  {context.userData.courses[0].title}
                 </span>
+              </div>
+
+              <div className="editableDiv">
                 <span
-                  className="langLevel"
+                  className="projectDesc"
                   contentEditable="true"
                   style={{
-                    color: context.color,
                     fontSize: context.size4
                   }}
                 >
-                  {context.userData.languages[1].level}
+                  {context.userData.courses[0].desc}
                 </span>
               </div>
             </div>
@@ -37,4 +39,4 @@ class LanguageGroup extends React.Component {
   }
 }
 
-export default LanguageGroup;
+export default CourseGroup;

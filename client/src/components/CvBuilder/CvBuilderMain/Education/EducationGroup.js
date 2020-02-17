@@ -15,7 +15,9 @@ class EducationGroup extends React.Component {
                   style={{
                     fontSize: context.size2
                   }}
-                ></span>
+                >
+                  {context.userData.education[0].studyProgram}
+                </span>
               </div>
 
               <div className="editableDiv">
@@ -25,7 +27,9 @@ class EducationGroup extends React.Component {
                   style={{
                     fontSize: context.size2
                   }}
-                ></span>
+                >
+                  {context.userData.education[0].institution}
+                </span>
               </div>
 
               <div className="time-loc">
@@ -36,7 +40,9 @@ class EducationGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.education[0].startMonth}
+                  </span>
                   <span
                     className="dateDivider"
                     style={{
@@ -51,7 +57,9 @@ class EducationGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.education[0].startYear}
+                  </span>
                   <span
                     className="dateDivider"
                     style={{
@@ -66,7 +74,9 @@ class EducationGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.education[0].endMonth}
+                  </span>
                   <span
                     className="dateDivider"
                     style={{
@@ -81,7 +91,9 @@ class EducationGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.education[0].endYear}
+                  </span>
                 </div>
 
                 <div className="location">
@@ -91,7 +103,9 @@ class EducationGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
-                  ></span>
+                  >
+                    {context.userData.education[0].place}
+                  </span>
                 </div>
               </div>
             </div>

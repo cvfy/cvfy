@@ -15,7 +15,9 @@ class CertificationGroup extends React.Component {
                   style={{
                     fontSize: context.size4
                   }}
-                ></span>
+                >
+                  {context.userData.certifications[0]}
+                </span>
               </div>
             </div>
           );
