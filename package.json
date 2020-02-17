@@ -31,7 +31,10 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "react-scroll-to-component": "^1.0.2",
-    "validator": "^12.1.0"
+    "validator": "^12.1.0",
+    "puppeteer": "^2.0.0",
+    "puppeteer-extra": "^3.1.7",
+    "puppeteer-extra-plugin-stealth": "^2.4.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
