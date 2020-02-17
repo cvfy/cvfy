@@ -15,7 +15,7 @@ class SkillBox extends React.Component {
               }}
             >
               <span className="skillText" contentEditable="true">
-                {context.userData.skills[0]}
+                {this.props.data}
               </span>
             </div>
           );

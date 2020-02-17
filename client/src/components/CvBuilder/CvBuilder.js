@@ -7,7 +7,7 @@ class CvBuilder extends React.Component {
   render() {
     return (
       <ThemeContextProvider>
-        <div>
+        <div className="cvBuilderWrapper" style={{ fontSize: "16px" }}>
           <CvBuilderNav />
           <CvBuilderMain />
         </div>
