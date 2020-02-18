@@ -3,23 +3,27 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 import LanguageGroup from "./LanguageGroup";
 
 class Languages extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      languages: []
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     languages: []
+  //   };
+  // }
 
-  addGroup(newItem) {
-    this.setState({
-      languages: [...this.state.languages, newItem]
-    });
-  }
+  // addGroup(newItem) {
+  //   this.setState({
+  //     languages: [...this.state.languages, newItem]
+  //   });
+  // }
 
   render() {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { addLanguageGroup } = context;
+          const res = context.userData.languages.map(el => (
+            <LanguageGroup key={el} data={el} />
+          ));
           return (
             <div className="lang">
               <div className="sectionHeader">
@@ -27,18 +31,16 @@ class Languages extends React.Component {
                   LANGUAGES
                 </div>
                 <div className="addLanguageDiv">
-                  <button
-                    className={"addGroupBtn"}
-                    onClick={() => this.addGroup(<LanguageGroup />)}
-                  >
+                  <button className={"addGroupBtn"} onClick={addLanguageGroup}>
                     add
                   </button>
                 </div>
               </div>
 
               <div className="lang-body">
-                <LanguageGroup />
-                {this.state.languages.map(child => child)}
+                {res}
+                {/* <LanguageGroup />
+                {this.state.languages.map(child => child)} */}
               </div>
             </div>
           );

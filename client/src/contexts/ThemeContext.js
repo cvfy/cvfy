@@ -1,4 +1,5 @@
 import React, { Component, createContext } from "react";
+import SkillBox from "../components/CvBuilder/CvBuilderMain/Skills/SkillBox";
 
 export const ThemeContext = createContext();
 
@@ -69,6 +70,21 @@ class ThemeContextProvider extends Component {
     }
   };
 
+  addSkillGroup = () => {
+    let newObject = { ...this.state.userData };
+    newObject.skills = [...newObject.skills, "Skill"];
+    this.setState({ userData: newObject });
+  };
+
+  addLanguageGroup = () => {
+    let newObject = { ...this.state.userData };
+    newObject.languages = [
+      ...newObject.languages,
+      { language: "Japanese", level: "for lunch?" }.toString()
+    ];
+    this.setState({ userData: newObject });
+  };
+
   changeColor = e => {
     this.setState({ color: e.target.name });
   };
@@ -106,7 +122,8 @@ class ThemeContextProvider extends Component {
           displaySubNav: this.displaySubNav,
           changeFontFamily: this.changeFontFamily,
           handleFontSize: this.handleFontSize,
-          addGroup: this.addGroup
+          addSkillGroup: this.addSkillGroup,
+          addLanguageGroup: this.addLanguageGroup
         }}
       >
         {this.props.children}

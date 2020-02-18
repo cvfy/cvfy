@@ -7,7 +7,7 @@ class Skills extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { addGroup } = context;
+          const { addSkillGroup } = context;
           const res = context.userData.skills.map(el => (
             <SkillBox key={el} data={el} />
           ));
@@ -19,7 +19,7 @@ class Skills extends React.Component {
                   SKILLS
                 </div>
                 <div className="addSkillDiv">
-                  <button className={"addGroupBtn"} onClick={addGroup}>
+                  <button className={"addGroupBtn"} onClick={addSkillGroup}>
                     add
                   </button>
                 </div>
