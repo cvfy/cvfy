@@ -35,7 +35,7 @@ class ThemeContextProvider extends Component {
           endMonth: "02",
           endYear: "2012",
           place: "Berlin, Germany",
-          tasks: ["I did craaazy stuff", "planted a tree"]
+          tasks: "I did craaazy stuff"
         }
       ],
       education: [
@@ -57,7 +57,10 @@ class ThemeContextProvider extends Component {
           desc: "Piano player build with pure javascript"
         }
       ],
-      certifications: ["Best dog - who let the dog's out award"],
+      certifications: [
+        "Best dog - who let the dog's out award",
+        "Best whatever"
+      ],
       achievements: ["Spit fire in 3 ways - hemorrhoids academy"],
       courses: [
         { title: "Barbq master", desc: "How to be a a master on the grill" }
@@ -70,16 +73,52 @@ class ThemeContextProvider extends Component {
     }
   };
 
+  // Those 3 functions add array of strings, will try to DRY later
   addSkillGroup = () => {
     let newObject = { ...this.state.userData };
     newObject.skills = [...newObject.skills, "Skill"];
     this.setState({ userData: newObject });
   };
 
+  addAchievGroup = () => {
+    let newObject = { ...this.state.userData };
+    newObject.achievements = [
+      ...newObject.achievements,
+      "Achievement description"
+    ];
+    this.setState({ userData: newObject });
+  };
+
+  addCertificationGroup = () => {
+    let newObject = { ...this.state.userData };
+    newObject.certifications = [
+      ...newObject.certifications,
+      "Certification description"
+    ];
+    this.setState({ userData: newObject });
+  };
+
+  // Those functions add array of objects
   addLanguageGroup = () => {
     let newObject = { ...this.state.userData };
     let newLang = { language: "Language", level: "level" };
     newObject.languages = [...this.state.userData.languages, newLang];
+    this.setState({ userData: newObject });
+  };
+
+  addExperienceGroup = () => {
+    let newObject = { ...this.state.userData };
+    let newExperience = {
+      position: "Title / Position",
+      company: "Company / Workplace",
+      startMonth: "MM",
+      startYear: "YYYY",
+      endMonth: "MM",
+      endYear: "YYYY",
+      place: "City, Country",
+      tasks: ""
+    };
+    newObject.experience = [...this.state.userData.experience, newExperience];
     this.setState({ userData: newObject });
   };
 
@@ -121,7 +160,9 @@ class ThemeContextProvider extends Component {
           changeFontFamily: this.changeFontFamily,
           handleFontSize: this.handleFontSize,
           addSkillGroup: this.addSkillGroup,
+          addCertificationGroup: this.addCertificationGroup,
           addAchievGroup: this.addAchievGroup,
+          addExperienceGroup: this.addExperienceGroup,
           addLanguageGroup: this.addLanguageGroup
         }}
       >

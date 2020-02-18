@@ -3,23 +3,27 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 import ExperienceGroup from "./ExperienceGroup";
 
 class Experience extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      experience: []
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     experience: []
+  //   };
+  // }
 
-  addGroup(newItem) {
-    this.setState({
-      experience: [...this.state.experience, newItem]
-    });
-  }
+  // addGroup(newItem) {
+  //   this.setState({
+  //     experience: [...this.state.experience, newItem]
+  //   });
+  // }
 
   render() {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { addExperienceGroup } = context;
+          const group = context.userData.experience.map(el => (
+            <ExperienceGroup key={el.company} data={el} />
+          ));
           return (
             <div className="experience">
               <div className="sectionHeader">
@@ -29,16 +33,13 @@ class Experience extends React.Component {
                 <div className="addExperienceDiv">
                   <button
                     className={"addGroupBtn"}
-                    onClick={() => this.addGroup(<ExperienceGroup />)}
+                    onClick={addExperienceGroup}
                   >
                     add
                   </button>
                 </div>
               </div>
-              <div className="experience-body">
-                <ExperienceGroup></ExperienceGroup>
-                {this.state.experience.map(child => child)}
-              </div>
+              <div className="experience-body">{group}</div>
             </div>
           );
         }}

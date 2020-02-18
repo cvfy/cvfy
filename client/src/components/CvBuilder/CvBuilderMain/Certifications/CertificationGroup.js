@@ -16,7 +16,7 @@ class CertificationGroup extends React.Component {
                     fontSize: context.size4
                   }}
                 >
-                  {context.userData.certifications[0]}
+                  {this.props.data}
                 </span>
               </div>
             </div>

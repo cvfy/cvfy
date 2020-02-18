@@ -3,23 +3,27 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 import AchievementGroup from "./AchievementGroup";
 
 class Achievements extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      achievement: []
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     achievement: []
+  //   };
+  // }
 
-  addGroup(newItem) {
-    this.setState({
-      achievement: [...this.state.achievement, newItem]
-    });
-  }
+  // addGroup(newItem) {
+  //   this.setState({
+  //     achievement: [...this.state.achievement, newItem]
+  //   });
+  // }
 
   render() {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { addAchievGroup } = context;
+          const group = context.userData.achievements.map(el => (
+            <AchievementGroup key={el} data={el} />
+          ));
           return (
             <div className="achiev">
               <div className="sectionHeader">
@@ -27,19 +31,13 @@ class Achievements extends React.Component {
                   ACHIEVEMENTS
                 </div>
                 <div className="addAchievementDiv">
-                  <button
-                    className={"addGroupBtn"}
-                    onClick={() => this.addGroup(<AchievementGroup />)}
-                  >
+                  <button className={"addGroupBtn"} onClick={addAchievGroup}>
                     add
                   </button>
                 </div>
               </div>
 
-              <div className="achiev-body">
-                <AchievementGroup></AchievementGroup>
-                {this.state.achievement.map(child => child)}
-              </div>
+              <div className="achiev-body">{group}</div>
             </div>
           );
         }}

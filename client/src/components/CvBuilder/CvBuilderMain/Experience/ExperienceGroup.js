@@ -16,7 +16,7 @@ class ExperienceGroup extends React.Component {
                     fontSize: context.size2
                   }}
                 >
-                  {context.userData.experience[0].position}
+                  {this.props.data.position}
                 </span>
               </div>
 
@@ -28,7 +28,7 @@ class ExperienceGroup extends React.Component {
                     fontSize: context.size2
                   }}
                 >
-                  {context.userData.experience[0].company}
+                  {this.props.data.company}
                 </span>
               </div>
 
@@ -41,7 +41,7 @@ class ExperienceGroup extends React.Component {
                     }}
                     contentEditable="true"
                   >
-                    {context.userData.experience[0].startMonth}
+                    {this.props.data.startMonth}
                   </span>
                   <span
                     className="dateDivider"
@@ -58,7 +58,7 @@ class ExperienceGroup extends React.Component {
                     }}
                     contentEditable="true"
                   >
-                    {context.userData.experience[0].startYear}
+                    {this.props.data.startYear}
                   </span>
                   <span
                     className="dateDivider"
@@ -75,7 +75,7 @@ class ExperienceGroup extends React.Component {
                     }}
                     contentEditable="true"
                   >
-                    {context.userData.experience[0].endMonth}
+                    {this.props.data.endMonth}
                   </span>
                   <span
                     className="dateDivider"
@@ -92,7 +92,7 @@ class ExperienceGroup extends React.Component {
                     }}
                     contentEditable="true"
                   >
-                    {context.userData.experience[0].endYear}
+                    {this.props.data.endYear}
                   </span>
                 </div>
 
@@ -104,7 +104,7 @@ class ExperienceGroup extends React.Component {
                     }}
                     contentEditable="true"
                   >
-                    {context.userData.experience[0].place}
+                    {this.props.data.place}
                   </span>
                 </div>
               </div>
@@ -127,7 +127,7 @@ class ExperienceGroup extends React.Component {
                       fontSize: context.size3
                     }}
                   >
-                    {context.userData.experience[0].tasks[0]}
+                    {this.props.data.tasks}
                   </span>
                 </div>
               </div>
