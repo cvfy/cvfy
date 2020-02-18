@@ -6,6 +6,10 @@ class AchievementGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { addAchievGroup } = context;
+          const res = context.userData.achievements.map(el => (
+            <AchievementGroup key={el} data={el} />
+          ));
           return (
             <div className="achiev-group">
               <div className="editableDiv">
@@ -16,7 +20,7 @@ class AchievementGroup extends React.Component {
                     fontSize: context.size3
                   }}
                 >
-                  {context.userData.achievements[0]}
+                  {res}
                 </span>
               </div>
             </div>

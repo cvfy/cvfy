@@ -76,15 +76,6 @@ class ThemeContextProvider extends Component {
     this.setState({ userData: newObject });
   };
 
-  addLanguageGroup = () => {
-    let newObject = { ...this.state.userData };
-    newObject.languages = [
-      ...newObject.languages,
-      { language: "Japanese", level: "for lunch?" }.toString()
-    ];
-    this.setState({ userData: newObject });
-  };
-
   changeColor = e => {
     this.setState({ color: e.target.name });
   };
@@ -123,6 +114,7 @@ class ThemeContextProvider extends Component {
           changeFontFamily: this.changeFontFamily,
           handleFontSize: this.handleFontSize,
           addSkillGroup: this.addSkillGroup,
+          addAchievGroup: this.addAchievGroup,
           addLanguageGroup: this.addLanguageGroup
         }}
       >

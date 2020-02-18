@@ -20,10 +20,10 @@ class Languages extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { addLanguageGroup } = context;
-          const res = context.userData.languages.map(el => (
-            <LanguageGroup key={el} data={el} />
-          ));
+          // const { addLanguageGroup } = context;
+          // const res = context.userData.languages.map(el => (
+          //   <LanguageGroup key={el} data={el} />
+          // ));
           return (
             <div className="lang">
               <div className="sectionHeader">
@@ -31,16 +31,17 @@ class Languages extends React.Component {
                   LANGUAGES
                 </div>
                 <div className="addLanguageDiv">
-                  <button className={"addGroupBtn"} onClick={addLanguageGroup}>
+                  <button className={"addGroupBtn"}>
+                    {/* onClick={addLanguageGroup} */}
                     add
                   </button>
                 </div>
               </div>
 
               <div className="lang-body">
-                {res}
-                {/* <LanguageGroup />
-                {this.state.languages.map(child => child)} */}
+                {/* {res} */}
+                <LanguageGroup />
+                {/* {this.state.languages.map(child => child)} */}
               </div>
             </div>
           );
