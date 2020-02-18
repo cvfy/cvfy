@@ -16,13 +16,11 @@ async function giveMeData(profile) {
             await page.type("[id=username]", "saneacool@yahoo.com");
             await page.type("[id=password]", "Griskevici1988");
             await page.click("[type=submit]")
-            await page.waitFor(2000);
-
             await page.waitFor(3000);
             await page.goto(profile);
 
             //Login form
-            await page.waitFor(5000);
+            await page.waitFor(2000);
             await autoScroll(page)
             //await page.click('section.experience-section button')
 
@@ -38,7 +36,7 @@ async function giveMeData(profile) {
             if ((await page.$('section.pv-about-section a')) !== null) {
                 await page.click('section.pv-about-section a')
             }
-            await page.waitFor(7000);
+            await page.waitFor(2000);
             const cvData = await page.evaluate(() => {
                 let obj = {};
 
