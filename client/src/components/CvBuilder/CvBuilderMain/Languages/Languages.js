@@ -22,7 +22,7 @@ class Languages extends React.Component {
         {context => {
           const { addLanguageGroup } = context;
           const res = context.userData.languages.map(el => (
-            <LanguageGroup key={el} data={el} />
+            <LanguageGroup key={el.language} data={el} />
           ));
           return (
             <div className="lang">

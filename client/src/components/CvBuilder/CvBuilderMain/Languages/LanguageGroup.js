@@ -16,7 +16,7 @@ class LanguageGroup extends React.Component {
                     fontSize: context.size3
                   }}
                 >
-                  {this.props.data}
+                  {this.props.data.language}
                 </span>
                 <span
                   className="langLevel"
@@ -26,7 +26,7 @@ class LanguageGroup extends React.Component {
                     fontSize: context.size4
                   }}
                 >
-                  {this.props.data}
+                  {this.props.data.level}
                 </span>
               </div>
             </div>

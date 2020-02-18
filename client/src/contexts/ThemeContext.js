@@ -78,9 +78,9 @@ class ThemeContextProvider extends Component {
 
   addLanguageGroup = () => {
     let newObject = { ...this.state.userData };
+    let newLang = { language: "Language", level: "level" }
     newObject.languages = [
-      ...newObject.languages,
-      { language: "Japanese", level: "for lunch?" }.toString()
+      ...this.state.userData.languages, newLang
     ];
     this.setState({ userData: newObject });
   };
