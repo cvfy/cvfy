@@ -16,7 +16,7 @@ class ProjectGroup extends React.Component {
                     fontSize: context.size3
                   }}
                 >
-                  {context.userData.projects[1].title}
+                  {this.props.data.title}
                 </span>
               </div>
 
@@ -28,7 +28,7 @@ class ProjectGroup extends React.Component {
                     fontSize: context.size4
                   }}
                 >
-                  {context.userData.projects[1].desc}
+                  {this.props.data.desc}
                 </span>
               </div>
             </div>

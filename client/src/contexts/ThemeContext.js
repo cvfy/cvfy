@@ -99,13 +99,6 @@ class ThemeContextProvider extends Component {
   };
 
   // Those functions add array of objects
-  addLanguageGroup = () => {
-    let newObject = { ...this.state.userData };
-    let newLang = { language: "Language", level: "level" };
-    newObject.languages = [...this.state.userData.languages, newLang];
-    this.setState({ userData: newObject });
-  };
-
   addExperienceGroup = () => {
     let newObject = { ...this.state.userData };
     let newExperience = {
@@ -122,6 +115,49 @@ class ThemeContextProvider extends Component {
     this.setState({ userData: newObject });
   };
 
+  addEducationGroup = () => {
+    let newObject = { ...this.state.userData };
+    let newEducation = {
+      studyProgram: "",
+      institution: "",
+      startMonth: "MM",
+      startYear: "YYYY",
+      endMonth: "MM",
+      endYear: "YYYY",
+      place: "City, Country"
+    };
+    newObject.education = [...this.state.userData.education, newEducation];
+    this.setState({ userData: newObject });
+  };
+
+  addLanguageGroup = () => {
+    let newObject = { ...this.state.userData };
+    let newLang = { language: "Language", level: "level" };
+    newObject.languages = [...this.state.userData.languages, newLang];
+    this.setState({ userData: newObject });
+  };
+
+  addProjectGroup = () => {
+    let newObject = { ...this.state.userData };
+    let newProject = {
+      title: "Name of the project",
+      desc: "Short description about the project"
+    };
+    newObject.projects = [...this.state.userData.projects, newProject];
+    this.setState({ userData: newObject });
+  };
+
+  addCourseGroup = () => {
+    let newObject = { ...this.state.userData };
+    let newCourse = {
+      title: "Name of the course",
+      desc: "Short description of the course"
+    };
+    newObject.courses = [...this.state.userData.courses, newCourse];
+    this.setState({ userData: newObject });
+  };
+
+  // These functions are regarding design tools of CvBuilder and CoverLetterBuilder
   changeColor = e => {
     this.setState({ color: e.target.name });
   };
@@ -159,10 +195,13 @@ class ThemeContextProvider extends Component {
           displaySubNav: this.displaySubNav,
           changeFontFamily: this.changeFontFamily,
           handleFontSize: this.handleFontSize,
+          addExperienceGroup: this.addExperienceGroup,
+          addEducationGroup: this.addEducationGroup,
           addSkillGroup: this.addSkillGroup,
+          addProjectGroup: this.addProjectGroup,
           addCertificationGroup: this.addCertificationGroup,
           addAchievGroup: this.addAchievGroup,
-          addExperienceGroup: this.addExperienceGroup,
+          addCourseGroup: this.addCourseGroup,
           addLanguageGroup: this.addLanguageGroup
         }}
       >

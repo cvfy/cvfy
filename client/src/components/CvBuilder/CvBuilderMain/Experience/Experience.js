@@ -3,19 +3,6 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 import ExperienceGroup from "./ExperienceGroup";
 
 class Experience extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     experience: []
-  //   };
-  // }
-
-  // addGroup(newItem) {
-  //   this.setState({
-  //     experience: [...this.state.experience, newItem]
-  //   });
-  // }
-
   render() {
     return (
       <ThemeContext.Consumer>

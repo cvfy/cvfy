@@ -3,19 +3,6 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 import AchievementGroup from "./AchievementGroup";
 
 class Achievements extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     achievement: []
-  //   };
-  // }
-
-  // addGroup(newItem) {
-  //   this.setState({
-  //     achievement: [...this.state.achievement, newItem]
-  //   });
-  // }
-
   render() {
     return (
       <ThemeContext.Consumer>

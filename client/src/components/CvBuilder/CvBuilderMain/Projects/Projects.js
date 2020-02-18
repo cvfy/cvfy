@@ -3,23 +3,14 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 import ProjectGroup from "./ProjectGroup";
 
 class Projects extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      project: []
-    };
-  }
-
-  addGroup(newItem) {
-    this.setState({
-      project: [...this.state.project, newItem]
-    });
-  }
-
   render() {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { addProjectGroup } = context;
+          const group = context.userData.projects.map(el => (
+            <ProjectGroup key={el.projects} data={el} />
+          ));
           return (
             <div className="projects">
               <div className="sectionHeader">
@@ -27,18 +18,12 @@ class Projects extends React.Component {
                   PROJECTS
                 </div>
                 <div className="addProjectDiv">
-                  <button
-                    className={"addGroupBtn"}
-                    onClick={() => this.addGroup(<ProjectGroup />)}
-                  >
+                  <button className={"addGroupBtn"} onClick={addProjectGroup}>
                     add
                   </button>
                 </div>
               </div>
-              <div className="projects-body">
-                <ProjectGroup />
-                {this.state.project.map(child => child)}
-              </div>
+              <div className="projects-body">{group}</div>
             </div>
           );
         }}

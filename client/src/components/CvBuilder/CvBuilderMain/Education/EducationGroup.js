@@ -16,7 +16,7 @@ class EducationGroup extends React.Component {
                     fontSize: context.size2
                   }}
                 >
-                  {context.userData.education[0].studyProgram}
+                  {this.props.data.studyProgram}
                 </span>
               </div>
 
@@ -28,7 +28,7 @@ class EducationGroup extends React.Component {
                     fontSize: context.size2
                   }}
                 >
-                  {context.userData.education[0].institution}
+                  {this.props.data.institution}
                 </span>
               </div>
 
@@ -41,7 +41,7 @@ class EducationGroup extends React.Component {
                     }}
                     contentEditable="true"
                   >
-                    {context.userData.education[0].startMonth}
+                    {this.props.data.startMonth}
                   </span>
                   <span
                     className="dateDivider"
@@ -58,7 +58,7 @@ class EducationGroup extends React.Component {
                     }}
                     contentEditable="true"
                   >
-                    {context.userData.education[0].startYear}
+                    {this.props.data.startYear}
                   </span>
                   <span
                     className="dateDivider"
@@ -75,7 +75,7 @@ class EducationGroup extends React.Component {
                     }}
                     contentEditable="true"
                   >
-                    {context.userData.education[0].endMonth}
+                    {this.props.data.endMonth}
                   </span>
                   <span
                     className="dateDivider"
@@ -92,7 +92,7 @@ class EducationGroup extends React.Component {
                     }}
                     contentEditable="true"
                   >
-                    {context.userData.education[0].endYear}
+                    {this.props.data.endYear}
                   </span>
                 </div>
 
@@ -104,7 +104,7 @@ class EducationGroup extends React.Component {
                     }}
                     contentEditable="true"
                   >
-                    {context.userData.education[0].place}
+                    {this.props.data.place}
                   </span>
                 </div>
               </div>
