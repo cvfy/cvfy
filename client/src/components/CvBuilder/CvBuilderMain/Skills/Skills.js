@@ -3,19 +3,6 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 import SkillBox from "./SkillBox";
 
 class Skills extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     skill: []
-  //   };
-  // }
-
-  // addGroup(newItem) {
-  //   this.setState({
-  //     skill: [...this.state.skill, newItem]
-  //   });
-  // }
-
   render() {
     return (
       <ThemeContext.Consumer>
