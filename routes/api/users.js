@@ -106,20 +106,20 @@ router.post("/login", (req, res) => {
 });
 
 //ROUTE  TO GET LINKEDIN USER DATA
-router.get("/data/:profile", sendData)
 
 
 // THE PUPPETEER FUNCTION THAT GET THE LINKEDIN DATA
 const sendData = async (req, res, next) => {
     try {
-      const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}/`);
-       console.log(datas)
-    
-      res.status(200).send(datas);
+        const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}/`);
+        console.log(datas)
+        
+        res.status(200).send(datas);
     } catch (e) {
-      next(e);
+        next(e);
     }
-  };
+};
+router.get("/data/:profile", sendData)
 /////////////////////////////////////////////////////
 
 module.exports = router;
