@@ -551,6 +551,29 @@
     font-size: 0.9em;
 }
 
+/* LINKEDIN INPUT and BUTTON SECTION */
+#linkedInInput {
+    background: #427553;
+    height: 70%;
+    margin: 0;
+    width: 35vw;
+}
+
+#linkedInInput[placeholder] {
+    padding-left: 10px;
+}
+
+.linkedInButton {
+    margin: 0;
+    padding: 0;
+    height: 70%;
+    color: black;
+    width: 10vw;
+    margin-left: 10px;
+    background: #68ec94;
+}
+
+
 
 @media (max-width: 1015px) {
     .tool-desc {
