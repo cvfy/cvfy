@@ -1,5 +1,4 @@
 import React, { Component, createContext } from "react";
-import SkillBox from "../components/CvBuilder/CvBuilderMain/Skills/SkillBox";
 import axios from "axios";
 import store from "./../store.js";
 
@@ -32,9 +31,9 @@ class ThemeContextProvider extends Component {
     tasksOutput: [],
     value: "",
     userData: {
-      fullName: "Steve Jobs",
-      intro: "Frontend Developer",
-      about: "I like apple, bacon and mushrooms",
+      fullName: "FULL NAME",
+      intro: "Professional title",
+      about: "Short and engaging pitch about yourself",
       contact: [
         { icon: "far fa-envelope", value: "Email" },
         { icon: "fas fa-mobile-alt", value: "Phone number" },
@@ -46,48 +45,35 @@ class ThemeContextProvider extends Component {
       ],
       experience: [
         {
-          position: "Frontend developer",
-          company: "Burger King",
-          startMonth: "02",
-          startYear: "2005",
-          endMonth: "02",
-          endYear: "2012",
-          place: "Berlin, Germany",
-          tasks: "I did craaazy stuff"
+          position: "Position/Title",
+          company: "Workplace/Company",
+          startMonth: "MM",
+          startYear: "YYYY",
+          endMonth: "MM",
+          endYear: "YYYY",
+          place: "City, Country",
+          tasks: "Accomplishments/Responsibility/Tasks"
         }
       ],
       education: [
         {
-          studyProgram: "Full Stack MERN",
-          institution: "DCI - Digital Career Institute",
-          startMonth: "03",
-          startYear: "2019",
-          endMonth: "04",
-          endYear: "2020",
-          place: "Berlin, Germany"
+          studyProgram: "Study Program",
+          institution: "Institution / Place of Education",
+          startMonth: "MM",
+          startYear: "YYYY",
+          endMonth: "MM",
+          endYear: "YYYY",
+          place: "City, Country"
         }
       ],
-      skills: ["JavaScript", "React", "MongoDB", "Express", "Node.js"],
+      skills: ["Skill"],
       projects: [
-        { title: "todo app", desc: "a todo list with react" },
-        {
-          title: "piano-player",
-          desc: "Piano player build with pure javascript"
-        }
+        { title: "Project name", desc: "Description of achievements" }
       ],
-      certifications: [
-        "Best dog - who let the dog's out award",
-        "Best whatever"
-      ],
-      achievements: ["Spit fire in 3 ways - hemorrhoids academy"],
-      courses: [
-        { title: "Barbq master", desc: "How to be a a master on the grill" }
-      ],
-      languages: [
-        { language: "English", level: "Terrible" },
-        { language: "German", level: "none" },
-        { language: "Japanese", level: "for lunch?" }
-      ]
+      certifications: ["Cerificate name"],
+      achievements: ["Achievement name"],
+      courses: [{ title: "Course name", desc: "Short description" }],
+      languages: [{ language: "Language", level: "Level" }]
     }
   };
   componentDidMount() {
