@@ -122,5 +122,11 @@ const sendData = async (req, res, next) => {
 router.get("/data/:profile", sendData)
 /////////////////////////////////////////////////////
 
+const saveCVtoServer = (req, res, next)  => {
+    console.log(req.params.id)
+    console.log(req.body)
+}
+
+router.post("/data/cv/:id" , saveCVtoServer)
 module.exports = router;
 
