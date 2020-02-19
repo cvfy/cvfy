@@ -17,7 +17,7 @@
     display: flex;
     padding-left: 37.5px;
     padding-right: 27px;
-    
+
 }
 
 .left {
@@ -141,32 +141,28 @@
     margin-bottom: 15px;
     padding-left: 37.5px;
     font-size: 12px;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    height: 100px;
+    justify-content: space-around; */
+
 }
 
-.contact-row-1,
-.contact-row-2,
-.contact-row-3 {
-    display: flex;
-    flex: 0 50%;
+.contact-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     margin-top: 10px;
+    align-items: center;
+    justify-items: start;
 }
 
-.contact-row-3 {
-    margin-bottom: 10px;
+.contactGroup {
+    padding-top: 5px;
 }
 
-.contact-1,
-.contact-2,
-.contact-3,
-.contact-4,
-.contact-5,
-.contact-6 {
-    flex-grow: 1;
-    flex: 0 50%;
+.icone {
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 .iconeColor {
@@ -175,11 +171,6 @@
 
 .user-contact {
     margin-left: 5px;
-}
-
-.userEmail:empty:before {
-    content: "E-mail";
-    color: rgb(61, 58, 58);
 }
 
 .userEmail:empty:hover:before {
