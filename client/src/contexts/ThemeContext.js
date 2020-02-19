@@ -1,17 +1,27 @@
 import React, { Component, createContext } from "react";
 import SkillBox from "../components/CvBuilder/CvBuilderMain/Skills/SkillBox";
 import axios from 'axios';
+import store from "./../store.js"
 
 // import { response } from "express";
 export const ThemeContext = createContext();
-
+function aFunction(){
+  var newState = store.getState();
+  console.log(newState.auth.user.name)
+  return newState.auth.user.id;
+}
 
 // const importDatata = async () => {
 // const impdata = await axios.get("localhost:5000/api/users/data/bleda-hacialihafiz")
 //      return impdata
 // }
+const box = "hahahah"
+const saveTOLocal = () => {
+  localStorage.setItem("currentCV", box)
+}
 class ThemeContextProvider extends Component {
   state = {
+    id: "",
     color: "",
     font: "'Open Sans', sans-serif",
     size1: "",
@@ -79,6 +89,10 @@ class ThemeContextProvider extends Component {
       ]
     }
   };
+componentDidMount() {
+ console.log(localStorage)
+}
+
 
   importData = async (profile) => {
     // console.log("hahahha")
@@ -129,7 +143,11 @@ class ThemeContextProvider extends Component {
 
       // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
   }
-
+  saveCVDataToServer = () => {
+    const userID = aFunction()
+  
+    axios.post(`http://localhost:5000/api/users/data/cv/${userID}`, this.state)
+  }
   // Those 3 functions add array of strings, will try to DRY later
   addSkillGroup = () => {
     let newObject = { ...this.state.userData };
@@ -192,6 +210,7 @@ class ThemeContextProvider extends Component {
     let newLang = { language: "Language", level: "level" };
     newObject.languages = [...this.state.userData.languages, newLang];
     this.setState({ userData: newObject });
+    this.saveCVDataToServer()
   };
 
   addProjectGroup = () => {
@@ -269,5 +288,5 @@ class ThemeContextProvider extends Component {
     );
   }
 }
-
+store.subscribe(aFunction)
 export default ThemeContextProvider;

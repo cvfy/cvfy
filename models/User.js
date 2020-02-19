@@ -1,3 +1,4 @@
+const ObjectID = require('mongodb').ObjectID;
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -21,6 +22,12 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    cv: [
+        {
+            
+                     
+        }
+    ]
 
     
 })
