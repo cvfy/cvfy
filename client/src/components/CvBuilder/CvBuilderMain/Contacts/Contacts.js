@@ -19,7 +19,11 @@ class Contacts extends React.Component {
                             className={`${el.icon} iconeColor`}
                             style={{ color: context.color }}
                           ></i>
-                          <span className="user-contact" contentEditable="true">
+                          <span
+                            className="user-contact"
+                            contentEditable="true"
+                            suppressContentEditableWarning={true}
+                          >
                             {el.value}
                           </span>
                         </div>

@@ -27,6 +27,7 @@ class Header extends React.Component {
                   <span
                     className="CvTitle"
                     contentEditable="true"
+                    suppressContentEditableWarning={true}
                     style={{
                       fontSize: context.size1
                     }}
@@ -39,6 +40,7 @@ class Header extends React.Component {
                   <span
                     className="summary"
                     contentEditable="true"
+                    suppressContentEditableWarning={true}
                     style={{
                       fontSize: context.size3
                     }}

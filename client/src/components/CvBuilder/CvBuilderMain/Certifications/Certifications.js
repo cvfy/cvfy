@@ -3,25 +3,12 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 import CertificationGroup from "./CertificationGroup";
 
 class Certifications extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     certification: []
-  //   };
-  // }
-
-  // addGroup(newItem) {
-  //   this.setState({
-  //     certification: [...this.state.certification, newItem]
-  //   });
-  // }
-
   render() {
     return (
       <ThemeContext.Consumer>
         {context => {
           const { addCertificationGroup } = context;
-          const res = context.userData.certifications.map(el => (
+          const group = context.userData.certifications.map(el => (
             <CertificationGroup key={el} data={el} />
           ));
           return (
@@ -39,7 +26,7 @@ class Certifications extends React.Component {
                   </button>
                 </div>
               </div>
-              <div className="cert-body">{res}</div>
+              <div className="cert-body">{group}</div>
             </div>
           );
         }}

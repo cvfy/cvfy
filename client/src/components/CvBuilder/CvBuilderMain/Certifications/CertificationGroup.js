@@ -12,6 +12,7 @@ class CertificationGroup extends React.Component {
                 <span
                   className="certificationTitle"
                   contentEditable="true"
+                  suppressContentEditableWarning={true}
                   style={{
                     fontSize: context.size4
                   }}

@@ -12,6 +12,7 @@ class EducationGroup extends React.Component {
                 <span
                   className="studyProgram"
                   contentEditable="true"
+                  suppressContentEditableWarning={true}
                   style={{
                     fontSize: context.size2
                   }}
@@ -24,6 +25,7 @@ class EducationGroup extends React.Component {
                 <span
                   className="institution"
                   contentEditable="true"
+                  suppressContentEditableWarning={true}
                   style={{
                     fontSize: context.size2
                   }}
@@ -40,6 +42,7 @@ class EducationGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
+                    suppressContentEditableWarning={true}
                   >
                     {this.props.data.startMonth}
                   </span>
@@ -57,6 +60,7 @@ class EducationGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
+                    suppressContentEditableWarning={true}
                   >
                     {this.props.data.startYear}
                   </span>
@@ -74,6 +78,7 @@ class EducationGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
+                    suppressContentEditableWarning={true}
                   >
                     {this.props.data.endMonth}
                   </span>
@@ -91,6 +96,7 @@ class EducationGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
+                    suppressContentEditableWarning={true}
                   >
                     {this.props.data.endYear}
                   </span>
@@ -103,6 +109,7 @@ class EducationGroup extends React.Component {
                       fontSize: context.size4
                     }}
                     contentEditable="true"
+                    suppressContentEditableWarning={true}
                   >
                     {this.props.data.place}
                   </span>

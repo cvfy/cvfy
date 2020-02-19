@@ -12,6 +12,7 @@ class ProjectGroup extends React.Component {
                 <span
                   className="projectTitle"
                   contentEditable="true"
+                  suppressContentEditableWarning={true}
                   style={{
                     fontSize: context.size3
                   }}
@@ -24,6 +25,7 @@ class ProjectGroup extends React.Component {
                 <span
                   className="projectDesc"
                   contentEditable="true"
+                  suppressContentEditableWarning={true}
                   style={{
                     fontSize: context.size4
                   }}
