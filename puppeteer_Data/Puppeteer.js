@@ -4,7 +4,7 @@ puppeteer.use(pluginStealth())
 async function giveMeData(profile) {
 
     const result = await puppeteer.launch({
-        headless: true
+        headless: false
     }).then(async browser => {
         try {
             const page = await browser.newPage()

@@ -105,9 +105,9 @@ class ThemeContextProvider extends Component {
         let new_el = {}
         new_el.position = el.jobTitle;
         new_el.company = el.jobEmployer;
-        new_el.startMonth = el.jobPeriod.split(" ")[0];
-        new_el.startYear = el.jobPeriod.split(" ")[1];
-        new_el.endMonth = el.jobPeriod.split(" ")[3];
+        new_el.startMonth = el.jobPeriod.split(" ")[0] || "";
+        new_el.startYear = el.jobPeriod.split(" ")[1] || "";
+        new_el.endMonth = el.jobPeriod.split(" ")[3] || "";
         new_el.endYear = el.jobPeriod.split(" ")[4] || "";
         new_el.place = el.jobLocation;
         new_el.tasks = el.jobDescription;
