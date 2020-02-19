@@ -34,7 +34,11 @@ const BuilderNav = () => {
       <div className="my-documents">
         <div className="my-docs-btn">
           <div className="docsDiv">
-            <span className="tool-icon tool-mydoc">My Documents</span>
+            <span className="tool-icon tool-mydoc">
+              <NavLink to="/my-documents" style={{ color: "#fff" }}>
+                MyDocuments
+              </NavLink>
+            </span>
           </div>
         </div>
       </div>

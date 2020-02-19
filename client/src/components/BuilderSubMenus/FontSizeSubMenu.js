@@ -49,27 +49,27 @@ class FontSizeSubMenu extends Component {
                   }}
                 >
                   <div className="fontFamilyDiv">
-                    <button
-                      name="small"
+                    <div
+                      title="small"
                       className="openSansLi"
                       onClick={handleFontSize}
                     >
                       Small
-                    </button>
-                    <button
-                      name="medium"
+                    </div>
+                    <div
+                      title="medium"
                       className="openSansLi"
                       onClick={handleFontSize}
                     >
                       Medium
-                    </button>
-                    <button
-                      name="big"
+                    </div>
+                    <div
+                      title="big"
                       className="openSansLi"
                       onClick={handleFontSize}
                     >
                       Big
-                    </button>
+                    </div>
                   </div>
                 </div>
               ) : null}

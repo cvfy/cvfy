@@ -163,18 +163,19 @@ class ThemeContextProvider extends Component {
   };
 
   changeFontFamily = e => {
-    this.setState({ font: e.target.name });
+    this.setState({ font: e.target.title });
+    console.log(e.target.title);
   };
 
   handleFontSize = e => {
-    if (e.target.name === "small") {
+    if (e.target.title === "small") {
       this.setState({
         size1: "1.2rem",
         size2: "0.9rem",
         size3: "0.7rem",
         size4: "0.6rem"
       });
-    } else if (e.target.name === "medium") {
+    } else if (e.target.title === "medium") {
       return this.setState({ size1: "", size2: "", size3: "", size4: "" });
     } else {
       return this.setState({

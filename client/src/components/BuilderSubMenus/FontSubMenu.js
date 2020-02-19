@@ -49,62 +49,62 @@ class FontSubMenu extends Component {
                   }}
                 >
                   <div className="fontFamilyDiv">
-                    <button
-                      name="Open Sans"
+                    <div
+                      title="Open Sans"
                       className="openSansLi"
                       onClick={changeFontFamily}
                     >
                       Open Sans
-                    </button>
-                    <button
-                      name="Quicksand"
+                    </div>
+                    <div
+                      title="Quicksand"
                       className="quickSandLi"
                       onClick={changeFontFamily}
                     >
                       Quicksand
-                    </button>
-                    <button
-                      name="Ubuntu"
+                    </div>
+                    <div
+                      title="Ubuntu"
                       className="ubuntuLi"
                       onClick={changeFontFamily}
                     >
                       Ubuntu
-                    </button>
-                    <button
-                      name="Hind"
+                    </div>
+                    <div
+                      title="Hind"
                       className="hindLi"
                       onClick={changeFontFamily}
                     >
                       Hind
-                    </button>
-                    <button
-                      name="Kurale"
+                    </div>
+                    <div
+                      title="Kurale"
                       className="kuraLi"
                       onClick={changeFontFamily}
                     >
                       Kurale
-                    </button>
-                    <button
-                      name="Roboto Condensed"
+                    </div>
+                    <div
+                      title="Roboto Condensed"
                       className="robotLi"
                       onClick={changeFontFamily}
                     >
                       Roboto Condensed
-                    </button>
-                    <button
-                      name="Merriweather"
+                    </div>
+                    <div
+                      title="Merriweather"
                       className="merryLi"
                       onClick={changeFontFamily}
                     >
                       Merriweather
-                    </button>
-                    <button
-                      name="Raleway"
+                    </div>
+                    <div
+                      title="Raleway"
                       className="ralewayLi"
                       onClick={changeFontFamily}
                     >
                       Raleway
-                    </button>
+                    </div>
                   </div>
                 </div>
               ) : null}
