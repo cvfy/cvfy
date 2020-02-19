@@ -11,19 +11,21 @@ class Contacts extends React.Component {
             <div className="contact">
               <div className="contact-row">
                 {context.userData.contact.map(el => {
-                  return (
-                    <div className="contactGroup" key={el.value}>
-                      <div className="icone">
-                        <i
-                          className={`${el.icon} iconeColor`}
-                          style={{ color: context.color }}
-                        ></i>
-                        <span className="user-contact" contentEditable="true">
-                          {el.value}
-                        </span>
+                  if (el.value.length !== 0) {
+                    return (
+                      <div className="contactGroup" key={el.value}>
+                        <div className="icone">
+                          <i
+                            className={`${el.icon} iconeColor`}
+                            style={{ color: context.color }}
+                          ></i>
+                          <span className="user-contact" contentEditable="true">
+                            {el.value}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  );
+                    );
+                  } else return null;
                 })}
               </div>
             </div>

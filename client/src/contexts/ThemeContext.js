@@ -36,10 +36,10 @@ class ThemeContextProvider extends Component {
       intro: "Frontend Developer",
       about: "I like apple, bacon and mushrooms",
       contact: [
-        { icon: "far fa-envelope", value: "" },
-        { icon: "fas fa-mobile-alt", value: "00000000" },
-        { icon: "fab fa-linkedin", value: "linkedin" },
-        { icon: "fab fa-skype", value: "skype" },
+        { icon: "far fa-envelope", value: "Email" },
+        { icon: "fas fa-mobile-alt", value: "Phone number" },
+        { icon: "fab fa-linkedin", value: "" },
+        { icon: "fab fa-skype", value: "" },
         { icon: "fas fa-map-marker-alt", value: "" },
         { icon: "fas fa-globe", value: "" },
         { icon: "fab fa-github", value: "" }
