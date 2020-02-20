@@ -31,15 +31,9 @@ class ThemeContextProvider extends Component {
     tasksOutput: [],
     value: "",
     userData: {
-<<<<<<< HEAD
-      fullName: "Steve Jobs",
-      intro: "Best Frontend Developer",
-      about: "I like apple, bacon and mushrooms",
-=======
       fullName: "FULL NAME",
       intro: "Professional title",
       about: "Short and engaging pitch about yourself",
->>>>>>> a033ff249ed927984c987d880e3c94670d26f075
       contact: [
         { icon: "far fa-envelope", value: "Email" },
         { icon: "fas fa-mobile-alt", value: "Phone number" },
@@ -142,7 +136,6 @@ class ThemeContextProvider extends Component {
     // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
   };
   saveCVDataToServer = () => {
-<<<<<<< HEAD
     console.log("i am calling")
     const userID = aFunction()
  
@@ -150,13 +143,6 @@ class ThemeContextProvider extends Component {
     axios.post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
      
   }
-=======
-    const userID = aFunction();
-
-    axios.post(`http://localhost:5000/api/users/data/cv/${userID}`, this.state);
-  };
-
->>>>>>> a033ff249ed927984c987d880e3c94670d26f075
   // Those 3 functions add array of strings, will try to DRY later
   addSkillGroup = () => {
     let newObject = { ...this.state.userData };
@@ -224,10 +210,6 @@ class ThemeContextProvider extends Component {
     let newLang = { language: "Language", level: "level" };
     newObject.languages = [...this.state.userData.languages, newLang];
     this.setState({ userData: newObject });
-<<<<<<< HEAD
-=======
-    this.saveCVDataToServer();
->>>>>>> a033ff249ed927984c987d880e3c94670d26f075
   };
 
   addProjectGroup = () => {

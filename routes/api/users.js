@@ -196,8 +196,6 @@ const getCVFromServer = (req, res, next) => {
             if (err){
                 console.log(err)}
             else if(success) {
-                console.log(req.params.id)
-                console.log("i am sending data!!")
                 res.send(success)
             }
         }
