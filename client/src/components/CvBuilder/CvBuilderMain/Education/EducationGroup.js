@@ -6,23 +6,21 @@ class EducationGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { handleContentEditable } = context;
+          const { modifyEd } = context;
           return (
             <div className="education-group break-before">
               <div className="editableDiv">
-                <span
-                  title="studyProgram"
+                <input
+                  type="text"
                   className="studyProgram"
-                  contentEditable="true"
-                  suppressContentEditableWarning={true}
-                  // onClick={handleContentEditable}
-                  onChange={handleContentEditable}
+                  value={this.props.data.studyProgram}
+                  onChange={e => {
+                    return modifyEd(this.props.key, e.target.value);
+                  }}
                   style={{
                     fontSize: context.size2
                   }}
-                >
-                  {this.props.data.studyProgram}
-                </span>
+                />
               </div>
 
               <div className="editableDiv">

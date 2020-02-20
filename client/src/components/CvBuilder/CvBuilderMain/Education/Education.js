@@ -1,7 +1,8 @@
 import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
 import EducationGroup from "./EducationGroup";
-
+let i = -1;
+let h = 0;
 class Education extends React.Component {
   render() {
     return (
@@ -9,7 +10,7 @@ class Education extends React.Component {
         {context => {
           const { addEducationGroup } = context;
           const group = context.userData.education.map(el => (
-            <EducationGroup key={el.institution} data={el} />
+            <EducationGroup key={"i++"} newkey={h} data={el} />
           ));
           return (
             <div className="education break-before">

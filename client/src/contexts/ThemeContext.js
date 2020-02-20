@@ -1,6 +1,7 @@
 import React, { Component, createContext } from "react";
 import axios from "axios";
 import store from "./../store.js";
+import uuid from 'uuid'
 
 // import { response } from "express";
 export const ThemeContext = createContext();
@@ -20,7 +21,7 @@ const saveTOLocal = () => {
 };
 class ThemeContextProvider extends Component {
   state = {
-    id: "",
+    id: 123567,
     color: "",
     font: "'Open Sans', sans-serif",
     size1: "",
@@ -76,8 +77,25 @@ class ThemeContextProvider extends Component {
       languages: [{ language: "Language", level: "Level" }]
     }
   };
-  componentDidMount() {
-    console.log(localStorage);
+  componentDidMount () {
+  if(localStorage.getItem("currentCV") == null){
+    console.log(uuid())
+    this.setState({id: uuid()})
+    axios.post(`http://localhost:5000/api/users/resume/cv/${this.state.id}`, this.state)
+
+  }
+  else {
+    axios.get(`http://localhost:5000/api/users/resume/cv/currentCV/${localStorage.getItem("currentCV")}`).then(
+      res => this.setState(res.data.cv[0])  //this.setState(res.data)
+    )
+    
+
+  }
+
+
+  }
+  componentWillUnmount(){
+    localStorage.clear()
   }
 
   importData = async profile => {
@@ -136,18 +154,28 @@ class ThemeContextProvider extends Component {
     // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
   };
   saveCVDataToServer = () => {
-    const userID = aFunction();
-
-    axios.post(`http://localhost:5000/api/users/data/cv/${userID}`, this.state);
-  };
-
+    console.log("i am calling")
+    const userID = aFunction()
+ 
+    //const data = JSON.stringify(this.state)
+    localStorage.setItem("currentCV", this.state.id)
+    axios.post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
+     
+  }
   // Those 3 functions add array of strings, will try to DRY later
   addSkillGroup = () => {
     let newObject = { ...this.state.userData };
     newObject.skills = [...newObject.skills, "Skill"];
     this.setState({ userData: newObject });
   };
+modifyEd = (index, value) => {
+  let newObject = { ...this.state.userData };
+  newObject.education[0].studyProgram = value;
+  this.setState({ userData: newObject });
+  console.log(index)
+  console.log(value)
 
+}
   addAchievGroup = () => {
     let newObject = { ...this.state.userData };
     newObject.achievements = [
@@ -208,7 +236,6 @@ class ThemeContextProvider extends Component {
     let newLang = { language: "Language", level: "level" };
     newObject.languages = [...this.state.userData.languages, newLang];
     this.setState({ userData: newObject });
-    this.saveCVDataToServer();
   };
 
   addProjectGroup = () => {
@@ -307,7 +334,9 @@ class ThemeContextProvider extends Component {
           addAchievGroup: this.addAchievGroup,
           addCourseGroup: this.addCourseGroup,
           addLanguageGroup: this.addLanguageGroup,
-          importData: this.importData
+          importData: this.importData,
+          saveCVDataToServer: this.saveCVDataToServer,
+          modifyEd: this.modifyEd
         }}
       >
         {this.props.children}

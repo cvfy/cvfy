@@ -92,3 +92,5 @@ class App extends Component {
   }
 }
 export default App;
+
+// "proxy": "http://localhost:5000/",

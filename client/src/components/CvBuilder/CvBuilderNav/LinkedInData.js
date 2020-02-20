@@ -17,7 +17,7 @@ class LinkedInData extends Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { importData } = context;
+          const { importData, saveCVDataToServer } = context;
           return (
             <div className="cvExtraToolsDiv">
               <input
@@ -32,7 +32,7 @@ class LinkedInData extends Component {
               >
                 Import
               </button>
-              <button className="saveUpdateButton">Save</button>
+              <button onClick={saveCVDataToServer} className="saveUpdateButton">Save</button>
             </div>
           );
         }}
