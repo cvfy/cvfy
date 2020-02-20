@@ -124,9 +124,84 @@ router.get("/data/:profile", sendData)
 
 const saveCVtoServer = (req, res, next)  => {
     console.log(req.params.id)
-    console.log(req.body)
+   // console.log(req.body)
+    console.log("its updating")
+    //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
+        User.findOne(
+            { "cv.id": parseInt(req.body.id) }, 
+            { 
+                "cv": {
+                    "$elemMatch": {
+                        "id": parseInt(req.body.id)
+                    }
+                }
+            },
+            function (err, success) {
+                if (err){
+                    console.log(err)}
+                else {
+if(success){
+    console.log("This is the obj+++++++++"+ success)
+    User.updateOne({"_id": req.params.id, "cv.id": parseInt(req.body.id)}, 
+    {$set: {"cv.$.userData": req.body.userData,
+    "cv.$.color": req.body.color,
+    "cv.$.font": req.body.font,
+    "cv.$.size1": req.body.size1,
+    "cv.$.size2": req.body.size2,
+    "cv.$.size3": req.body.size3,
+    "cv.$.size4": req.body.size4,
+    "cv.$.tasksHistory": req.body.tasksHistory,
+    "cv.$.tasksOutput": req.body.tasksOutput,
+    "cv.$.value": req.body.value
+}}, function(err, success){
+        if(success){
+            console.log("i updated the obj!!")
+
+        }else {
+            console.log(err)
+        }
+    })
+}
+else{
+        User.findOneAndUpdate(
+        { _id: req.params.id }, 
+        { $push: { cv: req.body } },
+       function (error, success) {
+             if (error) {
+                 console.log(error);
+             } else {
+                 console.log("New CV Created!!!!")
+             }
+         });
+}
+                }
+            }
+        );   
+     
 }
 
-router.post("/data/cv/:id" , saveCVtoServer)
+router.post("/resume/cv/:id" , saveCVtoServer)
+
+const getCVFromServer = (req, res, next) => {
+    User.findOne(
+        { "cv.id": parseInt(req.params.id) }, 
+        { 
+            "cv": {
+                "$elemMatch": {
+                    "id": parseInt(req.params.id)
+                }
+            }
+        },
+        function (err, success) {
+            if (err){
+                console.log(err)}
+            else if(success) {
+                console.log(req.params.id)
+                console.log("i am sending data!!")
+                res.send(success)
+            }
+        }
+    )}
+    router.get("/resume/cv/currentCV/:id" , getCVFromServer)
 module.exports = router;
 

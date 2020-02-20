@@ -21,7 +21,7 @@ const saveTOLocal = () => {
 }
 class ThemeContextProvider extends Component {
   state = {
-    id: "",
+    id: 123567,
     color: "",
     font: "'Open Sans', sans-serif",
     size1: "",
@@ -33,7 +33,7 @@ class ThemeContextProvider extends Component {
     value: "",
     userData: {
       fullName: "Steve Jobs",
-      intro: "Frontend Developer",
+      intro: "Best Frontend Developer",
       about: "I like apple, bacon and mushrooms",
       contact: [
         { email: "steve.jobs@apple.com" },
@@ -144,9 +144,12 @@ componentDidMount() {
       // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
   }
   saveCVDataToServer = () => {
+    console.log("i am calling")
     const userID = aFunction()
-  
-    axios.post(`http://localhost:5000/api/users/data/cv/${userID}`, this.state)
+ 
+    //const data = JSON.stringify(this.state)
+    axios.post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
+     
   }
   // Those 3 functions add array of strings, will try to DRY later
   addSkillGroup = () => {
@@ -210,7 +213,6 @@ componentDidMount() {
     let newLang = { language: "Language", level: "level" };
     newObject.languages = [...this.state.userData.languages, newLang];
     this.setState({ userData: newObject });
-    this.saveCVDataToServer()
   };
 
   addProjectGroup = () => {
@@ -280,7 +282,8 @@ componentDidMount() {
           addAchievGroup: this.addAchievGroup,
           addCourseGroup: this.addCourseGroup,
           addLanguageGroup: this.addLanguageGroup,
-          importData: this.importData
+          importData: this.importData,
+          saveCVDataToServer: this.saveCVDataToServer
         }}
       >
         {this.props.children}
