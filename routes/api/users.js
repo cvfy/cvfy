@@ -128,11 +128,11 @@ const saveCVtoServer = (req, res, next)  => {
     console.log("its updating")
     //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
         User.findOne(
-            { "cv.id": parseInt(req.body.id) }, 
+            { "cv.id": req.body.id }, 
             { 
                 "cv": {
                     "$elemMatch": {
-                        "id": parseInt(req.body.id)
+                        "id": req.body.id
                     }
                 }
             },
@@ -142,7 +142,7 @@ const saveCVtoServer = (req, res, next)  => {
                 else {
 if(success){
     console.log("This is the obj+++++++++"+ success)
-    User.updateOne({"_id": req.params.id, "cv.id": parseInt(req.body.id)}, 
+    User.updateOne({"_id": req.params.id, "cv.id": req.body.id}, 
     {$set: {"cv.$.userData": req.body.userData,
     "cv.$.color": req.body.color,
     "cv.$.font": req.body.font,
@@ -184,11 +184,11 @@ router.post("/resume/cv/:id" , saveCVtoServer)
 
 const getCVFromServer = (req, res, next) => {
     User.findOne(
-        { "cv.id": parseInt(req.params.id) }, 
+        { "cv.id": req.params.id }, 
         { 
             "cv": {
                 "$elemMatch": {
-                    "id": parseInt(req.params.id)
+                    "id": req.params.id
                 }
             }
         },

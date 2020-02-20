@@ -1,6 +1,7 @@
 import React, { Component, createContext } from "react";
 import axios from "axios";
 import store from "./../store.js";
+import uuid from 'uuid'
 
 // import { response } from "express";
 export const ThemeContext = createContext();
@@ -76,8 +77,25 @@ class ThemeContextProvider extends Component {
       languages: [{ language: "Language", level: "Level" }]
     }
   };
-  componentDidMount() {
-    console.log(localStorage);
+  componentDidMount () {
+  if(localStorage.getItem("currentCV") == null){
+    console.log(uuid())
+    this.setState({id: uuid()})
+    axios.post(`http://localhost:5000/api/users/resume/cv/${this.state.id}`, this.state)
+
+  }
+  else {
+    axios.get(`http://localhost:5000/api/users/resume/cv/currentCV/${localStorage.getItem("currentCV")}`).then(
+      res => this.setState(res.data.cv[0])  //this.setState(res.data)
+    )
+    
+
+  }
+
+
+  }
+  componentWillUnmount(){
+    localStorage.clear()
   }
 
   importData = async profile => {
@@ -140,6 +158,7 @@ class ThemeContextProvider extends Component {
     const userID = aFunction()
  
     //const data = JSON.stringify(this.state)
+    localStorage.setItem("currentCV", this.state.id)
     axios.post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
      
   }
@@ -149,7 +168,14 @@ class ThemeContextProvider extends Component {
     newObject.skills = [...newObject.skills, "Skill"];
     this.setState({ userData: newObject });
   };
+modifyEd = (index, value) => {
+  let newObject = { ...this.state.userData };
+  newObject.education[0].studyProgram = value;
+  this.setState({ userData: newObject });
+  console.log(index)
+  console.log(value)
 
+}
   addAchievGroup = () => {
     let newObject = { ...this.state.userData };
     newObject.achievements = [
@@ -280,7 +306,8 @@ class ThemeContextProvider extends Component {
           addCourseGroup: this.addCourseGroup,
           addLanguageGroup: this.addLanguageGroup,
           importData: this.importData,
-          saveCVDataToServer: this.saveCVDataToServer
+          saveCVDataToServer: this.saveCVDataToServer,
+          modifyEd: this.modifyEd
         }}
       >
         {this.props.children}
