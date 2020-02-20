@@ -261,6 +261,34 @@ class ThemeContextProvider extends Component {
     }
   };
 
+  handleContentEditable = e => {
+    // const test = this.userData.education.studyProgram;
+    this.setState({ studyProgram: e.target.title });
+    console.log(e.target.title);
+  };
+
+  // shouldComponentUpdate = nextProps => {
+  //   return nextProps.html !== this.getDOMNode().innerHTML;
+  // };
+
+  // componentDidUpdate = () => {
+  //   if (props.html !== getDOMNode().innerHTML) {
+  //     getDOMNode().innerHTML = props.html;
+  //   }
+  // };
+
+  // emitChange = () => {
+  //   var html = getDOMNode().innerHTML;
+  //   if (props.onChange && html !== lastHtml) {
+  //     props.onChange({
+  //       target: {
+  //         value: html
+  //       }
+  //     });
+  //   }
+  //   lastHtml = html;
+  // };
+
   render() {
     return (
       <ThemeContext.Provider
@@ -270,6 +298,7 @@ class ThemeContextProvider extends Component {
           displaySubNav: this.displaySubNav,
           changeFontFamily: this.changeFontFamily,
           handleFontSize: this.handleFontSize,
+          handleContentEditable: this.handleContentEditable,
           addExperienceGroup: this.addExperienceGroup,
           addEducationGroup: this.addEducationGroup,
           addSkillGroup: this.addSkillGroup,

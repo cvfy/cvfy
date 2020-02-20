@@ -20,7 +20,7 @@ class CvBuilderMain extends React.Component {
           return (
             <div className="alignContainer">
               <div
-                id="container"
+                id="containerA4"
                 style={{ fontFamily: context.font, fontSize: context.size3 }}
               >
                 <Header />
@@ -37,6 +37,27 @@ class CvBuilderMain extends React.Component {
                     <Achievements />
                     <Courses />
                     <Languages />
+                  </div>
+                </div>
+              </div>
+              <div className="break-before">
+                <div
+                  id="containerA4"
+                  style={{ fontFamily: context.font, fontSize: context.size3 }}
+                >
+                  <div className="A4ContentWrap">
+                    <div className="left">
+                      {/* <Experience />
+                      <Education /> */}
+                    </div>
+                    <div className="right">
+                      {/* <Skills />
+                      <Projects />
+                      <Certifications />
+                      <Achievements />
+                      <Courses />
+                      <Languages /> */}
+                    </div>
                   </div>
                 </div>
               </div>

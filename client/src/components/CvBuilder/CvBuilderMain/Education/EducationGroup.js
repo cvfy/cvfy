@@ -6,13 +6,17 @@ class EducationGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { handleContentEditable } = context;
           return (
-            <div className="education-group">
+            <div className="education-group break-before">
               <div className="editableDiv">
                 <span
+                  title="studyProgram"
                   className="studyProgram"
                   contentEditable="true"
                   suppressContentEditableWarning={true}
+                  // onClick={handleContentEditable}
+                  onChange={handleContentEditable}
                   style={{
                     fontSize: context.size2
                   }}
