@@ -12,6 +12,7 @@ class AchievementGroup extends React.Component {
                 <span
                   className="achievementDesc"
                   contentEditable="true"
+                  suppressContentEditableWarning={true}
                   style={{
                     fontSize: context.size3
                   }}

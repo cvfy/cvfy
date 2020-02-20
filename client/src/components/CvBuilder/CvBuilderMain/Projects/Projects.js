@@ -9,7 +9,7 @@ class Projects extends React.Component {
         {context => {
           const { addProjectGroup } = context;
           const group = context.userData.projects.map(el => (
-            <ProjectGroup key={el.projects} data={el} />
+            <ProjectGroup key={el.title} data={el} />
           ));
           return (
             <div className="projects">

@@ -25,8 +25,8 @@ const Team = () => {
             </div>
             <div className="gitHub">
               <a href="https://github.com/AJEdelmann">
-                <i class="fab fa-github githubIcon"></i>
-                https://github.com/AJEdelmann
+                <i className="fab fa-github githubIcon"></i>
+                https://github.com/almsk
               </a>
             </div>
           </div>
@@ -47,7 +47,7 @@ const Team = () => {
             </div>
             <div className="gitHub">
               <a href="https://github.com/AJEdelmann">
-                <i class="fab fa-github githubIcon"></i>
+                <i className="fab fa-github githubIcon"></i>
                 https://github.com/AJEdelmann
               </a>
             </div>
@@ -69,8 +69,8 @@ const Team = () => {
             </div>
             <div className="gitHub">
               <a href="https://github.com/AJEdelmann">
-                <i class="fab fa-github githubIcon"></i>
-                https://github.com/AJEdelmann
+                <i className="fab fa-github githubIcon"></i>
+                https://github.com/AlexandrMel
               </a>
             </div>
           </div>
@@ -91,8 +91,8 @@ const Team = () => {
             </div>
             <div className="gitHub">
               <a href="https://github.com/AJEdelmann">
-                <i class="fab fa-github githubIcon"></i>
-                https://github.com/AJEdelmann
+                <i className="fab fa-github githubIcon"></i>
+                https://github.com/vladharagea
               </a>
             </div>
           </div>

@@ -6,24 +6,23 @@ import "../../styles/Navbar.css";
 import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { logoutUser } from "../../actions/authActions";
-import store from "./../../store.js"
+import store from "./../../store.js";
 
-function aFunction(){
+function aFunction() {
   var newState = store.getState();
-  console.log(newState.auth.user.name)
   return newState.auth.user.name;
 }
 const newState = aFunction();
 const Navbar = props => {
-  console.log(window.location.href)
+  console.log(window.location.href);
   const [navbarState, setNavbarState] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
   const barAnimation = useSpring({
     from: { transform: "translate3d(0, -10rem, 0)" },
-    to: {transform: "translate3d(0, 0, 0)"}
+    to: { transform: "translate3d(0, 0, 0)" }
   });
   const linkAnimation = useSpring({
     from: { transform: "translate3d(0, 30px, 0)", opacity: 0 },
@@ -86,7 +85,7 @@ const Navbar = props => {
     </>
   );
 };
-store.subscribe(aFunction)
+store.subscribe(aFunction);
 export default Navbar;
 
 const NavBar = styled(animated.nav)`

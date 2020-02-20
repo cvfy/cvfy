@@ -17,7 +17,7 @@
     display: flex;
     padding-left: 37.5px;
     padding-right: 27px;
-    
+
 }
 
 .left {
@@ -95,14 +95,14 @@
 }
 
 .name {
-    padding-top: 1.8rem;
+    padding-top: 1.2rem;
     font-size: 2rem;
 }
 
 .CvTitle {
     font-size: 1.3rem;
     color: #414242;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 5px;
 }
 
@@ -138,48 +138,38 @@
 /* ==================================================== */
 .contact {
     background-color: #d3d3d382;
-    margin-bottom: 15px;
     padding-left: 37.5px;
     font-size: 12px;
+    min-height: 70px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100px;
 }
 
-.contact-row-1,
-.contact-row-2,
-.contact-row-3 {
+.contact-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row;
+    align-items: center;
+    justify-items: start;
+    width: 100%;
+}
+
+.contactGroup {
+    padding-top: 5px;
+}
+
+.icone {
     display: flex;
-    flex: 0 50%;
-    margin-top: 10px;
-}
-
-.contact-row-3 {
-    margin-bottom: 10px;
-}
-
-.contact-1,
-.contact-2,
-.contact-3,
-.contact-4,
-.contact-5,
-.contact-6 {
-    flex-grow: 1;
-    flex: 0 50%;
+    flex-direction: row-reverse;
 }
 
 .iconeColor {
     color: #3dbaf7;
+    display: flex;
+    align-items: center;
 }
 
 .user-contact {
     margin-left: 5px;
-}
-
-.userEmail:empty:before {
-    content: "E-mail";
-    color: rgb(61, 58, 58);
 }
 
 .userEmail:empty:hover:before {

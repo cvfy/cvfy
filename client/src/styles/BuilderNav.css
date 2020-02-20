@@ -580,9 +580,17 @@
   margin-bottom: 4px;
 }
 
+.linkedInButton:hover {
+  background: #19ee60;
+}
+
 .saveUpdateButton {
-  background: #2196f3;
+  background: #0384ec;
   color: #eee;
+}
+
+.saveUpdateButton:hover {
+  background: #3a9ff1;
 }
 
 @media (max-width: 1015px) {

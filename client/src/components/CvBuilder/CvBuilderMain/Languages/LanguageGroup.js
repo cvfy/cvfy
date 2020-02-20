@@ -12,6 +12,7 @@ class LanguageGroup extends React.Component {
                 <span
                   className="langHeader"
                   contentEditable="true"
+                  suppressContentEditableWarning={true}
                   style={{
                     fontSize: context.size3
                   }}
@@ -21,6 +22,7 @@ class LanguageGroup extends React.Component {
                 <span
                   className="langLevel"
                   contentEditable="true"
+                  suppressContentEditableWarning={true}
                   style={{
                     color: context.color,
                     fontSize: context.size4

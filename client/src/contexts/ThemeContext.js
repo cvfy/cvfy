@@ -1,13 +1,12 @@
 import React, { Component, createContext } from "react";
-import SkillBox from "../components/CvBuilder/CvBuilderMain/Skills/SkillBox";
-import axios from 'axios';
-import store from "./../store.js"
+import axios from "axios";
+import store from "./../store.js";
 
 // import { response } from "express";
 export const ThemeContext = createContext();
-function aFunction(){
+function aFunction() {
   var newState = store.getState();
-  console.log(newState.auth.user.name)
+  console.log(newState.auth.user.name);
   return newState.auth.user.id;
 }
 
@@ -15,10 +14,10 @@ function aFunction(){
 // const impdata = await axios.get("localhost:5000/api/users/data/bleda-hacialihafiz")
 //      return impdata
 // }
-const box = "hahahah"
+const box = "hahahah";
 const saveTOLocal = () => {
-  localStorage.setItem("currentCV", box)
-}
+  localStorage.setItem("currentCV", box);
+};
 class ThemeContextProvider extends Component {
   state = {
     id: 123567,
@@ -32,118 +31,118 @@ class ThemeContextProvider extends Component {
     tasksOutput: [],
     value: "",
     userData: {
+<<<<<<< HEAD
       fullName: "Steve Jobs",
       intro: "Best Frontend Developer",
       about: "I like apple, bacon and mushrooms",
+=======
+      fullName: "FULL NAME",
+      intro: "Professional title",
+      about: "Short and engaging pitch about yourself",
+>>>>>>> a033ff249ed927984c987d880e3c94670d26f075
       contact: [
-        { email: "steve.jobs@apple.com" },
-        { phone: "0170 999888888" },
-        { linkedIn: "linkedin.com/in/steve.jobs" },
-        { skype: "steve.jobs" },
-        { address: "Kingston, Jamaica" },
-        { website: "https://ajedelmann.github.io/portfolio/" }
+        { icon: "far fa-envelope", value: "Email" },
+        { icon: "fas fa-mobile-alt", value: "Phone number" },
+        { icon: "fab fa-linkedin", value: "" },
+        { icon: "fab fa-skype", value: "" },
+        { icon: "fas fa-map-marker-alt", value: "" },
+        { icon: "fas fa-globe", value: "" },
+        { icon: "fab fa-github", value: "" }
       ],
       experience: [
         {
-          position: "Frontend developer",
-          company: "Burger King",
-          startMonth: "02",
-          startYear: "2005",
-          endMonth: "02",
-          endYear: "2012",
-          place: "Berlin, Germany",
-          tasks: "I did craaazy stuff"
+          position: "Position/Title",
+          company: "Workplace/Company",
+          startMonth: "MM",
+          startYear: "YYYY",
+          endMonth: "MM",
+          endYear: "YYYY",
+          place: "City, Country",
+          tasks: "Accomplishments/Responsibility/Tasks"
         }
       ],
       education: [
         {
-          studyProgram: "Full Stack MERN",
-          institution: "DCI - Digital Career Institute",
-          startMonth: "03",
-          startYear: "2019",
-          endMonth: "04",
-          endYear: "2020",
-          place: "Berlin, Germany"
+          studyProgram: "Study Program",
+          institution: "Institution / Place of Education",
+          startMonth: "MM",
+          startYear: "YYYY",
+          endMonth: "MM",
+          endYear: "YYYY",
+          place: "City, Country"
         }
       ],
-      skills: ["JavaScript", "React", "MongoDB", "Express", "Node.js"],
+      skills: ["Skill"],
       projects: [
-        { title: "todo app", desc: "a todo list with react" },
-        {
-          title: "piano-player",
-          desc: "Piano player build with pure javascript"
-        }
+        { title: "Project name", desc: "Description of achievements" }
       ],
-      certifications: [
-        "Best dog - who let the dog's out award",
-        "Best whatever"
-      ],
-      achievements: ["Spit fire in 3 ways - hemorrhoids academy"],
-      courses: [
-        { title: "Barbq master", desc: "How to be a a master on the grill" }
-      ],
-      languages: [
-        { language: "English", level: "Terrible" },
-        { language: "German", level: "none" },
-        { language: "Japanese", level: "for lunch?" }
-      ]
+      certifications: ["Cerificate name"],
+      achievements: ["Achievement name"],
+      courses: [{ title: "Course name", desc: "Short description" }],
+      languages: [{ language: "Language", level: "Level" }]
     }
   };
-componentDidMount() {
- console.log(localStorage)
-}
+  componentDidMount() {
+    console.log(localStorage);
+  }
 
-
-  importData = async (profile) => {
+  importData = async profile => {
     // console.log("hahahha")
     // const respo = await importDatata()
     // console.log(respo)
-//     debugger
-//     fetch(`http://localhost:5000/api/users/data/vladharagea/`)
-//   .then(function(response) {
-//     return response.json();
-//   })
-//   .then(function(json) {
-//     console.log(json);
-//   });
-// };
-      const response = await axios.get(`http://localhost:5000/api/users/data/${profile}`)
-      console.log(response.data)
-      let newObject = { ...this.state.userData };
-      newObject.fullName = response.data.profileFullName;
-      newObject.intro = response.data.profileHeadline;
-      newObject.about = response.data.profileAbout[0];
-      newObject.skills = response.data.skills;
-      newObject.linkedIn =`linkedin.com/in/${profile}`;
-      newObject.experience = response.data.profileExperience.map( el => {
-        let new_el = {}
-        new_el.position = el.jobTitle;
-        new_el.company = el.jobEmployer;
-        new_el.startMonth = el.jobPeriod.split(" ")[0] || "";
-        new_el.startYear = el.jobPeriod.split(" ")[1] || "";
-        new_el.endMonth = el.jobPeriod.split(" ")[3] || "";
-        new_el.endYear = el.jobPeriod.split(" ")[4] || "";
-        new_el.place = el.jobLocation;
-        new_el.tasks = el.jobDescription;
-        return new_el
-      })
-      newObject.education = response.data.profileEducation.map( el => {
-        let new_el = {}
-        new_el.studyProgram = el.educationType;
-        new_el.institution = el.educationInstitution;
-        new_el.startMonth = "";
-        new_el.startYear = el.educationPeriod.split(" ")[0]
-        new_el.endMonth = "";
-        new_el.endYear = el.educationPeriod.split(" ")[2] || "";
-        new_el.place = ""
-        return new_el
-      })
-      newObject.languages = response.data.accomplishments[0].accomplishmentList.map(el =>  { return {language: el.split("\n")[1], level: "B2"}})
-      this.setState({ userData: newObject });
+    //     debugger
+    //     fetch(`http://localhost:5000/api/users/data/vladharagea/`)
+    //   .then(function(response) {
+    //     return response.json();
+    //   })
+    //   .then(function(json) {
+    //     console.log(json);
+    //   });
+    // };
+    const response = await axios.get(
+      `http://localhost:5000/api/users/data/${profile}`
+    );
+    console.log(response.data);
+    let newObject = { ...this.state.userData };
+    newObject.fullName = response.data.profileFullName;
+    newObject.intro = response.data.profileHeadline;
+    newObject.about = response.data.profileAbout[0];
+    newObject.skills = response.data.skills;
+    newObject.linkedIn = `linkedin.com/in/${profile}`;
+    newObject.experience = response.data.profileExperience.map(el => {
+      let new_el = {};
+      new_el.position = el.jobTitle;
+      new_el.company = el.jobEmployer;
+      new_el.startMonth = el.jobPeriod.split(" ")[0] || "";
+      new_el.startYear = el.jobPeriod.split(" ")[1] || "";
+      new_el.endMonth = el.jobPeriod.split(" ")[3] || "";
+      new_el.endYear = el.jobPeriod.split(" ")[4] || "";
+      new_el.place = el.jobLocation;
+      new_el.tasks = el.jobDescription;
+      return new_el;
+    });
+    newObject.education = response.data.profileEducation.map(el => {
+      let new_el = {};
+      new_el.studyProgram = el.educationType;
+      new_el.institution = el.educationInstitution;
+      new_el.startMonth = "";
+      new_el.startYear = el.educationPeriod.split(" ")[0];
+      new_el.endMonth = "";
+      new_el.endYear = el.educationPeriod.split(" ")[2] || "";
+      new_el.place = "";
+      return new_el;
+    });
+    newObject.languages = response.data.accomplishments[0].accomplishmentList.map(
+      el => {
+        return { language: el.split("\n")[1], level: "B2" };
+      }
+    );
+    this.setState({ userData: newObject });
 
-      // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
-  }
+    // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
+  };
   saveCVDataToServer = () => {
+<<<<<<< HEAD
     console.log("i am calling")
     const userID = aFunction()
  
@@ -151,6 +150,13 @@ componentDidMount() {
     axios.post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
      
   }
+=======
+    const userID = aFunction();
+
+    axios.post(`http://localhost:5000/api/users/data/cv/${userID}`, this.state);
+  };
+
+>>>>>>> a033ff249ed927984c987d880e3c94670d26f075
   // Those 3 functions add array of strings, will try to DRY later
   addSkillGroup = () => {
     let newObject = { ...this.state.userData };
@@ -208,11 +214,20 @@ componentDidMount() {
     this.setState({ userData: newObject });
   };
 
+  handleContactIcon = () => {
+    let element = document.getElementsByClassName("iconeColor");
+    element.classList.add(this.state.userData.contact.icone);
+  };
+
   addLanguageGroup = () => {
     let newObject = { ...this.state.userData };
     let newLang = { language: "Language", level: "level" };
     newObject.languages = [...this.state.userData.languages, newLang];
     this.setState({ userData: newObject });
+<<<<<<< HEAD
+=======
+    this.saveCVDataToServer();
+>>>>>>> a033ff249ed927984c987d880e3c94670d26f075
   };
 
   addProjectGroup = () => {
@@ -291,5 +306,5 @@ componentDidMount() {
     );
   }
 }
-store.subscribe(aFunction)
+store.subscribe(aFunction);
 export default ThemeContextProvider;

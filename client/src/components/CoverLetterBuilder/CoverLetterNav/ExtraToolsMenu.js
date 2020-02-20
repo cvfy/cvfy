@@ -19,42 +19,42 @@ class ExtraToolsMenu extends Component {
         <div className="extra-tools-btn">
           <div className="docsDiv">
             <span className="tool-icon extra-tool underStyle">
-              <i class="fas fa-underline"></i>
+              <i className="fas fa-underline"></i>
             </span>
           </div>
         </div>
         <div className="extra-tools-btn">
           <div className="docsDiv">
             <span className="tool-icon extra-tool leftStyle">
-              <i class="fas fa-align-left"></i>
+              <i className="fas fa-align-left"></i>
             </span>
           </div>
         </div>
         <div className="extra-tools-btn">
           <div className="docsDiv">
             <span className="tool-icon extra-tool centerStyle">
-              <i class="fas fa-align-center"></i>
+              <i className="fas fa-align-center"></i>
             </span>
           </div>
         </div>
         <div className="extra-tools-btn">
           <div className="docsDiv">
             <span className="tool-icon extra-tool rightStyle">
-              <i class="fas fa-align-right"></i>
+              <i className="fas fa-align-right"></i>
             </span>
           </div>
         </div>
         <div className="extra-tools-btn">
           <div className="docsDiv">
             <span className="tool-icon extra-tool ulStyle">
-              <i class="fas fa-list-ul"></i>
+              <i className="fas fa-list-ul"></i>
             </span>
           </div>
         </div>
         <div className="extra-tools-btn">
           <div className="docsDiv">
             <span className="tool-icon extra-tool olStyle">
-              <i class="fas fa-list-ol"></i>
+              <i className="fas fa-list-ol"></i>
             </span>
           </div>
         </div>
