@@ -1,8 +1,13 @@
 import React, { Component, createContext } from "react";
 import axios from "axios";
 import store from "./../store.js";
-import uuid from 'uuid'
-
+//import uuid from 'uuid'
+function guidGenerator() {
+  var S4 = function() {
+     return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+  };
+  return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
 // import { response } from "express";
 export const ThemeContext = createContext();
 function aFunction() {
@@ -21,7 +26,7 @@ const saveTOLocal = () => {
 };
 class ThemeContextProvider extends Component {
   state = {
-    id: 123567,
+    id: "",
     color: "",
     font: "'Open Sans', sans-serif",
     size1: "",
@@ -77,22 +82,20 @@ class ThemeContextProvider extends Component {
       languages: [{ language: "Language", level: "Level" }]
     }
   };
-  componentDidMount () {
+  componentDidMount() {
   if(localStorage.getItem("currentCV") == null){
-    console.log(uuid())
-    this.setState({id: uuid()})
+    const id = guidGenerator();
+    this.setState({id})
+    localStorage.setItem("currentCV", id)
+    console.log(`the state id is - ${this.state.id}`)
     axios.post(`http://localhost:5000/api/users/resume/cv/${this.state.id}`, this.state)
-
   }
-  else {
+  if(localStorage.getItem("currentCV") !== null) {
+    console.log("i am trying to get the data")
     axios.get(`http://localhost:5000/api/users/resume/cv/currentCV/${localStorage.getItem("currentCV")}`).then(
       res => this.setState(res.data.cv[0])  //this.setState(res.data)
     )
-    
-
   }
-
-
   }
   componentWillUnmount(){
     localStorage.clear()
@@ -159,8 +162,7 @@ class ThemeContextProvider extends Component {
  
     //const data = JSON.stringify(this.state)
     localStorage.setItem("currentCV", this.state.id)
-    axios.post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
-     
+    axios.post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)     
   }
   // Those 3 functions add array of strings, will try to DRY later
   addSkillGroup = () => {
@@ -168,13 +170,120 @@ class ThemeContextProvider extends Component {
     newObject.skills = [...newObject.skills, "Skill"];
     this.setState({ userData: newObject });
   };
-modifyEd = (index, value) => {
-  let newObject = { ...this.state.userData };
-  newObject.education[0].studyProgram = value;
-  this.setState({ userData: newObject });
-  console.log(index)
+modifyEd = (field, value, index) => {
+  console.log(field)
   console.log(value)
-
+  console.log(index)
+  let newObject = { ...this.state.userData };
+if(field == "studyProgram"){
+  newObject.education[index].studyProgram = value
+    }
+if(field == "institution"){
+    newObject.education[index].institution = value;
+        }
+if(field == "startMonth"){
+    newObject.education[index].startMonth = value;
+        }
+if(field == "startYear"){
+    newObject.education[index].startYear = value;
+        }
+if(field == "endMonth"){
+    newObject.education[index].endMonth = value;
+        }
+if(field == "endYear"){
+    newObject.education[index].endYear = value;
+        }
+if(field == "place"){
+    newObject.education[index].place = value;
+        }
+        this.setState({ userData: newObject });
+}
+modifyEx = (field, value, index) => {
+  console.log(field)
+  console.log(value)
+  console.log(index)
+  let newObject = { ...this.state.userData };
+if(field == "position"){
+  newObject.experience[index].position = value
+    }
+if(field == "company"){
+    newObject.experience[index].company = value;
+        }
+if(field == "startMonth"){
+    newObject.experience[index].startMonth = value;
+        }
+if(field == "startYear"){
+    newObject.experience[index].startYear = value;
+        }
+if(field == "endMonth"){
+    newObject.experience[index].endMonth = value;
+        }
+if(field == "endYear"){
+    newObject.experience[index].endYear = value;
+        }
+if(field == "place"){
+    newObject.experience[index].place = value;
+  }
+if(field == "tasks"){
+    newObject.experience[index].tasks = value;
+  }
+  this.setState({ userData: newObject });
+       
+}
+modifySkill = (index, value) => {
+  let newObject = { ...this.state.userData };
+  newObject.skills[index] = value;
+  this.setState({ userData: newObject });
+}
+modifyAbout = (field, value) => {
+  let newObject = { ...this.state.userData };
+  if(field == "intro"){
+    newObject.intro = value;
+  }
+  if(field == "about"){
+    newObject.about = value;
+  }
+  this.setState({ userData: newObject });
+}
+modifyAchievements = (index, value) => {
+  let newObject = { ...this.state.userData };
+  newObject.achievements[index] = value;
+  this.setState({ userData: newObject });
+}
+modifyCertifications = (index, value) => {
+  let newObject = { ...this.state.userData };
+  newObject.certifications[index] = value;
+  this.setState({ userData: newObject });
+}
+modifyProjects = (field, index, value) => {
+  let newObject = { ...this.state.userData };
+  if(field == "PTitle"){
+  newObject.projects[index].title = value;
+}
+  if(field == "PDesc"){
+  newObject.projects[index].desc = value;
+}
+  this.setState({ userData: newObject });
+}
+modifyCourses = (field, index, value) => {
+  let newObject = { ...this.state.userData };
+  if(field == "CTitle"){
+  newObject.courses[index].title = value;
+}
+  if(field == "CDesc"){
+  newObject.courses[index].desc = value;
+}
+  this.setState({ userData: newObject });
+}
+modifyLanguages = (field, index, value) => {
+  let newObject = { ...this.state.userData };
+  if(field == "language"){
+  newObject.languages[index].language = value;
+  }
+  if(field == "level"){
+  newObject.languages[index].level = value;
+  }
+  this.setState({ userData: newObject });
 }
   addAchievGroup = () => {
     let newObject = { ...this.state.userData };
@@ -214,7 +323,7 @@ modifyEd = (index, value) => {
   addEducationGroup = () => {
     let newObject = { ...this.state.userData };
     let newEducation = {
-      studyProgram: "",
+      studyProgram: "Study Program",
       institution: "",
       startMonth: "MM",
       startYear: "YYYY",
@@ -224,6 +333,7 @@ modifyEd = (index, value) => {
     };
     newObject.education = [...this.state.userData.education, newEducation];
     this.setState({ userData: newObject });
+    console.log("i am trying to add education")
   };
 
   handleContactIcon = () => {
@@ -336,7 +446,15 @@ modifyEd = (index, value) => {
           addLanguageGroup: this.addLanguageGroup,
           importData: this.importData,
           saveCVDataToServer: this.saveCVDataToServer,
-          modifyEd: this.modifyEd
+          modifyEd: this.modifyEd,
+          modifyEx: this.modifyEx,
+          modifySkill: this.modifySkill,
+          modifyAbout: this.modifyAbout,
+          modifyAchievements: this.modifyAchievements,
+          modifyLanguages: this.modifyLanguages,
+          modifyProjects: this.modifyProjects,
+          modifyCertifications: this.modifyCertifications,
+          modifyCourses: this.modifyCourses
         }}
       >
         {this.props.children}

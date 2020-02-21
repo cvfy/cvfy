@@ -6,6 +6,7 @@ class SkillBox extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { modifySkill} = context;
           return (
             <div
               className="skill-box"
@@ -15,6 +16,7 @@ class SkillBox extends React.Component {
               }}
             >
               <span
+              onBlur={(e) => {modifySkill(this.props.dat, e.target.innerText)}}
                 className="skillText"
                 contentEditable="true"
                 suppressContentEditableWarning={true}

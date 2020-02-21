@@ -6,10 +6,12 @@ class AchievementGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { modifyAchievements } = context;
           return (
             <div className="achiev-group">
               <div className="editableDiv">
                 <span
+                  onBlur={(e) => {modifyAchievements(this.props.dat, e.target.innerText)}}
                   className="achievementDesc"
                   contentEditable="true"
                   suppressContentEditableWarning={true}

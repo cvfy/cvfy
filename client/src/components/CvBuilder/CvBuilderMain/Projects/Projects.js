@@ -8,8 +8,8 @@ class Projects extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           const { addProjectGroup } = context;
-          const group = context.userData.projects.map(el => (
-            <ProjectGroup key={el.title} data={el} />
+          const group = context.userData.projects.map((el, i) => (
+            <ProjectGroup key={el.title} dat={i} data={el} />
           ));
           return (
             <div className="projects">

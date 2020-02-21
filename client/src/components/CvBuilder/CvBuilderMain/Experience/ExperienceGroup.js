@@ -6,10 +6,12 @@ class ExperienceGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { modifyEx } = context;
           return (
             <div className="experience-group">
               <div className="editableDiv">
                 <span
+                onBlur={(e) => {modifyEx("position", e.target.innerText, this.props.dat)}}
                   className="role"
                   contentEditable="true"
                   suppressContentEditableWarning={true}
@@ -23,6 +25,7 @@ class ExperienceGroup extends React.Component {
 
               <div className="editableDiv">
                 <span
+                onBlur={(e) => {modifyEx("company", e.target.innerText, this.props.dat)}}
                   className="CvCompany"
                   contentEditable="true"
                   suppressContentEditableWarning={true}
@@ -37,6 +40,7 @@ class ExperienceGroup extends React.Component {
               <div className="time-loc">
                 <div className="period">
                   <span
+                  onBlur={(e) => {modifyEx("startMonth", e.target.innerText, this.props.dat)}}
                     className="month"
                     style={{
                       fontSize: context.size4
@@ -55,6 +59,7 @@ class ExperienceGroup extends React.Component {
                     /
                   </span>
                   <span
+                  onBlur={(e) => {modifyEx("startYear", e.target.innerText, this.props.dat)}}
                     className="year"
                     style={{
                       fontSize: context.size4
@@ -73,6 +78,7 @@ class ExperienceGroup extends React.Component {
                     -
                   </span>
                   <span
+                  onBlur={(e) => {modifyEx("endMonth", e.target.innerText, this.props.dat)}}
                     className="month"
                     style={{
                       fontSize: context.size4
@@ -91,6 +97,7 @@ class ExperienceGroup extends React.Component {
                     /
                   </span>
                   <span
+                  onBlur={(e) => {modifyEx("endYear", e.target.innerText, this.props.dat)}}
                     className="year"
                     style={{
                       fontSize: context.size4
@@ -104,6 +111,7 @@ class ExperienceGroup extends React.Component {
 
                 <div className="location">
                   <span
+                  onBlur={(e) => {modifyEx("place", e.target.innerText, this.props.dat)}}
                     className="place"
                     style={{
                       fontSize: context.size4
@@ -128,6 +136,7 @@ class ExperienceGroup extends React.Component {
               <div>
                 <div className="editableDiv">
                   <span
+                  onBlur={(e) => {modifyEx("tasks", e.target.innerText, this.props.dat)}}
                     className="task"
                     contentEditable="true"
                     suppressContentEditableWarning={true}

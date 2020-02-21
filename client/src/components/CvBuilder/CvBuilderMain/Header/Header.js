@@ -7,6 +7,7 @@ class Header extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { modifyAbout } = context;
           return (
             <div className="header-inner">
               <div className="photo">
@@ -25,6 +26,7 @@ class Header extends React.Component {
 
                 <div className="editableHeaderDiv CvTitle">
                   <span
+                  onBlur={(e) => {modifyAbout("intro", e.target.innerText)}}
                     className="CvTitle"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
@@ -38,6 +40,7 @@ class Header extends React.Component {
 
                 <div className="editableHeaderDiv">
                   <span
+                  onBlur={(e) => {modifyAbout("about", e.target.innerText)}}
                     className="summary"
                     contentEditable="true"
                     suppressContentEditableWarning={true}

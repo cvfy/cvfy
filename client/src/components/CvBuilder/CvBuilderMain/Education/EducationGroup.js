@@ -1,8 +1,9 @@
 import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
-
+// let data = "Institution"
 class EducationGroup extends React.Component {
   render() {
+    
     return (
       <ThemeContext.Consumer>
         {context => {
@@ -10,21 +11,26 @@ class EducationGroup extends React.Component {
           return (
             <div className="education-group break-before">
               <div className="editableDiv">
-                <input
+                <span
+                 contentEditable="true"
+                 suppressContentEditableWarning={true}
                   type="text"
                   className="studyProgram"
-                  value={this.props.data.studyProgram}
-                  onChange={e => {
-                    return modifyEd(this.props.key, e.target.value);
-                  }}
+                  onBlur={(e) => {modifyEd("studyProgram", e.target.innerText, this.props.dat)}}
                   style={{
-                    fontSize: context.size2
+                    fontSize: context.size2,
+                    fontFamily: context.font
                   }}
-                />
+                >
+                {this.props.data.studyProgram}
+                </span>
               </div>
 
               <div className="editableDiv">
                 <span
+                
+                onBlur={(e) => {modifyEd("institution", e.target.innerText, this.props.dat)}}
+                // onInput={(e) => {modifyEd(e.target.innerText, this.props.dat)}}
                   className="institution"
                   contentEditable="true"
                   suppressContentEditableWarning={true}
@@ -40,6 +46,7 @@ class EducationGroup extends React.Component {
                 <div className="period">
                   <span
                     className="month"
+                    onBlur={(e) => {modifyEd("startMonth", e.target.innerText, this.props.dat)}}
                     style={{
                       fontSize: context.size4
                     }}
@@ -57,6 +64,7 @@ class EducationGroup extends React.Component {
                     /
                   </span>
                   <span
+                    onBlur={(e) => {modifyEd("startYear", e.target.innerText, this.props.dat)}}
                     className="year"
                     style={{
                       fontSize: context.size4
@@ -75,6 +83,7 @@ class EducationGroup extends React.Component {
                     -
                   </span>
                   <span
+                   onBlur={(e) => {modifyEd("endMonth", e.target.innerText, this.props.dat)}}
                     className="month"
                     style={{
                       fontSize: context.size4
@@ -93,6 +102,7 @@ class EducationGroup extends React.Component {
                     /
                   </span>
                   <span
+                  onBlur={(e) => {modifyEd("endYear", e.target.innerText, this.props.dat)}}
                     className="year"
                     style={{
                       fontSize: context.size4
@@ -106,6 +116,7 @@ class EducationGroup extends React.Component {
 
                 <div className="location">
                   <span
+                  onBlur={(e) => {modifyEd("place", e.target.innerText, this.props.dat)}}
                     className="place"
                     style={{
                       fontSize: context.size4

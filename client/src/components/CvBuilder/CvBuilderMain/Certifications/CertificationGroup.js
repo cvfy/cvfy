@@ -6,10 +6,12 @@ class CertificationGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { modifyCertifications } = context;
           return (
             <div className="cert-group">
               <div className="editableDiv">
                 <span
+                onBlur={(e) => {modifyCertifications(this.props.dat, e.target.innerText)}}
                   className="certificationTitle"
                   contentEditable="true"
                   suppressContentEditableWarning={true}

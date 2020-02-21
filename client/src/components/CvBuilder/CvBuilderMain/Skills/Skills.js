@@ -8,8 +8,8 @@ class Skills extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           const { addSkillGroup } = context;
-          const res = context.userData.skills.map(el => (
-            <SkillBox key={el} data={el} />
+          const res = context.userData.skills.map((el, i) => (
+            <SkillBox key={el} dat={i} data={el} />
           ));
 
           return (

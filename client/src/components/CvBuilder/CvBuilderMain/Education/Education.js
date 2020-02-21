@@ -9,8 +9,8 @@ class Education extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           const { addEducationGroup } = context;
-          const group = context.userData.education.map(el => (
-            <EducationGroup key={"i++"} newkey={h} data={el} />
+          const group = context.userData.education.map((el, i) => (
+            <EducationGroup key={i} dat={i} data={el} />
           ));
           return (
             <div className="education break-before">

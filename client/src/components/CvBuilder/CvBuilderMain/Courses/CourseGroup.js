@@ -6,10 +6,12 @@ class CourseGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { modifyCourses } = context;
           return (
             <div className="project-group">
               <div className="editableDiv">
                 <span
+                onBlur={(e) => {modifyCourses("CTitle", this.props.dat, e.target.innerText)}}
                   className="projectTitle"
                   contentEditable="true"
                   suppressContentEditableWarning={true}
@@ -23,6 +25,7 @@ class CourseGroup extends React.Component {
 
               <div className="editableDiv">
                 <span
+                onBlur={(e) => {modifyCourses("CDesc", this.props.dat, e.target.innerText)}}
                   className="projectDesc"
                   contentEditable="true"
                   suppressContentEditableWarning={true}

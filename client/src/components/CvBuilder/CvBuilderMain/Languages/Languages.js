@@ -8,8 +8,8 @@ class Languages extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           const { addLanguageGroup } = context;
-          const group = context.userData.languages.map(el => (
-            <LanguageGroup key={el.language} data={el} />
+          const group = context.userData.languages.map((el, i) => (
+            <LanguageGroup key={el.language} dat={i} data={el} />
           ));
           return (
             <div className="lang">

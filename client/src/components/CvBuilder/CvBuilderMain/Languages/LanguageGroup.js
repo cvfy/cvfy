@@ -6,10 +6,12 @@ class LanguageGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { modifyLanguages } = context;
           return (
             <div className="lang-group">
               <div className="editableDiv language">
                 <span
+                onBlur={(e) => {modifyLanguages("language", this.props.dat, e.target.innerText)}}
                   className="langHeader"
                   contentEditable="true"
                   suppressContentEditableWarning={true}
@@ -20,6 +22,7 @@ class LanguageGroup extends React.Component {
                   {this.props.data.language}
                 </span>
                 <span
+                onBlur={(e) => {modifyLanguages("level", this.props.dat, e.target.innerText)}}
                   className="langLevel"
                   contentEditable="true"
                   suppressContentEditableWarning={true}
