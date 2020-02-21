@@ -11,6 +11,9 @@ import Achievements from "./Achievements/Achievements";
 import Languages from "./Languages/Languages";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 import Courses from "./Courses/Courses";
+import ReactDOM from "react-dom";
+import Pdf from "react-to-pdf";
+const ref = React.createRef();
 
 class CvBuilderMain extends React.Component {
   render() {
@@ -19,10 +22,13 @@ class CvBuilderMain extends React.Component {
         {context => {
           return (
             <div className="alignContainer">
+              <Pdf style={{position: "absolute", height: "100px", margin: "0", padding: "0"}} targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button style={{margin: "0", marginTop: "100px"}} onClick={toPdf}>Generate Pdf</button>}
+      </Pdf>
               <div
                 id="container"
-                style={{ fontFamily: context.font, fontSize: context.size3 }}
-              >
+                style={{fontFamily: context.font, fontSize: context.size3 }}
+                ref={ref}>
                 <Header />
                 <Contacts />
                 <div className="A4ContentWrap">

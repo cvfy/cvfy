@@ -1,16 +1,17 @@
 /* ================== GLOBAL STYLE ================== */
 .alignContainer {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #2b3a42;
 }
 
 #container {
-    margin: 8rem 12rem;
+    margin: 1rem 10rem!important;
     background: #fff center center;
     height: 297mm;
-    width: 210mm;
+    width: 208mm!important;
 }
 
 .A4ContentWrap {

@@ -6,7 +6,7 @@
 }
 
 #container {
-    width: 892.5px !important;
+    width: 892.5px;
     min-height: 1263px !important;
     background: #fff center center;
     margin-bottom: 40rem;
