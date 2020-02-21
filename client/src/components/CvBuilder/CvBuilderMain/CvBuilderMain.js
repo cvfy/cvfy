@@ -14,6 +14,7 @@ import Courses from "./Courses/Courses";
 import ReactDOM from "react-dom";
 import Pdf from "react-to-pdf";
 const ref = React.createRef();
+const ref2 = React.createRef();
 
 class CvBuilderMain extends React.Component {
   render() {
@@ -26,7 +27,7 @@ class CvBuilderMain extends React.Component {
         {({ toPdf }) => <button style={{margin: "0", marginTop: "100px"}} onClick={toPdf}>Generate Pdf</button>}
       </Pdf>
               <div
-                ref={ref}>
+                ref={ref}
                 id="containerA4"
                 style={{ fontFamily: context.font, fontSize: context.size3 }}
               >

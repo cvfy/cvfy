@@ -46,8 +46,8 @@
 }
 
 #containerA4 {
-  /* margin: 8rem 12rem 0 12rem; */
-  margin: 2rem 12rem 0 12rem;
+  margin: 8rem 12rem 0 12rem;
+  /* margin: 2rem 12rem 0 12rem; */
   background: #fff center center;
   height: 297mm;
   width: 210mm;
