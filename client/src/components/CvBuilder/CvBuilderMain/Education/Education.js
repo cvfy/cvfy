@@ -13,7 +13,7 @@ class Education extends React.Component {
             <EducationGroup key={"i++"} newkey={h} data={el} />
           ));
           return (
-            <div className="education">
+            <div className="education break-before">
               <div className="sectionHeader">
                 <div className="section-label" style={{ color: context.color }}>
                   EDUCATION

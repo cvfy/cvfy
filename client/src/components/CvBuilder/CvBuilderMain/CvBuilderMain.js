@@ -26,9 +26,10 @@ class CvBuilderMain extends React.Component {
         {({ toPdf }) => <button style={{margin: "0", marginTop: "100px"}} onClick={toPdf}>Generate Pdf</button>}
       </Pdf>
               <div
-                id="container"
-                style={{fontFamily: context.font, fontSize: context.size3 }}
                 ref={ref}>
+                id="containerA4"
+                style={{ fontFamily: context.font, fontSize: context.size3 }}
+              >
                 <Header />
                 <Contacts />
                 <div className="A4ContentWrap">
@@ -43,6 +44,27 @@ class CvBuilderMain extends React.Component {
                     <Achievements />
                     <Courses />
                     <Languages />
+                  </div>
+                </div>
+              </div>
+              <div className="break-before">
+                <div
+                  id="containerA4"
+                  style={{ fontFamily: context.font, fontSize: context.size3 }}
+                >
+                  <div className="A4ContentWrap">
+                    <div className="left">
+                      {/* <Experience />
+                      <Education /> */}
+                    </div>
+                    <div className="right">
+                      {/* <Skills />
+                      <Projects />
+                      <Certifications />
+                      <Achievements />
+                      <Courses />
+                      <Languages /> */}
+                    </div>
                   </div>
                 </div>
               </div>

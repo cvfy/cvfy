@@ -2,28 +2,25 @@ import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
 
 class EducationGroup extends React.Component {
-
-
   render() {
     return (
       <ThemeContext.Consumer>
         {context => {
           const { modifyEd } = context;
           return (
-            <div className="education-group">
+            <div className="education-group break-before">
               <div className="editableDiv">
-                <input type="text"
+                <input
+                  type="text"
                   className="studyProgram"
-                  //contentEditable="true"
-                  //suppressContentEditableWarning={true}
                   value={this.props.data.studyProgram}
-                  
-                  onChange={(e) => {return modifyEd(this.props.key, e.target.value)}}
+                  onChange={e => {
+                    return modifyEd(this.props.key, e.target.value);
+                  }}
                   style={{
                     fontSize: context.size2
                   }}
                 />
-                {/* </span> */}
               </div>
 
               <div className="editableDiv">
