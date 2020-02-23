@@ -7,7 +7,7 @@ class Languages extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { addLanguageGroup } = context;
+          // const { addLanguageGroup } = context;
           const group = context.userData.languages.map((el, i) => (
             <LanguageGroup key={el.language} dat={i} data={el} />
           ));
@@ -17,11 +17,11 @@ class Languages extends React.Component {
                 <div className="section-label" style={{ color: context.color }}>
                   LANGUAGES
                 </div>
-                <div className="addLanguageDiv">
+                {/* <div className="addLanguageDiv">
                   <button className={"addGroupBtn"} onClick={addLanguageGroup}>
                     add
                   </button>
-                </div>
+                </div> */}
               </div>
 
               <div className="lang-body">{group}</div>

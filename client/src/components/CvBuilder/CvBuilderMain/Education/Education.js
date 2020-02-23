@@ -8,7 +8,7 @@ class Education extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { addEducationGroup } = context;
+          // const { addEducationGroup } = context;
           const group = context.userData.education.map((el, i) => (
             <EducationGroup key={i} dat={i} data={el} />
           ));
@@ -18,11 +18,11 @@ class Education extends React.Component {
                 <div className="section-label" style={{ color: context.color }}>
                   EDUCATION
                 </div>
-                <div className="addEducationDiv">
+                {/* <div className="addEducationDiv">
                   <button className={"addGroupBtn"} onClick={addEducationGroup}>
                     add
                   </button>
-                </div>
+                </div> */}
               </div>
               <div className="education-body">{group}</div>
             </div>

@@ -19,6 +19,7 @@
 .break-before {
   page-break-before: always;
 }
+
 .no-break-inside {
   page-break-inside: avoid;
 }
@@ -117,6 +118,56 @@
 *:focus {
   outline: none;
 }
+
+
+/* ==================================================== */
+/* ================== SECTION MENU ================== */
+/* ==================================================== */
+.sectionsMenuDiv {
+  position: relative;
+  background: #2b3a42;
+  top: -90px;
+  width: 250px;
+  height: 30px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: -5px 0 20px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.addGroupBtn {
+  background: linear-gradient(to left, #3dbaf7, #1d3b8b);
+  color: #fff;
+  border-radius: 30px;
+  font-size: 1.2em;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin: 0;
+}
+
+.addGroupBtn:hover {
+  background: linear-gradient(to right, #3dbaf7, #1d3b8b);
+  cursor: pointer;
+}
+
+.addGroupSpan {
+  margin-left: 7px;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.deleteIcon {
+  color: red;
+  cursor: pointer;
+}
+
+.deleteIcon:hover {
+  color: tomato;
+}
+
 
 /* ==================================================== */
 /* ================== HEADER SECTION ================== */
@@ -304,7 +355,7 @@
   justify-content: space-between;
 }
 
-.addSkillDiv {
+/* .addSkillDiv {
   display: none;
 }
 
@@ -358,23 +409,7 @@
 
 .education:hover .addEducationDiv {
   display: block;
-}
-
-.addGroupBtn {
-  background: linear-gradient(to left, #3dbaf7, #1d3b8b);
-  color: #fff;
-  border-radius: 30px;
-  font-size: 0.7em;
-  padding: 1px 11px;
-  width: 3rem;
-  height: 1.3rem;
-  margin: 0;
-}
-
-.addGroupBtn:hover {
-  background: linear-gradient(to right, #3dbaf7, #1d3b8b);
-  cursor: pointer;
-}
+} */
 
 /* ==================================================== */
 /* ================== EXPERIENCE SECTION ================== */

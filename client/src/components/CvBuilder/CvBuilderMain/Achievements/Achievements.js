@@ -7,7 +7,7 @@ class Achievements extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { addAchievGroup } = context;
+          // const { addAchievGroup } = context;
           const group = context.userData.achievements.map((el, i) => (
             <AchievementGroup key={el} dat={i} data={el} />
           ));
@@ -17,11 +17,11 @@ class Achievements extends React.Component {
                 <div className="section-label" style={{ color: context.color }}>
                   ACHIEVEMENTS
                 </div>
-                <div className="addAchievementDiv">
+                {/* <div className="addAchievementDiv">
                   <button className={"addGroupBtn"} onClick={addAchievGroup}>
                     add
                   </button>
-                </div>
+                </div>*/}
               </div>
 
               <div className="achiev-body">{group}</div>
