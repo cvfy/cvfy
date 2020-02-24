@@ -7,7 +7,6 @@ class Certifications extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          // const { addCertificationGroup } = context;
           const group = context.userData.certifications.map((el, i) => (
             <CertificationGroup key={el} dat={i} data={el} />
           ));
@@ -17,14 +16,6 @@ class Certifications extends React.Component {
                 <div className="section-label" style={{ color: context.color }}>
                   CERTIFICATIONS
                 </div>
-                {/* <div className="addCertificationDiv">
-                  <button
-                    className={"addGroupBtn"}
-                    onClick={addCertificationGroup}
-                  >
-                    add
-                  </button>
-                </div> */}
               </div>
               <div className="cert-body">{group}</div>
             </div>

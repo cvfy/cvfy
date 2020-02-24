@@ -119,83 +119,46 @@
   outline: none;
 }
 
-
 /* ==================================================== */
 /* ================== SECTION MENU ================== */
 /* ==================================================== */
-.sectionsMenuDiv,
-.educationMenuDiv,
-.skillsMenuDiv,
-.projectMenuDiv,
-.courseMenuDiv,
-.languageMenuDiv,
-.certificationMenuDiv,
-.achievementsMenuDiv {
-  position: relative;
+.sectionsMenuDiv {
   background: #2b3a42;
-  bottom: 160px;
-  width: 250px;
+  width: 140px;
   height: 30px;
   border-radius: 8px;
   text-align: center;
   font-size: 0.9rem;
-  box-shadow: -5px 0 20px 5px rgba(0, 0, 0, 0.5);
-  display: flex;
+  box-shadow: -2px 0 8px 3px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
-  justify-content: space-evenly;
-}
-
-.educationMenuDiv {
-  bottom: 110px;
-}
-
-.skillsMenuDiv {
-  bottom: 30px;
-  left: -50px;
-}
-
-.projectMenuDiv,
-.courseMenuDiv {
-  bottom: 100px;
-}
-
-.languageMenuDiv {
-  bottom: 90px;
-}
-
-.certificationMenuDiv,
-.achievementsMenuDiv {
-  bottom: 75px;
-}
-
-.addGroupBtn {
-  background: linear-gradient(to left, #3dbaf7, #1d3b8b);
-  color: #fff;
-  border-radius: 30px;
-  font-size: 1.2em;
-  width: 1.3rem;
-  height: 1.3rem;
-  margin: 0;
-}
-
-.addGroupBtn:hover {
-  background: linear-gradient(to right, #3dbaf7, #1d3b8b);
-  cursor: pointer;
-}
-
-.addGroupSpan {
-  margin-left: 7px;
-  color: #fff;
-  font-size: 0.8rem;
 }
 
 .deleteIcon {
-  color: red;
+  color: #fff;
   cursor: pointer;
 }
 
 .deleteIcon:hover {
   color: tomato;
+}
+
+.angleIcon {
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.addIcon {
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.addIcon:hover,
+.angleIcon:hover {
+  color: #3dbaf7;
 }
 
 
@@ -384,62 +347,6 @@
   display: flex;
   justify-content: space-between;
 }
-
-/* .addSkillDiv {
-  display: none;
-}
-
-.skills:hover .addSkillDiv {
-  display: block;
-}
-
-.addLanguageDiv {
-  display: none;
-}
-
-.lang:hover .addLanguageDiv {
-  display: block;
-}
-
-.addAchievementDiv {
-  display: none;
-}
-
-.achiev:hover .addAchievementDiv {
-  display: block;
-}
-
-.addCertificationDiv {
-  display: none;
-}
-
-.cert:hover .addCertificationDiv {
-  display: block;
-}
-
-.addProjectDiv {
-  display: none;
-}
-
-.projects:hover .addProjectDiv {
-  display: block;
-}
-
-.addExperienceDiv {
-  display: none;
-}
-
-.experience:hover .addExperienceDiv {
-  display: block;
-}
-
-.addEducationDiv {
-  display: none;
-}
-
-.education:hover .addEducationDiv {
-  display: block;
-} */
 
 /* ==================================================== */
 /* ================== EXPERIENCE SECTION ================== */

@@ -4,53 +4,54 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 class ProjectGroup extends React.Component {
   constructor() {
     super();
+    this.my_refs = {};
+    this.state = { display: "none" };
 
-    this.state = {
-      showMenu: false
-    };
-
-    this.showMenu = this.showMenu.bind(this);
-    this.closeMenu = this.closeMenu.bind(this);
+    this.focusByClassName.bind(this);
   }
 
-  showMenu(event) {
-    event.preventDefault();
-
-    this.setState({ showMenu: true }, () => {
-      document.addEventListener("click", this.closeMenu);
-    });
-  }
-
-  closeMenu(event) {
-    if (!this.dropdownMenu.contains(event.target)) {
-      this.setState({ showMenu: false }, () => {
-        document.removeEventListener("click", this.closeMenu);
-      });
+  focusByClassName(className) {
+    let myRef = this.my_refs[className];
+    if (myRef) {
+      myRef.focus();
     }
   }
 
   render() {
+    const { display } = this.state;
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyProjects } = context;
-          const { addProjectGroup } = context;
-          // const { deleteGroup } = context;
-          const deleteGroup = e => {
-            console.log("***********" + e.target.title);
-            // this.setState({
-            //   projects: context.userData.projects.filter(function(el) {
-            //     return el !== e.target.title;
-            //   })
-            // });
-          };
-
+          const { modifyProjects, addProjectGroup, deleteGroup } = context;
           return (
             <>
+              {/* ********************SECTION MENUS*************** */}
+              <div className="sectionsMenuDiv" style={{ display: display }}>
+                <i
+                  className="fas fa-plus-circle addIcon"
+                  onClick={addProjectGroup}
+                  title="add group"
+                ></i>
+                <i className="fas fa-angle-up angleIcon" title="move up"></i>
+                <i
+                  className="fas fa-angle-down angleIcon"
+                  title="move down"
+                ></i>
+                <i
+                  onClick={() => deleteGroup(this.props.dat)}
+                  className="deleteIcon far fa-trash-alt"
+                  title="delete group"
+                ></i>
+              </div>
+              {/* ************************************************** */}
+
               <div
+                tabIndex="0"
                 className="project-group"
-                onClick={this.showMenu}
-                title="toti"
+                ref={input => (this.my_refs["project-group"] = input)}
+                onFocus={() => this.setState({ display: "" })}
+                onBlur={() => this.setState({ display: "none" })}
+                onClick={() => this.focusByClassName("project-group")}
               >
                 <div className="editableDiv">
                   <span
@@ -61,7 +62,6 @@ class ProjectGroup extends React.Component {
                         e.target.innerText
                       );
                     }}
-                    name="toti"
                     className="projectTitle"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
@@ -72,7 +72,6 @@ class ProjectGroup extends React.Component {
                     {this.props.data.title}
                   </span>
                 </div>
-
                 <div className="editableDiv">
                   <span
                     onBlur={e => {
@@ -93,31 +92,6 @@ class ProjectGroup extends React.Component {
                   </span>
                 </div>
               </div>
-
-              {this.state.showMenu ? (
-                <div
-                  className="projectMenuDiv"
-                  ref={element => {
-                    this.dropdownMenu = element;
-                  }}
-                >
-                  <div className="addProjectDiv">
-                    <button
-                      className={"addGroupBtn"}
-                      onClick={addProjectGroup}
-                      value
-                    >
-                      +
-                    </button>
-                    <span className="addGroupSpan">Add group</span>
-                  </div>
-
-                  <div className="deleteProjectDiv" onClick={deleteGroup}>
-                    <i className="deleteIcon far fa-trash-alt"></i>
-                    {/* <span className="addGroupSpan">Delete group</span> */}
-                  </div>
-                </div>
-              ) : null}
             </>
           );
         }}

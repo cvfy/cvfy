@@ -4,40 +4,55 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 class ExperienceGroup extends React.Component {
   constructor() {
     super();
+    this.my_refs = {};
+    this.state = { display: "none" };
 
-    this.state = {
-      showMenu: false
-    };
-
-    this.showMenu = this.showMenu.bind(this);
-    this.closeMenu = this.closeMenu.bind(this);
+    this.focusByClassName.bind(this);
   }
 
-  showMenu(event) {
-    event.preventDefault();
-
-    this.setState({ showMenu: true }, () => {
-      document.addEventListener("click", this.closeMenu);
-    });
-  }
-
-  closeMenu(event) {
-    if (!this.dropdownMenu.contains(event.target)) {
-      this.setState({ showMenu: false }, () => {
-        document.removeEventListener("click", this.closeMenu);
-      });
+  focusByClassName(className) {
+    let myRef = this.my_refs[className];
+    if (myRef) {
+      myRef.focus();
     }
   }
 
   render() {
+    const { display } = this.state;
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyEx } = context;
-          const { addExperienceGroup } = context;
+          const { modifyEx, addExperienceGroup, deleteGroup } = context;
           return (
             <>
-              <div className="experience-group" onClick={this.showMenu}>
+              {/* ********************SECTION MENUS*************** */}
+              <div className="sectionsMenuDiv" style={{ display: display }}>
+                <i
+                  className="fas fa-plus-circle addIcon"
+                  onClick={addExperienceGroup}
+                  title="add group"
+                ></i>
+                <i className="fas fa-angle-up angleIcon" title="move up"></i>
+                <i
+                  className="fas fa-angle-down angleIcon"
+                  title="move down"
+                ></i>
+                <i
+                  onClick={() => deleteGroup(this.props.dat)}
+                  className="deleteIcon far fa-trash-alt"
+                  title="delete group"
+                ></i>
+              </div>
+              {/* ************************************************** */}
+
+              <div
+                tabIndex="0"
+                className="experience-group"
+                ref={input => (this.my_refs["experience-group"] = input)}
+                onFocus={() => this.setState({ display: "" })}
+                onBlur={() => this.setState({ display: "none" })}
+                onClick={() => this.focusByClassName("experience-group")}
+              >
                 <div className="editableDiv">
                   <span
                     onBlur={e => {
@@ -206,30 +221,6 @@ class ExperienceGroup extends React.Component {
                   </div>
                 </div>
               </div>
-
-              {this.state.showMenu ? (
-                <div
-                  className="sectionsMenuDiv"
-                  ref={element => {
-                    this.dropdownMenu = element;
-                  }}
-                >
-                  <div className="addProjectDiv">
-                    <button
-                      className={"addGroupBtn"}
-                      onClick={addExperienceGroup}
-                    >
-                      +
-                    </button>
-                    <span className="addGroupSpan">Add group</span>
-                  </div>
-
-                  <div className="deleteProjectDiv">
-                    <i className="deleteIcon far fa-trash-alt"></i>
-                    {/* <span className="addGroupSpan">Delete group</span> */}
-                  </div>
-                </div>
-              ) : null}
             </>
           );
         }}

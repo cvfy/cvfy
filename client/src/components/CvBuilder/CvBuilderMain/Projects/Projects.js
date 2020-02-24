@@ -7,7 +7,6 @@ class Projects extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          // const { addProjectGroup } = context;
           const group = context.userData.projects.map((el, i) => (
             <ProjectGroup key={el.title} dat={i} data={el} />
           ));
@@ -17,11 +16,6 @@ class Projects extends React.Component {
                 <div className="section-label" style={{ color: context.color }}>
                   PROJECTS
                 </div>
-                {/* <div className="addProjectDiv">
-                  <button className={"addGroupBtn"} onClick={addProjectGroup}>
-                    add
-                  </button>
-                </div> */}
               </div>
               <div className="projects-body">{group}</div>
             </div>

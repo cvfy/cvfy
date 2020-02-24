@@ -382,15 +382,12 @@ class ThemeContextProvider extends Component {
     this.setState({ userData: newObject });
   };
 
-  // deleteGroup(e) {
-  //   let newObject = { ...this.state.userData }; // make a separate copy of the array
-  //   debugger;
-  //   var index = newObject.projects.indexOf(e.target.value);
-  //   if (index !== -1) {
-  //     newObject.projects.splice(index, 1);
-  //     this.setState({ userData: newObject });
-  //   }
-  // }
+  deleteGroup = obj => {
+    let newObject = { ...this.state.userData }; // make a separate copy of the array
+    delete newObject.projects[obj];
+
+    this.setState({ userData: newObject });
+  };
 
   addCourseGroup = () => {
     let newObject = { ...this.state.userData };
@@ -478,7 +475,7 @@ class ThemeContextProvider extends Component {
           addAchievGroup: this.addAchievGroup,
           addCourseGroup: this.addCourseGroup,
           addLanguageGroup: this.addLanguageGroup,
-          // deleteGroup: this.deleteGroup,
+          deleteGroup: this.deleteGroup,
           importData: this.importData,
           saveCVDataToServer: this.saveCVDataToServer,
           modifyEd: this.modifyEd,
