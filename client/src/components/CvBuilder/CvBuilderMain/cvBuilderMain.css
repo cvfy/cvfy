@@ -123,10 +123,17 @@
 /* ==================================================== */
 /* ================== SECTION MENU ================== */
 /* ==================================================== */
-.sectionsMenuDiv {
+.sectionsMenuDiv,
+.educationMenuDiv,
+.skillsMenuDiv,
+.projectMenuDiv,
+.courseMenuDiv,
+.languageMenuDiv,
+.certificationMenuDiv,
+.achievementsMenuDiv {
   position: relative;
   background: #2b3a42;
-  top: -90px;
+  bottom: 160px;
   width: 250px;
   height: 30px;
   border-radius: 8px;
@@ -136,6 +143,29 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.educationMenuDiv {
+  bottom: 110px;
+}
+
+.skillsMenuDiv {
+  bottom: 30px;
+  left: -50px;
+}
+
+.projectMenuDiv,
+.courseMenuDiv {
+  bottom: 100px;
+}
+
+.languageMenuDiv {
+  bottom: 90px;
+}
+
+.certificationMenuDiv,
+.achievementsMenuDiv {
+  bottom: 75px;
 }
 
 .addGroupBtn {

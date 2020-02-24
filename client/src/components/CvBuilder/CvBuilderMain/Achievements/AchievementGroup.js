@@ -57,7 +57,7 @@ class AchievementGroup extends React.Component {
 
               {this.state.showMenu ? (
                 <div
-                  className="sectionsMenuDiv"
+                  className="achievementsMenuDiv"
                   ref={element => {
                     this.dropdownMenu = element;
                   }}

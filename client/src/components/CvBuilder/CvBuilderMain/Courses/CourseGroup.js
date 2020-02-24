@@ -80,7 +80,7 @@ class CourseGroup extends React.Component {
 
               {this.state.showMenu ? (
                 <div
-                  className="sectionsMenuDiv"
+                  className="courseMenuDiv"
                   ref={element => {
                     this.dropdownMenu = element;
                   }}

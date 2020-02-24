@@ -79,7 +79,7 @@ class LanguageGroup extends React.Component {
 
               {this.state.showMenu ? (
                 <div
-                  className="sectionsMenuDiv"
+                  className="languageMenuDiv"
                   ref={element => {
                     this.dropdownMenu = element;
                   }}

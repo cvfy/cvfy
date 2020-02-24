@@ -56,7 +56,7 @@ class CertificationGroup extends React.Component {
 
               {this.state.showMenu ? (
                 <div
-                  className="sectionsMenuDiv"
+                  className="certificationMenuDiv"
                   ref={element => {
                     this.dropdownMenu = element;
                   }}

@@ -196,7 +196,7 @@ class EducationGroup extends React.Component {
 
               {this.state.showMenu ? (
                 <div
-                  className="sectionsMenuDiv"
+                  className="educationMenuDiv"
                   ref={element => {
                     this.dropdownMenu = element;
                   }}

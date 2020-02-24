@@ -37,15 +37,21 @@ class ProjectGroup extends React.Component {
           const { addProjectGroup } = context;
           // const { deleteGroup } = context;
           const deleteGroup = e => {
-            let projectGroup = context.userData.projects;
-            console.log(e.target.title);
-            this.setState(
-              projectGroup.slice(projectGroup.indexOf(e.target.title, 1))
-            );
+            console.log("***********" + e.target.title);
+            // this.setState({
+            //   projects: context.userData.projects.filter(function(el) {
+            //     return el !== e.target.title;
+            //   })
+            // });
           };
+
           return (
             <>
-              <div className="project-group" onClick={this.showMenu}>
+              <div
+                className="project-group"
+                onClick={this.showMenu}
+                title="toti"
+              >
                 <div className="editableDiv">
                   <span
                     onBlur={e => {
@@ -55,6 +61,7 @@ class ProjectGroup extends React.Component {
                         e.target.innerText
                       );
                     }}
+                    name="toti"
                     className="projectTitle"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
@@ -89,13 +96,17 @@ class ProjectGroup extends React.Component {
 
               {this.state.showMenu ? (
                 <div
-                  className="sectionsMenuDiv"
+                  className="projectMenuDiv"
                   ref={element => {
                     this.dropdownMenu = element;
                   }}
                 >
                   <div className="addProjectDiv">
-                    <button className={"addGroupBtn"} onClick={addProjectGroup}>
+                    <button
+                      className={"addGroupBtn"}
+                      onClick={addProjectGroup}
+                      value
+                    >
                       +
                     </button>
                     <span className="addGroupSpan">Add group</span>

@@ -34,7 +34,7 @@ class SkillBox extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           const { modifySkill } = context;
-          const { addSkillBox } = context;
+          const { addSkillGroup } = context;
           return (
             <>
               <div
@@ -59,13 +59,13 @@ class SkillBox extends React.Component {
 
               {this.state.showMenu ? (
                 <div
-                  className="sectionsMenuDiv"
+                  className="skillsMenuDiv"
                   ref={element => {
                     this.dropdownMenu = element;
                   }}
                 >
                   <div className="addProjectDiv">
-                    <button className={"addGroupBtn"} onClick={addSkillBox}>
+                    <button className={"addGroupBtn"} onClick={addSkillGroup}>
                       +
                     </button>
                     <span className="addGroupSpan">Add group</span>
