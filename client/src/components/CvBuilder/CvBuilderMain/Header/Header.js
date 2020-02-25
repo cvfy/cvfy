@@ -24,11 +24,13 @@ class Header extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           const { modifyAbout } = context;
+          
+          // const display = context.userData[this.props.index].fullName ? "block" : "none"
           return (
             <div className="header-inner">
               <div className="photo">
                 <img
-                  src={context.userData.profilePic}
+                  src={context.userData[this.props.index].profilePic}
                   alt="dog"
                   height="110px"
                   width="110px"
@@ -37,7 +39,7 @@ class Header extends React.Component {
               </div>
               <div className="introduction">
                 <div className="name" style={{ fontFamily: context.style.font }}>
-                  {context.userData.fullName}
+                  {context.userData[this.props.index].fullName}
                 </div>
 
                 <div className="editableHeaderDiv CvTitle">
@@ -61,7 +63,7 @@ class Header extends React.Component {
                       borderBottom: borderBottom
                     }}
                   >
-                    {context.userData.intro}
+                    {context.userData[this.props.index].intro}
                   </span>
                 </div>
 
@@ -86,13 +88,13 @@ class Header extends React.Component {
                       borderBottom: borderBottom
                     }}
                   >
-                    {context.userData.about[0]}
-                    {context.userData.about[1]}
-                    {context.userData.about[2]}
-                    {context.userData.about[3]}
-                    {context.userData.about[4]}
-                    {context.userData.about[5]}
-                    {context.userData.about[6]}
+                    {context.userData[this.props.index].about[0]}
+                    {context.userData[this.props.index].about[1]}
+                    {context.userData[this.props.index].about[2]}
+                    {context.userData[this.props.index].about[3]}
+                    {context.userData[this.props.index].about[4]}
+                    {context.userData[this.props.index].about[5]}
+                    {context.userData[this.props.index].about[6]}
                   </span>
                 </div>
               </div>

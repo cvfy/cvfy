@@ -10,7 +10,7 @@ class Contacts extends React.Component {
           return (
             <div className="contact">
               <div className="contact-row">
-                {context.userData.contact.map(el => {
+                {context.userData[this.props.index].contact.map(el => {
                   if (el.value.length !== 0) {
                     return (
                       <div className="contactGroup" key={el.value}>

@@ -8,8 +8,8 @@ class Education extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           const { addEducationGroup } = context;
-          if(context.userData.education.length !== 0){
-          const group = context.userData.education.map((el, i) => (
+          if(context.userData[this.props.index].education.length !== 0){
+          const group = context.userData[this.props.index].education.map((el, i) => (
             <EducationGroup key={i} dat={i} data={el} />
           ));
           return (

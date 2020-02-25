@@ -7,7 +7,7 @@ class Projects extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const group = context.userData.projects.map((el, i) => (
+          const group = context.userData[this.props.index].projects.map((el, i) => (
             <ProjectGroup key={el.title} dat={i} data={el} />
           ));
           return (

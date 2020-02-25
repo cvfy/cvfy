@@ -22,20 +22,6 @@ function aFunction() {
 
 class ThemeContextProvider extends Component {
   state = {
-    pages: [{
-      education: [
-        {
-          studyProgram: "Study Program",
-          institution: "Institution / Place of Education",
-          startMonth: "MM",
-          startYear: "YYYY",
-          endMonth: "MM",
-          endYear: "YYYY",
-          place: "City, Country"
-        }
-      ],
-      experience: []
-    }],
     id: "",
     style: {
       color: "",
@@ -48,7 +34,7 @@ class ThemeContextProvider extends Component {
       tasksOutput: [],
       value: ""
     },
-    userData: {
+    userData: [{
       fullName: "FULL NAME",
       intro: "Professional title",
       about: ["Short and engaging pitch about yourself"],
@@ -93,7 +79,48 @@ class ThemeContextProvider extends Component {
       achievements: ["Achievement name"],
       courses: [{ title: "Course name", desc: "Short description" }],
       languages: [{ language: "Language", level: "Level" }]
+    },
+    {
+    
+      experience: [
+        {
+          position: "I winn",
+          company: "Workplace/Company",
+          startMonth: "MM",
+          startYear: "YYYY",
+          endMonth: "MM",
+          endYear: "YYYY",
+          place: "City, Country",
+          tasks: "Accomplishments/Responsibility/Tasks"
+        }
+      ],
+      education: [
+        
+      ],
+      skills: [],
+      projects: [
+      ],
+      certifications: [],
+      achievements: [],
+      courses: [],
+      languages: []
+    },
+    {
+    
+      experience: [
+      ],
+      education: [
+        
+      ],
+      skills: [],
+      projects: [
+      ],
+      certifications: [],
+      achievements: [],
+      courses: [],
+      languages: []
     }
+  ]
   };
   componentDidUpdate(){
     if(this.state.userData.education.length === 0){
@@ -134,22 +161,10 @@ class ThemeContextProvider extends Component {
   }
   }
   componentWillUnmount(){
-    localStorage.setItem("currentCV", "")
+    // localStorage.setItem("currentCV", "")
   }
 
   importData = async profile => {
-    // console.log("hahahha")
-    // const respo = await importDatata()
-    // console.log(respo)
-    //     debugger
-    //     fetch(`http://localhost:5000/api/users/data/vladharagea/`)
-    //   .then(function(response) {
-    //     return response.json();
-    //   })
-    //   .then(function(json) {
-    //     console.log(json);
-    //   });
-    // };
     const response = await axios.get(
       `http://localhost:5000/api/users/data/${profile}`
     );

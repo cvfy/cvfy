@@ -20,94 +20,47 @@ const ref2 = React.createRef();
 
 
 class CvBuilderMain extends React.Component {
+
+
   render() {
     return (
       <ThemeContext.Consumer>
         {context => {
-          console.log(context.pages.length)
-          if(context.pages.length > 0){
-            return (
-              <div className="alignContainer">
-                <div
-                  className="containerA40"
-                  id="containerA4"
-                  style={{ fontFamily: context.style.font, fontSize: context.style.size3 }}
-                >
-                  <Header />
-                  <Contacts />
-                  <div className="A4ContentWrap">
-                    <div className="left">
-                      <Experience />
-                      <Education />
-                    </div>
-                    <div className="right">
-                      <Skills />
-                      <Projects />
-                      <Certifications />
-                      <Achievements />
-                      <Courses />
-                      <Languages />
-                    </div>
-                  </div>
-                </div>
-                <div className="break-before">
-                <div
-id="containerA4"
-className="containerA41"
-style={{ fontFamily: context.style.font, fontSize: context.style.size3 }}
->
-<div className="A4ContentWrap">
-  <div className="left">
-    {/* <Experience /> */}
-    <Education_NextPage />
-  </div>
-  <div className="right">
-    {/* <Skills />
-    <Projects />
-    <Certifications />
-    <Achievements />
-    <Courses />
-    <Languages /> */}
-  </div>
-</div>
-</div>
-                </div>
+          
+          const pages = context.userData.map((el, i) =>
+           (
+            <div
+            id="containerA4"
+            style={{ fontFamily: context.style.font, fontSize: context.style.size3, display: `${!el.experience[0] && !el.education[0] && !el.skills[0] && !el.projects[0] && !el.certifications[0] && !el.achievements[0] && !el.courses[0] && !el.languages[0]? "none": "block"}` }}
+          >
+            {/* <Header index={i} /> */}
+        {el.about && <Header index={i} />}
+        {el.contact && <Contacts index={i} />}
+            {/* <Contacts index={i} /> */}
+            <div className="A4ContentWrap">
+              <div className="left">
+              {el.experience[0] && <Experience index={i} />}
+              {el.education[0] && <Education index={i} />}
               </div>
-            )
-          }
-          else {
-          return (
-            <div className="alignContainer">
-              <Pdf style={{position: "absolute", height: "100px", margin: "0", padding: "0"}} targetRef={ref} filename="code-example.pdf">
-        {({ toPdf }) => <button style={{margin: "0", marginTop: "100px"}} onClick={toPdf}>Generate Pdf</button>}
-      </Pdf>
-              <div
-                ref={ref}
-                id="containerA4"
-                style={{ fontFamily: context.style.font, fontSize: context.style.size3 }}
-              >
-                <Header />
-                <Contacts />
-                <div className="A4ContentWrap">
-                  <div className="left">
-                    <Experience />
-                    <Education />
-                  </div>
-                  <div className="right">
-                    <Skills />
-                    <Projects />
-                    <Certifications />
-                    <Achievements />
-                    <Courses />
-                    <Languages />
-                  </div>
-                </div>
-              </div>
-              <div className="break-before">
-
+              <div className="right">
+              {el.skills[0] && <Skills index={i} />}
+              {el.projects[0] && <Projects index={i} />}
+              {el.certifications[0] && <Certifications index={i} />}
+              {el.achievements[0] && <Achievements index={i} />}
+              {el.courses[0] && <Courses index={i} />}
+              {el.languages[0] && <Languages index={i} />}
               </div>
             </div>
-          )}
+          </div>
+          // <div className="break-before">
+
+          // </div>
+          ))
+          return (
+            <div className="alignContainer">
+             {pages}
+            </div>
+          )
         }}
       </ThemeContext.Consumer>
     );
