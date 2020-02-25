@@ -203,8 +203,6 @@ class EducationGroup extends React.Component {
                     </span>
                   </div>
                 </div>
-                <button onClick={() => {deleteGroup(this.props.dat)
-                }}>Delete</button>
               </div>
             </>
           );

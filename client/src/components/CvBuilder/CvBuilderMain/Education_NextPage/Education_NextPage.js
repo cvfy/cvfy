@@ -19,9 +19,6 @@ class Education_NextPage extends React.Component {
                   EDUCATION
                 </div>
                 <div className="addEducationDiv">
-                  <button className={"addGroupBtn"} onClick={addEducationGroup}>
-                    add
-                  </button>
                 </div>
               </div>
               <div className="education-body">{group}</div>
