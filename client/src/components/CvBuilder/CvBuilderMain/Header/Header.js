@@ -82,12 +82,8 @@ class Header extends React.Component {
                     onBlur={() => this.setState({ borderBottom: "" })}
                     onClick={() => this.focusByClassName("summary")}
                     style={{
-<<<<<<< HEAD
-                      fontSize: context.style.size3
-=======
-                      fontSize: context.size3,
+                      fontSize: context.style.size3,
                       borderBottom: borderBottom
->>>>>>> 56cdd1d6a29fce0a69fca8d9c28044e4bfd785b2
                     }}
                   >
                     {context.userData.about[0]}
