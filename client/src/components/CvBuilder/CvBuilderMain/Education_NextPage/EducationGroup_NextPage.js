@@ -1,13 +1,13 @@
 import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
 // let data = "Institution"
-class EducationGroup extends React.Component {
+class EducationGroup_NextPage extends React.Component {
   render() {
     
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyEd, deleteGroup } = context;
+          const { modifyEd } = context;
           return (
             <div className="education-group break-before">
               <div className="editableDiv">
@@ -127,8 +127,6 @@ class EducationGroup extends React.Component {
                     {this.props.data.place}
                   </span>
                 </div>
-                <button onClick={() => {deleteGroup(this.props.dat)
-                }}>Delete</button>
               </div>
             </div>
           );
@@ -138,4 +136,4 @@ class EducationGroup extends React.Component {
   }
 }
 
-export default EducationGroup;
+export default EducationGroup_NextPage;

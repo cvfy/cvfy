@@ -9,17 +9,24 @@ async function giveMeData(profile) {
         try {
             const page = await browser.newPage()
             await page.setViewport({
-                width: 800,
-                height: 600
+                width: 1000,
+                height: 1200
             })
             await page.goto("https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin");
             await page.type("[id=username]", "saneacool@yahoo.com");
             await page.type("[id=password]", "Griskevici1988");
+            // await page.type("[id=username]", "melnic.alexandr88@gmail.com");
+            // await page.type("[id=password]", "Strechii1989");
             await page.click("[type=submit]")
             await page.waitFor(3000);
             await page.goto(profile);
 
             //Login form
+            const shortProfile = profile.split("in/")[1];
+            const pic = await page.$('.EntityPhoto-circle-9')
+            await pic.screenshot({
+                path: `profile_picture/${shortProfile}.jpg`
+            });
             await page.waitFor(2000);
             await autoScroll(page)
             //await page.click('section.experience-section button')
@@ -27,8 +34,8 @@ async function giveMeData(profile) {
             if ((await page.$('section.education-section button.pv-profile-section__see-more-inline')) !== null) {
                 await page.click('section.education-section button.pv-profile-section__see-more-inline')
             }
-            if ((await page.$('section.pv-skill-categories-section button')) !== null) {
-                await page.click('section.pv-skill-categories-section button')
+            if ((await page.$('section.pv-skill-categories-section button.pv-skills-section__additional-skills')) !== null) {
+                await page.click('section.pv-skill-categories-section button.pv-skills-section__additional-skills')
             }
             if ((await page.$('section.pv-accomplishments-section button')) !== null) {
                 await page.click('section.pv-accomplishments-section button')
@@ -62,23 +69,25 @@ async function giveMeData(profile) {
                         //let jobLocationD = verify(document.querySelectorAll("section.experience-section ul li h4.pv-entity__location span + span")[i])
                         var detailedExp = {
                             jobTitle: verify(document.querySelectorAll("section.experience-section ul li h3")[i]).innerText,
-                            jobEmployer: verify(document.querySelectorAll("section.experience-section ul li p.pv-entity__secondary-title")[i]).innerText,
-                            jobPeriod: verify(document.querySelectorAll("section.experience-section ul li h4.pv-entity__date-range span + span")[i]).innerText,
-                            jobLocation: verify(document.querySelectorAll("section.experience-section ul li h4.pv-entity__location span + span")[i]).innerText,
-                            jobDescription: verify(document.querySelectorAll("section.experience-section ul li p.pv-entity__description")[i]).innerText
+                            jobEmployer: verify(document.querySelectorAll("section.experience-section ul li")[i].querySelector("p.pv-entity__secondary-title")).innerText,
+                            jobPeriod: verify(document.querySelectorAll("section.experience-section ul li")[i].querySelector("h4.pv-entity__date-range span + span")).innerText,
+                            jobLocation: verify(document.querySelectorAll("section.experience-section ul li")[i].querySelector("h4.pv-entity__location span + span")).innerText,
+                            jobDescription: verify(document.querySelectorAll("section.experience-section ul li")[i].querySelector("p.pv-entity__description")).innerText
 
                         }
                         obj.profileExperience.push(detailedExp)
                     } else {
-
-                        var detailedExp = {
-                            jobEmployer: verify(document.querySelectorAll("section.experience-section ul li.pv-entity__position-group-pager")[i].querySelector("h3 span + span")).innerText,
-                            jobsDesc: []
-
-                        }
+                        
+                        let jobsDescr = [];
+                        let Employer = verify(document.querySelectorAll("section.experience-section ul li.pv-entity__position-group-pager")[i].querySelector("h3 span + span")).innerText;
+                        // var detailedExp = {
+                            // jobEmployer: verify(document.querySelectorAll("section.experience-section ul li.pv-entity__position-group-pager")[i].querySelector("h3 span + span")).innerText,
+                            
+                        // }
                         document.querySelectorAll("section.experience-section ul li.pv-entity__position-group-pager")[i].querySelectorAll("ul li").forEach((item) => {
-                            detailedExp.jobsDesc.
+                            jobsDescr.
                             push({
+                                jobEmployer: Employer,
                                 jobTitle: verify(item.querySelector("h3 span + span")).innerText,
                                 jobPeriod: verify(item.querySelector("h4 span + span")).innerText,
                                 jobPeriodDuration: verify(item.querySelector("h4 + h4 span + span")).innerText,
@@ -86,7 +95,8 @@ async function giveMeData(profile) {
                                 jobDescription: verify(item.querySelector("p.pv-entity__description")).innerText
                             })
                         })
-                        obj.profileExperience.push(detailedExp)
+                        jobsDescr.forEach(el => obj.profileExperience.push(el))
+                            
                     }
                 }
                 const eduLength = Array.from(document.querySelectorAll("section.education-section ul li")).length

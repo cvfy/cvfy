@@ -1,6 +1,8 @@
 import React, { Component, createContext } from "react";
 import axios from "axios";
 import store from "./../store.js";
+import html2canvas from 'html2canvas'
+import jsPDF from 'jspdf'
 //import uuid from 'uuid'
 function guidGenerator() {
   var S4 = function() {
@@ -26,6 +28,20 @@ const saveTOLocal = () => {
 };
 class ThemeContextProvider extends Component {
   state = {
+    pages: [{
+      education: [
+        {
+          studyProgram: "Study Program",
+          institution: "Institution / Place of Education",
+          startMonth: "MM",
+          startYear: "YYYY",
+          endMonth: "MM",
+          endYear: "YYYY",
+          place: "City, Country"
+        }
+      ],
+      experience: []
+    }],
     id: "",
     color: "",
     font: "'Open Sans', sans-serif",
@@ -39,7 +55,8 @@ class ThemeContextProvider extends Component {
     userData: {
       fullName: "FULL NAME",
       intro: "Professional title",
-      about: "Short and engaging pitch about yourself",
+      about: ["Short and engaging pitch about yourself"],
+      profilePic: "http://localhost:5000/static/default.png",
       contact: [
         { icon: "far fa-envelope", value: "Email" },
         { icon: "fas fa-mobile-alt", value: "Phone number" },
@@ -82,15 +99,40 @@ class ThemeContextProvider extends Component {
       languages: [{ language: "Language", level: "Level" }]
     }
   };
+  componentDidUpdate(){
+    if(this.state.userData.education.length == 0){
+
+    }
+    else {
+    let Expheight = document.querySelector(".exp1page").clientHeight
+    let Edheight = document.querySelector(".edu1page").clientHeight
+    console.log(Expheight)
+    console.log(Edheight)
+    if(parseInt(Expheight) + parseInt(Edheight) > 840){
+
+      let newPage = [...this.state.pages]
+      let newObject = {...this.state.userData}
+
+      newPage[0].education.push(newObject.education[newObject.education.length-1])
+      newObject.education.pop();
+      this.setState({ userData: newObject});
+      this.setState({pages: newPage})
+    }
+    }
+    console.log(this.state.pages)
+  }
+
   componentDidMount() {
-  if(localStorage.getItem("currentCV") == null){
+
+
+  if(localStorage.getItem("currentCV") === null || localStorage.getItem("currentCV") === ""){
     const id = guidGenerator();
     this.setState({id})
     localStorage.setItem("currentCV", id)
     console.log(`the state id is - ${this.state.id}`)
     axios.post(`http://localhost:5000/api/users/resume/cv/${this.state.id}`, this.state)
   }
-  if(localStorage.getItem("currentCV") !== null) {
+  if(localStorage.getItem("currentCV") !== null || localStorage.getItem("currentCV") !== "") {
     console.log("i am trying to get the data")
     axios.get(`http://localhost:5000/api/users/resume/cv/currentCV/${localStorage.getItem("currentCV")}`).then(
       res => this.setState(res.data.cv[0])  //this.setState(res.data)
@@ -98,7 +140,7 @@ class ThemeContextProvider extends Component {
   }
   }
   componentWillUnmount(){
-    localStorage.clear()
+    localStorage.setItem("currentCV", "")
   }
 
   importData = async profile => {
@@ -120,11 +162,16 @@ class ThemeContextProvider extends Component {
     console.log(response.data);
     let newObject = { ...this.state.userData };
     newObject.fullName = response.data.profileFullName;
-    newObject.intro = response.data.profileHeadline;
-    newObject.about = response.data.profileAbout[0];
+    newObject.intro = response.data.profileHeadline || "";
+    newObject.about = response.data.profileAbout || "";
+    newObject.profilePic = `http://localhost:5000/static/${profile}.jpg`;
     newObject.skills = response.data.skills;
     newObject.linkedIn = `linkedin.com/in/${profile}`;
     newObject.experience = response.data.profileExperience.map(el => {
+      if(el.jobsDesc){
+
+      }
+      else {
       let new_el = {};
       new_el.position = el.jobTitle;
       new_el.company = el.jobEmployer;
@@ -135,6 +182,7 @@ class ThemeContextProvider extends Component {
       new_el.place = el.jobLocation;
       new_el.tasks = el.jobDescription;
       return new_el;
+    }
     });
     newObject.education = response.data.profileEducation.map(el => {
       let new_el = {};
@@ -152,6 +200,7 @@ class ThemeContextProvider extends Component {
         return { language: el.split("\n")[1], level: "B2" };
       }
     );
+    console.log(`http://localhost:5000/static/${profile}.jpg`)
     this.setState({ userData: newObject });
 
     // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
@@ -234,6 +283,7 @@ modifySkill = (index, value) => {
   let newObject = { ...this.state.userData };
   newObject.skills[index] = value;
   this.setState({ userData: newObject });
+  console.log(this.state.userData.skills[index])
 }
 modifyAbout = (field, value) => {
   let newObject = { ...this.state.userData };
@@ -283,6 +333,13 @@ modifyLanguages = (field, index, value) => {
   if(field == "level"){
   newObject.languages[index].level = value;
   }
+  this.setState({ userData: newObject });
+}
+
+deleteGroup = (deleteIndex) => {
+  console.log(deleteIndex)
+  let newObject = { ...this.state.userData };
+  delete newObject.education[deleteIndex]
   this.setState({ userData: newObject });
 }
   addAchievGroup = () => {
@@ -397,7 +454,18 @@ modifyLanguages = (field, index, value) => {
       });
     }
   };
-
+generatePDF = () => {
+  const input = document.querySelector('.containerA40');
+  html2canvas(input,)
+  .then((canvas) => {
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF();
+    pdf.addImage(imgData, 'PNG', 0, 0);
+    pdf.save("download.pdf");  
+  });
+;
+;
+}
   handleContentEditable = e => {
     // const test = this.userData.education.studyProgram;
     this.setState({ studyProgram: e.target.title });
@@ -454,7 +522,9 @@ modifyLanguages = (field, index, value) => {
           modifyLanguages: this.modifyLanguages,
           modifyProjects: this.modifyProjects,
           modifyCertifications: this.modifyCertifications,
-          modifyCourses: this.modifyCourses
+          modifyCourses: this.modifyCourses,
+          deleteGroup: this.deleteGroup,
+          generatePDF: this.generatePDF
         }}
       >
         {this.props.children}

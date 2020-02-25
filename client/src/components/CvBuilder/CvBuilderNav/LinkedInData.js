@@ -17,7 +17,7 @@ class LinkedInData extends Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { importData, saveCVDataToServer } = context;
+          const { importData, saveCVDataToServer, generatePDF } = context;
           return (
             <div className="cvExtraToolsDiv">
               <input
@@ -27,7 +27,7 @@ class LinkedInData extends Component {
                 placeholder="insert your linkedIn account"
               ></input>
               <button
-                onClick={() => importData(this.state.value)}
+                onClick={() => generatePDF()}
                 className="linkedInButton"
               >
                 Import

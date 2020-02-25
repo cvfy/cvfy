@@ -12,7 +12,7 @@ class Experience extends React.Component {
             <ExperienceGroup key={el.company} dat={i} data={el} />
           ));
           return (
-            <div className="experience">
+            <div className="experience exp1page">
               <div className="sectionHeader">
                 <div className="section-label" style={{ color: context.color }}>
                   WORK EXPERIENCE

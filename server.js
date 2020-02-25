@@ -9,6 +9,7 @@ const users = require("./routes/api/users")
 const app = express();
 //Bodyparser middleware
 
+app.use('/static', express.static('profile_picture'))
 app.use( 
     bodyParser.urlencoded({
         extended: false
