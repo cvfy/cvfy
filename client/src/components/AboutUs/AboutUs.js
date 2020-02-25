@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer";
-import GlobalStyle from "../../styles/Global";
 import "../../styles/aboutUs.css";
 import Team from "./Team";
 
@@ -69,7 +68,6 @@ class AboutUs extends Component {
           <div className="contactUs">Contact us</div>
         </div>
         <Footer />
-        <GlobalStyle />
       </>
     );
   }

@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer";
-import GlobalStyle from "../../styles/Global"
 import "../../styles/CV_Templates.css";
 import Cover1 from "../../assets/Cover1.png";
 import Cover2 from "../../assets/Cover2.png";
@@ -38,7 +37,6 @@ const CoverLetter_Templates = () => {
         </ScrollAnimation>
       </div>
       <Footer />
-      <GlobalStyle />
     </>
   );
 };
