@@ -15,7 +15,7 @@ class Education extends React.Component {
           return (
             <div className="education edu1page break-before">
               <div className="sectionHeader">
-                <div className="section-label" style={{ color: context.color }}>
+                <div className="section-label" style={{ color: context.style.color }}>
                   EDUCATION
                 </div>
               </div>

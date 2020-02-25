@@ -72,7 +72,7 @@ class LanguageGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size3,
+                      fontSize: context.style.size3,
                       borderBottom: borderBottom
                     }}
                   >
@@ -90,8 +90,8 @@ class LanguageGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      color: context.color,
-                      fontSize: context.size4,
+                      color: context.style.color,
+                      fontSize: context.style.size4,
                       borderBottom: borderBottom
                     }}
                   >

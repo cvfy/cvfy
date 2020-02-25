@@ -12,7 +12,7 @@ class CoverLetterContact extends React.Component {
                 <div className="icone">
                   <i
                     className="far fa-envelope iconeColor"
-                    style={{ color: context.color }}
+                    style={{ color: context.style.color }}
                   ></i>
                   <span
                     className="user-contact userEmail"
@@ -25,7 +25,7 @@ class CoverLetterContact extends React.Component {
                 <div className="icone">
                   <i
                     className="fas fa-map-marker-alt iconeColor"
-                    style={{ color: context.color }}
+                    style={{ color: context.style.color }}
                   ></i>
                   <span
                     className="user-contact userAddress"
@@ -38,7 +38,7 @@ class CoverLetterContact extends React.Component {
                 <div className="icone">
                   <i
                     className="fab fa-skype iconeColor"
-                    style={{ color: context.color }}
+                    style={{ color: context.style.color }}
                   ></i>
                   <span
                     className="user-contact userSkype"
@@ -51,7 +51,7 @@ class CoverLetterContact extends React.Component {
                 <div className="icone">
                   <i
                     className="fas fa-mobile-alt iconeColor"
-                    style={{ color: context.color }}
+                    style={{ color: context.style.color }}
                   ></i>
                   <span
                     className="user-contact userPhone"
@@ -64,7 +64,7 @@ class CoverLetterContact extends React.Component {
                 <div className="icone">
                   <i
                     className="fas fa-globe iconeColor"
-                    style={{ color: context.color }}
+                    style={{ color: context.style.color }}
                   ></i>
                   <span
                     className="user-contact userSite"
@@ -77,7 +77,7 @@ class CoverLetterContact extends React.Component {
                 <div className="icone">
                   <i
                     className="fab fa-github iconeColor"
-                    style={{ color: context.color }}
+                    style={{ color: context.style.color }}
                   ></i>
                   <span
                     className="user-contact userGitHub"

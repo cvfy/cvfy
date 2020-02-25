@@ -20,7 +20,7 @@ class Header extends React.Component {
                 />
               </div>
               <div className="introduction">
-                <div className="name" style={{ fontFamily: context.font }}>
+                <div className="name" style={{ fontFamily: context.style.font }}>
                   {context.userData.fullName}
                 </div>
 
@@ -31,7 +31,7 @@ class Header extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size1
+                      fontSize: context.style.size1
                     }}
                   >
                     {context.userData.intro}
@@ -45,7 +45,7 @@ class Header extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size3
+                      fontSize: context.style.size3
                     }}
                   >
                     {context.userData.about[0]}

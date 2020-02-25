@@ -36,8 +36,8 @@ class SkillBox extends React.Component {
                 onBlur={() => this.setState({ display: "none" })}
                 onClick={() => this.focusByClassName("skill-box")}
                 style={{
-                  background: context.color,
-                  fontSize: context.size3
+                  background: context.style.color,
+                  fontSize: context.style.size3
                 }}
               >
                 {/* ********************SECTION MENUS*************** */}

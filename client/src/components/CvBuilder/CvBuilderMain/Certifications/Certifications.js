@@ -13,7 +13,7 @@ class Certifications extends React.Component {
           return (
             <div className="cert">
               <div className="sectionHeader">
-                <div className="section-label" style={{ color: context.color }}>
+                <div className="section-label" style={{ color: context.style.color }}>
                   CERTIFICATIONS
                 </div>
               </div>
