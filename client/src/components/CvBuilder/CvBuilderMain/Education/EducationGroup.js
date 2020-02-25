@@ -71,8 +71,8 @@ e.target.innerText,
                       );
                     }}
                     style={{
-                      fontSize: context.size2,
-                      fontFamily: context.font,
+                      fontSize: context.style.size2,
+                      fontFamily: context.style.font,
                       borderBottom: borderBottom
                     }}
                   >
@@ -94,7 +94,7 @@ e.target.innerText,
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size2,
+                      fontSize: context.style.size2,
                       borderBottom: borderBottom
                     }}
                   >
@@ -114,7 +114,7 @@ e.target.innerText,
                         );
                       }}
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                       contentEditable="true"
@@ -125,7 +125,7 @@ e.target.innerText,
                     <span
                       className="dateDivider"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                     >
@@ -141,7 +141,7 @@ e.target.innerText,
                       }}
                       className="year"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                       contentEditable="true"
@@ -152,7 +152,7 @@ e.target.innerText,
                     <span
                       className="dateDivider"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                     >
@@ -168,7 +168,7 @@ e.target.innerText,
                       }}
                       className="month"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                       contentEditable="true"
@@ -179,7 +179,7 @@ e.target.innerText,
                     <span
                       className="dateDivider"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                     >
@@ -191,7 +191,7 @@ e.target.innerText,
                       }}
                       className="year"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                       contentEditable="true"
@@ -208,7 +208,7 @@ e.target.innerText,
                       }}
                       className="place"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                       contentEditable="true"

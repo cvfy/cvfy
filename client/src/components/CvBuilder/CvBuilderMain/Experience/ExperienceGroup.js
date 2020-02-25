@@ -68,7 +68,7 @@ class ExperienceGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size2,
+                      fontSize: context.style.size2,
                       borderBottom: borderBottom
                     }}
                   >
@@ -85,7 +85,7 @@ class ExperienceGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size2,
+                      fontSize: context.style.size2,
                       borderBottom: borderBottom
                     }}
                   >
@@ -105,7 +105,7 @@ class ExperienceGroup extends React.Component {
                       }}
                       className="month"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                       contentEditable="true"
@@ -116,7 +116,7 @@ class ExperienceGroup extends React.Component {
                     <span
                       className="dateDivider"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                     >
@@ -132,7 +132,7 @@ class ExperienceGroup extends React.Component {
                       }}
                       className="year"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                       contentEditable="true"
@@ -143,7 +143,7 @@ class ExperienceGroup extends React.Component {
                     <span
                       className="dateDivider"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                     >
@@ -159,7 +159,7 @@ class ExperienceGroup extends React.Component {
                       }}
                       className="month"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                       contentEditable="true"
@@ -170,7 +170,7 @@ class ExperienceGroup extends React.Component {
                     <span
                       className="dateDivider"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                     >
@@ -182,7 +182,7 @@ class ExperienceGroup extends React.Component {
                       }}
                       className="year"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                       contentEditable="true"
@@ -199,7 +199,7 @@ class ExperienceGroup extends React.Component {
                       }}
                       className="place"
                       style={{
-                        fontSize: context.size4,
+                        fontSize: context.style.size4,
                         borderBottom: borderBottom
                       }}
                       contentEditable="true"
@@ -213,8 +213,8 @@ class ExperienceGroup extends React.Component {
                 <div
                   className="achiev-task"
                   style={{
-                    fontFamily: context.font,
-                    fontSize: context.size4,
+                    fontFamily: context.style.font,
+                    fontSize: context.style.size4,
                     borderBottom: borderBottom
                   }}
                 >
@@ -230,7 +230,7 @@ class ExperienceGroup extends React.Component {
                       contentEditable="true"
                       suppressContentEditableWarning={true}
                       style={{
-                        fontSize: context.size3,
+                        fontSize: context.style.size3,
                         borderBottom: borderBottom
                       }}
                     >

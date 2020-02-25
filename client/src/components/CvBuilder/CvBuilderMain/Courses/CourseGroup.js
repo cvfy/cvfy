@@ -72,7 +72,7 @@ class CourseGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size3,
+                      fontSize: context.style.size3,
                       borderBottom: borderBottom
                     }}
                   >
@@ -93,7 +93,7 @@ class CourseGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size4,
+                      fontSize: context.style.size4,
                       borderBottom: borderBottom
                     }}
                   >

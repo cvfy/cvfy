@@ -75,7 +75,7 @@ class CertificationGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size4,
+                      fontSize: context.style.size4,
                       borderBottom: borderBottom
                     }}
                   >

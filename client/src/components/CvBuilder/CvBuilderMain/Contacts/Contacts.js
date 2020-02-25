@@ -134,7 +134,7 @@ class Contacts extends React.Component {
                         <div className="icone">
                           <i
                             className={`${el.icon} iconeColor`}
-                            style={{ color: context.color }}
+                            style={{ color: context.style.color }}
                           ></i>
                           <span
                             className="user-contact"

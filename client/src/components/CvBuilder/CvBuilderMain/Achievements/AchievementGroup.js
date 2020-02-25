@@ -68,7 +68,7 @@ class AchievementGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size3,
+                      fontSize: context.style.size3,
                       borderBottom: borderBottom
                     }}
                   >

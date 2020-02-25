@@ -18,8 +18,8 @@ class EducationGroup_NextPage extends React.Component {
                   className="studyProgram"
                   onBlur={(e) => {modifyEd("studyProgram", e.target.innerText, this.props.dat)}}
                   style={{
-                    fontSize: context.size2,
-                    fontFamily: context.font
+                    fontSize: context.style.size2,
+                    fontFamily: context.style.font
                   }}
                 >
                 {this.props.data.studyProgram}
@@ -35,7 +35,7 @@ class EducationGroup_NextPage extends React.Component {
                   contentEditable="true"
                   suppressContentEditableWarning={true}
                   style={{
-                    fontSize: context.size2
+                    fontSize: context.style.size2
                   }}
                 >
                   {this.props.data.institution}
@@ -48,7 +48,7 @@ class EducationGroup_NextPage extends React.Component {
                     className="month"
                     onBlur={(e) => {modifyEd("startMonth", e.target.innerText, this.props.dat)}}
                     style={{
-                      fontSize: context.size4
+                      fontSize: context.style.size4
                     }}
                     contentEditable="true"
                     suppressContentEditableWarning={true}
@@ -58,7 +58,7 @@ class EducationGroup_NextPage extends React.Component {
                   <span
                     className="dateDivider"
                     style={{
-                      fontSize: context.size4
+                      fontSize: context.style.size4
                     }}
                   >
                     /
@@ -67,7 +67,7 @@ class EducationGroup_NextPage extends React.Component {
                     onBlur={(e) => {modifyEd("startYear", e.target.innerText, this.props.dat)}}
                     className="year"
                     style={{
-                      fontSize: context.size4
+                      fontSize: context.style.size4
                     }}
                     contentEditable="true"
                     suppressContentEditableWarning={true}
@@ -77,7 +77,7 @@ class EducationGroup_NextPage extends React.Component {
                   <span
                     className="dateDivider"
                     style={{
-                      fontSize: context.size4
+                      fontSize: context.style.size4
                     }}
                   >
                     -
@@ -86,7 +86,7 @@ class EducationGroup_NextPage extends React.Component {
                    onBlur={(e) => {modifyEd("endMonth", e.target.innerText, this.props.dat)}}
                     className="month"
                     style={{
-                      fontSize: context.size4
+                      fontSize: context.style.size4
                     }}
                     contentEditable="true"
                     suppressContentEditableWarning={true}
@@ -96,7 +96,7 @@ class EducationGroup_NextPage extends React.Component {
                   <span
                     className="dateDivider"
                     style={{
-                      fontSize: context.size4
+                      fontSize: context.style.size4
                     }}
                   >
                     /
@@ -105,7 +105,7 @@ class EducationGroup_NextPage extends React.Component {
                   onBlur={(e) => {modifyEd("endYear", e.target.innerText, this.props.dat)}}
                     className="year"
                     style={{
-                      fontSize: context.size4
+                      fontSize: context.style.size4
                     }}
                     contentEditable="true"
                     suppressContentEditableWarning={true}
@@ -119,7 +119,7 @@ class EducationGroup_NextPage extends React.Component {
                   onBlur={(e) => {modifyEd("place", e.target.innerText, this.props.dat)}}
                     className="place"
                     style={{
-                      fontSize: context.size4
+                      fontSize: context.style.size4
                     }}
                     contentEditable="true"
                     suppressContentEditableWarning={true}

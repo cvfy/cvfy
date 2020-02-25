@@ -31,7 +31,7 @@ class CvBuilderMain extends React.Component {
                 <div
                   className="containerA40"
                   id="containerA4"
-                  style={{ fontFamily: context.font, fontSize: context.size3 }}
+                  style={{ fontFamily: context.style.font, fontSize: context.style.size3 }}
                 >
                   <Header />
                   <Contacts />
@@ -54,7 +54,7 @@ class CvBuilderMain extends React.Component {
                 <div
 id="containerA4"
 className="containerA41"
-style={{ fontFamily: context.font, fontSize: context.size3 }}
+style={{ fontFamily: context.style.font, fontSize: context.style.size3 }}
 >
 <div className="A4ContentWrap">
   <div className="left">
@@ -84,7 +84,7 @@ style={{ fontFamily: context.font, fontSize: context.size3 }}
               <div
                 ref={ref}
                 id="containerA4"
-                style={{ fontFamily: context.font, fontSize: context.size3 }}
+                style={{ fontFamily: context.style.font, fontSize: context.style.size3 }}
               >
                 <Header />
                 <Contacts />

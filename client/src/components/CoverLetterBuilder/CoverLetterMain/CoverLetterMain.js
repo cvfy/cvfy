@@ -13,7 +13,7 @@ class CoverLetterMain extends React.Component {
             <div className="alignContainer">
               <div
                 id="container"
-                style={{ fontFamily: context.font, fontSize: context.size3 }}
+                style={{ fontFamily: context.style.font, fontSize: context.style.size3 }}
               >
                 <CoverLetterHeader></CoverLetterHeader>
                 <div className="wrap">

@@ -13,7 +13,7 @@ class Projects extends React.Component {
           return (
             <div className="projects">
               <div className="sectionHeader">
-                <div className="section-label" style={{ color: context.color }}>
+                <div className="section-label" style={{ color: context.style.color }}>
                   PROJECTS
                 </div>
               </div>

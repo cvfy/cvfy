@@ -15,7 +15,7 @@ class CoverLetterBody extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size3
+                      fontSize: context.style.size3
                     }}
                   >
                     Dear Sir/Madam,
@@ -29,7 +29,7 @@ class CoverLetterBody extends React.Component {
                   contentEditable="true"
                   suppressContentEditableWarning={true}
                   style={{
-                    fontSize: context.size3
+                    fontSize: context.style.size3
                   }}
                 ></span>
                 <span
@@ -37,7 +37,7 @@ class CoverLetterBody extends React.Component {
                   contentEditable="true"
                   suppressContentEditableWarning={true}
                   style={{
-                    fontSize: context.size3
+                    fontSize: context.style.size3
                   }}
                 ></span>
               </div>

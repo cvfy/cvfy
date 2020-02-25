@@ -13,7 +13,7 @@ class Experience extends React.Component {
           return (
             <div className="experience exp1page">
               <div className="sectionHeader">
-                <div className="section-label" style={{ color: context.color }}>
+                <div className="section-label" style={{ color: context.style.color }}>
                   WORK EXPERIENCE
                 </div>
               </div>
