@@ -30,6 +30,9 @@ class ProjectGroup extends React.Component {
               <div
                 tabIndex="0"
                 className="project-group"
+                contentEditable="true"
+                suppressContentEditableWarning={true}
+                type="text"
                 ref={input => (this.my_refs["project-group"] = input)}
                 onFocus={() => this.setState({ display: "" })}
                 onClick={() => this.focusByClassName("project-group")}

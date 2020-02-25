@@ -26,7 +26,10 @@ class CourseGroup extends React.Component {
           return (
             <>
               <div
-                tabIndex="0" //allows elements besides links and form elements to receive keyboard focus
+                tabIndex="0"
+                contentEditable="true"
+                suppressContentEditableWarning={true}
+                type="text" //allows elements besides links and form elements to receive keyboard focus
                 className="project-group"
                 ref={input => (this.my_refs["project-group"] = input)}
                 onFocus={() => this.setState({ display: "" })}

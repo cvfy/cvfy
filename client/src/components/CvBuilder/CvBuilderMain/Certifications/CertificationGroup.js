@@ -31,6 +31,9 @@ class CertificationGroup extends React.Component {
             <>
               <div
                 tabIndex="0"
+                contentEditable="true"
+                suppressContentEditableWarning={true}
+                type="text"
                 className="cert-group"
                 ref={input => (this.my_refs["cert-group"] = input)}
                 onFocus={() => this.setState({ display: "" })}

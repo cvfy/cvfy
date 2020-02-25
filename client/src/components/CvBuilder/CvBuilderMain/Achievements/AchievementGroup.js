@@ -27,6 +27,9 @@ class AchievementGroup extends React.Component {
             <>
               <div
                 tabIndex="0"
+                contentEditable="true"
+                suppressContentEditableWarning={true}
+                type="text"
                 className="achiev-group"
                 ref={input => (this.my_refs["achiev-group"] = input)}
                 onFocus={() => this.setState({ display: "" })}

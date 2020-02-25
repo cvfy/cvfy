@@ -27,6 +27,9 @@ class EducationGroup extends React.Component {
             <>
               <div
                 tabIndex="0"
+                contentEditable="true"
+                    suppressContentEditableWarning={true}
+                    type="text"
                 className="education-group"
                 ref={input => (this.my_refs["education-group"] = input)}
                 onFocus={() => this.setState({ display: "" })}
@@ -58,10 +61,8 @@ class EducationGroup extends React.Component {
                     suppressContentEditableWarning={true}
                     type="text"
                     className="studyProgram"
-                    onBlur={e => {
-                      modifyEd(
-                        "studyProgram",
-                        e.target.innerText,
+                    onBlur={e => { modifyEd("studyProgram",
+e.target.innerText,
                         this.props.dat
                       );
                     }}

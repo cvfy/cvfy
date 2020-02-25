@@ -26,6 +26,9 @@ class ExperienceGroup extends React.Component {
           return (
             <>
               <div
+                contentEditable="true"
+                suppressContentEditableWarning={true}
+                type="text"
                 tabIndex="0"
                 className="experience-group"
                 ref={input => (this.my_refs["experience-group"] = input)}
