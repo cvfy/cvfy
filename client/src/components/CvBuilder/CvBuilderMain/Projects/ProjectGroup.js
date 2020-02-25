@@ -6,7 +6,8 @@ class ProjectGroup extends React.Component {
     super();
     this.my_refs = {};
     this.state = {
-      display: "none"
+      display: "none",
+      borderBottom: ""
     };
 
     this.focusByClassName.bind(this);
@@ -20,7 +21,7 @@ class ProjectGroup extends React.Component {
   }
 
   render() {
-    const { display } = this.state;
+    const { display, borderBottom } = this.state;
     return (
       <ThemeContext.Consumer>
         {context => {
@@ -31,9 +32,13 @@ class ProjectGroup extends React.Component {
                 tabIndex="0"
                 className="project-group"
                 ref={input => (this.my_refs["project-group"] = input)}
-                onFocus={() => this.setState({ display: "" })}
+                onFocus={() =>
+                  this.setState({ display: "", borderBottom: "1px solid blue" })
+                }
+                onBlur={() =>
+                  this.setState({ display: "none", borderBottom: "" })
+                }
                 onClick={() => this.focusByClassName("project-group")}
-                onBlur={() => this.setState({ display: "none" })}
               >
                 {/* ********************SECTION MENUS*************** */}
                 <div className="sectionsMenuDiv" style={{ display: display }}>
@@ -67,7 +72,8 @@ class ProjectGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size3
+                      fontSize: context.size3,
+                      borderBottom: borderBottom
                     }}
                   >
                     {this.props.data.title}
@@ -86,7 +92,8 @@ class ProjectGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size4
+                      fontSize: context.size4,
+                      borderBottom: borderBottom
                     }}
                   >
                     {this.props.data.desc}

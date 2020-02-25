@@ -5,7 +5,7 @@ class CourseGroup extends React.Component {
   constructor() {
     super();
     this.my_refs = {};
-    this.state = { display: "none" };
+    this.state = { display: "none", borderBottom: "" };
 
     this.focusByClassName.bind(this);
   }
@@ -18,7 +18,7 @@ class CourseGroup extends React.Component {
   }
 
   render() {
-    const { display } = this.state;
+    const { display, borderBottom } = this.state;
     return (
       <ThemeContext.Consumer>
         {context => {
@@ -29,8 +29,12 @@ class CourseGroup extends React.Component {
                 tabIndex="0" //allows elements besides links and form elements to receive keyboard focus
                 className="project-group"
                 ref={input => (this.my_refs["project-group"] = input)}
-                onFocus={() => this.setState({ display: "" })}
-                onBlur={() => this.setState({ display: "none" })}
+                onFocus={() =>
+                  this.setState({ display: "", borderBottom: "1px solid blue" })
+                }
+                onBlur={() =>
+                  this.setState({ display: "none", borderBottom: "" })
+                }
                 onClick={() => this.focusByClassName("project-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
@@ -65,7 +69,8 @@ class CourseGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size3
+                      fontSize: context.size3,
+                      borderBottom: borderBottom
                     }}
                   >
                     {this.props.data.title}
@@ -85,7 +90,8 @@ class CourseGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size4
+                      fontSize: context.size4,
+                      borderBottom: borderBottom
                     }}
                   >
                     {this.props.data.desc}

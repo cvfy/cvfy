@@ -5,7 +5,7 @@ class EducationGroup extends React.Component {
   constructor() {
     super();
     this.my_refs = {};
-    this.state = { display: "none" };
+    this.state = { display: "none", borderBottom: "" };
 
     this.focusByClassName.bind(this);
   }
@@ -18,7 +18,7 @@ class EducationGroup extends React.Component {
   }
 
   render() {
-    const { display } = this.state;
+    const { display, borderBottom } = this.state;
     return (
       <ThemeContext.Consumer>
         {context => {
@@ -29,8 +29,12 @@ class EducationGroup extends React.Component {
                 tabIndex="0"
                 className="education-group"
                 ref={input => (this.my_refs["education-group"] = input)}
-                onFocus={() => this.setState({ display: "" })}
-                onBlur={() => this.setState({ display: "none" })}
+                onFocus={() =>
+                  this.setState({ display: "", borderBottom: "1px solid blue" })
+                }
+                onBlur={() =>
+                  this.setState({ display: "none", borderBottom: "" })
+                }
                 onClick={() => this.focusByClassName("education-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
@@ -67,7 +71,8 @@ class EducationGroup extends React.Component {
                     }}
                     style={{
                       fontSize: context.size2,
-                      fontFamily: context.font
+                      fontFamily: context.font,
+                      borderBottom: borderBottom
                     }}
                   >
                     {this.props.data.studyProgram}
@@ -88,7 +93,8 @@ class EducationGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size2
+                      fontSize: context.size2,
+                      borderBottom: borderBottom
                     }}
                   >
                     {this.props.data.institution}
@@ -107,7 +113,8 @@ class EducationGroup extends React.Component {
                         );
                       }}
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                       contentEditable="true"
                       suppressContentEditableWarning={true}
@@ -117,7 +124,8 @@ class EducationGroup extends React.Component {
                     <span
                       className="dateDivider"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                     >
                       /
@@ -132,7 +140,8 @@ class EducationGroup extends React.Component {
                       }}
                       className="year"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                       contentEditable="true"
                       suppressContentEditableWarning={true}
@@ -142,7 +151,8 @@ class EducationGroup extends React.Component {
                     <span
                       className="dateDivider"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                     >
                       -
@@ -157,7 +167,8 @@ class EducationGroup extends React.Component {
                       }}
                       className="month"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                       contentEditable="true"
                       suppressContentEditableWarning={true}
@@ -167,7 +178,8 @@ class EducationGroup extends React.Component {
                     <span
                       className="dateDivider"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                     >
                       /
@@ -178,7 +190,8 @@ class EducationGroup extends React.Component {
                       }}
                       className="year"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                       contentEditable="true"
                       suppressContentEditableWarning={true}
@@ -194,7 +207,8 @@ class EducationGroup extends React.Component {
                       }}
                       className="place"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                       contentEditable="true"
                       suppressContentEditableWarning={true}

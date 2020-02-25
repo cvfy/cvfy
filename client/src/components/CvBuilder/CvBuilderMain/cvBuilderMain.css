@@ -87,27 +87,6 @@
   margin: 0 5px;
 }
 
-.month:empty:before,
-.year:empty:before,
-.place:empty:before,
-.task:empty:before,
-.role:empty:before,
-.company:empty:before,
-.title:empty:before,
-.summary:empty:before,
-.studyProgram:empty:before,
-.institution:empty:before,
-.projectTitle:empty:before,
-.projectDesc:empty:before,
-.certificationTitle:empty:before,
-.achievementDesc:empty:before,
-.langHeader:empty:before {
-  color: #808080;
-  display: block;
-  border-bottom: 1px dotted #808080;
-  font-style: italic;
-}
-
 .section-label {
   margin-bottom: 5px;
   color: #3dbaf7;
@@ -160,7 +139,6 @@
 .angleIcon:hover {
   color: #3dbaf7;
 }
-
 
 /* ==================================================== */
 /* ================== HEADER SECTION ================== */
