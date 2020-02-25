@@ -28,11 +28,7 @@ class CvBuilderMain extends React.Component {
           if(context.pages.length > 0){
             return (
               <div className="alignContainer">
-                <Pdf style={{position: "absolute", height: "100px", margin: "0", padding: "0"}} targetRef={ref} filename="code-example.pdf">
-          {({ toPdf }) => <button style={{margin: "0", marginTop: "100px"}} onClick={toPdf}>Generate Pdf</button>}
-        </Pdf>
                 <div
-                  ref={ref}
                   className="containerA40"
                   id="containerA4"
                   style={{ fontFamily: context.font, fontSize: context.size3 }}
