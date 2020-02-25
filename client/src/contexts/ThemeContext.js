@@ -1,6 +1,8 @@
 import React, { Component, createContext } from "react";
 import axios from "axios";
 import store from "./../store.js";
+import html2canvas from 'html2canvas'
+import jsPDF from 'jspdf'
 //import uuid from 'uuid'
 function guidGenerator() {
   var S4 = function() {
@@ -39,6 +41,20 @@ const saveTOLocal = () => {
 };
 class ThemeContextProvider extends Component {
   state = {
+    pages: [{
+      education: [
+        {
+          studyProgram: "Study Program",
+          institution: "Institution / Place of Education",
+          startMonth: "MM",
+          startYear: "YYYY",
+          endMonth: "MM",
+          endYear: "YYYY",
+          place: "City, Country"
+        }
+      ],
+      experience: []
+    }],
     id: "",
     color: "",
     font: "'Open Sans', sans-serif",
@@ -52,7 +68,8 @@ class ThemeContextProvider extends Component {
     userData: {
       fullName: "FULL NAME",
       intro: "Professional title",
-      about: "Short and engaging pitch about yourself",
+      about: ["Short and engaging pitch about yourself"],
+      profilePic: "http://localhost:5000/static/default.png",
       contact: [
         { icon: "far fa-envelope", value: "Email" },
         { icon: "fas fa-mobile-alt", value: "Phone number" },
@@ -95,32 +112,46 @@ class ThemeContextProvider extends Component {
       languages: [{ language: "Language", level: "Level" }]
     }
   };
-  componentDidMount() {
-    if (localStorage.getItem("currentCV") == null) {
-      const id = guidGenerator();
-      this.setState({ id });
-      localStorage.setItem("currentCV", id);
-      console.log(`the state id is - ${this.state.id}`);
-      axios.post(
-        `http://localhost:5000/api/users/resume/cv/${this.state.id}`,
-        this.state
-      );
+  componentDidUpdate(){
+    if(this.state.userData.education.length === 0){
+
     }
-    if (localStorage.getItem("currentCV") !== null) {
-      console.log("i am trying to get the data");
-      axios
-        .get(
-          `http://localhost:5000/api/users/resume/cv/currentCV/${localStorage.getItem(
-            "currentCV"
-          )}`
-        )
-        .then(
-          res => this.setState(res.data.cv[0]) //this.setState(res.data)
-        );
+    else {
+    let Expheight = document.querySelector(".exp1page").clientHeight
+    let Edheight = document.querySelector(".edu1page").clientHeight
+    console.log(Expheight)
+    console.log(Edheight)
+    if(parseInt(Expheight) + parseInt(Edheight) > 840){
+
+      let newPage = [...this.state.pages]
+      let newObject = {...this.state.userData}
+
+      newPage[0].education.push(newObject.education[newObject.education.length-1])
+      newObject.education.pop();
+      this.setState({ userData: newObject});
+      this.setState({pages: newPage})
     }
+    }
+    console.log(this.state.pages)
   }
-  componentWillUnmount() {
-    localStorage.clear();
+
+  componentDidMount() {
+  if(localStorage.getItem("currentCV") === null || localStorage.getItem("currentCV") === ""){
+    const id = guidGenerator();
+    this.setState({id})
+    localStorage.setItem("currentCV", id)
+    console.log(`the state id is - ${this.state.id}`)
+    axios.post(`http://localhost:5000/api/users/resume/cv/${this.state.id}`, this.state)
+  }
+  if(localStorage.getItem("currentCV") !== null || localStorage.getItem("currentCV") !== "") {
+    console.log("i am trying to get the data")
+    axios.get(`http://localhost:5000/api/users/resume/cv/currentCV/${localStorage.getItem("currentCV")}`).then(
+      res => this.setState(res.data.cv[0])  //this.setState(res.data)
+    )
+  }
+  }
+  componentWillUnmount(){
+    localStorage.setItem("currentCV", "")
   }
 
   importData = async profile => {
@@ -142,11 +173,16 @@ class ThemeContextProvider extends Component {
     console.log(response.data);
     let newObject = { ...this.state.userData };
     newObject.fullName = response.data.profileFullName;
-    newObject.intro = response.data.profileHeadline;
-    newObject.about = response.data.profileAbout[0];
+    newObject.intro = response.data.profileHeadline || "";
+    newObject.about = response.data.profileAbout || "";
+    newObject.profilePic = `http://localhost:5000/static/${profile}.jpg`;
     newObject.skills = response.data.skills;
     newObject.linkedIn = `linkedin.com/in/${profile}`;
     newObject.experience = response.data.profileExperience.map(el => {
+      if(el.jobsDesc){
+
+      }
+      else {
       let new_el = {};
       new_el.position = el.jobTitle;
       new_el.company = el.jobEmployer;
@@ -157,6 +193,7 @@ class ThemeContextProvider extends Component {
       new_el.place = el.jobLocation;
       new_el.tasks = el.jobDescription;
       return new_el;
+    }
     });
     newObject.education = response.data.profileEducation.map(el => {
       let new_el = {};
@@ -174,6 +211,7 @@ class ThemeContextProvider extends Component {
         return { language: el.split("\n")[1], level: "B2" };
       }
     );
+    console.log(`http://localhost:5000/static/${profile}.jpg`)
     this.setState({ userData: newObject });
 
     // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
@@ -200,221 +238,231 @@ class ThemeContextProvider extends Component {
     console.log(value);
     console.log(index);
     let newObject = { ...this.state.userData };
-    if (field == "studyProgram") {
+    if (field === "studyProgram") {
       newObject.education[index].studyProgram = value;
     }
-    if (field == "institution") {
+    if (field === "institution") {
       newObject.education[index].institution = value;
     }
-    if (field == "startMonth") {
+    if(field == "startMonth"){
       newObject.education[index].startMonth = value;
-    }
-    if (field == "startYear") {
+          }
+  if(field == "startYear"){
       newObject.education[index].startYear = value;
-    }
-    if (field == "endMonth") {
+          }
+  if(field == "endMonth"){
       newObject.education[index].endMonth = value;
-    }
-    if (field == "endYear") {
+          }
+  if(field == "endYear"){
       newObject.education[index].endYear = value;
-    }
-    if (field == "place") {
+          }
+  if(field == "place"){
       newObject.education[index].place = value;
-    }
-    this.setState({ userData: newObject });
-  };
+          }
+          this.setState({ userData: newObject });
+  }
   modifyEx = (field, value, index) => {
-    console.log(field);
-    console.log(value);
-    console.log(index);
+    console.log(field)
+    console.log(value)
+  
+    console.log(index)
     let newObject = { ...this.state.userData };
-    if (field == "position") {
-      newObject.experience[index].position = value;
-    }
-    if (field == "company") {
-      newObject.experience[index].company = value;
-    }
-    if (field == "startMonth") {
-      newObject.experience[index].startMonth = value;
-    }
-    if (field == "startYear") {
-      newObject.experience[index].startYear = value;
-    }
-    if (field == "endMonth") {
-      newObject.experience[index].endMonth = value;
-    }
-    if (field == "endYear") {
-      newObject.experience[index].endYear = value;
-    }
-    if (field == "place") {
-      newObject.experience[index].place = value;
-    }
-    if (field == "tasks") {
-      newObject.experience[index].tasks = value;
-    }
-    this.setState({ userData: newObject });
-  };
-  modifySkill = (index, value) => {
-    let newObject = { ...this.state.userData };
-    newObject.skills[index] = value;
-    this.setState({ userData: newObject });
-  };
-  modifyAbout = (field, value) => {
-    let newObject = { ...this.state.userData };
-    if (field == "intro") {
-      newObject.intro = value;
-    }
-    if (field == "about") {
-      newObject.about = value;
-    }
-    this.setState({ userData: newObject });
-  };
-  modifyAchievements = (index, value) => {
-    let newObject = { ...this.state.userData };
-    newObject.achievements[index] = value;
-    this.setState({ userData: newObject });
-  };
-  modifyCertifications = (index, value) => {
-    let newObject = { ...this.state.userData };
-    newObject.certifications[index] = value;
-    this.setState({ userData: newObject });
-  };
-  modifyProjects = (field, index, value) => {
-    let newObject = { ...this.state.userData };
-    if (field == "PTitle") {
-      newObject.projects[index].title = value;
-    }
-    if (field == "PDesc") {
-      newObject.projects[index].desc = value;
-    }
-    this.setState({ userData: newObject });
-  };
-  modifyCourses = (field, index, value) => {
-    let newObject = { ...this.state.userData };
-    if (field == "CTitle") {
-      newObject.courses[index].title = value;
-    }
-    if (field == "CDesc") {
-      newObject.courses[index].desc = value;
-    }
-    this.setState({ userData: newObject });
-  };
-  modifyLanguages = (field, index, value) => {
-    let newObject = { ...this.state.userData };
-    if (field == "language") {
-      newObject.languages[index].language = value;
-    }
-    if (field == "level") {
-      newObject.languages[index].level = value;
-    }
-    this.setState({ userData: newObject });
-  };
-  addAchievGroup = () => {
-    let newObject = { ...this.state.userData };
-    newObject.achievements = [
-      ...newObject.achievements,
-      "Achievement description"
-    ];
-    this.setState({ userData: newObject });
-  };
+  if(field == "position"){
+    newObject.experience[index].position = value
+      }
+  if(field == "company"){
+    newObject.experience[index].company = value;
+        }
+if(field === "startMonth"){
+    newObject.experience[index].startMonth = value;
+        }
+if(field === "startYear"){
+    newObject.experience[index].startYear = value;
+        }
+if(field === "endMonth"){
+    newObject.experience[index].endMonth = value;
+        }
+if(field === "endYear"){
+    newObject.experience[index].endYear = value;
+        }
+if(field === "place"){
+    newObject.experience[index].place = value;
+  }
+if(field === "tasks"){
+    newObject.experience[index].tasks = value;
+  }
+  this.setState({ userData: newObject });
+       
+}
+modifySkill = (index, value) => {
+  let newObject = { ...this.state.userData };
+  newObject.skills[index] = value;
+  this.setState({ userData: newObject });
+  console.log(this.state.userData.skills[index])
+}
+modifyAbout = (field, value) => {
+  let newObject = { ...this.state.userData };
+  if(field === "intro"){
+    newObject.intro = value;
+  }
+  if(field === "about"){
+    newObject.about = value;
+  }
+  this.setState({ userData: newObject });
+}
+modifyAchievements = (index, value) => {
+  let newObject = { ...this.state.userData };
+  newObject.achievements[index] = value;
+  this.setState({ userData: newObject });
+}
+modifyCertifications = (index, value) => {
+  let newObject = { ...this.state.userData };
+  newObject.certifications[index] = value;
+  this.setState({ userData: newObject });
+}
+modifyProjects = (field, index, value) => {
+  let newObject = { ...this.state.userData };
+  if(field === "PTitle"){
+  newObject.projects[index].title = value;
+}
+  if(field === "PDesc"){
+  newObject.projects[index].desc = value;
+}
+  this.setState({ userData: newObject });
+}
+modifyCourses = (field, index, value) => {
+  let newObject = { ...this.state.userData };
+  if(field === "CTitle"){
+  newObject.courses[index].title = value;
+}
+  if(field === "CDesc"){
+  newObject.courses[index].desc = value;
+}
+  this.setState({ userData: newObject });
+}
+modifyLanguages = (field, index, value) => {
+  let newObject = { ...this.state.userData };
+  if(field === "language"){
+  newObject.languages[index].language = value;
+  }
+  if(field === "level"){
+  newObject.languages[index].level = value;
+  }
+  this.setState({ userData: newObject });
+}
 
-  addCertificationGroup = () => {
-    let newObject = { ...this.state.userData };
-    newObject.certifications = [
-      ...newObject.certifications,
-      "Certification description"
-    ];
-    this.setState({ userData: newObject });
+deleteGroup = (deleteIndex) => {
+  console.log(deleteIndex)
+  let newObject = { ...this.state.userData };
+  delete newObject.education[deleteIndex]
+  this.setState({ userData: newObject });
+}
+addAchievGroup = () => {
+  let newObject = { ...this.state.userData };
+  newObject.achievements = [
+    ...newObject.achievements,
+    "Achievement description"
+  ];
+  this.setState({ userData: newObject });
+};
+
+addCertificationGroup = () => {
+  let newObject = { ...this.state.userData };
+  newObject.certifications = [
+    ...newObject.certifications,
+    "Certification description"
+  ];
+  this.setState({ userData: newObject });
+};
+
+// Those functions add array of objects
+addExperienceGroup = () => {
+  let newObject = { ...this.state.userData };
+  let newExperience = {
+    position: "Title / Position",
+    company: "Company / Workplace",
+    startMonth: "MM",
+    startYear: "YYYY",
+    endMonth: "MM",
+    endYear: "YYYY",
+    place: "City, Country",
+    tasks: ""
   };
+  newObject.experience = [...this.state.userData.experience, newExperience];
+  this.setState({ userData: newObject });
+};
 
-  // Those functions add array of objects
-  addExperienceGroup = () => {
-    let newObject = { ...this.state.userData };
-    let newExperience = {
-      position: "Title / Position",
-      company: "Company / Workplace",
-      startMonth: "MM",
-      startYear: "YYYY",
-      endMonth: "MM",
-      endYear: "YYYY",
-      place: "City, Country",
-      tasks: ""
-    };
-    newObject.experience = [...this.state.userData.experience, newExperience];
-    this.setState({ userData: newObject });
+addEducationGroup = () => {
+  let newObject = { ...this.state.userData };
+  let newEducation = {
+    studyProgram: "Study Program",
+    institution: "",
+    startMonth: "MM",
+    startYear: "YYYY",
+    endMonth: "MM",
+    endYear: "YYYY",
+    place: "City, Country"
   };
+  newObject.education = [...this.state.userData.education, newEducation];
+  this.setState({ userData: newObject });
+  console.log("i am trying to add education");
+};
 
-  addEducationGroup = () => {
-    let newObject = { ...this.state.userData };
-    let newEducation = {
-      studyProgram: "Study Program",
-      institution: "",
-      startMonth: "MM",
-      startYear: "YYYY",
-      endMonth: "MM",
-      endYear: "YYYY",
-      place: "City, Country"
-    };
-    newObject.education = [...this.state.userData.education, newEducation];
-    this.setState({ userData: newObject });
-    console.log("i am trying to add education");
+handleContactIcon = () => {
+  let element = document.getElementsByClassName("iconeColor");
+  element.classList.add(this.state.userData.contact.icone);
+};
+
+addLanguageGroup = () => {
+  let newObject = { ...this.state.userData };
+  let newLang = { language: "Language", level: "level" };
+  newObject.languages = [...this.state.userData.languages, newLang];
+  this.setState({ userData: newObject });
+};
+
+addProjectGroup = () => {
+  let newObject = { ...this.state.userData };
+  let newProject = {
+    title: "Name of the project",
+    desc: "Short description about the project"
   };
+  newObject.projects = [...this.state.userData.projects, newProject];
+  this.setState({ userData: newObject });
+};
 
-  handleContactIcon = () => {
-    let element = document.getElementsByClassName("iconeColor");
-    element.classList.add(this.state.userData.contact.icone);
+deleteGroup = obj => {
+  let newObject = { ...this.state.userData }; // make a separate copy of the array
+  delete newObject.projects[obj];
+
+  this.setState({ userData: newObject });
+};
+
+addCourseGroup = () => {
+  let newObject = { ...this.state.userData };
+  let newCourse = {
+    title: "Name of the course",
+    desc: "Short description of the course"
   };
+  newObject.courses = [...this.state.userData.courses, newCourse];
+  this.setState({ userData: newObject });
+};
 
-  addLanguageGroup = () => {
-    let newObject = { ...this.state.userData };
-    let newLang = { language: "Language", level: "level" };
-    newObject.languages = [...this.state.userData.languages, newLang];
-    this.setState({ userData: newObject });
-  };
+// These functions are regarding design tools of CvBuilder and CoverLetterBuilder
+changeColor = e => {
+  this.setState({ color: e.target.name });
+};
 
-  addProjectGroup = () => {
-    let newObject = { ...this.state.userData };
-    let newProject = {
-      title: "Name of the project",
-      desc: "Short description about the project"
-    };
-    newObject.projects = [...this.state.userData.projects, newProject];
-    this.setState({ userData: newObject });
-  };
+changeFontFamily = e => {
+  this.setState({ font: e.target.title });
+  console.log(e.target.title);
+};
 
-  deleteGroup = obj => {
-    let newObject = { ...this.state.userData }; // make a separate copy of the array
-    delete newObject.projects[obj];
-
-    this.setState({ userData: newObject });
-  };
-
-  addCourseGroup = () => {
-    let newObject = { ...this.state.userData };
-    let newCourse = {
-      title: "Name of the course",
-      desc: "Short description of the course"
-    };
-    newObject.courses = [...this.state.userData.courses, newCourse];
-    this.setState({ userData: newObject });
-  };
-
-  // These functions are regarding design tools of CvBuilder and CoverLetterBuilder
-  changeColor = e => {
-    this.setState({ color: e.target.name });
-  };
-
-  changeFontFamily = e => {
-    this.setState({ font: e.target.title });
-    console.log(e.target.title);
-  };
-
-  handleFontSize = e => {
-    if (e.target.title === "small") {
-      this.setState({
-        size1: "1.2rem",
-        size2: "0.9rem",
-        size3: "0.7rem",
+handleFontSize = e => {
+  if (e.target.title === "small") {
+    this.setState({
+      size1: "1.2rem",
+      size2: "0.9rem",
+      size3: "0.7rem",
         size4: "0.6rem"
       });
     } else if (e.target.title === "medium") {
@@ -428,7 +476,18 @@ class ThemeContextProvider extends Component {
       });
     }
   };
-
+generatePDF = () => {
+  const input = document.querySelector('.containerA40');
+  html2canvas(input,)
+  .then((canvas) => {
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF();
+    pdf.addImage(imgData, 'PNG', 0, 0);
+    pdf.save("download.pdf");  
+  });
+;
+;
+}
   handleContentEditable = e => {
     // const test = this.userData.education.studyProgram;
     this.setState({ studyProgram: e.target.title });
@@ -486,7 +545,9 @@ class ThemeContextProvider extends Component {
           modifyLanguages: this.modifyLanguages,
           modifyProjects: this.modifyProjects,
           modifyCertifications: this.modifyCertifications,
-          modifyCourses: this.modifyCourses
+          modifyCourses: this.modifyCourses,
+          deleteGroup: this.deleteGroup,
+          generatePDF: this.generatePDF
         }}
       >
         {this.props.children}

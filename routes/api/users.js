@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const giveMeData = require ('../../puppeteer_Data/Puppeteer.js');
+//const giveMePDF = require ('../../puppeteer_Data/GeneratePDF.js');
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -111,7 +112,8 @@ router.post("/login", (req, res) => {
 // THE PUPPETEER FUNCTION THAT GET THE LINKEDIN DATA
 const sendData = async (req, res, next) => {
     try {
-        const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}/`);
+        const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
+        //const datas = await giveMePDF();
         console.log(datas)
         
         res.status(200).send(datas);

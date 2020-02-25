@@ -12,7 +12,7 @@ class Header extends React.Component {
             <div className="header-inner">
               <div className="photo">
                 <img
-                  src={ProfilePhoto}
+                  src={context.userData.profilePic}
                   alt="dog"
                   height="110px"
                   width="110px"
@@ -48,7 +48,13 @@ class Header extends React.Component {
                       fontSize: context.size3
                     }}
                   >
-                    {context.userData.about}
+                    {context.userData.about[0]}
+                    {context.userData.about[1]}
+                    {context.userData.about[2]}
+                    {context.userData.about[3]}
+                    {context.userData.about[4]}
+                    {context.userData.about[5]}
+                    {context.userData.about[6]}
                   </span>
                 </div>
               </div>
