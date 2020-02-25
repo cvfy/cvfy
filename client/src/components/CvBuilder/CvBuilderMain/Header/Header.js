@@ -3,7 +3,23 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 import ProfilePhoto from "../../../../assets/dogFather.png";
 
 class Header extends React.Component {
+  constructor() {
+    super();
+    this.my_refs = {};
+    this.state = { borderBottom: "" };
+
+    this.focusByClassName.bind(this);
+  }
+
+  focusByClassName(className) {
+    let myRef = this.my_refs[className];
+    if (myRef) {
+      myRef.focus();
+    }
+  }
+
   render() {
+    const { borderBottom } = this.state;
     return (
       <ThemeContext.Consumer>
         {context => {
@@ -26,12 +42,23 @@ class Header extends React.Component {
 
                 <div className="editableHeaderDiv CvTitle">
                   <span
-                  onBlur={(e) => {modifyAbout("intro", e.target.innerText)}}
+                    onBlur={e => {
+                      modifyAbout("intro", e.target.innerText);
+                    }}
                     className="CvTitle"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
+                    tabIndex="0"
+                    type="text"
+                    ref={input => (this.my_refs["CvTitle"] = input)}
+                    onFocus={() =>
+                      this.setState({ borderBottom: "1px solid blue" })
+                    }
+                    onBlur={() => this.setState({ borderBottom: "" })}
+                    onClick={() => this.focusByClassName("CvTitle")}
                     style={{
-                      fontSize: context.size1
+                      fontSize: context.size1,
+                      borderBottom: borderBottom
                     }}
                   >
                     {context.userData.intro}
@@ -40,12 +67,23 @@ class Header extends React.Component {
 
                 <div className="editableHeaderDiv">
                   <span
-                  onBlur={(e) => {modifyAbout("about", e.target.innerText)}}
+                    onBlur={e => {
+                      modifyAbout("about", e.target.innerText);
+                    }}
                     className="summary"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
+                    tabIndex="0"
+                    type="text"
+                    ref={input => (this.my_refs["summary"] = input)}
+                    onFocus={() =>
+                      this.setState({ borderBottom: "1px solid blue" })
+                    }
+                    onBlur={() => this.setState({ borderBottom: "" })}
+                    onClick={() => this.focusByClassName("summary")}
                     style={{
-                      fontSize: context.size3
+                      fontSize: context.size3,
+                      borderBottom: borderBottom
                     }}
                   >
                     {context.userData.about[0]}
