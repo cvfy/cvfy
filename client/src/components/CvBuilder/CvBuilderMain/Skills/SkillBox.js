@@ -25,25 +25,6 @@ class SkillBox extends React.Component {
           const { modifySkill, addSkillGroup, deleteGroup } = context;
           return (
             <>
-              {/* ********************SECTION MENUS*************** */}
-              <div className="sectionsMenuDiv" style={{ display: display }}>
-                <i
-                  className="fas fa-plus-circle addIcon"
-                  onClick={addSkillGroup}
-                  title="add group"
-                ></i>
-                <i className="fas fa-angle-up angleIcon" title="move up"></i>
-                <i
-                  className="fas fa-angle-down angleIcon"
-                  title="move down"
-                ></i>
-                <i
-                  onClick={() => deleteGroup(this.props.dat)}
-                  className="deleteIcon far fa-trash-alt"
-                  title="delete group"
-                ></i>
-              </div>
-              {/* ************************************************** */}
               <div
                 className="skill-box"
                 tabIndex="0"
@@ -56,6 +37,25 @@ class SkillBox extends React.Component {
                   fontSize: context.size3
                 }}
               >
+                {/* ********************SECTION MENUS*************** */}
+                <div className="sectionsMenuDiv" style={{ display: display }}>
+                  <i
+                    className="fas fa-plus-circle addIcon"
+                    onClick={addSkillGroup}
+                    title="add group"
+                  ></i>
+                  <i className="fas fa-angle-up angleIcon" title="move up"></i>
+                  <i
+                    className="fas fa-angle-down angleIcon"
+                    title="move down"
+                  ></i>
+                  <i
+                    onClick={() => deleteGroup(this.props.dat)}
+                    className="deleteIcon far fa-trash-alt"
+                    title="delete group"
+                  ></i>
+                </div>
+                {/* ************************************************** */}
                 <span
                   onBlur={e => {
                     modifySkill(this.props.dat, e.target.innerText);

@@ -29,26 +29,6 @@ class CertificationGroup extends React.Component {
           } = context;
           return (
             <>
-              {/* ********************SECTION MENUS*************** */}
-              <div className="sectionsMenuDiv" style={{ display: display }}>
-                <i
-                  className="fas fa-plus-circle addIcon"
-                  onClick={addCertificationGroup}
-                  title="add group"
-                ></i>
-                <i className="fas fa-angle-up angleIcon" title="move up"></i>
-                <i
-                  className="fas fa-angle-down angleIcon"
-                  title="move down"
-                ></i>
-                <i
-                  onClick={() => deleteGroup(this.props.dat)}
-                  className="deleteIcon far fa-trash-alt"
-                  title="delete group"
-                ></i>
-              </div>
-              {/* ************************************************** */}
-
               <div
                 tabIndex="0"
                 className="cert-group"
@@ -57,6 +37,25 @@ class CertificationGroup extends React.Component {
                 onBlur={() => this.setState({ display: "none" })}
                 onClick={() => this.focusByClassName("cert-group")}
               >
+                {/* ********************SECTION MENUS*************** */}
+                <div className="sectionsMenuDiv" style={{ display: display }}>
+                  <i
+                    className="fas fa-plus-circle addIcon"
+                    onClick={addCertificationGroup}
+                    title="add group"
+                  ></i>
+                  <i className="fas fa-angle-up angleIcon" title="move up"></i>
+                  <i
+                    className="fas fa-angle-down angleIcon"
+                    title="move down"
+                  ></i>
+                  <i
+                    onClick={() => deleteGroup(this.props.dat)}
+                    className="deleteIcon far fa-trash-alt"
+                    title="delete group"
+                  ></i>
+                </div>
+                {/* ************************************************** */}
                 <div className="editableDiv">
                   <span
                     onBlur={e => {

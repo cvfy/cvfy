@@ -25,26 +25,6 @@ class CourseGroup extends React.Component {
           const { modifyCourses, addCourseGroup, deleteGroup } = context;
           return (
             <>
-              {/* ********************SECTION MENUS*************** */}
-              <div className="sectionsMenuDiv" style={{ display: display }}>
-                <i
-                  className="fas fa-plus-circle addIcon"
-                  onClick={addCourseGroup}
-                  title="add group"
-                ></i>
-                <i className="fas fa-angle-up angleIcon" title="move up"></i>
-                <i
-                  className="fas fa-angle-down angleIcon"
-                  title="move down"
-                ></i>
-                <i
-                  onClick={() => deleteGroup(this.props.dat)}
-                  className="deleteIcon far fa-trash-alt"
-                  title="delete group"
-                ></i>
-              </div>
-              {/* ************************************************** */}
-
               <div
                 tabIndex="0" //allows elements besides links and form elements to receive keyboard focus
                 className="project-group"
@@ -53,6 +33,25 @@ class CourseGroup extends React.Component {
                 onBlur={() => this.setState({ display: "none" })}
                 onClick={() => this.focusByClassName("project-group")}
               >
+                {/* ********************SECTION MENUS*************** */}
+                <div className="sectionsMenuDiv" style={{ display: display }}>
+                  <i
+                    className="fas fa-plus-circle addIcon"
+                    onClick={addCourseGroup}
+                    title="add group"
+                  ></i>
+                  <i className="fas fa-angle-up angleIcon" title="move up"></i>
+                  <i
+                    className="fas fa-angle-down angleIcon"
+                    title="move down"
+                  ></i>
+                  <i
+                    onClick={() => deleteGroup(this.props.dat)}
+                    className="deleteIcon far fa-trash-alt"
+                    title="delete group"
+                  ></i>
+                </div>
+                {/* ************************************************** */}
                 <div className="editableDiv">
                   <span
                     onBlur={e => {
