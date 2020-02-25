@@ -27,7 +27,7 @@ class LinkedInData extends Component {
                 placeholder="insert your linkedIn account"
               ></input>
               <button
-                onClick={() => generatePDF()}
+                onClick={() => importData(this.state.value)}
                 className="linkedInButton"
               >
                 Import
