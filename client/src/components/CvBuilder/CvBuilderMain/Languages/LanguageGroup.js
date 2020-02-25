@@ -5,7 +5,7 @@ class LanguageGroup extends React.Component {
   constructor() {
     super();
     this.my_refs = {};
-    this.state = { display: "none" };
+    this.state = { display: "none", borderBottom: "" };
 
     this.focusByClassName.bind(this);
   }
@@ -18,7 +18,7 @@ class LanguageGroup extends React.Component {
   }
 
   render() {
-    const { display } = this.state;
+    const { display, borderBottom } = this.state;
     return (
       <ThemeContext.Consumer>
         {context => {
@@ -32,8 +32,12 @@ class LanguageGroup extends React.Component {
                 type="text"
                 className="lang-group"
                 ref={input => (this.my_refs["lang-group"] = input)}
-                onFocus={() => this.setState({ display: "" })}
-                onBlur={() => this.setState({ display: "none" })}
+                onFocus={() =>
+                  this.setState({ display: "", borderBottom: "1px solid blue" })
+                }
+                onBlur={() =>
+                  this.setState({ display: "none", borderBottom: "" })
+                }
                 onClick={() => this.focusByClassName("lang-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
@@ -68,7 +72,8 @@ class LanguageGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size3
+                      fontSize: context.size3,
+                      borderBottom: borderBottom
                     }}
                   >
                     {this.props.data.language}
@@ -86,7 +91,8 @@ class LanguageGroup extends React.Component {
                     suppressContentEditableWarning={true}
                     style={{
                       color: context.color,
-                      fontSize: context.size4
+                      fontSize: context.size4,
+                      borderBottom: borderBottom
                     }}
                   >
                     {this.props.data.level}

@@ -5,7 +5,7 @@ class ExperienceGroup extends React.Component {
   constructor() {
     super();
     this.my_refs = {};
-    this.state = { display: "none" };
+    this.state = { display: "none", borderBottom: "" };
 
     this.focusByClassName.bind(this);
   }
@@ -18,7 +18,7 @@ class ExperienceGroup extends React.Component {
   }
 
   render() {
-    const { display } = this.state;
+    const { display, borderBottom } = this.state;
     return (
       <ThemeContext.Consumer>
         {context => {
@@ -32,8 +32,12 @@ class ExperienceGroup extends React.Component {
                 tabIndex="0"
                 className="experience-group"
                 ref={input => (this.my_refs["experience-group"] = input)}
-                onFocus={() => this.setState({ display: "" })}
-                onBlur={() => this.setState({ display: "none" })}
+                onFocus={() =>
+                  this.setState({ display: "", borderBottom: "1px solid blue" })
+                }
+                onBlur={() =>
+                  this.setState({ display: "none", borderBottom: "" })
+                }
                 onClick={() => this.focusByClassName("experience-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
@@ -64,7 +68,8 @@ class ExperienceGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size2
+                      fontSize: context.size2,
+                      borderBottom: borderBottom
                     }}
                   >
                     {this.props.data.position}
@@ -80,7 +85,8 @@ class ExperienceGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size2
+                      fontSize: context.size2,
+                      borderBottom: borderBottom
                     }}
                   >
                     {this.props.data.company}
@@ -99,7 +105,8 @@ class ExperienceGroup extends React.Component {
                       }}
                       className="month"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                       contentEditable="true"
                       suppressContentEditableWarning={true}
@@ -109,7 +116,8 @@ class ExperienceGroup extends React.Component {
                     <span
                       className="dateDivider"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                     >
                       /
@@ -124,7 +132,8 @@ class ExperienceGroup extends React.Component {
                       }}
                       className="year"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                       contentEditable="true"
                       suppressContentEditableWarning={true}
@@ -134,7 +143,8 @@ class ExperienceGroup extends React.Component {
                     <span
                       className="dateDivider"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                     >
                       -
@@ -149,7 +159,8 @@ class ExperienceGroup extends React.Component {
                       }}
                       className="month"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                       contentEditable="true"
                       suppressContentEditableWarning={true}
@@ -159,7 +170,8 @@ class ExperienceGroup extends React.Component {
                     <span
                       className="dateDivider"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                     >
                       /
@@ -170,7 +182,8 @@ class ExperienceGroup extends React.Component {
                       }}
                       className="year"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                       contentEditable="true"
                       suppressContentEditableWarning={true}
@@ -186,7 +199,8 @@ class ExperienceGroup extends React.Component {
                       }}
                       className="place"
                       style={{
-                        fontSize: context.size4
+                        fontSize: context.size4,
+                        borderBottom: borderBottom
                       }}
                       contentEditable="true"
                       suppressContentEditableWarning={true}
@@ -200,7 +214,8 @@ class ExperienceGroup extends React.Component {
                   className="achiev-task"
                   style={{
                     fontFamily: context.font,
-                    fontSize: context.size4
+                    fontSize: context.size4,
+                    borderBottom: borderBottom
                   }}
                 >
                   Achivements / Tasks
@@ -215,7 +230,8 @@ class ExperienceGroup extends React.Component {
                       contentEditable="true"
                       suppressContentEditableWarning={true}
                       style={{
-                        fontSize: context.size3
+                        fontSize: context.size3,
+                        borderBottom: borderBottom
                       }}
                     >
                       {this.props.data.tasks}
