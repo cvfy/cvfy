@@ -14,7 +14,10 @@ const Desktop = () => {
             penatibus et magnis dis parturient montes, nascetur ridiculus mus.
             Donec quam felis,
           </p>
-          <button className="signUpButton">Sign Up</button>
+          <div className="desktop_UpperSide_Buttons_Section">
+            <button className="signUpButton">Sign Up</button>
+            <button className="learnMoreButton">Learn More</button>
+          </div>
         </div>
         <div className="MonitorLeftSide">
           <div className="Monitor">
