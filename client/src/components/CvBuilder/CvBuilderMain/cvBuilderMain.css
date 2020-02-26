@@ -114,6 +114,16 @@
   align-items: center;
 }
 
+.skillsMenuDiv {
+  position: absolute;
+  bottom: 310px;
+}
+
+.languageMenuDiv {
+  position: absolute;
+  bottom: -90px;
+}
+
 .deleteIcon {
   color: #fff;
   cursor: pointer;
@@ -214,7 +224,7 @@
   font-size: 0.9rem;
   box-shadow: -2px 0 8px 3px rgba(0, 0, 0, 0.5);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.85fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   align-items: center;
   color: #fff;
@@ -269,34 +279,73 @@
   align-items: baseline;
 }
 
+.outerCheckBox {
+  width: 19px;
+  height: 17px;
+  cursor: pointer;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  float: left;
+  margin-right: .7rem;
+  position: relative;
+  z-index: 999;
+  /* overflow: hidden !important; */
+  box-sizing: border-box;
+  display: block;
+}
+
+.innerCheckBox {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #303d46;
+  background-color: #1dbfaf;
+  z-index: 1000;
+  box-sizing: border-box;
+  display: block;
+  transition: .3s ease-out;
+}
+
 .modalContactIcon {
-  margin-right: 5px;
+  margin-right: 10px;
   color: #fff;
 }
 
-input[type="email"],
-input[type="text"] {
+.contactBox>input[type="email"],
+.contactBox>input[type="text"] {
   color: #fff;
+  background-color: transparent;
+  border-bottom: 1px solid gray;
+  padding: 0.7rem;
 }
 
 input[type="email"]:focus,
 input[type="text"]:focus {
   background-color: transparent;
   color: #fff;
+  box-shadow: none;
   border: none;
+  border-bottom: 1px solid blue;
+  padding: 0.3rem;
 }
 
-input[type="email"]:hover,
-input[type="text"]:hover {
+.contactBox>input[type="email"]:hover,
+.contactBox>input[type="text"]:hover {
   background-color: transparent;
   color: #fff;
 }
 
-input[type="email"]::placeholder,
-input[type="text"]::placeholder {
+.contactBox>input[type="email"]::placeholder,
+.contactBox>input[type="text"]::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: gray;
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
 }
 
 .contact {
@@ -525,10 +574,10 @@ input[type="text"]::placeholder {
   display: flex;
   padding: 12px;
   align-items: center;
-  height: 20px;
+  height: 5px;
   float: left;
-  margin: 15px 5px 0px 0px;
-  border-radius: 5px;
+  margin: 5px 5px 0px 0px;
+  border-radius: 7px;
   background: #3dbaf7;
   color: #fff;
   font-size: 0.8rem;

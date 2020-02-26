@@ -41,7 +41,10 @@ class SkillBox extends React.Component {
                 }}
               >
                 {/* ********************SECTION MENUS*************** */}
-                <div className="sectionsMenuDiv" style={{ display: display }}>
+                <div
+                  className="sectionsMenuDiv skillsMenuDiv"
+                  style={{ display: display }}
+                >
                   <i
                     className="fas fa-plus-circle addIcon"
                     onClick={addSkillGroup}
