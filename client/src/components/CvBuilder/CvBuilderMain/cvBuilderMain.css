@@ -305,7 +305,7 @@
   border-style: solid;
   border-color: #303d46;
   background-color: #1dbfaf;
-  z-index: 9;
+  z-index: 1000;
   box-sizing: border-box;
   display: block;
   transition: .3s ease-out;

@@ -4,7 +4,8 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 class Contacts extends React.Component {
   constructor() {
     super();
-    this.state = { clicked: false };
+    this.state = { clicked: false, active: false };
+    this.toggleClass = this.toggleClass.bind(this);
   }
 
   displayModal = () => {
@@ -17,10 +18,19 @@ class Contacts extends React.Component {
     this.setState({ clicked: false });
   };
 
+  // This function is toggling all checkboxes, should toggle specific targets, to be fixed
+  toggleClass(e) {
+    const currentState = this.state.active;
+    console.log("i am a toggleeee", e.target.title, currentState);
+    this.setState({ active: !currentState });
+  }
+
   render() {
     const className = this.state.clicked
       ? "showContactModal"
       : "hideContactModal";
+
+    const isActive = this.state.active ? "innerCheckBox" : null;
     return (
       <ThemeContext.Consumer>
         {context => {
@@ -51,10 +61,14 @@ class Contacts extends React.Component {
                     />
                   </>
                 </div>
-                {/* Skype */}
+                {/* ############ Skype ############ */}
                 <div className="contactBox">
-                  <div className="outerCheckBox">
-                    <div className="innerCheckBox"></div>
+                  <div
+                    className="outerCheckBox"
+                    onClick={this.toggleClass}
+                    title="skype"
+                  >
+                    <div className={isActive}></div>
                   </div>
                   <>
                     <i className="fab fa-skype modalContactIcon"></i>
@@ -69,7 +83,7 @@ class Contacts extends React.Component {
                     />
                   </>
                 </div>
-                {/* ############Phone############ */}
+                {/* ############ Phone ############ */}
                 <div className="contactBox">
                   <>
                     <i className="fas fa-mobile-alt modalContactIcon"></i>
@@ -86,8 +100,12 @@ class Contacts extends React.Component {
                 </div>
                 {/* ############ Website ############ */}
                 <div className="contactBox">
-                  <div className="outerCheckBox">
-                    <div className="innerCheckBox"></div>
+                  <div
+                    className="outerCheckBox"
+                    onClick={this.toggleClass}
+                    title="website"
+                  >
+                    <div className={isActive}></div>
                   </div>
                   <>
                     <i className="fas fa-globe modalContactIcon"></i>
@@ -104,8 +122,12 @@ class Contacts extends React.Component {
                 </div>
                 {/* ############ LinkedIn ############ */}
                 <div className="contactBox">
-                  <div className="outerCheckBox">
-                    <div className="innerCheckBox"></div>
+                  <div
+                    className="outerCheckBox"
+                    onClick={this.toggleClass}
+                    title="linkedin"
+                  >
+                    <div className={isActive}></div>
                   </div>
                   <>
                     <i className="fab fa-linkedin modalContactIcon"></i>
@@ -123,8 +145,12 @@ class Contacts extends React.Component {
 
                 {/* ############ GitHub ############ */}
                 <div className="contactBox">
-                  <div className="outerCheckBox">
-                    <div className="innerCheckBox"></div>
+                  <div
+                    className="outerCheckBox"
+                    onClick={this.toggleClass}
+                    title="github"
+                  >
+                    <div className={isActive}></div>
                   </div>
                   <>
                     <i className="fab fa-github modalContactIcon"></i>
