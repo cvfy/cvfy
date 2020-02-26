@@ -1,9 +1,12 @@
 /* BURGER_MENU STYLE */
 .wrapper {
+  background-color: white;
   position: relative;
-  padding-top: 0.7rem;
+  padding-right: 0.7rem;
+  padding-top: 0.7rem !important;
+  display: block !important;
+  box-shadow: none !important;
   cursor: pointer;
-  display: block;
 }
 
 .wrapper span {
@@ -11,7 +14,7 @@
   display: block;
   position: relative;
   width: 3.5rem;
-  height: 0.4rem;
+  height: 0.3rem;
   margin-bottom: 0.7rem;
   transition: all ease-in-out 0.2s;
 }
@@ -22,7 +25,7 @@
 
 .wrapper .open span:nth-child(3) {
   transform: rotate(45deg);
-  top: -11px;
+  top: -20px;
 }
 
 .wrapper .open span:nth-child(1) {
@@ -33,28 +36,27 @@
 /* BRAND STYLE */
 
 .Logo {
+  position: relative;
+  z-index: 1000;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
-  z-index: 100;
 }
 
 .Logo h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin: 0;
 }
 
 /* COLLAPSE_WRAPPER STYLE */
 
 .CollapseWrapper {
-  background: #2d3436;
   position: fixed;
   top: 4.5rem;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 900;
 }
 
 ul {
@@ -83,14 +85,12 @@ ul li a {
   font-size: 1.4rem;
   line-height: 2;
   color: #dfe6e9;
-  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
 }
 
 ul.minMenu li a:hover {
   color: #2438f1 !important;
-  border-bottom: 1px solid #2438f1;
 }
 
 /* NAVBAR STYLE */
@@ -112,7 +112,7 @@ div.BurgerWrapper {
   margin: auto 0;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1251px) {
   div.BurgerWrapper {
     display: none;
   }
@@ -122,9 +122,8 @@ div.BurgerWrapper {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1251px) {
   ul div.DropMenu {
-    display: none
+    display: none;
   }
-
 }

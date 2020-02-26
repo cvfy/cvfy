@@ -38,13 +38,13 @@
 }
 .DropdownItemOpen a {
   width: 100%;
-  
 }
 .DropdownHiddenContainerClosed {
   display: none !important;
 }
 
 .centered {
+  height: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,6 +53,10 @@
 .userImg {
   height: 25px;
   margin-left: 10px;
+}
+
+.userImg:hover {
+  cursor: pointer;
 }
 
 .DropdownTitle span {

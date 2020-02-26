@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer";
-import GlobalStyle from "../../styles/Global";
 import "../../styles/myDocuments.css";
 import JumbotronDashboard from "./JumbotronDashboard";
 import CvDashboard from "./CvDashboard";
@@ -17,7 +16,6 @@ const MyDocuments = () => {
         <CoverDashboard />
       </div>
       <Footer />
-      <GlobalStyle />
     </>
   );
 };

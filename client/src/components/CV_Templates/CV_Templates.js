@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer";
-import GlobalStyle from "../../styles/Global"
 import "../../styles/CV_Templates.css";
 import CV1 from "../../assets/CV1.jpeg";
 import CV2 from "../../assets/CV2.png";
@@ -38,7 +37,6 @@ const CV_Templates = () => {
         </ScrollAnimation>
       </div>
       <Footer />
-      <GlobalStyle />
     </>
   );
 };

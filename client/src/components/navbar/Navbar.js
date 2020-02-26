@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { useSpring, animated, config } from "react-spring";
 import DropdownMenu from "./DropdownMenu";
 import "../../styles/Navbar.css";
-import Brand from "./Brand";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
 import { NavLink } from "react-router-dom";
@@ -20,6 +19,7 @@ const Navbar = props => {
   const [navbarState, setNavbarState] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
+
   const barAnimation = useSpring({
     from: { transform: "translate3d(0, -10rem, 0)" },
     to: { transform: "translate3d(0, 0, 0)" }
@@ -44,11 +44,16 @@ const Navbar = props => {
     localStorage.removeItem("jwtToken");
     window.location.reload();
   };
+
   return (
     <>
       <NavBar style={barAnimation} className="navWrapper">
         <div className="FlexContainer">
-          <Brand />
+          <NavLink style={navBarLogo} to="/">
+            <div className="Logo">
+              <h1>CV|FY</h1>
+            </div>
+          </NavLink>
           <NavLinks style={linkAnimation}>
             <div>
               <NavLink to="/create-cv">Create CV</NavLink>
@@ -96,7 +101,7 @@ const NavBar = styled(animated.nav)`
   background: white;
   box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15);
   z-index: 1;
-  font-size: 1.4rem;
+  font-size: 1 rem;
 `;
 
 const NavLinks = styled(animated.ul)`
@@ -117,13 +122,12 @@ const NavLinks = styled(animated.ul)`
   & a {
     color: black;
     height: 100%;
-    text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 1 rem;
     opacity: 0.8;
     text-shadow: 1px;
-    font-weight: 400;
+    font-weight: 600;
     border-bottom: 1px solid transparent;
-    margin: 0;
+    margin: 0 0.5rem 0 0.5rem;
     transition: all 300ms linear 0s;
     text-decoration: none;
     cursor: pointer;
@@ -131,15 +135,19 @@ const NavLinks = styled(animated.ul)`
     align-items: center;
 
     & img {
-      height: 20px;
+      height: 100px;
     }
     &:hover {
       color: #2438f1;
-      border-bottom: 1px solid #2438f1;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1250px) {
       display: none;
     }
   }
 `;
+
+const navBarLogo = {
+  textDecoration: "none",
+  color: "black"
+};
