@@ -18,8 +18,9 @@ async function giveMeData(profile) {
             // await page.type("[id=username]", "melnic.alexandr88@gmail.com");
             // await page.type("[id=password]", "Strechii1989");
             await page.click("[type=submit]")
-            await page.waitFor(3000);
+            await page.waitFor(1000);
             await page.goto(profile);
+            await page.waitFor(1000);
 
             //Login form
             const shortProfile = profile.split("in/")[1];
@@ -27,7 +28,7 @@ async function giveMeData(profile) {
             await pic.screenshot({
                 path: `profile_picture/${shortProfile}.jpg`
             });
-            await page.waitFor(2000);
+            // await page.waitFor(2000);
             await autoScroll(page)
             //await page.click('section.experience-section button')
 
@@ -43,7 +44,7 @@ async function giveMeData(profile) {
             if ((await page.$('section.pv-about-section a')) !== null) {
                 await page.click('section.pv-about-section a')
             }
-            await page.waitFor(2000);
+            await page.waitFor(1000);
             const cvData = await page.evaluate(() => {
                 let obj = {};
 
