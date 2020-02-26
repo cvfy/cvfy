@@ -29,7 +29,7 @@ class CourseGroup extends React.Component {
                 tabIndex="0"
                 contentEditable="true"
                 suppressContentEditableWarning={true}
-                type="text" //allows elements besides links and form elements to receive keyboard focus
+                type="text"
                 className="project-group"
                 ref={input => (this.my_refs["project-group"] = input)}
                 onFocus={() =>
@@ -72,7 +72,7 @@ class CourseGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size3,
+                      fontSize: context.style.size3,
                       borderBottom: borderBottom
                     }}
                   >
@@ -93,7 +93,7 @@ class CourseGroup extends React.Component {
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     style={{
-                      fontSize: context.size4,
+                      fontSize: context.style.size4,
                       borderBottom: borderBottom
                     }}
                   >

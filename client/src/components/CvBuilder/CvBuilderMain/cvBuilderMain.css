@@ -204,6 +204,101 @@
 /* ==================================================== */
 /* ================== CONTACT SECTION ================== */
 /* ==================================================== */
+.showContactModal {
+  position: absolute;
+  background: #2b3a42;
+  width: 710px;
+  height: 300px;
+  border-radius: 22px;
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: -2px 0 8px 3px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  color: #fff;
+}
+
+.hideContactModal {
+  display: none;
+}
+
+.contactModalSaveAndDiscard {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.contactModalTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: left;
+  margin-left: 30px;
+}
+
+.saveContactButton,
+.discardContactButton {
+  width: 90px;
+  height: 30px;
+  margin: 0;
+  background: transparent;
+  /* background: #3dbaf7; */
+  border: 1px solid #3dbaf7;
+}
+
+.saveContactButton:hover {
+  background: #3dbaf7;
+  border: 1px solid #3dbaf7;
+}
+
+.discardContactButton {
+  /* background: #ec7b67; */
+  border: 1px solid #ec7b67;
+}
+
+.discardContactButton:hover {
+  background: #ec7b67;
+  border: 1px solid #ec7b67;
+}
+
+.contactBox {
+  margin: 0 30px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: baseline;
+}
+
+.modalContactIcon {
+  margin-right: 5px;
+  color: #fff;
+}
+
+input[type="email"],
+input[type="text"] {
+  color: #fff;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+}
+
+input[type="email"]:hover,
+input[type="text"]:hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+input[type="email"]::placeholder,
+input[type="text"]::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: gray;
+  opacity: 1; /* Firefox */
+}
+
 .contact {
   background-color: #d3d3d382;
   padding-left: 37.5px;

@@ -9,18 +9,7 @@ function guidGenerator() {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
   };
   return (
-    S4() +
-    S4() +
-    "-" +
-    S4() +
-    "-" +
-    S4() +
-    "-" +
-    S4() +
-    "-" +
-    S4() +
-    S4() +
-    S4()
+    S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4()
   );
 }
 // import { response } from "express";
@@ -31,14 +20,6 @@ function aFunction() {
   return newState.auth.user.id;
 }
 
-// const importDatata = async () => {
-// const impdata = await axios.get("localhost:5000/api/users/data/bleda-hacialihafiz")
-//      return impdata
-// }
-const box = "hahahah";
-const saveTOLocal = () => {
-  localStorage.setItem("currentCV", box);
-};
 class ThemeContextProvider extends Component {
   state = {
     pages: [{
@@ -56,15 +37,17 @@ class ThemeContextProvider extends Component {
       experience: []
     }],
     id: "",
-    color: "",
-    font: "'Open Sans', sans-serif",
-    size1: "",
-    size2: "",
-    size3: "",
-    size4: "",
-    tasksHistory: [],
-    tasksOutput: [],
-    value: "",
+    style: {
+      color: "",
+      font: "'Open Sans', sans-serif",
+      size1: "",
+      size2: "",
+      size3: "",
+      size4: "",
+      tasksHistory: [],
+      tasksOutput: [],
+      value: ""
+    },
     userData: {
       fullName: "FULL NAME",
       intro: "Professional title",
@@ -449,45 +432,59 @@ addCourseGroup = () => {
 
 // These functions are regarding design tools of CvBuilder and CoverLetterBuilder
 changeColor = e => {
-  this.setState({ color: e.target.name });
+  const newObj = {...this.state.style}
+  newObj.color = e.target.name;
+  this.setState({ style: newObj });
 };
 
 changeFontFamily = e => {
-  this.setState({ font: e.target.title });
-  console.log(e.target.title);
+  const newObj = {...this.state.style}
+  newObj.font = e.target.title;
+  this.setState({ style: newObj });
 };
 
 handleFontSize = e => {
   if (e.target.title === "small") {
+    const newObj = { ...this.state.style}
+    newObj.size1= "1.2rem";
+    newObj.size2= "0.9rem";
+    newObj.size3= "0.7rem";
+    newObj.size4= "0.6rem";
     this.setState({
-      size1: "1.2rem",
-      size2: "0.9rem",
-      size3: "0.7rem",
-        size4: "0.6rem"
-      });
-    } else if (e.target.title === "medium") {
-      return this.setState({ size1: "", size2: "", size3: "", size4: "" });
-    } else {
-      return this.setState({
-        size1: "1.4rem",
-        size2: "1.1rem",
-        size3: "0.9rem",
-        size4: "0.8rem"
-      });
-    }
+      style: newObj
+      })
+    } 
+    if (e.target.title === "medium") {
+      const newObj = { ...this.state.style}
+      newObj.size1= "";
+      newObj.size2= "";
+      newObj.size3= "";
+      newObj.size4= "";
+      this.setState({
+        style: newObj       
+    })} 
+    if(e.target.title === "big") {
+      const newObj = { ...this.state.style}
+    newObj.size1= "1.6rem";
+    newObj.size2= "1.3rem";
+    newObj.size3= "1.1rem";
+    newObj.size4= "1.0rem";
+    this.setState({
+      style: newObj
+    })}
   };
-generatePDF = () => {
-  const input = document.querySelector('.containerA40');
-  html2canvas(input,)
-  .then((canvas) => {
-    const imgData = canvas.toDataURL('image/png');
-    const pdf = new jsPDF();
-    pdf.addImage(imgData, 'PNG', 0, 0);
-    pdf.save("download.pdf");  
-  });
-;
-;
-}
+// generatePDF = () => {
+//   const input = document.querySelector('.containerA40');
+//   html2canvas(input,)
+//   .then((canvas) => {
+//     const imgData = canvas.toDataURL('image/png');
+//     const pdf = new jsPDF();
+//     pdf.addImage(imgData, 'PNG', 0, 0);
+//     pdf.save("download.pdf");  
+//   });
+// ;
+// ;
+// }
   handleContentEditable = e => {
     // const test = this.userData.education.studyProgram;
     this.setState({ studyProgram: e.target.title });

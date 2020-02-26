@@ -13,7 +13,7 @@ class CoverLetterHeader extends React.Component {
                 <div className="introduction">
                   <div
                     className="coverLetterName"
-                    style={{ fontFamily: context.font, color: context.color }}
+                    style={{ fontFamily: context.style.font, color: context.style.color }}
                   >
                     BABYLONIAN DOG
                   </div>
@@ -23,7 +23,7 @@ class CoverLetterHeader extends React.Component {
                       className="title"
                       contentEditable="true"
                       style={{
-                        fontSize: context.size1
+                        fontSize: context.style.size1
                       }}
                     ></span>
                   </div>
@@ -33,7 +33,7 @@ class CoverLetterHeader extends React.Component {
                       className="to"
                       contentEditable="true"
                       style={{
-                        fontSize: context.size2
+                        fontSize: context.style.size2
                       }}
                     ></span>
                   </div>
@@ -43,7 +43,7 @@ class CoverLetterHeader extends React.Component {
                       className="company"
                       contentEditable="true"
                       style={{
-                        fontSize: context.size1
+                        fontSize: context.style.size1
                       }}
                     ></span>
                   </div>
@@ -52,7 +52,7 @@ class CoverLetterHeader extends React.Component {
                       className="editDate"
                       contentEditable="true"
                       style={{
-                        fontSize: context.size1
+                        fontSize: context.style.size1
                       }}
                     ></span>
                   </div>

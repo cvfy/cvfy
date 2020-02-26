@@ -11,7 +11,7 @@ class cvBuilderPage extends React.Component {
           return (
             <div
 id="containerA4"
-style={{ fontFamily: context.font, fontSize: context.size3 }}
+style={{ fontFamily: context.style.font, fontSize: context.style.size3 }}
 >
 <div className="A4ContentWrap">
   <div className="left">
