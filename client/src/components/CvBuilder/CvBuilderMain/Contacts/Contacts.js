@@ -51,37 +51,7 @@ class Contacts extends React.Component {
                     />
                   </>
                 </div>
-                <div className="contactBox">
-                  <div className="outerCheckBox">
-                    <div className="innerCheckBox"></div>
-                  </div>
-                  <>
-                    <i className="fab fa-linkedin modalContactIcon"></i>
-                  </>
-                  <>
-                    <input
-                      type="text"
-                      name="linkedin"
-                      placeholder="LinkedIn"
-                      // value={get the user data here}
-                      maxLength="150"
-                    />
-                  </>
-                </div>
-                <div className="contactBox">
-                  <>
-                    <i className="fas fa-mobile-alt modalContactIcon"></i>
-                  </>
-                  <>
-                    <input
-                      type="text"
-                      name="phone"
-                      placeholder="Phone number"
-                      // value={get the user data here}
-                      maxLength="150"
-                    />
-                  </>
-                </div>
+                {/* Skype */}
                 <div className="contactBox">
                   <div className="outerCheckBox">
                     <div className="innerCheckBox"></div>
@@ -99,6 +69,22 @@ class Contacts extends React.Component {
                     />
                   </>
                 </div>
+                {/* ############Phone############ */}
+                <div className="contactBox">
+                  <>
+                    <i className="fas fa-mobile-alt modalContactIcon"></i>
+                  </>
+                  <>
+                    <input
+                      type="text"
+                      name="phone"
+                      placeholder="Phone number"
+                      // value={get the user data here}
+                      maxLength="150"
+                    />
+                  </>
+                </div>
+                {/* ############ Website ############ */}
                 <div className="contactBox">
                   <div className="outerCheckBox">
                     <div className="innerCheckBox"></div>
@@ -116,6 +102,26 @@ class Contacts extends React.Component {
                     />
                   </>
                 </div>
+                {/* ############ LinkedIn ############ */}
+                <div className="contactBox">
+                  <div className="outerCheckBox">
+                    <div className="innerCheckBox"></div>
+                  </div>
+                  <>
+                    <i className="fab fa-linkedin modalContactIcon"></i>
+                  </>
+                  <>
+                    <input
+                      type="text"
+                      name="linkedin"
+                      placeholder="LinkedIn"
+                      // value={get the user data here}
+                      maxLength="150"
+                    />
+                  </>
+                </div>
+
+                {/* ############ GitHub ############ */}
                 <div className="contactBox">
                   <div className="outerCheckBox">
                     <div className="innerCheckBox"></div>

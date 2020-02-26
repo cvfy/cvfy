@@ -41,7 +41,10 @@ class LanguageGroup extends React.Component {
                 onClick={() => this.focusByClassName("lang-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
-                <div className="sectionsMenuDiv" style={{ display: display }}>
+                <div
+                  className="sectionsMenuDiv languageMenuDiv"
+                  style={{ display: display }}
+                >
                   <i
                     className="fas fa-plus-circle addIcon"
                     onClick={addLanguageGroup}
