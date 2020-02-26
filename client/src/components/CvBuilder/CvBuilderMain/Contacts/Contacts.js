@@ -4,27 +4,18 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 class Contacts extends React.Component {
   constructor() {
     super();
-    this.my_refs = {};
     this.state = { clicked: false };
-
-    this.focusByClassName.bind(this);
   }
 
-  focusByClassName(className) {
-    let myRef = this.my_refs[className];
-    if (myRef) {
-      myRef.focus();
+  displayModal = () => {
+    if (!this.state.clicked) {
+      this.setState({ clicked: true });
     }
-  }
-  handleClick = () => {
-    this.setState({ clicked: true });
   };
 
-  // handleChange = () => {
-  //   this.props.onUserInput(
-  //     this.refs.searchStringInput.value
-  //   )
-  // }
+  discardChangesAndHideModal = e => {
+    this.setState({ clicked: false });
+  };
 
   render() {
     const className = this.state.clicked
@@ -34,12 +25,17 @@ class Contacts extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           return (
-            <div className="contact" onClick={this.handleClick}>
+            <div className="contact" onClick={this.displayModal}>
               <div className={className}>
                 <div className="contactModalTitle">Contacts</div>
                 <div className="contactModalSaveAndDiscard">
                   <button className="saveContactButton">Save</button>
-                  <button className="discardContactButton">Discard</button>
+                  <button
+                    className="discardContactButton"
+                    onClick={this.discardChangesAndHideModal}
+                  >
+                    Discard
+                  </button>
                 </div>
                 <div className="contactBox">
                   <div>
@@ -56,6 +52,9 @@ class Contacts extends React.Component {
                   </>
                 </div>
                 <div className="contactBox">
+                  <div className="outerCheckBox">
+                    <div className="innerCheckBox"></div>
+                  </div>
                   <>
                     <i className="fab fa-linkedin modalContactIcon"></i>
                   </>
@@ -84,6 +83,9 @@ class Contacts extends React.Component {
                   </>
                 </div>
                 <div className="contactBox">
+                  <div className="outerCheckBox">
+                    <div className="innerCheckBox"></div>
+                  </div>
                   <>
                     <i className="fab fa-skype modalContactIcon"></i>
                   </>
@@ -98,6 +100,9 @@ class Contacts extends React.Component {
                   </>
                 </div>
                 <div className="contactBox">
+                  <div className="outerCheckBox">
+                    <div className="innerCheckBox"></div>
+                  </div>
                   <>
                     <i className="fas fa-globe modalContactIcon"></i>
                   </>
@@ -112,6 +117,9 @@ class Contacts extends React.Component {
                   </>
                 </div>
                 <div className="contactBox">
+                  <div className="outerCheckBox">
+                    <div className="innerCheckBox"></div>
+                  </div>
                   <>
                     <i className="fab fa-github modalContactIcon"></i>
                   </>
