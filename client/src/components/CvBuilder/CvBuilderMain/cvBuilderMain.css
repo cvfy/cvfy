@@ -269,6 +269,38 @@
   align-items: baseline;
 }
 
+.outerCheckBox {
+  width: 19px;
+  height: 17px;
+  cursor: pointer;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  float: left;
+  margin-right: .7rem;
+  position: relative;
+  z-index: 999;
+  /* overflow: hidden !important; */
+  box-sizing: border-box;
+  display: block;
+}
+
+.innerCheckBox {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #303d46;
+  background-color: #1dbfaf;
+  z-index: 9;
+  box-sizing: border-box;
+  display: block;
+  transition: .3s ease-out;
+}
+
 .modalContactIcon {
   margin-right: 5px;
   color: #fff;
@@ -296,7 +328,8 @@ input[type="email"]::placeholder,
 input[type="text"]::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: gray;
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
 }
 
 .contact {
