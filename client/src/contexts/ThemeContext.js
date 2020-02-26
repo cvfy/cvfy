@@ -108,6 +108,16 @@ class ThemeContextProvider extends Component {
     {
     
       experience: [
+        {
+          position: "Position/Title",
+          company: "Workplace/Company",
+          startMonth: "MM",
+          startYear: "YYYY",
+          endMonth: "MM",
+          endYear: "YYYY",
+          place: "City, Country",
+          tasks: "Accomplishments/Responsibility/Tasks"
+        }
       ],
       education: [
         
@@ -210,7 +220,9 @@ class ThemeContextProvider extends Component {
       }
     );
     console.log(`http://localhost:5000/static/${profile}.jpg`)
-    this.setState({ userData: newObject });
+    let NewArray = [...this.state.userData]
+    NewArray[0] = newObject
+    this.setState({ userData: NewArray });
 
     // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
   };

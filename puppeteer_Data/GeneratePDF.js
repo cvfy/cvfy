@@ -21,7 +21,6 @@ async function giveMePDF() {
            await page.type("[id=password]", "alex88");
            await page.click("[type=submit]")
            await page.waitFor(3000);
-            var pdfFiles=[];
             for(var i=0; i<2; i++){
 
                 await page.waitFor(2000);
@@ -29,8 +28,8 @@ async function giveMePDF() {
                 await autoScroll(page)
                 }
                 await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
-                const pic = await page.$(`.containerA4${i}`)
-                await pic.screenshot({
+                const pic = await page.$('.containerA40')
+                await page.screenshot({
                    path: `profile_picture/screenos${i}.jpg`,
                    type: 'jpeg',
                    quality: 100

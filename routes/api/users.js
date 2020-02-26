@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const giveMeData = require ('../../puppeteer_Data/Puppeteer.js');
-//const giveMePDF = require ('../../puppeteer_Data/GeneratePDF.js');
+const giveMePDF = require ('../../puppeteer_Data/GeneratePDF.js');
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -122,6 +122,20 @@ const sendData = async (req, res, next) => {
     }
 };
 router.get("/data/:profile", sendData)
+/////////////////////////////////////////////////////
+
+// THE PUPPETEER FUNCTION THAT generates PDF
+const sendDataPDF = async (req, res, next) => {
+    try {
+        //const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
+         const datas = await giveMePDF();
+        
+        await res.status(200).download('profile_picture/combined.pdf')
+    } catch (e) {
+        next(e);
+    }
+};
+router.get("/data/pdf/:id", sendDataPDF)
 /////////////////////////////////////////////////////
 
 const saveCVtoServer = (req, res, next)  => {
