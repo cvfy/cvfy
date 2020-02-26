@@ -1,7 +1,6 @@
 import React from "react";
-import Navbar from "./navbar/Navbar"
-import Footer from "./Footer"
-import GlobalStyle from "../styles/Global"
+import Navbar from "./navbar/Navbar";
+import Footer from "./Footer";
 import ProfilePicture from "../assets/user.png";
 import ScrollAnimation from "react-animate-on-scroll";
 import "../styles/myAccount.css";
@@ -78,7 +77,6 @@ const MyAccount = () => {
         </div>
       </div>
       <Footer />
-      <GlobalStyle />
     </>
   );
 };
