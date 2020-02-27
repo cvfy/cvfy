@@ -4,7 +4,10 @@ import { ThemeContext } from "../../../../contexts/ThemeContext";
 class Contacts extends React.Component {
   constructor() {
     super();
-    this.state = { clicked: false, active: false };
+    this.state = {
+      clicked: false,
+      active: false
+    };
     this.toggleClass = this.toggleClass.bind(this);
   }
 
@@ -14,7 +17,12 @@ class Contacts extends React.Component {
     }
   };
 
-  discardChangesAndHideModal = e => {
+  // TO BE FIXED - shouldnt save changes
+  discardChangesAndHideModal = () => {
+    this.setState({ clicked: false });
+  };
+
+  saveContacts = () => {
     this.setState({ clicked: false });
   };
 
@@ -34,12 +42,27 @@ class Contacts extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          console.log(context.userData.contact[3].value);
+          const {
+            updateUserSkype,
+            displayUserSkype,
+            updateUserPhone,
+            updateUserLinkedIn,
+            updateUserGitHub,
+            updateUserEmail,
+            updateUserWebsite
+          } = context;
           return (
             <div className="contact" onClick={this.displayModal}>
               <div className={className}>
                 <div className="contactModalTitle">Contacts</div>
                 <div className="contactModalSaveAndDiscard">
-                  <button className="saveContactButton">Save</button>
+                  <button
+                    className="saveContactButton"
+                    onClick={this.saveContacts}
+                  >
+                    Save
+                  </button>
                   <button
                     className="discardContactButton"
                     onClick={this.discardChangesAndHideModal}
@@ -56,8 +79,11 @@ class Contacts extends React.Component {
                       type="email"
                       name="email"
                       placeholder="Email"
-                      // value={get the user data here}
                       maxLength="150"
+                      value={context.userData.contact[0].value}
+                      onChange={e => {
+                        updateUserEmail(e.target.value);
+                      }}
                     />
                   </>
                 </div>
@@ -78,11 +104,15 @@ class Contacts extends React.Component {
                       type="text"
                       name="skype"
                       placeholder="Skype"
-                      // value={get the user data here}
                       maxLength="150"
+                      value={context.userData.contact[3].value}
+                      onChange={e => {
+                        updateUserSkype(e.target.value);
+                      }}
                     />
                   </>
                 </div>
+
                 {/* ############ Phone ############ */}
                 <div className="contactBox">
                   <>
@@ -93,8 +123,11 @@ class Contacts extends React.Component {
                       type="text"
                       name="phone"
                       placeholder="Phone number"
-                      // value={get the user data here}
                       maxLength="150"
+                      value={context.userData.contact[1].value}
+                      onChange={e => {
+                        updateUserPhone(e.target.value);
+                      }}
                     />
                   </>
                 </div>
@@ -115,8 +148,11 @@ class Contacts extends React.Component {
                       type="text"
                       name="website"
                       placeholder="Website"
-                      // value={get the user data here}
                       maxLength="150"
+                      value={context.userData.contact[5].value}
+                      onChange={e => {
+                        updateUserWebsite(e.target.value);
+                      }}
                     />
                   </>
                 </div>
@@ -137,8 +173,11 @@ class Contacts extends React.Component {
                       type="text"
                       name="linkedin"
                       placeholder="LinkedIn"
-                      // value={get the user data here}
                       maxLength="150"
+                      value={context.userData.contact[2].value}
+                      onChange={e => {
+                        updateUserLinkedIn(e.target.value);
+                      }}
                     />
                   </>
                 </div>
@@ -160,8 +199,11 @@ class Contacts extends React.Component {
                       type="text"
                       name="github"
                       placeholder="GitHub"
-                      // value={get the user data here}
                       maxLength="150"
+                      value={context.userData.contact[6].value}
+                      onChange={e => {
+                        updateUserGitHub(e.target.value);
+                      }}
                     />
                   </>
                 </div>
