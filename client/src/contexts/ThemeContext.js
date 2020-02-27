@@ -192,19 +192,6 @@ class ThemeContextProvider extends Component {
     newObject.experience = response.data.profileExperience.map(el => {
       if (el.jobsDesc) {
       } else {
-        let new_el = {};
-        new_el.position = el.jobTitle;
-        new_el.company = el.jobEmployer;
-        new_el.startMonth = el.jobPeriod.split(" ")[0] || "";
-        new_el.startYear = el.jobPeriod.split(" ")[1] || "";
-        new_el.endMonth = el.jobPeriod.split(" ")[3] || "";
-        new_el.endYear = el.jobPeriod.split(" ")[4] || "";
-        new_el.place = el.jobLocation;
-        new_el.tasks = el.jobDescription;
-        return new_el;
-      }
-<<<<<<< HEAD
-      else {
       let new_el = {};
       new_el.position = el.jobTitle;
       new_el.company = el.jobEmployer;
@@ -215,10 +202,7 @@ class ThemeContextProvider extends Component {
       new_el.place = el.jobLocation || "";
       new_el.tasks = el.jobDescription || "";
       return new_el;
-    }
-=======
->>>>>>> 8c02678cd5cd792a288174dbc200b8a8bb15a4a2
-    });
+    }});
     newObject.education = response.data.profileEducation.map(el => {
       let new_el = {};
       new_el.studyProgram = el.educationType;
@@ -234,13 +218,8 @@ class ThemeContextProvider extends Component {
       el => {
         return { language: el.split("\n")[1], level: "B2" };
       }
-<<<<<<< HEAD
     ) : []
     console.log(`http://localhost:5000/static/${profile}.jpg`)
-=======
-    );
-    console.log(`http://localhost:5000/static/${profile}.jpg`);
->>>>>>> 8c02678cd5cd792a288174dbc200b8a8bb15a4a2
     this.setState({ userData: newObject });
 
     // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
