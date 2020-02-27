@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import Draggable from "./Draggable";
 //import { Button } from "@material-ui/core";
 
 class CoverLayoutSubMenu extends Component {
@@ -83,7 +84,9 @@ class CoverLayoutSubMenu extends Component {
                     <div>Custom</div>
                   </div>
 
-                  <div className="layoutCV"></div>
+                  <Draggable></Draggable>
+
+                  {/* <div className="layoutCV"></div>
 
                   <div className="dndText">
                     Drag and drop to add or remove sections
@@ -97,7 +100,7 @@ class CoverLayoutSubMenu extends Component {
                     <div className="dndSection">Certifications</div>
                     <div className="dndSection">Achievements</div>
                     <div className="dndSection">Languages</div>
-                  </div>
+                  </div> */}
                 </div>
               ) : null}
             </div>

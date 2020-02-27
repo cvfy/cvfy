@@ -369,6 +369,12 @@
   cursor: pointer;
 }
 
+.dndSectionP {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  display: contents;
+}
+
 /* Hide the browser's default radio button */
 .headerContainer input {
   position: absolute;
@@ -441,6 +447,9 @@
   background: #fff center center;
   height: 94.334625mm;
   width: 66.70125mm;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .dndText {
@@ -478,6 +487,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 5px;
 }
 
 /* Templates sub-menu */
