@@ -4,7 +4,7 @@ puppeteer.use(pluginStealth())
 async function giveMeData(profile) {
 
     const result = await puppeteer.launch({
-        headless: true
+        headless: false
     }).then(async browser => {
         try {
             const page = await browser.newPage()
@@ -13,18 +13,18 @@ async function giveMeData(profile) {
                 height: 1200
             })
             await page.goto("https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin");
-            await page.type("[id=username]", "saneacool@yahoo.com");
-            await page.type("[id=password]", "Griskevici1988");
-            // await page.type("[id=username]", "melnic.alexandr88@gmail.com");
-            // await page.type("[id=password]", "Strechii1989");
+            // await page.type("[id=username]", "saneacool@yahoo.com");
+            // await page.type("[id=password]", "Griskevici1988");
+            await page.type("[id=username]", "melnic.alexandr88@gmail.com");
+            await page.type("[id=password]", "Strechii1989");
             await page.click("[type=submit]")
-            await page.waitFor(1000);
+            await page.waitFor(2000);
             await page.goto(profile);
-            await page.waitFor(1000);
-
+            
             //Login form
             const shortProfile = profile.split("in/")[1];
             const pic = await page.$('.EntityPhoto-circle-9')
+            await page.waitFor(3000);
             await pic.screenshot({
                 path: `profile_picture/${shortProfile}.jpg`
             });

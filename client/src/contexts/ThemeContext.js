@@ -189,11 +189,11 @@ class ThemeContextProvider extends Component {
       new_el.place = "";
       return new_el;
     });
-    newObject.languages = response.data.accomplishments[0].accomplishmentList.map(
+    newObject.languages = response.data.accomplishments[0] ? response.data.accomplishments[0].accomplishmentList.map(
       el => {
         return { language: el.split("\n")[1], level: "B2" };
       }
-    );
+    ) : []
     console.log(`http://localhost:5000/static/${profile}.jpg`)
     this.setState({ userData: newObject });
 
