@@ -7,8 +7,10 @@ const Card = props => {
     e.dataTransfer.setData("card_id", target.id);
 
     setTimeout(() => {
-      target.style.display = "none";
+      target.style.opacity = "0.5";
     }, 0);
+
+    // add a script to return opacity on failure
   };
 
   const dragOver = e => {
