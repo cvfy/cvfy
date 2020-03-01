@@ -11,13 +11,15 @@ const Board = props => {
     card.style.display = "flex";
     let target = e.target;
     console.log(target.id);
-    if (target.id !== "board-1") {
-      target.style.height = "50%";
-    }
+    // if (target.id !== "board-1") {
+    //   target.style.height = "50%";
+    // }
     // not perfect, need to improve this solution, maybe a promise
-    setTimeout(() => {
-      target.appendChild(card);
-    }, 200);
+    // setTimeout(() => {
+    //   target.appendChild(card);
+    // }, 200);
+
+    target.appendChild(card);
   };
 
   const dragOver = e => {
