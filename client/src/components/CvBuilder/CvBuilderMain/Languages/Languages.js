@@ -8,7 +8,7 @@ class Languages extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           const group = context.userData[this.props.index].languages.map((el, i) => (
-            <LanguageGroup key={el.language} dat={i} data={el} />
+            <LanguageGroup key={i} dat={i} index={this.props.index} data={el} />
           ));
           return (
             <div className="lang">

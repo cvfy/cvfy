@@ -1,10 +1,9 @@
 import React from "react";
 import "./cvBuilderMain.css";
 import Header from "./Header/Header";
-import cvBuilderPage from './cvBuilderPage'
+//import cvBuilderPage from './cvBuilderPage'
 import Contacts from "./Contacts/Contacts";
 import Education from './Education/Education'
-import Education_NextPage from "./Education_NextPage/Education_NextPage";
 import Experience from "./Experience/Experience";
 import Skills from "./Skills/Skills";
 import Projects from "./Projects/Projects";

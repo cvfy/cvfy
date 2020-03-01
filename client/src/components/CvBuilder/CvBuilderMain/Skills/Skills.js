@@ -8,7 +8,7 @@ class Skills extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           const res = context.userData[this.props.index].skills.map((el, i) => (
-            <SkillBox key={el} dat={i} data={el} />
+            <SkillBox key={i} index={this.props.index} dat={i} data={el} />
           ));
 
           return (

@@ -8,7 +8,7 @@ class Projects extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           const group = context.userData[this.props.index].projects.map((el, i) => (
-            <ProjectGroup key={el.title} dat={i} data={el} />
+            <ProjectGroup key={i} dat={i} index={this.props.index} data={el} />
           ));
           return (
             <div className="projects">

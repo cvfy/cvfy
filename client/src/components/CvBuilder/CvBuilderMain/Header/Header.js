@@ -45,7 +45,7 @@ class Header extends React.Component {
                 <div className="editableHeaderDiv CvTitle">
                   <span
                     onBlur={e => {
-                      modifyAbout("intro", e.target.innerText);
+                      modifyAbout(this.props.index, "intro", e.target.innerText);
                     }}
                     className="CvTitle"
                     contentEditable="true"
