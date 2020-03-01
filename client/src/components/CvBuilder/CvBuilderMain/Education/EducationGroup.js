@@ -65,8 +65,8 @@ class EducationGroup extends React.Component {
                     suppressContentEditableWarning={true}
                     type="text"
                     className="studyProgram"
-                    onBlur={e =>modifyEd(this.props.index, "studyProgram",
-e.target.innerText,
+                    onBlur={e => modifyEd(this.props.index, "studyProgram",
+                    e.target.innerText,
                         this.props.dat
                       )
                     }

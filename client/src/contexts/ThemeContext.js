@@ -92,42 +92,19 @@ class ThemeContextProvider extends Component {
       languages: [{ language: "Language", level: "Level" }]
     },
     {
-      fullName: "",
-      intro: "",
-      //about: [],
-      profilePic: "",
-      //contact: [],
       experience: [
-        {
-          position: "Position/Title",
-          company: "Workplace/Company",
-          startMonth: "MM",
-          startYear: "YYYY",
-          endMonth: "MM",
-          endYear: "YYYY",
-          place: "City, Country",
-          tasks: "Accomplishments/Responsibility/Tasks"
-        }
+        
       ],
       education: [
-        {
-          studyProgram: "Study Program",
-          institution: "Institution / Place of Education",
-          startMonth: "MM",
-          startYear: "YYYY",
-          endMonth: "MM",
-          endYear: "YYYY",
-          place: "City, Country"
-        }
+        
       ],
-      skills: ["Skill"],
+      skills: [],
       projects: [
-        { title: "Project name", desc: "Description of achievements" }
       ],
-      certifications: ["Cerificate name"],
-      achievements: ["Achievement name"],
-      courses: [{ title: "Course name", desc: "Short description" }],
-      languages: [{ language: "Language", level: "Level" }]
+      certifications: [],
+      achievements: [],
+      courses: [],
+      languages: []
     },
     {
       experience: [
@@ -164,27 +141,33 @@ class ThemeContextProvider extends Component {
     }
   ]
   };
-  // componentDidUpdate() {
-  //   if (this.state.userData.education.length === 0) {
-  //   } else {
-  //     let Expheight = document.querySelector(".exp1page").clientHeight;
-  //     let Edheight = document.querySelector(".edu1page").clientHeight;
-  //     console.log(Expheight);
-  //     console.log(Edheight);
-  //     if (parseInt(Expheight) + parseInt(Edheight) > 840) {
-  //       let newPage = [...this.state.pages];
-  //       let newObject = { ...this.state.userData };
-
-  //       newPage[0].education.push(
-  //         newObject.education[newObject.education.length - 1]
-  //       );
-  //       newObject.education.pop();
-  //       this.setState({ userData: newObject });
-  //       this.setState({ pages: newPage });
-  //     }
-  //   }
-  //   console.log(this.state.pages);
-  // }
+  componentDidUpdate() {
+    let Headerheight = document.querySelectorAll(".header-inner")[0].clientHeight || 0;
+    let Contactheight = document.querySelectorAll(".contact")[0].clientHeight || 0;
+    let Expheight = document.querySelectorAll(".exp1page")[0].clientHeight || 0;
+    let Edheight = document.querySelectorAll(".edu1page")[0].clientHeight || 0;
+    console.log(Headerheight);
+    console.log(Contactheight);
+    console.log(Edheight);
+    console.log(Expheight);
+    if ((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight)) > 1120) {
+      let Pages = [...this.state.userData];
+    if (Pages[0].education.length == 0) {
+        Pages[1].experience.push(
+          Pages[0].experience[Pages[0].experience.length - 1]
+        );
+        Pages[0].experience.pop();
+      }
+    if(Pages[0].education.length > 0) {
+        Pages[1].education.push(
+          Pages[0].education[Pages[0].education.length - 1]
+        );
+        Pages[0].education.pop();
+      }
+      else {}
+      this.setState({ userData: Pages });
+    }
+  }
 
   componentDidMount() {
     if(localStorage.getItem("currentCV") === null || localStorage.getItem("currentCV") === ""){
@@ -392,9 +375,21 @@ deleteGroup = (section, page, deleteIndex) => {
   let newObject = [ ...this.state.userData];
   if(section === "education"){
   newObject[page].education = [...newObject[page].education.filter((el, i) => i !== deleteIndex)]
+  if(newObject[page+1].education.length > 0){
+    newObject[page].education.push(newObject[page+1].education[0])
+    newObject[page+1].education.shift()
+  }
   }
   if(section === "experience"){
   newObject[page].experience = [...newObject[page].experience.filter((el, i) => i !== deleteIndex)]
+  if(newObject[page+1].experience.length > 0){
+    newObject[page].experience.push(newObject[page+1].experience[0])
+    newObject[page+1].experience.shift()
+  }
+  else {
+    newObject[page].education.push(newObject[page+1].education[0])
+    newObject[page+1].education.shift()
+  }
   }
   if(section === "skills"){
   newObject[page].skills = [...newObject[page].skills.filter((el, i) => i !== deleteIndex)]
