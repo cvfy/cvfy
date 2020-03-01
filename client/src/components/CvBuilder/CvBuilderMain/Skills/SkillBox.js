@@ -22,19 +22,19 @@ class SkillBox extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifySkill, addSkillGroup, deleteGroup } = context;
+          const { modifySkill, addGroup, deleteGroup } = context;
           return (
             <>
               <div
                 className="skill-box"
                 tabIndex="0"
-                contentEditable="true"
+                // contentEditable="true"
                 suppressContentEditableWarning={true}
                 type="text"
                 ref={input => (this.my_refs["skill-box"] = input)}
                 onFocus={() => this.setState({ display: "" })}
                 onBlur={() => this.setState({ display: "none" })}
-                onClick={() => this.focusByClassName("skill-box")}
+                // onClick={() => this.focusByClassName("skill-box")}
                 style={{
                   background: context.style.color,
                   fontSize: context.style.size3
@@ -47,7 +47,7 @@ class SkillBox extends React.Component {
                 >
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={addSkillGroup}
+                    onClick={() => addGroup("skills", this.props.index)}
                     title="add group"
                   ></i>
                   <i className="fas fa-angle-up angleIcon" title="move up"></i>
@@ -56,16 +56,16 @@ class SkillBox extends React.Component {
                     title="move down"
                   ></i>
                   <i
-                    onClick={() => deleteGroup(this.props.dat)}
+                    onClick={() => deleteGroup("skills", this.props.index, this.props.dat)}
                     className="deleteIcon far fa-trash-alt"
                     title="delete group"
                   ></i>
                 </div>
                 {/* ************************************************** */}
                 <span
-                  onBlur={e => {
-                    modifySkill(this.props.dat, e.target.innerText);
-                  }}
+                  onBlur={e =>
+                    modifySkill(this.props.index, this.props.dat, e.target.innerText)
+                  }
                   className="skillText"
                   contentEditable="true"
                   suppressContentEditableWarning={true}

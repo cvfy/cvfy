@@ -7,8 +7,8 @@ class Experience extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const group = context.userData.experience.map((el, i) => (
-            <ExperienceGroup key={el.company} dat={i} data={el} />
+          const group = context.userData[this.props.index].experience.map((el, i) => (
+            <ExperienceGroup key={i} dat={i} index={this.props.index} data={el} />
           ));
           return (
             <div className="experience exp1page">

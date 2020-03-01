@@ -7,8 +7,8 @@ class Achievements extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const group = context.userData.achievements.map((el, i) => (
-            <AchievementGroup key={el} dat={i} data={el} />
+          const group = context.userData[this.props.index].achievements.map((el, i) => (
+            <AchievementGroup key={i} dat={i} index={this.props.index} data={el} />
           ));
           return (
             <div className="achiev">

@@ -42,7 +42,6 @@ class Contacts extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          console.log(context.userData.contact[3].value);
           const {
             updateUserSkype,
             displayUserSkype,
@@ -80,9 +79,9 @@ class Contacts extends React.Component {
                       name="email"
                       placeholder="Email"
                       maxLength="150"
-                      value={context.userData.contact[0].value}
+                      value={context.userData[this.props.index].contact[0].value}
                       onChange={e => {
-                        updateUserEmail(e.target.value);
+                        updateUserEmail(this.props.index, e.target.value);
                       }}
                     />
                   </>
@@ -105,9 +104,9 @@ class Contacts extends React.Component {
                       name="skype"
                       placeholder="Skype"
                       maxLength="150"
-                      value={context.userData.contact[3].value}
+                      value={context.userData[this.props.index].contact[3].value}
                       onChange={e => {
-                        updateUserSkype(e.target.value);
+                        updateUserSkype(this.props.index, e.target.value);
                       }}
                     />
                   </>
@@ -124,9 +123,9 @@ class Contacts extends React.Component {
                       name="phone"
                       placeholder="Phone number"
                       maxLength="150"
-                      value={context.userData.contact[1].value}
+                      value={context.userData[this.props.index].contact[1].value}
                       onChange={e => {
-                        updateUserPhone(e.target.value);
+                        updateUserPhone(this.props.index, e.target.value);
                       }}
                     />
                   </>
@@ -149,9 +148,9 @@ class Contacts extends React.Component {
                       name="website"
                       placeholder="Website"
                       maxLength="150"
-                      value={context.userData.contact[5].value}
+                      value={context.userData[this.props.index].contact[5].value}
                       onChange={e => {
-                        updateUserWebsite(e.target.value);
+                        updateUserWebsite(this.props.index, e.target.value);
                       }}
                     />
                   </>
@@ -174,9 +173,9 @@ class Contacts extends React.Component {
                       name="linkedin"
                       placeholder="LinkedIn"
                       maxLength="150"
-                      value={context.userData.contact[2].value}
+                      value={context.userData[this.props.index].contact[2].value}
                       onChange={e => {
-                        updateUserLinkedIn(e.target.value);
+                        updateUserLinkedIn(this.props.index, e.target.value);
                       }}
                     />
                   </>
@@ -200,16 +199,16 @@ class Contacts extends React.Component {
                       name="github"
                       placeholder="GitHub"
                       maxLength="150"
-                      value={context.userData.contact[6].value}
+                      value={context.userData[this.props.index].contact[6].value}
                       onChange={e => {
-                        updateUserGitHub(e.target.value);
+                        updateUserGitHub(this.props.index, e.target.value);
                       }}
                     />
                   </>
                 </div>
               </div>
               <div className="contact-row">
-                {context.userData.contact.map(el => {
+                {context.userData[this.props.index].contact.map(el => {
                   if (el.value.length !== 0) {
                     return (
                       <div className="contactGroup" key={el.value}>

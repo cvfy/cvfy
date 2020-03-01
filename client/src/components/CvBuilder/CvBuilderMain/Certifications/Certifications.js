@@ -7,8 +7,8 @@ class Certifications extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const group = context.userData.certifications.map((el, i) => (
-            <CertificationGroup key={el} dat={i} data={el} />
+          const group = context.userData[this.props.index].certifications.map((el, i) => (
+            <CertificationGroup key={i} dat={i} index={this.props.index} data={el} />
           ));
           return (
             <div className="cert">

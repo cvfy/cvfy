@@ -22,12 +22,12 @@ class LanguageGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyLanguages, addLanguageGroup, deleteGroup } = context;
+          const { modifyLanguages, addGroup, deleteGroup } = context;
           return (
             <>
               <div
                 tabIndex="0"
-                contentEditable="true"
+                // contentEditable="true"
                 suppressContentEditableWarning={true}
                 type="text"
                 className="lang-group"
@@ -38,7 +38,7 @@ class LanguageGroup extends React.Component {
                 onBlur={() =>
                   this.setState({ display: "none", borderBottom: "" })
                 }
-                onClick={() => this.focusByClassName("lang-group")}
+                // onClick={() => this.focusByClassName("lang-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
                 <div
@@ -47,7 +47,7 @@ class LanguageGroup extends React.Component {
                 >
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={addLanguageGroup}
+                    onClick={() => addGroup("languages", this.props.index)}
                     title="add group"
                   ></i>
                   <i className="fas fa-angle-up angleIcon" title="move up"></i>
@@ -56,7 +56,7 @@ class LanguageGroup extends React.Component {
                     title="move down"
                   ></i>
                   <i
-                    onClick={() => deleteGroup(this.props.dat)}
+                    onClick={() => deleteGroup("languages", this.props.index, this.props.dat)}
                     className="deleteIcon far fa-trash-alt"
                     title="delete group"
                   ></i>
@@ -64,13 +64,13 @@ class LanguageGroup extends React.Component {
                 {/* ************************************************** */}
                 <div className="editableDiv language">
                   <span
-                    onBlur={e => {
-                      modifyLanguages(
+                    onBlur={e =>
+                      modifyLanguages(this.props.index, 
                         "language",
                         this.props.dat,
                         e.target.innerText
-                      );
-                    }}
+                      )
+                    }
                     className="langHeader"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
@@ -82,13 +82,13 @@ class LanguageGroup extends React.Component {
                     {this.props.data.language}
                   </span>
                   <span
-                    onBlur={e => {
-                      modifyLanguages(
+                    onBlur={e =>
+                      modifyLanguages(this.props.index, 
                         "level",
                         this.props.dat,
                         e.target.innerText
-                      );
-                    }}
+                      )
+                    }
                     className="langLevel"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
