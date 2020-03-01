@@ -25,13 +25,13 @@ class ProjectGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyProjects, addProjectGroup, deleteGroup } = context;
+          const { modifyProjects, addGroup, deleteGroup } = context;
           return (
             <>
               <div
                 tabIndex="0"
                 className="project-group"
-                contentEditable="true"
+                // contentEditable="true"
                 suppressContentEditableWarning={true}
                 type="text"
                 ref={input => (this.my_refs["project-group"] = input)}
@@ -41,13 +41,13 @@ class ProjectGroup extends React.Component {
                 onBlur={() =>
                   this.setState({ display: "none", borderBottom: "" })
                 }
-                onClick={() => this.focusByClassName("project-group")}
+                // onClick={() => this.focusByClassName("project-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
                 <div className="sectionsMenuDiv" style={{ display: display }}>
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={addProjectGroup}
+                    onClick={() => addGroup("projects", this.props.index)}
                     title="add group"
                   ></i>
                   <i className="fas fa-angle-up angleIcon" title="move up"></i>
@@ -56,7 +56,7 @@ class ProjectGroup extends React.Component {
                     title="move down"
                   ></i>
                   <i
-                    onClick={() => deleteGroup(this.props.dat)}
+                    onClick={() => deleteGroup("projects", this.props.index, this.props.dat)}
                     className="deleteIcon far fa-trash-alt"
                     title="delete group"
                   ></i>
@@ -64,13 +64,13 @@ class ProjectGroup extends React.Component {
                 {/* ************************************************** */}
                 <div className="editableDiv">
                   <span
-                    onBlur={e => {
-                      modifyProjects(
+                    onBlur={e =>
+                      modifyProjects(this.props.index, 
                         "PTitle",
                         this.props.dat,
                         e.target.innerText
-                      );
-                    }}
+                      )
+                    }
                     className="projectTitle"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
@@ -84,13 +84,13 @@ class ProjectGroup extends React.Component {
                 </div>
                 <div className="editableDiv">
                   <span
-                    onBlur={e => {
-                      modifyProjects(
+                    onBlur={e =>
+                      modifyProjects(this.props.index, 
                         "PDesc",
                         this.props.dat,
                         e.target.innerText
-                      );
-                    }}
+                      )
+                    }
                     className="projectDesc"
                     contentEditable="true"
                     suppressContentEditableWarning={true}

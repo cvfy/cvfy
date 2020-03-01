@@ -7,8 +7,8 @@ class Courses extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const group = context.userData.courses.map((el, i) => (
-            <CourseGroup key={el.title} dat={i} data={el} />
+          const group = context.userData[this.props.index].courses.map((el, i) => (
+            <CourseGroup key={i} dat={i} index={this.props.index} data={el} />
           ));
           return (
             <div className="projects">
