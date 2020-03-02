@@ -78,6 +78,8 @@ ul li {
   align-items: center;
   text-align: center;
   background-color: white;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 ul li a {

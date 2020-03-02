@@ -1,32 +1,22 @@
 import React from "react";
 import "./Section_3.css";
-import Image from "../../../assets/undraw_select.png";
+import Image from "../../../assets/undraw_folder.png";
 import ScrollAnimation from "react-animate-on-scroll";
 
-const Section3 = () => {
+const Section5 = () => {
   return (
-    <div className="Section_3_Main_Container">
+    <div className="Section_5_Main_Container">
       <ScrollAnimation
-        className="S3_Img_Container"
-        animateIn="fadeInLeft delay-0s"
-      >
-        ><img src={Image} alt="image" />
-      </ScrollAnimation>
-      <ScrollAnimation
-        className="S3_TextContainer"
+        className="Section_5_Main_Container"
         animateIn="fadeInUp delay-0s"
+        animateOnce="true"
       >
-        <h2>Long long long Title....</h2>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining{" "}
-        </p>
+        <iframe
+          className="video_container"
+          src="https://fast.wistia.net/embed/iframe/lcu5575a21"
+        />
       </ScrollAnimation>
     </div>
   );
 };
-export default Section3;
+export default Section5;
