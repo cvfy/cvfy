@@ -47,7 +47,7 @@ class SkillBox extends React.Component {
                 >
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={() => addGroup("skills", this.props.index)}
+                    onClick={() => addGroup("skills", this.props.index, this.props.dat)}
                     title="add group"
                   ></i>
                   <i className="fas fa-angle-up angleIcon" title="move up"></i>

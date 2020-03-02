@@ -44,7 +44,7 @@ class EducationGroup extends React.Component {
                 <div className="sectionsMenuDiv" style={{ display: display }}>
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={() => addGroup("education", this.props.index)}
+                    onClick={() => addGroup("education", this.props.index, this.props.dat)}
                     title="add group"
                   ></i>
                   <i className="fas fa-angle-up angleIcon" title="move up"></i>

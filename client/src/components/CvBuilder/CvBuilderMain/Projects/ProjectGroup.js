@@ -47,7 +47,7 @@ class ProjectGroup extends React.Component {
                 <div className="sectionsMenuDiv" style={{ display: display }}>
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={() => addGroup("projects", this.props.index)}
+                    onClick={() => addGroup("projects", this.props.index, this.props.dat)}
                     title="add group"
                   ></i>
                   <i className="fas fa-angle-up angleIcon" title="move up"></i>

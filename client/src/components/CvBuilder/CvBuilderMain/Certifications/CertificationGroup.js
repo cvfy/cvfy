@@ -51,7 +51,7 @@ class CertificationGroup extends React.Component {
                 <div className="sectionsMenuDiv" style={{ display: display }}>
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={() => addGroup("certifications", this.props.index)}
+                    onClick={() => addGroup("certifications", this.props.index, this.props.dat)}
                     title="add group"
                   ></i>
                   <i className="fas fa-angle-up angleIcon" title="move up"></i>
