@@ -108,43 +108,23 @@ class ThemeContextProvider extends Component {
     },
     {
       experience: [
-        {
-          position: "Position/Title",
-          company: "Workplace/Company",
-          startMonth: "MM",
-          startYear: "YYYY",
-          endMonth: "MM",
-          endYear: "YYYY",
-          place: "City, Country",
-          tasks: "Accomplishments/Responsibility/Tasks"
-        }
       ],
       education: [
-        {
-          studyProgram: "Study Program",
-          institution: "Institution / Place of Education",
-          startMonth: "MM",
-          startYear: "YYYY",
-          endMonth: "MM",
-          endYear: "YYYY",
-          place: "City, Country"
-        }
       ],
-      skills: ["Skill"],
+      skills: [],
       projects: [
-        { title: "Project name", desc: "Description of achievements" }
       ],
-      certifications: ["Cerificate name"],
-      achievements: ["Achievement name"],
-      courses: [{ title: "Course name", desc: "Short description" }],
-      languages: [{ language: "Language", level: "Level" }]
+      certifications: [],
+      achievements: [],
+      courses: [],
+      languages: []
     }
   ]
   };
   componentDidUpdate() {
-    let Headerheight = document.querySelectorAll(".header-inner")[0].clientHeight || 0;
-    let Contactheight = document.querySelectorAll(".contact")[0].clientHeight || 0;
-    let Expheight = document.querySelectorAll("div.containerA40 .exp1page")[0].clientHeight || 0;
+    let Headerheight = document.querySelector(".header-inner").clientHeight || 0;
+    let Contactheight = document.querySelector(".contact").clientHeight || 0;
+    let Expheight = document.querySelector("div.containerA40 .exp1page").clientHeight || 0;
     let Edheight = (document.querySelector("div.containerA40 .edu1page") == null) ? 0 : document.querySelector("div.containerA40 .edu1page").clientHeight;
     let EdgrupPage2height = (document.querySelectorAll("div.containerA41 .education-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .education-group")[0].clientHeight;
     let ExpgrupPage2height = (document.querySelectorAll("div.containerA41 .experience-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .experience-group")[0].clientHeight;
@@ -156,6 +136,14 @@ class ThemeContextProvider extends Component {
     let CoursesPage1height = (document.querySelectorAll("div.containerA40 .courses")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .courses")[0].clientHeight;
     let LanguagesPage1height = (document.querySelectorAll("div.containerA40 .lang")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .lang")[0].clientHeight;
     let skillpage = (parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(CertificatesPage1height) + parseInt(AchievementsPage1height) + parseInt(CoursesPage1height) + parseInt(LanguagesPage1height))
+
+    let SkillPage2height = (document.querySelectorAll("div.containerA41 .skill-box")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .skill-box")[0].clientHeight;
+    let ProjectPage2height = (document.querySelectorAll("div.containerA41 .project-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .project-group")[0].clientHeight;
+    let CertificatePage2height = (document.querySelectorAll("div.containerA41 .cert-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .cert-group")[0].clientHeight;
+    let AchievementPage2height = (document.querySelectorAll("div.containerA41 .achiev-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .achiev-group")[0].clientHeight;
+    let CoursePage2height = (document.querySelectorAll("div.containerA41 .course-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .course-group")[0].clientHeight;
+    let LanguagePage2height = (document.querySelectorAll("div.containerA41 .lang-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .lang-group")[0].clientHeight;
+    //let skillpage = (parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(CertificatesPage1height) + parseInt(AchievementsPage1height) + parseInt(CoursesPage1height) + parseInt(LanguagesPage1height))
     console.log(Headerheight);
     console.log(SkillsPage1height);
     console.log(ProjectsPage1height);
@@ -166,6 +154,8 @@ class ThemeContextProvider extends Component {
     // console.log(Edheight);
     // console.log(Expheight);
     let Pages = [...this.state.userData];
+    // Page Break and jump back to top page for left side
+
     if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight)) > 1100 && Pages[0].education.length == 0) {
     
         Pages[1].experience.unshift(Pages[0].experience[Pages[0].experience.length - 1]);
@@ -179,7 +169,7 @@ class ThemeContextProvider extends Component {
         Pages[0].education.pop();
         this.setState({ userData: Pages });
       }
-  if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight) + parseInt(EdgrupPage2height)) < 1122 && parseInt(EdgrupPage2height) > 0 ) {
+  if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight) + parseInt(EdgrupPage2height)) < 1122 && parseInt(EdgrupPage2height) > 0 && parseInt(ExpgrupPage2height) === 0) {
         Pages[0].education.push(Pages[1].education[0])
         Pages[1].education.shift();
     }
@@ -187,7 +177,7 @@ class ThemeContextProvider extends Component {
     Pages[0].experience.push(Pages[1].experience[0])
     Pages[1].experience.shift();
     }
-
+// Page Break and jump back to top page for right side
     if(skillpage > 1000 &&  parseInt(LanguagesPage1height) > 0) {
     Pages[1].languages.unshift(Pages[0].languages[Pages[0].languages.length-1])
     Pages[0].languages.pop();
@@ -213,7 +203,30 @@ class ThemeContextProvider extends Component {
     Pages[1].skills.unshift(Pages[0].skills[Pages[0].skills.length-1])
     Pages[0].skills.pop();
     }
-
+    if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(CertificatesPage1height) + parseInt(AchievementsPage1height) + parseInt(CoursesPage1height) + parseInt(LanguagesPage1height) + parseInt(LanguagePage2height)) < 1000 && parseInt(LanguagePage2height) > 0 ) {
+      Pages[0].languages.push(Pages[1].languages[0])
+      Pages[1].languages.shift();
+  }
+    if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(CertificatesPage1height) + parseInt(AchievementsPage1height) + parseInt(CoursesPage1height) + parseInt(CoursePage2height)) < 1000 && parseInt(CoursePage2height) > 0 ) {
+      Pages[0].courses.push(Pages[1].courses[0])
+      Pages[1].courses.shift();
+  }
+    if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(CertificatesPage1height) + parseInt(AchievementsPage1height)+ parseInt(AchievementPage2height)) < 1000 && parseInt(AchievementPage2height) > 0 ) {
+      Pages[0].achievements.push(Pages[1].achievements[0])
+      Pages[1].achievements.shift();
+  }
+    if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(CertificatesPage1height) + parseInt(CertificatePage2height)) < 1000 && parseInt(CertificatePage2height) > 0 ) {
+      Pages[0].certifications.push(Pages[1].certifications[0])
+      Pages[1].certifications.shift();
+  }
+    if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(ProjectPage2height)) < 1000 && parseInt(ProjectPage2height) > 0 ) {
+      Pages[0].projects.push(Pages[1].projects[0])
+      Pages[1].projects.shift();
+  }
+    if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(SkillPage2height)) < 1000 && parseInt(SkillPage2height) > 0 ) {
+      Pages[0].skills.push(Pages[1].skills[0])
+      Pages[1].skills.shift();
+  }
     
   }
 
@@ -304,7 +317,7 @@ class ThemeContextProvider extends Component {
       `http://localhost:5000/api/users/resume/cv/${userID}`,
       this.state
       );
-      localStorage.setItem("currentCV", this.state.id);
+      // localStorage.setItem("currentCV", this.state.id);
   };
   // Those 3 functions add array of strings, will try to DRY later
   modifyEd = (page, field, value, index) => {
