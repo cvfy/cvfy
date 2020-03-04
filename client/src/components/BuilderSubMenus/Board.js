@@ -1,7 +1,6 @@
 import React from "react";
 
 const Board = props => {
-  console.log(document.querySelectorAll("div.board div"));
   const drop = e => {
     e.preventDefault();
     const card_id = e.dataTransfer.getData("card_id");
