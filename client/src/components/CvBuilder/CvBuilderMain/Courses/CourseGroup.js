@@ -30,7 +30,7 @@ class CourseGroup extends React.Component {
                 // contentEditable="true"
                 suppressContentEditableWarning={true}
                 type="text"
-                className="project-group"
+                className="course-group"
                 ref={input => (this.my_refs["project-group"] = input)}
                 onFocus={() =>
                   this.setState({ display: "", borderBottom: "1px solid blue" })

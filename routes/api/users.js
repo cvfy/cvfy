@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const giveMeData = require ('../../puppeteer_Data/Puppeteer.js');
 const giveMePDF = require ('../../puppeteer_Data/GeneratePDF.js');
+const fs = require('fs')
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -127,10 +128,17 @@ router.get("/data/:profile", sendData)
 const sendPDFData = async (req, res, next) => {
     try {
         //const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
-        const datas = await giveMePDF();
-        console.log(datas)
-        
-        res.status(200).send(datas);
+        const datas = await giveMePDF(req.params.id);
+        //const file = await `${__dirname}../../../profile_picture/${req.params.id}.pdf`;
+         res.status(200).send(datas)
+        // fs.unlink(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`, (err) => {
+        //     if (err) {
+        //       console.error(err)
+        //       return
+        //     }})
+        setTimeout(function(){ fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`) }, 10000);
+        // fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`)
+        //res.status(200).sendFile(/profile_picture/combinedNew.pdf)
     } catch (e) {
         next(e);
     }
