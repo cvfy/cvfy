@@ -26,7 +26,7 @@ const Footer = () => {
                 wants to be simple.{" "}
               </p>
             </div>
-            <div className="FooterCategoriesSection">
+            {/* <div className="FooterCategoriesSection">
               <h6>CAREER RESOURCES</h6>
               <br />
               <hr />
@@ -48,7 +48,7 @@ const Footer = () => {
                   <a href="#">Platforms to enhance your Skills</a>
                 </li>
               </ul>
-            </div>
+            </div> */}
 
             <div className="LinksSection">
               <h6>QUICK LINKS</h6>
