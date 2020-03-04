@@ -5,10 +5,8 @@ class Contacts extends React.Component {
   constructor() {
     super();
     this.state = {
-      clicked: false,
-      active: false
+      clicked: false
     };
-    this.toggleClass = this.toggleClass.bind(this);
   }
 
   displayModal = () => {
@@ -17,34 +15,20 @@ class Contacts extends React.Component {
     }
   };
 
-  // TO BE FIXED - shouldnt save changes
-  discardChangesAndHideModal = () => {
-    this.setState({ clicked: false });
-  };
-
   saveContacts = () => {
     this.setState({ clicked: false });
   };
-
-  // This function is toggling all checkboxes, should toggle specific targets, to be fixed
-  toggleClass(e) {
-    const currentState = this.state.active;
-    console.log("i am a toggleeee", e.target.title, currentState);
-    this.setState({ active: !currentState });
-  }
 
   render() {
     const className = this.state.clicked
       ? "showContactModal"
       : "hideContactModal";
 
-    const isActive = this.state.active ? "innerCheckBox" : null;
     return (
       <ThemeContext.Consumer>
         {context => {
           const {
             updateUserSkype,
-            displayUserSkype,
             updateUserPhone,
             updateUserLinkedIn,
             updateUserGitHub,
@@ -62,12 +46,6 @@ class Contacts extends React.Component {
                   >
                     Save
                   </button>
-                  <button
-                    className="discardContactButton"
-                    onClick={this.discardChangesAndHideModal}
-                  >
-                    Discard
-                  </button>
                 </div>
                 <div className="contactBox">
                   <div>
@@ -79,7 +57,9 @@ class Contacts extends React.Component {
                       name="email"
                       placeholder="Email"
                       maxLength="150"
-                      value={context.userData[this.props.index].contact[0].value}
+                      value={
+                        context.userData[this.props.index].contact[0].value
+                      }
                       onChange={e => {
                         updateUserEmail(this.props.index, e.target.value);
                       }}
@@ -88,13 +68,6 @@ class Contacts extends React.Component {
                 </div>
                 {/* ############ Skype ############ */}
                 <div className="contactBox">
-                  <div
-                    className="outerCheckBox"
-                    onClick={this.toggleClass}
-                    title="skype"
-                  >
-                    <div className={isActive}></div>
-                  </div>
                   <>
                     <i className="fab fa-skype modalContactIcon"></i>
                   </>
@@ -104,7 +77,9 @@ class Contacts extends React.Component {
                       name="skype"
                       placeholder="Skype"
                       maxLength="150"
-                      value={context.userData[this.props.index].contact[3].value}
+                      value={
+                        context.userData[this.props.index].contact[3].value
+                      }
                       onChange={e => {
                         updateUserSkype(this.props.index, e.target.value);
                       }}
@@ -123,7 +98,9 @@ class Contacts extends React.Component {
                       name="phone"
                       placeholder="Phone number"
                       maxLength="150"
-                      value={context.userData[this.props.index].contact[1].value}
+                      value={
+                        context.userData[this.props.index].contact[1].value
+                      }
                       onChange={e => {
                         updateUserPhone(this.props.index, e.target.value);
                       }}
@@ -132,13 +109,6 @@ class Contacts extends React.Component {
                 </div>
                 {/* ############ Website ############ */}
                 <div className="contactBox">
-                  <div
-                    className="outerCheckBox"
-                    onClick={this.toggleClass}
-                    title="website"
-                  >
-                    <div className={isActive}></div>
-                  </div>
                   <>
                     <i className="fas fa-globe modalContactIcon"></i>
                   </>
@@ -148,7 +118,9 @@ class Contacts extends React.Component {
                       name="website"
                       placeholder="Website"
                       maxLength="150"
-                      value={context.userData[this.props.index].contact[5].value}
+                      value={
+                        context.userData[this.props.index].contact[5].value
+                      }
                       onChange={e => {
                         updateUserWebsite(this.props.index, e.target.value);
                       }}
@@ -157,13 +129,6 @@ class Contacts extends React.Component {
                 </div>
                 {/* ############ LinkedIn ############ */}
                 <div className="contactBox">
-                  <div
-                    className="outerCheckBox"
-                    onClick={this.toggleClass}
-                    title="linkedin"
-                  >
-                    <div className={isActive}></div>
-                  </div>
                   <>
                     <i className="fab fa-linkedin modalContactIcon"></i>
                   </>
@@ -173,7 +138,9 @@ class Contacts extends React.Component {
                       name="linkedin"
                       placeholder="LinkedIn"
                       maxLength="150"
-                      value={context.userData[this.props.index].contact[2].value}
+                      value={
+                        context.userData[this.props.index].contact[2].value
+                      }
                       onChange={e => {
                         updateUserLinkedIn(this.props.index, e.target.value);
                       }}
@@ -183,13 +150,6 @@ class Contacts extends React.Component {
 
                 {/* ############ GitHub ############ */}
                 <div className="contactBox">
-                  <div
-                    className="outerCheckBox"
-                    onClick={this.toggleClass}
-                    title="github"
-                  >
-                    <div className={isActive}></div>
-                  </div>
                   <>
                     <i className="fab fa-github modalContactIcon"></i>
                   </>
@@ -199,7 +159,9 @@ class Contacts extends React.Component {
                       name="github"
                       placeholder="GitHub"
                       maxLength="150"
-                      value={context.userData[this.props.index].contact[6].value}
+                      value={
+                        context.userData[this.props.index].contact[6].value
+                      }
                       onChange={e => {
                         updateUserGitHub(this.props.index, e.target.value);
                       }}

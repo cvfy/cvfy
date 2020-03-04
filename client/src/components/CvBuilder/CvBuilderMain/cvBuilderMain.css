@@ -56,18 +56,18 @@
   background: #fff;
   box-shadow:
     /* The top layer shadow */
-    0 -1px 1px rgba(0,0,0,0.15),
+    0 -1px 1px rgba(0, 0, 0, 0.15),
     /* The second layer */
     0 -10px 0 -5px #eee,
     /* The second layer shadow */
-    0 -10px 1px -4px rgba(0,0,0,0.15),
-     /* The third layer */
+    0 -10px 1px -4px rgba(0, 0, 0, 0.15),
+    /* The third layer */
     0 -20px 0 -10px #eee,
     /* The third layer shadow */
-    0 -20px 1px -9px rgba(0,0,0,0.15);
-    /* Padding for demo purposes */
-    padding: 5px;
-    
+    0 -20px 1px -9px rgba(0, 0, 0, 0.15);
+  /* Padding for demo purposes */
+  padding: 5px;
+
 }
 
 #nextPage {
@@ -240,7 +240,7 @@
   font-size: 0.9rem;
   box-shadow: -2px 0 8px 3px rgba(0, 0, 0, 0.5);
   display: grid;
-  grid-template-columns: 0.85fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   align-items: center;
   color: #fff;
@@ -263,29 +263,17 @@
   margin-left: 30px;
 }
 
-.saveContactButton,
-.discardContactButton {
+.saveContactButton {
   width: 90px;
   height: 30px;
   margin: 0;
   background: transparent;
-  /* background: #3dbaf7; */
   border: 1px solid #3dbaf7;
 }
 
 .saveContactButton:hover {
   background: #3dbaf7;
   border: 1px solid #3dbaf7;
-}
-
-.discardContactButton {
-  /* background: #ec7b67; */
-  border: 1px solid #ec7b67;
-}
-
-.discardContactButton:hover {
-  background: #ec7b67;
-  border: 1px solid #ec7b67;
 }
 
 .contactBox {
