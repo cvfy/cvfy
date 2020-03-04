@@ -3,6 +3,7 @@ import React from "react";
 const Card = props => {
   const dragStart = e => {
     const target = e.target;
+    // console.log(target);
 
     e.dataTransfer.setData("card_id", target.id);
 
@@ -14,6 +15,11 @@ const Card = props => {
   };
 
   const dragOver = e => {
+    // const target = e.target;
+    // console.log(target.classList);
+    // if (target.classList == "dndSection") {
+    //   target.style.backgroundColor = "red";
+    // }
     e.stopPropagation();
   };
 
@@ -24,7 +30,7 @@ const Card = props => {
       draggable={props.draggable}
       onDragStart={dragStart}
       onDragOver={dragOver}
-      name="card"
+      name={props.name}
     >
       {props.children}
     </div>

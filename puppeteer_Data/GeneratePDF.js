@@ -4,7 +4,7 @@ puppeteer.use(pluginStealth())
 const merge = require('easy-pdf-merge');
 const imagesToPdf = require("images-to-pdf")
 
-async function giveMePDF() {
+async function giveMePDF(resumeID) {
 
     const result = await puppeteer.launch({
         headless: true,
@@ -16,47 +16,50 @@ async function giveMePDF() {
                 height: 1600
             })
             await page.goto('http://localhost:3000/login', { waitUntil: 'networkidle2' });
-            await page.waitFor(2000);
+            // await page.waitFor(1000);
            await page.type("[id=email]", "alex@gmail.com");
            await page.type("[id=password]", "alex88");
            await page.click("[type=submit]")
-           await page.waitFor(3000);
+           await page.waitFor(1000);
            await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
-           await page.waitFor(3000);
-           await page.screenshot({
-               path: `profile_picture/screNew.jpg`,
-               type: 'jpeg',
-               quality: 100
-               
-            });
-            await page.evaluate(() => {
-                localStorage.setItem('CurrentCV', 'daca2eb2-5658-2e9f-17da-a503ee1cce7c');
-            });
-            await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
-            await page.waitFor(3000);
-            await page.screenshot({
-                path: `profile_picture/screN.jpg`,
-                type: 'jpeg',
-                quality: 100
+            // const localStorage = await page.evaluate(() =>  Object.assign({'CurrentCV': 'daca2eb2-5658-2e9f-17da-a503ee1cce7c'}, window.localStorage));
+           await page.evaluate((resumeID) => {
+                // localStorage.removeItem('currentCV');
+                localStorage.setItem('currentCV', resumeID);
+            }, resumeID);
+            await page.goto('http://localhost:3000/create-cv',  { waitUntil: 'networkidle2' });
+            // await page.waitFor(2000);
+            // await page.screenshot({
+            //     path: `profile_picture/screN.jpg`,
+            //     type: 'jpeg',
+            //     quality: 100
                 
-             });
-
-            for(var i=0; i<3; i++){
-
-                await page.waitFor(2000);
-                if(i>0){
-                await autoScroll(page)
-                }
+            //  });
+            await autoScroll(page)
+            //  let local = await page.evaluate(() => {
+            //     return localStorage.getItem('currentCV');
+            // });
+             let user = await page.evaluate(() => {
+                return Array.from(document.querySelectorAll(".A4")).length
+            });
+// console.log(local)
+// console.log(user)
+            //let nrOfPages = await Array.from(page.$('.A4').innerHTML)
+            //console.log(nrOfPages)
+            let imgArray = []
+            for(var i=0; i<user; i++){
                 await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
-                const page = await page.$(`.containerA4${i}`)
-                if(page){
-                const pic = await page.$(`.containerA4${i}`)
-                await pic.screenshot({
+                //await page.waitFor(1000);
+                if(i>1){await autoScroll(page)}
+                
+                const pic = await page.$$('.A4')
+                await pic[i].screenshot({
                    path: `profile_picture/scre${i}.jpg`,
                    type: 'jpeg',
                    quality: 100
-
-                 });}
+                })
+                imgArray.push(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/scre${i}.jpg`)
+                }
             //     const pic = await page.$('body').innerHTML
             //     console.log(pic)
             //     const dom = await page.$$eval(, (element) => {
@@ -67,19 +70,20 @@ async function giveMePDF() {
             //    var pdfFileName =  'sample'+(i+1)+'.pdf';
             //     pdfFiles.push(pdfFileName);
             //     await page.pdf({path: pdfFileName, landscape: false, format: 'A4', scale: 0.9, printBackground: true});
-              }
-
+            //   }
+            
+            await imagesToPdf(imgArray, `/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${resumeID}.pdf`)
+            
         } catch (err) {
             console.error(err.message);
         } finally {
             await browser.close();
             //console.log(pdfFiles)
             //const result = await mergeMultiplePDF(pdfFiles);
-            //await imagesToPdf(["/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/scre0.jpg", "/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/scre1.jpg", "/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/scre3.jpg"], "/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/combinedNew.pdf")
         }
     });
     console.log(result)
-    return result
+    return resumeID
 }
 
 const mergeMultiplePDF = (pdfFiles) => {

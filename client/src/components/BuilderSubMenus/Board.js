@@ -29,6 +29,7 @@ const Board = props => {
   return (
     <div
       id={props.id}
+      className="board"
       className={props.className}
       onDrop={drop}
       onDragOver={dragOver}
