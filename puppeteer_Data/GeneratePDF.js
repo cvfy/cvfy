@@ -21,21 +21,42 @@ async function giveMePDF() {
            await page.type("[id=password]", "alex88");
            await page.click("[type=submit]")
            await page.waitFor(3000);
-            var pdfFiles=[];
-            for(var i=0; i<2; i++){
+           await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
+           await page.waitFor(3000);
+           await page.screenshot({
+               path: `profile_picture/screNew.jpg`,
+               type: 'jpeg',
+               quality: 100
+               
+            });
+            await page.evaluate(() => {
+                localStorage.setItem('CurrentCV', 'daca2eb2-5658-2e9f-17da-a503ee1cce7c');
+            });
+            await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
+            await page.waitFor(3000);
+            await page.screenshot({
+                path: `profile_picture/screN.jpg`,
+                type: 'jpeg',
+                quality: 100
+                
+             });
+
+            for(var i=0; i<3; i++){
 
                 await page.waitFor(2000);
                 if(i>0){
                 await autoScroll(page)
                 }
                 await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
+                const page = await page.$(`.containerA4${i}`)
+                if(page){
                 const pic = await page.$(`.containerA4${i}`)
                 await pic.screenshot({
-                   path: `profile_picture/screenos${i}.jpg`,
+                   path: `profile_picture/scre${i}.jpg`,
                    type: 'jpeg',
                    quality: 100
 
-                 });
+                 });}
             //     const pic = await page.$('body').innerHTML
             //     console.log(pic)
             //     const dom = await page.$$eval(, (element) => {
@@ -54,7 +75,7 @@ async function giveMePDF() {
             await browser.close();
             //console.log(pdfFiles)
             //const result = await mergeMultiplePDF(pdfFiles);
-            await imagesToPdf(["/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/screenos0.jpg", "/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/screenos1.jpg"], "/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/combined.pdf")
+            //await imagesToPdf(["/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/scre0.jpg", "/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/scre1.jpg", "/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/scre3.jpg"], "/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/combinedNew.pdf")
         }
     });
     console.log(result)

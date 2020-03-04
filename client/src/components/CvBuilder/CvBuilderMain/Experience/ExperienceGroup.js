@@ -44,7 +44,7 @@ class ExperienceGroup extends React.Component {
                 <div className="sectionsMenuDiv" style={{ display: display }}>
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={() => addGroup("experience", this.props.index)}
+                    onClick={() => addGroup("experience", this.props.index, this.props.dat)}
                     title="add group"
                   ></i>
                   <i className="fas fa-angle-up angleIcon" title="move up"></i>

@@ -70,7 +70,7 @@ const Navbar = props => {
               </NavLink>
             </div>
             <div>
-              <NavLink to="/my-documents">MyDocuments</NavLink>
+              <NavLink to="/my-documents">My Documents</NavLink>
             </div>
             <div className="DropMenu">
               <DropdownMenu />

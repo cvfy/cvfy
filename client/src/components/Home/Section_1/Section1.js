@@ -8,6 +8,7 @@ const Section1 = () => {
       <ScrollAnimation
         className="Section_1_Card Card1_color"
         animateIn="fadeInUp delay-0s"
+        animateOnce="true"
       >
         <div className="Section_1_Card Card1_color">
           <div className="S1_Card_Icon">
@@ -26,6 +27,7 @@ const Section1 = () => {
       <ScrollAnimation
         className="Section_1_Card Card2_color"
         animateIn="fadeInUp delay-1s"
+        animateOnce="true"
       >
         <div className="Section_1_Card Card2_color">
           <div className="S1_Card_Icon">
@@ -40,7 +42,8 @@ const Section1 = () => {
       </ScrollAnimation>
       <ScrollAnimation
         className="Section_1_Card Card3_color"
-        animateIn="fadeInUp delay-2s"
+        animateIn="fadeInUp delay-0s"
+        animateOnce="true"
       >
         <div className="Section_1_Card Card3_color">
           <div className="S1_Card_Icon">
@@ -55,7 +58,8 @@ const Section1 = () => {
       </ScrollAnimation>
       <ScrollAnimation
         className="Section_1_Card Card4_color"
-        animateIn="fadeInUp delay-3s"
+        animateIn="fadeInUp delay-1s"
+        animateOnce="true"
       >
         <div className="Section_1_Card Card4_color">
           <div className="S1_Card_Icon">

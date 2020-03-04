@@ -92,42 +92,19 @@ class ThemeContextProvider extends Component {
       languages: [{ language: "Language", level: "Level" }]
     },
     {
-      fullName: "",
-      intro: "",
-      //about: [],
-      profilePic: "",
-      //contact: [],
       experience: [
-        {
-          position: "Position/Title",
-          company: "Workplace/Company",
-          startMonth: "MM",
-          startYear: "YYYY",
-          endMonth: "MM",
-          endYear: "YYYY",
-          place: "City, Country",
-          tasks: "Accomplishments/Responsibility/Tasks"
-        }
+        
       ],
       education: [
-        {
-          studyProgram: "Study Program",
-          institution: "Institution / Place of Education",
-          startMonth: "MM",
-          startYear: "YYYY",
-          endMonth: "MM",
-          endYear: "YYYY",
-          place: "City, Country"
-        }
+        
       ],
-      skills: ["Skill"],
+      skills: [],
       projects: [
-        { title: "Project name", desc: "Description of achievements" }
       ],
-      certifications: ["Cerificate name"],
-      achievements: ["Achievement name"],
-      courses: [{ title: "Course name", desc: "Short description" }],
-      languages: [{ language: "Language", level: "Level" }]
+      certifications: [],
+      achievements: [],
+      courses: [],
+      languages: []
     },
     {
       experience: [
@@ -164,27 +141,81 @@ class ThemeContextProvider extends Component {
     }
   ]
   };
-  // componentDidUpdate() {
-  //   if (this.state.userData.education.length === 0) {
-  //   } else {
-  //     let Expheight = document.querySelector(".exp1page").clientHeight;
-  //     let Edheight = document.querySelector(".edu1page").clientHeight;
-  //     console.log(Expheight);
-  //     console.log(Edheight);
-  //     if (parseInt(Expheight) + parseInt(Edheight) > 840) {
-  //       let newPage = [...this.state.pages];
-  //       let newObject = { ...this.state.userData };
+  componentDidUpdate() {
+    let Headerheight = document.querySelectorAll(".header-inner")[0].clientHeight || 0;
+    let Contactheight = document.querySelectorAll(".contact")[0].clientHeight || 0;
+    let Expheight = document.querySelectorAll("div.containerA40 .exp1page")[0].clientHeight || 0;
+    let Edheight = (document.querySelector("div.containerA40 .edu1page") == null) ? 0 : document.querySelector("div.containerA40 .edu1page").clientHeight;
+    let EdgrupPage2height = (document.querySelectorAll("div.containerA41 .education-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .education-group")[0].clientHeight;
+    let ExpgrupPage2height = (document.querySelectorAll("div.containerA41 .experience-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .experience-group")[0].clientHeight;
 
-  //       newPage[0].education.push(
-  //         newObject.education[newObject.education.length - 1]
-  //       );
-  //       newObject.education.pop();
-  //       this.setState({ userData: newObject });
-  //       this.setState({ pages: newPage });
-  //     }
-  //   }
-  //   console.log(this.state.pages);
-  // }
+    let SkillsPage1height = (document.querySelectorAll("div.containerA40 .skills")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .skills")[0].clientHeight;
+    let ProjectsPage1height = (document.querySelectorAll("div.containerA40 .projects")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .projects")[0].clientHeight;
+    let CertificatesPage1height = (document.querySelectorAll("div.containerA40 .cert")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .cert")[0].clientHeight;
+    let AchievementsPage1height = (document.querySelectorAll("div.containerA40 .achiev")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .achiev")[0].clientHeight;
+    let CoursesPage1height = (document.querySelectorAll("div.containerA40 .courses")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .courses")[0].clientHeight;
+    let LanguagesPage1height = (document.querySelectorAll("div.containerA40 .lang")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .lang")[0].clientHeight;
+    let skillpage = (parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(CertificatesPage1height) + parseInt(AchievementsPage1height) + parseInt(CoursesPage1height) + parseInt(LanguagesPage1height))
+    console.log(Headerheight);
+    console.log(SkillsPage1height);
+    console.log(ProjectsPage1height);
+    console.log(CertificatesPage1height);
+    console.log(AchievementsPage1height);
+    console.log(CoursesPage1height);
+    console.log(LanguagesPage1height);
+    // console.log(Edheight);
+    // console.log(Expheight);
+    let Pages = [...this.state.userData];
+    if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight)) > 1100 && Pages[0].education.length == 0) {
+    
+        Pages[1].experience.unshift(Pages[0].experience[Pages[0].experience.length - 1]);
+        Pages[0].experience.pop();
+        this.setState({ userData: Pages });
+      }
+    if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight)) > 1100 && Pages[0].education.length > 0) {
+        Pages[1].education.unshift(
+          Pages[0].education[Pages[0].education.length - 1]
+        );
+        Pages[0].education.pop();
+        this.setState({ userData: Pages });
+      }
+  if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight) + parseInt(EdgrupPage2height)) < 1122 && parseInt(EdgrupPage2height) > 0 ) {
+        Pages[0].education.push(Pages[1].education[0])
+        Pages[1].education.shift();
+    }
+    if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight) + parseInt(ExpgrupPage2height)) < 1122 && parseInt(ExpgrupPage2height) > 0 ) {
+    Pages[0].experience.push(Pages[1].experience[0])
+    Pages[1].experience.shift();
+    }
+
+    if(skillpage > 1000 &&  parseInt(LanguagesPage1height) > 0) {
+    Pages[1].languages.unshift(Pages[0].languages[Pages[0].languages.length-1])
+    Pages[0].languages.pop();
+    }
+
+    if(skillpage > 1000 &&  parseInt(LanguagesPage1height) === 0 && parseInt(CoursesPage1height) > 0 ) {
+    Pages[1].courses.unshift(Pages[0].courses[Pages[0].courses.length-1])
+    Pages[0].courses.pop();
+    }
+    if(skillpage > 1000 &&  parseInt(LanguagesPage1height) === 0 && parseInt(CoursesPage1height) === 0 && parseInt(AchievementsPage1height) > 0 ) {
+    Pages[1].achievements.unshift(Pages[0].achievements[Pages[0].achievements.length-1])
+    Pages[0].achievements.pop();
+    }
+    if(skillpage > 1000 &&  parseInt(LanguagesPage1height) === 0 && parseInt(CoursesPage1height) === 0 && parseInt(AchievementsPage1height) === 0 && parseInt(CertificatesPage1height) > 0 ) {
+    Pages[1].certifications.unshift(Pages[0].certifications[Pages[0].certifications.length-1])
+    Pages[0].certifications.pop();
+    }
+    if(skillpage > 1000 &&  parseInt(LanguagesPage1height) === 0 && parseInt(CoursesPage1height) === 0 && parseInt(AchievementsPage1height) === 0 && parseInt(CertificatesPage1height) === 0 && parseInt(ProjectsPage1height) > 0 ) {
+    Pages[1].projects.unshift(Pages[0].projects[Pages[0].projects.length-1])
+    Pages[0].projects.pop();
+    }
+    if(skillpage > 1000 &&  parseInt(LanguagesPage1height) === 0 && parseInt(CoursesPage1height) === 0 && parseInt(AchievementsPage1height) === 0 && parseInt(CertificatesPage1height) === 0 && parseInt(ProjectsPage1height) === 0 && parseInt(SkillsPage1height) > 0 ) {
+    Pages[1].skills.unshift(Pages[0].skills[Pages[0].skills.length-1])
+    Pages[0].skills.pop();
+    }
+
+    
+  }
 
   componentDidMount() {
     if(localStorage.getItem("currentCV") === null || localStorage.getItem("currentCV") === ""){
@@ -269,11 +300,11 @@ class ThemeContextProvider extends Component {
     const userID = aFunction();
 
     //const data = JSON.stringify(this.state)
-    localStorage.setItem("currentCV", this.state.id);
     axios.post(
       `http://localhost:5000/api/users/resume/cv/${userID}`,
       this.state
-    );
+      );
+      localStorage.setItem("currentCV", this.state.id);
   };
   // Those 3 functions add array of strings, will try to DRY later
   modifyEd = (page, field, value, index) => {
@@ -392,9 +423,23 @@ deleteGroup = (section, page, deleteIndex) => {
   let newObject = [ ...this.state.userData];
   if(section === "education"){
   newObject[page].education = [...newObject[page].education.filter((el, i) => i !== deleteIndex)]
+  // if(newObject[page+1].education.length > 0){
+  //   newObject[page].education.push(newObject[page+1].education[0])
+  //   newObject[page+1].education.shift()
+  // }
   }
   if(section === "experience"){
   newObject[page].experience = [...newObject[page].experience.filter((el, i) => i !== deleteIndex)]
+  // if(newObject[page+1].experience.length > 0){
+  //   newObject[page].experience.push(newObject[page+1].experience[0])
+  //   newObject[page+1].experience.shift()
+  // }
+  // else {
+  //   if(newObject[page+1].education.length > 0){
+  //   newObject[page].education.push(newObject[page+1].education[0])
+  //   newObject[page+1].education.shift()
+  //   }
+  // }
   }
   if(section === "skills"){
   newObject[page].skills = [...newObject[page].skills.filter((el, i) => i !== deleteIndex)]
@@ -416,7 +461,7 @@ deleteGroup = (section, page, deleteIndex) => {
   }
   this.setState({ userData: newObject });
 }
-addGroup = (field, page) => {
+addGroup = (field, page, index) => {
   let newObject = [ ...this.state.userData ];
   if(field === "experience"){
     let newExperience = {
@@ -429,7 +474,7 @@ addGroup = (field, page) => {
       place: "City, Country",
       tasks: ""
     };
-    newObject[page].experience = [...newObject[page].experience, newExperience];
+    newObject[page].experience.splice((index+1), 0, newExperience);
   }
   if(field === "education"){
     let newEducation = {
@@ -441,38 +486,38 @@ addGroup = (field, page) => {
       endYear: "YYYY",
       place: "City, Country"
     };
-    newObject[page].education = [...newObject[page].education, newEducation];
+    newObject[page].education.splice((index+1), 0, newEducation);
   }
   if(field === "skills"){
     let newSkill = "Skill"
-    newObject[page].skills = [...newObject[page].skills, newSkill];
+    newObject[page].skills.splice((index+1), 0, newSkill)
   }
   if(field === "projects"){
     let newProject = {
       title: "Name of the project",
       desc: "Short description about the project"
     }
-    newObject[page].projects = [...newObject[page].projects, newProject];
+    newObject[page].projects.splice((index+1), 0, newProject)
   }
   if(field === "certifications"){
     let newCertificate = "Certification description"
-    newObject[page].certifications = [...newObject[page].certifications, newCertificate];
-  }
+    newObject[page].certifications.splice((index+1), 0, newCertificate)
+    }
   if(field === "achievements"){
     let newAchievement = "Achievement description"
-    newObject[page].achievements = [...newObject[page].achievements, newAchievement];
+    newObject[page].achievements.splice((index+1), 0, newAchievement)
   }
   if(field === "courses"){
     let newCourse = {
       title: "Name of the course",
       desc: "Short description of the course"
     };    
-    newObject[page].courses = [...newObject[page].courses, newCourse];
+    newObject[page].courses.splice((index+1), 0, newCourse)
   }
   if(field === "languages"){
     let newLang = { language: "Language", level: "level" };
   
-    newObject[page].languages = [...newObject[page].languages, newLang];
+    newObject[page].languages.splice((index+1), 0, newLang)
   }
   this.setState({ userData: newObject });
 }

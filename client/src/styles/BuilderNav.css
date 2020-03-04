@@ -3,7 +3,9 @@
 .CvMenuWrapper {
   z-index: 5000;
 }
-
+/* .education-body {
+  height: 100%!important;
+} */
 .CvMenu {
   width: 100%;
   height: 60px;

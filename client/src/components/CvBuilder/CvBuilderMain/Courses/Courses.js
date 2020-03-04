@@ -11,13 +11,13 @@ class Courses extends React.Component {
             <CourseGroup key={i} dat={i} index={this.props.index} data={el} />
           ));
           return (
-            <div className="projects">
+            <div className="courses">
               <div className="sectionHeader">
                 <div className="section-label" style={{ color: context.style.color }}>
                   COURSES
                 </div>
               </div>
-              <div className="projects-body">{group}</div>
+              <div className="courses-body">{group}</div>
             </div>
           );
         }}
