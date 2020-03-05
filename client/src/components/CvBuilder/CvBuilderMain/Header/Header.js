@@ -1,12 +1,13 @@
 import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
 import ProfilePhoto from "../../../../assets/dogFather.png";
+import axios from "axios";
 
 class Header extends React.Component {
   constructor() {
     super();
     this.my_refs = {};
-    this.state = { borderBottom: "" };
+    this.state = { borderBottom: "", selectedFile: null };
 
     this.focusByClassName.bind(this);
   }
@@ -18,9 +19,24 @@ class Header extends React.Component {
     }
   }
 
-  // fileSelectedHandler = e => {
-  //   console.log(e.target.files[0].name);
-  // };
+  fileSelectedHandler = e => {
+    this.setState({
+      selectedFile: e.target.files[0]
+    });
+  };
+
+  // fileUploadHandler = () => {
+  //   const fd = new FormData();
+  //   fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+  //   axios.post('not sure which url should I use on backend', fd, {
+  //     onUploadProgress: progressEvent => {
+  //       console.log('Progress: ', Math.round(progressEvent.loaded / progressEvent.total * 100) + '%');
+  //     }
+  //   });
+  //     .then(res => {
+  //       console.log(res)
+  //     })
+  // }
 
   render() {
     const { borderBottom } = this.state;
@@ -31,13 +47,21 @@ class Header extends React.Component {
           return (
             <div className="header-inner">
               <div className={context.displayPhoto ? "photo" : "hideSection"}>
-                {/* <input type="file" onChange={this.fileSelectedHandler}></input> */}
-                <im
+                <input
+                  style={{ display: "none" }}
+                  type="file"
+                  onChange={this.fileSelectedHandler}
+                  ref={fileInput => (this.fileInput = fileInput)}
+                ></input>
+                {/* <button onClick={this.fileUploadHandler}></button> */}
+                <img
                   src={context.userData[this.props.index].profilePic}
+                  // src={ProfilePhoto}
                   alt="dog"
                   height="110px"
                   width="110px"
                   className="profile-photo"
+                  onClick={() => this.fileInput.click()}
                 />
               </div>
               <div className="introduction">
