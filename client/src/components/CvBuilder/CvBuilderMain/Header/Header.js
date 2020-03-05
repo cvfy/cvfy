@@ -18,6 +18,10 @@ class Header extends React.Component {
     }
   }
 
+  // fileSelectedHandler = e => {
+  //   console.log(e.target.files[0].name);
+  // };
+
   render() {
     const { borderBottom } = this.state;
     return (
@@ -27,7 +31,8 @@ class Header extends React.Component {
           return (
             <div className="header-inner">
               <div className={context.displayPhoto ? "photo" : "hideSection"}>
-                <img
+                {/* <input type="file" onChange={this.fileSelectedHandler}></input> */}
+                <im
                   src={context.userData[this.props.index].profilePic}
                   alt="dog"
                   height="110px"

@@ -49,6 +49,9 @@ class ThemeContextProvider extends Component {
       tasksOutput: [],
       value: ""
     },
+    displayPhoto: true,
+    displayTitle: true,
+    displaySummary: true,
     userData: [
       {
         fullName: "FULL NAME",
