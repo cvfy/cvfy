@@ -120,6 +120,7 @@ const sendData = async (req, res, next) => {
         res.status(200).send(datas);
     } catch (e) {
         next(e);
+        res.status(404).send("something went wrong")
     }
 };
 router.get("/data/:profile", sendData)
