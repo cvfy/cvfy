@@ -45,6 +45,9 @@ class ThemeContextProvider extends Component {
       tasksOutput: [],
       value: ""
     },
+    displayPhoto: true,
+    displayTitle: true,
+    displaySummary: true,
     userData: [
       {
         fullName: "FULL NAME",
@@ -854,6 +857,21 @@ class ThemeContextProvider extends Component {
     this.setState({ userData: newObject });
   };
 
+  togglePhotoClass = () => {
+    const currentState = this.state.displayPhoto;
+    this.setState({ displayPhoto: !currentState });
+  };
+
+  toggleTitleClass = () => {
+    const currentState = this.state.displayTitle;
+    this.setState({ displayTitle: !currentState });
+  };
+
+  toggleSummaryClass = () => {
+    const currentState = this.state.displaySummary;
+    this.setState({ displaySummary: !currentState });
+  };
+
   render() {
     return (
       <ThemeContext.Provider
@@ -872,6 +890,9 @@ class ThemeContextProvider extends Component {
           updateUserLinkedIn: this.updateUserLinkedIn,
           updateUserWebsite: this.updateUserWebsite,
           updateUserGitHub: this.updateUserGitHub,
+          togglePhotoClass: this.togglePhotoClass,
+          toggleTitleClass: this.toggleTitleClass,
+          toggleSummaryClass: this.toggleSummaryClass,
           importData: this.importData,
           saveCVDataToServer: this.saveCVDataToServer,
           modifyEd: this.modifyEd,

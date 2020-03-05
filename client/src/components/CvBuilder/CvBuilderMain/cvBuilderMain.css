@@ -211,6 +211,10 @@
   max-width: 8em;
 }
 
+.hideSection {
+  display: none;
+}
+
 .summary {
   padding-top: 5px;
   font-size: 0.8rem;

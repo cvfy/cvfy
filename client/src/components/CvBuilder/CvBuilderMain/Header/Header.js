@@ -26,7 +26,7 @@ class Header extends React.Component {
           const { modifyAbout } = context;
           return (
             <div className="header-inner">
-              <div className="photo">
+              <div className={context.displayPhoto ? "photo" : "hideSection"}>
                 <img
                   src={context.userData[this.props.index].profilePic}
                   alt="dog"
@@ -36,11 +36,20 @@ class Header extends React.Component {
                 />
               </div>
               <div className="introduction">
-                <div className="name" style={{ fontFamily: context.style.font }}>
+                <div
+                  className="name"
+                  style={{ fontFamily: context.style.font }}
+                >
                   {context.userData[this.props.index].fullName}
                 </div>
 
-                <div className="editableHeaderDiv CvTitle">
+                <div
+                  className={
+                    context.displayTitle
+                      ? "editableHeaderDiv CvTitle"
+                      : "hideSection"
+                  }
+                >
                   <span
                     onBlur={e =>
                       modifyAbout(this.props.index, "intro", e.target.innerText)
@@ -65,9 +74,13 @@ class Header extends React.Component {
                   </span>
                 </div>
 
-                <div className="editableHeaderDiv">
+                <div
+                  className={
+                    context.displaySummary ? "editableHeaderDiv" : "hideSection"
+                  }
+                >
                   <span
-                    onBlur={e => 
+                    onBlur={e =>
                       modifyAbout(this.props.index, "about", e.target.innerText)
                     }
                     className="summary"

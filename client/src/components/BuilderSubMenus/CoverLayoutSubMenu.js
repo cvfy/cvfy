@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import Draggable from "./Draggable";
-//import { Button } from "@material-ui/core";
 
 class CoverLayoutSubMenu extends Component {
   constructor() {
@@ -51,57 +49,11 @@ class CoverLayoutSubMenu extends Component {
 
               {this.state.showMenu ? (
                 <div
-                  className="layoutSubMenu"
+                  className="coverLayoutSubMenu"
                   ref={element => {
                     this.dropdownMenu = element;
                   }}
-                >
-                  <div className="headerElements">
-                    Show:
-                    <label className="headerContainer">
-                      Photo
-                      <input type="radio" checked="checked" name="radio" />
-                      <span className="checkmark"></span>
-                    </label>
-                    <label className="headerContainer">
-                      Title
-                      <input type="radio" name="radio" />
-                      <span className="checkmark"></span>
-                    </label>
-                    <label className="headerContainer">
-                      Summary
-                      <input
-                        type="radio"
-                        name="radio"
-                        className="checkElements"
-                      />
-                      <span className="checkmark"></span>
-                    </label>
-                  </div>
-
-                  <div className="layoutToggle">
-                    <div>Suggested</div>
-                    <div>Custom</div>
-                  </div>
-
-                  <Draggable></Draggable>
-
-                  {/* <div className="layoutCV"></div>
-
-                  <div className="dndText">
-                    Drag and drop to add or remove sections
-                  </div>
-
-                  <div className="dndContainer">
-                    <div className="dndSection">Experience</div>
-                    <div className="dndSection">Education</div>
-                    <div className="dndSection">Skills</div>
-                    <div className="dndSection">Projects</div>
-                    <div className="dndSection">Certifications</div>
-                    <div className="dndSection">Achievements</div>
-                    <div className="dndSection">Languages</div>
-                  </div> */}
-                </div>
+                ></div>
               ) : null}
             </div>
           );
