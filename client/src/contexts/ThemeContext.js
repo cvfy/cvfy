@@ -4,6 +4,10 @@ import store from "./../store.js";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 //import uuid from 'uuid'
+
+function verify(data) {
+  return data !== undefined && data !== null ? data : "";
+}
 function guidGenerator() {
   var S4 = function() {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
@@ -45,9 +49,6 @@ class ThemeContextProvider extends Component {
       tasksOutput: [],
       value: ""
     },
-    displayPhoto: true,
-    displayTitle: true,
-    displaySummary: true,
     userData: [
       {
         fullName: "FULL NAME",
@@ -118,35 +119,27 @@ class ThemeContextProvider extends Component {
     ]
   };
   componentDidUpdate() {
+    // FIRST PAGE ITEMS HEIGHTS
     let Headerheight =
       document.querySelector(".header-inner").clientHeight || 0;
     let Contactheight = document.querySelector(".contact").clientHeight || 0;
     let Expheight =
-      document.querySelector("div.containerA40 .exp1page").clientHeight || 0;
+      document.querySelector("div.containerA40 .experience") == null
+        ? 0
+        : document.querySelector("div.containerA40 .experience").clientHeight;
     let Edheight =
-      document.querySelector("div.containerA40 .edu1page") == null
+      document.querySelector("div.containerA40 .education") == null
         ? 0
-        : document.querySelector("div.containerA40 .edu1page").clientHeight;
-    let EdgrupPage2height =
-      document.querySelectorAll("div.containerA41 .education-group")[0] == null
-        ? 0
-        : document.querySelectorAll("div.containerA41 .education-group")[0]
-            .clientHeight;
-    let ExpgrupPage2height =
-      document.querySelectorAll("div.containerA41 .experience-group")[0] == null
-        ? 0
-        : document.querySelectorAll("div.containerA41 .experience-group")[0]
-            .clientHeight;
+        : document.querySelector("div.containerA40 .education").clientHeight;
 
     let SkillsPage1height =
       document.querySelectorAll("div.containerA40 .skills")[0] == null
         ? 0
         : document.querySelectorAll("div.containerA40 .skills")[0].clientHeight;
     let ProjectsPage1height =
-      document.querySelectorAll("div.containerA40 .projects")[0] == null
+      document.querySelector("div.containerA40 .projects") == null
         ? 0
-        : document.querySelectorAll("div.containerA40 .projects")[0]
-            .clientHeight;
+        : document.querySelector("div.containerA40 .projects").clientHeight;
     let CertificatesPage1height =
       document.querySelectorAll("div.containerA40 .cert")[0] == null
         ? 0
@@ -174,6 +167,59 @@ class ThemeContextProvider extends Component {
       parseInt(CoursesPage1height) +
       parseInt(LanguagesPage1height);
 
+    // SECOND PAGE ITEMS HEIGHTS
+    let ExperiencePage2SUMheight =
+      document.querySelector("div.containerA41 .experience") == null
+        ? 0
+        : document.querySelector("div.containerA41 .experience").clientHeight;
+    let EducationPage2SUMheight =
+      document.querySelector("div.containerA41 .education") == null
+        ? 0
+        : document.querySelector("div.containerA41 .education").clientHeight;
+    let SkillsPage2SUMheight =
+      document.querySelectorAll("div.containerA41 .skills")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA41 .skills")[0].clientHeight;
+    let ProjectsPage2SUMheight =
+      document.querySelectorAll("div.containerA41 .projects")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA41 .projects")[0]
+            .clientHeight;
+    let CertificatesPage2SUMheight =
+      document.querySelectorAll("div.containerA41 .cert")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA41 .cert")[0].clientHeight;
+    let AchievementsPage2SUMheight =
+      document.querySelectorAll("div.containerA41 .achiev")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA41 .achiev")[0].clientHeight;
+    let CoursesPage2SUMheight =
+      document.querySelectorAll("div.containerA41 .courses")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA41 .courses")[0]
+            .clientHeight;
+    let LanguagesPage2SUMheight =
+      document.querySelectorAll("div.containerA41 .lang")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA41 .lang")[0].clientHeight;
+    let TotalSkillpage2SUMheight =
+      parseInt(SkillsPage2SUMheight) +
+      parseInt(ProjectsPage2SUMheight) +
+      parseInt(CertificatesPage2SUMheight) +
+      parseInt(AchievementsPage2SUMheight) +
+      parseInt(CoursesPage2SUMheight) +
+      parseInt(LanguagesPage2SUMheight);
+
+    let EdgrupPage2height =
+      document.querySelectorAll("div.containerA41 .education-group")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA41 .education-group")[0]
+            .clientHeight;
+    let ExpgrupPage2height =
+      document.querySelectorAll("div.containerA41 .experience-group")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA41 .experience-group")[0]
+            .clientHeight;
     let SkillPage2height =
       document.querySelectorAll("div.containerA41 .skill-box")[0] == null
         ? 0
@@ -204,14 +250,46 @@ class ThemeContextProvider extends Component {
         ? 0
         : document.querySelectorAll("div.containerA41 .lang-group")[0]
             .clientHeight;
-    //let skillpage = (parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(CertificatesPage1height) + parseInt(AchievementsPage1height) + parseInt(CoursesPage1height) + parseInt(LanguagesPage1height))
-    console.log(Headerheight);
-    console.log(SkillsPage1height);
-    console.log(ProjectsPage1height);
-    console.log(CertificatesPage1height);
-    console.log(AchievementsPage1height);
-    console.log(CoursesPage1height);
-    console.log(LanguagesPage1height);
+
+    // THIRD PAGE ITEMS HEIGHTS
+    let SkillPage3height =
+      document.querySelectorAll("div.containerA42 .skill-box")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA42 .skill-box")[0]
+            .clientHeight;
+    let ProjectPage3height =
+      document.querySelectorAll("div.containerA42 .project-group")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA42 .project-group")[0]
+            .clientHeight;
+    let CertificatePage3height =
+      document.querySelectorAll("div.containerA42 .cert-group")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA42 .cert-group")[0]
+            .clientHeight;
+    let AchievementPage3height =
+      document.querySelectorAll("div.containerA42 .achiev-group")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA42 .achiev-group")[0]
+            .clientHeight;
+    let CoursePage3height =
+      document.querySelectorAll("div.containerA42 .course-group")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA42 .course-group")[0]
+            .clientHeight;
+    let LanguagePage3height =
+      document.querySelectorAll("div.containerA42 .lang-group")[0] == null
+        ? 0
+        : document.querySelectorAll("div.containerA42 .lang-group")[0]
+            .clientHeight;
+
+    // console.log(Headerheight);
+    // console.log(SkillsPage1height);
+    // console.log(ProjectsPage1height);
+    // console.log(CertificatesPage1height);
+    // console.log(AchievementsPage1height);
+    // console.log(CoursesPage1height);
+    // console.log(LanguagesPage1height);
     // console.log(Edheight);
     // console.log(Expheight);
     let Pages = [...this.state.userData];
@@ -265,7 +343,8 @@ class ThemeContextProvider extends Component {
         parseInt(Edheight) +
         parseInt(EdgrupPage2height) <
         1122 &&
-      parseInt(EdgrupPage2height) > 0
+      parseInt(EdgrupPage2height) > 0 &&
+      parseInt(ExperiencePage2SUMheight) === 0
     ) {
       Pages[0].education.push(Pages[1].education[0]);
       Pages[1].education.shift();
@@ -307,6 +386,7 @@ class ThemeContextProvider extends Component {
       Pages[1].achievements.unshift(
         Pages[0].achievements[Pages[0].achievements.length - 1]
       );
+
       Pages[0].achievements.pop();
     }
     if (
@@ -333,6 +413,7 @@ class ThemeContextProvider extends Component {
         Pages[0].projects[Pages[0].projects.length - 1]
       );
       Pages[0].projects.pop();
+      // this.setState({ userData: Pages });
     }
     if (
       skillpage > 1000 &&
@@ -427,6 +508,95 @@ class ThemeContextProvider extends Component {
       Pages[0].skills.push(Pages[1].skills[0]);
       Pages[1].skills.shift();
     }
+
+    // Third page - page break
+
+    if (
+      parseInt(ExperiencePage2SUMheight) + parseInt(EducationPage2SUMheight) >
+        1100 &&
+      parseInt(EducationPage2SUMheight) > 0
+    ) {
+      Pages[2].education.unshift(
+        Pages[1].education[Pages[1].education.length - 1]
+      );
+      Pages[1].education.pop();
+      this.setState({ userData: Pages });
+    }
+    if (
+      parseInt(ExperiencePage2SUMheight) + parseInt(EducationPage2SUMheight) >
+        1110 &&
+      parseInt(EducationPage2SUMheight) === 0
+    ) {
+      Pages[2].experience.unshift(
+        Pages[1].experience[Pages[1].experience.length - 1]
+      );
+      Pages[1].experience.pop();
+    }
+    if (
+      parseInt(TotalSkillpage2SUMheight) > 1000 &&
+      parseInt(LanguagesPage2SUMheight) > 0
+    ) {
+      Pages[2].languages.unshift(
+        Pages[1].languages[Pages[1].languages.length - 1]
+      );
+      Pages[1].languages.pop();
+    }
+    if (
+      parseInt(TotalSkillpage2SUMheight) > 1000 &&
+      parseInt(LanguagesPage2SUMheight) === 0 &&
+      parseInt(CoursesPage2SUMheight) > 0
+    ) {
+      Pages[2].courses.unshift(Pages[1].courses[Pages[1].courses.length - 1]);
+      Pages[1].courses.pop();
+    }
+    if (
+      parseInt(TotalSkillpage2SUMheight) > 1000 &&
+      parseInt(LanguagesPage2SUMheight) === 0 &&
+      parseInt(CoursesPage2SUMheight) === 0 &&
+      parseInt(AchievementsPage2SUMheight) > 0
+    ) {
+      Pages[2].achievements.unshift(
+        Pages[1].achievements[Pages[1].achievements.length - 1]
+      );
+      Pages[1].achievements.pop();
+    }
+    if (
+      parseInt(TotalSkillpage2SUMheight) > 1000 &&
+      parseInt(LanguagesPage2SUMheight) === 0 &&
+      parseInt(CoursesPage2SUMheight) === 0 &&
+      parseInt(AchievementsPage2SUMheight) === 0 &&
+      parseInt(CertificatePage2height) > 0
+    ) {
+      Pages[2].certifications.unshift(
+        Pages[1].certifications[Pages[1].certifications.length - 1]
+      );
+      Pages[1].certifications.pop();
+    }
+    if (
+      parseInt(TotalSkillpage2SUMheight) > 1000 &&
+      parseInt(LanguagesPage2SUMheight) === 0 &&
+      parseInt(CoursesPage2SUMheight) === 0 &&
+      parseInt(AchievementsPage2SUMheight) === 0 &&
+      parseInt(CertificatePage2height) === 0 &&
+      parseInt(ProjectPage2height) > 0
+    ) {
+      Pages[2].projects.unshift(
+        Pages[1].projects[Pages[1].projects.length - 1]
+      );
+      Pages[1].projects.pop();
+    }
+    if (
+      parseInt(TotalSkillpage2SUMheight) > 1000 &&
+      parseInt(LanguagesPage2SUMheight) === 0 &&
+      parseInt(CoursesPage2SUMheight) === 0 &&
+      parseInt(AchievementsPage2SUMheight) === 0 &&
+      parseInt(CertificatePage2height) === 0 &&
+      parseInt(ProjectPage2height) === 0 &&
+      parseInt(SkillPage2height) > 0
+    ) {
+      Pages[2].skills.unshift(Pages[1].skills[Pages[1].skills.length - 1]);
+      Pages[1].skills.pop();
+    }
   }
 
   componentDidMount() {
@@ -481,58 +651,108 @@ class ThemeContextProvider extends Component {
     );
     console.log(response.data);
     let newObject = [...this.state.userData];
-    newObject[0].fullName = response.data.profileFullName;
-    newObject[0].intro = response.data.profileHeadline || "";
-    newObject[0].about = response.data.profileAbout || "";
-    newObject[0].profilePic = `http://localhost:5000/static/${profile}.jpg`;
-    newObject[0].skills = response.data.skills;
-    newObject[0].linkedIn = `linkedin.com/in/${profile}`;
-    newObject[0].experience = response.data.profileExperience.map(el => {
-      if (el.jobsDesc) {
-      } else {
-        let new_el = {};
-        new_el.position = el.jobTitle;
-        new_el.company = el.jobEmployer;
-        new_el.startMonth = el.jobPeriod.split(" ")[0] || "";
-        new_el.startYear = el.jobPeriod.split(" ")[1] || "";
-        new_el.endMonth = el.jobPeriod.split(" ")[3] || "";
-        new_el.endYear = el.jobPeriod.split(" ")[4] || "";
-        new_el.place = el.jobLocation || "";
-        new_el.tasks = el.jobDescription || "";
-        return new_el;
-      }
-    });
-    newObject[0].education = response.data.profileEducation.map(el => {
-      let new_el = {};
-      new_el.studyProgram = el.educationType;
-      new_el.institution = el.educationInstitution;
-      new_el.startMonth = "";
-      new_el.startYear = el.educationPeriod.split(" ")[0];
-      new_el.endMonth = "";
-      new_el.endYear = el.educationPeriod.split(" ")[2] || "";
-      new_el.place = "";
-      return new_el;
-    });
-    newObject[0].languages = response.data.accomplishments[0]
-      ? response.data.accomplishments[0].accomplishmentList.map(el => {
-          return { language: el.split("\n")[1], level: "B2" };
+    newObject[0].fullName = response.data.profileFullName
+      ? response.data.profileFullName
+      : "FULL NAME";
+    newObject[0].intro = response.data.profileHeadline
+      ? response.data.profileHeadline
+      : "Profes  sional Title";
+    newObject[0].about = response.data.profileAbout
+      ? response.data.profileAbout
+      : ["Short and engaging pitch about yourself"];
+    newObject[0].profilePic = `http://localhost:5000/static/${profile}.jpg`
+      ? `http://localhost:5000/static/${profile}.jpg`
+      : "http://localhost:5000/static/default.png";
+    newObject[0].skills = response.data.skills
+      ? response.data.skills
+      : ["skill"];
+    newObject[0].experience = response.data.profileExperience
+      ? response.data.profileExperience.map(el => {
+          if (el.jobsDesc) {
+          } else {
+            let new_el = {};
+            new_el.position = verify(el.jobTitle);
+            new_el.company = verify(el.jobEmployer);
+            new_el.startMonth = verify(el.jobPeriod.split(" ")[0]);
+            new_el.startYear = verify(el.jobPeriod.split(" ")[1]);
+            new_el.endMonth = verify(el.jobPeriod.split(" ")[3]);
+            new_el.endYear = verify(el.jobPeriod.split(" ")[4]);
+            new_el.place = verify(el.jobLocation);
+            new_el.tasks = verify(el.jobDescription);
+            return new_el;
+          }
         })
-      : [];
-    console.log(`http://localhost:5000/static/${profile}.jpg`);
+      : [
+          {
+            position: "Position/Title",
+            company: "Workplace/Company",
+            startMonth: "MM",
+            startYear: "YYYY",
+            endMonth: "MM",
+            endYear: "YYYY",
+            place: "City, Country",
+            tasks: "Accomplishments/Responsibility/Tasks"
+          }
+        ];
+    newObject[0].education = response.data.profileEducation
+      ? response.data.profileEducation.map(el => {
+          let new_el = {};
+          new_el.studyProgram = verify(el.educationType);
+          new_el.institution = verify(el.educationInstitution);
+          new_el.startMonth = "";
+          new_el.startYear = verify(el.educationPeriod.split(" ")[0]);
+          new_el.endMonth = "";
+          new_el.endYear = verify(el.educationPeriod.split(" ")[2]);
+          new_el.place = "";
+          return new_el;
+        })
+      : [
+          {
+            studyProgram: "Study Program",
+            institution: "Institution / Place of Education",
+            startMonth: "MM",
+            startYear: "YYYY",
+            endMonth: "MM",
+            endYear: "YYYY",
+            place: "City, Country"
+          }
+        ];
+    newObject[0].languages = response.data.languages
+      ? response.data.languages.map(el => {
+          return { language: el, level: "B1" };
+        })
+      : [{ language: "Language", level: "B1" }];
+    newObject[0].courses = response.data.courses
+      ? response.data.courses.map(el => {
+          return { title: el, desc: "Description" };
+        })
+      : [{ title: "Course name", desc: "Short description" }];
+    newObject[0].projects = response.data.projects
+      ? response.data.projects
+      : [{ title: "Project name", desc: "Description of achievements" }];
+    newObject[0].contact[0].value = response.data.contacts.filter(
+      el => el.Type === "Email"
+    )[0].contact;
+    newObject[0].contact[6].value = response.data.contacts.filter(
+      el => el.Type === "Website"
+    )[0].contact;
+    newObject[0].certifications = ["Certificate name"];
+    newObject[0].achievements = ["Achievement name"];
+    // console.log(response.data.contacts)
+    // console.log(`http://localhost:5000/static/${profile}.jpg`);
     this.setState({ userData: newObject });
 
     // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
   };
-  saveCVDataToServer = () => {
+  saveCVDataToServer = async () => {
     console.log("i am calling");
-    const userID = aFunction();
+    const userID = await aFunction();
 
     //const data = JSON.stringify(this.state)
     axios.post(
       `http://localhost:5000/api/users/resume/cv/${userID}`,
       this.state
     );
-    // localStorage.setItem("currentCV", this.state.id);
   };
   // Those 3 functions add array of strings, will try to DRY later
   modifyEd = (page, field, value, index) => {
@@ -544,19 +764,19 @@ class ThemeContextProvider extends Component {
     if (field === "institution") {
       newObject[page].education[index].institution = value;
     }
-    if (field == "startMonth") {
+    if (field === "startMonth") {
       newObject[page].education[index].startMonth = value;
     }
-    if (field == "startYear") {
+    if (field === "startYear") {
       newObject[page].education[index].startYear = value;
     }
-    if (field == "endMonth") {
+    if (field === "endMonth") {
       newObject[page].education[index].endMonth = value;
     }
-    if (field == "endYear") {
+    if (field === "endYear") {
       newObject[page].education[index].endYear = value;
     }
-    if (field == "place") {
+    if (field === "place") {
       newObject[page].education[index].place = value;
     }
     this.setState({ userData: newObject });
@@ -564,10 +784,10 @@ class ThemeContextProvider extends Component {
   };
   modifyEx = (page, field, value, index) => {
     let newObject = [...this.state.userData];
-    if (field == "position") {
+    if (field === "position") {
       newObject[page].experience[index].position = value;
     }
-    if (field == "company") {
+    if (field === "company") {
       newObject[page].experience[index].company = value;
     }
     if (field === "startMonth") {
