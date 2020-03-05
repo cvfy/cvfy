@@ -1,6 +1,5 @@
 import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
-import ProfilePhoto from "../../../../assets/dogFather.png";
 import axios from "axios";
 
 class Header extends React.Component {
@@ -8,7 +7,6 @@ class Header extends React.Component {
     super();
     this.my_refs = {};
     this.state = { borderBottom: "", selectedFile: null };
-
     this.focusByClassName.bind(this);
   }
 
@@ -56,11 +54,12 @@ class Header extends React.Component {
                 {/* <button onClick={this.fileUploadHandler}></button> */}
                 <img
                   src={context.userData[this.props.index].profilePic}
-                  // src={ProfilePhoto}
-                  alt="dog"
+                  alt="photo"
+                  title="upload image"
                   height="110px"
                   width="110px"
                   className="profile-photo"
+                  style={{ cursor: "pointer" }}
                   onClick={() => this.fileInput.click()}
                 />
               </div>
