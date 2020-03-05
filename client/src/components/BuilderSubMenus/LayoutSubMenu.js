@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 // import { ThemeContext } from "../../contexts/ThemeContext";
-import { Button } from "@material-ui/core";
 import Draggable from "./Draggable";
 
 class LayoutSubMenu extends Component {
