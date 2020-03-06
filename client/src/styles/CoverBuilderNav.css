@@ -370,7 +370,6 @@
 .headerContainer {
   direction: rtl;
   cursor: pointer;
-  display: flex;
 }
 
 .dndSectionP {
@@ -387,28 +386,27 @@
 }
 
 /* Create a custom radio button */
-.checkMark {
+/* .checkMark {
+  position: absolute;
   height: 16px;
   width: 16px;
   background-color: #eee;
   border-radius: 50%;
   margin-right: 10px;
-}
+} */
 
 /* On mouse-over, add a grey background color */
-.headerContainer:hover input~.checkMark {
+/* .headerContainer:hover input~.checkMark {
   background-color: #ccc;
-
 }
 
 .checkedCircle {
   background: #fff;
   border: 4px solid #08dcdc;
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  margin-right: 10px;
-}
+} */
 
 /* When the radio button is checked, add a blue background */
 /* .headerContainer input:checked~.checkmark {

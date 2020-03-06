@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import "../styles/BuilderNav.css";
+import "../styles/CoverBuilderNav.css";
 import FontSubMenu from "./BuilderSubMenus/FontSubMenu";
 import ColorSubMenu from "./BuilderSubMenus/ColorSubMenu";
 import FontSizeSubMenu from "./BuilderSubMenus/FontSizeSubMenu";
-import LayoutSubMenu from "./BuilderSubMenus/LayoutSubMenu";
+import CoverLayoutSubMenu from "./BuilderSubMenus/CoverLayoutSubMenu";
 import TemplatesSubMenu from "./BuilderSubMenus/TemplatesSubMenu";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
@@ -29,7 +29,7 @@ const BuilderNav = () => {
           <FontSubMenu />
           <ColorSubMenu />
           <FontSizeSubMenu />
-          <LayoutSubMenu />
+          <CoverLayoutSubMenu />
           <TemplatesSubMenu />
         </div>
       </div>
@@ -50,10 +50,7 @@ const BuilderNav = () => {
         <div className="my-docs-btn">
           <div className="docsDiv">
             <span className="tool-icon tool-mydoc">
-              <NavLink
-                to="/my-documents"
-                style={{ color: "#fff", textDecoration: "none" }}
-              >
+              <NavLink to="/my-documents" style={{ color: "#fff" }}>
                 MyDocuments
               </NavLink>
             </span>

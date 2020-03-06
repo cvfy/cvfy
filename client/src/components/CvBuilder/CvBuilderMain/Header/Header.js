@@ -1,13 +1,12 @@
 import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
-import ProfilePhoto from "../../../../assets/dogFather.png";
+import axios from "axios";
 
 class Header extends React.Component {
   constructor() {
     super();
     this.my_refs = {};
-    this.state = { borderBottom: "" };
-
+    this.state = { borderBottom: "", selectedFile: null };
     this.focusByClassName.bind(this);
   }
 
@@ -18,6 +17,25 @@ class Header extends React.Component {
     }
   }
 
+  fileSelectedHandler = e => {
+    this.setState({
+      selectedFile: e.target.files[0]
+    });
+  };
+
+  // fileUploadHandler = () => {
+  //   const fd = new FormData();
+  //   fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+  //   axios.post('not sure which url should I use on backend', fd, {
+  //     onUploadProgress: progressEvent => {
+  //       console.log('Progress: ', Math.round(progressEvent.loaded / progressEvent.total * 100) + '%');
+  //     }
+  //   });
+  //     .then(res => {
+  //       console.log(res)
+  //     })
+  // }
+
   render() {
     const { borderBottom } = this.state;
     return (
@@ -26,21 +44,40 @@ class Header extends React.Component {
           const { modifyAbout } = context;
           return (
             <div className="header-inner">
-              <div className="photo">
+              <div className={context.displayPhoto ? "photo" : "hideSection"}>
+                <input
+                  style={{ display: "none" }}
+                  type="file"
+                  onChange={this.fileSelectedHandler}
+                  ref={fileInput => (this.fileInput = fileInput)}
+                ></input>
+                {/* <button onClick={this.fileUploadHandler}></button> */}
                 <img
                   src={context.userData[this.props.index].profilePic}
-                  alt="dog"
+                  alt="photo"
+                  title="upload image"
                   height="110px"
                   width="110px"
                   className="profile-photo"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => this.fileInput.click()}
                 />
               </div>
               <div className="introduction">
-                <div className="name" style={{ fontFamily: context.style.font }}>
+                <div
+                  className="name"
+                  style={{ fontFamily: context.style.font }}
+                >
                   {context.userData[this.props.index].fullName}
                 </div>
 
-                <div className="editableHeaderDiv CvTitle">
+                <div
+                  className={
+                    context.displayTitle
+                      ? "editableHeaderDiv CvTitle"
+                      : "hideSection"
+                  }
+                >
                   <span
                     onBlur={e =>
                       modifyAbout(this.props.index, "intro", e.target.innerText)
@@ -65,9 +102,13 @@ class Header extends React.Component {
                   </span>
                 </div>
 
-                <div className="editableHeaderDiv">
+                <div
+                  className={
+                    context.displaySummary ? "editableHeaderDiv" : "hideSection"
+                  }
+                >
                   <span
-                    onBlur={e => 
+                    onBlur={e =>
                       modifyAbout(this.props.index, "about", e.target.innerText)
                     }
                     className="summary"
