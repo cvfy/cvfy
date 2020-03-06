@@ -13,7 +13,7 @@ async function giveMePDF(resumeID) {
             const page = await browser.newPage()
             await page.setViewport({
                 width: 1200,
-                height: 1600
+                height: 4600
             })
             await page.goto('http://localhost:3000/login', { waitUntil: 'networkidle2' });
             // await page.waitFor(1000);
@@ -49,14 +49,14 @@ async function giveMePDF(resumeID) {
             let imgArray = []
             for(var i=0; i<user; i++){
                 await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
-                //await page.waitFor(1000);
+                // await page.waitFor(1000);
                 if(i>1){await autoScroll(page)}
-                
+                await page.emulateMedia('screen');
                 const pic = await page.$$('.A4')
                 await pic[i].screenshot({
                    path: `profile_picture/scre${i}.jpg`,
                    type: 'jpeg',
-                   quality: 100
+                   quality: 100,
                 })
                 imgArray.push(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/scre${i}.jpg`)
                 }

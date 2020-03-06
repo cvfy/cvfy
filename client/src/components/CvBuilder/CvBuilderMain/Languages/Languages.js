@@ -11,7 +11,7 @@ class Languages extends React.Component {
             <LanguageGroup key={i} dat={i} index={this.props.index} data={el} />
           ));
           return (
-            <div className="lang">
+            <div className="languages">
               <div className="sectionHeader">
                 <div className="section-label" style={{ color: context.style.color }}>
                   LANGUAGES

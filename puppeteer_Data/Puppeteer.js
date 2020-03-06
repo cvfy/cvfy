@@ -31,22 +31,26 @@ async function giveMeData(profile) {
             if ((await page.$('a[data-control-name="contact_see_more"]')) !== null) {
                 await page.click('a[data-control-name="contact_see_more"]')
             }
-            await page.waitFor(3000);
-            const contactData = await page.evaluate(() => {
-                function verify(data) {
-                    return (data !== undefined && data !== null) ? data : ""
-                }
-                let contacts = [];
-                Array.from(document.querySelectorAll("section.pv-contact-info__contact-type")).forEach(el => {
-                    let contactObj = {
-                        Type: verify(el.querySelector(".pv-contact-info__header")).innerText,
-                        contact: verify(el.querySelector("div.pv-contact-info__ci-container") ? el.querySelector("div.pv-contact-info__ci-container") : el.querySelector("ul li a")).innerText
-                        
-                    }
-                    contacts.push(contactObj)
-                })
-return contacts
-            })
+                        // if ((await page.$('button.artdeco-modal__dismiss')) !== null) {
+                        //     await page.click('button.artdeco-modal__dismiss"]')
+                        // }
+                        await page.waitFor(3000);
+                        const contactData = await page.evaluate(() => {
+                            function verify(data) {
+                                return (data !== undefined && data !== null) ? data : ""
+                            }
+                            let contacts = [];
+                            Array.from(document.querySelectorAll("section.pv-contact-info__contact-type")).forEach(el => {
+                                let contactObj = {
+                                    Type: verify(el.querySelector(".pv-contact-info__header")).innerText,
+                                    contact: verify(el.querySelector("div.pv-contact-info__ci-container") ? el.querySelector("div.pv-contact-info__ci-container") : el.querySelector("ul li a")).innerText
+                                    
+                                }
+                                contacts.push(contactObj)
+                            })
+                            return contacts
+                        })
+                        await page.keyboard.press('Escape')
             await page.waitFor(2000);
             await autoScroll(page)
             //await page.click('section.experience-section button')
@@ -54,12 +58,12 @@ return contacts
             if ((await page.$('section.education-section button.pv-profile-section__see-more-inline')) !== null) {
                 await page.click('section.education-section button.pv-profile-section__see-more-inline')
             }
-            if ((await page.$('section.pv-skill-categories-section button.pv-skills-section__additional-skills')) !== null) {
-                await page.click('section.pv-skill-categories-section button.pv-skills-section__additional-skills')
-            }
             if ((await page.$('section.pv-accomplishments-section button')) !== null) {
                 await page.click('section.pv-accomplishments-section button')
             }
+                        if ((await page.$('section.pv-skill-categories-section button.pv-skills-section__additional-skills')) !== null) {
+                            await page.click('section.pv-skill-categories-section button.pv-skills-section__additional-skills')
+                        }
             if ((await page.$('#projects-title + button li svg')) !== null) {
                 await page.click('#projects-title + button li svg')
             }
@@ -169,8 +173,9 @@ return contacts
             //console.log(cvData.accomplishments[0].accomplishmentList)
             //console.log(cvData.accomplishments[1].accomplishmentList)
             //console.log(cvData.accomplishments[2].accomplishmentList)
-            cvData.contacts  = contactData;
-            console.log(cvData.contacts)
+            contactData.forEach(el => cvData[el.Type] = el.contact)
+            // cvData.contacts  = contactData;
+            console.log(cvData)
             return cvData
         } catch (err) {
             console.error(err.message);

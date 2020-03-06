@@ -11,7 +11,7 @@ class Achievements extends React.Component {
             <AchievementGroup key={i} dat={i} index={this.props.index} data={el} />
           ));
           return (
-            <div className="achiev">
+            <div className="achievements">
               <div className="sectionHeader">
                 <div className="section-label" style={{ color: context.style.color }}>
                   ACHIEVEMENTS

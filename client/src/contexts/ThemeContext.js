@@ -122,284 +122,407 @@ class ThemeContextProvider extends Component {
       achievements: [],
       courses: [],
       languages: []
+    },
+    {
+      experience: [
+      ],
+      education: [
+      ],
+      skills: [],
+      projects: [
+      ],
+      certifications: [],
+      achievements: [],
+      courses: [],
+      languages: []
     }
   ]
   };
   componentDidUpdate() {
-    // FIRST PAGE ITEMS HEIGHTS
-    let Headerheight = document.querySelector(".header-inner").clientHeight || 0;
-    let Contactheight = document.querySelector(".contact").clientHeight || 0;
-    let Expheight = (document.querySelector("div.containerA40 .experience") == null) ? 0 : document.querySelector("div.containerA40 .experience").clientHeight;
-    let Edheight = (document.querySelector("div.containerA40 .education") == null) ? 0 : document.querySelector("div.containerA40 .education").clientHeight;
-    
-    let SkillsPage1height = (document.querySelectorAll("div.containerA40 .skills")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .skills")[0].clientHeight;
-    let ProjectsPage1height = (document.querySelector("div.containerA40 .projects") == null) ? 0 : document.querySelector("div.containerA40 .projects").clientHeight;
-    let CertificatesPage1height = (document.querySelectorAll("div.containerA40 .cert")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .cert")[0].clientHeight;
-    let AchievementsPage1height = (document.querySelectorAll("div.containerA40 .achiev")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .achiev")[0].clientHeight;
-    let CoursesPage1height = (document.querySelectorAll("div.containerA40 .courses")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .courses")[0].clientHeight;
-    let LanguagesPage1height = (document.querySelectorAll("div.containerA40 .lang")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .lang")[0].clientHeight;
-    let skillpage = (parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(CertificatesPage1height) + parseInt(AchievementsPage1height) + parseInt(CoursesPage1height) + parseInt(LanguagesPage1height))
-    
-    // SECOND PAGE ITEMS HEIGHTS
-    let ExperiencePage2SUMheight = (document.querySelector("div.containerA41 .experience") == null) ? 0 : document.querySelector("div.containerA41 .experience").clientHeight;
-    let EducationPage2SUMheight = (document.querySelector("div.containerA41 .education") == null) ? 0 : document.querySelector("div.containerA41 .education").clientHeight;
-    let SkillsPage2SUMheight = (document.querySelectorAll("div.containerA41 .skills")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .skills")[0].clientHeight;
-    let ProjectsPage2SUMheight = (document.querySelectorAll("div.containerA41 .projects")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .projects")[0].clientHeight;
-    let CertificatesPage2SUMheight = (document.querySelectorAll("div.containerA41 .cert")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .cert")[0].clientHeight;
-    let AchievementsPage2SUMheight = (document.querySelectorAll("div.containerA41 .achiev")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .achiev")[0].clientHeight;
-    let CoursesPage2SUMheight = (document.querySelectorAll("div.containerA41 .courses")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .courses")[0].clientHeight;
-    let LanguagesPage2SUMheight = (document.querySelectorAll("div.containerA41 .lang")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .lang")[0].clientHeight;
-    let TotalSkillpage2SUMheight = (parseInt(SkillsPage2SUMheight) + parseInt(ProjectsPage2SUMheight) + parseInt(CertificatesPage2SUMheight) + parseInt(AchievementsPage2SUMheight) + parseInt(CoursesPage2SUMheight) + parseInt(LanguagesPage2SUMheight))
-
-    let EdgrupPage2height = (document.querySelectorAll("div.containerA41 .education-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .education-group")[0].clientHeight;
-    let ExpgrupPage2height = (document.querySelectorAll("div.containerA41 .experience-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .experience-group")[0].clientHeight;
-    let SkillPage2height = (document.querySelectorAll("div.containerA41 .skill-box")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .skill-box")[0].clientHeight;
-    let ProjectPage2height = (document.querySelectorAll("div.containerA41 .project-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .project-group")[0].clientHeight;
-    let CertificatePage2height = (document.querySelectorAll("div.containerA41 .cert-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .cert-group")[0].clientHeight;
-    let AchievementPage2height = (document.querySelectorAll("div.containerA41 .achiev-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .achiev-group")[0].clientHeight;
-    let CoursePage2height = (document.querySelectorAll("div.containerA41 .course-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .course-group")[0].clientHeight;
-    let LanguagePage2height = (document.querySelectorAll("div.containerA41 .lang-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .lang-group")[0].clientHeight;
-    
-    // THIRD PAGE ITEMS HEIGHTS
-    let SkillPage3height = (document.querySelectorAll("div.containerA42 .skill-box")[0] == null) ? 0 : document.querySelectorAll("div.containerA42 .skill-box")[0].clientHeight;
-    let ProjectPage3height = (document.querySelectorAll("div.containerA42 .project-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA42 .project-group")[0].clientHeight;
-    let CertificatePage3height = (document.querySelectorAll("div.containerA42 .cert-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA42 .cert-group")[0].clientHeight;
-    let AchievementPage3height = (document.querySelectorAll("div.containerA42 .achiev-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA42 .achiev-group")[0].clientHeight;
-    let CoursePage3height = (document.querySelectorAll("div.containerA42 .course-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA42 .course-group")[0].clientHeight;
-    let LanguagePage3height = (document.querySelectorAll("div.containerA42 .lang-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA42 .lang-group")[0].clientHeight;
-
-    // console.log(Headerheight);
-    // console.log(SkillsPage1height);
-    // console.log(ProjectsPage1height);
-    // console.log(CertificatesPage1height);
-    // console.log(AchievementsPage1height);
-    // console.log(CoursesPage1height);
-    // console.log(LanguagesPage1height);
-    // console.log(Edheight);
-    // console.log(Expheight);
     let Pages = [...this.state.userData];
-    // Page Break and jump back to top page for left side
 
-    if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight)) > 1100 && Pages[0].education.length == 0) {
+    Array.from(document.querySelectorAll(".A4")).forEach((el, i) => {
+      let headerHeight = (document.querySelectorAll(".A4")[i].querySelector(".header-inner") == null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") == undefined ) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".header-inner").clientHeight
+      let contactHeight = (document.querySelectorAll(".A4")[i].querySelector(".contact") == null || document.querySelectorAll(".A4")[i].querySelector(".contact") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".contact").clientHeight
+      let experienceHeight = (document.querySelectorAll(".A4")[i].querySelector(".experience") == null || document.querySelectorAll(".A4")[i].querySelector(".experience") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".experience").clientHeight
+      let educationHeight = (document.querySelectorAll(".A4")[i].querySelector(".education") == null || document.querySelectorAll(".A4")[i].querySelector(".education") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".education").clientHeight
+      let skillsHeight = (document.querySelectorAll(".A4")[i].querySelector(".skills") == null || document.querySelectorAll(".A4")[i].querySelector(".skills") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".skills").clientHeight
+      let projectsHeight = (document.querySelectorAll(".A4")[i].querySelector(".projects") == null || document.querySelectorAll(".A4")[i].querySelector(".projects") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".projects").clientHeight
+      let certificationsHeight = (document.querySelectorAll(".A4")[i].querySelector(".certifications") == null || document.querySelectorAll(".A4")[i].querySelector(".certifications") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".certifications").clientHeight
+      let achievementsHeight = (document.querySelectorAll(".A4")[i].querySelector(".achievements") == null || document.querySelectorAll(".A4")[i].querySelector(".achievements") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".achievements").clientHeight
+      let coursesHeight = (document.querySelectorAll(".A4")[i].querySelector(".courses") == null || document.querySelectorAll(".A4")[i].querySelector(".courses") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".courses").clientHeight
+      let languagesHeight = (document.querySelectorAll(".A4")[i].querySelector(".languages") == null || document.querySelectorAll(".A4")[i].querySelector(".languages") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".languages").clientHeight
+
+      let leftHeight = (parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight))
+      let rightHeight = (parseInt(headerHeight) + parseInt(contactHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight))
+//       console.log("-------------page -" + i)
+//       console.log(headerHeight)
+//       console.log(contactHeight)
+// console.log(experienceHeight)
+// console.log(educationHeight)
+// console.log(skillsHeight)
+// console.log(projectsHeight)
+// console.log(certificationsHeight)
+// console.log(achievementsHeight)
+// console.log(coursesHeight)
+// console.log(languagesHeight)
+// console.log(leftHeight)
+// console.log(rightHeight)
+// console.log("---------------page-" + i)
+      //let maxHeight = (i === 0 ? 900 : 960)
+      if(leftHeight > 1122){
+  //       console.log("-------------page -" + i)
+  //       console.log(headerHeight)
+  //       console.log(contactHeight)
+  // console.log(experienceHeight)
+  // console.log(educationHeight)
+  // console.log(skillsHeight)
+  // console.log(projectsHeight)
+  // console.log(certificationsHeight)
+  // console.log(achievementsHeight)
+  // console.log(coursesHeight)
+  // console.log(languagesHeight)
+  // console.log(leftHeight)
+  // console.log(rightHeight)
+  // console.log("---------------page-" + i)
+  
+          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0]
+          console.log(lastItem)
+        Pages[i+1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length -1])
+        Pages[i][lastItem].pop()
+        this.setState({ userData: Pages })
+      }
+      if(rightHeight > 1122){
+  //       console.log("-------------page -" + i)
+  //       console.log(headerHeight)
+  //       console.log(contactHeight)
+  // console.log(experienceHeight)
+  // console.log(educationHeight)
+  // console.log(skillsHeight)
+  // console.log(projectsHeight)
+  // console.log(certificationsHeight)
+  // console.log(achievementsHeight)
+  // console.log(coursesHeight)
+  // console.log(languagesHeight)
+  // console.log(leftHeight)
+  // console.log(rightHeight)
+  // console.log("---------------page-" + i)
+  
+        let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0]
+        console.log(lastItem)
+        Pages[i+1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length -1])
+        Pages[i][lastItem].pop()
+        this.setState({ userData: Pages })
+      }
+      if(document.querySelectorAll(".A4")[i+1]){
+
+        if(document.querySelectorAll(".A4")[i+1].querySelector(".left").firstChild == null){
+        }
+        else{
+          if((leftHeight + parseInt((document.querySelectorAll(".A4")[i+1].querySelector(".left").firstChild.lastChild.firstChild).clientHeight)) < 1115){
+          let Item = document.querySelectorAll(".A4")[i+1].querySelector(".left").firstChild.classList[0]
+          console.log(Item)
+          Pages[i][Item].push(Pages[i+1][Item][0])
+          Pages[i+1][Item].shift()
+        }
+      }
+    }
+    if(document.querySelectorAll(".A4")[i+1]){
+
+      if(document.querySelectorAll(".A4")[i+1].querySelector(".right").firstChild == null){
+      }
+      else{
+        if((rightHeight + parseInt((document.querySelectorAll(".A4")[i+1].querySelector(".right").firstChild.lastChild.firstChild).clientHeight)) < 1115){
+        let Item = document.querySelectorAll(".A4")[i+1].querySelector(".right").firstChild.classList[0]
+        console.log(Item)
+        Pages[i][Item].push(Pages[i+1][Item][0])
+        Pages[i+1][Item].shift()
+      }
+    }
+  }
+    }
+    )
     
-        Pages[1].experience.unshift(Pages[0].experience[Pages[0].experience.length - 1]);
-        Pages[0].experience.pop();
-        this.setState({ userData: Pages });
-      }
-    if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight)) > 1100 && Pages[0].education.length > 0) {
-        Pages[1].education.unshift(
-          Pages[0].education[Pages[0].education.length - 1]
-        );
-        Pages[0].education.pop();
-        this.setState({ userData: Pages });
-      }
-  if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight) + parseInt(EdgrupPage2height)) < 1122 && parseInt(EdgrupPage2height) > 0 && parseInt(ExpgrupPage2height) === 0) {
-        Pages[0].education.push(Pages[1].education[0])
-        Pages[1].education.shift();
-    }
-    if (
-      parseInt(Headerheight) +
-        parseInt(Contactheight) +
-        parseInt(Expheight) +
-        parseInt(Edheight) +
-        parseInt(EdgrupPage2height) <
-        1122 &&
-      parseInt(EdgrupPage2height) > 0 &&
-      parseInt(ExperiencePage2SUMheight) === 0
-    ) {
-      Pages[0].education.push(Pages[1].education[0]);
-      Pages[1].education.shift();
-    }
-    if (
-      parseInt(Headerheight) +
-        parseInt(Contactheight) +
-        parseInt(Expheight) +
-        parseInt(Edheight) +
-        parseInt(ExpgrupPage2height) <
-        1122 &&
-      parseInt(ExpgrupPage2height) > 0
-    ) {
-      Pages[0].experience.push(Pages[1].experience[0]);
-      Pages[1].experience.shift();
-    }
-// Page Break and jump back to top page for right side
-    if(skillpage > 1000 &&  parseInt(LanguagesPage1height) > 0) {
-    Pages[1].languages.unshift(Pages[0].languages[Pages[0].languages.length-1])
-    Pages[0].languages.pop();
-    }
 
-    if (
-      skillpage > 1000 &&
-      parseInt(LanguagesPage1height) === 0 &&
-      parseInt(CoursesPage1height) > 0
-    ) {
-      Pages[1].courses.unshift(Pages[0].courses[Pages[0].courses.length - 1]);
-      Pages[0].courses.pop();
-    }
-    if (
-      skillpage > 1000 &&
-      parseInt(LanguagesPage1height) === 0 &&
-      parseInt(CoursesPage1height) === 0 &&
-      parseInt(AchievementsPage1height) > 0
-    ) {
-      Pages[1].achievements.unshift(Pages[0].achievements[Pages[0].achievements.length - 1]);
+
+
+
+
+
+    // FIRST PAGE ITEMS HEIGHTS
+//     let Headerheight = document.querySelector(".header-inner").clientHeight || 0;
+//     let Contactheight = document.querySelector(".contact").clientHeight || 0;
+//     let Expheight = (document.querySelector("div.containerA40 .experience") == null) ? 0 : document.querySelector("div.containerA40 .experience").clientHeight;
+//     let Edheight = (document.querySelector("div.containerA40 .education") == null) ? 0 : document.querySelector("div.containerA40 .education").clientHeight;
+    
+//     let SkillsPage1height = (document.querySelectorAll("div.containerA40 .skills")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .skills")[0].clientHeight;
+//     let ProjectsPage1height = (document.querySelector("div.containerA40 .projects") == null) ? 0 : document.querySelector("div.containerA40 .projects").clientHeight;
+//     let CertificatesPage1height = (document.querySelectorAll("div.containerA40 .cert")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .cert")[0].clientHeight;
+//     let AchievementsPage1height = (document.querySelectorAll("div.containerA40 .achiev")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .achiev")[0].clientHeight;
+//     let CoursesPage1height = (document.querySelectorAll("div.containerA40 .courses")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .courses")[0].clientHeight;
+//     let LanguagesPage1height = (document.querySelectorAll("div.containerA40 .lang")[0] == null) ? 0 : document.querySelectorAll("div.containerA40 .lang")[0].clientHeight;
+//     let skillpage = (parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(CertificatesPage1height) + parseInt(AchievementsPage1height) + parseInt(CoursesPage1height) + parseInt(LanguagesPage1height))
+    
+//     // SECOND PAGE ITEMS HEIGHTS
+//     let ExperiencePage2SUMheight = (document.querySelector("div.containerA41 .experience") == null) ? 0 : document.querySelector("div.containerA41 .experience").clientHeight;
+//     let EducationPage2SUMheight = (document.querySelector("div.containerA41 .education") == null) ? 0 : document.querySelector("div.containerA41 .education").clientHeight;
+//     let SkillsPage2SUMheight = (document.querySelectorAll("div.containerA41 .skills")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .skills")[0].clientHeight;
+//     let ProjectsPage2SUMheight = (document.querySelectorAll("div.containerA41 .projects")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .projects")[0].clientHeight;
+//     let CertificatesPage2SUMheight = (document.querySelectorAll("div.containerA41 .cert")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .cert")[0].clientHeight;
+//     let AchievementsPage2SUMheight = (document.querySelectorAll("div.containerA41 .achiev")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .achiev")[0].clientHeight;
+//     let CoursesPage2SUMheight = (document.querySelectorAll("div.containerA41 .courses")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .courses")[0].clientHeight;
+//     let LanguagesPage2SUMheight = (document.querySelectorAll("div.containerA41 .lang")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .lang")[0].clientHeight;
+//     let TotalSkillpage2SUMheight = (parseInt(SkillsPage2SUMheight) + parseInt(ProjectsPage2SUMheight) + parseInt(CertificatesPage2SUMheight) + parseInt(AchievementsPage2SUMheight) + parseInt(CoursesPage2SUMheight) + parseInt(LanguagesPage2SUMheight))
+
+//     let EdgrupPage2height = (document.querySelectorAll("div.containerA41 .education-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .education-group")[0].clientHeight;
+//     let ExpgrupPage2height = (document.querySelectorAll("div.containerA41 .experience-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .experience-group")[0].clientHeight;
+//     let SkillPage2height = (document.querySelectorAll("div.containerA41 .skill-box")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .skill-box")[0].clientHeight;
+//     let ProjectPage2height = (document.querySelectorAll("div.containerA41 .project-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .project-group")[0].clientHeight;
+//     let CertificatePage2height = (document.querySelectorAll("div.containerA41 .cert-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .cert-group")[0].clientHeight;
+//     let AchievementPage2height = (document.querySelectorAll("div.containerA41 .achiev-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .achiev-group")[0].clientHeight;
+//     let CoursePage2height = (document.querySelectorAll("div.containerA41 .course-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .course-group")[0].clientHeight;
+//     let LanguagePage2height = (document.querySelectorAll("div.containerA41 .lang-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA41 .lang-group")[0].clientHeight;
+    
+//     // THIRD PAGE ITEMS HEIGHTS
+//     let SkillPage3height = (document.querySelectorAll("div.containerA42 .skill-box")[0] == null) ? 0 : document.querySelectorAll("div.containerA42 .skill-box")[0].clientHeight;
+//     let ProjectPage3height = (document.querySelectorAll("div.containerA42 .project-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA42 .project-group")[0].clientHeight;
+//     let CertificatePage3height = (document.querySelectorAll("div.containerA42 .cert-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA42 .cert-group")[0].clientHeight;
+//     let AchievementPage3height = (document.querySelectorAll("div.containerA42 .achiev-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA42 .achiev-group")[0].clientHeight;
+//     let CoursePage3height = (document.querySelectorAll("div.containerA42 .course-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA42 .course-group")[0].clientHeight;
+//     let LanguagePage3height = (document.querySelectorAll("div.containerA42 .lang-group")[0] == null) ? 0 : document.querySelectorAll("div.containerA42 .lang-group")[0].clientHeight;
+
+//     // console.log(Headerheight);
+//     // console.log(SkillsPage1height);
+//     // console.log(ProjectsPage1height);
+//     // console.log(CertificatesPage1height);
+//     // console.log(AchievementsPage1height);
+//     // console.log(CoursesPage1height);
+//     // console.log(LanguagesPage1height);
+//     // console.log(Edheight);
+//     // console.log(Expheight);
+//     let Pages = [...this.state.userData];
+//     // Page Break and jump back to top page for left side
+
+//     if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight)) > 1100 && Pages[0].education.length == 0) {
+    
+//         Pages[1].experience.unshift(Pages[0].experience[Pages[0].experience.length - 1]);
+//         Pages[0].experience.pop();
+//         this.setState({ userData: Pages });
+//       }
+//     if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight)) > 1100 && Pages[0].education.length > 0) {
+//         Pages[1].education.unshift(
+//           Pages[0].education[Pages[0].education.length - 1]
+//         );
+//         Pages[0].education.pop();
+//         this.setState({ userData: Pages });
+//       }
+//   if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(Expheight) + parseInt(Edheight) + parseInt(EdgrupPage2height)) < 1122 && parseInt(EdgrupPage2height) > 0 && parseInt(ExpgrupPage2height) === 0) {
+//         Pages[0].education.push(Pages[1].education[0])
+//         Pages[1].education.shift();
+//     }
+//     if (
+//       parseInt(Headerheight) +
+//         parseInt(Contactheight) +
+//         parseInt(Expheight) +
+//         parseInt(Edheight) +
+//         parseInt(EdgrupPage2height) <
+//         1122 &&
+//       parseInt(EdgrupPage2height) > 0 &&
+//       parseInt(ExperiencePage2SUMheight) === 0
+//     ) {
+//       Pages[0].education.push(Pages[1].education[0]);
+//       Pages[1].education.shift();
+//     }
+//     if (
+//       parseInt(Headerheight) +
+//         parseInt(Contactheight) +
+//         parseInt(Expheight) +
+//         parseInt(Edheight) +
+//         parseInt(ExpgrupPage2height) <
+//         1122 &&
+//       parseInt(ExpgrupPage2height) > 0
+//     ) {
+//       Pages[0].experience.push(Pages[1].experience[0]);
+//       Pages[1].experience.shift();
+//     }
+// // Page Break and jump back to top page for right side
+//     if(skillpage > 1000 &&  parseInt(LanguagesPage1height) > 0) {
+//     Pages[1].languages.unshift(Pages[0].languages[Pages[0].languages.length-1])
+//     Pages[0].languages.pop();
+//     }
+
+//     if (
+//       skillpage > 1000 &&
+//       parseInt(LanguagesPage1height) === 0 &&
+//       parseInt(CoursesPage1height) > 0
+//     ) {
+//       Pages[1].courses.unshift(Pages[0].courses[Pages[0].courses.length - 1]);
+//       Pages[0].courses.pop();
+//     }
+//     if (
+//       skillpage > 1000 &&
+//       parseInt(LanguagesPage1height) === 0 &&
+//       parseInt(CoursesPage1height) === 0 &&
+//       parseInt(AchievementsPage1height) > 0
+//     ) {
+//       Pages[1].achievements.unshift(Pages[0].achievements[Pages[0].achievements.length - 1]);
       
-      Pages[0].achievements.pop();
-    }
-    if (
-      skillpage > 1000 &&
-      parseInt(LanguagesPage1height) === 0 &&
-      parseInt(CoursesPage1height) === 0 &&
-      parseInt(AchievementsPage1height) === 0 &&
-      parseInt(CertificatesPage1height) > 0
-    ) {
-      Pages[1].certifications.unshift(Pages[0].certifications[Pages[0].certifications.length - 1]);
-      Pages[0].certifications.pop();
-    }
-    if (
-      skillpage > 1000 &&
-      parseInt(LanguagesPage1height) === 0 &&
-      parseInt(CoursesPage1height) === 0 &&
-      parseInt(AchievementsPage1height) === 0 &&
-      parseInt(CertificatesPage1height) === 0 &&
-      parseInt(ProjectsPage1height) > 0
-    ) {
-      Pages[1].projects.unshift(Pages[0].projects[Pages[0].projects.length - 1]);
-      Pages[0].projects.pop();
-      // this.setState({ userData: Pages });
+//       Pages[0].achievements.pop();
+//     }
+//     if (
+//       skillpage > 1000 &&
+//       parseInt(LanguagesPage1height) === 0 &&
+//       parseInt(CoursesPage1height) === 0 &&
+//       parseInt(AchievementsPage1height) === 0 &&
+//       parseInt(CertificatesPage1height) > 0
+//     ) {
+//       Pages[1].certifications.unshift(Pages[0].certifications[Pages[0].certifications.length - 1]);
+//       Pages[0].certifications.pop();
+//     }
+//     if (
+//       skillpage > 1000 &&
+//       parseInt(LanguagesPage1height) === 0 &&
+//       parseInt(CoursesPage1height) === 0 &&
+//       parseInt(AchievementsPage1height) === 0 &&
+//       parseInt(CertificatesPage1height) === 0 &&
+//       parseInt(ProjectsPage1height) > 0
+//     ) {
+//       Pages[1].projects.unshift(Pages[0].projects[Pages[0].projects.length - 1]);
+//       Pages[0].projects.pop();
+//       // this.setState({ userData: Pages });
 
-    }
-    if (
-      skillpage > 1000 &&
-      parseInt(LanguagesPage1height) === 0 &&
-      parseInt(CoursesPage1height) === 0 &&
-      parseInt(AchievementsPage1height) === 0 &&
-      parseInt(CertificatesPage1height) === 0 &&
-      parseInt(ProjectsPage1height) === 0 &&
-      parseInt(SkillsPage1height) > 0
-    ) {
-      Pages[1].skills.unshift(Pages[0].skills[Pages[0].skills.length - 1]);
-      Pages[0].skills.pop();
-    }
-    if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(CertificatesPage1height) + parseInt(AchievementsPage1height) + parseInt(CoursesPage1height) + parseInt(LanguagesPage1height) + parseInt(LanguagePage2height)) < 1000 && parseInt(LanguagePage2height) > 0 ) {
-      Pages[0].languages.push(Pages[1].languages[0])
-      Pages[1].languages.shift();
-    }
-    if (
-      parseInt(Headerheight) +
-        parseInt(Contactheight) +
-        parseInt(SkillsPage1height) +
-        parseInt(ProjectsPage1height) +
-        parseInt(CertificatesPage1height) +
-        parseInt(AchievementsPage1height) +
-        parseInt(CoursesPage1height) +
-        parseInt(CoursePage2height) <
-        1000 &&
-      parseInt(CoursePage2height) > 0
-    ) {
-      Pages[0].courses.push(Pages[1].courses[0]);
-      Pages[1].courses.shift();
-    }
-    if (
-      parseInt(Headerheight) +
-        parseInt(Contactheight) +
-        parseInt(SkillsPage1height) +
-        parseInt(ProjectsPage1height) +
-        parseInt(CertificatesPage1height) +
-        parseInt(AchievementsPage1height) +
-        parseInt(AchievementPage2height) <
-        1000 &&
-      parseInt(AchievementPage2height) > 0
-    ) {
-      Pages[0].achievements.push(Pages[1].achievements[0]);
-      Pages[1].achievements.shift();
-    }
-    if (
-      parseInt(Headerheight) +
-        parseInt(Contactheight) +
-        parseInt(SkillsPage1height) +
-        parseInt(ProjectsPage1height) +
-        parseInt(CertificatesPage1height) +
-        parseInt(CertificatePage2height) <
-        1000 &&
-      parseInt(CertificatePage2height) > 0
-    ) {
-      Pages[0].certifications.push(Pages[1].certifications[0]);
-      Pages[1].certifications.shift();
-    }
-    if (
-      parseInt(Headerheight) +
-        parseInt(Contactheight) +
-        parseInt(SkillsPage1height) +
-        parseInt(ProjectsPage1height) +
-        parseInt(ProjectPage2height) <
-        1000 &&
-      parseInt(ProjectPage2height) > 0
-    ) {
-      Pages[0].projects.push(Pages[1].projects[0]);
-      Pages[1].projects.shift();
-    }
-    if (
-      parseInt(Headerheight) +
-        parseInt(Contactheight) +
-        parseInt(SkillsPage1height) +
-        parseInt(SkillPage2height) <
-        1000 &&
-      parseInt(SkillPage2height) > 0
-    ) {
-      Pages[0].skills.push(Pages[1].skills[0]);
-      Pages[1].skills.shift();
-  }
+//     }
+//     if (
+//       skillpage > 1000 &&
+//       parseInt(LanguagesPage1height) === 0 &&
+//       parseInt(CoursesPage1height) === 0 &&
+//       parseInt(AchievementsPage1height) === 0 &&
+//       parseInt(CertificatesPage1height) === 0 &&
+//       parseInt(ProjectsPage1height) === 0 &&
+//       parseInt(SkillsPage1height) > 0
+//     ) {
+//       Pages[1].skills.unshift(Pages[0].skills[Pages[0].skills.length - 1]);
+//       Pages[0].skills.pop();
+//     }
+//     if((parseInt(Headerheight) + parseInt(Contactheight) + parseInt(SkillsPage1height) + parseInt(ProjectsPage1height) + parseInt(CertificatesPage1height) + parseInt(AchievementsPage1height) + parseInt(CoursesPage1height) + parseInt(LanguagesPage1height) + parseInt(LanguagePage2height)) < 1000 && parseInt(LanguagePage2height) > 0 ) {
+//       Pages[0].languages.push(Pages[1].languages[0])
+//       Pages[1].languages.shift();
+//     }
+//     if (
+//       parseInt(Headerheight) +
+//         parseInt(Contactheight) +
+//         parseInt(SkillsPage1height) +
+//         parseInt(ProjectsPage1height) +
+//         parseInt(CertificatesPage1height) +
+//         parseInt(AchievementsPage1height) +
+//         parseInt(CoursesPage1height) +
+//         parseInt(CoursePage2height) <
+//         1000 &&
+//       parseInt(CoursePage2height) > 0
+//     ) {
+//       Pages[0].courses.push(Pages[1].courses[0]);
+//       Pages[1].courses.shift();
+//     }
+//     if (
+//       parseInt(Headerheight) +
+//         parseInt(Contactheight) +
+//         parseInt(SkillsPage1height) +
+//         parseInt(ProjectsPage1height) +
+//         parseInt(CertificatesPage1height) +
+//         parseInt(AchievementsPage1height) +
+//         parseInt(AchievementPage2height) <
+//         1000 &&
+//       parseInt(AchievementPage2height) > 0
+//     ) {
+//       Pages[0].achievements.push(Pages[1].achievements[0]);
+//       Pages[1].achievements.shift();
+//     }
+//     if (
+//       parseInt(Headerheight) +
+//         parseInt(Contactheight) +
+//         parseInt(SkillsPage1height) +
+//         parseInt(ProjectsPage1height) +
+//         parseInt(CertificatesPage1height) +
+//         parseInt(CertificatePage2height) <
+//         1000 &&
+//       parseInt(CertificatePage2height) > 0
+//     ) {
+//       Pages[0].certifications.push(Pages[1].certifications[0]);
+//       Pages[1].certifications.shift();
+//     }
+//     if (
+//       parseInt(Headerheight) +
+//         parseInt(Contactheight) +
+//         parseInt(SkillsPage1height) +
+//         parseInt(ProjectsPage1height) +
+//         parseInt(ProjectPage2height) <
+//         1000 &&
+//       parseInt(ProjectPage2height) > 0
+//     ) {
+//       Pages[0].projects.push(Pages[1].projects[0]);
+//       Pages[1].projects.shift();
+//     }
+//     if (
+//       parseInt(Headerheight) +
+//         parseInt(Contactheight) +
+//         parseInt(SkillsPage1height) +
+//         parseInt(SkillPage2height) <
+//         1000 &&
+//       parseInt(SkillPage2height) > 0
+//     ) {
+//       Pages[0].skills.push(Pages[1].skills[0]);
+//       Pages[1].skills.shift();
+//   }
 
-  // Third page - page break
+//   // Third page - page break
 
-  if((parseInt(ExperiencePage2SUMheight) + parseInt(EducationPage2SUMheight)) > 1100 && parseInt(EducationPage2SUMheight) > 0) {
+//   if((parseInt(ExperiencePage2SUMheight) + parseInt(EducationPage2SUMheight)) > 1100 && parseInt(EducationPage2SUMheight) > 0) {
     
-    Pages[2].education.unshift(Pages[1].education[Pages[1].education.length - 1]);
-    Pages[1].education.pop();
-    this.setState({ userData: Pages });
+//     Pages[2].education.unshift(Pages[1].education[Pages[1].education.length - 1]);
+//     Pages[1].education.pop();
+//     this.setState({ userData: Pages });
 
-  }
-  if(parseInt(ExperiencePage2SUMheight) + parseInt(EducationPage2SUMheight) > 1110 && parseInt(EducationPage2SUMheight) === 0) {
+//   }
+//   if(parseInt(ExperiencePage2SUMheight) + parseInt(EducationPage2SUMheight) > 1110 && parseInt(EducationPage2SUMheight) === 0) {
     
-    Pages[2].experience.unshift(Pages[1].experience[Pages[1].experience.length - 1]);
-    Pages[1].experience.pop();
-  }
-  if(parseInt(TotalSkillpage2SUMheight) > 1000 && parseInt(LanguagesPage2SUMheight) > 0){
-    Pages[2].languages.unshift(Pages[1].languages[Pages[1].languages.length-1]);
-    Pages[1].languages.pop();
-  }
-  if(parseInt(TotalSkillpage2SUMheight) > 1000 && parseInt(LanguagesPage2SUMheight) === 0 && parseInt(CoursesPage2SUMheight) > 0){
-    Pages[2].courses.unshift(Pages[1].courses[Pages[1].courses.length-1]);
-    Pages[1].courses.pop();
-  }
-  if(parseInt(TotalSkillpage2SUMheight) > 1000 && parseInt(LanguagesPage2SUMheight) === 0 && parseInt(CoursesPage2SUMheight) === 0 && parseInt(AchievementsPage2SUMheight) > 0){
-    Pages[2].achievements.unshift(Pages[1].achievements[Pages[1].achievements.length-1]);
-    Pages[1].achievements.pop();
-  }
-  if(parseInt(TotalSkillpage2SUMheight) > 1000 && parseInt(LanguagesPage2SUMheight) === 0 && parseInt(CoursesPage2SUMheight) === 0 && parseInt(AchievementsPage2SUMheight) === 0 && parseInt(CertificatePage2height) > 0){
-    Pages[2].certifications.unshift(Pages[1].certifications[Pages[1].certifications.length-1]);
-    Pages[1].certifications.pop();
-  }
-  if(parseInt(TotalSkillpage2SUMheight) > 1000 && parseInt(LanguagesPage2SUMheight) === 0 && parseInt(CoursesPage2SUMheight) === 0 && parseInt(AchievementsPage2SUMheight) === 0 && parseInt(CertificatePage2height) === 0 && parseInt(ProjectPage2height) > 0){
-    Pages[2].projects.unshift(Pages[1].projects[Pages[1].projects.length-1]);
-    Pages[1].projects.pop();
-  }
-  if(parseInt(TotalSkillpage2SUMheight) > 1000 && parseInt(LanguagesPage2SUMheight) === 0 && parseInt(CoursesPage2SUMheight) === 0 && parseInt(AchievementsPage2SUMheight) === 0 && parseInt(CertificatePage2height) === 0 && parseInt(ProjectPage2height) === 0 && parseInt(SkillPage2height) > 0){
-    Pages[2].skills.unshift(Pages[1].skills[Pages[1].skills.length-1]);
-    Pages[1].skills.pop();
-  }
+//     Pages[2].experience.unshift(Pages[1].experience[Pages[1].experience.length - 1]);
+//     Pages[1].experience.pop();
+//   }
+//   if(parseInt(TotalSkillpage2SUMheight) > 1000 && parseInt(LanguagesPage2SUMheight) > 0){
+//     Pages[2].languages.unshift(Pages[1].languages[Pages[1].languages.length-1]);
+//     Pages[1].languages.pop();
+//   }
+//   if(parseInt(TotalSkillpage2SUMheight) > 1000 && parseInt(LanguagesPage2SUMheight) === 0 && parseInt(CoursesPage2SUMheight) > 0){
+//     Pages[2].courses.unshift(Pages[1].courses[Pages[1].courses.length-1]);
+//     Pages[1].courses.pop();
+//   }
+//   if(parseInt(TotalSkillpage2SUMheight) > 1000 && parseInt(LanguagesPage2SUMheight) === 0 && parseInt(CoursesPage2SUMheight) === 0 && parseInt(AchievementsPage2SUMheight) > 0){
+//     Pages[2].achievements.unshift(Pages[1].achievements[Pages[1].achievements.length-1]);
+//     Pages[1].achievements.pop();
+//   }
+//   if(parseInt(TotalSkillpage2SUMheight) > 1000 && parseInt(LanguagesPage2SUMheight) === 0 && parseInt(CoursesPage2SUMheight) === 0 && parseInt(AchievementsPage2SUMheight) === 0 && parseInt(CertificatePage2height) > 0){
+//     Pages[2].certifications.unshift(Pages[1].certifications[Pages[1].certifications.length-1]);
+//     Pages[1].certifications.pop();
+//   }
+//   if(parseInt(TotalSkillpage2SUMheight) > 1000 && parseInt(LanguagesPage2SUMheight) === 0 && parseInt(CoursesPage2SUMheight) === 0 && parseInt(AchievementsPage2SUMheight) === 0 && parseInt(CertificatePage2height) === 0 && parseInt(ProjectPage2height) > 0){
+//     Pages[2].projects.unshift(Pages[1].projects[Pages[1].projects.length-1]);
+//     Pages[1].projects.pop();
+//   }
+//   if(parseInt(TotalSkillpage2SUMheight) > 1000 && parseInt(LanguagesPage2SUMheight) === 0 && parseInt(CoursesPage2SUMheight) === 0 && parseInt(AchievementsPage2SUMheight) === 0 && parseInt(CertificatePage2height) === 0 && parseInt(ProjectPage2height) === 0 && parseInt(SkillPage2height) > 0){
+//     Pages[2].skills.unshift(Pages[1].skills[Pages[1].skills.length-1]);
+//     Pages[1].skills.pop();
+//   }
     
   }
 
-  componentDidMount() {
+  async componentDidMount () {
     if (
       localStorage.getItem("currentCV") === null ||
       localStorage.getItem("currentCV") === ""
     ) {
-      const id = guidGenerator();
-      this.setState({ id });
-      localStorage.setItem("currentCV", id);
+      const idG = await guidGenerator();
+      await this.setState({ id: idG });
+      await localStorage.setItem("currentCV", this.state.id);
       console.log(`the state id is - ${this.state.id}`);
       axios.post(
         `http://localhost:5000/api/users/resume/cv/${this.state.id}`,
@@ -495,13 +618,14 @@ class ThemeContextProvider extends Component {
     newObject[0].languages = response.data.languages ? response.data.languages.map(el => { return { language: el, level: "B1" }}) : [{ language: "Language", level: "B1" }]
     newObject[0].courses = response.data.courses ? response.data.courses.map(el => { return { title: el, desc: "Description" }}) : [{ title: "Course name", desc: "Short description" }]
     newObject[0].projects = response.data.projects ? response.data.projects : [{ title: "Project name", desc: "Description of achievements" }]
-    newObject[0].contact[0].value = response.data.contacts.filter(el => el.Type === "Email")[0].contact
-    newObject[0].contact[6].value = response.data.contacts.filter(el => el.Type === "Website")[0].contact
+    newObject[0].contact[0].value = response.data.Email ? response.data.Email : "Email"
+    newObject[0].contact[6].value = response.data.Website ? response.data.Website : "Website"
     newObject[0].certifications = ["Certificate name"]
     newObject[0].achievements = ["Achievement name"]
     // console.log(response.data.contacts)
     // console.log(`http://localhost:5000/static/${profile}.jpg`);
     this.setState({ userData: newObject });
+    this.setState(this.state)
 
     // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
   };
@@ -510,10 +634,7 @@ class ThemeContextProvider extends Component {
      const userID = await aFunction();
 
     //const data = JSON.stringify(this.state)
-    axios.post(
-      `http://localhost:5000/api/users/resume/cv/${userID}`,
-      this.state
-      );
+    axios.post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state);
   };
   // Those 3 functions add array of strings, will try to DRY later
   modifyEd = (page, field, value, index) => {

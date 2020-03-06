@@ -79,7 +79,7 @@ class ExperienceGroup extends React.Component {
                 <div className="editableDiv">
                   <span
                     onBlur={e =>
-                      setTimeout(modifyEx(this.props.index, "company", e.target.innerText, this.props.dat), 3000)
+                      modifyEx(this.props.index, "company", e.target.innerText, this.props.dat)
                     }
                     className="CvCompany"
                     contentEditable="true"

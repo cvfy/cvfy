@@ -168,16 +168,7 @@ const saveCVtoServer = (req, res, next)  => {
 if(success){
     console.log("This is the obj+++++++++"+ success)
     User.updateOne({"_id": req.params.id, "cv.id": req.body.id}, 
-    {$set: {"cv.$.userData": req.body.userData,
-    "cv.$.color": req.body.color,
-    "cv.$.font": req.body.font,
-    "cv.$.size1": req.body.size1,
-    "cv.$.size2": req.body.size2,
-    "cv.$.size3": req.body.size3,
-    "cv.$.size4": req.body.size4,
-    "cv.$.tasksHistory": req.body.tasksHistory,
-    "cv.$.tasksOutput": req.body.tasksOutput,
-    "cv.$.value": req.body.value
+    {$set: {"cv.$": req.body,
 }}, function(err, success){
         if(success){
             console.log("i updated the obj!!")
