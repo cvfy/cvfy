@@ -1095,6 +1095,38 @@ class ThemeContextProvider extends Component {
     this.setState({ displaySummary: !currentState });
   };
 
+  toggleFontWeight = () => {
+    document.execCommand("bold", false, "");
+  };
+
+  toggleFontStyle = () => {
+    document.execCommand("italic", false, "");
+  };
+
+  toggleTextDecoration = () => {
+    document.execCommand("underline", false, "");
+  };
+
+  toggleJustifyCenter = () => {
+    document.execCommand("justifyCenter", false, "");
+  };
+
+  toggleJustifyLeft = () => {
+    document.execCommand("justifyLeft", false, "");
+  };
+
+  toggleJustifyRight = () => {
+    document.execCommand("justifyRight", false, "");
+  };
+
+  toggleInsertOrderedList = () => {
+    document.execCommand("insertOrderedList", false, "");
+  };
+
+  toggleInsertUnorderedList = () => {
+    document.execCommand("insertUnorderedList", false, "");
+  };
+
   render() {
     return (
       <ThemeContext.Provider
@@ -1116,6 +1148,14 @@ class ThemeContextProvider extends Component {
           togglePhotoClass: this.togglePhotoClass,
           toggleTitleClass: this.toggleTitleClass,
           toggleSummaryClass: this.toggleSummaryClass,
+          toggleFontWeight: this.toggleFontWeight,
+          toggleFontStyle: this.toggleFontStyle,
+          toggleTextDecoration: this.toggleTextDecoration,
+          toggleJustifyCenter: this.toggleJustifyCenter,
+          toggleJustifyLeft: this.toggleJustifyLeft,
+          toggleJustifyRight: this.toggleJustifyRight,
+          toggleInsertOrderedList: this.toggleInsertOrderedList,
+          toggleInsertUnorderedList: this.toggleInsertUnorderedList,
           importData: this.importData,
           saveCVDataToServer: this.saveCVDataToServer,
           modifyEd: this.modifyEd,
