@@ -32,7 +32,7 @@ class LinkedInData extends Component {
               >
                 Import
               </button>
-              <button onClick={saveCVDataToServer} className="saveUpdateButton">Save</button>
+              <button onClick={() => saveCVDataToServer()} className="saveUpdateButton">Save</button>
             </div>
           );
         }}

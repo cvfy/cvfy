@@ -12,8 +12,8 @@ async function giveMePDF(resumeID) {
         try {
             const page = await browser.newPage()
             await page.setViewport({
-                width: 1200,
-                height: 1600
+                width: 1600,
+                height: 4600
             })
             await page.goto('http://localhost:3000/login', { waitUntil: 'networkidle2' });
             // await page.waitFor(1000);
@@ -52,6 +52,7 @@ async function giveMePDF(resumeID) {
                 //await page.waitFor(1000);
                 if(i>1){await autoScroll(page)}
                 
+                await page.emulateMedia('screen');
                 const pic = await page.$$('.A4')
                 await pic[i].screenshot({
                    path: `profile_picture/scre${i}.jpg`,

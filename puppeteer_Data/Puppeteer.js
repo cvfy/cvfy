@@ -47,6 +47,7 @@ async function giveMeData(profile) {
                 })
 return contacts
             })
+            await page.keyboard.press('Escape')
             await page.waitFor(2000);
             await autoScroll(page)
             //await page.click('section.experience-section button')
@@ -169,7 +170,8 @@ return contacts
             //console.log(cvData.accomplishments[0].accomplishmentList)
             //console.log(cvData.accomplishments[1].accomplishmentList)
             //console.log(cvData.accomplishments[2].accomplishmentList)
-            cvData.contacts  = contactData;
+            // cvData.contacts  = contactData;
+            contactData.forEach(el => cvData[el.Type] = el.contact)
             console.log(cvData.contacts)
             return cvData
         } catch (err) {
