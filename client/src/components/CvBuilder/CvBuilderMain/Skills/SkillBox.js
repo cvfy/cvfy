@@ -22,7 +22,7 @@ class SkillBox extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifySkill, addGroup, deleteGroup } = context;
+          const { modifySkill, addGroup, deleteGroup, moveUpGroup, moveDownGroup } = context;
           return (
             <>
               <div
@@ -50,10 +50,12 @@ class SkillBox extends React.Component {
                     onClick={() => addGroup("skills", this.props.index, this.props.dat)}
                     title="add group"
                   ></i>
-                  <i className="fas fa-angle-up angleIcon" title="move up"></i>
+                  <i className="fas fa-angle-up angleIcon" title="move up"
+                  onClick={() => moveUpGroup("skills", this.props.index, this.props.dat)}></i>
                   <i
                     className="fas fa-angle-down angleIcon"
                     title="move down"
+                    onClick={() => moveDownGroup("skills", this.props.index, this.props.dat)}
                   ></i>
                   <i
                     onClick={() => deleteGroup("skills", this.props.index, this.props.dat)}

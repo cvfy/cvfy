@@ -25,7 +25,7 @@ class ProjectGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyProjects, addGroup, deleteGroup } = context;
+          const { modifyProjects, addGroup, deleteGroup, moveUpGroup, moveDownGroup } = context;
           return (
             <>
               <div
@@ -50,10 +50,12 @@ class ProjectGroup extends React.Component {
                     onClick={() => addGroup("projects", this.props.index, this.props.dat)}
                     title="add group"
                   ></i>
-                  <i className="fas fa-angle-up angleIcon" title="move up"></i>
+                  <i className="fas fa-angle-up angleIcon" title="move up"
+                  onClick={() => moveUpGroup("projects", this.props.index, this.props.dat)}></i>
                   <i
                     className="fas fa-angle-down angleIcon"
                     title="move down"
+                    onClick={() => moveDownGroup("projects", this.props.index, this.props.dat)}
                   ></i>
                   <i
                     onClick={() => deleteGroup("projects", this.props.index, this.props.dat)}

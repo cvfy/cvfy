@@ -22,7 +22,7 @@ class CourseGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyCourses, addGroup, deleteGroup } = context;
+          const { modifyCourses, addGroup, deleteGroup, moveUpGroup, moveDownGroup } = context;
           return (
             <>
               <div
@@ -47,10 +47,12 @@ class CourseGroup extends React.Component {
                     onClick={() => addGroup("courses", this.props.index, this.props.dat)}
                     title="add group"
                   ></i>
-                  <i className="fas fa-angle-up angleIcon" title="move up"></i>
+                  <i className="fas fa-angle-up angleIcon" title="move up"
+                  onClick={() => moveUpGroup("courses", this.props.index, this.props.dat)}></i>
                   <i
                     className="fas fa-angle-down angleIcon"
                     title="move down"
+                    onClick={() => moveDownGroup("courses", this.props.index, this.props.dat)}
                   ></i>
                   <i
                     onClick={() => deleteGroup("courses", this.props.index, this.props.dat)}
