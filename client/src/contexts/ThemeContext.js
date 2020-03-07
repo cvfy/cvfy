@@ -47,11 +47,12 @@ class ThemeContextProvider extends Component {
       size4: "",
       tasksHistory: [],
       tasksOutput: [],
-      value: ""
+      value: "",
+      displayPhoto: true,
+     displayTitle: true,
+     displaySummary: true
     },
-    displayPhoto: true,
-    displayTitle: true,
-    displaySummary: true,
+    
     userData: [{
       fullName: "FULL NAME",
       intro: "Professional title",
@@ -841,18 +842,24 @@ this.setState(this.state)
   };
 
   togglePhotoClass = () => {
-    const currentState = this.state.displayPhoto;
-    this.setState({ displayPhoto: !currentState });
+    const currentState = this.state.style.displayPhoto;
+    let newObject = {...this.state.style};
+    newObject.displayPhoto = !currentState
+    this.setState({ style: newObject });
   };
 
   toggleTitleClass = () => {
-    const currentState = this.state.displayTitle;
-    this.setState({ displayTitle: !currentState });
+    const currentState = this.state.style.displayTitle;
+    let newObject = {...this.state.style};
+    newObject.displayTitle = !currentState
+    this.setState({ style: newObject });
   };
 
   toggleSummaryClass = () => {
-    const currentState = this.state.displaySummary;
-    this.setState({ displaySummary: !currentState });
+    const currentState = this.state.style.displaySummary;
+    let newObject = {...this.state.style};
+    newObject.displaySummary = !currentState
+    this.setState({ style: newObject });
   };
 
   toggleFontWeight = () => {

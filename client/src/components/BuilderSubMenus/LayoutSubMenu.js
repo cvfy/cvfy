@@ -68,7 +68,7 @@ class LayoutSubMenu extends Component {
                       <input type="radio" name="radio" />
                       <span
                         className={
-                          context.displayPhoto ? "checkedCircle" : "checkMark"
+                          context.style.displayPhoto ? "checkedCircle" : "checkMark"
                         }
                         onClick={togglePhotoClass}
                       ></span>
@@ -78,7 +78,7 @@ class LayoutSubMenu extends Component {
                       <input type="radio" name="radio" />
                       <span
                         className={
-                          context.displayTitle ? "checkedCircle" : "checkMark"
+                          context.style.displayTitle ? "checkedCircle" : "checkMark"
                         }
                         onClick={toggleTitleClass}
                       ></span>
@@ -92,7 +92,7 @@ class LayoutSubMenu extends Component {
                       />
                       <span
                         className={
-                          context.displaySummary ? "checkedCircle" : "checkMark"
+                          context.style.displaySummary ? "checkedCircle" : "checkMark"
                         }
                         onClick={toggleSummaryClass}
                       ></span>

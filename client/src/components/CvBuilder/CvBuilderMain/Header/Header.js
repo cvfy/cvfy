@@ -44,7 +44,7 @@ class Header extends React.Component {
           const { modifyAbout } = context;
           return (
             <div className="header-inner">
-              <div className={context.displayPhoto ? "photo" : "hideSection"}>
+              <div className={context.style.displayPhoto ? "photo" : "hideSection"}>
                 <input
                   style={{ display: "none" }}
                   type="file"
@@ -73,7 +73,7 @@ class Header extends React.Component {
 
                 <div
                   className={
-                    context.displayTitle
+                    context.style.displayTitle
                       ? "editableHeaderDiv CvTitle"
                       : "hideSection"
                   }
@@ -104,7 +104,7 @@ class Header extends React.Component {
 
                 <div
                   className={
-                    context.displaySummary ? "editableHeaderDiv" : "hideSection"
+                    context.style.displaySummary ? "editableHeaderDiv" : "hideSection"
                   }
                 >
                   <span
