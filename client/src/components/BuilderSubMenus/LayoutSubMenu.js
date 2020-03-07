@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Draggable from "./Draggable";
+
+  
 
 class LayoutSubMenu extends Component {
   constructor() {
@@ -25,12 +27,19 @@ class LayoutSubMenu extends Component {
   }
 
   closeMenu(event) {
+    if((document.querySelector('#leftCvSection div.dndSection')) && (document.querySelector('#rightCvSection div.dndSection'))){
+
+      const leftSide = Array.from(document.querySelectorAll('#leftCvSection div.dndSection')).map(el => el.getAttribute("name"))
+      const rightSide = Array.from(document.querySelectorAll('#rightCvSection div.dndSection')).map(el => el.getAttribute("name"))
+      this.props.setStructure( leftSide, rightSide)
+    }
+
     if (!this.dropdownMenu.contains(event.target)) {
       this.setState({ showMenu: false }, () => {
         document.removeEventListener("click", this.closeMenu);
-      });
-    }
-  }
+      })
+
+  }}
 
   handleUserChange(e) {
     const userId = e.currentTarget.dataset.userId;

@@ -39,16 +39,24 @@ class CvBuilderMain extends React.Component {
             {/* <Contacts index={i} /> */}
             <div className="A4ContentWrap">
               <div className="left">
-              {el.experience[0] && <Experience index={i} />}
-              {el.education[0] && <Education index={i} />}
+              {(el.experience[0] && context.style.leftSide.includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.leftSide.includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.leftSide.includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.leftSide.includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.leftSide.includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.leftSide.includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.leftSide.includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.leftSide.includes("") ) && <Languages index={i} />}
               </div>
               <div className="right">
-              {el.skills[0] && <Skills index={i} />}
-              {el.projects[0] && <Projects index={i} />}
-              {el.certifications[0] && <Certifications index={i} />}
-              {el.achievements[0] && <Achievements index={i} />}
-              {el.courses[0] && <Courses index={i} />}
-              {el.languages[0] && <Languages index={i} />}
+              {(el.experience[0] && context.style.rightSide.includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.rightSide.includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.rightSide.includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.rightSide.includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.rightSide.includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.rightSide.includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.rightSide.includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.rightSide.includes("languages") ) && <Languages index={i} />}
               </div>
             </div>
           </div>

@@ -50,7 +50,9 @@ class ThemeContextProvider extends Component {
       value: "",
       displayPhoto: true,
      displayTitle: true,
-     displaySummary: true
+     displaySummary: true,
+     leftSide: ["experience", "education"],
+     rightSide: ["skills", "projects", "certifications", "achievements", "courses", "languages"]
     },
     
     userData: [{
@@ -745,7 +747,14 @@ this.setState(this.state)
     }
   
   this.setState({ userData: newObject });
-
+  
+}
+setStructure = ( arr1, arr2) => {
+  let newObj = { ...this.state }
+  newObj.style.leftSide = arr1
+  newObj.style.rightSide = arr2
+  
+  this.setState(newObj);
 }
 // ..............................................................
   handleContactIcon = () => {
@@ -936,7 +945,8 @@ this.setState(this.state)
           modifyCourses: this.modifyCourses,
           moveUpGroup: this.moveUpGroup,
           moveDownGroup: this.moveDownGroup,
-          generatePDF: this.generatePDF
+          generatePDF: this.generatePDF,
+          setStructure: this.setStructure
         }}
       >
         {this.props.children}
