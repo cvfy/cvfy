@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const giveMeData = require ('../../puppeteer_Data/Puppeteer.js');
 const giveMePDF = require ('../../puppeteer_Data/GeneratePDF.js');
+const giveMeScreenShot = require ('../../puppeteer_Data/GenerateSreenShot');
 const fs = require('fs')
 
 // Load input validation
@@ -173,6 +174,7 @@ if(success){
 }}, function(err, success){
         if(success){
             console.log("i updated the obj!!")
+            giveMeScreenShot(req.body.id)
 
         }else {
             console.log(err)
@@ -188,13 +190,14 @@ else{
                  console.log(error);
              } else {
                  console.log("New CV Created!!!!")
+                 giveMeScreenShot(req.body.id)
              }
          });
 }
                 }
             }
         );   
-     
+    //  giveMeScreenShot(req.body.id)
 }
 
 router.post("/resume/cv/:id" , saveCVtoServer)
@@ -218,5 +221,19 @@ const getCVFromServer = (req, res, next) => {
         }
     )}
     router.get("/resume/cv/currentCV/:id" , getCVFromServer)
+
+
+const getALLCVFromServer = (req, res, next) => {
+    User.findOne(
+        { "_id": req.params.id }, 
+        function (err, success) {
+            if (err){
+                console.log(err)}
+            else if(success) {
+                res.send(success.cv)
+            }
+        }
+    )}
+    router.get("/resume/cv/allCV/:id" , getALLCVFromServer)
 module.exports = router;
 
