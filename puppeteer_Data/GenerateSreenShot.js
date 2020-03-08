@@ -7,7 +7,7 @@ const imagesToPdf = require("images-to-pdf")
 async function giveMeScreenShot(resumeID) {
 
     const result = await puppeteer.launch({
-        headless: false,
+        headless: true,
     }).then(async browser => {
         try {
             const page = await browser.newPage()
@@ -28,7 +28,7 @@ async function giveMeScreenShot(resumeID) {
                 localStorage.setItem('currentCV', resumeID);
             }, resumeID);
             await page.goto('http://localhost:3000/create-cv',  { waitUntil: 'networkidle2' });
-            // await page.waitFor(2000);
+            await page.waitFor(3000);
             const pic = await page.$('.A4')
                 await pic.screenshot({
                    path: `profile_picture/${resumeID}.jpg`,

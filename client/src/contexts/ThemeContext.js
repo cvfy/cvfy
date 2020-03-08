@@ -319,7 +319,8 @@ class ThemeContextProvider extends Component {
 this.setState(this.state)
     // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
   };
-  saveCVDataToServer = async () => {
+  saveCVDataToServer = async (e) => {
+    e.preventDefault()
     console.log("i am calling");
     const userID = await aFunction();
 
