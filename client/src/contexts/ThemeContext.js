@@ -51,6 +51,7 @@ class ThemeContextProvider extends Component {
       displayPhoto: true,
      displayTitle: true,
      displaySummary: true,
+      displayOneColumn: false,
      leftSide: ["experience", "education"],
      rightSide: ["skills", "projects", "certifications", "achievements", "courses", "languages"]
     },
@@ -871,6 +872,13 @@ setStructure = ( arr1, arr2) => {
     this.setState({ style: newObject });
   };
 
+  toggleOneColumn = () => {
+    const currentState = this.state.style.displayOneColumn;
+    let newObject = {...this.state.style};
+    newObject.displayOneColumn = !currentState
+    this.setState({ style: newObject });
+  }
+
   toggleFontWeight = () => {
     document.execCommand("bold", false, "");
   };
@@ -924,6 +932,7 @@ setStructure = ( arr1, arr2) => {
           togglePhotoClass: this.togglePhotoClass,
           toggleTitleClass: this.toggleTitleClass,
           toggleSummaryClass: this.toggleSummaryClass,
+          toggleOneColumn: this.toggleOneColumn,
           toggleFontWeight: this.toggleFontWeight,
           toggleFontStyle: this.toggleFontStyle,
           toggleTextDecoration: this.toggleTextDecoration,

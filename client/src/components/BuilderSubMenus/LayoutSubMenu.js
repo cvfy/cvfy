@@ -2,8 +2,6 @@ import React, { Component, useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Draggable from "./Draggable";
 
-  
-
 class LayoutSubMenu extends Component {
   constructor() {
     super();
@@ -27,19 +25,25 @@ class LayoutSubMenu extends Component {
   }
 
   closeMenu(event) {
-    if((document.querySelector('#leftCvSection div.dndSection')) && (document.querySelector('#rightCvSection div.dndSection'))){
-
-      const leftSide = Array.from(document.querySelectorAll('#leftCvSection div.dndSection')).map(el => el.getAttribute("name"))
-      const rightSide = Array.from(document.querySelectorAll('#rightCvSection div.dndSection')).map(el => el.getAttribute("name"))
-      this.props.setStructure( leftSide, rightSide)
+    if (
+      document.querySelector("#leftCvSection div.dndSection") &&
+      document.querySelector("#rightCvSection div.dndSection")
+    ) {
+      const leftSide = Array.from(
+        document.querySelectorAll("#leftCvSection div.dndSection")
+      ).map(el => el.getAttribute("name"));
+      const rightSide = Array.from(
+        document.querySelectorAll("#rightCvSection div.dndSection")
+      ).map(el => el.getAttribute("name"));
+      this.props.setStructure(leftSide, rightSide);
     }
 
     if (!this.dropdownMenu.contains(event.target)) {
       this.setState({ showMenu: false }, () => {
         document.removeEventListener("click", this.closeMenu);
-      })
-
-  }}
+      });
+    }
+  }
 
   handleUserChange(e) {
     const userId = e.currentTarget.dataset.userId;
@@ -54,7 +58,8 @@ class LayoutSubMenu extends Component {
           const {
             togglePhotoClass,
             toggleTitleClass,
-            toggleSummaryClass
+            toggleSummaryClass,
+            toggleOneColumn
           } = context;
           return (
             <div>
@@ -77,7 +82,9 @@ class LayoutSubMenu extends Component {
                       <input type="radio" name="radio" />
                       <span
                         className={
-                          context.style.displayPhoto ? "checkedCircle" : "checkMark"
+                          context.style.displayPhoto
+                            ? "checkedCircle"
+                            : "checkMark"
                         }
                         onClick={togglePhotoClass}
                       ></span>
@@ -87,7 +94,9 @@ class LayoutSubMenu extends Component {
                       <input type="radio" name="radio" />
                       <span
                         className={
-                          context.style.displayTitle ? "checkedCircle" : "checkMark"
+                          context.style.displayTitle
+                            ? "checkedCircle"
+                            : "checkMark"
                         }
                         onClick={toggleTitleClass}
                       ></span>
@@ -101,7 +110,9 @@ class LayoutSubMenu extends Component {
                       />
                       <span
                         className={
-                          context.style.displaySummary ? "checkedCircle" : "checkMark"
+                          context.style.displaySummary
+                            ? "checkedCircle"
+                            : "checkMark"
                         }
                         onClick={toggleSummaryClass}
                       ></span>
@@ -112,7 +123,20 @@ class LayoutSubMenu extends Component {
                     <div>Suggested</div>
                     <div>Custom</div>
                   </div>
-
+                  <div className="oneColumnDiv">
+                    <label className="headerContainer">
+                      One column
+                      <input type="radio" name="radio" />
+                      <span
+                        className={
+                          context.style.displayOneColumn
+                            ? "checkedCircle"
+                            : "checkMark"
+                        }
+                        onClick={toggleOneColumn}
+                      ></span>
+                    </label>
+                  </div>
                   <Draggable></Draggable>
                 </div>
               ) : null}
