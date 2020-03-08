@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 function Draggable(props) {
   const drop = e => {
@@ -33,88 +34,103 @@ function Draggable(props) {
   };
 
   return (
-    <>
-      <div
-        id="board-1"
-        className="board"
-        className="layoutCV"
-        onDrop={drop}
-        onDragOver={dragOver}
-      >
-        <div id="leftCvSection">{props.children}</div>
-        <div id="rightCvSection">{props.children}</div>
-      </div>
+    <ThemeContext.Consumer>
+      {context => {
+        return (
+          <>
+            <div
+              id="board-1"
+              className="board"
+              className={
+                context.style.displayOneColumn ? "layoutOneColumn" : "layoutCV"
+              }
+              onDrop={drop}
+              onDragOver={dragOver}
+            >
+              <div id="leftCvSection">{props.children}</div>
+              <div id="rightCvSection">{props.children}</div>
+            </div>
 
-      <div className="dndText">Drag and drop to add or remove sections</div>
+            <div className="dndText">
+              Drag and drop to add or remove sections
+            </div>
 
-      <div
-        id="board-2"
-        className="board"
-        className="dndContainer"
-        onDrop={drop}
-        onDragOver={dragOver}
-      >
-        <Card
-          id="card-1"
-          className="dndSection"
-          name="experience"
-          draggable="true"
-        >
-          <p className="dndSectionP">Experience</p>
-        </Card>
-        <Card
-          id="card-2"
-          className="dndSection"
-          name="education"
-          draggable="true"
-        >
-          <p className="dndSectionP">Education</p>
-        </Card>
-        <Card id="card-3" className="dndSection" name="skills" draggable="true">
-          <p className="dndSectionP">Skills</p>
-        </Card>
-        <Card
-          id="card-4"
-          className="dndSection"
-          name="projects"
-          draggable="true"
-        >
-          <p className="dndSectionP">Projects</p>
-        </Card>
-        <Card
-          id="card-5"
-          className="dndSection"
-          name="certifications"
-          draggable="true"
-        >
-          <p className="dndSectionP">Certifications</p>
-        </Card>
-        <Card
-          id="card-6"
-          className="dndSection"
-          name="achievements"
-          draggable="true"
-        >
-          <p className="dndSectionP">Achievements</p>
-        </Card>
-        <Card
-          id="card-7"
-          className="dndSection"
-          name="courses"
-          draggable="true"
-        >
-          <p className="dndSectionP">Courses</p>
-        </Card>
-        <Card
-          id="card-8"
-          className="dndSection"
-          name="languages"
-          draggable="true"
-        >
-          <p className="dndSectionP">Languages</p>
-        </Card>
-      </div>
-    </>
+            <div
+              id="board-2"
+              className="board"
+              className="dndContainer"
+              onDrop={drop}
+              onDragOver={dragOver}
+            >
+              <Card
+                id="card-1"
+                className="dndSection"
+                name="experience"
+                draggable="true"
+              >
+                <p className="dndSectionP">Experience</p>
+              </Card>
+              <Card
+                id="card-2"
+                className="dndSection"
+                name="education"
+                draggable="true"
+              >
+                <p className="dndSectionP">Education</p>
+              </Card>
+              <Card
+                id="card-3"
+                className="dndSection"
+                name="skills"
+                draggable="true"
+              >
+                <p className="dndSectionP">Skills</p>
+              </Card>
+              <Card
+                id="card-4"
+                className="dndSection"
+                name="projects"
+                draggable="true"
+              >
+                <p className="dndSectionP">Projects</p>
+              </Card>
+              <Card
+                id="card-5"
+                className="dndSection"
+                name="certifications"
+                draggable="true"
+              >
+                <p className="dndSectionP">Certifications</p>
+              </Card>
+              <Card
+                id="card-6"
+                className="dndSection"
+                name="achievements"
+                draggable="true"
+              >
+                <p className="dndSectionP">Achievements</p>
+              </Card>
+              <Card
+                id="card-7"
+                className="dndSection"
+                name="courses"
+                draggable="true"
+              >
+                <p className="dndSectionP">Courses</p>
+              </Card>
+              <Card
+                id="card-8"
+                className="dndSection"
+                name="languages"
+                draggable="true"
+              >
+                <p className="dndSectionP">Languages</p>
+              </Card>
+            </div>
+          </>
+        );
+      }}
+    </ThemeContext.Consumer>
   );
 }
 

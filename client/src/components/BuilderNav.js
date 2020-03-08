@@ -20,7 +20,7 @@ const BuilderNav = () => {
   };
   return (
     <div className="CvMenu">
-      <NavLink to="/">
+      <NavLink style={{ textDecoration: "none" }} to="/">
         <span className="logo-template">CV|FY</span>
       </NavLink>
       <div className="design">
@@ -29,7 +29,7 @@ const BuilderNav = () => {
           <FontSubMenu />
           <ColorSubMenu />
           <FontSizeSubMenu />
-          <LayoutSubMenu setStructure ={context.setStructure} />
+          <LayoutSubMenu setStructure={context.setStructure} />
           <TemplatesSubMenu />
         </div>
       </div>
