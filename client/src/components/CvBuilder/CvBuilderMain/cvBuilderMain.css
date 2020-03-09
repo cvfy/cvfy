@@ -727,6 +727,7 @@ input[type="text"]:focus {
 .jobForm label {
   margin: 0;
   width: 30%;
+  text-align: center;
 }
 
 .JobDashboardForm form .JobDashboardButton {
@@ -736,12 +737,17 @@ input[type="text"]:focus {
   width: 50%;
   font-size: 16px;
   display: flex;
-  vertical-align: center;
-  background-color: #68ec94;
+  border: 1px solid lightgray;
+  background-color: #67eb946b;
   color: black;
+  font-weight: 600;
   align-items: center;
   justify-content: center;
   line-height: 0;
+}
+
+.JobDashboardForm form .JobDashboardButton:hover {
+  background: #19ee608f;
 }
 
 .JobDashboardForm form .JobAdInput {
@@ -833,6 +839,7 @@ input[type="text"]:focus {
   border-radius: 10px 10px 0 0;
   background: #68ec94;
   color: black;
+  font-weight: 600;
   cursor: pointer;
   font-size: 16px;
 }

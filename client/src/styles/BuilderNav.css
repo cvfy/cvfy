@@ -100,10 +100,11 @@
 
 .download-btn {
   height: 60px;
-  background-color: #2bb5b963;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px dotted lightgray;
+  border-top: none;
 }
 
 .download-btn:hover {
@@ -636,12 +637,12 @@
 }
 
 .saveUpdateButton {
-  background: #0384ec;
-  color: #eee;
+  background: #68ec94;
+  color: black;
 }
 
 .saveUpdateButton:hover {
-  background: #3a9ff1;
+  background: #19ee60;
 }
 
 .menuBottomBarDiv {
