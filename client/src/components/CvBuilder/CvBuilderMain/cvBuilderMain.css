@@ -134,7 +134,7 @@
 
 .skillsMenuDiv {
   position: absolute;
-  bottom: 310px;
+  bottom: 270px;
 }
 
 .languageMenuDiv {
@@ -836,14 +836,14 @@ form label {
   padding: 0 10px;
   border: 1px solid #82898d;
   border-radius: 10px 10px 0 0;
-  background: #8df880;
+  background: #68ec94;
   color: black;
   cursor: pointer;
-
+  font-size: 16px;
 }
 
 .bookmark_link:hover {
-  background-color: #82898d;
+  background-color: #19ee60;
 }
 
 .transitionDashboard {

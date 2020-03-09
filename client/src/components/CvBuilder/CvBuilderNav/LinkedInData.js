@@ -13,6 +13,11 @@ class LinkedInData extends Component {
     this.setState({ value: event.target.value });
   }
 
+  setLocalStorage = id => {
+    localStorage.setItem("currentCV", id);
+    window.location.href = "http://localhost:3000/create-cv";
+  };
+
   render() {
     return (
       <ThemeContext.Consumer>
@@ -175,7 +180,7 @@ class LinkedInData extends Component {
                   Save
                 </button>
                 <button
-                  // onClick={e => saveCVDataToServer(e)}
+                  onClick={() => this.setLocalStorage("")}
                   className="saveUpdateButton"
                 >
                   New CV
