@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const giveMeData = require ('../../puppeteer_Data/Puppeteer.js');
 const giveMePDF = require ('../../puppeteer_Data/GeneratePDF.js');
+const giveStepStoneData = require ('../../puppeteer_Data/StepStoneData');
 const giveMeScreenShot = require ('../../puppeteer_Data/GenerateSreenShot');
 const fs = require('fs')
 
@@ -181,7 +182,7 @@ if(success){
         }
     })
 }
-else{
+if(!success){
         User.findOneAndUpdate(
         { _id: req.params.id }, 
         { $push: { cv: req.body } },
@@ -235,5 +236,19 @@ const getALLCVFromServer = (req, res, next) => {
         }
     )}
     router.get("/resume/cv/allCV/:id" , getALLCVFromServer)
+// StepStoneData
+    const sendStepStoneData = async (req, res, next) => {
+        try {
+            const datas = await giveStepStoneData(req.params.position, req.params.location);
+            //const datas = await giveMePDF();
+            console.log(datas)
+            
+            res.status(200).send(datas);
+        } catch (e) {
+            next(e);
+            res.status(404).send("something went wrong")
+        }
+    };
+    router.get("/data/stepstone/position/:position/location/:location", sendStepStoneData)
 module.exports = router;
 
