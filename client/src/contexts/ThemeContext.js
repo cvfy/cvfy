@@ -911,6 +911,14 @@ setStructure = ( arr1, arr2) => {
     document.execCommand("insertUnorderedList", false, "");
   };
 
+  toggleUndo = () => {
+    document.execCommand("undo", false, "");
+  };
+
+  toggleRedo = () => {
+    document.execCommand("redo", false, "");
+  };
+
   render() {
     return (
       <ThemeContext.Provider
@@ -941,6 +949,8 @@ setStructure = ( arr1, arr2) => {
           toggleJustifyRight: this.toggleJustifyRight,
           toggleInsertOrderedList: this.toggleInsertOrderedList,
           toggleInsertUnorderedList: this.toggleInsertUnorderedList,
+          toggleUndo: this.toggleUndo,
+          toggleRedo: this.toggleRedo,
           importData: this.importData,
           saveCVDataToServer: this.saveCVDataToServer,
           modifyEd: this.modifyEd,

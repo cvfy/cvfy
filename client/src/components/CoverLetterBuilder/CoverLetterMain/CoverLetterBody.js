@@ -9,7 +9,7 @@ class CoverLetterBody extends React.Component {
           return (
             <div className="cover-letter-body-wrapper">
               <div className="cover-letter-body">
-                <div className="editableDiv ">
+                <div className="editableDiv bodyCoverDiv">
                   <span
                     className="coverLetterBody"
                     contentEditable="true"
