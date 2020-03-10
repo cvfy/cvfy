@@ -150,13 +150,13 @@ const sendPDFData = async (req, res, next) => {
 router.get("/data/pdf/:id", sendPDFData)
 /////////////////////////////////////////////////////
 
-const saveCVtoServer = (req, res, next)  => {
+const saveCVtoServer = async (req, res, next)  => {
     if(!(req.params.id).includes("-")){
     console.log("user id -" + req.params.id)
    console.log("cv id -" +req.body.id)
     console.log("its updating")
     //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
-        User.findOne(
+        await User.findOne(
             { "cv.id": req.body.id }, 
             { 
                 "cv": {
@@ -174,10 +174,10 @@ if(success){
     User.updateOne({"_id": req.params.id, "cv.id": req.body.id}, 
     {$set: {"cv.$.userData": req.body.userData,
     "cv.$.style": req.body.style
-}}, function(err, success){
+}}, async function(err, success){
         if(success){
+            await giveMeScreenShot(req.body.id)
             console.log("i updated the obj!!")
-            giveMeScreenShot(req.body.id)
 
         }else {
             console.log(err)
@@ -188,12 +188,12 @@ if(!success){
         User.findOneAndUpdate(
         { _id: req.params.id }, 
         { $push: { cv: req.body } },
-       function (error, success) {
+      async function (error, success) {
              if (error) {
                  console.log(error);
              } else {
+                 await giveMeScreenShot(req.body.id)
                  console.log("New CV Created!!!!")
-                 giveMeScreenShot(req.body.id)
              }
          });
 }

@@ -12,8 +12,8 @@ async function giveMeScreenShot(resumeID) {
         try {
             const page = await browser.newPage()
             await page.setViewport({
-                width: 1600,
-                height: 4600
+                width: 1000,
+                height: 1400
             })
             await page.goto('http://localhost:3000/login', { waitUntil: 'networkidle2' });
             // await page.waitFor(1000);
@@ -28,7 +28,7 @@ async function giveMeScreenShot(resumeID) {
                 localStorage.setItem('currentCV', resumeID);
             }, resumeID);
             await page.goto('http://localhost:3000/create-cv',  { waitUntil: 'networkidle2' });
-            await page.waitFor(3000);
+            await page.waitFor(2000);
             const pic = await page.$('.A4')
                 await pic.screenshot({
                    path: `profile_picture/${resumeID}.jpg`,

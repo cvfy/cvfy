@@ -216,6 +216,7 @@ class CvBuilderMain extends React.Component {
 
               </div>
             </div>
+            </div>  
             // <div className="break-before">
 
             // </div>
@@ -303,22 +304,15 @@ class CvBuilderMain extends React.Component {
                         </div>
                       </div>
                     ))}
-                    {/* <div className="JobAdContainer">
-                  <div className="jobAdTitle">Junior Web Developer</div>
-                  <div className="jobAdCompanyName">Digital Career Institute</div>
-                  <div style={{display: `${this.state.openRequirements === false ? "none" : "block"}`}} className="jobAdRequirements"></div>
-                  <div onClick={() => this.openRequirements()} className="jobAdClickforRequirements">{this.state.openRequirements === false ? "Show Job Requirements" : "Hide Job Requirements"}</div>
-                  </div>
-                   */}
                   </div>
                 </div>
               </div>
             </div>
-          );
+          )
         }}
       </ThemeContext.Consumer>
-    );
-  }
+        );
+      }
 }
 
 export default CvBuilderMain;
