@@ -282,7 +282,7 @@
 }
 
 .yellowBtn {
-  background: yellow;
+  background: #ff5e6c;
 }
 
 .redBtn {
@@ -290,7 +290,7 @@
 }
 
 .blackBtn {
-  background: black;
+  background: #12343b;
 }
 
 .blueBtn {
@@ -302,7 +302,7 @@
 }
 
 .orangeBtn {
-  background: orange;
+  background: #7c677f;
 }
 
 .purpleBtn {
@@ -318,7 +318,7 @@
 }
 
 .burlywoodBtn {
-  background: burlywood;
+  background: #c89666;
 }
 
 .cornflowerblueBtn {
@@ -326,11 +326,11 @@
 }
 
 .aquaBtn {
-  background: aqua;
+  background: #2d545e;
 }
 
 .darkgreyBtn {
-  background: darkgrey;
+  background: #ffaaab;
 }
 
 /* font-size sub-menu */
