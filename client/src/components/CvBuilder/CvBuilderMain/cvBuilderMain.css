@@ -134,7 +134,7 @@
 
 .skillsMenuDiv {
   position: absolute;
-  bottom: 310px;
+  bottom: 270px;
 }
 
 .languageMenuDiv {
@@ -690,119 +690,133 @@ input[type="text"]:focus {
   display: block;
   font-style: italic;
 }
+
 /* ==================================================== */
 /* ================== JOB DASHBOARD SECTION ================== */
 /* ==================================================== */
 .MainJobDashboard {
   width: 90%;
   height: 600px;
-  /* overflow: scroll; */
-  border: 1px solid #82898d;
+  position: -webkit-sticky;
   position: sticky;
   top: 120px;
-  background-color: #2b3a42;
+  background-color: #fff;
   padding: 5px;
   margin-right: 10%;
   border-radius: 40px;
 }
+
 .JobDashboardForm {
   width: 100%;
-  height: 150px;
+  height: 190px;
 
 }
-form {
+
+.jobForm {
   height: 90%;
   width: 100%;
   margin: 2px;
-  padding: 5px;
-  /* border: 1px solid white; */
+  padding: 20px 20px 0 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   box-sizing: border-box;
 }
-form label {
+
+.jobForm label {
   margin: 0;
   width: 30%;
+  text-align: center;
 }
+
 .JobDashboardForm form .JobDashboardButton {
-  margin: 0;
-  padding: 0;
+  margin: 10px;
+  padding: 15px;
   height: 25px;
   width: 50%;
   font-size: 16px;
   display: flex;
-  vertical-align: center;
-  align-self: flex-end;
-  background-color: #47555c!important;
-  position: relative;
+  border: 1px solid lightgray;
+  background-color: #67eb946b;
+  color: black;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
 }
+
+.JobDashboardForm form .JobDashboardButton:hover {
+  background: #19ee608f;
+}
+
 .JobDashboardForm form .JobAdInput {
-  margin: 0;
-  padding: 0;
-  background-color: #82898d!important;
+  margin: 5px;
+  padding: 5px;
+  background: #e4f3e980;
+  border: none;
+  color: black;
   border-radius: 20px;
-  height: 25px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 16px;
   text-align: center;
 }
+
 .JobDashboardAds {
   width: 95%;
   height: 100%;
   overflow: scroll;
   display: flex;
   flex-direction: column;
-  justify-content:flex-start;
+  justify-content: flex-start;
   align-items: center;
   margin: 5px auto;
 }
+
 .JobAdContainer {
   width: 100%;
   height: auto;
-  border: 1px solid #82898d;
-  border-radius: 10px;
-  background-color: #82898d!important;
+  background-color: #fff;
   text-align: center;
   margin: 5px 0;
-  
-  
+  box-shadow: -1px -2px 0px 0px rgba(0.1, 0.1, 0.1, 0.1);
 }
+
 .jobAdTitle {
-  height: 30px;
+  height: 20px;
   font-size: 12px;
   font-weight: 800;
   width: 100%;
-  border-bottom: 1px solid #2b3a42;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
+
 .jobAdCompanyName {
   font-size: 12px;
   height: 22px;
   width: 100%;
-  border-bottom: 1px solid #2b3a42;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
+
 .jobAdClickforRequirements {
-  background-color: #47555c!important;
-  border-radius: 0 0 10px 10px;
+  background-color: #e4f3e980;
   font-size: 12px;
-  
+  cursor: pointer;
+
 }
+
 .jobAdRequirements {
   height: 250px;
-  border-bottom: 1px solid #2b3a42;
   font-size: 10px;
 }
+
 .bookmark {
   height: auto;
   width: 50px;
@@ -813,21 +827,27 @@ form label {
   justify-content: center;
   position: relative;
 }
+
 .bookmark_link {
   position: sticky;
   top: 200px;
   transform: rotate(-90deg);
   width: 100px;
   height: 40px;
-  border: 1px solid #2b3a42;
   padding: 0 10px;
   border: 1px solid #82898d;
   border-radius: 10px 10px 0 0;
+  background: #68ec94;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+}
 
-}
 .bookmark_link:hover {
-  background-color: #82898d;
+  background-color: #19ee60;
 }
+
 .transitionDashboard {
   width: 0;
   height: auto;
