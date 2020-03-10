@@ -3,7 +3,6 @@ import "../styles/CookiesPolicy.css";
 import Navbar from "./navbar/Navbar";
 import "../styles/Navbar.css";
 import Footer from "./Footer";
-import "../styles/Footer.css";
 import scrollToComponent from "react-scroll-to-component";
 
 class CookiesPolicy extends React.Component {

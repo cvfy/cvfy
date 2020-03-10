@@ -10,23 +10,43 @@ const CvDashboard = () => {
   return (
     <div className="CV_Dashboard_MainContainer">
       <div className="CVTitle">
-        <ScrollAnimation animateIn="fadeInLeft delay-0s">
+        <ScrollAnimation animateIn="fadeIn" animateOnce="true" duration="0.5s">
           <p>Your CV's</p>
         </ScrollAnimation>
       </div>
-      <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-0s">
+      <ScrollAnimation
+        className="cvBox2"
+        animateIn="fadeIn"
+        animateOnce="true"
+        duration="0.5s"
+      >
         <div className="AddCV">
           <img className="ADD" src={ADD} />
           <p>ADD New CV</p>
         </div>
       </ScrollAnimation>
-      <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-1s">
+      <ScrollAnimation
+        className="cvBox2"
+        animateIn="fadeIn"
+        animateOnce="true"
+        duration="0.5s"
+      >
         <img src={CV2} />
       </ScrollAnimation>
-      <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-2s">
+      <ScrollAnimation
+        className="cvBox2"
+        animateIn="fadeIn"
+        animateOnce="true"
+        duration="0.5s"
+      >
         <img src={CV3} />
       </ScrollAnimation>
-      <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-0s">
+      <ScrollAnimation
+        className="cvBox2"
+        animateIn="fadeIn"
+        animateOnce="true"
+        duration="0.5s"
+      >
         <img src={CV4} />
       </ScrollAnimation>
     </div>

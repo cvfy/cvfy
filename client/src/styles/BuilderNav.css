@@ -396,12 +396,12 @@
 }
 
 /* On mouse-over, add a grey background color */
-.headerContainer:hover input~.checkmark {
+.headerContainer:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
-.headerContainer input:checked~.checkmark {
+.headerContainer input:checked ~ .checkmark {
   background-color: #2196f3;
 }
 
@@ -413,7 +413,7 @@
 }
 
 /* Show the indicator (dot/circle) when checked */
-.headerContainer input:checked~.checkmark:after {
+.headerContainer input:checked ~ .checkmark:after {
   display: block;
   position: absolute;
   top: 4px;

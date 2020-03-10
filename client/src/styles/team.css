@@ -1,66 +1,68 @@
 .teamWrapper {
-    margin-bottom: 5em;
+  margin-bottom: 5em;
 }
 
 .divH2Team {
-    height: 10vh;
-    color: #fff;
-    background: linear-gradient(to left, #3dbaf7, #1d3b8b);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 10vh;
+  color: #fff;
+  background: linear-gradient(to left, #3dbaf7, #1d3b8b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .h2Team {
-    font-size: 1.5em;
-    text-align: center;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .gang {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .memberDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 3em;
 }
 
-.memberPhoto {}
+.memberPhoto {
+}
 
 .memberImg {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 8px solid #1d3b8b;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 8px solid #1d3b8b;
 }
 
 .memberName {
-    font-size: 2em;
-    padding-top: 0.4em;
+  font-size: 2em;
+  padding-top: 0.4em;
 }
 
 .memberTitle {
-    font-size: 1.7em;
-    padding-top: 0.7em;
+  font-size: 1.7em;
+  padding-top: 0.7em;
 }
 
 .memberContact {
-    padding-top: 0.7em;
-    line-height: 2em;
+  padding-top: 0.7em;
+  line-height: 2em;
 }
 
-.portfolio {}
+.portfolio {
+}
 
 .gitHub {
-    text-align: center;
+  text-align: center;
 }
 
 .githubIcon {
-    font-size: 1.4em;
-    margin-right: 0.3em;
-    color: black;
+  font-size: 1.4em;
+  margin-right: 0.3em;
+  color: black;
 }

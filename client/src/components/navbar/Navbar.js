@@ -24,12 +24,12 @@ const Navbar = props => {
     from: { transform: "translate3d(0, -10rem, 0)" },
     to: { transform: "translate3d(0, 0, 0)" }
   });
-  const linkAnimation = useSpring({
-    from: { transform: "translate3d(0, 30px, 0)", opacity: 0 },
-    to: { transform: "translate3d(0, 0, 0)", opacity: 1 },
-    delay: 800,
-    config: config.wobbly
-  });
+  // const linkAnimation = useSpring({
+  //   from: { transform: "translate3d(0, 30px, 0)", opacity: 0 },
+  //   to: { transform: "translate3d(0, 0, 0)", opacity: 1 },
+  //   delay: 800,
+  //   config: config.wobbly
+  // });
 
   const toggleSidebar = e => {
     const sidebar = document.querySelector("#sidebar");
@@ -54,7 +54,7 @@ const Navbar = props => {
               <h1>CV|FY</h1>
             </div>
           </NavLink>
-          <NavLinks style={linkAnimation}>
+          <NavLinks /*style={linkAnimation}*/>
             <div>
               <NavLink to="/create-cv">Create CV</NavLink>
             </div>
@@ -122,7 +122,7 @@ const NavLinks = styled(animated.ul)`
   & a {
     color: black;
     height: 100%;
-    font-size: 1 rem;
+    font-size: 20px;
     opacity: 0.8;
     text-shadow: 1px;
     font-weight: 600;
@@ -138,7 +138,7 @@ const NavLinks = styled(animated.ul)`
       height: 100px;
     }
     &:hover {
-      color: #2438f1;
+      color: #266678;
     }
 
     @media (max-width: 1250px) {
