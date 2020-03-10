@@ -12,14 +12,34 @@ async function giveMeJobData(position, location) {
                 width: 800,
                 height: 600
             })
-            await page.goto(`https://www.stepstone.de/5/job-search-simple.html?stf=freeText&ns=1&companyid=0&sourceofthesearchfield=resultlistpage%3Ageneral&qs=%5B%5D&ke=${position.replace(" ", "%20")}&ws=${location}&ra=30&suid=ad51a380-6335-4b9e-910a-1f47be7928b6&ob=date&action=sort_publish`);
-            await page.waitFor(2000);
+            await page.goto(`https://www.stepstone.de/5/job-search-simple.html?stf=freeText&ns=1&companyid=0&sourceofthesearchfield=resultlistpage%3Ageneral&qs=%5B%5D&ke=${position}&ws=${location}&ra=30&suid=a2c2ed4a-e81e-44c2-bf24-afcd6383ec87&ob=relevance&action=sort_relevance`);
+            await page.waitFor(1000);
 
             const jobData = await page.evaluate(() => {
-
-
+                const links = Array.from(document.querySelectorAll("a.styled__TitleLink-sc-7z1cau-0")).map(el => {
+                  return el.getAttribute("href")   
+                })
+                console.log(links)
+                return links
+            })
+            let jobsArray = []
+                            
+            for(i=0; i<jobData.filter((el, i) => i<5).length; i++){
+            await page.goto(`https://www.stepstone.de${jobData[i]}`);
+            await page.waitFor(1000);
+            let Data = await page.evaluate((jobData) => {
+                function verify(data) {
+                    return (data !== undefined && data !== null) ? data : ""
+                }
+                let jobObj = {}
+                jobObj.Link = `https://www.stepstone.de${jobData[i]}`
+                jobObj.CompanyName = verify(document.querySelector(".at-listing-nav-company-name-link").innerText)
+                jobObj.JobPosition = verify(document.querySelector(".at-listing-nav-listing-title").innerText)
+                jobObj.JobRequirements = verify(Array.from(document.querySelectorAll(".at-section-text-profile-content ul li")).map(el => el.innerText))
+                return jobObj
+            }, jobData)
+           jobsArray.push(Data)
             }
-
 
             // await page.waitFor(3000);
             // await page.goto(profile);
@@ -134,6 +154,7 @@ async function giveMeJobData(position, location) {
             // //console.log(cvData.accomplishments[1].accomplishmentList)
             // //console.log(cvData.accomplishments[2].accomplishmentList)
             // return cvData
+            return jobsArray
         } catch (err) {
             console.error(err.message);
         } finally {

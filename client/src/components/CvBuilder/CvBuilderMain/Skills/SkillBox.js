@@ -22,7 +22,13 @@ class SkillBox extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifySkill, addGroup, deleteGroup } = context;
+          const {
+            modifySkill,
+            addGroup,
+            deleteGroup,
+            moveUpGroup,
+            moveDownGroup
+          } = context;
           return (
             <>
               <div
@@ -40,23 +46,36 @@ class SkillBox extends React.Component {
                   fontSize: context.style.size3
                 }}
               >
-                {/* ********************SECTION MENUS*************** */}
+                {/* ********************SECTION MENUS************** */}
                 <div
                   className="sectionsMenuDiv skillsMenuDiv"
                   style={{ display: display }}
                 >
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={() => addGroup("skills", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      addGroup("skills", this.props.index, this.props.dat)
+                    }
                     title="add group"
                   ></i>
-                  <i className="fas fa-angle-up angleIcon" title="move up"></i>
+                  <i
+                    className="fas fa-angle-up angleIcon"
+                    title="move up"
+                    onClick={() =>
+                      moveUpGroup("skills", this.props.index, this.props.dat)
+                    }
+                  ></i>
                   <i
                     className="fas fa-angle-down angleIcon"
                     title="move down"
+                    onClick={() =>
+                      moveDownGroup("skills", this.props.index, this.props.dat)
+                    }
                   ></i>
                   <i
-                    onClick={() => deleteGroup("skills", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      deleteGroup("skills", this.props.index, this.props.dat)
+                    }
                     className="deleteIcon far fa-trash-alt"
                     title="delete group"
                   ></i>
@@ -64,7 +83,11 @@ class SkillBox extends React.Component {
                 {/* ************************************************** */}
                 <span
                   onBlur={e =>
-                    modifySkill(this.props.index, this.props.dat, e.target.innerText)
+                    modifySkill(
+                      this.props.index,
+                      this.props.dat,
+                      e.target.innerText
+                    )
                   }
                   className="skillText"
                   contentEditable="true"

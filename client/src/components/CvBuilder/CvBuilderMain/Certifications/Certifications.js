@@ -11,7 +11,7 @@ class Certifications extends React.Component {
             <CertificationGroup key={i} dat={i} index={this.props.index} data={el} />
           ));
           return (
-            <div className="cert">
+            <div className="certifications">
               <div className="sectionHeader">
                 <div className="section-label" style={{ color: context.style.color }}>
                   CERTIFICATIONS

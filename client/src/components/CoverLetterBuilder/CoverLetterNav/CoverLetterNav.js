@@ -1,11 +1,11 @@
 import React from "react";
 import ExtraToolsMenu from "./ExtraToolsMenu";
-import BuilderNav from "../../BuilderNav";
+import CoverBuilderNav from "../../CoverBuilderNav";
 
 const CoverLetterNav = () => {
   return (
     <div className="CvMenuWrapper">
-      <BuilderNav />
+      <CoverBuilderNav />
       <ExtraToolsMenu />
     </div>
   );

@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const giveMeData = require ('../../puppeteer_Data/Puppeteer.js');
 const giveMePDF = require ('../../puppeteer_Data/GeneratePDF.js');
+const giveStepStoneData = require ('../../puppeteer_Data/StepStoneData');
+const giveMeScreenShot = require ('../../puppeteer_Data/GenerateSreenShot');
 const fs = require('fs')
 
 // Load input validation
@@ -115,14 +117,15 @@ const sendData = async (req, res, next) => {
     try {
         const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
         //const datas = await giveMePDF();
-        console.log(datas)
+        console.log(req.params.profile)
         
         res.status(200).send(datas);
     } catch (e) {
         next(e);
+        res.status(404).send("something went wrong")
     }
 };
-router.get("/data/:profile", sendData)
+router.get("/data/link/:profile", sendData)
 
 // Generate PDF
 const sendPDFData = async (req, res, next) => {
@@ -136,7 +139,8 @@ const sendPDFData = async (req, res, next) => {
         //       console.error(err)
         //       return
         //     }})
-        setTimeout(function(){ fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`) }, 10000);
+        //
+    // setTimeout(function(){ fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`) }, 5000);
         // fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`)
         //res.status(200).sendFile(/profile_picture/combinedNew.pdf)
     } catch (e) {
@@ -146,12 +150,13 @@ const sendPDFData = async (req, res, next) => {
 router.get("/data/pdf/:id", sendPDFData)
 /////////////////////////////////////////////////////
 
-const saveCVtoServer = (req, res, next)  => {
-    console.log(req.params.id)
-   // console.log(req.body)
+const saveCVtoServer = async (req, res, next)  => {
+    if(!(req.params.id).includes("-")){
+    console.log("user id -" + req.params.id)
+   console.log("cv id -" +req.body.id)
     console.log("its updating")
     //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
-        User.findOne(
+        await User.findOne(
             { "cv.id": req.body.id }, 
             { 
                 "cv": {
@@ -168,17 +173,10 @@ if(success){
     console.log("This is the obj+++++++++"+ success)
     User.updateOne({"_id": req.params.id, "cv.id": req.body.id}, 
     {$set: {"cv.$.userData": req.body.userData,
-    "cv.$.color": req.body.color,
-    "cv.$.font": req.body.font,
-    "cv.$.size1": req.body.size1,
-    "cv.$.size2": req.body.size2,
-    "cv.$.size3": req.body.size3,
-    "cv.$.size4": req.body.size4,
-    "cv.$.tasksHistory": req.body.tasksHistory,
-    "cv.$.tasksOutput": req.body.tasksOutput,
-    "cv.$.value": req.body.value
-}}, function(err, success){
+    "cv.$.style": req.body.style
+}}, async function(err, success){
         if(success){
+            await giveMeScreenShot(req.body.id)
             console.log("i updated the obj!!")
 
         }else {
@@ -186,14 +184,15 @@ if(success){
         }
     })
 }
-else{
+if(!success){
         User.findOneAndUpdate(
         { _id: req.params.id }, 
         { $push: { cv: req.body } },
-       function (error, success) {
+      async function (error, success) {
              if (error) {
                  console.log(error);
              } else {
+                 await giveMeScreenShot(req.body.id)
                  console.log("New CV Created!!!!")
              }
          });
@@ -201,7 +200,9 @@ else{
                 }
             }
         );   
-     
+    //  giveMeScreenShot(req.body.id)
+        }
+        else{}
 }
 
 router.post("/resume/cv/:id" , saveCVtoServer)
@@ -225,5 +226,33 @@ const getCVFromServer = (req, res, next) => {
         }
     )}
     router.get("/resume/cv/currentCV/:id" , getCVFromServer)
+
+
+const getALLCVFromServer = (req, res, next) => {
+    User.findOne(
+        { "_id": req.params.id }, 
+        function (err, success) {
+            if (err){
+                console.log(err)}
+            else if(success) {
+                res.send(success.cv)
+            }
+        }
+    )}
+    router.get("/resume/cv/allCV/:id" , getALLCVFromServer)
+// StepStoneData
+    const sendStepStoneData = async (req, res, next) => {
+        try {
+            const datas = await giveStepStoneData(req.params.position, req.params.location);
+            //const datas = await giveMePDF();
+            console.log(datas)
+            
+            res.status(200).send(datas);
+        } catch (e) {
+            next(e);
+            res.status(404).send("something went wrong")
+        }
+    };
+    router.get("/data/stepstone/position/:position/location/:location", sendStepStoneData)
 module.exports = router;
 

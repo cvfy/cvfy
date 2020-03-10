@@ -23,18 +23,18 @@ const CV_Templates = () => {
         <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-1s">
           <img src={CV2} />
         </ScrollAnimation>
-        <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-2s">
+        {/* <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-2s">
           <img src={CV3} />
         </ScrollAnimation>
         <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-0s">
           <img src={CV4} />
-        </ScrollAnimation>
-        <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-1s">
+        </ScrollAnimation> */}
+        {/* <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-1s">
           <img src={CV5} />
         </ScrollAnimation>
         <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-2s">
           <img src={CV6} />
-        </ScrollAnimation>
+        </ScrollAnimation> */}
       </div>
       <Footer />
     </>

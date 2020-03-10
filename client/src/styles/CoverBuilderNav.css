@@ -63,7 +63,7 @@
 
 .font-btn,
 .theme-btn,
-.layout-btn,
+.coverLayout-btn,
 .template-btn,
 .back-btn,
 .fwd-btn,
@@ -74,7 +74,7 @@
 }
 
 .theme-btn,
-.layout-btn,
+.coverLayout-btn,
 .template-btn,
 .fwd-btn {
   margin-left: 20px;
@@ -82,7 +82,7 @@
 
 .font-btn:hover,
 .theme-btn:hover,
-.layout-btn:hover,
+.coverLayout-btn:hover,
 .template-btn:hover,
 .back-btn:hover,
 .fwd-btn:hover {
@@ -100,11 +100,10 @@
 
 .download-btn {
   height: 60px;
+  background-color: #2bb5b963;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px dotted lightgray;
-  border-top: none;
 }
 
 .download-btn:hover {
@@ -130,7 +129,7 @@
 
 .font-btn:focus,
 .theme-btn:focus,
-.layout-btn:focus,
+.coverLayout-btn:focus,
 .template-btn:focus,
 .back-btn:focus,
 .fwd-btn:focus,
@@ -346,13 +345,13 @@
 }
 
 /* Layout sub-menu */
-.layoutSubMenu {
+.coverLayoutSubMenu {
   position: fixed;
   background: #2b3a42;
   top: 65px;
-  left: 180px;
-  width: 870px;
-  height: 570px;
+  left: 300px;
+  width: 400px;
+  height: 65px;
   border-radius: 10px;
   text-align: center;
   font-size: 0.9rem;
@@ -371,13 +370,16 @@
 .headerContainer {
   direction: rtl;
   cursor: pointer;
-  display: flex;
 }
 
 .dndSectionP {
   margin-block-start: 0em;
   margin-block-end: 0em;
   display: contents;
+}
+
+.coverLetterLabel {
+  margin: 20px;
 }
 
 /* Hide the browser's default radio button */
@@ -388,27 +390,27 @@
 }
 
 /* Create a custom radio button */
-.checkMark {
+/* .checkMark {
+  position: absolute;
   height: 16px;
   width: 16px;
   background-color: #eee;
   border-radius: 50%;
   margin-right: 10px;
-}
+} */
 
 /* On mouse-over, add a grey background color */
-.headerContainer:hover input ~ .checkMark {
+/* .headerContainer:hover input~.checkMark {
   background-color: #ccc;
 }
 
 .checkedCircle {
   background: #fff;
   border: 4px solid #08dcdc;
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  margin-right: 10px;
-}
+} */
 
 /* When the radio button is checked, add a blue background */
 /* .headerContainer input:checked~.checkmark {
@@ -440,11 +442,8 @@
   background: white;
 } */
 
-.layoutToggle {
-  margin: 20px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* .layoutToggle {
+  margin-top: 22px;
 }
 
 .layoutToggle .toggleButton {
@@ -465,24 +464,9 @@
   width: 66.70125mm;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-flow: row;
-}
-
-.layoutOneColumn {
-  margin: 2rem 3rem;
-  background: #fff center center;
-  height: 94.334625mm;
-  width: 66.70125mm;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-flow: row;
-}
-
-.oneColumnDiv {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  /* grid-template-rows: 1fr 1fr 1fr; */
+/* grid-auto-flow: row;
+} */
 
 #leftCvSection,
 #rightCvSection {
@@ -503,7 +487,7 @@
 
 .dndContainer {
   width: 480px;
-  height: 299px;
+  height: 320px;
   background: #0000004d;
   position: relative;
   bottom: 370px;
@@ -526,6 +510,8 @@
   justify-content: center;
   margin: 5px;
 }
+
+*/
 
 /* Templates sub-menu */
 .templatesSubMenu {
@@ -575,9 +561,9 @@
   background: #375061;
   height: 2.2rem;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 0.6fr;
-  justify-items: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .extra-tools-btn {
@@ -637,48 +623,12 @@
 }
 
 .saveUpdateButton {
-  background: #68ec94;
-  color: black;
+  background: #0384ec;
+  color: #eee;
 }
 
 .saveUpdateButton:hover {
-  background: #19ee60;
-}
-
-.menuBottomBarDiv {
-  background: #375061;
-  height: 2.2rem;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 0.6fr;
-  justify-items: center;
-}
-
-.toolsDiv {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border-right: 1px dotted gray;
-  width: 100%;
-  height: 100%;
-}
-
-.buttonsDiv {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-.cvBuilder-extra-tools {
-  background: #375061;
-  color: #fff;
-  cursor: pointer;
-  margin-right: 15px;
-}
-
-.cvBuilder-extra-tools:hover {
-  color: #2196f3;
+  background: #3a9ff1;
 }
 
 @media (max-width: 1015px) {

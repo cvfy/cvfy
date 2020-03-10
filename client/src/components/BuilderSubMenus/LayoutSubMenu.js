@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-// import { ThemeContext } from "../../contexts/ThemeContext";
+import React, { Component, useContext } from "react";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import Draggable from "./Draggable";
 
 class LayoutSubMenu extends Component {
@@ -25,6 +25,19 @@ class LayoutSubMenu extends Component {
   }
 
   closeMenu(event) {
+    if (
+      document.querySelector("#leftCvSection div.dndSection") &&
+      document.querySelector("#rightCvSection div.dndSection")
+    ) {
+      const leftSide = Array.from(
+        document.querySelectorAll("#leftCvSection div.dndSection")
+      ).map(el => el.getAttribute("name"));
+      const rightSide = Array.from(
+        document.querySelectorAll("#rightCvSection div.dndSection")
+      ).map(el => el.getAttribute("name"));
+      this.props.setStructure(leftSide, rightSide);
+    }
+
     if (!this.dropdownMenu.contains(event.target)) {
       this.setState({ showMenu: false }, () => {
         document.removeEventListener("click", this.closeMenu);
@@ -39,79 +52,99 @@ class LayoutSubMenu extends Component {
   }
 
   render() {
-    // return (
-    //   <ThemeContext.Consumer>
-    //     {context => {
     return (
-      <div>
-        <div className="layout-btn " onClick={this.showMenu}>
-          <span className="tool-icon">☷</span>
-          <span className="tool-desc">Layout</span>
-        </div>
+      <ThemeContext.Consumer>
+        {context => {
+          const {
+            togglePhotoClass,
+            toggleTitleClass,
+            toggleSummaryClass,
+            toggleOneColumn
+          } = context;
+          return (
+            <div>
+              <div className="layout-btn " onClick={this.showMenu}>
+                <span className="tool-icon">☷</span>
+                <span className="tool-desc">Layout</span>
+              </div>
 
-        {this.state.showMenu ? (
-          <div
-            className="layoutSubMenu"
-            ref={element => {
-              this.dropdownMenu = element;
-            }}
-          >
-            <div className="headerElements">
-              Show:
-              <label className="headerContainer">
-                Photo
-                <input type="radio" checked="checked" name="radio" />
-                <span className="checkmark"></span>
-              </label>
-              <label className="headerContainer">
-                Title
-                <input type="radio" name="radio" />
-                <span className="checkmark"></span>
-              </label>
-              <label className="headerContainer">
-                Summary
-                <input type="radio" name="radio" className="checkElements" />
-                <span className="checkmark"></span>
-              </label>
+              {this.state.showMenu ? (
+                <div
+                  className="layoutSubMenu"
+                  ref={element => {
+                    this.dropdownMenu = element;
+                  }}
+                >
+                  <div className="headerElements">
+                    Show:
+                    <label className="headerContainer">
+                      Photo
+                      <input type="radio" name="radio" />
+                      <span
+                        className={
+                          context.style.displayPhoto
+                            ? "checkedCircle"
+                            : "checkMark"
+                        }
+                        onClick={togglePhotoClass}
+                      ></span>
+                    </label>
+                    <label className="headerContainer">
+                      Title
+                      <input type="radio" name="radio" />
+                      <span
+                        className={
+                          context.style.displayTitle
+                            ? "checkedCircle"
+                            : "checkMark"
+                        }
+                        onClick={toggleTitleClass}
+                      ></span>
+                    </label>
+                    <label className="headerContainer">
+                      Summary
+                      <input
+                        type="radio"
+                        name="radio"
+                        className="checkElements"
+                      />
+                      <span
+                        className={
+                          context.style.displaySummary
+                            ? "checkedCircle"
+                            : "checkMark"
+                        }
+                        onClick={toggleSummaryClass}
+                      ></span>
+                    </label>
+                  </div>
+
+                  <div className="layoutToggle">
+                    <div>Suggested</div>
+                    <div>Custom</div>
+                  </div>
+                  <div className="oneColumnDiv">
+                    <label className="headerContainer">
+                      One column
+                      <input type="radio" name="radio" />
+                      <span
+                        className={
+                          context.style.displayOneColumn
+                            ? "checkedCircle"
+                            : "checkMark"
+                        }
+                        onClick={toggleOneColumn}
+                      ></span>
+                    </label>
+                  </div>
+                  <Draggable></Draggable>
+                </div>
+              ) : null}
             </div>
-
-            <div className="layoutToggle">
-              <Button
-                className={
-                  this.state.userId === "user-1"
-                    ? "toggleButton active"
-                    : "toggleButton"
-                }
-                variant="outlined"
-                color="primary"
-                onClick={this.handleUserChange}
-                data-user-id="user-1"
-              >
-                Suggested
-              </Button>
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={this.handleUserChange}
-                data-user-id="user-2"
-                className={
-                  this.state.userId === "user-2"
-                    ? "toggleButton active"
-                    : "toggleButton"
-                }
-              >
-                Custom
-              </Button>
-            </div>
-
-            <Draggable></Draggable>
-          </div>
-        ) : null}
-      </div>
+          );
+        }}
+      </ThemeContext.Consumer>
     );
-    //     }}
-    //   </ThemeContext.Consumer>
-    // );
   }
 }
 

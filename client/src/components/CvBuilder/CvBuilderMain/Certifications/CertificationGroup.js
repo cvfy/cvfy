@@ -28,7 +28,9 @@ class CertificationGroup extends React.Component {
           const {
             modifyCertifications,
             addGroup,
-            deleteGroup
+            deleteGroup,
+            moveUpGroup,
+            moveDownGroup
           } = context;
           return (
             <>
@@ -54,10 +56,12 @@ class CertificationGroup extends React.Component {
                     onClick={() => addGroup("certifications", this.props.index, this.props.dat)}
                     title="add group"
                   ></i>
-                  <i className="fas fa-angle-up angleIcon" title="move up"></i>
+                  <i className="fas fa-angle-up angleIcon" title="move up"
+                  onClick={() => moveUpGroup("certifications", this.props.index, this.props.dat)}></i>
                   <i
                     className="fas fa-angle-down angleIcon"
                     title="move down"
+                    onClick={() => moveDownGroup("certifications", this.props.index, this.props.dat)}
                   ></i>
                   <i
                     onClick={() => deleteGroup("certifications", this.props.index, this.props.dat)}

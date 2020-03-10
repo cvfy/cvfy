@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import Draggable from "./Draggable";
-//import { Button } from "@material-ui/core";
+import "../../styles/CoverBuilderNav.css";
 
 class CoverLayoutSubMenu extends Component {
   constructor() {
@@ -42,65 +41,55 @@ class CoverLayoutSubMenu extends Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { toggleTitleClass, toggleSummaryClass } = context;
           return (
             <div>
-              <div className="layout-btn " onClick={this.showMenu}>
+              <div className="coverLayout-btn " onClick={this.showMenu}>
                 <span className="tool-icon">☷</span>
                 <span className="tool-desc">Layout</span>
               </div>
 
               {this.state.showMenu ? (
                 <div
-                  className="layoutSubMenu"
+                  className="coverLayoutSubMenu"
                   ref={element => {
                     this.dropdownMenu = element;
                   }}
                 >
-                  <div className="headerElements">
+                  <div
+                    className="headerElements"
+                    style={{ border: "none", padding: "0 15px" }}
+                  >
                     Show:
-                    <label className="headerContainer">
-                      Photo
-                      <input type="radio" checked="checked" name="radio" />
-                      <span className="checkmark"></span>
-                    </label>
-                    <label className="headerContainer">
+                    <label className="headerContainer coverLetterLabel">
                       Title
                       <input type="radio" name="radio" />
-                      <span className="checkmark"></span>
+                      <span
+                        className={
+                          context.style.displayTitle
+                            ? "checkedCircle"
+                            : "checkMark"
+                        }
+                        onClick={toggleTitleClass}
+                      ></span>
                     </label>
-                    <label className="headerContainer">
-                      Summary
+                    <label className="headerContainer coverLetterLabel">
+                      Company details
                       <input
                         type="radio"
                         name="radio"
                         className="checkElements"
                       />
-                      <span className="checkmark"></span>
+                      <span
+                        className={
+                          context.style.displaySummary
+                            ? "checkedCircle"
+                            : "checkMark"
+                        }
+                        onClick={toggleSummaryClass}
+                      ></span>
                     </label>
                   </div>
-
-                  <div className="layoutToggle">
-                    <div>Suggested</div>
-                    <div>Custom</div>
-                  </div>
-
-                  <Draggable></Draggable>
-
-                  {/* <div className="layoutCV"></div>
-
-                  <div className="dndText">
-                    Drag and drop to add or remove sections
-                  </div>
-
-                  <div className="dndContainer">
-                    <div className="dndSection">Experience</div>
-                    <div className="dndSection">Education</div>
-                    <div className="dndSection">Skills</div>
-                    <div className="dndSection">Projects</div>
-                    <div className="dndSection">Certifications</div>
-                    <div className="dndSection">Achievements</div>
-                    <div className="dndSection">Languages</div>
-                  </div> */}
                 </div>
               ) : null}
             </div>

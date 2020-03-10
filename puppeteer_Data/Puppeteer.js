@@ -18,17 +18,37 @@ async function giveMeData(profile) {
             // await page.type("[id=username]", "melnic.alexandr88@gmail.com");
             // await page.type("[id=password]", "Strechii1989");
             await page.click("[type=submit]")
-            await page.waitFor(2000);
+            await page.waitFor(1000);
             await page.goto(profile);
             
             //Login form
             const shortProfile = profile.split("in/")[1];
             const pic = await page.$('.EntityPhoto-circle-9')
-            await page.waitFor(3000);
+            await page.waitFor(2000);
             await pic.screenshot({
                 path: `profile_picture/${shortProfile}.jpg`
             });
-            // await page.waitFor(2000);
+            if ((await page.$('a[data-control-name="contact_see_more"]')) !== null) {
+                await page.click('a[data-control-name="contact_see_more"]')
+            }
+            await page.waitFor(2000);
+            const contactData = await page.evaluate(() => {
+                function verify(data) {
+                    return (data !== undefined && data !== null) ? data : ""
+                }
+                let contacts = [];
+                Array.from(document.querySelectorAll("section.pv-contact-info__contact-type")).forEach(el => {
+                    let contactObj = {
+                        Type: verify(el.querySelector(".pv-contact-info__header")).innerText,
+                        contact: verify(el.querySelector("div.pv-contact-info__ci-container") ? el.querySelector("div.pv-contact-info__ci-container") : el.querySelector("ul li a")).innerText
+                        
+                    }
+                    contacts.push(contactObj)
+                })
+return contacts
+            })
+            await page.keyboard.press('Escape')
+            await page.waitFor(2000);
             await autoScroll(page)
             //await page.click('section.experience-section button')
 
@@ -41,6 +61,16 @@ async function giveMeData(profile) {
             if ((await page.$('section.pv-accomplishments-section button')) !== null) {
                 await page.click('section.pv-accomplishments-section button')
             }
+            if ((await page.$('#projects-title + button li svg')) !== null) {
+                await page.click('#projects-title + button li svg')
+            }
+            if ((await page.$('#languages-title + button li svg')) !== null) {
+                await page.click('#languages-title + button li svg')
+            }
+            if ((await page.$('#courses-title + button li svg')) !== null) {
+                await page.click('#courses-title + button li svg')
+            }
+           
             if ((await page.$('section.pv-about-section a')) !== null) {
                 await page.click('section.pv-about-section a')
             }
@@ -118,17 +148,18 @@ async function giveMeData(profile) {
                     obj.profileEducation.push(detailedEdu)
                 }
                 obj.skills = verify(Array.from(document.querySelectorAll("span.pv-skill-category-entity__name-text")).map(el => el.innerText))
-                obj.accomplishments = []
+                obj.languages = verify(Array.from(document.querySelectorAll("div#languages-expandable-content li")).map(el => el.innerText))
+                obj.courses = verify(Array.from(document.querySelectorAll("div#courses-expandable-content li")).map(el => el.innerText))
+                //obj.projects = verify(Array.from(document.querySelectorAll("div#projects-expandable-content li")).map(el => el.innerText))
+                obj.projects = []
 
-                Array.from(document.querySelectorAll("section.pv-accomplishments-section div.pv-accomplishments-block__content")).forEach(el => {
+                Array.from(document.querySelectorAll("div#projects-expandable-content ul li.pv-accomplishment-entity--expanded")).forEach(el => {
                     let accompObj = {
-                        accomplishmentType: verify(el.querySelector("h3").innerText),
-                        accomplishmentList: verify(Array.from(el.querySelectorAll("ul li")).map((r) => {
-                            //if(r.querySelector("span").innerText){return r.querySelector("span").innerText } 
-                            return (r.querySelector("h4 span")) ? r.querySelector("h4").innerText : r.innerText
-                        }))
+                        title: verify(el.querySelector("h4.pv-accomplishment-entity__title").innerText.split("\n")[1]),
+                        desc: verify(el.querySelector("p.pv-accomplishment-entity__description").innerText)
+                        
                     }
-                    obj.accomplishments.push(accompObj)
+                    obj.projects.push(accompObj)
                 })
 
                 return obj
@@ -139,10 +170,15 @@ async function giveMeData(profile) {
             //console.log(cvData.accomplishments[0].accomplishmentList)
             //console.log(cvData.accomplishments[1].accomplishmentList)
             //console.log(cvData.accomplishments[2].accomplishmentList)
+            // cvData.contacts  = contactData;
+            contactData.forEach(el => cvData[el.Type] = el.contact)
+            console.log(cvData.contacts)
             return cvData
         } catch (err) {
             console.error(err.message);
         } finally {
+            // await page.waitFor(4000);
+
             await browser.close();
         }
     });

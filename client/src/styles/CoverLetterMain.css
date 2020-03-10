@@ -227,6 +227,10 @@
     min-height: 50px;
 }
 
+.bodyCoverDiv {
+    margin: 10px;
+}
+
 .coverLetterBody {
     padding-top: 5px;
     font-size: 0.9rem;

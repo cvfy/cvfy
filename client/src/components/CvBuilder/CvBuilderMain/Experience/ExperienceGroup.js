@@ -22,7 +22,7 @@ class ExperienceGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyEx, addGroup, deleteGroup } = context;
+          const { modifyEx, addGroup, deleteGroup, moveUpGroup, moveDownGroup } = context;
           return (
             <>
               <div
@@ -47,10 +47,12 @@ class ExperienceGroup extends React.Component {
                     onClick={() => addGroup("experience", this.props.index, this.props.dat)}
                     title="add group"
                   ></i>
-                  <i className="fas fa-angle-up angleIcon" title="move up"></i>
+                  <i className="fas fa-angle-up angleIcon" title="move up"
+                  onClick={() => moveUpGroup("experience", this.props.index, this.props.dat)}></i>
                   <i
                     className="fas fa-angle-down angleIcon"
                     title="move down"
+                    onClick={() => moveDownGroup("experience", this.props.index, this.props.dat)}
                   ></i>
                   <i
                     onClick={() => deleteGroup("experience", this.props.index, this.props.dat)}
@@ -79,7 +81,7 @@ class ExperienceGroup extends React.Component {
                 <div className="editableDiv">
                   <span
                     onBlur={e =>
-                      modifyEx(this.props.index, "company", e.target.innerText, this.props.dat)
+                      setTimeout(modifyEx(this.props.index, "company", e.target.innerText, this.props.dat), 3000)
                     }
                     className="CvCompany"
                     contentEditable="true"
