@@ -397,7 +397,7 @@
 }
 
 /* On mouse-over, add a grey background color */
-.headerContainer:hover input ~ .checkMark {
+.headerContainer:hover input~.checkMark {
   background-color: #ccc;
 }
 
@@ -630,6 +630,8 @@
   margin-left: 10px;
   background: #68ec94;
   margin-bottom: 4px;
+  border: none;
+  border-radius: 20px;
 }
 
 .linkedInButton:hover {
@@ -668,6 +670,7 @@
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  height: 100%;
 }
 
 .cvBuilder-extra-tools {

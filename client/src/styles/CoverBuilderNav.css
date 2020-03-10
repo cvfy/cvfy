@@ -100,10 +100,12 @@
 
 .download-btn {
   height: 60px;
-  background-color: #2bb5b963;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid lightgray;
+  border-top: none;
+  border-bottom: none;
 }
 
 .download-btn:hover {
@@ -618,17 +620,9 @@
   margin-bottom: 4px;
 }
 
-.linkedInButton:hover {
-  background: #19ee60;
-}
-
-.saveUpdateButton {
-  background: #0384ec;
-  color: #eee;
-}
-
+.linkedInButton:hover,
 .saveUpdateButton:hover {
-  background: #3a9ff1;
+  background: #19ee60;
 }
 
 @media (max-width: 1015px) {
