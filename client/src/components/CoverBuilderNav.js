@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 //import { content } from "html2canvas/dist/types/css/property-descriptors/content";
 import { ThemeContext } from "../contexts/ThemeContext";
-const BuilderNav = () => {
+const CoverBuilderNav = () => {
   const context = useContext(ThemeContext);
 
   const downloadPdf = () => {
@@ -70,4 +70,4 @@ const BuilderNav = () => {
   );
 };
 
-export default BuilderNav;
+export default CoverBuilderNav;

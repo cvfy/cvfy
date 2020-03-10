@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import "../../styles/CoverBuilderNav.css";
 
 class CoverLayoutSubMenu extends Component {
   constructor() {
@@ -40,9 +41,10 @@ class CoverLayoutSubMenu extends Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { toggleTitleClass, toggleSummaryClass } = context;
           return (
             <div>
-              <div className="layout-btn " onClick={this.showMenu}>
+              <div className="coverLayout-btn " onClick={this.showMenu}>
                 <span className="tool-icon">☷</span>
                 <span className="tool-desc">Layout</span>
               </div>
@@ -53,7 +55,42 @@ class CoverLayoutSubMenu extends Component {
                   ref={element => {
                     this.dropdownMenu = element;
                   }}
-                ></div>
+                >
+                  <div
+                    className="headerElements"
+                    style={{ border: "none", padding: "0 15px" }}
+                  >
+                    Show:
+                    <label className="headerContainer coverLetterLabel">
+                      Title
+                      <input type="radio" name="radio" />
+                      <span
+                        className={
+                          context.style.displayTitle
+                            ? "checkedCircle"
+                            : "checkMark"
+                        }
+                        onClick={toggleTitleClass}
+                      ></span>
+                    </label>
+                    <label className="headerContainer coverLetterLabel">
+                      Company details
+                      <input
+                        type="radio"
+                        name="radio"
+                        className="checkElements"
+                      />
+                      <span
+                        className={
+                          context.style.displaySummary
+                            ? "checkedCircle"
+                            : "checkMark"
+                        }
+                        onClick={toggleSummaryClass}
+                      ></span>
+                    </label>
+                  </div>
+                </div>
               ) : null}
             </div>
           );

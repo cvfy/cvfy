@@ -753,7 +753,7 @@ input[type="text"]:focus {
 .JobDashboardForm form .JobAdInput {
   margin: 5px;
   padding: 5px;
-  background: #e4f3e980;
+  background: #e4f3e9;
   border: none;
   color: black;
   border-radius: 20px;
@@ -761,8 +761,9 @@ input[type="text"]:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 15px;
   text-align: center;
+  font-family: 'Raleway', sans-serif;
 }
 
 .JobDashboardAds {
@@ -809,7 +810,7 @@ input[type="text"]:focus {
   background-color: #e4f3e980;
   font-size: 12px;
   cursor: pointer;
-
+  color: blue;
 }
 
 .jobAdRequirements {

@@ -1,6 +1,6 @@
 import React from "react";
 import ExtraToolsMenu from "./ExtraToolsMenu";
-import CoverBuilderNav from "../../BuilderNav";
+import CoverBuilderNav from "../../CoverBuilderNav";
 
 const CoverLetterNav = () => {
   return (
