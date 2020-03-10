@@ -41,7 +41,7 @@ class CoverLayoutSubMenu extends Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { toggleTitleClass, toggleSummaryClass } = context;
+          const { toggleCoverTitleClass, toggleCompanyClass } = context;
           return (
             <div>
               <div className="coverLayout-btn " onClick={this.showMenu}>
@@ -66,11 +66,11 @@ class CoverLayoutSubMenu extends Component {
                       <input type="radio" name="radio" />
                       <span
                         className={
-                          context.style.displayTitle
+                          context.style.displayCoverTitle
                             ? "checkedCircle"
                             : "checkMark"
                         }
-                        onClick={toggleTitleClass}
+                        onClick={toggleCoverTitleClass}
                       ></span>
                     </label>
                     <label className="headerContainer coverLetterLabel">
@@ -82,11 +82,11 @@ class CoverLayoutSubMenu extends Component {
                       />
                       <span
                         className={
-                          context.style.displaySummary
+                          context.style.displayCompany
                             ? "checkedCircle"
                             : "checkMark"
                         }
-                        onClick={toggleSummaryClass}
+                        onClick={toggleCompanyClass}
                       ></span>
                     </label>
                   </div>

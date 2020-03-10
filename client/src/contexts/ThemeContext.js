@@ -49,160 +49,265 @@ class ThemeContextProvider extends Component {
       tasksOutput: [],
       value: "",
       displayPhoto: true,
-     displayTitle: true,
-     displaySummary: true,
+      displayTitle: true,
+      displayCoverTitle: true,
+      displayCompany: true,
+      displaySummary: true,
       displayOneColumn: false,
-     leftSide: ["experience", "education"],
-     rightSide: ["skills", "projects", "certifications", "achievements", "courses", "languages"]
+      leftSide: ["experience", "education"],
+      rightSide: [
+        "skills",
+        "projects",
+        "certifications",
+        "achievements",
+        "courses",
+        "languages"
+      ]
     },
-    
-    userData: [{
-      fullName: "FULL NAME",
-      intro: "Professional title",
-      about: ["Short and engaging pitch about yourself"],
-      profilePic: "http://localhost:5000/static/default.png",
-      contact: [
-        { icon: "far fa-envelope", value: "Email" },
-        { icon: "fas fa-mobile-alt", value: "Phone number" },
-        { icon: "fab fa-linkedin", value: "" },
-        { icon: "fab fa-skype", value: "" },
-        { icon: "fas fa-map-marker-alt", value: "" },
-        { icon: "fas fa-globe", value: "" },
-        { icon: "fab fa-github", value: "" }
-      ],
-      experience: [
-        {
-          position: "Position/Title",
-          company: "Workplace/Company",
-          startMonth: "MM",
-          startYear: "YYYY",
-          endMonth: "MM",
-          endYear: "YYYY",
-          place: "City, Country",
-          tasks: "Accomplishments/Responsibility/Tasks"
-        }
-      ],
-      education: [
-        {
-          studyProgram: "Study Program",
-          institution: "Institution / Place of Education",
-          startMonth: "MM",
-          startYear: "YYYY",
-          endMonth: "MM",
-          endYear: "YYYY",
-          place: "City, Country"
-        }
-      ],
-      skills: ["Skill"],
-      projects: [
-        { title: "Project name", desc: "Description of achievements" }
-      ],
-      certifications: ["Cerificate name"],
-      achievements: ["Achievement name"],
-      courses: [{ title: "Course name", desc: "Short description" }],
-      languages: [{ language: "Language", level: "Level" }]
-    },
-    {
-      experience: [
-        
-      ],
-      education: [
-        
-      ],
-      skills: [],
-      projects: [
-      ],
-      certifications: [],
-      achievements: [],
-      courses: [],
-      languages: []
-    },
-    {
-      experience: [
-      ],
-      education: [
-      ],
-      skills: [],
-      projects: [
-      ],
-      certifications: [],
-      achievements: [],
-      courses: [],
-      languages: []
-    },
-    {
-      experience: [
-      ],
-      education: [
-      ],
-      skills: [],
-      projects: [
-      ],
-      certifications: [],
-      achievements: [],
-      courses: [],
-      languages: []
-    }
-  ]
+
+    userData: [
+      {
+        fullName: "FULL NAME",
+        intro: "Professional title",
+        about: ["Short and engaging pitch about yourself"],
+        profilePic: "http://localhost:5000/static/default.png",
+        contact: [
+          { icon: "far fa-envelope", value: "Email" },
+          { icon: "fas fa-mobile-alt", value: "Phone number" },
+          { icon: "fab fa-linkedin", value: "" },
+          { icon: "fab fa-skype", value: "" },
+          { icon: "fas fa-map-marker-alt", value: "" },
+          { icon: "fas fa-globe", value: "" },
+          { icon: "fab fa-github", value: "" }
+        ],
+        experience: [
+          {
+            position: "Position/Title",
+            company: "Workplace/Company",
+            startMonth: "MM",
+            startYear: "YYYY",
+            endMonth: "MM",
+            endYear: "YYYY",
+            place: "City, Country",
+            tasks: "Accomplishments/Responsibility/Tasks"
+          }
+        ],
+        education: [
+          {
+            studyProgram: "Study Program",
+            institution: "Institution / Place of Education",
+            startMonth: "MM",
+            startYear: "YYYY",
+            endMonth: "MM",
+            endYear: "YYYY",
+            place: "City, Country"
+          }
+        ],
+        skills: ["Skill"],
+        projects: [
+          { title: "Project name", desc: "Description of achievements" }
+        ],
+        certifications: ["Cerificate name"],
+        achievements: ["Achievement name"],
+        courses: [{ title: "Course name", desc: "Short description" }],
+        languages: [{ language: "Language", level: "Level" }]
+      },
+      {
+        experience: [],
+        education: [],
+        skills: [],
+        projects: [],
+        certifications: [],
+        achievements: [],
+        courses: [],
+        languages: []
+      },
+      {
+        experience: [],
+        education: [],
+        skills: [],
+        projects: [],
+        certifications: [],
+        achievements: [],
+        courses: [],
+        languages: []
+      },
+      {
+        experience: [],
+        education: [],
+        skills: [],
+        projects: [],
+        certifications: [],
+        achievements: [],
+        courses: [],
+        languages: []
+      }
+    ]
   };
   componentDidUpdate() {
     let Pages = [...this.state.userData];
 
     Array.from(document.querySelectorAll(".A4")).forEach((el, i) => {
-      let headerHeight = (document.querySelectorAll(".A4")[i].querySelector(".header-inner") == null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") == undefined ) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".header-inner").clientHeight
-      let contactHeight = (document.querySelectorAll(".A4")[i].querySelector(".contact") == null || document.querySelectorAll(".A4")[i].querySelector(".contact") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".contact").clientHeight
-      let experienceHeight = (document.querySelectorAll(".A4")[i].querySelector(".experience") == null || document.querySelectorAll(".A4")[i].querySelector(".experience") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".experience").clientHeight
-      let educationHeight = (document.querySelectorAll(".A4")[i].querySelector(".education") == null || document.querySelectorAll(".A4")[i].querySelector(".education") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".education").clientHeight
-      let skillsHeight = (document.querySelectorAll(".A4")[i].querySelector(".skills") == null || document.querySelectorAll(".A4")[i].querySelector(".skills") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".skills").clientHeight
-      let projectsHeight = (document.querySelectorAll(".A4")[i].querySelector(".projects") == null || document.querySelectorAll(".A4")[i].querySelector(".projects") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".projects").clientHeight
-      let certificationsHeight = (document.querySelectorAll(".A4")[i].querySelector(".certifications") == null || document.querySelectorAll(".A4")[i].querySelector(".certifications") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".certifications").clientHeight
-      let achievementsHeight = (document.querySelectorAll(".A4")[i].querySelector(".achievements") == null || document.querySelectorAll(".A4")[i].querySelector(".achievements") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".achievements").clientHeight
-      let coursesHeight = (document.querySelectorAll(".A4")[i].querySelector(".courses") == null || document.querySelectorAll(".A4")[i].querySelector(".courses") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".courses").clientHeight
-      let languagesHeight = (document.querySelectorAll(".A4")[i].querySelector(".languages") == null || document.querySelectorAll(".A4")[i].querySelector(".languages") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".languages").clientHeight
+      let headerHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".header-inner")
+              .clientHeight;
+      let contactHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".contact") == null ||
+        document.querySelectorAll(".A4")[i].querySelector(".contact") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".contact")
+              .clientHeight;
+      let experienceHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".experience") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".experience") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".experience")
+              .clientHeight;
+      let educationHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".education") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".education") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".education")
+              .clientHeight;
+      let skillsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".skills") == null ||
+        document.querySelectorAll(".A4")[i].querySelector(".skills") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".skills")
+              .clientHeight;
+      let projectsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".projects") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".projects") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".projects")
+              .clientHeight;
+      let certificationsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".certifications") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".certifications") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".certifications")
+              .clientHeight;
+      let achievementsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".achievements") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".achievements") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".achievements")
+              .clientHeight;
+      let coursesHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".courses") == null ||
+        document.querySelectorAll(".A4")[i].querySelector(".courses") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".courses")
+              .clientHeight;
+      let languagesHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".languages") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".languages") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".languages")
+              .clientHeight;
 
-      let leftHeight = (parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight))
-      let rightHeight = (parseInt(headerHeight) + parseInt(contactHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight))
+      let leftHeight =
+        parseInt(headerHeight) +
+        parseInt(contactHeight) +
+        parseInt(experienceHeight) +
+        parseInt(educationHeight);
+      let rightHeight =
+        parseInt(headerHeight) +
+        parseInt(contactHeight) +
+        parseInt(skillsHeight) +
+        parseInt(projectsHeight) +
+        parseInt(certificationsHeight) +
+        parseInt(achievementsHeight) +
+        parseInt(coursesHeight) +
+        parseInt(languagesHeight);
 
-      if(leftHeight > 1122){
-          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0]
-        Pages[i+1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length -1])
-        Pages[i][lastItem].pop()
-        this.setState({ userData: Pages })
+      if (leftHeight > 1122) {
+        let lastItem = document
+          .querySelectorAll(".A4")
+          [i].querySelector(".left").lastChild.classList[0];
+        Pages[i + 1][lastItem].unshift(
+          Pages[i][lastItem][Pages[i][lastItem].length - 1]
+        );
+        Pages[i][lastItem].pop();
+        this.setState({ userData: Pages });
       }
-      if(rightHeight > 1122){
-        let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0]
-        Pages[i+1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length -1])
-        Pages[i][lastItem].pop()
-        this.setState({ userData: Pages })
+      if (rightHeight > 1122) {
+        let lastItem = document
+          .querySelectorAll(".A4")
+          [i].querySelector(".right").lastChild.classList[0];
+        Pages[i + 1][lastItem].unshift(
+          Pages[i][lastItem][Pages[i][lastItem].length - 1]
+        );
+        Pages[i][lastItem].pop();
+        this.setState({ userData: Pages });
       }
-      if(document.querySelectorAll(".A4")[i+1]){
-
-        if(document.querySelectorAll(".A4")[i+1].querySelector(".left").firstChild == null){
+      if (document.querySelectorAll(".A4")[i + 1]) {
+        if (
+          document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+            .firstChild == null
+        ) {
+        } else {
+          if (
+            leftHeight +
+              parseInt(
+                document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+                  .firstChild.lastChild.firstChild.clientHeight
+              ) <
+            1115
+          ) {
+            let Item = document
+              .querySelectorAll(".A4")
+              [i + 1].querySelector(".left").firstChild.classList[0];
+            console.log(Item);
+            Pages[i][Item].push(Pages[i + 1][Item][0]);
+            Pages[i + 1][Item].shift();
+          }
         }
-        else{
-          if((leftHeight + parseInt((document.querySelectorAll(".A4")[i+1].querySelector(".left").firstChild.lastChild.firstChild).clientHeight)) < 1115){
-          let Item = document.querySelectorAll(".A4")[i+1].querySelector(".left").firstChild.classList[0]
-          console.log(Item)
-          Pages[i][Item].push(Pages[i+1][Item][0])
-          Pages[i+1][Item].shift()
+      }
+      if (document.querySelectorAll(".A4")[i + 1]) {
+        if (
+          document.querySelectorAll(".A4")[i + 1].querySelector(".right")
+            .firstChild == null
+        ) {
+        } else {
+          if (
+            rightHeight +
+              parseInt(
+                document.querySelectorAll(".A4")[i + 1].querySelector(".right")
+                  .firstChild.lastChild.firstChild.clientHeight
+              ) <
+            1115
+          ) {
+            let Item = document
+              .querySelectorAll(".A4")
+              [i + 1].querySelector(".right").firstChild.classList[0];
+            console.log(Item);
+            Pages[i][Item].push(Pages[i + 1][Item][0]);
+            Pages[i + 1][Item].shift();
+          }
         }
       }
-    }
-    if(document.querySelectorAll(".A4")[i+1]){
-
-      if(document.querySelectorAll(".A4")[i+1].querySelector(".right").firstChild == null){
-      }
-      else{
-        if((rightHeight + parseInt((document.querySelectorAll(".A4")[i+1].querySelector(".right").firstChild.lastChild.firstChild).clientHeight)) < 1115){
-        let Item = document.querySelectorAll(".A4")[i+1].querySelector(".right").firstChild.classList[0]
-        console.log(Item)
-        Pages[i][Item].push(Pages[i+1][Item][0])
-        Pages[i+1][Item].shift()
-      }
-    }
-  }
-    }
-    )
+    });
   }
 
   async componentDidMount() {
@@ -240,84 +345,120 @@ class ThemeContextProvider extends Component {
   // }
 
   importData = async (profile, e) => {
-    e.preventDefault()
-    console.log("i am calling linkedin data")
-    console.log(profile)
+    e.preventDefault();
+    console.log("i am calling linkedin data");
+    console.log(profile);
     const response = await axios.get(
       `http://localhost:5000/api/users/data/link/${profile}`
     );
     console.log(response.data);
     let newObject = [...this.state.userData];
-    newObject[0].fullName = response.data.profileFullName ? response.data.profileFullName : "FULL NAME";
-    newObject[0].intro = response.data.profileHeadline ? response.data.profileHeadline : "Profes  sional Title";
-    newObject[0].about = response.data.profileAbout ? response.data.profileAbout : ["Short and engaging pitch about yourself"];
-    newObject[0].profilePic = `http://localhost:5000/static/${profile}.jpg` ? `http://localhost:5000/static/${profile}.jpg` : "http://localhost:5000/static/default.png";
-    newObject[0].skills = response.data.skills ? response.data.skills : ["skill"];
-    newObject[0].experience = response.data.profileExperience ? response.data.profileExperience.map(el => {
-      if (el.jobsDesc) {
-      } else {
-        let new_el = {};
-        new_el.position = verify(el.jobTitle);
-        new_el.company = verify(el.jobEmployer);
-        new_el.startMonth = verify(el.jobPeriod.split(" ")[0]);
-        new_el.startYear = verify(el.jobPeriod.split(" ")[1]);
-        new_el.endMonth = verify(el.jobPeriod.split(" ")[3]);
-        new_el.endYear = verify(el.jobPeriod.split(" ")[4]);
-        new_el.place = verify(el.jobLocation);
-        new_el.tasks = verify(el.jobDescription);
-        return new_el;
-      }
-    }) : [{
-      position: "Position/Title",
-      company: "Workplace/Company",
-      startMonth: "MM",
-      startYear: "YYYY",
-      endMonth: "MM",
-      endYear: "YYYY",
-      place: "City, Country",
-      tasks: "Accomplishments/Responsibility/Tasks"
-    }];
-    newObject[0].education = response.data.profileEducation ? response.data.profileEducation.map(el => {
-      let new_el = {};
-      new_el.studyProgram = verify(el.educationType);
-      new_el.institution = verify(el.educationInstitution);
-      new_el.startMonth = "";
-      new_el.startYear = verify(el.educationPeriod.split(" ")[0]);
-      new_el.endMonth = "";
-      new_el.endYear = verify(el.educationPeriod.split(" ")[2]);
-      new_el.place = "";
-      return new_el;
-    }) : [{
-      studyProgram: "Study Program",
-      institution: "Institution / Place of Education",
-      startMonth: "MM",
-      startYear: "YYYY",
-      endMonth: "MM",
-      endYear: "YYYY",
-      place: "City, Country"
-    }];
-    newObject[0].languages = response.data.languages ? response.data.languages.map(el => { return { language: el, level: "B1" }}) : [{ language: "Language", level: "B1" }]
-    newObject[0].courses = response.data.courses ? response.data.courses.map(el => { return { title: el, desc: "Description" }}) : [{ title: "Course name", desc: "Short description" }]
-    newObject[0].projects = response.data.projects ? response.data.projects : [{ title: "Project name", desc: "Description of achievements" }]
-    newObject[0].contact[0].value = response.data.Email ? response.data.Email : "Email"
-    newObject[0].contact[6].value = response.data.Website ? response.data.Website : "Website"
-    newObject[0].certifications = ["Certificate name"]
-    newObject[0].achievements = ["Achievement name"]
+    newObject[0].fullName = response.data.profileFullName
+      ? response.data.profileFullName
+      : "FULL NAME";
+    newObject[0].intro = response.data.profileHeadline
+      ? response.data.profileHeadline
+      : "Profes  sional Title";
+    newObject[0].about = response.data.profileAbout
+      ? response.data.profileAbout
+      : ["Short and engaging pitch about yourself"];
+    newObject[0].profilePic = `http://localhost:5000/static/${profile}.jpg`
+      ? `http://localhost:5000/static/${profile}.jpg`
+      : "http://localhost:5000/static/default.png";
+    newObject[0].skills = response.data.skills
+      ? response.data.skills
+      : ["skill"];
+    newObject[0].experience = response.data.profileExperience
+      ? response.data.profileExperience.map(el => {
+          if (el.jobsDesc) {
+          } else {
+            let new_el = {};
+            new_el.position = verify(el.jobTitle);
+            new_el.company = verify(el.jobEmployer);
+            new_el.startMonth = verify(el.jobPeriod.split(" ")[0]);
+            new_el.startYear = verify(el.jobPeriod.split(" ")[1]);
+            new_el.endMonth = verify(el.jobPeriod.split(" ")[3]);
+            new_el.endYear = verify(el.jobPeriod.split(" ")[4]);
+            new_el.place = verify(el.jobLocation);
+            new_el.tasks = verify(el.jobDescription);
+            return new_el;
+          }
+        })
+      : [
+          {
+            position: "Position/Title",
+            company: "Workplace/Company",
+            startMonth: "MM",
+            startYear: "YYYY",
+            endMonth: "MM",
+            endYear: "YYYY",
+            place: "City, Country",
+            tasks: "Accomplishments/Responsibility/Tasks"
+          }
+        ];
+    newObject[0].education = response.data.profileEducation
+      ? response.data.profileEducation.map(el => {
+          let new_el = {};
+          new_el.studyProgram = verify(el.educationType);
+          new_el.institution = verify(el.educationInstitution);
+          new_el.startMonth = "";
+          new_el.startYear = verify(el.educationPeriod.split(" ")[0]);
+          new_el.endMonth = "";
+          new_el.endYear = verify(el.educationPeriod.split(" ")[2]);
+          new_el.place = "";
+          return new_el;
+        })
+      : [
+          {
+            studyProgram: "Study Program",
+            institution: "Institution / Place of Education",
+            startMonth: "MM",
+            startYear: "YYYY",
+            endMonth: "MM",
+            endYear: "YYYY",
+            place: "City, Country"
+          }
+        ];
+    newObject[0].languages = response.data.languages
+      ? response.data.languages.map(el => {
+          return { language: el, level: "B1" };
+        })
+      : [{ language: "Language", level: "B1" }];
+    newObject[0].courses = response.data.courses
+      ? response.data.courses.map(el => {
+          return { title: el, desc: "Description" };
+        })
+      : [{ title: "Course name", desc: "Short description" }];
+    newObject[0].projects = response.data.projects
+      ? response.data.projects
+      : [{ title: "Project name", desc: "Description of achievements" }];
+    newObject[0].contact[0].value = response.data.Email
+      ? response.data.Email
+      : "Email";
+    newObject[0].contact[6].value = response.data.Website
+      ? response.data.Website
+      : "Website";
+    newObject[0].certifications = ["Certificate name"];
+    newObject[0].achievements = ["Achievement name"];
     // console.log(response.data.contacts)
     // console.log(`http://localhost:5000/static/${profile}.jpg`);
     this.setState({ userData: newObject });
-this.setState(this.state)
-    axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
+    this.setState(this.state);
+    axios
+      .get("localhost:5000/api/users/data/bleda-hacialihafiz")
+      .then(res => console.log(res.data));
   };
-  saveCVDataToServer = async (e) => {
-    e.preventDefault()
+  saveCVDataToServer = async e => {
+    e.preventDefault();
     console.log("i am calling");
     const userID = await aFunction();
-    console.log(userID)
+    console.log(userID);
 
     //const data = JSON.stringify(this.state)
     axios.post(
-      `http://localhost:5000/api/users/resume/cv/${userID}`, this.state);
+      `http://localhost:5000/api/users/resume/cv/${userID}`,
+      this.state
+    );
   };
   // Those 3 functions add array of strings, will try to DRY later
   modifyEd = (page, field, value, index) => {
@@ -540,215 +681,272 @@ this.setState(this.state)
 
   moveUpGroup = (field, page, index) => {
     let newObject = [...this.state.userData];
-  if(field === "experience"){
-      if(index === 0 && (newObject[page-1])){
-        let newObj = newObject[page-1].experience[newObject[page-1].experience.length-1]
-        newObject[page-1].experience[newObject[page-1].experience.length-1] = newObject[page].experience[index]
-        newObject[page].experience[index] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].experience[index-1]
-      newObject[page].experience[index-1] = newObject[page].experience[index]
-      newObject[page].experience[index] = newObj;
+    if (field === "experience") {
+      if (index === 0 && newObject[page - 1]) {
+        let newObj =
+          newObject[page - 1].experience[
+            newObject[page - 1].experience.length - 1
+          ];
+        newObject[page - 1].experience[
+          newObject[page - 1].experience.length - 1
+        ] = newObject[page].experience[index];
+        newObject[page].experience[index] = newObj;
+      } else {
+        let newObj = newObject[page].experience[index - 1];
+        newObject[page].experience[index - 1] =
+          newObject[page].experience[index];
+        newObject[page].experience[index] = newObj;
       }
     }
-  if(field === "education"){
-      if(index === 0 && (newObject[page-1])){
-        let newObj = newObject[page-1].education[newObject[page-1].education.length-1]
-        newObject[page-1].education[newObject[page-1].education.length-1] = newObject[page].education[index]
-        newObject[page].education[index] = newObj; 
+    if (field === "education") {
+      if (index === 0 && newObject[page - 1]) {
+        let newObj =
+          newObject[page - 1].education[
+            newObject[page - 1].education.length - 1
+          ];
+        newObject[page - 1].education[
+          newObject[page - 1].education.length - 1
+        ] = newObject[page].education[index];
+        newObject[page].education[index] = newObj;
+      } else {
+        let newObj = newObject[page].education[index - 1];
+        newObject[page].education[index - 1] = newObject[page].education[index];
+        newObject[page].education[index] = newObj;
       }
-      else{
-      let newObj = newObject[page].education[index-1]
-      newObject[page].education[index-1] = newObject[page].education[index]
-      newObject[page].education[index] = newObj;
+    }
+    if (field === "skills") {
+      if (index === 0 && newObject[page - 1]) {
+        let newObj =
+          newObject[page - 1].skills[newObject[page - 1].skills.length - 1];
+        newObject[page - 1].skills[newObject[page - 1].skills.length - 1] =
+          newObject[page].skills[index];
+        newObject[page].skills[index] = newObj;
+      } else {
+        let newObj = newObject[page].skills[index - 1];
+        newObject[page].skills[index - 1] = newObject[page].skills[index];
+        newObject[page].skills[index] = newObj;
       }
+    }
+    if (field === "projects") {
+      if (index === 0 && newObject[page - 1]) {
+        let newObj =
+          newObject[page - 1].projects[newObject[page - 1].projects.length - 1];
+        newObject[page - 1].projects[newObject[page - 1].projects.length - 1] =
+          newObject[page].projects[index];
+        newObject[page].projects[index] = newObj;
+      } else {
+        let newObj = newObject[page].projects[index - 1];
+        newObject[page].projects[index - 1] = newObject[page].projects[index];
+        newObject[page].projects[index] = newObj;
+      }
+    }
+    if (field === "certifications") {
+      if (index === 0 && newObject[page - 1]) {
+        let newObj =
+          newObject[page - 1].certifications[
+            newObject[page - 1].certifications.length - 1
+          ];
+        newObject[page - 1].certifications[
+          newObject[page - 1].certifications.length - 1
+        ] = newObject[page].certifications[index];
+        newObject[page].certifications[index] = newObj;
+      } else {
+        let newObj = newObject[page].certifications[index - 1];
+        newObject[page].certifications[index - 1] =
+          newObject[page].certifications[index];
+        newObject[page].certifications[index] = newObj;
+      }
+    }
+    if (field === "achievements") {
+      if (index === 0 && newObject[page - 1]) {
+        let newObj =
+          newObject[page - 1].achievements[
+            newObject[page - 1].achievements.length - 1
+          ];
+        newObject[page - 1].achievements[
+          newObject[page - 1].achievements.length - 1
+        ] = newObject[page].achievements[index];
+        newObject[page].achievements[index] = newObj;
+      } else {
+        let newObj = newObject[page].achievements[index - 1];
+        newObject[page].achievements[index - 1] =
+          newObject[page].achievements[index];
+        newObject[page].achievements[index] = newObj;
+      }
+    }
+    if (field === "courses") {
+      if (index === 0 && newObject[page - 1]) {
+        let newObj =
+          newObject[page - 1].courses[newObject[page - 1].courses.length - 1];
+        newObject[page - 1].courses[newObject[page - 1].courses.length - 1] =
+          newObject[page].courses[index];
+        newObject[page].courses[index] = newObj;
+      } else {
+        let newObj = newObject[page].courses[index - 1];
+        newObject[page].courses[index - 1] = newObject[page].courses[index];
+        newObject[page].courses[index] = newObj;
+      }
+    }
+    if (field === "languages") {
+      if (index === 0 && newObject[page - 1]) {
+        let newObj =
+          newObject[page - 1].languages[
+            newObject[page - 1].languages.length - 1
+          ];
+        newObject[page - 1].languages[
+          newObject[page - 1].languages.length - 1
+        ] = newObject[page].languages[index];
+        newObject[page].languages[index] = newObj;
+      } else {
+        let newObj = newObject[page].languages[index - 1];
+        newObject[page].languages[index - 1] = newObject[page].languages[index];
+        newObject[page].languages[index] = newObj;
+      }
+    }
+    this.setState({ userData: newObject });
   };
-  if(field === "skills"){
-      if(index === 0 && (newObject[page-1])){
-        let newObj = newObject[page-1].skills[newObject[page-1].skills.length-1]
-        newObject[page-1].skills[newObject[page-1].skills.length-1] = newObject[page].skills[index]
-        newObject[page].skills[index] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].skills[index-1]
-      newObject[page].skills[index-1] = newObject[page].skills[index]
-      newObject[page].skills[index] = newObj;
-      }
-  };
-  if(field === "projects"){
-      if(index === 0 && (newObject[page-1])){
-        let newObj = newObject[page-1].projects[newObject[page-1].projects.length-1]
-        newObject[page-1].projects[newObject[page-1].projects.length-1] = newObject[page].projects[index]
-        newObject[page].projects[index] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].projects[index-1]
-      newObject[page].projects[index-1] = newObject[page].projects[index]
-      newObject[page].projects[index] = newObj;
-      }
-  };
-  if(field === "certifications"){
-      if(index === 0 && (newObject[page-1])){
-        let newObj = newObject[page-1].certifications[newObject[page-1].certifications.length-1]
-        newObject[page-1].certifications[newObject[page-1].certifications.length-1] = newObject[page].certifications[index]
-        newObject[page].certifications[index] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].certifications[index-1]
-      newObject[page].certifications[index-1] = newObject[page].certifications[index]
-      newObject[page].certifications[index] = newObj;
-      }
-  };
-  if(field === "achievements"){
-      if(index === 0 && (newObject[page-1])){
-        let newObj = newObject[page-1].achievements[newObject[page-1].achievements.length-1]
-        newObject[page-1].achievements[newObject[page-1].achievements.length-1] = newObject[page].achievements[index]
-        newObject[page].achievements[index] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].achievements[index-1]
-      newObject[page].achievements[index-1] = newObject[page].achievements[index]
-      newObject[page].achievements[index] = newObj;
-      }
-  };
-  if(field === "courses"){
-      if(index === 0 && (newObject[page-1])){
-        let newObj = newObject[page-1].courses[newObject[page-1].courses.length-1]
-        newObject[page-1].courses[newObject[page-1].courses.length-1] = newObject[page].courses[index]
-        newObject[page].courses[index] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].courses[index-1]
-      newObject[page].courses[index-1] = newObject[page].courses[index]
-      newObject[page].courses[index] = newObj;
-      }
-  };
-  if(field === "languages"){
-      if(index === 0 && (newObject[page-1])){
-        let newObj = newObject[page-1].languages[newObject[page-1].languages.length-1]
-        newObject[page-1].languages[newObject[page-1].languages.length-1] = newObject[page].languages[index]
-        newObject[page].languages[index] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].languages[index-1]
-      newObject[page].languages[index-1] = newObject[page].languages[index]
-      newObject[page].languages[index] = newObj;
-      }
-  };
-  this.setState({ userData: newObject });
-
-}
   moveDownGroup = (field, page, index) => {
     let newObject = [...this.state.userData];
-  if(field === "experience"){
-      if((index === newObject[page].experience.length-1) && (newObject[page+1])){
-        let newObj = newObject[page+1].experience[0]
-        newObject[page+1].experience[0] = newObject[page].experience[newObject[page].experience.length-1]
-        newObject[page].experience[newObject[page].experience.length-1] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].experience[index+1]
-      newObject[page].experience[index+1] = newObject[page].experience[index]
-      newObject[page].experience[index] = newObj;
-      }
-    }
-  if(field === "education"){
-      if((index === newObject[page].education.length-1) && (newObject[page+1])){
-        let newObj = newObject[page+1].education[0]
-        newObject[page+1].education[0] = newObject[page].education[newObject[page].education.length-1]
-        newObject[page].education[newObject[page].education.length-1] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].education[index+1]
-      newObject[page].education[index+1] = newObject[page].education[index]
-      newObject[page].education[index] = newObj;
+    if (field === "experience") {
+      if (
+        index === newObject[page].experience.length - 1 &&
+        newObject[page + 1]
+      ) {
+        let newObj = newObject[page + 1].experience[0];
+        newObject[page + 1].experience[0] =
+          newObject[page].experience[newObject[page].experience.length - 1];
+        newObject[page].experience[
+          newObject[page].experience.length - 1
+        ] = newObj;
+      } else {
+        let newObj = newObject[page].experience[index + 1];
+        newObject[page].experience[index + 1] =
+          newObject[page].experience[index];
+        newObject[page].experience[index] = newObj;
       }
     }
-  if(field === "skills"){
-      if((index === newObject[page].skills.length-1) && (newObject[page+1])){
-        let newObj = newObject[page+1].skills[0]
-        newObject[page+1].skills[0] = newObject[page].skills[newObject[page].skills.length-1]
-        newObject[page].skills[newObject[page].skills.length-1] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].skills[index+1]
-      newObject[page].skills[index+1] = newObject[page].skills[index]
-      newObject[page].skills[index] = newObj;
-      }
-    }
-  if(field === "projects"){
-      if((index === newObject[page].projects.length-1) && (newObject[page+1])){
-        let newObj = newObject[page+1].projects[0]
-        newObject[page+1].projects[0] = newObject[page].projects[newObject[page].projects.length-1]
-        newObject[page].projects[newObject[page].projects.length-1] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].projects[index+1]
-      newObject[page].projects[index+1] = newObject[page].projects[index]
-      newObject[page].projects[index] = newObj;
+    if (field === "education") {
+      if (
+        index === newObject[page].education.length - 1 &&
+        newObject[page + 1]
+      ) {
+        let newObj = newObject[page + 1].education[0];
+        newObject[page + 1].education[0] =
+          newObject[page].education[newObject[page].education.length - 1];
+        newObject[page].education[
+          newObject[page].education.length - 1
+        ] = newObj;
+      } else {
+        let newObj = newObject[page].education[index + 1];
+        newObject[page].education[index + 1] = newObject[page].education[index];
+        newObject[page].education[index] = newObj;
       }
     }
-  if(field === "certifications"){
-      if((index === newObject[page].certifications.length-1) && (newObject[page+1])){
-        let newObj = newObject[page+1].certifications[0]
-        newObject[page+1].certifications[0] = newObject[page].certifications[newObject[page].certifications.length-1]
-        newObject[page].certifications[newObject[page].certifications.length-1] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].certifications[index+1]
-      newObject[page].certifications[index+1] = newObject[page].certifications[index]
-      newObject[page].certifications[index] = newObj;
-      }
-    }
-  if(field === "achievements"){
-      if((index === newObject[page].achievements.length-1) && (newObject[page+1])){
-        let newObj = newObject[page+1].achievements[0]
-        newObject[page+1].achievements[0] = newObject[page].achievements[newObject[page].achievements.length-1]
-        newObject[page].achievements[newObject[page].achievements.length-1] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].achievements[index+1]
-      newObject[page].achievements[index+1] = newObject[page].achievements[index]
-      newObject[page].achievements[index] = newObj;
+    if (field === "skills") {
+      if (index === newObject[page].skills.length - 1 && newObject[page + 1]) {
+        let newObj = newObject[page + 1].skills[0];
+        newObject[page + 1].skills[0] =
+          newObject[page].skills[newObject[page].skills.length - 1];
+        newObject[page].skills[newObject[page].skills.length - 1] = newObj;
+      } else {
+        let newObj = newObject[page].skills[index + 1];
+        newObject[page].skills[index + 1] = newObject[page].skills[index];
+        newObject[page].skills[index] = newObj;
       }
     }
-  if(field === "courses"){
-      if((index === newObject[page].courses.length-1) && (newObject[page+1])){
-        let newObj = newObject[page+1].courses[0]
-        newObject[page+1].courses[0] = newObject[page].courses[newObject[page].courses.length-1]
-        newObject[page].courses[newObject[page].courses.length-1] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].courses[index+1]
-      newObject[page].courses[index+1] = newObject[page].courses[index]
-      newObject[page].courses[index] = newObj;
-      }
-    }
-  if(field === "languages"){
-      if((index === newObject[page].languages.length-1) && (newObject[page+1])){
-        let newObj = newObject[page+1].languages[0]
-        newObject[page+1].languages[0] = newObject[page].languages[newObject[page].languages.length-1]
-        newObject[page].languages[newObject[page].languages.length-1] = newObj; 
-      }
-      else{
-      let newObj = newObject[page].languages[index+1]
-      newObject[page].languages[index+1] = newObject[page].languages[index]
-      newObject[page].languages[index] = newObj;
+    if (field === "projects") {
+      if (
+        index === newObject[page].projects.length - 1 &&
+        newObject[page + 1]
+      ) {
+        let newObj = newObject[page + 1].projects[0];
+        newObject[page + 1].projects[0] =
+          newObject[page].projects[newObject[page].projects.length - 1];
+        newObject[page].projects[newObject[page].projects.length - 1] = newObj;
+      } else {
+        let newObj = newObject[page].projects[index + 1];
+        newObject[page].projects[index + 1] = newObject[page].projects[index];
+        newObject[page].projects[index] = newObj;
       }
     }
-  
-  this.setState({ userData: newObject });
-  
-}
-setStructure = ( arr1, arr2) => {
-  let newObj = { ...this.state }
-  newObj.style.leftSide = arr1
-  newObj.style.rightSide = arr2
-  
-  this.setState(newObj);
-}
-// ..............................................................
+    if (field === "certifications") {
+      if (
+        index === newObject[page].certifications.length - 1 &&
+        newObject[page + 1]
+      ) {
+        let newObj = newObject[page + 1].certifications[0];
+        newObject[page + 1].certifications[0] =
+          newObject[page].certifications[
+            newObject[page].certifications.length - 1
+          ];
+        newObject[page].certifications[
+          newObject[page].certifications.length - 1
+        ] = newObj;
+      } else {
+        let newObj = newObject[page].certifications[index + 1];
+        newObject[page].certifications[index + 1] =
+          newObject[page].certifications[index];
+        newObject[page].certifications[index] = newObj;
+      }
+    }
+    if (field === "achievements") {
+      if (
+        index === newObject[page].achievements.length - 1 &&
+        newObject[page + 1]
+      ) {
+        let newObj = newObject[page + 1].achievements[0];
+        newObject[page + 1].achievements[0] =
+          newObject[page].achievements[newObject[page].achievements.length - 1];
+        newObject[page].achievements[
+          newObject[page].achievements.length - 1
+        ] = newObj;
+      } else {
+        let newObj = newObject[page].achievements[index + 1];
+        newObject[page].achievements[index + 1] =
+          newObject[page].achievements[index];
+        newObject[page].achievements[index] = newObj;
+      }
+    }
+    if (field === "courses") {
+      if (index === newObject[page].courses.length - 1 && newObject[page + 1]) {
+        let newObj = newObject[page + 1].courses[0];
+        newObject[page + 1].courses[0] =
+          newObject[page].courses[newObject[page].courses.length - 1];
+        newObject[page].courses[newObject[page].courses.length - 1] = newObj;
+      } else {
+        let newObj = newObject[page].courses[index + 1];
+        newObject[page].courses[index + 1] = newObject[page].courses[index];
+        newObject[page].courses[index] = newObj;
+      }
+    }
+    if (field === "languages") {
+      if (
+        index === newObject[page].languages.length - 1 &&
+        newObject[page + 1]
+      ) {
+        let newObj = newObject[page + 1].languages[0];
+        newObject[page + 1].languages[0] =
+          newObject[page].languages[newObject[page].languages.length - 1];
+        newObject[page].languages[
+          newObject[page].languages.length - 1
+        ] = newObj;
+      } else {
+        let newObj = newObject[page].languages[index + 1];
+        newObject[page].languages[index + 1] = newObject[page].languages[index];
+        newObject[page].languages[index] = newObj;
+      }
+    }
+
+    this.setState({ userData: newObject });
+  };
+  setStructure = (arr1, arr2) => {
+    let newObj = { ...this.state };
+    newObj.style.leftSide = arr1;
+    newObj.style.rightSide = arr2;
+
+    this.setState(newObj);
+  };
+  // ..............................................................
   handleContactIcon = () => {
     let element = document.getElementsByClassName("iconeColor");
     element.classList.add(this.state.userData.contact.icone);
@@ -844,31 +1042,45 @@ setStructure = ( arr1, arr2) => {
 
   togglePhotoClass = () => {
     const currentState = this.state.style.displayPhoto;
-    let newObject = {...this.state.style};
-    newObject.displayPhoto = !currentState
+    let newObject = { ...this.state.style };
+    newObject.displayPhoto = !currentState;
     this.setState({ style: newObject });
   };
 
   toggleTitleClass = () => {
     const currentState = this.state.style.displayTitle;
-    let newObject = {...this.state.style};
-    newObject.displayTitle = !currentState
+    let newObject = { ...this.state.style };
+    newObject.displayTitle = !currentState;
+    this.setState({ style: newObject });
+  };
+
+  toggleCoverTitleClass = () => {
+    const currentState = this.state.style.displayCoverTitle;
+    let newObject = { ...this.state.style };
+    newObject.displayCoverTitle = !currentState;
+    this.setState({ style: newObject });
+  };
+
+  toggleCompanyClass = () => {
+    const currentState = this.state.style.displayCompany;
+    let newObject = { ...this.state.style };
+    newObject.displayCompany = !currentState;
     this.setState({ style: newObject });
   };
 
   toggleSummaryClass = () => {
     const currentState = this.state.style.displaySummary;
-    let newObject = {...this.state.style};
-    newObject.displaySummary = !currentState
+    let newObject = { ...this.state.style };
+    newObject.displaySummary = !currentState;
     this.setState({ style: newObject });
   };
 
   toggleOneColumn = () => {
     const currentState = this.state.style.displayOneColumn;
-    let newObject = {...this.state.style};
-    newObject.displayOneColumn = !currentState
+    let newObject = { ...this.state.style };
+    newObject.displayOneColumn = !currentState;
     this.setState({ style: newObject });
-  }
+  };
 
   toggleFontWeight = () => {
     document.execCommand("bold", false, "");
@@ -910,6 +1122,31 @@ setStructure = ( arr1, arr2) => {
     document.execCommand("redo", false, "");
   };
 
+  getCurrentDate = () => {
+    const today = new Date();
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+    return (
+      today.getDate() +
+      "-" +
+      months[today.getMonth()].substring(0, 3) +
+      "-" +
+      today.getFullYear()
+    );
+  };
+
   render() {
     return (
       <ThemeContext.Provider
@@ -930,6 +1167,8 @@ setStructure = ( arr1, arr2) => {
           updateUserGitHub: this.updateUserGitHub,
           togglePhotoClass: this.togglePhotoClass,
           toggleTitleClass: this.toggleTitleClass,
+          toggleCoverTitleClass: this.toggleCoverTitleClass,
+          toggleCompanyClass: this.toggleCompanyClass,
           toggleSummaryClass: this.toggleSummaryClass,
           toggleOneColumn: this.toggleOneColumn,
           toggleFontWeight: this.toggleFontWeight,
@@ -956,7 +1195,8 @@ setStructure = ( arr1, arr2) => {
           moveUpGroup: this.moveUpGroup,
           moveDownGroup: this.moveDownGroup,
           generatePDF: this.generatePDF,
-          setStructure: this.setStructure
+          setStructure: this.setStructure,
+          getCurrentDate: this.getCurrentDate
         }}
       >
         {this.props.children}

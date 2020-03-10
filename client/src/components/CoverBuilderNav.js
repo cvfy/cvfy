@@ -50,7 +50,10 @@ const CoverBuilderNav = () => {
         <div className="my-docs-btn">
           <div className="docsDiv">
             <span className="tool-icon tool-mydoc">
-              <NavLink to="/my-documents" style={{ color: "#fff" }}>
+              <NavLink
+                to="/my-documents"
+                style={{ textDecoration: "none", color: "#fff" }}
+              >
                 MyDocuments
               </NavLink>
             </span>
