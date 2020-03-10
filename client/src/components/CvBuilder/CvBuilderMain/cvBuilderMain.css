@@ -275,11 +275,12 @@
   margin: 0;
   background: transparent;
   border: 1px solid #3dbaf7;
+  border-radius: 20px;
+  color: #fff;
 }
 
 .saveContactButton:hover {
   background: #3dbaf7;
-  border: 1px solid #3dbaf7;
 }
 
 .contactBox {
