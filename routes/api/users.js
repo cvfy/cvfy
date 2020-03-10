@@ -117,7 +117,7 @@ const sendData = async (req, res, next) => {
     try {
         const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
         //const datas = await giveMePDF();
-        console.log(datas)
+        console.log(req.params.profile)
         
         res.status(200).send(datas);
     } catch (e) {
@@ -125,7 +125,7 @@ const sendData = async (req, res, next) => {
         res.status(404).send("something went wrong")
     }
 };
-router.get("/data/:profile", sendData)
+router.get("/data/link/:profile", sendData)
 
 // Generate PDF
 const sendPDFData = async (req, res, next) => {
@@ -139,7 +139,8 @@ const sendPDFData = async (req, res, next) => {
         //       console.error(err)
         //       return
         //     }})
-        setTimeout(function(){ fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`) }, 10000);
+        //
+    // setTimeout(function(){ fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`) }, 5000);
         // fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`)
         //res.status(200).sendFile(/profile_picture/combinedNew.pdf)
     } catch (e) {
@@ -150,8 +151,9 @@ router.get("/data/pdf/:id", sendPDFData)
 /////////////////////////////////////////////////////
 
 const saveCVtoServer = (req, res, next)  => {
-    console.log(req.params.id)
-   // console.log(req.body)
+    if(!(req.params.id).includes("-")){
+    console.log("user id -" + req.params.id)
+   console.log("cv id -" +req.body.id)
     console.log("its updating")
     //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
         User.findOne(
@@ -199,6 +201,8 @@ if(!success){
             }
         );   
     //  giveMeScreenShot(req.body.id)
+        }
+        else{}
 }
 
 router.post("/resume/cv/:id" , saveCVtoServer)

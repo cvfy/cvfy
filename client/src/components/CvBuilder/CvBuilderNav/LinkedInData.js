@@ -27,7 +27,7 @@ class LinkedInData extends Component {
                 placeholder="insert your linkedIn account"
               ></input>
               <button
-                onClick={() => importData(this.state.value)}
+                onClick={(e) => importData(context.userData[0].contact[2].value.split("in/")[1].replace("/", ""), e)}
                 className="linkedInButton"
               >
                 Import

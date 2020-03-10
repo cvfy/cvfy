@@ -62,29 +62,160 @@ openRequirements = () => {
             style={{ fontFamily: context.style.font, fontSize: context.style.size3, display: `${!el.experience[0] && !el.education[0] && !el.skills[0] && !el.projects[0] && !el.certifications[0] && !el.achievements[0] && !el.courses[0] && !el.languages[0]? "none": "block"}` }}
           >
             {/* <Header index={i} /> */}
+            
         {el.about && <Header index={i} />}
         {el.contact && <Contacts index={i} />}
             {/* <Contacts index={i} /> */}
             <div className="A4ContentWrap">
               <div className="left">
-              {(el.experience[0] && context.style.leftSide.includes("experience") ) && <Experience index={i} />}
-              {(el.education[0] && context.style.leftSide.includes("education") ) && <Education index={i} />}
-              {(el.skills[0] && context.style.leftSide.includes("skills") ) && <Skills index={i} />}
-              {(el.projects[0] && context.style.leftSide.includes("projects") ) && <Projects index={i} />}
-              {(el.certifications[0] && context.style.leftSide.includes("certifications") ) && <Certifications index={i} />}
-              {(el.achievements[0] && context.style.leftSide.includes("achievements") ) && <Achievements index={i} />}
-              {(el.courses[0] && context.style.leftSide.includes("courses") ) && <Courses index={i} />}
-              {(el.languages[0] && context.style.leftSide.includes("") ) && <Languages index={i} />}
+                
+              {(el.experience[0] && context.style.leftSide[0] && context.style.leftSide[0].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.leftSide[0] && context.style.leftSide[0].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.leftSide[0] && context.style.leftSide[0].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.leftSide[0] && context.style.leftSide[0].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.leftSide[0] && context.style.leftSide[0].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.leftSide[0] && context.style.leftSide[0].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.leftSide[0] && context.style.leftSide[0].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.leftSide[0] && context.style.leftSide[0].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.leftSide[1] && context.style.leftSide[1].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.leftSide[1] && context.style.leftSide[1].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.leftSide[1] && context.style.leftSide[1].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.leftSide[1] && context.style.leftSide[1].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.leftSide[1] && context.style.leftSide[1].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.leftSide[1] && context.style.leftSide[1].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.leftSide[1] && context.style.leftSide[1].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.leftSide[1] && context.style.leftSide[1].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.leftSide[2] && context.style.leftSide[2].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.leftSide[2] && context.style.leftSide[2].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.leftSide[2] && context.style.leftSide[2].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.leftSide[2] && context.style.leftSide[2].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.leftSide[2] && context.style.leftSide[2].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.leftSide[2] && context.style.leftSide[2].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.leftSide[2] && context.style.leftSide[2].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.leftSide[2] && context.style.leftSide[2].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.leftSide[3] && context.style.leftSide[3].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.leftSide[3] && context.style.leftSide[3].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.leftSide[3] && context.style.leftSide[3].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.leftSide[3] && context.style.leftSide[3].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.leftSide[3] && context.style.leftSide[3].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.leftSide[3] && context.style.leftSide[3].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.leftSide[3] && context.style.leftSide[3].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.leftSide[3] && context.style.leftSide[3].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.leftSide[4] && context.style.leftSide[4].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.leftSide[4] && context.style.leftSide[4].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.leftSide[4] && context.style.leftSide[4].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.leftSide[4] && context.style.leftSide[4].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.leftSide[4] && context.style.leftSide[4].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.leftSide[4] && context.style.leftSide[4].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.leftSide[4] && context.style.leftSide[4].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.leftSide[4] && context.style.leftSide[4].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.leftSide[5] && context.style.leftSide[5].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.leftSide[5] && context.style.leftSide[5].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.leftSide[5] && context.style.leftSide[5].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.leftSide[5] && context.style.leftSide[5].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.leftSide[5] && context.style.leftSide[5].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.leftSide[5] && context.style.leftSide[5].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.leftSide[5] && context.style.leftSide[5].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.leftSide[5] && context.style.leftSide[5].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.leftSide[6] && context.style.leftSide[6].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.leftSide[6] && context.style.leftSide[6].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.leftSide[6] && context.style.leftSide[6].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.leftSide[6] && context.style.leftSide[6].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.leftSide[6] && context.style.leftSide[6].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.leftSide[6] && context.style.leftSide[6].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.leftSide[6] && context.style.leftSide[6].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.leftSide[6] && context.style.leftSide[6].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.leftSide[7] && context.style.leftSide[7].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.leftSide[7] && context.style.leftSide[7].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.leftSide[7] && context.style.leftSide[7].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.leftSide[7] && context.style.leftSide[7].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.leftSide[7] && context.style.leftSide[7].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.leftSide[7] && context.style.leftSide[7].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.leftSide[7] && context.style.leftSide[7].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.leftSide[7] && context.style.leftSide[7].includes("languages") ) && <Languages index={i} />}
+
+
               </div>
               <div className="right">
-              {(el.experience[0] && context.style.rightSide.includes("experience") ) && <Experience index={i} />}
-              {(el.education[0] && context.style.rightSide.includes("education") ) && <Education index={i} />}
-              {(el.skills[0] && context.style.rightSide.includes("skills") ) && <Skills index={i} />}
-              {(el.projects[0] && context.style.rightSide.includes("projects") ) && <Projects index={i} />}
-              {(el.certifications[0] && context.style.rightSide.includes("certifications") ) && <Certifications index={i} />}
-              {(el.achievements[0] && context.style.rightSide.includes("achievements") ) && <Achievements index={i} />}
-              {(el.courses[0] && context.style.rightSide.includes("courses") ) && <Courses index={i} />}
-              {(el.languages[0] && context.style.rightSide.includes("languages") ) && <Languages index={i} />}
+              {(el.experience[0] && context.style.rightSide[0] && context.style.rightSide[0].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.rightSide[0] && context.style.rightSide[0].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.rightSide[0] && context.style.rightSide[0].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.rightSide[0] && context.style.rightSide[0].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.rightSide[0] && context.style.rightSide[0].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.rightSide[0] && context.style.rightSide[0].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.rightSide[0] && context.style.rightSide[0].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.rightSide[0] && context.style.rightSide[0].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.rightSide[1] && context.style.rightSide[1].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.rightSide[1] && context.style.rightSide[1].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.rightSide[1] && context.style.rightSide[1].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.rightSide[1] && context.style.rightSide[1].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.rightSide[1] && context.style.rightSide[1].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.rightSide[1] && context.style.rightSide[1].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.rightSide[1] && context.style.rightSide[1].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.rightSide[1] && context.style.rightSide[1].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.rightSide[2] && context.style.rightSide[2].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.rightSide[2] && context.style.rightSide[2].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.rightSide[2] && context.style.rightSide[2].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.rightSide[2] && context.style.rightSide[2].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.rightSide[2] && context.style.rightSide[2].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.rightSide[2] && context.style.rightSide[2].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.rightSide[2] && context.style.rightSide[2].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.rightSide[2] && context.style.rightSide[2].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.rightSide[3] && context.style.rightSide[3].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.rightSide[3] && context.style.rightSide[3].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.rightSide[3] && context.style.rightSide[3].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.rightSide[3] && context.style.rightSide[3].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.rightSide[3] && context.style.rightSide[3].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.rightSide[3] && context.style.rightSide[3].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.rightSide[3] && context.style.rightSide[3].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.rightSide[3] && context.style.rightSide[3].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.rightSide[4] && context.style.rightSide[4].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.rightSide[4] && context.style.rightSide[4].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.rightSide[4] && context.style.rightSide[4].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.rightSide[4] && context.style.rightSide[4].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.rightSide[4] && context.style.rightSide[4].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.rightSide[4] && context.style.rightSide[4].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.rightSide[4] && context.style.rightSide[4].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.rightSide[4] && context.style.rightSide[4].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.rightSide[5] && context.style.rightSide[5].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.rightSide[5] && context.style.rightSide[5].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.rightSide[5] && context.style.rightSide[5].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.rightSide[5] && context.style.rightSide[5].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.rightSide[5] && context.style.rightSide[5].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.rightSide[5] && context.style.rightSide[5].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.rightSide[5] && context.style.rightSide[5].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.rightSide[5] && context.style.rightSide[5].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.rightSide[6] && context.style.rightSide[6].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.rightSide[6] && context.style.rightSide[6].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.rightSide[6] && context.style.rightSide[6].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.rightSide[6] && context.style.rightSide[6].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.rightSide[6] && context.style.rightSide[6].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.rightSide[6] && context.style.rightSide[6].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.rightSide[6] && context.style.rightSide[6].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.rightSide[6] && context.style.rightSide[6].includes("languages") ) && <Languages index={i} />}
+
+              {(el.experience[0] && context.style.rightSide[7] && context.style.rightSide[7].includes("experience") ) && <Experience index={i} />}
+              {(el.education[0] && context.style.rightSide[7] && context.style.rightSide[7].includes("education") ) && <Education index={i} />}
+              {(el.skills[0] && context.style.rightSide[7] && context.style.rightSide[7].includes("skills") ) && <Skills index={i} />}
+              {(el.projects[0] && context.style.rightSide[7] && context.style.rightSide[7].includes("projects") ) && <Projects index={i} />}
+              {(el.certifications[0] && context.style.rightSide[7] && context.style.rightSide[7].includes("certifications") ) && <Certifications index={i} />}
+              {(el.achievements[0] && context.style.rightSide[7] && context.style.rightSide[7].includes("achievements") ) && <Achievements index={i} />}
+              {(el.courses[0] && context.style.rightSide[7] && context.style.rightSide[7].includes("courses") ) && <Courses index={i} />}
+              {(el.languages[0] && context.style.rightSide[7] && context.style.rightSide[7].includes("languages") ) && <Languages index={i} />}
+
               </div>
             </div>
           </div>

@@ -165,14 +165,12 @@ class ThemeContextProvider extends Component {
 
       if(leftHeight > 1122){
           let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0]
-          console.log(lastItem)
         Pages[i+1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length -1])
         Pages[i][lastItem].pop()
         this.setState({ userData: Pages })
       }
       if(rightHeight > 1122){
         let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0]
-        console.log(lastItem)
         Pages[i+1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length -1])
         Pages[i][lastItem].pop()
         this.setState({ userData: Pages })
@@ -241,21 +239,12 @@ class ThemeContextProvider extends Component {
   //   localStorage.setItem("currentCV", "");
   // }
 
-  importData = async profile => {
-    // console.log("hahahha")
-    // const respo = await importDatata()
-    // console.log(respo)
-    //     debugger
-    //     fetch(`http://localhost:5000/api/users/data/vladharagea/`)
-    //   .then(function(response) {
-    //     return response.json();
-    //   })
-    //   .then(function(json) {
-    //     console.log(json);
-    //   });
-    // };
+  importData = async (profile, e) => {
+    e.preventDefault()
+    console.log("i am calling linkedin data")
+    console.log(profile)
     const response = await axios.get(
-      `http://localhost:5000/api/users/data/${profile}`
+      `http://localhost:5000/api/users/data/link/${profile}`
     );
     console.log(response.data);
     let newObject = [...this.state.userData];
@@ -318,12 +307,13 @@ class ThemeContextProvider extends Component {
     // console.log(`http://localhost:5000/static/${profile}.jpg`);
     this.setState({ userData: newObject });
 this.setState(this.state)
-    // axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
+    axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => console.log(res.data))
   };
   saveCVDataToServer = async (e) => {
     e.preventDefault()
     console.log("i am calling");
     const userID = await aFunction();
+    console.log(userID)
 
     //const data = JSON.stringify(this.state)
     axios.post(

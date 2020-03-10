@@ -21,7 +21,7 @@ async function giveMePDF(resumeID) {
            await page.type("[id=password]", "alex88");
            await page.click("[type=submit]")
            await page.waitFor(1000);
-           await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
+        //    await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
             // const localStorage = await page.evaluate(() =>  Object.assign({'CurrentCV': 'daca2eb2-5658-2e9f-17da-a503ee1cce7c'}, window.localStorage));
            await page.evaluate((resumeID) => {
                 // localStorage.removeItem('currentCV');
