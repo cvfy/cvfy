@@ -1,0 +1,206 @@
+$BgColor: #c7d7e4;
+$ButtonColor: #266678;
+$CardsBgColor: #a9bbca;
+* {
+  box-sizing: border-box;
+}
+
+.LandingPage {
+  margin-top: 60px;
+  height: 100%;
+  .LPContainer {
+    height: calc(100% - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: whitesmoke;
+    p {
+      font-size: 1.2rem;
+    }
+    .DesktopLeft,
+    .DesktopRight,
+    .DescriptionSide,
+    .PictureSide {
+      width: 50%;
+      padding: 50px;
+    }
+    .DesktopLeft {
+      text-align: left;
+      h1 {
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 1.2rem;
+        line-height: 2rem;
+        margin-bottom: 40px;
+      }
+      .GroupButtons {
+        display: flex;
+        justify-content: flex-start;
+        button {
+          outline: none;
+          border: 0;
+          background: $ButtonColor;
+          padding: 15px 50px;
+          color: white;
+          margin-right: 10px;
+          border-radius: 7px;
+          font-size: 1rem;
+          font-weight: 700;
+        }
+        .learnMoreButton {
+          background: none;
+          color: $ButtonColor;
+          border: 2px solid $ButtonColor;
+        }
+      }
+    }
+    .DesktopRight,
+    .PictureSide {
+      text-align: center;
+      img {
+        width: 70%;
+      }
+    }
+  }
+  .CardsContainer {
+    background: $BgColor;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .Cards {
+      display: flex;
+      align-items: center;
+      .Section_1_Card {
+        border-radius: 15px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        background-color: $CardsBgColor;
+        padding: 40px 20px;
+        text-align: center;
+        h2 {
+          margin: 0;
+        }
+        .S1_Card_Icon {
+          margin-bottom: 20px;
+          height: 70px;
+        }
+      }
+    }
+  }
+  .ReversedRow {
+    flex-direction: row-reverse;
+  }
+  .BlueTintBg {
+    background: $CardsBgColor;
+  }
+
+  .VideoContainer {
+    height: calc(100% - 80px);
+    width: 100%;
+    // padding: 50px;
+    .IframeContainer {
+      width: 80%;
+      height: 80%;
+      border: 0;
+    }
+  }
+  footer {
+    display: flex;
+    padding: 40px;
+    .FooterRow {
+      display: flex;
+      justify-content: space-evenly;
+      .columns {
+        width: 30%;
+        padding-right: 50px;
+        text-align: left;
+        h3 {
+          margin-bottom: 40px;
+        }
+        ul {
+          list-style: none;
+          padding: 0;
+          li {
+            a {
+              font-size: 1.1rem;
+              text-decoration: none;
+              color: black;
+              &:hover {
+                padding-left: 5px;
+                color: $ButtonColor;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .LandingPage {
+    .LPContainer {
+      height: initial;
+      flex-direction: column-reverse;
+
+      .DescriptionSide,
+      .PictureSide {
+        width: 100%;
+        padding: 30px;
+        img {
+          width: 100%;
+        }
+      }
+      .DesktopLeft {
+        width: 100%;
+        padding: 30px;
+        .GroupButtons {
+          display: block;
+          button {
+            width: 100%;
+            margin-bottom: 10px;
+          }
+        }
+      }
+      .DesktopRight {
+        width: 100%;
+        padding: 30px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .VideoContainer {
+      height: 400px;
+    }
+    .ReversedRow,
+    .BlueTintBg {
+      padding-top: 20px;
+    }
+    .CardsContainer {
+      flex-direction: column;
+      padding: 30px;
+      .Cards {
+        display: block;
+        .Section_1_Card {
+          height: unset;
+        }
+      }
+    }
+    footer {
+      padding: 30px;
+      .FooterRow {
+        flex-direction: column;
+        .columns {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
