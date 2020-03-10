@@ -11,13 +11,13 @@
   width: 60%;
 }
 
-h1 {
+/* h1 {
   text-align: center;
   margin-bottom: 50px;
-}
-p {
+} */
+/* p {
   text-indent: 40px;
-}
+} */
 
 html {
   scroll-behavior: smooth;
@@ -41,7 +41,7 @@ li {
 .termsParagraphs {
   margin-top: 50px;
 }
-
+/* 
 button {
   background: linear-gradient(to left, #3dbaf7, #1d3b8b);
   height: 40px;
@@ -49,7 +49,7 @@ button {
   width: 50%;
   font-weight: 800;
   border-radius: 20px;
-}
+} */
 button:hover {
   cursor: pointer;
 }

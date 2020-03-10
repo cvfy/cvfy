@@ -10,23 +10,43 @@ const CoverDashboard = () => {
   return (
     <div className="Cover_Dashboard_MainContainer">
       <div className="CoverLetterTitle">
-        <ScrollAnimation animateIn="fadeInRight delay-0s">
+        <ScrollAnimation animateIn="fadeIn" animateOnce="true" duration="0.5s">
           <p>Your Cover Letters</p>
         </ScrollAnimation>
       </div>
-      <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-0s">
+      <ScrollAnimation
+        className="cvBox2"
+        animateIn="fadeIn"
+        animateOnce="true"
+        duration="0.5s"
+      >
         <div className="AddCV">
           <img className="ADD" src={ADD2} />
           <p>ADD New Cover Letter</p>
         </div>
       </ScrollAnimation>
-      <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-1s">
+      <ScrollAnimation
+        className="cvBox2"
+        animateIn="fadeIn"
+        animateOnce="true"
+        duration="0.5s"
+      >
         <img src={Cover2} />
       </ScrollAnimation>
-      <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-2s">
+      <ScrollAnimation
+        className="cvBox2"
+        animateIn="fadeIn"
+        animateOnce="true"
+        duration="0.5s"
+      >
         <img src={Cover3} />
       </ScrollAnimation>
-      <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-3s">
+      <ScrollAnimation
+        className="cvBox2"
+        animateIn="fadeIn"
+        animateOnce="true"
+        duration="0.5s"
+      >
         <img src={Cover4} />
       </ScrollAnimation>
     </div>

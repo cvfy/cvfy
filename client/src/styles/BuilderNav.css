@@ -397,7 +397,7 @@
 }
 
 /* On mouse-over, add a grey background color */
-.headerContainer:hover input~.checkMark {
+.headerContainer:hover input ~ .checkMark {
   background-color: #ccc;
 }
 

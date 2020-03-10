@@ -59,7 +59,7 @@
   z-index: 900;
 }
 
-ul {
+.minMenu {
   list-style-type: none;
   padding: 2rem 1rem 2rem 2rem;
   height: 40px;
@@ -67,12 +67,12 @@ ul {
   margin-top: 5px;
 }
 
-ul li {
+.minMenu li {
   transition: all 300ms linear 0s;
   width: 100%;
   height: 100%;
   position: relative;
-  border: 1px solid white;
+  border-top: 1px solid #c7d7e4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,19 +80,19 @@ ul li {
   background-color: white;
   margin-left: 0;
   margin-right: 0;
+  margin: 0;
 }
 
-ul li a {
-  color: black !important;
+.minMenu li a {
+  color: black;
   font-size: 1.4rem;
-  line-height: 2;
-  color: #dfe6e9;
+  line-height: 2rem;
   text-decoration: none;
   cursor: pointer;
 }
 
 ul.minMenu li a:hover {
-  color: #2438f1 !important;
+  color: #266678;
 }
 
 /* NAVBAR STYLE */
