@@ -704,6 +704,8 @@ input[type="text"]:focus {
   padding: 5px;
   margin-right: 10%;
   border-radius: 40px;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
 }
 
 .JobDashboardForm {
@@ -740,15 +742,14 @@ input[type="text"]:focus {
   border: 1px solid lightgray;
   background-color: #67eb9400;
   color: black;
-  font-weight: 600;
+  /* font-weight: 600; */
   align-items: center;
   justify-content: center;
   line-height: 0;
 }
 
 .JobDashboardForm form .JobDashboardButton:hover {
-  /* background: #19ee608f; */
-  background: #67eb946b;
+  background: #cecece17
 }
 
 .JobDashboardForm form .JobAdInput {
@@ -769,13 +770,15 @@ input[type="text"]:focus {
 
 .JobDashboardAds {
   width: 95%;
-  height: 100%;
-  /* overflow: scroll; */
+  height: 90%;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   margin: 5px auto;
+  background: url(../../../assets/job_board.svg) no-repeat center;
+  background-size: 300px 400px;
 }
 
 .JobAdContainer {
