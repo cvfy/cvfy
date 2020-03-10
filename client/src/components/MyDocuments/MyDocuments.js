@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "../navbar/Navbar";
-import "../../styles/myDocuments.css";
+import "../../styles/MyDocuments.scss";
 import CvDashboard from "./CvDashboard";
 import CoverDashboard from "./CoverDashboard";
 
