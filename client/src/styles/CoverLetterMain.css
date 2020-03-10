@@ -27,7 +27,8 @@
 .coverLetterBody:empty:before {
     color: #808080;
     display: block;
-    border-bottom: 1px dotted #808080;
+    /* border-bottom: 1px dotted #808080; */
+    font-style: italic;
 }
 
 *:focus {
@@ -58,7 +59,7 @@
     font-size: 1.3rem;
     color: #414242;
     margin-bottom: 1.5rem;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .coverLetterName {
@@ -112,19 +113,20 @@
     padding-top: 5px;
     font-size: 1.3rem;
     max-width: inherit;
-    font-weight: bold;
+    font-style: italic;
+    color: #414242;
 }
 
-.editDate:empty:before {
+/* .editDate:empty:before {
     content: "22 Januar, 2020";
     border-bottom: none;
     font-style: italic;
-}
+} */
 
-.editDate:empty:hover:before {
+/* .editDate:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 17em;
-}
+} */
 
 /* ==================================================== */
 /* ================== CONTACT SECTION ================== */
@@ -282,4 +284,12 @@
 .coverLetterSignature:empty:before {
     content: "FULL NAME";
     border-bottom: none;
+}
+
+.coverLetterName:empty:before {
+    content: "FULL NAME";
+}
+
+.hideSection {
+    display: none;
 }
