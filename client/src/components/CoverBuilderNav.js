@@ -5,6 +5,7 @@ import ColorSubMenu from "./BuilderSubMenus/ColorSubMenu";
 import FontSizeSubMenu from "./BuilderSubMenus/FontSizeSubMenu";
 import CoverLayoutSubMenu from "./BuilderSubMenus/CoverLayoutSubMenu";
 import TemplatesSubMenu from "./BuilderSubMenus/TemplatesSubMenu";
+import BurgerMenu from "./navbar/BurgerMenu";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 //import { content } from "html2canvas/dist/types/css/property-descriptors/content";
@@ -60,7 +61,10 @@ const CoverBuilderNav = () => {
           </div>
         </div>
       </div>
-      <div className="template-menu">
+
+      <BurgerMenu></BurgerMenu>
+
+      {/* <div className="template-menu">
         <div className="template-menu-btn">
           <div className="temp-menu">
             <span className="tool-menu-bar first-icon">―</span>
@@ -68,7 +72,7 @@ const CoverBuilderNav = () => {
             <span className="tool-menu-bar first-icon last-bar">―</span>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

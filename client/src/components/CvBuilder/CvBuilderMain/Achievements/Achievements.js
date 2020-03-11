@@ -12,7 +12,7 @@ class Achievements extends React.Component {
           ));
           return (
             <div className="achievements">
-              <div className="sectionHeader">
+              <div className="sectionHeader" style={{justifyContent: `${context.style.displayOneColumn === false ? "space-between" : "center"}`}} >
                 <div className="section-label" style={{ color: context.style.color }}>
                   ACHIEVEMENTS
                 </div>

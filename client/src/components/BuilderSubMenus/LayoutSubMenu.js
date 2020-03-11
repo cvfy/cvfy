@@ -25,18 +25,20 @@ class LayoutSubMenu extends Component {
   }
 
   closeMenu(event) {
-    if (
-      document.querySelector("#leftCvSection div.dndSection") &&
-      document.querySelector("#rightCvSection div.dndSection")
-    ) {
-      const leftSide = Array.from(
-        document.querySelectorAll("#leftCvSection div.dndSection")
-      ).map(el => el.getAttribute("name"));
-      const rightSide = Array.from(
-        document.querySelectorAll("#rightCvSection div.dndSection")
-      ).map(el => el.getAttribute("name"));
-      this.props.setStructure(leftSide, rightSide);
+    const leftSide = Array.from(
+      document.querySelectorAll("#leftCvSection div.dndSection")
+    ).map(el => el.getAttribute("name"));
+    const rightSide = Array.from(
+      document.querySelectorAll("#rightCvSection div.dndSection")
+    ).map(el => el.getAttribute("name"));
+
+    if(this.props.oneColumn === true){
+      this.props.setStructure(leftSide, rightSide, "one");
     }
+    if(this.props.oneColumn === false){
+      this.props.setStructure(leftSide, rightSide, "two");
+    }
+  
 
     if (!this.dropdownMenu.contains(event.target)) {
       this.setState({ showMenu: false }, () => {
@@ -86,7 +88,7 @@ class LayoutSubMenu extends Component {
                             ? "checkedCircle"
                             : "checkMark"
                         }
-                        onClick={togglePhotoClass}
+                        onClick={() => togglePhotoClass()}
                       ></span>
                     </label>
                     <label className="headerContainer">
@@ -98,7 +100,7 @@ class LayoutSubMenu extends Component {
                             ? "checkedCircle"
                             : "checkMark"
                         }
-                        onClick={toggleTitleClass}
+                        onClick={() => toggleTitleClass()}
                       ></span>
                     </label>
                     <label className="headerContainer">
@@ -114,7 +116,7 @@ class LayoutSubMenu extends Component {
                             ? "checkedCircle"
                             : "checkMark"
                         }
-                        onClick={toggleSummaryClass}
+                        onClick={() => toggleSummaryClass()}
                       ></span>
                     </label>
                   </div>
@@ -133,7 +135,7 @@ class LayoutSubMenu extends Component {
                             ? "checkedCircle"
                             : "checkMark"
                         }
-                        onClick={toggleOneColumn}
+                        onClick={() => toggleOneColumn()}
                       ></span>
                     </label>
                   </div>

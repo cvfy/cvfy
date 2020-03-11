@@ -50,28 +50,8 @@ class ColorSubMenu extends Component {
                 >
                   <div className="colorOptionsDiv">
                     <button
-                      name="yellow"
-                      className="colorBtn yellowBtn"
-                      onClick={changeColor}
-                    />
-                    <button
-                      name="black"
-                      className="colorBtn blackBtn"
-                      onClick={changeColor}
-                    />
-                    <button
-                      name="blue"
-                      className="colorBtn blueBtn"
-                      onClick={changeColor}
-                    />
-                    <button
-                      name="green"
-                      className="colorBtn greenBtn"
-                      onClick={changeColor}
-                    />
-                    <button
-                      name="orange"
-                      className="colorBtn orangeBtn"
+                      name="brown"
+                      className="colorBtn brownBtn"
                       onClick={changeColor}
                     />
                     <button
@@ -80,18 +60,18 @@ class ColorSubMenu extends Component {
                       onClick={changeColor}
                     />
                     <button
-                      name="tomato"
-                      className="colorBtn tomatoBtn"
+                      name="#ff5e6c"
+                      className="colorBtn yellowBtn"
                       onClick={changeColor}
                     />
                     <button
-                      name="brown"
-                      className="colorBtn brownBtn"
+                      name="green"
+                      className="colorBtn greenBtn"
                       onClick={changeColor}
                     />
                     <button
-                      name="burlywood"
-                      className="colorBtn burlywoodBtn"
+                      name="#7c677f"
+                      className="colorBtn orangeBtn"
                       onClick={changeColor}
                     />
                     <button
@@ -100,13 +80,33 @@ class ColorSubMenu extends Component {
                       onClick={changeColor}
                     />
                     <button
-                      name="aqua"
+                      name="blue"
+                      className="colorBtn blueBtn"
+                      onClick={changeColor}
+                    />
+                    <button
+                      name="#2d545e"
                       className="colorBtn aquaBtn"
                       onClick={changeColor}
                     />
                     <button
-                      name="darkgrey"
+                      name="#12343b"
+                      className="colorBtn blackBtn"
+                      onClick={changeColor}
+                    />
+                    <button
+                      name="#c89666"
+                      className="colorBtn burlywoodBtn"
+                      onClick={changeColor}
+                    />
+                    <button
+                      name="#ffaaab"
                       className="colorBtn darkgreyBtn"
+                      onClick={changeColor}
+                    />
+                    <button
+                      name="tomato"
+                      className="colorBtn tomatoBtn"
                       onClick={changeColor}
                     />
                   </div>

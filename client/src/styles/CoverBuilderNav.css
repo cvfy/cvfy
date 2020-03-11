@@ -282,7 +282,7 @@
 }
 
 .yellowBtn {
-  background: yellow;
+  background: #ff5e6c;
 }
 
 .redBtn {
@@ -290,7 +290,7 @@
 }
 
 .blackBtn {
-  background: black;
+  background: #12343b;
 }
 
 .blueBtn {
@@ -302,7 +302,7 @@
 }
 
 .orangeBtn {
-  background: orange;
+  background: #7c677f;
 }
 
 .purpleBtn {
@@ -318,7 +318,7 @@
 }
 
 .burlywoodBtn {
-  background: burlywood;
+  background: #c89666;
 }
 
 .cornflowerblueBtn {
@@ -326,11 +326,11 @@
 }
 
 .aquaBtn {
-  background: aqua;
+  background: #2d545e;
 }
 
 .darkgreyBtn {
-  background: darkgrey;
+  background: #ffaaab;
 }
 
 /* font-size sub-menu */
@@ -392,128 +392,32 @@
 }
 
 /* Create a custom radio button */
-/* .checkMark {
-  position: absolute;
+.checkMark {
   height: 16px;
   width: 16px;
   background-color: #eee;
   border-radius: 50%;
   margin-right: 10px;
-} */
+}
 
 /* On mouse-over, add a grey background color */
-/* .headerContainer:hover input~.checkMark {
+.headerContainer:hover input~.checkMark {
   background-color: #ccc;
 }
 
 .checkedCircle {
   background: #fff;
   border: 4px solid #08dcdc;
-  width: 10px;
-  height: 10px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-} */
-
-/* When the radio button is checked, add a blue background */
-/* .headerContainer input:checked~.checkmark {
-  background-color: #2196f3;
-} */
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-/* .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-} */
-
-/* Show the indicator (dot/circle) when checked */
-/* .headerContainer input:checked~.checkmark:after {
-  display: block;
-  position: absolute;
-  top: 4px;
-  right: 3.7px;
-} */
-
-/* Style the indicator (dot/circle) */
-/* .headerContainer .checkmark:after {
-  top: 9px;
-  left: 9px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
-} */
-
-/* .layoutToggle {
-  margin-top: 22px;
-}
-
-.layoutToggle .toggleButton {
-  border: 1px solid blue;
-  color: #fff;
-  background-color: blue;
-}
-
-.layoutToggle .active {
-  background-color: blue;
-  color: #fff;
-}
-
-.layoutCV {
-  margin: 2rem 3rem;
-  background: #fff center center;
-  height: 94.334625mm;
-  width: 66.70125mm;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* grid-template-rows: 1fr 1fr 1fr; */
-/* grid-auto-flow: row;
-} */
-
-#leftCvSection,
-#rightCvSection {
-  display: grid;
-}
-
-.dndText {
-  color: #fff;
-  position: relative;
-  top: -391px;
-  left: 33px;
+  margin-right: 10px;
 }
 
 .checkedInput {
   position: relative;
   left: -24.33px;
 }
-
-.dndContainer {
-  width: 480px;
-  height: 320px;
-  background: #0000004d;
-  position: relative;
-  bottom: 370px;
-  left: 335px;
-  display: grid;
-  grid-template-columns: 31% 31% 31%;
-  grid-template-rows: 40px 40px 40px;
-  grid-gap: 6px;
-  justify-content: space-around;
-  padding-top: 7px;
-  border-radius: 5px;
-  padding: 12px;
-}
-
-.dndSection {
-  background: grey;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 5px;
-}
-
-*/
 
 /* Templates sub-menu */
 .templatesSubMenu {
@@ -592,23 +496,6 @@
   font-size: 0.9em;
 }
 
-/* LINKEDIN INPUT and BUTTON SECTION */
-#linkedInInput {
-  background: #72726dee;
-  height: 65%;
-  margin: 0;
-  width: 35vw;
-  border-radius: 20px;
-  padding-left: 15px;
-  color: #fff;
-  margin-bottom: 4px;
-}
-
-::placeholder {
-  color: #fff;
-}
-
-.linkedInButton,
 .saveUpdateButton {
   margin: 0;
   padding: 0;
@@ -620,7 +507,6 @@
   margin-bottom: 4px;
 }
 
-.linkedInButton:hover,
 .saveUpdateButton:hover {
   background: #19ee60;
 }
@@ -638,22 +524,16 @@
     width: 50vw;
   }
 
-  .linkedInButton,
   .saveUpdateButton {
     width: 10vw;
   }
 }
 
 @media (max-width: 500px) {
-  #linkedInInput {
-    font-size: 12px;
-  }
-
   ::placeholder {
     font-size: 12px;
   }
 
-  .linkedInButton,
   .saveUpdateButton {
     font-size: 12px;
   }
