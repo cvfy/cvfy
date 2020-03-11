@@ -65,13 +65,18 @@ class ColorSubMenu extends Component {
                       onClick={changeColor}
                     />
                     <button
-                      name="green"
+                      name="#2d545e"
+                      className="colorBtn aquaBtn"
+                      onClick={changeColor}
+                    />
+                    <button
+                      name="#479099"
                       className="colorBtn greenBtn"
                       onClick={changeColor}
                     />
                     <button
-                      name="#7c677f"
-                      className="colorBtn orangeBtn"
+                      name="#2dbcad"
+                      className="colorBtn darkgreyBtn"
                       onClick={changeColor}
                     />
                     <button
@@ -85,11 +90,6 @@ class ColorSubMenu extends Component {
                       onClick={changeColor}
                     />
                     <button
-                      name="#2d545e"
-                      className="colorBtn aquaBtn"
-                      onClick={changeColor}
-                    />
-                    <button
                       name="#12343b"
                       className="colorBtn blackBtn"
                       onClick={changeColor}
@@ -100,8 +100,8 @@ class ColorSubMenu extends Component {
                       onClick={changeColor}
                     />
                     <button
-                      name="#ffaaab"
-                      className="colorBtn darkgreyBtn"
+                      name="#7c677f"
+                      className="colorBtn orangeBtn"
                       onClick={changeColor}
                     />
                     <button
