@@ -12,7 +12,7 @@ class Experience extends React.Component {
           ));
           return (
             <div className="experience exp1page">
-              <div className="sectionHeader">
+              <div className="sectionHeader" style={{justifyContent: `${context.style.displayOneColumn === false ? "space-between" : "center"}`}}>
                 <div className="section-label" style={{ color: context.style.color }}>
                   WORK EXPERIENCE
                 </div>

@@ -29,7 +29,7 @@ const BuilderNav = () => {
           <FontSubMenu />
           <ColorSubMenu />
           <FontSizeSubMenu />
-          <LayoutSubMenu setStructure={context.setStructure} />
+          <LayoutSubMenu toggleOneColumn={context.toggleOneColumn} oneColumn={context.style.displayOneColumn} setStructure={context.setStructure} />
           <TemplatesSubMenu />
         </div>
       </div>
