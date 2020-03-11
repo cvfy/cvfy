@@ -12,7 +12,7 @@ class Projects extends React.Component {
           ));
           return (
             <div className="projects">
-              <div className="sectionHeader">
+              <div className="sectionHeader" style={{justifyContent: `${context.style.displayOneColumn === false ? "space-between" : "center"}`}}>
                 <div className="section-label" style={{ color: context.style.color }}>
                   PROJECTS
                 </div>

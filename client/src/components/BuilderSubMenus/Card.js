@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = props => {
+const   Card = props => {
   const dragStart = e => {
     const target = e.target;
     // console.log(target);

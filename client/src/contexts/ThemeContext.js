@@ -62,7 +62,8 @@ class ThemeContextProvider extends Component {
         "achievements",
         "courses",
         "languages"
-      ]
+      ],
+      oneColumnArr: ["experience", "education", "skills", "projects", "certifications", "achievements", "courses", "languages"]
     },
 
     userData: [
@@ -147,119 +148,34 @@ class ThemeContextProvider extends Component {
   componentDidUpdate() {
     let Pages = [...this.state.userData];
 
-    Array.from(document.querySelectorAll(".A4")).forEach((el, i) => {
-      let headerHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ==
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ==
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".header-inner")
-              .clientHeight;
-      let contactHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".contact") == null ||
-        document.querySelectorAll(".A4")[i].querySelector(".contact") ==
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".contact")
-              .clientHeight;
-      let experienceHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".experience") ==
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".experience") ==
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".experience")
-              .clientHeight;
-      let educationHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".education") ==
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".education") ==
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".education")
-              .clientHeight;
-      let skillsHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".skills") == null ||
-        document.querySelectorAll(".A4")[i].querySelector(".skills") ==
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".skills")
-              .clientHeight;
-      let projectsHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".projects") ==
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".projects") ==
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".projects")
-              .clientHeight;
-      let certificationsHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".certifications") ==
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".certifications") ==
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".certifications")
-              .clientHeight;
-      let achievementsHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".achievements") ==
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".achievements") ==
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".achievements")
-              .clientHeight;
-      let coursesHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".courses") == null ||
-        document.querySelectorAll(".A4")[i].querySelector(".courses") ==
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".courses")
-              .clientHeight;
-      let languagesHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".languages") ==
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".languages") ==
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".languages")
-              .clientHeight;
+    Array.from(document.querySelectorAll(".A4")).forEach( (el, i) => {
+      let headerHeight = (document.querySelectorAll(".A4")[i].querySelector(".header-inner") == null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") == undefined ) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".header-inner").clientHeight
+      let contactHeight = (document.querySelectorAll(".A4")[i].querySelector(".contact") == null || document.querySelectorAll(".A4")[i].querySelector(".contact") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".contact").clientHeight
+      let experienceHeight = (document.querySelectorAll(".A4")[i].querySelector(".experience") == null || document.querySelectorAll(".A4")[i].querySelector(".experience") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".experience").clientHeight
+      let educationHeight =  (document.querySelectorAll(".A4")[i].querySelector(".education") == null || document.querySelectorAll(".A4")[i].querySelector(".education") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".education").clientHeight
+      let skillsHeight = (document.querySelectorAll(".A4")[i].querySelector(".skills") == null || document.querySelectorAll(".A4")[i].querySelector(".skills") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".skills").clientHeight
+      let projectsHeight =  (document.querySelectorAll(".A4")[i].querySelector(".projects") == null || document.querySelectorAll(".A4")[i].querySelector(".projects") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".projects").clientHeight
+      let certificationsHeight =  (document.querySelectorAll(".A4")[i].querySelector(".certifications") == null || document.querySelectorAll(".A4")[i].querySelector(".certifications") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".certifications").clientHeight
+      let achievementsHeight = (document.querySelectorAll(".A4")[i].querySelector(".achievements") == null || document.querySelectorAll(".A4")[i].querySelector(".achievements") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".achievements").clientHeight
+      let coursesHeight = (document.querySelectorAll(".A4")[i].querySelector(".courses") == null || document.querySelectorAll(".A4")[i].querySelector(".courses") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".courses").clientHeight
+      let languagesHeight =  (document.querySelectorAll(".A4")[i].querySelector(".languages") == null || document.querySelectorAll(".A4")[i].querySelector(".languages") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".languages").clientHeight
 
-      let leftHeight =
-        parseInt(headerHeight) +
-        parseInt(contactHeight) +
-        parseInt(experienceHeight) +
-        parseInt(educationHeight);
-      let rightHeight =
-        parseInt(headerHeight) +
-        parseInt(contactHeight) +
-        parseInt(skillsHeight) +
-        parseInt(projectsHeight) +
-        parseInt(certificationsHeight) +
-        parseInt(achievementsHeight) +
-        parseInt(coursesHeight) +
-        parseInt(languagesHeight);
+      let leftHeight = (parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight))
+      let rightHeight = (parseInt(headerHeight) + parseInt(contactHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight))
+      let onePageHeight = (parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight))
 
-      if (leftHeight > 1122) {
-        let lastItem = document
-          .querySelectorAll(".A4")
-          [i].querySelector(".left").lastChild.classList[0];
-        Pages[i + 1][lastItem].unshift(
-          Pages[i][lastItem][Pages[i][lastItem].length - 1]
-        );
-        Pages[i][lastItem].pop();
-        this.setState({ userData: Pages });
+if(this.state.style.displayOneColumn === false){
+      if(leftHeight > 1122){
+          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0]
+        Pages[i+1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length -1])
+        Pages[i][lastItem].pop()
+        this.setState({ userData: Pages })
       }
-      if (rightHeight > 1122) {
-        let lastItem = document
-          .querySelectorAll(".A4")
-          [i].querySelector(".right").lastChild.classList[0];
-        Pages[i + 1][lastItem].unshift(
-          Pages[i][lastItem][Pages[i][lastItem].length - 1]
-        );
-        Pages[i][lastItem].pop();
-        this.setState({ userData: Pages });
+      if(rightHeight > 1100){
+        let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0]
+        Pages[i+1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length -1])
+        Pages[i][lastItem].pop()
+        this.setState({ userData: Pages })
       }
       if (document.querySelectorAll(".A4")[i + 1]) {
         if (
@@ -307,7 +223,44 @@ class ThemeContextProvider extends Component {
           }
         }
       }
-    });
+    }
+  
+
+if(this.state.style.displayOneColumn !== false) {
+////////////////////////////////////
+if(onePageHeight > 1122){
+  console.log(onePageHeight)
+  let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0]
+  console.log(lastItem)
+Pages[i+1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length -1])
+Pages[i][lastItem].pop()
+//  this.setState({ userData: Pages })
+ i = 0
+}
+
+if(document.querySelectorAll(".A4")[i+1]){
+
+if(document.querySelectorAll(".A4")[i+1].querySelector(".left").firstChild == null){
+}
+else{
+  if((onePageHeight + parseInt((document.querySelectorAll(".A4")[i+1].querySelector(".left").firstChild.lastChild.firstChild).clientHeight)) < 1115){
+  let Item = document.querySelectorAll(".A4")[i+1].querySelector(".left").firstChild.classList[0]
+  console.log(Item)
+  Pages[i][Item].push(Pages[i+1][Item][0])
+  Pages[i+1][Item].shift()
+}
+}
+
+}
+
+///////////////////////////////////
+//  this.setState({ userData: Pages })
+
+}
+
+}
+    
+    )
   }
 
   async componentDidMount() {
@@ -936,17 +889,34 @@ class ThemeContextProvider extends Component {
         newObject[page].languages[index] = newObj;
       }
     }
-
-    this.setState({ userData: newObject });
-  };
-  setStructure = (arr1, arr2) => {
-    let newObj = { ...this.state };
-    newObj.style.leftSide = arr1;
-    newObj.style.rightSide = arr2;
-
-    this.setState(newObj);
-  };
-  // ..............................................................
+  
+  this.setState({ userData: newObject });
+  
+}
+setStructure = ( arr1, arr2, col) => {
+  let newObj = { ...this.state }
+  if(col === "two"){
+    if(arr1.length >0 || arr2.length > 0){
+    newObj.style.leftSide = arr1
+    newObj.style.rightSide = arr2
+  }
+  if(arr1.length === 0 && arr2.length === 0){
+    newObj.style.leftSide = ["experience", "education"];
+    newObj.style.rightSide = ["skills", "projects", "certifications", "achievements", "courses", "languages"]
+  }
+  this.setState(newObj);
+}
+  if(col === "one"){
+    if(arr1.length >0 || arr2.length > 0){
+    newObj.style.oneColumnArr = [...arr1, ...arr2]
+  }
+  else{
+  newObj.style.oneColumnArr = ["experience", "education", "skills", "projects", "certifications", "achievements", "courses", "languages"]
+  }
+  this.setState(newObj);
+  }
+}
+// ..............................................................
   handleContactIcon = () => {
     let element = document.getElementsByClassName("iconeColor");
     element.classList.add(this.state.userData.contact.icone);
@@ -1076,11 +1046,10 @@ class ThemeContextProvider extends Component {
   };
 
   toggleOneColumn = () => {
-    const currentState = this.state.style.displayOneColumn;
-    let newObject = { ...this.state.style };
-    newObject.displayOneColumn = !currentState;
-    this.setState({ style: newObject });
-  };
+    let newObject = {...this.state};
+    newObject.style.displayOneColumn = !this.state.style.displayOneColumn
+    this.setState({ newObject });
+  }
 
   toggleFontWeight = () => {
     document.execCommand("bold", false, "");

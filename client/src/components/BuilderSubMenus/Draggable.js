@@ -36,6 +36,7 @@ function Draggable(props) {
   return (
     <ThemeContext.Consumer>
       {context => {
+        const defArr = ["experience", "education", "skills", "projects", "certifications", "achievements", "courses", "languages"]
         return (
           <>
             <div
@@ -47,8 +48,29 @@ function Draggable(props) {
               onDrop={drop}
               onDragOver={dragOver}
             >
-              <div id="leftCvSection">{props.children}</div>
-              <div id="rightCvSection">{props.children}</div>
+              <div id="leftCvSection">
+                {context.style.leftSide.map(el => (
+  <Card
+  id="card-1"
+  className="dndSection"
+  name={el}
+  draggable="true"
+>
+  <p className="dndSectionP">{el}</p>
+</Card>
+) )}
+                {props.children}</div>
+              <div id="rightCvSection">
+              {context.style.rightSide.map((el, i) => (
+  <Card
+  id='card-{i}'
+  className="dndSection"
+  name={el}
+  draggable="true"
+>
+  <p className="dndSectionP">{el}</p>
+</Card>
+) )}{props.children}</div>
             </div>
 
             <div className="dndText">
@@ -62,7 +84,17 @@ function Draggable(props) {
               onDrop={drop}
               onDragOver={dragOver}
             >
-              <Card
+{defArr.filter(el => !context.style.oneColumnArr.includes(el)).map(el => (
+  <Card
+  id="card-1"
+  className="dndSection"
+  name={el}
+  draggable="true"
+>
+  <p className="dndSectionP">{el}</p>
+</Card>
+))}
+              {/* <Card
                 id="card-1"
                 className="dndSection"
                 name="experience"
@@ -125,7 +157,7 @@ function Draggable(props) {
                 draggable="true"
               >
                 <p className="dndSectionP">Languages</p>
-              </Card>
+              </Card> */}
             </div>
           </>
         );
