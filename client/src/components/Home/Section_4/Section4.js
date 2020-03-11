@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "../../../assets/undraw_resume.png";
 
-const Section3 = () => {
+const Section4 = () => {
   return (
-    <div className="LPContainer BlueTintBg">
+    <div className="LPContainer ReversedRow">
       <div className="DescriptionSide">
         <h2>Long long long Title....</h2>
         <p>
@@ -21,4 +21,4 @@ const Section3 = () => {
     </div>
   );
 };
-export default Section3;
+export default Section4;

@@ -1,4 +1,10 @@
 html,
+body,
+#root,
+.MainPage {
+  height: 100%;
+}
+html,
 body {
   font-size: 16px;
   margin: 0 auto;

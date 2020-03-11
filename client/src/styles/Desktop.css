@@ -1,3 +1,25 @@
+.LPContainer {
+  height: 100vh;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+  background: lightcoral;
+  margin-top: 60px;
+}
+
+.DesktopLeft,
+.DesktopRight {
+  width: 50%;
+}
+
+.DesktopLeft {
+  text-align: left;
+}
+
+.DesktopRight img {
+  width: 80%;
+}
+
 .Desktop_Main_Container {
   width: 100%;
   margin: 0 auto;
@@ -43,15 +65,14 @@
   margin-top: 7rem;
 }
 
-.desktop_UpperSide_Buttons_Section {
-  width: 100%;
+.GroupButtons {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.signUpButton {
+/* .signUpButton {
   margin: 3rem 10px 10px 10px;
   border-radius: 20rem;
   height: 4rem;
@@ -76,7 +97,7 @@
   -webkit-box-shadow: 9px 13px 7px 1px rgba(0, 0, 0, 0.43);
   -moz-box-shadow: 9px 13px 7px 1px rgba(0, 0, 0, 0.43);
   box-shadow: 9px 13px 7px 1px rgba(0, 0, 0, 0.43);
-}
+} */
 
 .Desktop_Main_Container .Desktop_UpperSide .Monitor {
   margin-top: 1.4rem;

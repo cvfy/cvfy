@@ -275,11 +275,12 @@
   margin: 0;
   background: transparent;
   border: 1px solid #3dbaf7;
+  border-radius: 20px;
+  color: #fff;
 }
 
 .saveContactButton:hover {
   background: #3dbaf7;
-  border: 1px solid #3dbaf7;
 }
 
 .contactBox {
@@ -704,6 +705,8 @@ input[type="text"]:focus {
   padding: 5px;
   margin-right: 10%;
   border-radius: 40px;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
 }
 
 .JobDashboardForm {
@@ -738,22 +741,22 @@ input[type="text"]:focus {
   font-size: 16px;
   display: flex;
   border: 1px solid lightgray;
-  background-color: #67eb946b;
+  background-color: #67eb9400;
   color: black;
-  font-weight: 600;
+  /* font-weight: 600; */
   align-items: center;
   justify-content: center;
   line-height: 0;
 }
 
 .JobDashboardForm form .JobDashboardButton:hover {
-  background: #19ee608f;
+  background: #cecece17
 }
 
 .JobDashboardForm form .JobAdInput {
   margin: 5px;
   padding: 5px;
-  background: #e4f3e980;
+  background: rgb(232, 240, 254);
   border: none;
   color: black;
   border-radius: 20px;
@@ -761,19 +764,22 @@ input[type="text"]:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 15px;
   text-align: center;
+  font-family: 'Raleway', sans-serif;
 }
 
 .JobDashboardAds {
   width: 95%;
-  height: 100%;
-  overflow: scroll;
+  height: 90%;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   margin: 5px auto;
+  background: url(../../../assets/job_board.svg) no-repeat center;
+  background-size: 300px 400px;
 }
 
 .JobAdContainer {
@@ -809,7 +815,7 @@ input[type="text"]:focus {
   background-color: #e4f3e980;
   font-size: 12px;
   cursor: pointer;
-
+  color: blue;
 }
 
 .jobAdRequirements {

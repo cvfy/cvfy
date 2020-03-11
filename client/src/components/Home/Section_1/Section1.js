@@ -1,16 +1,17 @@
 import React from "react";
-import "./Section_1.css";
 import ScrollAnimation from "react-animate-on-scroll";
 
 const Section1 = () => {
   return (
-    <div className="Section_1_Main_Container">
-      <ScrollAnimation
-        className="Section_1_Card Card1_color"
-        animateIn="fadeInUp delay-0s"
-        animateOnce="true"
-      >
-        <div className="Section_1_Card Card1_color">
+    <div className="LPContainer CardsContainer">
+      <h1>Babadi bubudy bop</h1>
+      <div className="Cards">
+        <ScrollAnimation
+          className="Section_1_Card Card1_color"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
           <div className="S1_Card_Icon">
             <img
               src="https://img.icons8.com/cotton/64/000000/rocket.png"
@@ -22,14 +23,13 @@ const Section1 = () => {
             here should be some nice description that would be interesting and
             cool
           </p>
-        </div>
-      </ScrollAnimation>
-      <ScrollAnimation
-        className="Section_1_Card Card2_color"
-        animateIn="fadeInUp delay-1s"
-        animateOnce="true"
-      >
-        <div className="Section_1_Card Card2_color">
+        </ScrollAnimation>
+        <ScrollAnimation
+          className="Section_1_Card Card2_color"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
           <div className="S1_Card_Icon">
             <img src="https://img.icons8.com/color/48/000000/add.png" />
           </div>
@@ -38,14 +38,13 @@ const Section1 = () => {
             here should be some nice description that would be interesting and
             cool
           </p>
-        </div>
-      </ScrollAnimation>
-      <ScrollAnimation
-        className="Section_1_Card Card3_color"
-        animateIn="fadeInUp delay-0s"
-        animateOnce="true"
-      >
-        <div className="Section_1_Card Card3_color">
+        </ScrollAnimation>
+        <ScrollAnimation
+          className="Section_1_Card Card3_color"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
           <div className="S1_Card_Icon">
             <img src="https://img.icons8.com/color/48/000000/connectdevelop.png" />
           </div>
@@ -54,14 +53,13 @@ const Section1 = () => {
             here should be some nice description that would be interesting and
             cool
           </p>
-        </div>
-      </ScrollAnimation>
-      <ScrollAnimation
-        className="Section_1_Card Card4_color"
-        animateIn="fadeInUp delay-1s"
-        animateOnce="true"
-      >
-        <div className="Section_1_Card Card4_color">
+        </ScrollAnimation>
+        <ScrollAnimation
+          className="Section_1_Card Card4_color"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
           <div className="S1_Card_Icon">
             <img src="https://img.icons8.com/nolan/64/combo-chart.png" />
           </div>
@@ -70,8 +68,8 @@ const Section1 = () => {
             here should be some nice description that would be interesting and
             cool
           </p>
-        </div>
-      </ScrollAnimation>
+        </ScrollAnimation>
+      </div>
     </div>
   );
 };

@@ -5,11 +5,12 @@ import ColorSubMenu from "./BuilderSubMenus/ColorSubMenu";
 import FontSizeSubMenu from "./BuilderSubMenus/FontSizeSubMenu";
 import CoverLayoutSubMenu from "./BuilderSubMenus/CoverLayoutSubMenu";
 import TemplatesSubMenu from "./BuilderSubMenus/TemplatesSubMenu";
+import BurgerMenu from "./navbar/BurgerMenu";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 //import { content } from "html2canvas/dist/types/css/property-descriptors/content";
 import { ThemeContext } from "../contexts/ThemeContext";
-const BuilderNav = () => {
+const CoverBuilderNav = () => {
   const context = useContext(ThemeContext);
 
   const downloadPdf = () => {
@@ -50,14 +51,20 @@ const BuilderNav = () => {
         <div className="my-docs-btn">
           <div className="docsDiv">
             <span className="tool-icon tool-mydoc">
-              <NavLink to="/my-documents" style={{ color: "#fff" }}>
+              <NavLink
+                to="/my-documents"
+                style={{ textDecoration: "none", color: "#fff" }}
+              >
                 MyDocuments
               </NavLink>
             </span>
           </div>
         </div>
       </div>
-      <div className="template-menu">
+
+      <BurgerMenu></BurgerMenu>
+
+      {/* <div className="template-menu">
         <div className="template-menu-btn">
           <div className="temp-menu">
             <span className="tool-menu-bar first-icon">―</span>
@@ -65,9 +72,9 @@ const BuilderNav = () => {
             <span className="tool-menu-bar first-icon last-bar">―</span>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default BuilderNav;
+export default CoverBuilderNav;

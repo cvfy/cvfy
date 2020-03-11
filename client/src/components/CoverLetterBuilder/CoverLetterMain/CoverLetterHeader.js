@@ -7,18 +7,26 @@ class CoverLetterHeader extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const { getCurrentDate } = context;
           return (
             <div className="header-wrap">
               <div className="header-inner">
                 <div className="introduction">
                   <div
                     className="coverLetterName"
-                    style={{ fontFamily: context.style.font, color: context.style.color }}
-                  >
-                    BABYLONIAN DOG
-                  </div>
+                    style={{
+                      fontFamily: context.style.font,
+                      color: context.style.color
+                    }}
+                  ></div>
 
-                  <div className="editableHeaderDiv title">
+                  <div
+                    className={
+                      context.style.displayCoverTitle
+                        ? "editableHeaderDiv title"
+                        : "hideSection"
+                    }
+                  >
                     <span
                       className="title"
                       contentEditable="true"
@@ -27,34 +35,40 @@ class CoverLetterHeader extends React.Component {
                       }}
                     ></span>
                   </div>
+                  <div
+                    className={
+                      context.style.displayCompany ? "" : "hideSection"
+                    }
+                  >
+                    <div className="editableHeaderDiv">
+                      <span
+                        className="to"
+                        contentEditable="true"
+                        style={{
+                          fontSize: context.style.size2
+                        }}
+                      ></span>
+                    </div>
 
-                  <div className="editableHeaderDiv">
-                    <span
-                      className="to"
-                      contentEditable="true"
-                      style={{
-                        fontSize: context.style.size2
-                      }}
-                    ></span>
-                  </div>
-
-                  <div className="editableHeaderDiv">
-                    <span
-                      className="company"
-                      contentEditable="true"
-                      style={{
-                        fontSize: context.style.size1
-                      }}
-                    ></span>
+                    <div className="editableHeaderDiv">
+                      <span
+                        className="company"
+                        contentEditable="true"
+                        style={{
+                          fontSize: context.style.size1
+                        }}
+                      ></span>
+                    </div>
                   </div>
                   <div className="editableHeaderDiv">
                     <span
                       className="editDate"
-                      contentEditable="true"
                       style={{
                         fontSize: context.style.size1
                       }}
-                    ></span>
+                    >
+                      {getCurrentDate()}
+                    </span>
                   </div>
                 </div>
               </div>
