@@ -19,23 +19,28 @@ const BuilderNav = () => {
 
   const handleNavbar = () => setNavbarState(!navbarState);
   // const handleDownload = () => setLoadingDownload(!loadingDownload);
-let status = false
-  const downloadPdf = async (e) => {
-    if(status === false){
-      status = await true
-    e.preventDefault();
-    // handleDownload();
-    // setLoadingDownload(true);
-    // console.log("I should be TRUE ->", loadingDownload);
-    await axios.get(`http://localhost:5000/api/users/data/pdf/${context.id}`).then(
-      res =>
-        window.open(`http://localhost:5000/static2/${res.data}.pdf`, "_blank") //this.setState(res.data)
-    );
-    // handleDownload();
-    // console.log("I should be FALSE ->", loadingDownload);
-    status = await false
+  let status = false;
+  const downloadPdf = async e => {
+    if (status === false) {
+      status = await true;
+      e.preventDefault();
+      // handleDownload();
+      // setLoadingDownload(true);
+      // console.log("I should be TRUE ->", loadingDownload);
+      await axios
+        .get(`http://localhost:5000/api/users/data/pdf/${context.id}`)
+        .then(
+          res =>
+            window.open(
+              `http://localhost:5000/static2/${res.data}.pdf`,
+              "_blank"
+            ) //this.setState(res.data)
+        );
+      // handleDownload();
+      // console.log("I should be FALSE ->", loadingDownload);
+      status = await false;
+    } else {
     }
-    else {}
   };
   return (
     <>

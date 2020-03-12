@@ -4,7 +4,6 @@ import store from "./../store.js";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 //import uuid from 'uuid'
-
 let status = false
 let status2 = false
 
@@ -41,7 +40,7 @@ function aFunction() {
 class ThemeContextProvider extends Component {
   state = {
     id: "",
-    loadingSaveCv: false,
+    loadingSaveCv: true,
     importing: false,
     style: {
       color: "",
@@ -59,16 +58,28 @@ class ThemeContextProvider extends Component {
       displayCompany: true,
       displaySummary: true,
       displayOneColumn: false,
-      leftSide: [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}],
-      rightSide: [
-        {name: "skills", id: "card-3"},
-        {name: "projects", id: "card-4"},
-        {name: "certifications", id: "card-5"},
-        {name: "achievements", id: "card-6"},
-        {name: "courses", id: "card-7"},
-        {name: "languages", id: "card-8"},
+      leftSide: [
+        { name: "experience", id: "card-1" },
+        { name: "education", id: "card-2" }
       ],
-      oneColumnArr: [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
+      rightSide: [
+        { name: "skills", id: "card-3" },
+        { name: "projects", id: "card-4" },
+        { name: "certifications", id: "card-5" },
+        { name: "achievements", id: "card-6" },
+        { name: "courses", id: "card-7" },
+        { name: "languages", id: "card-8" }
+      ],
+      oneColumnArr: [
+        { name: "experience", id: "card-1" },
+        { name: "education", id: "card-2" },
+        { name: "skills", id: "card-3" },
+        { name: "projects", id: "card-4" },
+        { name: "certifications", id: "card-5" },
+        { name: "achievements", id: "card-6" },
+        { name: "courses", id: "card-7" },
+        { name: "languages", id: "card-8" }
+      ]
     },
 
     userData: [
@@ -150,6 +161,25 @@ class ThemeContextProvider extends Component {
       }
     ]
   };
+
+  // componentWillMount() {
+  //   // const getDbAnswer = //fetch a signal from the db
+  //   // if (getDBAnswer === true)
+  //   console.log("I did mounted before localStorage", this.state.loadingSaveCv);
+  //   localStorage.setItem("loadingSaveCv", "true");
+  //   console.log("I did mounted", this.state.loadingSaveCv);
+  //   // else
+  //   //   localStorage.setItem("loadingSaveCv", "false");
+  // }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return this.state.loadingSaveCv != nextState.loadingSaveCv;
+  // }
+
+  // shouldComponentUpdate() {
+  //   if (this.state.loadingSaveCv !== nextState) return false; // Will cause component to never re-render.
+  // }
+
   componentDidUpdate() {
     let Pages = [...this.state.userData];
 
@@ -410,8 +440,8 @@ class ThemeContextProvider extends Component {
   // }
 
   importData = async (profile, e) => {
-    if(status2 === false){
-      status2 = await true
+if(status2 === false){
+  status2 = await true
     e.preventDefault();
     console.log("i am calling linkedin data");
     console.log(profile);
@@ -420,33 +450,41 @@ class ThemeContextProvider extends Component {
       `http://localhost:5000/api/users/data/link/${profile}`
     );
     console.log("should be 200", response.data);
-    let newObject = {...this.state};
-    newObject.userData[0].fullName = await response.data.profileFullName
+    let newObject = { ...this.state };
+    newObject.userData[0].fullName = response.data.profileFullName
       ? response.data.profileFullName
       : "FULL NAME";
-    newObject.userData[0].intro = await response.data.profileHeadline
+    newObject.userData[0].intro = response.data.profileHeadline
       ? response.data.profileHeadline
       : "Professional Title";
-    newObject.userData[0].about = await response.data.profileAbout
+    newObject.userData[0].about = response.data.profileAbout
       ? response.data.profileAbout
       : ["Short and engaging pitch about yourself"];
     newObject.userData[0].profilePic = `http://localhost:5000/static/${profile}.jpg`
       ? `http://localhost:5000/static/${profile}.jpg`
       : "http://localhost:5000/static/default.png";
-    newObject.userData[0].skills = await response.data.skills
+    newObject.userData[0].skills = response.data.skills
       ? response.data.skills
       : ["skill"];
-    newObject.userData[0].experience = await response.data.profileExperience
+    newObject.userData[0].experience = response.data.profileExperience
       ? response.data.profileExperience.map(el => {
           if (el.jobsDesc) {
           } else {
             let new_el = {};
             new_el.position = el.jobTitle ? el.jobTitle : "";
             new_el.company = el.jobEmployer ? el.jobEmployer : "";
-            new_el.startMonth = el.jobPeriod ? verify(el.jobPeriod.split(" ")[0]): "";
-            new_el.startYear = el.jobPeriod ? verify(el.jobPeriod.split(" ")[1]) : "";
-            new_el.endMonth = el.jobPeriod ? verify(el.jobPeriod.split(" ")[3]) : "";
-            new_el.endYear = el.jobPeriod ? verify(el.jobPeriod.split(" ")[4]) : "";
+            new_el.startMonth = el.jobPeriod
+              ? verify(el.jobPeriod.split(" ")[0])
+              : "";
+            new_el.startYear = el.jobPeriod
+              ? verify(el.jobPeriod.split(" ")[1])
+              : "";
+            new_el.endMonth = el.jobPeriod
+              ? verify(el.jobPeriod.split(" ")[3])
+              : "";
+            new_el.endYear = el.jobPeriod
+              ? verify(el.jobPeriod.split(" ")[4])
+              : "";
             new_el.place = el.jobLocation ? el.jobLocation : "";
             new_el.tasks = el.jobDescription ? el.jobDescription : "";
             return new_el;
@@ -464,15 +502,21 @@ class ThemeContextProvider extends Component {
             tasks: "Accomplishments/Responsibility/Tasks"
           }
         ];
-    newObject.userData[0].education = await response.data.profileEducation
+    newObject.userData[0].education = response.data.profileEducation
       ? response.data.profileEducation.map(el => {
           let new_el = {};
           new_el.studyProgram = el.educationType ? el.educationType : "";
-          new_el.institution = el.educationInstitution ? el.educationInstitution : "";
+          new_el.institution = el.educationInstitution
+            ? el.educationInstitution
+            : "";
           new_el.startMonth = "";
-          new_el.startYear = el.educationPeriod ? verify(el.educationPeriod.split(" ")[0]) : "";
+          new_el.startYear = el.educationPeriod
+            ? verify(el.educationPeriod.split(" ")[0])
+            : "";
           new_el.endMonth = "";
-          new_el.endYear = el.educationPeriod ? verify(el.educationPeriod.split(" ")[2]) : "";
+          new_el.endYear = el.educationPeriod
+            ? verify(el.educationPeriod.split(" ")[2])
+            : "";
           new_el.place = "";
           return new_el;
         })
@@ -487,41 +531,46 @@ class ThemeContextProvider extends Component {
             place: "City, Country"
           }
         ];
-    newObject.userData[0].languages = await response.data.languages
+    newObject.userData[0].languages = response.data.languages
       ? response.data.languages.map(el => {
           return { language: el, level: "B1" };
         })
       : [{ language: "Language", level: "B1" }];
-    newObject.userData[0].courses = await response.data.courses
+    newObject.userData[0].courses = response.data.courses
       ? response.data.courses.map(el => {
           return { title: el, desc: "Description" };
         })
       : [{ title: "Course name", desc: "Short description" }];
-    newObject.userData[0].projects = await response.data.projects
+    newObject.userData[0].projects = response.data.projects
       ? response.data.projects
       : [{ title: "Project name", desc: "Description of achievements" }];
-    newObject.userData[0].contact[0].value = await response.data.Email
+    newObject.userData[0].contact[0].value = response.data.Email
       ? response.data.Email
       : "Email";
-    newObject.userData[0].contact[6].value =  await response.data.Website
+    newObject.userData[0].contact[6].value = response.data.Website
       ? response.data.Website
       : "Website";
     newObject.userData[0].certifications = ["Certificate name"];
     newObject.userData[0].achievements = ["Achievement name"];
-    newObject.id = await this.state.id;
+    newObject.id = this.state.id;
     await this.setState(newObject);
-    
+  
     // Need to add different responses for each different status
     if (response.status == 200) return this.setState({ importing: false });
-    status2 = await false
+    
     await this.saveCVDataToServer(e)
+    status2 = await false
       }
-      else {}
-  };
+      else{}
+      
+  }
+
   saveCVDataToServer = async e => {
     if(status === false){
       status = await true
-    if(e){ e.preventDefault()}
+    if (e) {
+      e.preventDefault();
+    }
     console.log("Should be false ->", this.state.loadingSaveCv);
     await this.setState({ loadingSaveCv: true, id: localStorage.getItem("currentCV") });
     console.log("Should be true ->", this.state.loadingSaveCv);
@@ -533,7 +582,7 @@ class ThemeContextProvider extends Component {
       .post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
       .then(res => {
         console.log(res.data);
-        if (res.data == "done") return this.setState({ loadingSaveCv: false });
+        if (res.data == "done") return this.setState({ loadingSaveCv: true });
       });
 
     // await this.setState({ loadingSaveCv: false });
@@ -541,7 +590,7 @@ class ThemeContextProvider extends Component {
     console.log("Should be false again ->", this.state.loadingSaveCv);
     status = await false
     }
-    else {}
+    else{}
   };
   // Those 3 functions add array of strings, will try to DRY later
   modifyEd = (page, field, value, index) => {
