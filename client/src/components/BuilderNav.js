@@ -18,39 +18,29 @@ const BuilderNav = () => {
   const [loadingDownload, setLoadingDownload] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
-<<<<<<< HEAD
-  const handleDownload = () => setLoadingDownload(!loadingDownload);
-
-  const downloadPdf = e => {
-    e.preventDefault();
-    setLoadingDownload(true);
-    console.log("I should be TRUE ->", loadingDownload);
-    axios.get(`http://localhost:5000/api/users/data/pdf/${context.id}`).then(
-      res =>
-        window.open(`http://localhost:5000/static2/${res.data}.pdf`, "_blank") //this.setState(res.data)
-    );
-    setLoadingDownload(false);
-    console.log("I should be FALSE ->", loadingDownload);
-=======
   // const handleDownload = () => setLoadingDownload(!loadingDownload);
-let status = false
-  const downloadPdf = async (e) => {
-    if(status === false){
-      status = await true
-    e.preventDefault();
-    // handleDownload();
-    // setLoadingDownload(true);
-    // console.log("I should be TRUE ->", loadingDownload);
-    await axios.get(`http://localhost:5000/api/users/data/pdf/${context.id}`).then(
-      res =>
-        window.open(`http://localhost:5000/static2/${res.data}.pdf`, "_blank") //this.setState(res.data)
-    );
-    // handleDownload();
-    // console.log("I should be FALSE ->", loadingDownload);
-    status = await false
+  let status = false;
+  const downloadPdf = async e => {
+    if (status === false) {
+      status = await true;
+      e.preventDefault();
+      // handleDownload();
+      // setLoadingDownload(true);
+      // console.log("I should be TRUE ->", loadingDownload);
+      await axios
+        .get(`http://localhost:5000/api/users/data/pdf/${context.id}`)
+        .then(
+          res =>
+            window.open(
+              `http://localhost:5000/static2/${res.data}.pdf`,
+              "_blank"
+            ) //this.setState(res.data)
+        );
+      // handleDownload();
+      // console.log("I should be FALSE ->", loadingDownload);
+      status = await false;
+    } else {
     }
-    else {}
->>>>>>> 4f1cef8408336831724031349e7b4f8b9e22b6c5
   };
   return (
     <>
