@@ -23,7 +23,7 @@ const BuilderNav = () => {
   const downloadPdf = () => {
     // handleDownload();
     // setLoadingDownload(true);
-    console.log("I should be TRUE ->", loadingDownload);
+    // console.log("I should be TRUE ->", loadingDownload);
     axios.get(`http://localhost:5000/api/users/data/pdf/${context.id}`).then(
       res =>
         window.open(`http://localhost:5000/static/${res.data}.pdf`, "_blank") //this.setState(res.data)

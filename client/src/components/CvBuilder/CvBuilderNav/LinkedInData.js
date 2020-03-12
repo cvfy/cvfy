@@ -45,7 +45,7 @@ class LinkedInData extends Component {
             //     id="linkedInInput"
             //     placeholder="insert your linkedIn account"
             //   ></input>
-            //   <button
+            //   <buttonhttps://www.linkedin.com/in/simone-e-5bb73623/
             //     onClick={() => importData(this.state.value)}
             //     className="linkedInButton"
             //   >
