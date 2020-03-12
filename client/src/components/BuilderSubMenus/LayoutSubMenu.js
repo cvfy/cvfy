@@ -27,19 +27,13 @@ class LayoutSubMenu extends Component {
   closeMenu(event) {
     const leftSide = Array.from(
       document.querySelectorAll("#leftCvSection div.dndSection")
-    ).map(el => el.getAttribute("name"));
+    ).map(el => el.getAttribute("name"))
     const rightSide = Array.from(
       document.querySelectorAll("#rightCvSection div.dndSection")
-    ).map(el => el.getAttribute("name"));
-
-    if(this.props.oneColumn === true){
-      this.props.setStructure(leftSide, rightSide, "one");
-    }
-    if(this.props.oneColumn === false){
-      this.props.setStructure(leftSide, rightSide, "two");
-    }
-  
-
+    ).map(el => el.getAttribute("name"))
+    console.log(leftSide)
+    console.log(rightSide)
+      this.props.setStructure(leftSide, rightSide);
     if (!this.dropdownMenu.contains(event.target)) {
       this.setState({ showMenu: false }, () => {
         document.removeEventListener("click", this.closeMenu);

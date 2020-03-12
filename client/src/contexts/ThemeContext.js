@@ -56,25 +56,16 @@ class ThemeContextProvider extends Component {
       displayCompany: true,
       displaySummary: true,
       displayOneColumn: false,
-      leftSide: ["experience", "education"],
+      leftSide: [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}],
       rightSide: [
-        "skills",
-        "projects",
-        "certifications",
-        "achievements",
-        "courses",
-        "languages"
+        {name: "skills", id: "card-3"},
+        {name: "projects", id: "card-4"},
+        {name: "certifications", id: "card-5"},
+        {name: "achievements", id: "card-6"},
+        {name: "courses", id: "card-7"},
+        {name: "languages", id: "card-8"},
       ],
-      oneColumnArr: [
-        "experience",
-        "education",
-        "skills",
-        "projects",
-        "certifications",
-        "achievements",
-        "courses",
-        "languages"
-      ]
+      oneColumnArr: [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
     },
 
     userData: [
@@ -430,7 +421,7 @@ class ThemeContextProvider extends Component {
       : "FULL NAME";
     newObject[0].intro = response.data.profileHeadline
       ? response.data.profileHeadline
-      : "Profes  sional Title";
+      : "Professional Title";
     newObject[0].about = response.data.profileAbout
       ? response.data.profileAbout
       : ["Short and engaging pitch about yourself"];
@@ -445,14 +436,14 @@ class ThemeContextProvider extends Component {
           if (el.jobsDesc) {
           } else {
             let new_el = {};
-            new_el.position = verify(el.jobTitle);
-            new_el.company = verify(el.jobEmployer);
-            new_el.startMonth = verify(el.jobPeriod.split(" ")[0]);
-            new_el.startYear = verify(el.jobPeriod.split(" ")[1]);
-            new_el.endMonth = verify(el.jobPeriod.split(" ")[3]);
-            new_el.endYear = verify(el.jobPeriod.split(" ")[4]);
-            new_el.place = verify(el.jobLocation);
-            new_el.tasks = verify(el.jobDescription);
+            new_el.position = el.jobTitle ? el.jobTitle : "";
+            new_el.company = el.jobEmployer ? el.jobEmployer : "";
+            new_el.startMonth = el.jobPeriod ? verify(el.jobPeriod.split(" ")[0]): "";
+            new_el.startYear = el.jobPeriod ? verify(el.jobPeriod.split(" ")[1]) : "";
+            new_el.endMonth = el.jobPeriod ? verify(el.jobPeriod.split(" ")[3]) : "";
+            new_el.endYear = el.jobPeriod ? verify(el.jobPeriod.split(" ")[4]) : "";
+            new_el.place = el.jobLocation ? el.jobLocation : "";
+            new_el.tasks = el.jobDescription ? el.jobDescription : "";
             return new_el;
           }
         })
@@ -471,12 +462,12 @@ class ThemeContextProvider extends Component {
     newObject[0].education = response.data.profileEducation
       ? response.data.profileEducation.map(el => {
           let new_el = {};
-          new_el.studyProgram = verify(el.educationType);
-          new_el.institution = verify(el.educationInstitution);
+          new_el.studyProgram = el.educationType ? el.educationType : "";
+          new_el.institution = el.educationInstitution ? el.educationInstitution : "";
           new_el.startMonth = "";
-          new_el.startYear = verify(el.educationPeriod.split(" ")[0]);
+          new_el.startYear = el.educationPeriod ? verify(el.educationPeriod.split(" ")[0]) : "";
           new_el.endMonth = "";
-          new_el.endYear = verify(el.educationPeriod.split(" ")[2]);
+          new_el.endYear = el.educationPeriod ? verify(el.educationPeriod.split(" ")[2]) : "";
           new_el.place = "";
           return new_el;
         })
@@ -1020,48 +1011,53 @@ class ThemeContextProvider extends Component {
         newObject[page].languages[index] = newObj;
       }
     }
-
-    this.setState({ userData: newObject });
-  };
-  setStructure = (arr1, arr2, col) => {
-    let newObj = { ...this.state };
-    if (col === "two") {
-      if (arr1.length > 0 || arr2.length > 0) {
-        newObj.style.leftSide = arr1;
-        newObj.style.rightSide = arr2;
-      }
-      if (arr1.length === 0 && arr2.length === 0) {
-        newObj.style.leftSide = ["experience", "education"];
-        newObj.style.rightSide = [
-          "skills",
-          "projects",
-          "certifications",
-          "achievements",
-          "courses",
-          "languages"
-        ];
-      }
-      this.setState(newObj);
-    }
-    if (col === "one") {
-      if (arr1.length > 0 || arr2.length > 0) {
-        newObj.style.oneColumnArr = [...arr1, ...arr2];
-      } else {
-        newObj.style.oneColumnArr = [
-          "experience",
-          "education",
-          "skills",
-          "projects",
-          "certifications",
-          "achievements",
-          "courses",
-          "languages"
-        ];
-      }
-      this.setState(newObj);
-    }
-  };
-  // ..............................................................
+  
+  this.setState({ userData: newObject });
+  
+}
+setStructure = (arr1, arr2) => {
+  let newObj = { ...this.state.style }
+  // console.log(arr1)
+  // console.log(arr2)
+  if(this.state.style.displayOneColumn === false){
+    if(arr1.length > 0 || arr2.length > 0){
+    newObj.leftSide = arr1.map(el => { return { name: el, id: newObj.oneColumnArr.filter(x => x.name === el)[0].id}})
+    newObj.rightSide = arr2.map(el => { return { name: el, id: newObj.oneColumnArr.filter(x => x.name === el)[0].id}})
+    console.log(newObj.leftSide)
+    console.log(newObj.rightSide)
+    this.setState({style: newObj});
+  }
+  if(arr1.length === 0 && arr2.length === 0){
+    newObj.leftSide = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}];
+    newObj.rightSide = [
+      {name: "skills", id: "card-3"},
+      {name: "projects", id: "card-4"},
+      {name: "certifications", id: "card-5"},
+      {name: "achievements", id: "card-6"},
+      {name: "courses", id: "card-7"},
+      {name: "languages", id: "card-8"},
+    ]
+    this.setState({style: newObj});
+  }
+}
+if(this.state.style.displayOneColumn !== false){
+  if(arr1.length > 0 || arr2.length > 0){
+    const ObjArr1 = arr1.map(el => { return { name: el, id: newObj.style.oneColumnArr.filter(x => x.name === el)[0].id}})
+    const ObjArr2 = arr2.map(el => { return { name: el, id: newObj.style.oneColumnArr.filter(x => x.name === el)[0].id}})
+    console.log(ObjArr1)
+    console.log(ObjArr2)
+    newObj.style.oneColumnArr = [...ObjArr1, ...ObjArr2]
+    
+    this.setState(newObj);
+  }
+  else{
+    newObj.style.oneColumnArr = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
+    this.setState(newObj);
+  }
+}
+// this.setState(newObj);
+}
+// ..............................................................
   handleContactIcon = () => {
     let element = document.getElementsByClassName("iconeColor");
     element.classList.add(this.state.userData.contact.icone);
