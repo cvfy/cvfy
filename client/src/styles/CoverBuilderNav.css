@@ -167,6 +167,41 @@
 }
 
 /* ========================================= */
+/* Burger menu Section */
+/* ========================================= */
+
+.builderNavBurger {
+  background: #f0f8ff00;
+  text-align: -webkit-center;
+}
+
+.builderNavBurger .builderNavSpanBar {
+  background: #fff;
+  height: 3px;
+  margin: 0.5rem 0;
+  width: 3rem
+}
+
+.builderNavBurger .open .builderNavSpanBar:nth-child(2) {
+  opacity: 0;
+}
+
+.builderNavBurger .open .builderNavSpanBar:nth-child(3) {
+  transform: rotate(45deg);
+  top: -11px;
+}
+
+.builderNavBurger .open .builderNavSpanBar:nth-child(1) {
+  transform: rotate(-45deg);
+  top: 11px;
+}
+
+ul.minMenu {
+  display: block;
+  margin-top: 0;
+}
+
+/* ========================================= */
 /* Sub Nav Section */
 /* ========================================= */
 
@@ -298,7 +333,7 @@
 }
 
 .greenBtn {
-  background: green;
+  background: #479099;
 }
 
 .orangeBtn {
@@ -330,7 +365,7 @@
 }
 
 .darkgreyBtn {
-  background: #ffaaab;
+  background: #2dbcad;
 }
 
 /* font-size sub-menu */
@@ -503,7 +538,7 @@
   color: black;
   width: 8vw;
   margin-left: 10px;
-  background: #68ec94;
+  background: #68ec94ba;
   margin-bottom: 4px;
 }
 

@@ -38,6 +38,8 @@ function aFunction() {
 class ThemeContextProvider extends Component {
   state = {
     id: "",
+    loadingSaveCv: false,
+    importing: false,
     style: {
       color: "",
       font: "'Open Sans', sans-serif",
@@ -63,7 +65,20 @@ class ThemeContextProvider extends Component {
         {name: "courses", id: "card-7"},
         {name: "languages", id: "card-8"},
       ],
+<<<<<<< HEAD
       oneColumnArr: [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
+=======
+      oneColumnArr: [
+        "experience",
+        "education",
+        "skills",
+        "projects",
+        "certifications",
+        "achievements",
+        "courses",
+        "languages"
+      ]
+>>>>>>> 1d265fe1d1717a9cafbc749b89095813cb5e4af2
     },
 
     userData: [
@@ -148,119 +163,226 @@ class ThemeContextProvider extends Component {
   componentDidUpdate() {
     let Pages = [...this.state.userData];
 
-    Array.from(document.querySelectorAll(".A4")).forEach( (el, i) => {
-      let headerHeight = (document.querySelectorAll(".A4")[i].querySelector(".header-inner") == null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") == undefined ) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".header-inner").clientHeight
-      let contactHeight = (document.querySelectorAll(".A4")[i].querySelector(".contact") == null || document.querySelectorAll(".A4")[i].querySelector(".contact") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".contact").clientHeight
-      let experienceHeight = (document.querySelectorAll(".A4")[i].querySelector(".experience") == null || document.querySelectorAll(".A4")[i].querySelector(".experience") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".experience").clientHeight
-      let educationHeight =  (document.querySelectorAll(".A4")[i].querySelector(".education") == null || document.querySelectorAll(".A4")[i].querySelector(".education") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".education").clientHeight
-      let skillsHeight = (document.querySelectorAll(".A4")[i].querySelector(".skills") == null || document.querySelectorAll(".A4")[i].querySelector(".skills") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".skills").clientHeight
-      let projectsHeight =  (document.querySelectorAll(".A4")[i].querySelector(".projects") == null || document.querySelectorAll(".A4")[i].querySelector(".projects") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".projects").clientHeight
-      let certificationsHeight =  (document.querySelectorAll(".A4")[i].querySelector(".certifications") == null || document.querySelectorAll(".A4")[i].querySelector(".certifications") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".certifications").clientHeight
-      let achievementsHeight = (document.querySelectorAll(".A4")[i].querySelector(".achievements") == null || document.querySelectorAll(".A4")[i].querySelector(".achievements") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".achievements").clientHeight
-      let coursesHeight = (document.querySelectorAll(".A4")[i].querySelector(".courses") == null || document.querySelectorAll(".A4")[i].querySelector(".courses") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".courses").clientHeight
-      let languagesHeight =  (document.querySelectorAll(".A4")[i].querySelector(".languages") == null || document.querySelectorAll(".A4")[i].querySelector(".languages") == undefined) ? 0 : document.querySelectorAll(".A4")[i].querySelector(".languages").clientHeight
+    Array.from(document.querySelectorAll(".A4")).forEach((el, i) => {
+      let headerHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".header-inner")
+              .clientHeight;
+      let contactHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".contact") == null ||
+        document.querySelectorAll(".A4")[i].querySelector(".contact") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".contact")
+              .clientHeight;
+      let experienceHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".experience") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".experience") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".experience")
+              .clientHeight;
+      let educationHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".education") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".education") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".education")
+              .clientHeight;
+      let skillsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".skills") == null ||
+        document.querySelectorAll(".A4")[i].querySelector(".skills") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".skills")
+              .clientHeight;
+      let projectsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".projects") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".projects") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".projects")
+              .clientHeight;
+      let certificationsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".certifications") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".certifications") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".certifications")
+              .clientHeight;
+      let achievementsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".achievements") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".achievements") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".achievements")
+              .clientHeight;
+      let coursesHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".courses") == null ||
+        document.querySelectorAll(".A4")[i].querySelector(".courses") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".courses")
+              .clientHeight;
+      let languagesHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".languages") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".languages") ==
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".languages")
+              .clientHeight;
 
-      let leftHeight = (parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight))
-      let rightHeight = (parseInt(headerHeight) + parseInt(contactHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight))
-      let onePageHeight = (parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight))
+      let leftHeight =
+        parseInt(headerHeight) +
+        parseInt(contactHeight) +
+        parseInt(experienceHeight) +
+        parseInt(educationHeight);
+      let rightHeight =
+        parseInt(headerHeight) +
+        parseInt(contactHeight) +
+        parseInt(skillsHeight) +
+        parseInt(projectsHeight) +
+        parseInt(certificationsHeight) +
+        parseInt(achievementsHeight) +
+        parseInt(coursesHeight) +
+        parseInt(languagesHeight);
+      let onePageHeight =
+        parseInt(headerHeight) +
+        parseInt(contactHeight) +
+        parseInt(experienceHeight) +
+        parseInt(educationHeight) +
+        parseInt(skillsHeight) +
+        parseInt(projectsHeight) +
+        parseInt(certificationsHeight) +
+        parseInt(achievementsHeight) +
+        parseInt(coursesHeight) +
+        parseInt(languagesHeight);
 
-if(this.state.style.displayOneColumn === false){
-      if(leftHeight > 1122){
-          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0]
-        Pages[i+1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length -1])
-        Pages[i][lastItem].pop()
-        this.setState({ userData: Pages })
-      }
-      if(rightHeight > 1100){
-        let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0]
-        Pages[i+1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length -1])
-        Pages[i][lastItem].pop()
-        this.setState({ userData: Pages })
-      }
-      if (document.querySelectorAll(".A4")[i + 1]) {
-        if (
-          document.querySelectorAll(".A4")[i + 1].querySelector(".left")
-            .firstChild == null
-        ) {
-        } else {
+      if (this.state.style.displayOneColumn === false) {
+        if (leftHeight > 1122) {
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".left").lastChild.classList[0];
+          Pages[i + 1][lastItem].unshift(
+            Pages[i][lastItem][Pages[i][lastItem].length - 1]
+          );
+          Pages[i][lastItem].pop();
+          this.setState({ userData: Pages });
+        }
+        if (rightHeight > 1100) {
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".right").lastChild.classList[0];
+          Pages[i + 1][lastItem].unshift(
+            Pages[i][lastItem][Pages[i][lastItem].length - 1]
+          );
+          Pages[i][lastItem].pop();
+          this.setState({ userData: Pages });
+        }
+        if (document.querySelectorAll(".A4")[i + 1]) {
           if (
-            leftHeight +
-              parseInt(
-                document.querySelectorAll(".A4")[i + 1].querySelector(".left")
-                  .firstChild.lastChild.firstChild.clientHeight
-              ) <
-            1115
+            document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+              .firstChild == null
           ) {
-            let Item = document
-              .querySelectorAll(".A4")
-              [i + 1].querySelector(".left").firstChild.classList[0];
-            console.log(Item);
-            Pages[i][Item].push(Pages[i + 1][Item][0]);
-            Pages[i + 1][Item].shift();
+          } else {
+            if (
+              leftHeight +
+                parseInt(
+                  document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+                    .firstChild.lastChild.firstChild.clientHeight
+                ) <
+              1115
+            ) {
+              let Item = document
+                .querySelectorAll(".A4")
+                [i + 1].querySelector(".left").firstChild.classList[0];
+              console.log(Item);
+              Pages[i][Item].push(Pages[i + 1][Item][0]);
+              Pages[i + 1][Item].shift();
+            }
+          }
+        }
+        if (document.querySelectorAll(".A4")[i + 1]) {
+          if (
+            document.querySelectorAll(".A4")[i + 1].querySelector(".right")
+              .firstChild == null
+          ) {
+          } else {
+            if (
+              rightHeight +
+                parseInt(
+                  document
+                    .querySelectorAll(".A4")
+                    [i + 1].querySelector(".right").firstChild.lastChild
+                    .firstChild.clientHeight
+                ) <
+              1115
+            ) {
+              let Item = document
+                .querySelectorAll(".A4")
+                [i + 1].querySelector(".right").firstChild.classList[0];
+              console.log(Item);
+              Pages[i][Item].push(Pages[i + 1][Item][0]);
+              Pages[i + 1][Item].shift();
+            }
           }
         }
       }
-      if (document.querySelectorAll(".A4")[i + 1]) {
-        if (
-          document.querySelectorAll(".A4")[i + 1].querySelector(".right")
-            .firstChild == null
-        ) {
-        } else {
+
+      if (this.state.style.displayOneColumn !== false) {
+        ////////////////////////////////////
+        if (onePageHeight > 1122) {
+          console.log(onePageHeight);
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".left").lastChild.classList[0];
+          console.log(lastItem);
+          Pages[i + 1][lastItem].unshift(
+            Pages[i][lastItem][Pages[i][lastItem].length - 1]
+          );
+          Pages[i][lastItem].pop();
+          //  this.setState({ userData: Pages })
+          i = 0;
+        }
+
+        if (document.querySelectorAll(".A4")[i + 1]) {
           if (
-            rightHeight +
-              parseInt(
-                document.querySelectorAll(".A4")[i + 1].querySelector(".right")
-                  .firstChild.lastChild.firstChild.clientHeight
-              ) <
-            1115
+            document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+              .firstChild == null
           ) {
-            let Item = document
-              .querySelectorAll(".A4")
-              [i + 1].querySelector(".right").firstChild.classList[0];
-            console.log(Item);
-            Pages[i][Item].push(Pages[i + 1][Item][0]);
-            Pages[i + 1][Item].shift();
+          } else {
+            if (
+              onePageHeight +
+                parseInt(
+                  document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+                    .firstChild.lastChild.firstChild.clientHeight
+                ) <
+              1115
+            ) {
+              let Item = document
+                .querySelectorAll(".A4")
+                [i + 1].querySelector(".left").firstChild.classList[0];
+              console.log(Item);
+              Pages[i][Item].push(Pages[i + 1][Item][0]);
+              Pages[i + 1][Item].shift();
+            }
           }
         }
+
+        ///////////////////////////////////
+        //  this.setState({ userData: Pages })
       }
-    }
-  
-
-if(this.state.style.displayOneColumn !== false) {
-////////////////////////////////////
-if(onePageHeight > 1122){
-  console.log(onePageHeight)
-  let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0]
-  console.log(lastItem)
-Pages[i+1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length -1])
-Pages[i][lastItem].pop()
-//  this.setState({ userData: Pages })
- i = 0
-}
-
-if(document.querySelectorAll(".A4")[i+1]){
-
-if(document.querySelectorAll(".A4")[i+1].querySelector(".left").firstChild == null){
-}
-else{
-  if((onePageHeight + parseInt((document.querySelectorAll(".A4")[i+1].querySelector(".left").firstChild.lastChild.firstChild).clientHeight)) < 1115){
-  let Item = document.querySelectorAll(".A4")[i+1].querySelector(".left").firstChild.classList[0]
-  console.log(Item)
-  Pages[i][Item].push(Pages[i+1][Item][0])
-  Pages[i+1][Item].shift()
-}
-}
-
-}
-
-///////////////////////////////////
-//  this.setState({ userData: Pages })
-
-}
-
-}
-    
-    )
+    });
   }
 
   async componentDidMount() {
@@ -301,10 +423,11 @@ else{
     e.preventDefault();
     console.log("i am calling linkedin data");
     console.log(profile);
+    await this.setState({ importing: true });
     const response = await axios.get(
       `http://localhost:5000/api/users/data/link/${profile}`
     );
-    console.log(response.data);
+    console.log("should be 200", response.data);
     let newObject = [...this.state.userData];
     newObject[0].fullName = response.data.profileFullName
       ? response.data.profileFullName
@@ -397,21 +520,33 @@ else{
     // console.log(`http://localhost:5000/static/${profile}.jpg`);
     this.setState({ userData: newObject });
     this.setState(this.state);
-    axios
-      .get("localhost:5000/api/users/data/bleda-hacialihafiz")
-      .then(res => console.log(res.data));
+
+    // Need to add different responses for each different status
+    if (response.status == 200) return this.setState({ importing: false });
+
+    axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => {
+      console.log(res.data);
+    });
   };
   saveCVDataToServer = async e => {
     e.preventDefault();
-    console.log("i am calling");
+    console.log("Should be false ->", this.state.loadingSaveCv);
+    await this.setState({ loadingSaveCv: true });
+    console.log("Should be true ->", this.state.loadingSaveCv);
     const userID = await aFunction();
     console.log(userID);
 
     //const data = JSON.stringify(this.state)
-    axios.post(
-      `http://localhost:5000/api/users/resume/cv/${userID}`,
-      this.state
-    );
+    axios
+      .post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
+      .then(res => {
+        console.log(res.data);
+        if (res.data == "done") return this.setState({ loadingSaveCv: false });
+      });
+
+    // await this.setState({ loadingSaveCv: false });
+    // if (res.data == "done") this.setState({ loadingSaveCv: false });
+    console.log("Should be false again ->", this.state.loadingSaveCv);
   };
   // Those 3 functions add array of strings, will try to DRY later
   modifyEd = (page, field, value, index) => {
@@ -889,6 +1024,7 @@ else{
         newObject[page].languages[index] = newObj;
       }
     }
+<<<<<<< HEAD
   
   this.setState({ userData: newObject });
   
@@ -936,6 +1072,50 @@ if(this.state.style.displayOneColumn !== false){
 // this.setState(newObj);
 }
 // ..............................................................
+=======
+
+    this.setState({ userData: newObject });
+  };
+  setStructure = (arr1, arr2, col) => {
+    let newObj = { ...this.state };
+    if (col === "two") {
+      if (arr1.length > 0 || arr2.length > 0) {
+        newObj.style.leftSide = arr1;
+        newObj.style.rightSide = arr2;
+      }
+      if (arr1.length === 0 && arr2.length === 0) {
+        newObj.style.leftSide = ["experience", "education"];
+        newObj.style.rightSide = [
+          "skills",
+          "projects",
+          "certifications",
+          "achievements",
+          "courses",
+          "languages"
+        ];
+      }
+      this.setState(newObj);
+    }
+    if (col === "one") {
+      if (arr1.length > 0 || arr2.length > 0) {
+        newObj.style.oneColumnArr = [...arr1, ...arr2];
+      } else {
+        newObj.style.oneColumnArr = [
+          "experience",
+          "education",
+          "skills",
+          "projects",
+          "certifications",
+          "achievements",
+          "courses",
+          "languages"
+        ];
+      }
+      this.setState(newObj);
+    }
+  };
+  // ..............................................................
+>>>>>>> 1d265fe1d1717a9cafbc749b89095813cb5e4af2
   handleContactIcon = () => {
     let element = document.getElementsByClassName("iconeColor");
     element.classList.add(this.state.userData.contact.icone);
@@ -1065,10 +1245,10 @@ if(this.state.style.displayOneColumn !== false){
   };
 
   toggleOneColumn = () => {
-    let newObject = {...this.state};
-    newObject.style.displayOneColumn = !this.state.style.displayOneColumn
+    let newObject = { ...this.state };
+    newObject.style.displayOneColumn = !this.state.style.displayOneColumn;
     this.setState({ newObject });
-  }
+  };
 
   toggleFontWeight = () => {
     document.execCommand("bold", false, "");

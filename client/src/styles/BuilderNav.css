@@ -166,6 +166,19 @@
 }
 
 /* ========================================= */
+/* Burger menu Section */
+/* ========================================= */
+
+.builderNavBurger {
+  background: #f0f8ff00;
+  text-align: -webkit-center;
+}
+
+/* .builderNavBurger .builderNavSpanBar {
+  background: #fff;
+} */
+
+/* ========================================= */
 /* Sub Nav Section */
 /* ========================================= */
 
@@ -298,7 +311,7 @@
 }
 
 .greenBtn {
-  background: green;
+  background: #479099;
 }
 
 .orangeBtn {
@@ -330,7 +343,7 @@
 }
 
 .darkgreyBtn {
-  background: #ffaaab;
+  background: #2dbcad;
 }
 
 /* font-size sub-menu */
@@ -683,6 +696,29 @@
 
 .cvBuilder-extra-tools:hover {
   color: #2196f3;
+}
+
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner:before {
+  /* content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-top-color: #000; */
+  animation: spinner .6s linear infinite;
 }
 
 @media (max-width: 1015px) {
