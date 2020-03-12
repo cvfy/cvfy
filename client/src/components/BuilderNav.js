@@ -17,13 +17,18 @@ const BuilderNav = () => {
   const [navbarState, setNavbarState] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
-
-  const downloadPdf = (e) => {
+let status = false
+  const downloadPdf = async(e) => {
+    if(status === false){
+      status = await true
     e.preventDefault()
-    axios.get(`http://localhost:5000/api/users/data/pdf/${context.id}`).then(
+    await axios.get(`http://localhost:5000/api/users/data/pdf/${context.id}`).then(
       res =>
         window.open(`http://localhost:5000/static2/${res.data}.pdf`, "_blank") //this.setState(res.data)
     );
+    status = await false;
+    }
+    else{}
   };
   return (
     <>

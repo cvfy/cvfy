@@ -5,6 +5,9 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 //import uuid from 'uuid'
 
+let status = false
+let status2 = false
+
 function verify(data) {
   return data !== undefined && data !== null ? data : "";
 }
@@ -407,6 +410,8 @@ class ThemeContextProvider extends Component {
   // }
 
   importData = async (profile, e) => {
+    if(status2 === false){
+      status2 = await true
     e.preventDefault();
     console.log("i am calling linkedin data");
     console.log(profile);
@@ -416,22 +421,22 @@ class ThemeContextProvider extends Component {
     );
     console.log("should be 200", response.data);
     let newObject = {...this.state};
-    newObject.userData[0].fullName = response.data.profileFullName
+    newObject.userData[0].fullName = await response.data.profileFullName
       ? response.data.profileFullName
       : "FULL NAME";
-    newObject.userData[0].intro = response.data.profileHeadline
+    newObject.userData[0].intro = await response.data.profileHeadline
       ? response.data.profileHeadline
       : "Professional Title";
-    newObject.userData[0].about = response.data.profileAbout
+    newObject.userData[0].about = await response.data.profileAbout
       ? response.data.profileAbout
       : ["Short and engaging pitch about yourself"];
     newObject.userData[0].profilePic = `http://localhost:5000/static/${profile}.jpg`
       ? `http://localhost:5000/static/${profile}.jpg`
       : "http://localhost:5000/static/default.png";
-    newObject.userData[0].skills = response.data.skills
+    newObject.userData[0].skills = await response.data.skills
       ? response.data.skills
       : ["skill"];
-    newObject.userData[0].experience = response.data.profileExperience
+    newObject.userData[0].experience = await response.data.profileExperience
       ? response.data.profileExperience.map(el => {
           if (el.jobsDesc) {
           } else {
@@ -459,7 +464,7 @@ class ThemeContextProvider extends Component {
             tasks: "Accomplishments/Responsibility/Tasks"
           }
         ];
-    newObject.userData[0].education = response.data.profileEducation
+    newObject.userData[0].education = await response.data.profileEducation
       ? response.data.profileEducation.map(el => {
           let new_el = {};
           new_el.studyProgram = el.educationType ? el.educationType : "";
@@ -482,36 +487,40 @@ class ThemeContextProvider extends Component {
             place: "City, Country"
           }
         ];
-    newObject.userData[0].languages = response.data.languages
+    newObject.userData[0].languages = await response.data.languages
       ? response.data.languages.map(el => {
           return { language: el, level: "B1" };
         })
       : [{ language: "Language", level: "B1" }];
-    newObject.userData[0].courses = response.data.courses
+    newObject.userData[0].courses = await response.data.courses
       ? response.data.courses.map(el => {
           return { title: el, desc: "Description" };
         })
       : [{ title: "Course name", desc: "Short description" }];
-    newObject.userData[0].projects = response.data.projects
+    newObject.userData[0].projects = await response.data.projects
       ? response.data.projects
       : [{ title: "Project name", desc: "Description of achievements" }];
-    newObject.userData[0].contact[0].value = response.data.Email
+    newObject.userData[0].contact[0].value = await response.data.Email
       ? response.data.Email
       : "Email";
-    newObject.userData[0].contact[6].value = response.data.Website
+    newObject.userData[0].contact[6].value =  await response.data.Website
       ? response.data.Website
       : "Website";
     newObject.userData[0].certifications = ["Certificate name"];
     newObject.userData[0].achievements = ["Achievement name"];
-    newObject.id = this.state.id;
+    newObject.id = await this.state.id;
     await this.setState(newObject);
     await this.saveCVDataToServer(e)
 
     // Need to add different responses for each different status
     if (response.status == 200) return this.setState({ importing: false });
-
+    status2 = await false
+      }
+      else {}
   };
   saveCVDataToServer = async e => {
+    if(status === false){
+      status = await true
     if(e){ e.preventDefault()}
     console.log("Should be false ->", this.state.loadingSaveCv);
     await this.setState({ loadingSaveCv: true });
@@ -530,6 +539,9 @@ class ThemeContextProvider extends Component {
     // await this.setState({ loadingSaveCv: false });
     // if (res.data == "done") this.setState({ loadingSaveCv: false });
     console.log("Should be false again ->", this.state.loadingSaveCv);
+    status = await false
+    }
+    else {}
   };
   // Those 3 functions add array of strings, will try to DRY later
   modifyEd = (page, field, value, index) => {
