@@ -25,6 +25,7 @@ class CvBuilderMain extends React.Component {
     openJobDashboard: false,
     positionValue: "",
     locationValue: "",
+    loadingJobs: false,
     jobAds: []
   };
 
@@ -37,10 +38,14 @@ class CvBuilderMain extends React.Component {
 
   requestStepStoneData = async e => {
     e.preventDefault();
+    this.setState({loadingJobs: true})
+    console.log('I should be TRUE', this.state.loadingJobs)
     const response = await axios.get(
       `http://localhost:5000/api/users/data/stepstone/position/${this.state.positionValue}/location/${this.state.locationValue}`
     );
     this.setState({ jobAds: response.data });
+    this.setState({loadingJobs: false})
+    console.log('I should be FALSE', this.state.loadingJobs)
   };
   displayDashboard = () => {
     this.setState({ openJobDashboard: !this.state.openJobDashboard });
@@ -265,12 +270,19 @@ class CvBuilderMain extends React.Component {
                         type="text"
                         id="location"
                       ></input>
-                      <input
+                      <button
                         onClick={e => this.requestStepStoneData(e)}
                         className="JobDashboardButton"
-                        type="submit"
-                        value="Search"
-                      />
+                        >
+                          {this.state.loadingJobs && (
+                              <i
+                                class="fas fa-spinner fa-spin"
+                                style={{ marginRight: 5 }}
+                              ></i>
+                            )}
+                            {this.state.loadingJobs && <span>Searching</span>}
+                            {!this.state.loadingJobs && <span>Search</span>}
+                          </button>
                     </form>
                   </div>
                   <div className="JobDashboardAds">

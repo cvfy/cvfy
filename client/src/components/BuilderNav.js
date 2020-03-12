@@ -15,14 +15,21 @@ const BuilderNav = () => {
   const context = useContext(ThemeContext);
 
   const [navbarState, setNavbarState] = useState(false);
+  const [loadingDownload, setLoadingDownload] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
+  // const handleDownload = () => setLoadingDownload(!loadingDownload);
 
   const downloadPdf = () => {
+    // handleDownload();
+    // setLoadingDownload(true);
+    console.log("I should be TRUE ->", loadingDownload);
     axios.get(`http://localhost:5000/api/users/data/pdf/${context.id}`).then(
       res =>
         window.open(`http://localhost:5000/static/${res.data}.pdf`, "_blank") //this.setState(res.data)
     );
+    // handleDownload();
+    // console.log("I should be FALSE ->", loadingDownload);
   };
   return (
     <>
@@ -53,6 +60,14 @@ const BuilderNav = () => {
                 className="tool-desc tool-download"
               >
                 Download
+                {/* {loadingDownload && (
+                  <i
+                    class="fas fa-spinner fa-spin"
+                    style={{ marginRight: 5 }}
+                  ></i>
+                )}
+                {loadingDownload && <span>Downloading</span>}
+                {!loadingDownload && <span>Download</span>} */}
               </span>
             </div>
           </div>
