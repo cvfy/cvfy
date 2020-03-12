@@ -415,23 +415,23 @@ class ThemeContextProvider extends Component {
       `http://localhost:5000/api/users/data/link/${profile}`
     );
     console.log("should be 200", response.data);
-    let newObject = [...this.state.userData];
-    newObject[0].fullName = response.data.profileFullName
+    let newObject = {...this.state};
+    newObject.userData[0].fullName = response.data.profileFullName
       ? response.data.profileFullName
       : "FULL NAME";
-    newObject[0].intro = response.data.profileHeadline
+    newObject.userData[0].intro = response.data.profileHeadline
       ? response.data.profileHeadline
       : "Professional Title";
-    newObject[0].about = response.data.profileAbout
+    newObject.userData[0].about = response.data.profileAbout
       ? response.data.profileAbout
       : ["Short and engaging pitch about yourself"];
-    newObject[0].profilePic = `http://localhost:5000/static/${profile}.jpg`
+    newObject.userData[0].profilePic = `http://localhost:5000/static/${profile}.jpg`
       ? `http://localhost:5000/static/${profile}.jpg`
       : "http://localhost:5000/static/default.png";
-    newObject[0].skills = response.data.skills
+    newObject.userData[0].skills = response.data.skills
       ? response.data.skills
       : ["skill"];
-    newObject[0].experience = response.data.profileExperience
+    newObject.userData[0].experience = response.data.profileExperience
       ? response.data.profileExperience.map(el => {
           if (el.jobsDesc) {
           } else {
@@ -459,7 +459,7 @@ class ThemeContextProvider extends Component {
             tasks: "Accomplishments/Responsibility/Tasks"
           }
         ];
-    newObject[0].education = response.data.profileEducation
+    newObject.userData[0].education = response.data.profileEducation
       ? response.data.profileEducation.map(el => {
           let new_el = {};
           new_el.studyProgram = el.educationType ? el.educationType : "";
@@ -482,41 +482,37 @@ class ThemeContextProvider extends Component {
             place: "City, Country"
           }
         ];
-    newObject[0].languages = response.data.languages
+    newObject.userData[0].languages = response.data.languages
       ? response.data.languages.map(el => {
           return { language: el, level: "B1" };
         })
       : [{ language: "Language", level: "B1" }];
-    newObject[0].courses = response.data.courses
+    newObject.userData[0].courses = response.data.courses
       ? response.data.courses.map(el => {
           return { title: el, desc: "Description" };
         })
       : [{ title: "Course name", desc: "Short description" }];
-    newObject[0].projects = response.data.projects
+    newObject.userData[0].projects = response.data.projects
       ? response.data.projects
       : [{ title: "Project name", desc: "Description of achievements" }];
-    newObject[0].contact[0].value = response.data.Email
+    newObject.userData[0].contact[0].value = response.data.Email
       ? response.data.Email
       : "Email";
-    newObject[0].contact[6].value = response.data.Website
+    newObject.userData[0].contact[6].value = response.data.Website
       ? response.data.Website
       : "Website";
-    newObject[0].certifications = ["Certificate name"];
-    newObject[0].achievements = ["Achievement name"];
-    // console.log(response.data.contacts)
-    // console.log(`http://localhost:5000/static/${profile}.jpg`);
-    this.setState({ userData: newObject });
-    this.setState(this.state);
+    newObject.userData[0].certifications = ["Certificate name"];
+    newObject.userData[0].achievements = ["Achievement name"];
+    newObject.id = this.state.id;
+    await this.setState(newObject);
+    await this.saveCVDataToServer(e)
 
     // Need to add different responses for each different status
     if (response.status == 200) return this.setState({ importing: false });
 
-    axios.get("localhost:5000/api/users/data/bleda-hacialihafiz").then(res => {
-      console.log(res.data);
-    });
   };
   saveCVDataToServer = async e => {
-    e.preventDefault();
+    if(e){ e.preventDefault()}
     console.log("Should be false ->", this.state.loadingSaveCv);
     await this.setState({ loadingSaveCv: true });
     console.log("Should be true ->", this.state.loadingSaveCv);
@@ -524,7 +520,7 @@ class ThemeContextProvider extends Component {
     console.log(userID);
 
     //const data = JSON.stringify(this.state)
-    axios
+    await axios
       .post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
       .then(res => {
         console.log(res.data);

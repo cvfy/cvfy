@@ -10,6 +10,7 @@ const app = express();
 //Bodyparser middleware
 
 app.use('/static', express.static('profile_picture'))
+app.use('/static2', express.static('puppeteer_Data/profile_picture'))
 app.use( 
     bodyParser.urlencoded({
         extended: false

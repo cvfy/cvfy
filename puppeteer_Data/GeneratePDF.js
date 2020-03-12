@@ -56,11 +56,12 @@ async function giveMePDF(resumeID) {
                 await page.emulateMedia('screen');
                 const pic = await page.$$('.A4')
                 await pic[i].screenshot({
-                   path: `profile_picture/scre${i}.jpg`,
+                   path: `${__dirname}/profile_picture/scre${i}.jpg`,
                    type: 'jpeg',
                    quality: 100
                 })
-                imgArray.push(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/scre${i}.jpg`)
+                
+                imgArray.push(`${__dirname}/profile_picture/scre${i}.jpg`)
                 }
             //     const pic = await page.$('body').innerHTML
             //     console.log(pic)
@@ -74,7 +75,7 @@ async function giveMePDF(resumeID) {
             //     await page.pdf({path: pdfFileName, landscape: false, format: 'A4', scale: 0.9, printBackground: true});
             //   }
             
-            await imagesToPdf(imgArray, `/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${resumeID}.pdf`)
+            await imagesToPdf(imgArray, `${__dirname}/profile_picture/${resumeID}.pdf`)
             
         } catch (err) {
             console.error(err.message);
