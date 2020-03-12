@@ -24,14 +24,14 @@ async function giveMeData(profile) {
             //Login form
             const shortProfile = profile.split("in/")[1];
             const pic = await page.$('.EntityPhoto-circle-9')
-            await page.waitFor(2000);
+            await page.waitFor(1000);
             await pic.screenshot({
                 path: `profile_picture/${shortProfile}.jpg`
             });
             if ((await page.$('a[data-control-name="contact_see_more"]')) !== null) {
                 await page.click('a[data-control-name="contact_see_more"]')
             }
-            await page.waitFor(2000);
+            await page.waitFor(1000);
             const contactData = await page.evaluate(() => {
                 function verify(data) {
                     return (data !== undefined && data !== null) ? data : ""
@@ -48,7 +48,7 @@ async function giveMeData(profile) {
 return contacts
             })
             await page.keyboard.press('Escape')
-            await page.waitFor(2000);
+            // await page.waitFor(2000);
             await autoScroll(page)
             //await page.click('section.experience-section button')
 
