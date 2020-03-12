@@ -76,9 +76,7 @@ const Navbar = props => {
               <DropdownMenu />
             </div>
             <div>
-              <NavLink to="#" onClick={onLogoutClick}>
-                Log Out
-              </NavLink>
+              {localStorage.getItem("jwtToken") && <NavLink to="#" onClick={onLogoutClick}>Log Out</NavLink>}
             </div>
           </NavLinks>
           <div className="BurgerWrapper">

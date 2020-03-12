@@ -331,7 +331,7 @@ class ThemeContextProvider extends Component {
 
       if (this.state.style.displayOneColumn !== false) {
         ////////////////////////////////////
-        if (onePageHeight > 1122) {
+        if (onePageHeight > 1000) {
           console.log(onePageHeight);
           let lastItem = document
             .querySelectorAll(".A4")
@@ -510,11 +510,11 @@ class ThemeContextProvider extends Component {
     newObject.userData[0].achievements = ["Achievement name"];
     newObject.id = await this.state.id;
     await this.setState(newObject);
-    await this.saveCVDataToServer(e)
-
+    
     // Need to add different responses for each different status
     if (response.status == 200) return this.setState({ importing: false });
     status2 = await false
+    await this.saveCVDataToServer(e)
       }
       else {}
   };
@@ -523,7 +523,7 @@ class ThemeContextProvider extends Component {
       status = await true
     if(e){ e.preventDefault()}
     console.log("Should be false ->", this.state.loadingSaveCv);
-    await this.setState({ loadingSaveCv: true });
+    await this.setState({ loadingSaveCv: true, id: localStorage.getItem("currentCV") });
     console.log("Should be true ->", this.state.loadingSaveCv);
     const userID = await aFunction();
     console.log(userID);
@@ -1024,20 +1024,21 @@ class ThemeContextProvider extends Component {
   
 }
 setStructure = (arr1, arr2) => {
-  let newObj = { ...this.state.style }
+  let newObj = { ...this.state }
+  let defaultArr = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
   // console.log(arr1)
   // console.log(arr2)
   if(this.state.style.displayOneColumn === false){
     if(arr1.length > 0 || arr2.length > 0){
-    newObj.leftSide = arr1.map(el => { return { name: el, id: newObj.oneColumnArr.filter(x => x.name === el)[0].id}})
-    newObj.rightSide = arr2.map(el => { return { name: el, id: newObj.oneColumnArr.filter(x => x.name === el)[0].id}})
+    newObj.style.leftSide = arr1.map(el => { return { name: el, id: defaultArr.filter(x => x.name === el)[0].id}})
+    newObj.style.rightSide = arr2.map(el => { return { name: el, id: defaultArr.filter(x => x.name === el)[0].id}})
     console.log(newObj.leftSide)
     console.log(newObj.rightSide)
-    this.setState({style: newObj});
+    this.setState(newObj);
   }
   if(arr1.length === 0 && arr2.length === 0){
-    newObj.leftSide = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}];
-    newObj.rightSide = [
+    newObj.style.leftSide = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}];
+    newObj.style.rightSide = [
       {name: "skills", id: "card-3"},
       {name: "projects", id: "card-4"},
       {name: "certifications", id: "card-5"},
@@ -1050,8 +1051,8 @@ setStructure = (arr1, arr2) => {
 }
 if(this.state.style.displayOneColumn !== false){
   if(arr1.length > 0 || arr2.length > 0){
-    const ObjArr1 = arr1.map(el => { return { name: el, id: newObj.style.oneColumnArr.filter(x => x.name === el)[0].id}})
-    const ObjArr2 = arr2.map(el => { return { name: el, id: newObj.style.oneColumnArr.filter(x => x.name === el)[0].id}})
+    const ObjArr1 = arr1.map(el => { return { name: el, id: defaultArr.filter(x => x.name === el)[0].id}})
+    const ObjArr2 = arr2.map(el => { return { name: el, id: defaultArr.filter(x => x.name === el)[0].id}})
     console.log(ObjArr1)
     console.log(ObjArr2)
     newObj.style.oneColumnArr = [...ObjArr1, ...ObjArr2]
