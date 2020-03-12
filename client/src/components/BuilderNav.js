@@ -20,13 +20,18 @@ const BuilderNav = () => {
   const handleNavbar = () => setNavbarState(!navbarState);
   // const handleDownload = () => setLoadingDownload(!loadingDownload);
 
+<<<<<<< HEAD
   const downloadPdf = () => {
     // handleDownload();
     // setLoadingDownload(true);
     // console.log("I should be TRUE ->", loadingDownload);
+=======
+  const downloadPdf = (e) => {
+    e.preventDefault()
+>>>>>>> bd6ccebef53f6bc3ae64ab172c5671ce66aae16c
     axios.get(`http://localhost:5000/api/users/data/pdf/${context.id}`).then(
       res =>
-        window.open(`http://localhost:5000/static/${res.data}.pdf`, "_blank") //this.setState(res.data)
+        window.open(`http://localhost:5000/static2/${res.data}.pdf`, "_blank") //this.setState(res.data)
     );
     // handleDownload();
     // console.log("I should be FALSE ->", loadingDownload);
@@ -56,7 +61,7 @@ const BuilderNav = () => {
             <div className="downloadDiv">
               <span className="tool-icon first-icon">⤓</span>
               <span
-                onClick={() => downloadPdf()}
+                onClick={(e) => downloadPdf(e)}
                 className="tool-desc tool-download"
               >
                 Download
