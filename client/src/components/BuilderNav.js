@@ -15,20 +15,27 @@ const BuilderNav = () => {
   const context = useContext(ThemeContext);
 
   const [navbarState, setNavbarState] = useState(false);
+  const [loadingDownload, setLoadingDownload] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
+  // const handleDownload = () => setLoadingDownload(!loadingDownload);
 let status = false
-  const downloadPdf = async(e) => {
+  const downloadPdf = async (e) => {
     if(status === false){
       status = await true
-    e.preventDefault()
+    e.preventDefault();
+    // handleDownload();
+    // setLoadingDownload(true);
+    // console.log("I should be TRUE ->", loadingDownload);
     await axios.get(`http://localhost:5000/api/users/data/pdf/${context.id}`).then(
       res =>
         window.open(`http://localhost:5000/static2/${res.data}.pdf`, "_blank") //this.setState(res.data)
     );
-    status = await false;
+    // handleDownload();
+    // console.log("I should be FALSE ->", loadingDownload);
+    status = await false
     }
-    else{}
+    else {}
   };
   return (
     <>
@@ -55,10 +62,18 @@ let status = false
             <div className="downloadDiv">
               <span className="tool-icon first-icon">⤓</span>
               <span
-                onClick={(e) => downloadPdf(e)}
+                onClick={e => downloadPdf(e)}
                 className="tool-desc tool-download"
               >
                 Download
+                {/* {loadingDownload && (
+                  <i
+                    class="fas fa-spinner fa-spin"
+                    style={{ marginRight: 5 }}
+                  ></i>
+                )}
+                {loadingDownload && <span>Downloading</span>}
+                {!loadingDownload && <span>Download</span>} */}
               </span>
             </div>
           </div>
