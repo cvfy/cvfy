@@ -38,7 +38,7 @@ function aFunction() {
 class ThemeContextProvider extends Component {
   state = {
     id: "",
-    loadingSaveCv: false,
+    loadingSaveCv: true,
     importing: false,
     style: {
       color: "",
@@ -56,16 +56,28 @@ class ThemeContextProvider extends Component {
       displayCompany: true,
       displaySummary: true,
       displayOneColumn: false,
-      leftSide: [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}],
-      rightSide: [
-        {name: "skills", id: "card-3"},
-        {name: "projects", id: "card-4"},
-        {name: "certifications", id: "card-5"},
-        {name: "achievements", id: "card-6"},
-        {name: "courses", id: "card-7"},
-        {name: "languages", id: "card-8"},
+      leftSide: [
+        { name: "experience", id: "card-1" },
+        { name: "education", id: "card-2" }
       ],
-      oneColumnArr: [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
+      rightSide: [
+        { name: "skills", id: "card-3" },
+        { name: "projects", id: "card-4" },
+        { name: "certifications", id: "card-5" },
+        { name: "achievements", id: "card-6" },
+        { name: "courses", id: "card-7" },
+        { name: "languages", id: "card-8" }
+      ],
+      oneColumnArr: [
+        { name: "experience", id: "card-1" },
+        { name: "education", id: "card-2" },
+        { name: "skills", id: "card-3" },
+        { name: "projects", id: "card-4" },
+        { name: "certifications", id: "card-5" },
+        { name: "achievements", id: "card-6" },
+        { name: "courses", id: "card-7" },
+        { name: "languages", id: "card-8" }
+      ]
     },
 
     userData: [
@@ -147,6 +159,25 @@ class ThemeContextProvider extends Component {
       }
     ]
   };
+
+  // componentWillMount() {
+  //   // const getDbAnswer = //fetch a signal from the db
+  //   // if (getDBAnswer === true)
+  //   console.log("I did mounted before localStorage", this.state.loadingSaveCv);
+  //   localStorage.setItem("loadingSaveCv", "true");
+  //   console.log("I did mounted", this.state.loadingSaveCv);
+  //   // else
+  //   //   localStorage.setItem("loadingSaveCv", "false");
+  // }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return this.state.loadingSaveCv != nextState.loadingSaveCv;
+  // }
+
+  // shouldComponentUpdate() {
+  //   if (this.state.loadingSaveCv !== nextState) return false; // Will cause component to never re-render.
+  // }
+
   componentDidUpdate() {
     let Pages = [...this.state.userData];
 
@@ -415,7 +446,7 @@ class ThemeContextProvider extends Component {
       `http://localhost:5000/api/users/data/link/${profile}`
     );
     console.log("should be 200", response.data);
-    let newObject = {...this.state};
+    let newObject = { ...this.state };
     newObject.userData[0].fullName = response.data.profileFullName
       ? response.data.profileFullName
       : "FULL NAME";
@@ -438,10 +469,18 @@ class ThemeContextProvider extends Component {
             let new_el = {};
             new_el.position = el.jobTitle ? el.jobTitle : "";
             new_el.company = el.jobEmployer ? el.jobEmployer : "";
-            new_el.startMonth = el.jobPeriod ? verify(el.jobPeriod.split(" ")[0]): "";
-            new_el.startYear = el.jobPeriod ? verify(el.jobPeriod.split(" ")[1]) : "";
-            new_el.endMonth = el.jobPeriod ? verify(el.jobPeriod.split(" ")[3]) : "";
-            new_el.endYear = el.jobPeriod ? verify(el.jobPeriod.split(" ")[4]) : "";
+            new_el.startMonth = el.jobPeriod
+              ? verify(el.jobPeriod.split(" ")[0])
+              : "";
+            new_el.startYear = el.jobPeriod
+              ? verify(el.jobPeriod.split(" ")[1])
+              : "";
+            new_el.endMonth = el.jobPeriod
+              ? verify(el.jobPeriod.split(" ")[3])
+              : "";
+            new_el.endYear = el.jobPeriod
+              ? verify(el.jobPeriod.split(" ")[4])
+              : "";
             new_el.place = el.jobLocation ? el.jobLocation : "";
             new_el.tasks = el.jobDescription ? el.jobDescription : "";
             return new_el;
@@ -463,11 +502,17 @@ class ThemeContextProvider extends Component {
       ? response.data.profileEducation.map(el => {
           let new_el = {};
           new_el.studyProgram = el.educationType ? el.educationType : "";
-          new_el.institution = el.educationInstitution ? el.educationInstitution : "";
+          new_el.institution = el.educationInstitution
+            ? el.educationInstitution
+            : "";
           new_el.startMonth = "";
-          new_el.startYear = el.educationPeriod ? verify(el.educationPeriod.split(" ")[0]) : "";
+          new_el.startYear = el.educationPeriod
+            ? verify(el.educationPeriod.split(" ")[0])
+            : "";
           new_el.endMonth = "";
-          new_el.endYear = el.educationPeriod ? verify(el.educationPeriod.split(" ")[2]) : "";
+          new_el.endYear = el.educationPeriod
+            ? verify(el.educationPeriod.split(" ")[2])
+            : "";
           new_el.place = "";
           return new_el;
         })
@@ -505,17 +550,17 @@ class ThemeContextProvider extends Component {
     newObject.userData[0].achievements = ["Achievement name"];
     newObject.id = this.state.id;
     await this.setState(newObject);
-    await this.saveCVDataToServer(e)
+    await this.saveCVDataToServer(e);
 
     // Need to add different responses for each different status
     if (response.status == 200) return this.setState({ importing: false });
-
   };
   saveCVDataToServer = async e => {
-    if(e){ e.preventDefault()}
-    console.log("Should be false ->", this.state.loadingSaveCv);
-    await this.setState({ loadingSaveCv: true });
-    console.log("Should be true ->", this.state.loadingSaveCv);
+    if (e) {
+      e.preventDefault();
+    }
+    await this.setState({ loadingSaveCv: false });
+
     const userID = await aFunction();
     console.log(userID);
 
@@ -524,12 +569,8 @@ class ThemeContextProvider extends Component {
       .post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
       .then(res => {
         console.log(res.data);
-        if (res.data == "done") return this.setState({ loadingSaveCv: false });
+        if (res.data == "done") return this.setState({ loadingSaveCv: true });
       });
-
-    // await this.setState({ loadingSaveCv: false });
-    // if (res.data == "done") this.setState({ loadingSaveCv: false });
-    console.log("Should be false again ->", this.state.loadingSaveCv);
   };
   // Those 3 functions add array of strings, will try to DRY later
   modifyEd = (page, field, value, index) => {
@@ -1007,53 +1048,83 @@ class ThemeContextProvider extends Component {
         newObject[page].languages[index] = newObj;
       }
     }
-  
-  this.setState({ userData: newObject });
-  
-}
-setStructure = (arr1, arr2) => {
-  let newObj = { ...this.state.style }
-  // console.log(arr1)
-  // console.log(arr2)
-  if(this.state.style.displayOneColumn === false){
-    if(arr1.length > 0 || arr2.length > 0){
-    newObj.leftSide = arr1.map(el => { return { name: el, id: newObj.oneColumnArr.filter(x => x.name === el)[0].id}})
-    newObj.rightSide = arr2.map(el => { return { name: el, id: newObj.oneColumnArr.filter(x => x.name === el)[0].id}})
-    console.log(newObj.leftSide)
-    console.log(newObj.rightSide)
-    this.setState({style: newObj});
-  }
-  if(arr1.length === 0 && arr2.length === 0){
-    newObj.leftSide = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}];
-    newObj.rightSide = [
-      {name: "skills", id: "card-3"},
-      {name: "projects", id: "card-4"},
-      {name: "certifications", id: "card-5"},
-      {name: "achievements", id: "card-6"},
-      {name: "courses", id: "card-7"},
-      {name: "languages", id: "card-8"},
-    ]
-    this.setState({style: newObj});
-  }
-}
-if(this.state.style.displayOneColumn !== false){
-  if(arr1.length > 0 || arr2.length > 0){
-    const ObjArr1 = arr1.map(el => { return { name: el, id: newObj.style.oneColumnArr.filter(x => x.name === el)[0].id}})
-    const ObjArr2 = arr2.map(el => { return { name: el, id: newObj.style.oneColumnArr.filter(x => x.name === el)[0].id}})
-    console.log(ObjArr1)
-    console.log(ObjArr2)
-    newObj.style.oneColumnArr = [...ObjArr1, ...ObjArr2]
-    
-    this.setState(newObj);
-  }
-  else{
-    newObj.style.oneColumnArr = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
-    this.setState(newObj);
-  }
-}
-// this.setState(newObj);
-}
-// ..............................................................
+
+    this.setState({ userData: newObject });
+  };
+  setStructure = (arr1, arr2) => {
+    let newObj = { ...this.state.style };
+    // console.log(arr1)
+    // console.log(arr2)
+    if (this.state.style.displayOneColumn === false) {
+      if (arr1.length > 0 || arr2.length > 0) {
+        newObj.leftSide = arr1.map(el => {
+          return {
+            name: el,
+            id: newObj.oneColumnArr.filter(x => x.name === el)[0].id
+          };
+        });
+        newObj.rightSide = arr2.map(el => {
+          return {
+            name: el,
+            id: newObj.oneColumnArr.filter(x => x.name === el)[0].id
+          };
+        });
+        console.log(newObj.leftSide);
+        console.log(newObj.rightSide);
+        this.setState({ style: newObj });
+      }
+      if (arr1.length === 0 && arr2.length === 0) {
+        newObj.leftSide = [
+          { name: "experience", id: "card-1" },
+          { name: "education", id: "card-2" }
+        ];
+        newObj.rightSide = [
+          { name: "skills", id: "card-3" },
+          { name: "projects", id: "card-4" },
+          { name: "certifications", id: "card-5" },
+          { name: "achievements", id: "card-6" },
+          { name: "courses", id: "card-7" },
+          { name: "languages", id: "card-8" }
+        ];
+        this.setState({ style: newObj });
+      }
+    }
+    if (this.state.style.displayOneColumn !== false) {
+      if (arr1.length > 0 || arr2.length > 0) {
+        const ObjArr1 = arr1.map(el => {
+          return {
+            name: el,
+            id: newObj.style.oneColumnArr.filter(x => x.name === el)[0].id
+          };
+        });
+        const ObjArr2 = arr2.map(el => {
+          return {
+            name: el,
+            id: newObj.style.oneColumnArr.filter(x => x.name === el)[0].id
+          };
+        });
+        console.log(ObjArr1);
+        console.log(ObjArr2);
+        newObj.style.oneColumnArr = [...ObjArr1, ...ObjArr2];
+
+        this.setState(newObj);
+      } else {
+        newObj.style.oneColumnArr = [
+          { name: "experience", id: "card-1" },
+          { name: "education", id: "card-2" },
+          { name: "skills", id: "card-3" },
+          { name: "projects", id: "card-4" },
+          { name: "certifications", id: "card-5" },
+          { name: "achievements", id: "card-6" },
+          { name: "courses", id: "card-7" },
+          { name: "languages", id: "card-8" }
+        ];
+        this.setState(newObj);
+      }
+    }
+    // this.setState(newObj);
+  };
+  // ..............................................................
   handleContactIcon = () => {
     let element = document.getElementsByClassName("iconeColor");
     element.classList.add(this.state.userData.contact.icone);

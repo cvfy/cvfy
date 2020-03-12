@@ -192,14 +192,14 @@ class LinkedInData extends Component {
                   onClick={e => saveCVDataToServer(e)}
                   className="saveUpdateButton"
                 >
-                  {context.loadingSaveCv && (
+                  {!context.loadingSaveCv && (
                     <i
                       class="fas fa-spinner fa-spin"
                       style={{ marginRight: 5 }}
                     ></i>
                   )}
-                  {context.loadingSaveCv && <span>Saving</span>}
-                  {!context.loadingSaveCv && <span>Save</span>}
+                  {!context.loadingSaveCv && <span>Saving</span>}
+                  {context.loadingSaveCv && <span>Save</span>}
                 </button>
                 <button
                   onClick={() => this.setLocalStorage("")}

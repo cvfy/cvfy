@@ -18,19 +18,18 @@ const BuilderNav = () => {
   const [loadingDownload, setLoadingDownload] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
-  // const handleDownload = () => setLoadingDownload(!loadingDownload);
+  const handleDownload = () => setLoadingDownload(!loadingDownload);
 
   const downloadPdf = e => {
     e.preventDefault();
-    // handleDownload();
-    // setLoadingDownload(true);
-    // console.log("I should be TRUE ->", loadingDownload);
+    setLoadingDownload(true);
+    console.log("I should be TRUE ->", loadingDownload);
     axios.get(`http://localhost:5000/api/users/data/pdf/${context.id}`).then(
       res =>
         window.open(`http://localhost:5000/static2/${res.data}.pdf`, "_blank") //this.setState(res.data)
     );
-    // handleDownload();
-    // console.log("I should be FALSE ->", loadingDownload);
+    setLoadingDownload(false);
+    console.log("I should be FALSE ->", loadingDownload);
   };
   return (
     <>
