@@ -65,20 +65,7 @@ class ThemeContextProvider extends Component {
         {name: "courses", id: "card-7"},
         {name: "languages", id: "card-8"},
       ],
-<<<<<<< HEAD
       oneColumnArr: [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
-=======
-      oneColumnArr: [
-        "experience",
-        "education",
-        "skills",
-        "projects",
-        "certifications",
-        "achievements",
-        "courses",
-        "languages"
-      ]
->>>>>>> 1d265fe1d1717a9cafbc749b89095813cb5e4af2
     },
 
     userData: [
@@ -1024,7 +1011,6 @@ class ThemeContextProvider extends Component {
         newObject[page].languages[index] = newObj;
       }
     }
-<<<<<<< HEAD
   
   this.setState({ userData: newObject });
   
@@ -1072,50 +1058,6 @@ if(this.state.style.displayOneColumn !== false){
 // this.setState(newObj);
 }
 // ..............................................................
-=======
-
-    this.setState({ userData: newObject });
-  };
-  setStructure = (arr1, arr2, col) => {
-    let newObj = { ...this.state };
-    if (col === "two") {
-      if (arr1.length > 0 || arr2.length > 0) {
-        newObj.style.leftSide = arr1;
-        newObj.style.rightSide = arr2;
-      }
-      if (arr1.length === 0 && arr2.length === 0) {
-        newObj.style.leftSide = ["experience", "education"];
-        newObj.style.rightSide = [
-          "skills",
-          "projects",
-          "certifications",
-          "achievements",
-          "courses",
-          "languages"
-        ];
-      }
-      this.setState(newObj);
-    }
-    if (col === "one") {
-      if (arr1.length > 0 || arr2.length > 0) {
-        newObj.style.oneColumnArr = [...arr1, ...arr2];
-      } else {
-        newObj.style.oneColumnArr = [
-          "experience",
-          "education",
-          "skills",
-          "projects",
-          "certifications",
-          "achievements",
-          "courses",
-          "languages"
-        ];
-      }
-      this.setState(newObj);
-    }
-  };
-  // ..............................................................
->>>>>>> 1d265fe1d1717a9cafbc749b89095813cb5e4af2
   handleContactIcon = () => {
     let element = document.getElementsByClassName("iconeColor");
     element.classList.add(this.state.userData.contact.icone);
