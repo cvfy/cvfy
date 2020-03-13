@@ -358,31 +358,22 @@ class ThemeContextProvider extends Component {
 
       if (this.state.style.displayOneColumn !== false) {
         ////////////////////////////////////
-        if (onePageHeight > 1122) {
-          console.log(onePageHeight);
-          let lastItem =  await document
-            .querySelectorAll(".A4")
-            [i].querySelector(".left").lastChild.classList[0];
-          console.log(lastItem);
-          if(lastItem === "skills" && onePageHeight > 1122){
-Pages[i + 1][lastItem].unshift(
-  Pages[i][lastItem][Pages[i][lastItem].length - 1]
-);
-console.log(`i am trying to push the skills ${i}`)
-Pages[i][lastItem].pop()
- this.setState({ userData: Pages })
- i = 0;
-}
+        console.log(onePageHeight);
+        let lastItem =  await document
+          .querySelectorAll(".A4")
+          [i].querySelector(".left").lastChild.classList[0];
+        console.log(lastItem);
+        if (onePageHeight > 1115) {
 
-else{
+// this.setState({ userData: Pages })
   Pages[i + 1][lastItem].unshift(
     Pages[i][lastItem][Pages[i][lastItem].length - 1]
     );
     Pages[i][lastItem].pop();
-    }
     
-    this.setState({ userData: Pages })
-}
+    await this.setState({ userData: Pages })
+  }
+  // await this.setState(this.state)
 
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
