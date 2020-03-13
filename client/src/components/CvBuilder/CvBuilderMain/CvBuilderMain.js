@@ -38,12 +38,14 @@ class CvBuilderMain extends React.Component {
 
   requestStepStoneData = async e => {
     e.preventDefault();
+    console.log('##########JOBADS should be empty ->', this.state.jobAds.length)
     this.setState({loadingJobs: true})
     console.log('I should be TRUE', this.state.loadingJobs)
     const response = await axios.get(
       `http://localhost:5000/api/users/data/stepstone/position/${this.state.positionValue}/location/${this.state.locationValue}`
     );
     this.setState({ jobAds: response.data });
+    console.log('##########JOBADS after fetch ->', this.state.jobAds.length)
     this.setState({loadingJobs: false})
     console.log('I should be FALSE', this.state.loadingJobs)
   };
@@ -277,15 +279,14 @@ class CvBuilderMain extends React.Component {
                           {this.state.loadingJobs && (
                               <i
                                 class="fas fa-spinner fa-spin"
-                                style={{ marginRight: 5 }}
                               ></i>
                             )}
-                            {this.state.loadingJobs && <span>Searching</span>}
+                            {this.state.loadingJobs && <span style={{ marginLeft: 5 }}>Searching</span>}
                             {!this.state.loadingJobs && <span>Search</span>}
                           </button>
                     </form>
                   </div>
-                  <div className="JobDashboardAds">
+                  <div className={this.state.jobAds.length == 0 ? 'panelImg' : "JobDashboardAds"}>
                     {this.state.jobAds.map(el => (
                       <div className="JobAdContainer">
                         <div className="jobAdTitle">{el.JobPosition}</div>
