@@ -1,7 +1,6 @@
 import React, { Component, useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Draggable from "./Draggable";
-import Draggable2D from "./New_draggle";
 
 class LayoutSubMenu extends Component {
   constructor() {
