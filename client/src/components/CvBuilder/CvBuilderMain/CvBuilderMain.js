@@ -285,7 +285,7 @@ class CvBuilderMain extends React.Component {
                           </button>
                     </form>
                   </div>
-                  <div className="JobDashboardAds">
+                  <div className={this.state.jobAds.length == 0 ? 'panelImg' : "JobDashboardAds"}>
                     {this.state.jobAds.map(el => (
                       <div className="JobAdContainer">
                         <div className="jobAdTitle">{el.JobPosition}</div>

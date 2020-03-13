@@ -577,12 +577,26 @@ if(status2 === false){
     const userID = await aFunction();
     console.log(userID);
 
+<<<<<<< HEAD
     //const data = JSON.stringify(this.state)
     await axios
       .post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
       .then(res => {
         console.log(res.data);
         if (res.data == "done") return this.setState({ loadingSaveCv: true });
+=======
+  saveCVDataToServer = async e => {
+    if (status === false) {
+      status = await true;
+      if (e) {
+        e.preventDefault();
+      }
+
+      console.log("Should be false ->", this.state.loadingSaveCv);
+      await this.setState({
+        loadingSaveCv: false,
+        id: localStorage.getItem("currentCV")
+>>>>>>> c7a8d295d4074cfbc4289acb9617bf163c8f8eb0
       });
 
     // await this.setState({ loadingSaveCv: false });
