@@ -65,6 +65,7 @@
   margin: 2%;
   display: flex;
   justify-content: center;
+  opacity: 1 !important;
 }
 
 .cvBox2:hover {
