@@ -424,7 +424,9 @@ class ThemeContextProvider extends Component {
           )}`
         )
         .then(
-          res => this.setState(res.data.cv[0]) //this.setState(res.data)
+          res => {res.data.cv[0].loadingSaveCv = true;
+            return this.setState(res.data.cv[0])
+           } //this.setState(res.data)
         );
     }
   }
@@ -549,9 +551,11 @@ if(status2 === false){
     await this.setState(newObject);
   
     // Need to add different responses for each different status
-    if (response.status == 200) return this.setState({ importing: false });
-    
-    await this.saveCVDataToServer(e)
+    if (response.status == 200){
+      
+      this.setState({ importing: false });
+      await this.saveCVDataToServer()
+    }
     status2 = await false
       }
       else{}
@@ -565,7 +569,7 @@ if(status2 === false){
       e.preventDefault();
     }
     console.log("Should be false ->", this.state.loadingSaveCv);
-    await this.setState({ loadingSaveCv: true, id: localStorage.getItem("currentCV") });
+    await this.setState({ loadingSaveCv: false, id: localStorage.getItem("currentCV") });
     console.log("Should be true ->", this.state.loadingSaveCv);
     const userID = await aFunction();
     console.log(userID);
