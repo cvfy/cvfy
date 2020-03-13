@@ -169,7 +169,9 @@ const saveCVtoServer = async (req, res, next) => {
               {
                 $set: {
                   "cv.$.userData": req.body.userData,
-                  "cv.$.style": req.body.style
+                  "cv.$.style": req.body.style,
+                  "cv.$.loadingSaveCv": req.body.loadingSaveCv,
+                  "cv.$.importing": req.body.importing
                 }
               },
               async function(err, success) {
