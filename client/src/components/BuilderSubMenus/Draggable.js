@@ -8,9 +8,10 @@ function Draggable(props) {
     const card_id = e.dataTransfer.getData("card_id");
 
     const card = document.getElementById(card_id);
+e.target.appendChild(card)
+    // card.style.opacity = "1";
+    // card.style.display = "flex";
 
-    card.style.opacity = "1";
-    card.style.display = "flex";
     let target = e.target;
     console.log(target.id);
 
@@ -36,7 +37,12 @@ function Draggable(props) {
   return (
     <ThemeContext.Consumer>
       {context => {
-        const defArr = ["experience", "education", "skills", "projects", "certifications", "achievements", "courses", "languages"]
+        const BigArr = [...context.style.leftSide, ... context.style.rightSide].map(x => x.name);
+        console.log(BigArr)
+        const defArr = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
+        const newArr = defArr.filter(el => !(BigArr.includes(el.name)))
+        console.log(newArr)
+        //newArr.map((el) => el ? console.log(el): console.log("nothing to see here"))
         return (
           <>
             <div
@@ -45,32 +51,35 @@ function Draggable(props) {
               className={
                 context.style.displayOneColumn ? "layoutOneColumn" : "layoutCV"
               }
-              onDrop={drop}
-              onDragOver={dragOver}
+              onDrop={(e) => drop(e)}
+              onDragOver={(e) => dragOver(e)}
             >
               <div id="leftCvSection">
+              {props.children}
                 {context.style.leftSide.map(el => (
   <Card
-  id="card-1"
+  id={el.id}
   className="dndSection"
-  name={el}
+  name={el.name}
   draggable="true"
 >
-  <p className="dndSectionP">{el}</p>
+  <p className="dndSectionP">{el.name}</p>
 </Card>
 ) )}
-                {props.children}</div>
+                </div>
               <div id="rightCvSection">
-              {context.style.rightSide.map((el, i) => (
+              {props.children}
+              {context.style.rightSide.map(el => (
   <Card
-  id='card-{i}'
+  id={el.id}
   className="dndSection"
-  name={el}
+  name={el.name}
   draggable="true"
 >
-  <p className="dndSectionP">{el}</p>
+  <p className="dndSectionP">{el.name}</p>
 </Card>
-) )}{props.children}</div>
+) )}
+</div>
             </div>
 
             <div className="dndText">
@@ -81,28 +90,29 @@ function Draggable(props) {
               id="board-2"
               className="board"
               className="dndContainer"
-              onDrop={drop}
-              onDragOver={dragOver}
+              onDrop={(e) => drop(e)}
+              onDragOver={(e) => dragOver(e)}
             >
-{defArr.filter(el => !context.style.oneColumnArr.includes(el)).map(el => (
+               {props.children}
+{ newArr.map(el => (
   <Card
-  id="card-1"
+  id={el.id}
   className="dndSection"
-  name={el}
+  name={el.name}
   draggable="true"
 >
-  <p className="dndSectionP">{el}</p>
+  <p className="dndSectionP">{el.name}</p>
 </Card>
 ))}
-              {/* <Card
+               {/* <Card
                 id="card-1"
                 className="dndSection"
                 name="experience"
                 draggable="true"
               >
                 <p className="dndSectionP">Experience</p>
-              </Card>
-              <Card
+              </Card> */}
+              {/*<Card
                 id="card-2"
                 className="dndSection"
                 name="education"
@@ -158,6 +168,7 @@ function Draggable(props) {
               >
                 <p className="dndSectionP">Languages</p>
               </Card> */}
+
             </div>
           </>
         );

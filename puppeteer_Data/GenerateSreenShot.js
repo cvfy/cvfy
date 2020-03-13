@@ -15,20 +15,21 @@ async function giveMeScreenShot(resumeID) {
                 width: 1000,
                 height: 1400
             })
-            await page.goto('http://localhost:3000/login', { waitUntil: 'networkidle2' });
-            // await page.waitFor(1000);
-           await page.type("[id=email]", "alex@gmail.com");
-           await page.type("[id=password]", "alex88");
-           await page.click("[type=submit]")
-           await page.waitFor(1000);
+        //     await page.goto('http://localhost:3000/login', { waitUntil: 'networkidle2' });
+        //     // await page.waitFor(1000);
+        //    await page.type("[id=email]", "alex@gmail.com");
+        //    await page.type("[id=password]", "alex88");
+        //    await page.click("[type=submit]")
+        //    await page.waitFor(1000);
            await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
             // const localStorage = await page.evaluate(() =>  Object.assign({'CurrentCV': 'daca2eb2-5658-2e9f-17da-a503ee1cce7c'}, window.localStorage));
            await page.evaluate((resumeID) => {
                 // localStorage.removeItem('currentCV');
+                localStorage.setItem('jwtToken', "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNjQwNjM2NWQ5NWJjMGY5MTMwNmVjMiIsIm5hbWUiOiJBbGV4IiwiaWF0IjoxNTgzNjEzNTAxLCJleHAiOjE2MTUxNzA0Mjd9.mTDIio3Gz8YAtmbx-JqPCMr2_N8rza77xARgQs77zeQ");
                 localStorage.setItem('currentCV', resumeID);
             }, resumeID);
             await page.goto('http://localhost:3000/create-cv',  { waitUntil: 'networkidle2' });
-            await page.waitFor(2000);
+            await page.waitFor(1000);
             const pic = await page.$('.A4')
                 await pic.screenshot({
                    path: `profile_picture/${resumeID}.jpg`,

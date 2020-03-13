@@ -1,6 +1,7 @@
 import React, { Component, useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Draggable from "./Draggable";
+import Draggable2D from "./New_draggle";
 
 class LayoutSubMenu extends Component {
   constructor() {
@@ -25,21 +26,13 @@ class LayoutSubMenu extends Component {
   }
 
   closeMenu(event) {
-    const leftSide = Array.from(
-      document.querySelectorAll("#leftCvSection div.dndSection")
-    ).map(el => el.getAttribute("name"));
-    const rightSide = Array.from(
-      document.querySelectorAll("#rightCvSection div.dndSection")
-    ).map(el => el.getAttribute("name"));
-
-    if(this.props.oneColumn === true){
-      this.props.setStructure(leftSide, rightSide, "one");
-    }
-    if(this.props.oneColumn === false){
-      this.props.setStructure(leftSide, rightSide, "two");
-    }
-  
-
+    console.log(document.querySelectorAll("#leftCvSection div.dndSection"))
+    console.log(document.querySelectorAll("#rightCvSection div.dndSection"))
+    const leftSide = Array.from(document.querySelectorAll("#leftCvSection div.dndSection")).map(el => el.getAttribute("name"))
+    const rightSide = Array.from(document.querySelectorAll("#rightCvSection div.dndSection")).map(el => el.getAttribute("name"))
+    console.log(leftSide)
+    console.log(rightSide)
+      this.props.setStructure(leftSide, rightSide);
     if (!this.dropdownMenu.contains(event.target)) {
       this.setState({ showMenu: false }, () => {
         document.removeEventListener("click", this.closeMenu);
@@ -140,6 +133,11 @@ class LayoutSubMenu extends Component {
                     </label>
                   </div>
                   <Draggable></Draggable>
+                  
+                   {/* <div style={{display: "flex", width: "100%"}}> */}
+
+                   {/* <Draggable2D></Draggable2D> */}
+                   {/* </div> */}
                 </div>
               ) : null}
             </div>

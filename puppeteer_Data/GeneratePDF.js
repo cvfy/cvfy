@@ -15,16 +15,17 @@ async function giveMePDF(resumeID) {
                 width: 1600,
                 height: 4600
             })
-            await page.goto('http://localhost:3000/login', { waitUntil: 'networkidle2' });
+            // await page.goto('http://localhost:3000/login', { waitUntil: 'networkidle2' });
             // await page.waitFor(1000);
-           await page.type("[id=email]", "alex@gmail.com");
-           await page.type("[id=password]", "alex88");
-           await page.click("[type=submit]")
-           await page.waitFor(1000);
-        //    await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
+        //    await page.type("[id=email]", "alex@gmail.com");
+        //    await page.type("[id=password]", "alex88");
+        //    await page.click("[type=submit]")
+        //    await page.waitFor(1000);
+       await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
             // const localStorage = await page.evaluate(() =>  Object.assign({'CurrentCV': 'daca2eb2-5658-2e9f-17da-a503ee1cce7c'}, window.localStorage));
            await page.evaluate((resumeID) => {
                 // localStorage.removeItem('currentCV');
+                localStorage.setItem('jwtToken', "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNjQwNjM2NWQ5NWJjMGY5MTMwNmVjMiIsIm5hbWUiOiJBbGV4IiwiaWF0IjoxNTgzNjEzNTAxLCJleHAiOjE2MTUxNzA0Mjd9.mTDIio3Gz8YAtmbx-JqPCMr2_N8rza77xARgQs77zeQ");
                 localStorage.setItem('currentCV', resumeID);
             }, resumeID);
             await page.goto('http://localhost:3000/create-cv',  { waitUntil: 'networkidle2' });
@@ -48,18 +49,19 @@ async function giveMePDF(resumeID) {
             //console.log(nrOfPages)
             let imgArray = []
             for(var i=0; i<user; i++){
-                await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
+                // await page.goto('http://localhost:3000/create-cv', { waitUntil: 'networkidle2' });
                 //await page.waitFor(1000);
                 if(i>1){await autoScroll(page)}
                 
                 await page.emulateMedia('screen');
                 const pic = await page.$$('.A4')
                 await pic[i].screenshot({
-                   path: `profile_picture/scre${i}.jpg`,
+                   path: `${__dirname}/profile_picture/scre${i}.jpg`,
                    type: 'jpeg',
                    quality: 100
                 })
-                imgArray.push(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/scre${i}.jpg`)
+                
+                imgArray.push(`${__dirname}/profile_picture/scre${i}.jpg`)
                 }
             //     const pic = await page.$('body').innerHTML
             //     console.log(pic)
@@ -73,7 +75,7 @@ async function giveMePDF(resumeID) {
             //     await page.pdf({path: pdfFileName, landscape: false, format: 'A4', scale: 0.9, printBackground: true});
             //   }
             
-            await imagesToPdf(imgArray, `/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${resumeID}.pdf`)
+            await imagesToPdf(imgArray, `${__dirname}/profile_picture/${resumeID}.pdf`)
             
         } catch (err) {
             console.error(err.message);

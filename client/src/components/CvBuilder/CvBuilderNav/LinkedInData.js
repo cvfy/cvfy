@@ -37,6 +37,7 @@ class LinkedInData extends Component {
             toggleRedo
           } = context;
           return (
+            // ### THIS COMMENT IS RELATED TO HEADHUNTERS PROFILE ######
             // <div className="cvExtraToolsDiv">
             //   <input
             //     value={this.state.value}
@@ -44,7 +45,7 @@ class LinkedInData extends Component {
             //     id="linkedInInput"
             //     placeholder="insert your linkedIn account"
             //   ></input>
-            //   <button
+            //   <buttonhttps://www.linkedin.com/in/simone-e-5bb73623/
             //     onClick={() => importData(this.state.value)}
             //     className="linkedInButton"
             //   >
@@ -168,16 +169,37 @@ class LinkedInData extends Component {
 
               <div className="buttonsDiv">
                 <button
-                  onClick={(e) => importData(context.userData[0].contact[2].value.split("in/")[1].replace("/", ""), e)}
+                  onClick={e =>
+                    importData(
+                      context.userData[0].contact[2].value
+                        .split("in/")[1]
+                        .replace("/", ""),
+                      e
+                    )
+                  }
                   className="linkedInButton"
                 >
-                  Import
+                  {context.importing && (
+                    <i
+                      class="fas fa-spinner fa-spin"
+                      style={{ marginRight: 5 }}
+                    ></i>
+                  )}
+                  {context.importing && <span>Importing</span>}
+                  {!context.importing && <span>Import</span>}
                 </button>
                 <button
                   onClick={e => saveCVDataToServer(e)}
                   className="saveUpdateButton"
                 >
-                  Save
+                  {!context.loadingSaveCv && (
+                    <i
+                      class="fas fa-spinner fa-spin"
+                      style={{ marginRight: 5 }}
+                    ></i>
+                  )}
+                  {!context.loadingSaveCv && <span>Saving</span>}
+                  {context.loadingSaveCv && <span>Save</span>}
                 </button>
                 <button
                   onClick={() => this.setLocalStorage("")}

@@ -741,6 +741,7 @@ input[type="text"]:focus {
   font-size: 16px;
   display: flex;
   border: 1px solid lightgray;
+  border-radius: 20px;
   background-color: #67eb9400;
   color: black;
   /* font-weight: 600; */

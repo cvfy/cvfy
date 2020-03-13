@@ -15,7 +15,7 @@ function aFunction() {
 }
 const newState = aFunction();
 const Navbar = props => {
-  console.log(window.location.href);
+  // console.log(window.location.href);
   const [navbarState, setNavbarState] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
@@ -76,9 +76,7 @@ const Navbar = props => {
               <DropdownMenu />
             </div>
             <div>
-              <NavLink to="#" onClick={onLogoutClick}>
-                Log Out
-              </NavLink>
+              {localStorage.getItem("jwtToken") && <NavLink to="#" onClick={onLogoutClick}>Log Out</NavLink>}
             </div>
           </NavLinks>
           <div className="BurgerWrapper">
