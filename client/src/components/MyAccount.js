@@ -67,7 +67,7 @@ const MyAccount = () => {
               <div>
                 <input type="checkbox" />
               </div>
-              <h3>I want to recieve email notifications from CV|FY</h3>
+              <h3>I want to receive email notifications from CV|FY</h3>
             </ScrollAnimation>
           </ScrollAnimation>
           <ScrollAnimation

@@ -75,7 +75,7 @@ const CvDashboard = () => {
       </ScrollAnimation> */}
 
       {resume.map(el => (
-        <ScrollAnimation className="cvBox2" animateIn="fadeInUp delay-1s">
+        <ScrollAnimation className="cvBox2" animateOnce="true" duration="0.5s">
           <img
             onClick={() => setLocalStorage(el.id)}
             src={`http://localhost:5000/static/${el.id}.jpg`}

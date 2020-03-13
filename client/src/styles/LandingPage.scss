@@ -112,10 +112,29 @@ $CardsBgColor: #a9bbca;
   }
   footer {
     display: flex;
-    padding: 40px;
+    flex-direction: column;
+    padding-top: 40px;
+    .FooterAround {
+      justify-content: space-evenly;
+    }
+    .FooterSpace {
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 20px 0 20px;
+      ul {
+        display: flex;
+        list-style: none;
+        li {
+          a {
+            img {
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
     .FooterRow {
       display: flex;
-      justify-content: space-evenly;
       .columns {
         width: 30%;
         padding-right: 50px;
