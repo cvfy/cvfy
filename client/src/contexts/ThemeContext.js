@@ -180,27 +180,22 @@ class ThemeContextProvider extends Component {
   //   if (this.state.loadingSaveCv !== nextState) return false; // Will cause component to never re-render.
   // }
 
-  componentDidUpdate() {
+  async componentDidUpdate() {
     let Pages = [...this.state.userData];
 
-    Array.from(document.querySelectorAll(".A4")).forEach((el, i) => {
-      let headerHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ==
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ==
-          undefined
-          ? 0
+    Array.from(document.querySelectorAll(".A4")).forEach( async (el, i) => {
+      let headerHeight = await document.querySelectorAll(".A4")[i].querySelector(".header-inner") == null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") == undefined ? 0
           : document.querySelectorAll(".A4")[i].querySelector(".header-inner")
               .clientHeight;
       let contactHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".contact") == null ||
+        await document.querySelectorAll(".A4")[i].querySelector(".contact") == null ||
         document.querySelectorAll(".A4")[i].querySelector(".contact") ==
           undefined
           ? 0
           : document.querySelectorAll(".A4")[i].querySelector(".contact")
               .clientHeight;
       let experienceHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".experience") ==
+        await document.querySelectorAll(".A4")[i].querySelector(".experience") ==
           null ||
         document.querySelectorAll(".A4")[i].querySelector(".experience") ==
           undefined
@@ -208,7 +203,7 @@ class ThemeContextProvider extends Component {
           : document.querySelectorAll(".A4")[i].querySelector(".experience")
               .clientHeight;
       let educationHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".education") ==
+        await document.querySelectorAll(".A4")[i].querySelector(".education") ==
           null ||
         document.querySelectorAll(".A4")[i].querySelector(".education") ==
           undefined
@@ -216,14 +211,14 @@ class ThemeContextProvider extends Component {
           : document.querySelectorAll(".A4")[i].querySelector(".education")
               .clientHeight;
       let skillsHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".skills") == null ||
+        await document.querySelectorAll(".A4")[i].querySelector(".skills") == null ||
         document.querySelectorAll(".A4")[i].querySelector(".skills") ==
           undefined
           ? 0
           : document.querySelectorAll(".A4")[i].querySelector(".skills")
               .clientHeight;
       let projectsHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".projects") ==
+        await document.querySelectorAll(".A4")[i].querySelector(".projects") ==
           null ||
         document.querySelectorAll(".A4")[i].querySelector(".projects") ==
           undefined
@@ -231,7 +226,7 @@ class ThemeContextProvider extends Component {
           : document.querySelectorAll(".A4")[i].querySelector(".projects")
               .clientHeight;
       let certificationsHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".certifications") ==
+        await document.querySelectorAll(".A4")[i].querySelector(".certifications") ==
           null ||
         document.querySelectorAll(".A4")[i].querySelector(".certifications") ==
           undefined
@@ -239,7 +234,7 @@ class ThemeContextProvider extends Component {
           : document.querySelectorAll(".A4")[i].querySelector(".certifications")
               .clientHeight;
       let achievementsHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".achievements") ==
+        await document.querySelectorAll(".A4")[i].querySelector(".achievements") ==
           null ||
         document.querySelectorAll(".A4")[i].querySelector(".achievements") ==
           undefined
@@ -247,14 +242,14 @@ class ThemeContextProvider extends Component {
           : document.querySelectorAll(".A4")[i].querySelector(".achievements")
               .clientHeight;
       let coursesHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".courses") == null ||
+       await document.querySelectorAll(".A4")[i].querySelector(".courses") == null ||
         document.querySelectorAll(".A4")[i].querySelector(".courses") ==
           undefined
           ? 0
           : document.querySelectorAll(".A4")[i].querySelector(".courses")
               .clientHeight;
       let languagesHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".languages") ==
+        await document.querySelectorAll(".A4")[i].querySelector(".languages") ==
           null ||
         document.querySelectorAll(".A4")[i].querySelector(".languages") ==
           undefined
@@ -290,7 +285,7 @@ class ThemeContextProvider extends Component {
 
       if (this.state.style.displayOneColumn === false) {
         if (leftHeight > 1122) {
-          let lastItem = document
+          let lastItem = await document
             .querySelectorAll(".A4")
             [i].querySelector(".left").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(
@@ -300,7 +295,7 @@ class ThemeContextProvider extends Component {
           this.setState({ userData: Pages });
         }
         if (rightHeight > 1100) {
-          let lastItem = document
+          let lastItem = await document
             .querySelectorAll(".A4")
             [i].querySelector(".right").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(
@@ -308,6 +303,7 @@ class ThemeContextProvider extends Component {
           );
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
+          i = 0
         }
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
@@ -323,7 +319,7 @@ class ThemeContextProvider extends Component {
                 ) <
               1115
             ) {
-              let Item = document
+              let Item = await document
                 .querySelectorAll(".A4")
                 [i + 1].querySelector(".left").firstChild.classList[0];
               console.log(Item);
@@ -348,7 +344,7 @@ class ThemeContextProvider extends Component {
                 ) <
               1115
             ) {
-              let Item = document
+              let Item = await document
                 .querySelectorAll(".A4")
                 [i + 1].querySelector(".right").firstChild.classList[0];
               console.log(Item);
@@ -363,7 +359,7 @@ class ThemeContextProvider extends Component {
         ////////////////////////////////////
         if (onePageHeight > 1000) {
           console.log(onePageHeight);
-          let lastItem = document
+          let lastItem =  await document
             .querySelectorAll(".A4")
             [i].querySelector(".left").lastChild.classList[0];
           console.log(lastItem);
@@ -386,8 +382,7 @@ class ThemeContextProvider extends Component {
                 parseInt(
                   document.querySelectorAll(".A4")[i + 1].querySelector(".left")
                     .firstChild.lastChild.firstChild.clientHeight
-                ) <
-              1115
+                ) < 1115
             ) {
               let Item = document
                 .querySelectorAll(".A4")
@@ -448,8 +443,8 @@ if(status2 === false){
     await this.setState({ importing: true });
     const response = await axios.get(
       `http://localhost:5000/api/users/data/link/${profile}`
-    );
-    console.log("should be 200", response.data);
+    )
+    console.log("should be 200", response.status);
     let newObject = { ...this.state };
     newObject.userData[0].fullName = response.data.profileFullName
       ? response.data.profileFullName
