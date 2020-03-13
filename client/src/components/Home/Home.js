@@ -8,6 +8,7 @@ import Section5 from "./Section_5/Section5";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer";
 import "../../styles/LandingPage.scss";
+import scrollToComponent from "react-scroll-to-component";
 
 const Home = () => {
   return (
