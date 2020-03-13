@@ -163,24 +163,6 @@ class ThemeContextProvider extends Component {
     ]
   };
 
-  // componentWillMount() {
-  //   // const getDbAnswer = //fetch a signal from the db
-  //   // if (getDBAnswer === true)
-  //   console.log("I did mounted before localStorage", this.state.loadingSaveCv);
-  //   localStorage.setItem("loadingSaveCv", "true");
-  //   console.log("I did mounted", this.state.loadingSaveCv);
-  //   // else
-  //   //   localStorage.setItem("loadingSaveCv", "false");
-  // }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return this.state.loadingSaveCv != nextState.loadingSaveCv;
-  // }
-
-  // shouldComponentUpdate() {
-  //   if (this.state.loadingSaveCv !== nextState) return false; // Will cause component to never re-render.
-  // }
-
   async componentDidUpdate() {
     let Pages = [...this.state.userData];
 
@@ -366,7 +348,7 @@ class ThemeContextProvider extends Component {
               console.log(Item);
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
-              this.setState({ userData: Pages })
+              this.setState({ userData: Pages });
             }
           }
         }
@@ -380,25 +362,23 @@ class ThemeContextProvider extends Component {
             .querySelectorAll(".A4")
             [i].querySelector(".left").lastChild.classList[0];
           console.log(lastItem);
-          if(lastItem === "skills" && onePageHeight > 1122){
-Pages[i + 1][lastItem].unshift(
-  Pages[i][lastItem][Pages[i][lastItem].length - 1]
-);
-console.log(`i am trying to push the skills ${i}`)
-Pages[i][lastItem].pop()
- this.setState({ userData: Pages })
- i = 0;
-}
+          if (lastItem === "skills" && onePageHeight > 1122) {
+            Pages[i + 1][lastItem].unshift(
+              Pages[i][lastItem][Pages[i][lastItem].length - 1]
+            );
+            console.log(`i am trying to push the skills ${i}`);
+            Pages[i][lastItem].pop();
+            this.setState({ userData: Pages });
+            i = 0;
+          } else {
+            Pages[i + 1][lastItem].unshift(
+              Pages[i][lastItem][Pages[i][lastItem].length - 1]
+            );
+            Pages[i][lastItem].pop();
+          }
 
-else{
-  Pages[i + 1][lastItem].unshift(
-    Pages[i][lastItem][Pages[i][lastItem].length - 1]
-    );
-    Pages[i][lastItem].pop();
-    }
-    
-    this.setState({ userData: Pages })
-}
+          this.setState({ userData: Pages });
+        }
 
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
@@ -411,12 +391,8 @@ else{
                 parseInt(
                   document.querySelectorAll(".A4")[i + 1].querySelector(".left")
                     .firstChild.lastChild.firstChild.clientHeight
-<<<<<<< HEAD
                 ) <
-              1115
-=======
-                ) < 1122
->>>>>>> 07df0c56c0af7e63e74df4f293edf9e5370508fb
+              1122
             ) {
               let Item = document
                 .querySelectorAll(".A4")
@@ -424,7 +400,7 @@ else{
               console.log(Item);
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
-              this.setState({ userData: Pages })
+              this.setState({ userData: Pages });
             }
           }
         }
