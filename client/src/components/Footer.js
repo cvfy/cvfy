@@ -5,10 +5,10 @@ import Twitter from "../assets/Twitter.png";
 import Instagram from "../assets/Instagram.png";
 import { NavLink } from "react-router-dom";
 // import { Lottie } from "@crello/react-lottie";
-import facebookIcon from "../assets/Animated-Icons/facebook.json";
-import instagramIcon from "../assets/Animated-Icons/instagram.json";
-import linkedinIcon from "../assets/Animated-Icons/linkedin.json";
-import twitterIcon from "../assets/Animated-Icons/twitter.json";
+// import facebookIcon from "../assets/Animated-Icons/facebook.json";
+// import instagramIcon from "../assets/Animated-Icons/instagram.json";
+// import linkedinIcon from "../assets/Animated-Icons/linkedin.json";
+// import twitterIcon from "../assets/Animated-Icons/twitter.json";
 
 class Footer extends React.Component {
   constructor(props) {
@@ -125,9 +125,12 @@ class Footer extends React.Component {
               .
             </p>
           </div>
-          {/* <ul className="social-icons">
+          <ul className="social-icons">
             <li onMouseEnter={this.facebookHover}>
-            <Lottie
+              <a href="#">
+                <img className="IconImage" src={Facebook} />
+              </a>
+              {/*<Lottie
                 config={facebookOptions}
                 playingState={this.state.facebook.playingState}
                 height={40}
@@ -140,10 +143,13 @@ class Footer extends React.Component {
                     name: "complete"
                   }
                 ]}
-              /> 
+              />  */}
             </li>
             <li onMouseEnter={this.instagramHover}>
-            <Lottie
+              <a href="#">
+                <img className="IconImage" src={Linkedin} />
+              </a>
+              {/* <Lottie
                 config={instagramOptions}
                 playingState={this.state.instagram.playingState}
                 height={40}
@@ -156,10 +162,13 @@ class Footer extends React.Component {
                     name: "complete"
                   }
                 ]}
-              /> 
+              />  */}
             </li>
             <li onMouseEnter={this.linkedinHover}>
-              <Lottie
+              <a href="#">
+                <img className="IconImage" src={Instagram} />
+              </a>
+              {/* <Lottie
                 config={linkedinOptions}
                 playingState={this.state.linkedin.playingState}
                 height={40}
@@ -172,10 +181,13 @@ class Footer extends React.Component {
                     name: "complete"
                   }
                 ]}
-              /> 
+              />  */}
             </li>
             <li onMouseEnter={this.twitterHover}>
-               <Lottie
+              <a href="#">
+                <img className="IconImage" src={Twitter} />
+              </a>
+              {/* <Lottie
                 config={twitterOptions}
                 playingState={this.state.twitter.playingState}
                 height={40}
@@ -188,9 +200,9 @@ class Footer extends React.Component {
                     name: "complete"
                   }
                 ]}
-              /> 
+              />  */}
             </li>
-          </ul>  */}
+          </ul>
         </div>
       </footer>
     );
