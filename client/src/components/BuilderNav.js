@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 //import { content } from "html2canvas/dist/types/css/property-descriptors/content";
 import { ThemeContext } from "../contexts/ThemeContext";
+import DownloadPdf from "./BuilderSubMenus/DownloadPdf";
 const BuilderNav = () => {
   const context = useContext(ThemeContext);
 
@@ -18,27 +19,26 @@ const BuilderNav = () => {
   const [loadingDownload, setLoadingDownload] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
-  // const handleDownload = () => setLoadingDownload(!loadingDownload);
+  const handleDownload = () => setLoadingDownload(!loadingDownload);
+
   let status = false;
   const downloadPdf = async e => {
+    setLoadingDownload(true);
     if (status === false) {
       status = await true;
       e.preventDefault();
-      // handleDownload();
-      // setLoadingDownload(true);
-      // console.log("I should be TRUE ->", loadingDownload);
+      console.log("I should be TRUE ->", loadingDownload);
       await axios
         .get(`http://localhost:5000/api/users/data/pdf/${context.id}`)
-        .then(
-          res =>
-            window.open(
-              `http://localhost:5000/static2/${res.data}.pdf`,
-              "_blank"
-            ) //this.setState(res.data)
-        );
-      // handleDownload();
-      // console.log("I should be FALSE ->", loadingDownload);
+        .then(res => {
+          window.open(
+            `http://localhost:5000/static2/${res.data}.pdf`,
+            "_blank"
+          ); //this.setState(res.data)
+          if (res.data.length > 0) return setLoadingDownload(false);
+        });
       status = await false;
+      setLoadingDownload(false);
     } else {
     }
   };
@@ -62,26 +62,11 @@ const BuilderNav = () => {
             <TemplatesSubMenu />
           </div>
         </div>
-        <div className="download">
-          <div className="download-btn">
-            <div className="downloadDiv">
-              <span className="tool-icon first-icon">⤓</span>
-              <span
-                onClick={e => downloadPdf(e)}
-                className="tool-desc tool-download"
-              >
-                Download
-                {/* {loadingDownload && (
-                  <i
-                    class="fas fa-spinner fa-spin"
-                    style={{ marginRight: 5 }}
-                  ></i>
-                )}
-                {loadingDownload && <span>Downloading</span>}
-                {!loadingDownload && <span>Download</span>} */}
-              </span>
-            </div>
-          </div>
+        <div className="download" onClick={e => downloadPdf(e)}>
+          <DownloadPdf
+            loadingDownload={loadingDownload}
+            handleDownload={handleDownload}
+          />
         </div>
         <div className="my-documents">
           <div className="my-docs-btn">
