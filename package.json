@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/cvfy/cvfy#readme",
   "dependencies": {
-    "@crello/react-lottie": "0.0.9",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.0.2",
