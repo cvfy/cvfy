@@ -350,6 +350,7 @@ class ThemeContextProvider extends Component {
               console.log(Item);
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
+              this.setState({ userData: Pages })
             }
           }
         }
@@ -357,19 +358,31 @@ class ThemeContextProvider extends Component {
 
       if (this.state.style.displayOneColumn !== false) {
         ////////////////////////////////////
-        if (onePageHeight > 1000) {
+        if (onePageHeight > 1122) {
           console.log(onePageHeight);
           let lastItem =  await document
             .querySelectorAll(".A4")
             [i].querySelector(".left").lastChild.classList[0];
           console.log(lastItem);
-          Pages[i + 1][lastItem].unshift(
-            Pages[i][lastItem][Pages[i][lastItem].length - 1]
-          );
-          Pages[i][lastItem].pop();
-          //  this.setState({ userData: Pages })
-          i = 0;
-        }
+          if(lastItem === "skills" && onePageHeight > 1122){
+Pages[i + 1][lastItem].unshift(
+  Pages[i][lastItem][Pages[i][lastItem].length - 1]
+);
+console.log(`i am trying to push the skills ${i}`)
+Pages[i][lastItem].pop()
+ this.setState({ userData: Pages })
+ i = 0;
+}
+
+else{
+  Pages[i + 1][lastItem].unshift(
+    Pages[i][lastItem][Pages[i][lastItem].length - 1]
+    );
+    Pages[i][lastItem].pop();
+    }
+    
+    this.setState({ userData: Pages })
+}
 
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
@@ -382,7 +395,7 @@ class ThemeContextProvider extends Component {
                 parseInt(
                   document.querySelectorAll(".A4")[i + 1].querySelector(".left")
                     .firstChild.lastChild.firstChild.clientHeight
-                ) < 1115
+                ) < 1122
             ) {
               let Item = document
                 .querySelectorAll(".A4")
@@ -390,12 +403,12 @@ class ThemeContextProvider extends Component {
               console.log(Item);
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
+              this.setState({ userData: Pages })
             }
           }
         }
 
         ///////////////////////////////////
-        //  this.setState({ userData: Pages })
       }
     });
   }
