@@ -358,31 +358,22 @@ class ThemeContextProvider extends Component {
 
       if (this.state.style.displayOneColumn !== false) {
         ////////////////////////////////////
+        console.log(onePageHeight);
+        let lastItem =  await document
+          .querySelectorAll(".A4")
+          [i].querySelector(".left").lastChild.classList[0];
+        console.log(lastItem);
         if (onePageHeight > 1122) {
-          console.log(onePageHeight);
-          let lastItem =  await document
-            .querySelectorAll(".A4")
-            [i].querySelector(".left").lastChild.classList[0];
-          console.log(lastItem);
-          if(lastItem === "skills" && onePageHeight > 1122){
-Pages[i + 1][lastItem].unshift(
-  Pages[i][lastItem][Pages[i][lastItem].length - 1]
-);
-console.log(`i am trying to push the skills ${i}`)
-Pages[i][lastItem].pop()
- this.setState({ userData: Pages })
- i = 0;
-}
 
-else{
+// this.setState({ userData: Pages })
   Pages[i + 1][lastItem].unshift(
     Pages[i][lastItem][Pages[i][lastItem].length - 1]
     );
     Pages[i][lastItem].pop();
-    }
     
-    this.setState({ userData: Pages })
-}
+    await this.setState({ userData: Pages })
+  }
+  // await this.setState(this.state)
 
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
@@ -439,7 +430,8 @@ else{
           )}`
         )
         .then(
-          res => this.setState(res.data.cv[0]) //this.setState(res.data)
+          res => { res.data.cv[0].loadingSaveCv = true
+            return this.setState(res.data.cv[0])} //this.setState(res.data)
         );
     }
   }
@@ -564,9 +556,10 @@ if(status2 === false){
     await this.setState(newObject);
   
     // Need to add different responses for each different status
-    if (response.status == 200) return this.setState({ importing: false });
+    if (response.status == 200) {this.saveCVDataToServer()
+    return this.setState({ importing: false })}
     
-    await this.saveCVDataToServer(e)
+    // this.saveCVDataToServer()
     status2 = await false
       }
       else{}
@@ -580,7 +573,7 @@ if(status2 === false){
       e.preventDefault();
     }
     console.log("Should be false ->", this.state.loadingSaveCv);
-    await this.setState({ loadingSaveCv: true, id: localStorage.getItem("currentCV") });
+    await this.setState({ loadingSaveCv: false, id: localStorage.getItem("currentCV") });
     console.log("Should be true ->", this.state.loadingSaveCv);
     const userID = await aFunction();
     console.log(userID);

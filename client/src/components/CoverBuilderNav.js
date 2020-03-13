@@ -10,19 +10,37 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { ThemeContext } from "../contexts/ThemeContext";
 import BuilderBurgerMenu from "./BuilderBurgerMenu";
+import DownloadPdfCover from "./BuilderSubMenus/DownloadPdfCover";
 const CoverBuilderNav = () => {
   const context = useContext(ThemeContext);
 
   const [navbarState, setNavbarState] = useState(false);
+  const [downloadCoverState, setDownloadCover] = useState(false);
 
   const handleNavbar = () => setNavbarState(!navbarState);
+  const handleCoverDownload = () => setDownloadCover(!downloadCoverState);
 
-  const downloadPdf = () => {
-    axios.get(`http://localhost:5000/api/users/data/pdf/${context.id}`).then(
-      res =>
-        window.open(`http://localhost:5000/static/${res.data}.pdf`, "_blank") //this.setState(res.data)
-    );
+  let status = false;
+  const downloadPdfCover = async e => {
+    setDownloadCover(true);
+    if (status === false) {
+      status = await true;
+      e.preventDefault();
+      await axios
+        .get(`http://localhost:5000/api/users/data/pdf/${context.id}`)
+        .then(res => {
+          window.open(
+            `http://localhost:5000/static2/${res.data}.pdf`,
+            "_blank"
+          ); //this.setState(res.data)
+          if (res.data.length > 0) return setDownloadCover(false);
+        });
+      status = await false;
+      setDownloadCover(false);
+    } else {
+    }
   };
+
   return (
     <>
       <div className="CvMenu">
@@ -39,18 +57,11 @@ const CoverBuilderNav = () => {
             <TemplatesSubMenu />
           </div>
         </div>
-        <div className="download">
-          <div className="download-btn">
-            <div className="downloadDiv">
-              <span className="tool-icon first-icon">⤓</span>
-              <span
-                onClick={() => downloadPdf()}
-                className="tool-desc tool-download"
-              >
-                Download
-              </span>
-            </div>
-          </div>
+        <div className="download" onClick={e => downloadPdfCover(e)}>
+          <DownloadPdfCover
+            downloadCoverState={downloadCoverState}
+            handleCoverDownload={handleCoverDownload}
+          />
         </div>
         <div className="my-documents">
           <div className="my-docs-btn">
