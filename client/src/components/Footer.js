@@ -127,7 +127,7 @@ class Footer extends React.Component {
           </div>
           {/* <ul className="social-icons">
             <li onMouseEnter={this.facebookHover}>
-              {/* <Lottie
+            <Lottie
                 config={facebookOptions}
                 playingState={this.state.facebook.playingState}
                 height={40}
@@ -140,10 +140,10 @@ class Footer extends React.Component {
                     name: "complete"
                   }
                 ]}
-              /> */}
+              /> 
             </li>
             <li onMouseEnter={this.instagramHover}>
-              {/* <Lottie
+            <Lottie
                 config={instagramOptions}
                 playingState={this.state.instagram.playingState}
                 height={40}
@@ -156,10 +156,10 @@ class Footer extends React.Component {
                     name: "complete"
                   }
                 ]}
-              /> */}
+              /> 
             </li>
             <li onMouseEnter={this.linkedinHover}>
-              {/* <Lottie
+              <Lottie
                 config={linkedinOptions}
                 playingState={this.state.linkedin.playingState}
                 height={40}
@@ -172,10 +172,10 @@ class Footer extends React.Component {
                     name: "complete"
                   }
                 ]}
-              /> */}
+              /> 
             </li>
             <li onMouseEnter={this.twitterHover}>
-              {/* <Lottie
+               <Lottie
                 config={twitterOptions}
                 playingState={this.state.twitter.playingState}
                 height={40}
@@ -188,9 +188,9 @@ class Footer extends React.Component {
                     name: "complete"
                   }
                 ]}
-              /> */}
+              /> 
             </li>
-          </ul> */}
+          </ul>  */}
         </div>
       </footer>
     );
