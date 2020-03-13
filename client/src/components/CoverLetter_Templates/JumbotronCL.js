@@ -1,6 +1,6 @@
 import React from "react";
 import JumboPic from "../../assets/JumboPic3.png";
-import "../../styles/Jumbotron.css";
+import "../../styles/Templates.scss";
 
 const JumbotronCL = () => {
   return (

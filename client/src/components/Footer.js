@@ -13,67 +13,67 @@ import twitterIcon from "../assets/Animated-Icons/twitter.json";
 class Footer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      facebook: { playingState: "stopped" },
-      instagram: { playingState: "stopped" },
-      linkedin: { playingState: "stopped" },
-      twitter: { playingState: "stopped" }
-    };
-    this.facebookHover = this.facebookHover.bind(this);
-    this.instagramHover = this.instagramHover.bind(this);
-    this.linkedinHover = this.linkedinHover.bind(this);
-    this.twitterHover = this.twitterHover.bind(this);
+    // this.state = {
+    //   facebook: { playingState: "stopped" },
+    //   instagram: { playingState: "stopped" },
+    //   linkedin: { playingState: "stopped" },
+    //   twitter: { playingState: "stopped" }
+    // };
+    // this.facebookHover = this.facebookHover.bind(this);
+    // this.instagramHover = this.instagramHover.bind(this);
+    // this.linkedinHover = this.linkedinHover.bind(this);
+    // this.twitterHover = this.twitterHover.bind(this);
   }
 
-  facebookHover() {
-    this.setState({ facebook: { playingState: "playing" } });
-  }
-  instagramHover() {
-    this.setState({ instagram: { playingState: "playing" } });
-  }
-  linkedinHover() {
-    this.setState({ linkedin: { playingState: "playing" } });
-  }
-  twitterHover() {
-    this.setState({ twitter: { playingState: "playing" } });
-  }
+  // facebookHover() {
+  //   this.setState({ facebook: { playingState: "playing" } });
+  // }
+  // instagramHover() {
+  //   this.setState({ instagram: { playingState: "playing" } });
+  // }
+  // linkedinHover() {
+  //   this.setState({ linkedin: { playingState: "playing" } });
+  // }
+  // twitterHover() {
+  //   this.setState({ twitter: { playingState: "playing" } });
+  // }
 
   render() {
-    const facebookOptions = {
-      loop: false,
-      autoplay: false,
-      animationData: facebookIcon,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice"
-      }
-    };
+    // const facebookOptions = {
+    //   loop: false,
+    //   autoplay: false,
+    //   animationData: facebookIcon,
+    //   rendererSettings: {
+    //     preserveAspectRatio: "xMidYMid slice"
+    //   }
+    // };
 
-    const instagramOptions = {
-      loop: false,
-      autoplay: false,
-      animationData: instagramIcon,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice"
-      }
-    };
+    // const instagramOptions = {
+    //   loop: false,
+    //   autoplay: false,
+    //   animationData: instagramIcon,
+    //   rendererSettings: {
+    //     preserveAspectRatio: "xMidYMid slice"
+    //   }
+    // };
 
-    const linkedinOptions = {
-      loop: false,
-      autoplay: false,
-      animationData: linkedinIcon,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice"
-      }
-    };
+    // const linkedinOptions = {
+    //   loop: false,
+    //   autoplay: false,
+    //   animationData: linkedinIcon,
+    //   rendererSettings: {
+    //     preserveAspectRatio: "xMidYMid slice"
+    //   }
+    // };
 
-    const twitterOptions = {
-      loop: false,
-      autoplay: false,
-      animationData: twitterIcon,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice"
-      }
-    };
+    // const twitterOptions = {
+    //   loop: false,
+    //   autoplay: false,
+    //   animationData: twitterIcon,
+    //   rendererSettings: {
+    //     preserveAspectRatio: "xMidYMid slice"
+    //   }
+    // };
 
     return (
       <footer>
@@ -127,7 +127,7 @@ class Footer extends React.Component {
           </div>
           {/* <ul className="social-icons">
             <li onMouseEnter={this.facebookHover}>
-              <Lottie
+            <Lottie
                 config={facebookOptions}
                 playingState={this.state.facebook.playingState}
                 height={40}
@@ -140,10 +140,10 @@ class Footer extends React.Component {
                     name: "complete"
                   }
                 ]}
-              />
+              /> 
             </li>
             <li onMouseEnter={this.instagramHover}>
-              <Lottie
+            <Lottie
                 config={instagramOptions}
                 playingState={this.state.instagram.playingState}
                 height={40}
@@ -156,7 +156,7 @@ class Footer extends React.Component {
                     name: "complete"
                   }
                 ]}
-              />
+              /> 
             </li>
             <li onMouseEnter={this.linkedinHover}>
               <Lottie
@@ -172,10 +172,10 @@ class Footer extends React.Component {
                     name: "complete"
                   }
                 ]}
-              />
+              /> 
             </li>
             <li onMouseEnter={this.twitterHover}>
-              <Lottie
+               <Lottie
                 config={twitterOptions}
                 playingState={this.state.twitter.playingState}
                 height={40}
@@ -188,9 +188,9 @@ class Footer extends React.Component {
                     name: "complete"
                   }
                 ]}
-              />
+              /> 
             </li>
-          </ul> */}
+          </ul>  */}
         </div>
       </footer>
     );
