@@ -4,6 +4,7 @@ import ADD from "../../assets/add.png";
 import CV2 from "../../assets/CV2.png";
 import CV3 from "../../assets/CV3.jpg";
 import CV4 from "../../assets/CV4.png";
+import mOB from "../../assets/more-options-btn.png";
 import ScrollAnimation from "react-animate-on-scroll";
 import axios from "axios";
 import store from "./../../store.js";
@@ -33,11 +34,11 @@ const CvDashboard = () => {
   return (
     <div className="CV_Dashboard_MainContainer">
       <div className="CVTitle">
-        <ScrollAnimation animateIn="fadeIn" animateOnce="true" duration="0.5s">
+        <div animateIn="fadeIn" animateOnce="true" duration="0.5s">
           <p>Your CV's</p>
-        </ScrollAnimation>
+        </div>
       </div>
-      <ScrollAnimation
+      <div
         className="cvBox2"
         animateIn="fadeIn"
         animateOnce="true"
@@ -47,7 +48,7 @@ const CvDashboard = () => {
           <img onClick={() => setLocalStorage("")} className="ADD" src={ADD} />
           <p>ADD New CV</p>
         </div>
-      </ScrollAnimation>
+      </div>
 
       {/* <ScrollAnimation
         className="cvBox2"
@@ -75,13 +76,16 @@ const CvDashboard = () => {
       </ScrollAnimation> */}
 
       {resume.map(el => (
-        <ScrollAnimation className="cvBox2" animateOnce="true" duration="0.5s">
+        <div className="cvBox2">
           <img
             onClick={() => setLocalStorage(el.id)}
             src={`http://localhost:5000/static/${el.id}.jpg`}
             alt={el.id}
           />
-        </ScrollAnimation>
+          <div className="MoreOptions">
+            <img src={mOB} />
+          </div>
+        </div>
       ))}
     </div>
   );

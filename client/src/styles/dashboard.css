@@ -59,6 +59,7 @@
 }
 
 .cvBox2 {
+  position: relative;
   width: 275px;
   height: 225 px;
   overflow: hidden;
@@ -97,4 +98,26 @@
   height: 40px;
   width: 40px;
   box-shadow: none;
+}
+
+.MoreOptions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 15px;
+  right: 70px;
+  height: 40px;
+  width: 40px;
+  border: 2px solid #266678;
+  border-radius: 7px;
+}
+
+.MoreOptions:hover {
+  cursor: pointer;
+  background: #266678;
+}
+.MoreOptions img {
+  height: 100%;
+  width: 100%;
 }
