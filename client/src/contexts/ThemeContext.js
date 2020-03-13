@@ -180,22 +180,22 @@ class ThemeContextProvider extends Component {
   //   if (this.state.loadingSaveCv !== nextState) return false; // Will cause component to never re-render.
   // }
 
-  async componentDidUpdate() {
+  componentDidUpdate() {
     let Pages = [...this.state.userData];
 
     Array.from(document.querySelectorAll(".A4")).forEach( async (el, i) => {
-      let headerHeight = await document.querySelectorAll(".A4")[i].querySelector(".header-inner") == null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") == undefined ? 0
+      let headerHeight = document.querySelectorAll(".A4")[i].querySelector(".header-inner") == null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") == undefined ? 0
           : document.querySelectorAll(".A4")[i].querySelector(".header-inner")
               .clientHeight;
       let contactHeight =
-        await document.querySelectorAll(".A4")[i].querySelector(".contact") == null ||
+        document.querySelectorAll(".A4")[i].querySelector(".contact") == null ||
         document.querySelectorAll(".A4")[i].querySelector(".contact") ==
           undefined
           ? 0
           : document.querySelectorAll(".A4")[i].querySelector(".contact")
               .clientHeight;
       let experienceHeight =
-        await document.querySelectorAll(".A4")[i].querySelector(".experience") ==
+        document.querySelectorAll(".A4")[i].querySelector(".experience") ==
           null ||
         document.querySelectorAll(".A4")[i].querySelector(".experience") ==
           undefined
@@ -203,7 +203,7 @@ class ThemeContextProvider extends Component {
           : document.querySelectorAll(".A4")[i].querySelector(".experience")
               .clientHeight;
       let educationHeight =
-        await document.querySelectorAll(".A4")[i].querySelector(".education") ==
+        document.querySelectorAll(".A4")[i].querySelector(".education") ==
           null ||
         document.querySelectorAll(".A4")[i].querySelector(".education") ==
           undefined
@@ -211,14 +211,14 @@ class ThemeContextProvider extends Component {
           : document.querySelectorAll(".A4")[i].querySelector(".education")
               .clientHeight;
       let skillsHeight =
-        await document.querySelectorAll(".A4")[i].querySelector(".skills") == null ||
+        document.querySelectorAll(".A4")[i].querySelector(".skills") == null ||
         document.querySelectorAll(".A4")[i].querySelector(".skills") ==
           undefined
           ? 0
           : document.querySelectorAll(".A4")[i].querySelector(".skills")
               .clientHeight;
       let projectsHeight =
-        await document.querySelectorAll(".A4")[i].querySelector(".projects") ==
+        document.querySelectorAll(".A4")[i].querySelector(".projects") ==
           null ||
         document.querySelectorAll(".A4")[i].querySelector(".projects") ==
           undefined
@@ -226,7 +226,7 @@ class ThemeContextProvider extends Component {
           : document.querySelectorAll(".A4")[i].querySelector(".projects")
               .clientHeight;
       let certificationsHeight =
-        await document.querySelectorAll(".A4")[i].querySelector(".certifications") ==
+        document.querySelectorAll(".A4")[i].querySelector(".certifications") ==
           null ||
         document.querySelectorAll(".A4")[i].querySelector(".certifications") ==
           undefined
@@ -234,7 +234,7 @@ class ThemeContextProvider extends Component {
           : document.querySelectorAll(".A4")[i].querySelector(".certifications")
               .clientHeight;
       let achievementsHeight =
-        await document.querySelectorAll(".A4")[i].querySelector(".achievements") ==
+        document.querySelectorAll(".A4")[i].querySelector(".achievements") ==
           null ||
         document.querySelectorAll(".A4")[i].querySelector(".achievements") ==
           undefined
@@ -242,14 +242,14 @@ class ThemeContextProvider extends Component {
           : document.querySelectorAll(".A4")[i].querySelector(".achievements")
               .clientHeight;
       let coursesHeight =
-       await document.querySelectorAll(".A4")[i].querySelector(".courses") == null ||
+      document.querySelectorAll(".A4")[i].querySelector(".courses") == null ||
         document.querySelectorAll(".A4")[i].querySelector(".courses") ==
           undefined
           ? 0
           : document.querySelectorAll(".A4")[i].querySelector(".courses")
               .clientHeight;
       let languagesHeight =
-        await document.querySelectorAll(".A4")[i].querySelector(".languages") ==
+        document.querySelectorAll(".A4")[i].querySelector(".languages") ==
           null ||
         document.querySelectorAll(".A4")[i].querySelector(".languages") ==
           undefined
@@ -285,9 +285,7 @@ class ThemeContextProvider extends Component {
 
       if (this.state.style.displayOneColumn === false) {
         if (leftHeight > 1122) {
-          let lastItem = await document
-            .querySelectorAll(".A4")
-            [i].querySelector(".left").lastChild.classList[0];
+          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(
             Pages[i][lastItem][Pages[i][lastItem].length - 1]
           );
@@ -295,7 +293,7 @@ class ThemeContextProvider extends Component {
           this.setState({ userData: Pages });
         }
         if (rightHeight > 1100) {
-          let lastItem = await document
+          let lastItem = document
             .querySelectorAll(".A4")
             [i].querySelector(".right").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(
@@ -350,7 +348,6 @@ class ThemeContextProvider extends Component {
               console.log(Item);
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
-              this.setState({ userData: Pages })
             }
           }
         }
@@ -358,22 +355,19 @@ class ThemeContextProvider extends Component {
 
       if (this.state.style.displayOneColumn !== false) {
         ////////////////////////////////////
-        console.log(onePageHeight);
-        let lastItem =  await document
-          .querySelectorAll(".A4")
-          [i].querySelector(".left").lastChild.classList[0];
-        console.log(lastItem);
-        if (onePageHeight > 1122) {
-
-// this.setState({ userData: Pages })
-  Pages[i + 1][lastItem].unshift(
-    Pages[i][lastItem][Pages[i][lastItem].length - 1]
-    );
-    Pages[i][lastItem].pop();
-    
-    await this.setState({ userData: Pages })
-  }
-  // await this.setState(this.state)
+        if (onePageHeight > 1000) {
+          console.log(onePageHeight);
+          let lastItem =  await document
+            .querySelectorAll(".A4")
+            [i].querySelector(".left").lastChild.classList[0];
+          console.log(lastItem);
+          Pages[i + 1][lastItem].unshift(
+            Pages[i][lastItem][Pages[i][lastItem].length - 1]
+          );
+          Pages[i][lastItem].pop();
+          //  this.setState({ userData: Pages })
+          i = 0;
+        }
 
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
@@ -386,7 +380,7 @@ class ThemeContextProvider extends Component {
                 parseInt(
                   document.querySelectorAll(".A4")[i + 1].querySelector(".left")
                     .firstChild.lastChild.firstChild.clientHeight
-                ) < 1122
+                ) < 1115
             ) {
               let Item = document
                 .querySelectorAll(".A4")
@@ -394,12 +388,12 @@ class ThemeContextProvider extends Component {
               console.log(Item);
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
-              this.setState({ userData: Pages })
             }
           }
         }
 
         ///////////////////////////////////
+        //  this.setState({ userData: Pages })
       }
     });
   }
@@ -430,8 +424,7 @@ class ThemeContextProvider extends Component {
           )}`
         )
         .then(
-          res => { res.data.cv[0].loadingSaveCv = true
-            return this.setState(res.data.cv[0])} //this.setState(res.data)
+          res => this.setState(res.data.cv[0]) //this.setState(res.data)
         );
     }
   }
@@ -556,10 +549,9 @@ if(status2 === false){
     await this.setState(newObject);
   
     // Need to add different responses for each different status
-    if (response.status == 200) {this.saveCVDataToServer()
-    return this.setState({ importing: false })}
+    if (response.status == 200) return this.setState({ importing: false });
     
-    // this.saveCVDataToServer()
+    await this.saveCVDataToServer(e)
     status2 = await false
       }
       else{}
@@ -573,7 +565,7 @@ if(status2 === false){
       e.preventDefault();
     }
     console.log("Should be false ->", this.state.loadingSaveCv);
-    await this.setState({ loadingSaveCv: false, id: localStorage.getItem("currentCV") });
+    await this.setState({ loadingSaveCv: true, id: localStorage.getItem("currentCV") });
     console.log("Should be true ->", this.state.loadingSaveCv);
     const userID = await aFunction();
     console.log(userID);
