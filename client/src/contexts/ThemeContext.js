@@ -42,7 +42,6 @@ class ThemeContextProvider extends Component {
     id: "",
     loadingSaveCv: true,
     importing: false,
-    // loadinDownload: false,
     style: {
       color: "",
       font: "'Open Sans', sans-serif",
@@ -575,9 +574,10 @@ class ThemeContextProvider extends Component {
       if (e) {
         e.preventDefault();
       }
+
       console.log("Should be false ->", this.state.loadingSaveCv);
       await this.setState({
-        loadingSaveCv: true,
+        loadingSaveCv: false,
         id: localStorage.getItem("currentCV")
       });
       console.log("Should be true ->", this.state.loadingSaveCv);
