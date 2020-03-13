@@ -8,9 +8,10 @@ function Draggable(props) {
     const card_id = e.dataTransfer.getData("card_id");
 
     const card = document.getElementById(card_id);
+e.target.appendChild(card)
+    // card.style.opacity = "1";
+    // card.style.display = "flex";
 
-    card.style.opacity = "1";
-    card.style.display = "flex";
     let target = e.target;
     console.log(target.id);
 
@@ -39,9 +40,9 @@ function Draggable(props) {
         const BigArr = [...context.style.leftSide, ... context.style.rightSide].map(x => x.name);
         console.log(BigArr)
         const defArr = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
-        const newArr = defArr.filter(el => !BigArr.includes(el.name))
+        const newArr = defArr.filter(el => !(BigArr.includes(el.name)))
         console.log(newArr)
-        newArr.map((el) => el ? console.log(el): console.log("nothing to see here"))
+        //newArr.map((el) => el ? console.log(el): console.log("nothing to see here"))
         return (
           <>
             <div
@@ -54,7 +55,8 @@ function Draggable(props) {
               onDragOver={(e) => dragOver(e)}
             >
               <div id="leftCvSection">
-                {context.style.leftSide.map((el) => (
+              {props.children}
+                {context.style.leftSide.map(el => (
   <Card
   id={el.id}
   className="dndSection"
@@ -66,7 +68,8 @@ function Draggable(props) {
 ) )}
                 </div>
               <div id="rightCvSection">
-              {context.style.rightSide.map((el) => (
+              {props.children}
+              {context.style.rightSide.map(el => (
   <Card
   id={el.id}
   className="dndSection"
@@ -90,8 +93,8 @@ function Draggable(props) {
               onDrop={(e) => drop(e)}
               onDragOver={(e) => dragOver(e)}
             >
-               {/* {props.children} */}
-{ newArr.length > 0 ? (defArr.filter(el => !([...context.style.leftSide, ... context.style.rightSide].map(x => x.name)).includes(el.name)).map((el, i) => (
+               {props.children}
+{ newArr.map(el => (
   <Card
   id={el.id}
   className="dndSection"
@@ -100,15 +103,15 @@ function Draggable(props) {
 >
   <p className="dndSectionP">{el.name}</p>
 </Card>
-))) : ""}
-               <Card
+))}
+               {/* <Card
                 id="card-1"
                 className="dndSection"
                 name="experience"
                 draggable="true"
               >
                 <p className="dndSectionP">Experience</p>
-              </Card>
+              </Card> */}
               {/*<Card
                 id="card-2"
                 className="dndSection"

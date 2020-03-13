@@ -1,6 +1,6 @@
 import React from "react";
 
-const   Card = props => {
+function Card (props) {
   const dragStart = e => {
     const target = e.target;
     // console.log(target);
@@ -27,9 +27,10 @@ const   Card = props => {
     <div
       id={props.id}
       className={props.className}
-      draggable={props.draggable}
+      draggable="true"
       onDragStart={dragStart}
       onDragOver={dragOver}
+      // onDrop={props.onDrop}
       name={props.name}
     >
       {props.children}

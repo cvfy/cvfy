@@ -60,7 +60,7 @@ class CvBuilderMain extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const leftSideArr = (context.style.displayOneColumn === false) ? context.style.leftSide : context.style.oneColumnArr
+          const leftSideArr = context.style.leftSide;
           const pages = context.userData.map((el, i) => (
             <div
             id="containerA4"
@@ -72,7 +72,7 @@ class CvBuilderMain extends React.Component {
         {el.about && <Header index={i} />}
         {el.contact && <Contacts index={i} />}
             {/* <Contacts index={i} /> */}
-            <div className="A4ContentWrap">
+            <div className="A4ContentWrap" style={{flexDirection: `${(context.style.displayOneColumn == false) ? "row" : "column"}`}}>
               <div className="left">
                 
               {(el.experience[0] && leftSideArr[0] && leftSideArr[0].name.includes("experience") ) && <Experience index={i} />}
@@ -149,7 +149,7 @@ class CvBuilderMain extends React.Component {
 
 
               </div>
-              <div style={{display: `${(context.style.displayOneColumn == false) ? "block" : "none"}`}} className="right">
+              <div className="right">
               {(el.experience[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("experience") ) && <Experience index={i} />}
               {(el.education[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("education") ) && <Education index={i} />}
               {(el.skills[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("skills") ) && <Skills index={i} />}
