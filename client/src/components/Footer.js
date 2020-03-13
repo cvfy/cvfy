@@ -4,7 +4,7 @@ import Facebook from "../assets/Facebook.png";
 import Twitter from "../assets/Twitter.png";
 import Instagram from "../assets/Instagram.png";
 import { NavLink } from "react-router-dom";
-import { Lottie } from "@crello/react-lottie";
+// import { Lottie } from "@crello/react-lottie";
 import facebookIcon from "../assets/Animated-Icons/facebook.json";
 import instagramIcon from "../assets/Animated-Icons/instagram.json";
 import linkedinIcon from "../assets/Animated-Icons/linkedin.json";
@@ -125,7 +125,7 @@ class Footer extends React.Component {
               .
             </p>
           </div>
-          <ul className="social-icons">
+          {/* <ul className="social-icons">
             <li onMouseEnter={this.facebookHover}>
               {/* <Lottie
                 config={facebookOptions}
@@ -190,7 +190,7 @@ class Footer extends React.Component {
                 ]}
               /> */}
             </li>
-          </ul>
+          </ul> */}
         </div>
       </footer>
     );
