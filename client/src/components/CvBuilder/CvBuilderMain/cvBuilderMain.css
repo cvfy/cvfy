@@ -823,7 +823,7 @@ input[type="text"]:focus {
 }
 
 .jobAdRequirements {
-  height: 250px;
+  height: auto;
   font-size: 10px;
 }
 
