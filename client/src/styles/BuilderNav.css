@@ -411,7 +411,7 @@
 }
 
 /* On mouse-over, add a grey background color */
-.headerContainer:hover input ~ .checkMark {
+.headerContainer:hover input~.checkMark {
   background-color: #ccc;
 }
 
@@ -719,6 +719,22 @@
   padding: 0px 15px;
 }
 
+.jobDashboardError {
+  position: fixed;
+  background: #2b3a42;
+  top: 305px;
+  right: 480px;
+  width: 200px;
+  height: 190px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: -5px 0 20px 5px rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+  color: #fff;
+  padding: 0px 15px;
+}
+
 /* ################## UX LOADING MESSAGE ################### */
 .importingLinkedIn {
   position: fixed;
@@ -750,7 +766,7 @@
   background: #2b3a42;
   top: 65px;
   right: 370px;
-  width: 240px;
+  width: 200px;
   height: 30px;
   border-radius: 10px;
   text-align: center;
