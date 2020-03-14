@@ -1,14 +1,21 @@
-import React, { Component } from "react";
+import React, { Component, getState } from "react";
 import "../../../styles/BuilderNav.css";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 // import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Emoji from "react-emoji-render";
+import store from "./../../../store.js";
 
+function aFunction() {
+  var newState = store.getState();
+  console.log(newState.auth.user.name);
+  return newState.auth.user.name;
+}
 class LinkedInData extends Component {
   constructor(props) {
     super(props);
     this.state = { value: "", displayError: false };
 
+    
     this.handleChange = this.handleChange.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
   }
@@ -38,6 +45,7 @@ class LinkedInData extends Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+        let hi = `Hi ${aFunction()}! :hand: `
           const {
             importData,
             saveCVDataToServer,
@@ -232,7 +240,7 @@ class LinkedInData extends Component {
               {this.state.displayError ? (
                 <div className="noLinkedInError">
                   <h2 className="loadingH2">
-                    <Emoji text="Hi NAME! :hand: " />
+                    <Emoji text={hi} />
                   </h2>
                   <p className="loadingText">
                     To import data you need to add your linkedIn address to your
@@ -259,5 +267,5 @@ class LinkedInData extends Component {
     );
   }
 }
-
+store.subscribe(aFunction);
 export default LinkedInData;
