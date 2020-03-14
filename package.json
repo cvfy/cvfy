@@ -38,7 +38,6 @@
     "puppeteer": "^2.0.0",
     "puppeteer-extra": "^3.1.7",
     "puppeteer-extra-plugin-stealth": "^2.4.5",
-    "react-emoji-render": "^1.2.2",
     "react-lottie": "^1.2.3",
     "react-scroll-to-component": "^1.0.2",
     "validator": "^12.1.0"
