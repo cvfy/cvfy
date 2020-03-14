@@ -64,7 +64,7 @@ class CvBuilderMain extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const leftSideArr = (context.style.displayOneColumn === false) ? context.style.leftSide : context.style.oneColumnArr
+          const leftSideArr = (context.style.displayOneColumn === false) ? context.style.leftSide : [...context.style.leftSide, ...context.style.rightSide]
           const pages = context.userData.map((el, i) => (
             <div
             id="containerA4"
