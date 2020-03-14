@@ -12,6 +12,8 @@ import axios from "axios";
 //import { content } from "html2canvas/dist/types/css/property-descriptors/content";
 import { ThemeContext } from "../contexts/ThemeContext";
 import DownloadPdf from "./BuilderSubMenus/DownloadPdf";
+import Emoji from "react-emoji-render";
+
 const BuilderNav = () => {
   const context = useContext(ThemeContext);
 
@@ -91,6 +93,13 @@ const BuilderNav = () => {
         navbarState={navbarState}
         handleNavbar={handleNavbar}
       />
+      {loadingDownload ? (
+        <div className="convertingPdfMessage">
+          <p className="loadingText">
+            <Emoji text="Converting to pdf mode on :rocket:" />
+          </p>
+        </div>
+      ) : null}
     </>
   );
 };

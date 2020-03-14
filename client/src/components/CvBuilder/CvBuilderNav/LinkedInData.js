@@ -17,8 +17,6 @@ class LinkedInData extends Component {
     this.setState({ value: event.target.value });
   }
 
-  emoji = require("emoji-dictionary");
-
   setLocalStorage = id => {
     localStorage.setItem("currentCV", id);
     window.location.href = "http://localhost:3000/create-cv";
