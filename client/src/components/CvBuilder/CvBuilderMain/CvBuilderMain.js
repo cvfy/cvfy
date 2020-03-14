@@ -18,10 +18,11 @@ import Pdf from "react-to-pdf";
 // import { nonWhiteSpace } from "html2canvas/dist/types/css/syntax/parser";
 const ref = React.createRef();
 const ref2 = React.createRef();
+let status = false
 
 class CvBuilderMain extends React.Component {
   state = {
-    openRequirements: false,
+    openRequirements: [true, false, false, false],
     openJobDashboard: false,
     positionValue: "",
     locationValue: "",
@@ -35,23 +36,28 @@ class CvBuilderMain extends React.Component {
   onLocationChange = e => {
     this.setState({ locationValue: e.target.value });
   };
-
   requestStepStoneData = async e => {
+    if(status === false){
+      status = true;
     e.preventDefault();
     this.setState({loadingJobs: true})
     console.log('I should be TRUE', this.state.loadingJobs)
     const response = await axios.get(
       `http://localhost:5000/api/users/data/stepstone/position/${this.state.positionValue}/location/${this.state.locationValue}`
     );
-    this.setState({ jobAds: response.data });
-    this.setState({loadingJobs: false})
+    this.setState({ jobAds: response.data, loadingJobs: false });
     console.log('I should be FALSE', this.state.loadingJobs)
+    status = false;
+    }
   };
   displayDashboard = () => {
     this.setState({ openJobDashboard: !this.state.openJobDashboard });
   };
-  openRequirements = () => {
-    this.setState({ openRequirements: !this.state.openRequirements });
+  openRequirements = (i) => {
+    let newArr = [...this.state.openRequirements]
+    newArr[i] = !this.state.openRequirements[i]
+
+    this.setState({ openRequirements: newArr });
     console.log(this.state.openRequirements);
   };
   render() {
@@ -286,14 +292,14 @@ class CvBuilderMain extends React.Component {
                     </form>
                   </div>
                   <div className={this.state.jobAds.length == 0 ? 'panelImg' : "JobDashboardAds"}>
-                    {this.state.jobAds.map(el => (
+                    {this.state.jobAds.map((el, i) => (
                       <div className="JobAdContainer">
                         <div className="jobAdTitle">{el.JobPosition}</div>
                         <div className="jobAdCompanyName">{el.CompanyName}</div>
                         <div
                           style={{
                             display: `${
-                              this.state.openRequirements === false
+                              this.state.openRequirements[i] === false
                                 ? "none"
                                 : "block"
                             }`
@@ -308,10 +314,10 @@ class CvBuilderMain extends React.Component {
                           </ul>
                         </div>
                         <div
-                          onClick={() => this.openRequirements()}
+                          onClick={() => this.openRequirements(i)}
                           className="jobAdClickforRequirements"
                         >
-                          {this.state.openRequirements === false
+                          {this.state.openRequirements[i] === false
                             ? "Show Job Requirements"
                             : "Hide Job Requirements"}
                         </div>

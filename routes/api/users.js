@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const giveMeData = require("../../puppeteer_Data/Puppeteer.js");
 const giveMePDF = require("../../puppeteer_Data/GeneratePDF.js");
-const giveStepStoneData = require("../../puppeteer_Data/StepStoneData");
+const giveMeJobData = require("../../puppeteer_Data/StepStoneData");
 const giveMeScreenShot = require("../../puppeteer_Data/GenerateSreenShot");
 const fs = require("fs");
 
@@ -241,17 +241,22 @@ const getALLCVFromServer = (req, res, next) => {
   });
 };
 router.get("/resume/cv/allCV/:id", getALLCVFromServer);
+let status = false
 // StepStoneData
 const sendStepStoneData = async (req, res, next) => {
   try {
-    const datas = await giveStepStoneData(
+    if(status === false){
+      status = true
+    const datas = await giveMeJobData(
       req.params.position,
       req.params.location
     );
     //const datas = await giveMePDF();
-    console.log(datas);
+    console.log("stepStone is calling");
 
-    res.status(200).send(datas);
+    await res.status(200).send(datas);
+    status = false
+    }
   } catch (e) {
     next(e);
     res.status(404).send("something went wrong");
