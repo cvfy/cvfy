@@ -1,11 +1,11 @@
-import React, { Component, createContext } from "react";
+import React, { Component, createContext, useRef, useState } from "react";
 import axios from "axios";
 import store from "./../store.js";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 //import uuid from 'uuid'
-let status = false
-let status2 = false
+let status = false;
+let status2 = false;
 
 function verify(data) {
   return data !== undefined && data !== null ? data : "";
@@ -42,6 +42,7 @@ class ThemeContextProvider extends Component {
     id: "",
     loadingSaveCv: true,
     importing: false,
+    importingMessage: false,
     style: {
       color: "",
       font: "'Open Sans', sans-serif",
@@ -183,8 +184,13 @@ class ThemeContextProvider extends Component {
   componentDidUpdate() {
     let Pages = [...this.state.userData];
 
-    Array.from(document.querySelectorAll(".A4")).forEach( async (el, i) => {
-      let headerHeight = document.querySelectorAll(".A4")[i].querySelector(".header-inner") == null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") == undefined ? 0
+    Array.from(document.querySelectorAll(".A4")).forEach(async (el, i) => {
+      let headerHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ==
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ==
+          undefined
+          ? 0
           : document.querySelectorAll(".A4")[i].querySelector(".header-inner")
               .clientHeight;
       let contactHeight =
@@ -242,7 +248,7 @@ class ThemeContextProvider extends Component {
           : document.querySelectorAll(".A4")[i].querySelector(".achievements")
               .clientHeight;
       let coursesHeight =
-      document.querySelectorAll(".A4")[i].querySelector(".courses") == null ||
+        document.querySelectorAll(".A4")[i].querySelector(".courses") == null ||
         document.querySelectorAll(".A4")[i].querySelector(".courses") ==
           undefined
           ? 0
@@ -285,7 +291,9 @@ class ThemeContextProvider extends Component {
 
       if (this.state.style.displayOneColumn === false) {
         if (leftHeight > 1122) {
-          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".left").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(
             Pages[i][lastItem][Pages[i][lastItem].length - 1]
           );
@@ -301,7 +309,7 @@ class ThemeContextProvider extends Component {
           );
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
-          i = 0
+          i = 0;
         }
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
@@ -357,7 +365,7 @@ class ThemeContextProvider extends Component {
         ////////////////////////////////////
         if (onePageHeight > 1000) {
           console.log(onePageHeight);
-          let lastItem =  await document
+          let lastItem = await document
             .querySelectorAll(".A4")
             [i].querySelector(".left").lastChild.classList[0];
           console.log(lastItem);
@@ -380,7 +388,8 @@ class ThemeContextProvider extends Component {
                 parseInt(
                   document.querySelectorAll(".A4")[i + 1].querySelector(".left")
                     .firstChild.lastChild.firstChild.clientHeight
-                ) < 1115
+                ) <
+              1115
             ) {
               let Item = document
                 .querySelectorAll(".A4")
@@ -424,9 +433,10 @@ class ThemeContextProvider extends Component {
           )}`
         )
         .then(
-          res => {res.data.cv[0].loadingSaveCv = true;
-            return this.setState(res.data.cv[0])
-           } //this.setState(res.data)
+          res => {
+            res.data.cv[0].loadingSaveCv = true;
+            return this.setState(res.data.cv[0]);
+          } //this.setState(res.data)
         );
     }
   }
@@ -434,160 +444,169 @@ class ThemeContextProvider extends Component {
   //   localStorage.setItem("currentCV", "");
   // }
 
+  // closeMessageMenu() {
+  //   this.setState({ importingMessage: false });
+  // }
+
   importData = async (profile, e) => {
-if(status2 === false){
-  status2 = await true
     e.preventDefault();
     console.log("i am calling linkedin data");
-    console.log(profile);
-    await this.setState({ importing: true });
-    const response = await axios.get(
-      `http://localhost:5000/api/users/data/link/${profile}`
-    )
-    console.log("should be 200", response.status);
-    let newObject = { ...this.state };
-    newObject.userData[0].fullName = response.data.profileFullName
-      ? response.data.profileFullName
-      : "FULL NAME";
-    newObject.userData[0].intro = response.data.profileHeadline
-      ? response.data.profileHeadline
-      : "Professional Title";
-    newObject.userData[0].about = response.data.profileAbout
-      ? response.data.profileAbout
-      : ["Short and engaging pitch about yourself"];
-    newObject.userData[0].profilePic = `http://localhost:5000/static/${profile}.jpg`
-      ? `http://localhost:5000/static/${profile}.jpg`
-      : "http://localhost:5000/static/default.png";
-    newObject.userData[0].skills = response.data.skills
-      ? response.data.skills
-      : ["skill"];
-    newObject.userData[0].experience = response.data.profileExperience
-      ? response.data.profileExperience.map(el => {
-          if (el.jobsDesc) {
-          } else {
+    this.setState({ importingMessage: true });
+    if (status2 === false) {
+      status2 = await true;
+      e.preventDefault();
+      console.log("i am calling linkedin data");
+      console.log(profile);
+      await this.setState({ importing: true });
+      const response = await axios.get(
+        `http://localhost:5000/api/users/data/link/${profile}`
+      );
+      console.log("should be 200", response.status);
+      let newObject = { ...this.state };
+      newObject.userData[0].fullName = response.data.profileFullName
+        ? response.data.profileFullName
+        : "FULL NAME";
+      newObject.userData[0].intro = response.data.profileHeadline
+        ? response.data.profileHeadline
+        : "Professional Title";
+      newObject.userData[0].about = response.data.profileAbout
+        ? response.data.profileAbout
+        : ["Short and engaging pitch about yourself"];
+      newObject.userData[0].profilePic = `http://localhost:5000/static/${profile}.jpg`
+        ? `http://localhost:5000/static/${profile}.jpg`
+        : "http://localhost:5000/static/default.png";
+      newObject.userData[0].skills = response.data.skills
+        ? response.data.skills
+        : ["skill"];
+      newObject.userData[0].experience = response.data.profileExperience
+        ? response.data.profileExperience.map(el => {
+            if (el.jobsDesc) {
+            } else {
+              let new_el = {};
+              new_el.position = el.jobTitle ? el.jobTitle : "";
+              new_el.company = el.jobEmployer ? el.jobEmployer : "";
+              new_el.startMonth = el.jobPeriod
+                ? verify(el.jobPeriod.split(" ")[0])
+                : "";
+              new_el.startYear = el.jobPeriod
+                ? verify(el.jobPeriod.split(" ")[1])
+                : "";
+              new_el.endMonth = el.jobPeriod
+                ? verify(el.jobPeriod.split(" ")[3])
+                : "";
+              new_el.endYear = el.jobPeriod
+                ? verify(el.jobPeriod.split(" ")[4])
+                : "";
+              new_el.place = el.jobLocation ? el.jobLocation : "";
+              new_el.tasks = el.jobDescription ? el.jobDescription : "";
+              return new_el;
+            }
+          })
+        : [
+            {
+              position: "Position/Title",
+              company: "Workplace/Company",
+              startMonth: "MM",
+              startYear: "YYYY",
+              endMonth: "MM",
+              endYear: "YYYY",
+              place: "City, Country",
+              tasks: "Accomplishments/Responsibility/Tasks"
+            }
+          ];
+      newObject.userData[0].education = response.data.profileEducation
+        ? response.data.profileEducation.map(el => {
             let new_el = {};
-            new_el.position = el.jobTitle ? el.jobTitle : "";
-            new_el.company = el.jobEmployer ? el.jobEmployer : "";
-            new_el.startMonth = el.jobPeriod
-              ? verify(el.jobPeriod.split(" ")[0])
+            new_el.studyProgram = el.educationType ? el.educationType : "";
+            new_el.institution = el.educationInstitution
+              ? el.educationInstitution
               : "";
-            new_el.startYear = el.jobPeriod
-              ? verify(el.jobPeriod.split(" ")[1])
+            new_el.startMonth = "";
+            new_el.startYear = el.educationPeriod
+              ? verify(el.educationPeriod.split(" ")[0])
               : "";
-            new_el.endMonth = el.jobPeriod
-              ? verify(el.jobPeriod.split(" ")[3])
+            new_el.endMonth = "";
+            new_el.endYear = el.educationPeriod
+              ? verify(el.educationPeriod.split(" ")[2])
               : "";
-            new_el.endYear = el.jobPeriod
-              ? verify(el.jobPeriod.split(" ")[4])
-              : "";
-            new_el.place = el.jobLocation ? el.jobLocation : "";
-            new_el.tasks = el.jobDescription ? el.jobDescription : "";
+            new_el.place = "";
             return new_el;
-          }
-        })
-      : [
-          {
-            position: "Position/Title",
-            company: "Workplace/Company",
-            startMonth: "MM",
-            startYear: "YYYY",
-            endMonth: "MM",
-            endYear: "YYYY",
-            place: "City, Country",
-            tasks: "Accomplishments/Responsibility/Tasks"
-          }
-        ];
-    newObject.userData[0].education = response.data.profileEducation
-      ? response.data.profileEducation.map(el => {
-          let new_el = {};
-          new_el.studyProgram = el.educationType ? el.educationType : "";
-          new_el.institution = el.educationInstitution
-            ? el.educationInstitution
-            : "";
-          new_el.startMonth = "";
-          new_el.startYear = el.educationPeriod
-            ? verify(el.educationPeriod.split(" ")[0])
-            : "";
-          new_el.endMonth = "";
-          new_el.endYear = el.educationPeriod
-            ? verify(el.educationPeriod.split(" ")[2])
-            : "";
-          new_el.place = "";
-          return new_el;
-        })
-      : [
-          {
-            studyProgram: "Study Program",
-            institution: "Institution / Place of Education",
-            startMonth: "MM",
-            startYear: "YYYY",
-            endMonth: "MM",
-            endYear: "YYYY",
-            place: "City, Country"
-          }
-        ];
-    newObject.userData[0].languages = response.data.languages
-      ? response.data.languages.map(el => {
-          return { language: el, level: "B1" };
-        })
-      : [{ language: "Language", level: "B1" }];
-    newObject.userData[0].courses = response.data.courses
-      ? response.data.courses.map(el => {
-          return { title: el, desc: "Description" };
-        })
-      : [{ title: "Course name", desc: "Short description" }];
-    newObject.userData[0].projects = response.data.projects
-      ? response.data.projects
-      : [{ title: "Project name", desc: "Description of achievements" }];
-    newObject.userData[0].contact[0].value = response.data.Email
-      ? response.data.Email
-      : "Email";
-    newObject.userData[0].contact[6].value = response.data.Website
-      ? response.data.Website
-      : "Website";
-    newObject.userData[0].certifications = ["Certificate name"];
-    newObject.userData[0].achievements = ["Achievement name"];
-    newObject.id = this.state.id;
-    await this.setState(newObject);
-  
-    // Need to add different responses for each different status
-    if (response.status == 200){
-      
-      this.setState({ importing: false });
-      await this.saveCVDataToServer()
-    }
-    status2 = await false
+          })
+        : [
+            {
+              studyProgram: "Study Program",
+              institution: "Institution / Place of Education",
+              startMonth: "MM",
+              startYear: "YYYY",
+              endMonth: "MM",
+              endYear: "YYYY",
+              place: "City, Country"
+            }
+          ];
+      newObject.userData[0].languages = response.data.languages
+        ? response.data.languages.map(el => {
+            return { language: el, level: "B1" };
+          })
+        : [{ language: "Language", level: "B1" }];
+      newObject.userData[0].courses = response.data.courses
+        ? response.data.courses.map(el => {
+            return { title: el, desc: "Description" };
+          })
+        : [{ title: "Course name", desc: "Short description" }];
+      newObject.userData[0].projects = response.data.projects
+        ? response.data.projects
+        : [{ title: "Project name", desc: "Description of achievements" }];
+      newObject.userData[0].contact[0].value = response.data.Email
+        ? response.data.Email
+        : "Email";
+      newObject.userData[0].contact[6].value = response.data.Website
+        ? response.data.Website
+        : "Website";
+      newObject.userData[0].certifications = ["Certificate name"];
+      newObject.userData[0].achievements = ["Achievement name"];
+      newObject.id = this.state.id;
+      await this.setState(newObject);
+
+      // Need to add different responses for each different status
+      if (response.status == 200) {
+        this.setState({ importing: false });
+        this.setState({ importingMessage: false });
+        await this.saveCVDataToServer();
       }
-      else{}
-      
-  }
+      status2 = await false;
+    } else {
+    }
+  };
 
   saveCVDataToServer = async e => {
-    if(status === false){
-      status = await true
-    if (e) {
-      e.preventDefault();
-    }
-    console.log("Should be false ->", this.state.loadingSaveCv);
-    await this.setState({ loadingSaveCv: false, id: localStorage.getItem("currentCV") });
-    console.log("Should be true ->", this.state.loadingSaveCv);
-    const userID = await aFunction();
-    console.log(userID);
-
-    //const data = JSON.stringify(this.state)
-    await axios
-      .post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
-      .then(res => {
-        console.log(res.data);
-        if (res.data == "done") return this.setState({ loadingSaveCv: true });
+    if (status === false) {
+      status = await true;
+      if (e) {
+        e.preventDefault();
+      }
+      console.log("Should be false ->", this.state.loadingSaveCv);
+      await this.setState({
+        loadingSaveCv: false,
+        id: localStorage.getItem("currentCV")
       });
+      console.log("Should be true ->", this.state.loadingSaveCv);
+      const userID = await aFunction();
+      console.log(userID);
 
-    // await this.setState({ loadingSaveCv: false });
-    // if (res.data == "done") this.setState({ loadingSaveCv: false });
-    console.log("Should be false again ->", this.state.loadingSaveCv);
-    status = await false
+      //const data = JSON.stringify(this.state)
+      await axios
+        .post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
+        .then(res => {
+          console.log(res.data);
+          if (res.data == "done") return this.setState({ loadingSaveCv: true });
+        });
+
+      // await this.setState({ loadingSaveCv: false });
+      // if (res.data == "done") this.setState({ loadingSaveCv: false });
+      console.log("Should be false again ->", this.state.loadingSaveCv);
+      status = await false;
+    } else {
     }
-    else{}
   };
   // Those 3 functions add array of strings, will try to DRY later
   modifyEd = (page, field, value, index) => {
@@ -1065,57 +1084,126 @@ if(status2 === false){
         newObject[page].languages[index] = newObj;
       }
     }
-  
-  this.setState({ userData: newObject });
-  
-}
-setStructure = (arr1, arr2) => {
-  let newObj = { ...this.state }
-  let defaultArr = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
-  // console.log(arr1)
-  // console.log(arr2)
-  if(this.state.style.displayOneColumn === false){
-    if(arr1.length > 0 || arr2.length > 0){
-    newObj.style.leftSide = arr1.map(el => { return { name: el, id: defaultArr.filter(x => x.name === el)[0].id}})
-    newObj.style.rightSide = arr2.map(el => { return { name: el, id: defaultArr.filter(x => x.name === el)[0].id}})
-    console.log(newObj.leftSide)
-    console.log(newObj.rightSide)
-    this.setState(newObj);
-  }
-  if(arr1.length === 0 && arr2.length === 0){
-    newObj.style.leftSide = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}];
-    newObj.style.rightSide = [
-      {name: "skills", id: "card-3"},
-      {name: "projects", id: "card-4"},
-      {name: "certifications", id: "card-5"},
-      {name: "achievements", id: "card-6"},
-      {name: "courses", id: "card-7"},
-      {name: "languages", id: "card-8"},
-    ]
-    this.setState({style: newObj});
-  }
-}
-if(this.state.style.displayOneColumn !== false){
-  if(arr1.length > 0 || arr2.length > 0){
-    const ObjArr1 = arr1.map(el => { return { name: el, id: defaultArr.filter(x => x.name === el)[0].id}})
-    const ObjArr2 = arr2.map(el => { return { name: el, id: defaultArr.filter(x => x.name === el)[0].id}})
-    console.log(ObjArr1)
-    console.log(ObjArr2)
-    newObj.style.oneColumnArr = [...ObjArr1, ...ObjArr2]
-    
-    this.setState(newObj);
-  }
-  else{
-    newObj.style.oneColumnArr = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
-    this.setState(newObj);
-  }
-}
-// this.setState(newObj);
-}
-// ..............................................................
+
+    this.setState({ userData: newObject });
+  };
+  setStructure = (arr1, arr2) => {
+    let newObj = { ...this.state };
+    let defaultArr = [
+      { name: "experience", id: "card-1" },
+      { name: "education", id: "card-2" },
+      { name: "skills", id: "card-3" },
+      { name: "projects", id: "card-4" },
+      { name: "certifications", id: "card-5" },
+      { name: "achievements", id: "card-6" },
+      { name: "courses", id: "card-7" },
+      { name: "languages", id: "card-8" }
+    ];
+    // console.log(arr1)
+    // console.log(arr2)
+    if (this.state.style.displayOneColumn === false) {
+      if (arr1.length > 0 || arr2.length > 0) {
+        newObj.style.leftSide = arr1.map(el => {
+          return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
+        });
+        newObj.style.rightSide = arr2.map(el => {
+          return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
+        });
+        console.log(newObj.leftSide);
+        console.log(newObj.rightSide);
+        this.setState(newObj);
+      }
+      if (arr1.length === 0 && arr2.length === 0) {
+        newObj.style.leftSide = [
+          { name: "experience", id: "card-1" },
+          { name: "education", id: "card-2" }
+        ];
+        newObj.style.rightSide = [
+          { name: "skills", id: "card-3" },
+          { name: "projects", id: "card-4" },
+          { name: "certifications", id: "card-5" },
+          { name: "achievements", id: "card-6" },
+          { name: "courses", id: "card-7" },
+          { name: "languages", id: "card-8" }
+        ];
+        this.setState({ style: newObj });
+      }
+    }
+    if (this.state.style.displayOneColumn !== false) {
+      if (arr1.length > 0 || arr2.length > 0) {
+        const ObjArr1 = arr1.map(el => {
+          return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
+        });
+        const ObjArr2 = arr2.map(el => {
+          return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
+        });
+        console.log(ObjArr1);
+        console.log(ObjArr2);
+        newObj.style.oneColumnArr = [...ObjArr1, ...ObjArr2];
+
+        this.setState(newObj);
+      } else {
+        newObj.style.oneColumnArr = [
+          { name: "experience", id: "card-1" },
+          { name: "education", id: "card-2" },
+          { name: "skills", id: "card-3" },
+          { name: "projects", id: "card-4" },
+          { name: "certifications", id: "card-5" },
+          { name: "achievements", id: "card-6" },
+          { name: "courses", id: "card-7" },
+          { name: "languages", id: "card-8" }
+        ];
+        this.setState(newObj);
+      }
+    }
+    // this.setState(newObj);
+  };
+  // ..............................................................
   handleContactIcon = () => {
     let element = document.getElementsByClassName("iconeColor");
     element.classList.add(this.state.userData.contact.icone);
+  };
+
+  // ############ COUNTDOWN SPINNER FUNCTION ####################
+  renderTime = time => {
+    const currentTime = useRef(time);
+    const prevTime = useRef(null);
+    const isNewTimeFirstTick = useRef(false);
+    const [_, setOneLastRerender] = useState(0);
+
+    if (currentTime.current !== time) {
+      isNewTimeFirstTick.current = true;
+      prevTime.current = currentTime.current;
+      currentTime.current = time;
+    } else {
+      isNewTimeFirstTick.current = false;
+    }
+
+    // force one last re-render when the time is over to trigger the last animation
+    if (time === 0) {
+      // setTimeout(() => {
+      //   setOneLastRerender(val => val + 1);
+      // }, 20);
+      return;
+    }
+
+    const isTimeUp = isNewTimeFirstTick.current;
+
+    return (
+      <div className="time-wrapper">
+        <div key={time} className={`time ${isTimeUp ? "up" : ""}`}>
+          {time}
+        </div>
+        {prevTime.current !== null && (
+          <div
+            key={prevTime.current}
+            className={`time ${!isTimeUp ? "down" : ""}`}
+          >
+            {prevTime.current}
+          </div>
+        )}
+      </div>
+    );
   };
 
   // These functions are regarding design tools of CvBuilder and CoverLetterBuilder
@@ -1361,6 +1449,7 @@ if(this.state.style.displayOneColumn !== false){
           moveDownGroup: this.moveDownGroup,
           generatePDF: this.generatePDF,
           setStructure: this.setStructure,
+          renderTime: this.renderTime,
           getCurrentDate: this.getCurrentDate
         }}
       >
