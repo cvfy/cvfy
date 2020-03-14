@@ -1224,6 +1224,7 @@ updateState = () => {
       fullName: this.state.userData[0].fullName,
       intro: this.state.userData[0].intro,
       about: this.state.userData[0].about,
+      contact: this.state.userData[0].contact,
       profilePic: this.state.userData[0].profilePic,
       experience : this.state.userData.map(el => el.experience).filter(el => el !== []).flat(),
       education : this.state.userData.map(el => el.education).filter(el => el !== []).flat(),
