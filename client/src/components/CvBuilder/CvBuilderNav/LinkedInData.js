@@ -46,6 +46,7 @@ class LinkedInData extends Component {
       <ThemeContext.Consumer>
         {context => {
         let hi = `Hi ${aFunction()}! :hand: `
+        let hi2 = `Hi ${aFunction()}!`
           const {
             importData,
             saveCVDataToServer,
@@ -251,7 +252,7 @@ class LinkedInData extends Component {
               ) : null}
               {context.importingMessage ? (
                 <div className="importingLinkedIn">
-                  <h2 className="loadingH2">Hey NAME</h2>
+        <h2 className="loadingH2">{hi2}</h2>
                   <p className="loadingText">
                     <Emoji
                       text="We are creating your CV, hope you enjoy it! You can

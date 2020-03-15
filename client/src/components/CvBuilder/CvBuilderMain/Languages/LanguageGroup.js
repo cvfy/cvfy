@@ -39,6 +39,7 @@ class LanguageGroup extends React.Component {
                   this.setState({ display: "none", borderBottom: "" })
                 }
                 // onClick={() => this.focusByClassName("lang-group")}
+                style={{position: "relative"}}
               >
                 {/* ********************SECTION MENUS*************** */}
                 <div

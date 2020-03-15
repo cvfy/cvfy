@@ -36,6 +36,11 @@ function aFunction() {
   console.log(newState.auth.user.name);
   return newState.auth.user.id;
 }
+function BFunction() {
+  var newState = store.getState();
+  console.log(newState.auth.user.name);
+  return newState.auth.user.name;
+}
 
 class ThemeContextProvider extends Component {
   state = {
@@ -85,7 +90,7 @@ class ThemeContextProvider extends Component {
 
     userData: [
       {
-        fullName: "FULL NAME",
+        fullName: BFunction(),
         intro: "Professional title",
         about: ["Short and engaging pitch about yourself"],
         profilePic: "http://localhost:5000/static/default.png",

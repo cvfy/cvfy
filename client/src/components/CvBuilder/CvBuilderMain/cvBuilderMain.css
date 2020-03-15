@@ -134,12 +134,14 @@
 
 .skillsMenuDiv {
   position: absolute;
-  bottom: 270px;
+  bottom: 30px;
+  left: 0px;
 }
 
 .languageMenuDiv {
   position: absolute;
-  bottom: -90px;
+  bottom: 50px;
+  left: 0px;
 }
 
 .deleteIcon {

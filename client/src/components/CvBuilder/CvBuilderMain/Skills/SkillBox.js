@@ -43,7 +43,8 @@ class SkillBox extends React.Component {
                 // onClick={() => this.focusByClassName("skill-box")}
                 style={{
                   background: context.style.color,
-                  fontSize: context.style.size3
+                  fontSize: context.style.size3,
+                  position: "relative"
                 }}
               >
                 {/* ********************SECTION MENUS************** */}
