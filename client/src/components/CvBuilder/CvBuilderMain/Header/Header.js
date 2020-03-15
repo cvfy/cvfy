@@ -6,7 +6,9 @@ class Header extends React.Component {
   constructor() {
     super();
     this.my_refs = {};
-    this.state = { borderBottom: "", selectedFile: null };
+    this.state = {
+      borderBottom: ""
+    };
     this.focusByClassName.bind(this);
   }
 
@@ -17,51 +19,43 @@ class Header extends React.Component {
     }
   }
 
-  fileSelectedHandler = e => {
-    this.setState({
-      selectedFile: e.target.files[0]
-    });
-  };
-
-  // fileUploadHandler = () => {
-  //   const fd = new FormData();
-  //   fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-  //   axios.post('not sure which url should I use on backend', fd, {
-  //     onUploadProgress: progressEvent => {
-  //       console.log('Progress: ', Math.round(progressEvent.loaded / progressEvent.total * 100) + '%');
-  //     }
-  //   });
-  //     .then(res => {
-  //       console.log(res)
-  //     })
-  // }
-
   render() {
     const { borderBottom } = this.state;
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyAbout } = context;
+          const { modifyAbout, uploadImage } = context;
           return (
             <div className="header-inner">
-              <div className={context.style.displayPhoto ? "photo" : "hideSection"}>
+              <div
+                className={context.style.displayPhoto ? "photo" : "hideSection"}
+              >
                 <input
                   style={{ display: "none" }}
                   type="file"
-                  onChange={this.fileSelectedHandler}
+                  name="file"
+                  onChange={uploadImage}
                   ref={fileInput => (this.fileInput = fileInput)}
                 ></input>
-                {/* <button onClick={this.fileUploadHandler}></button> */}
-                <img
-                  src={context.userData[this.props.index].profilePic}
-                  alt="photo"
-                  title="upload image"
-                  height="110px"
-                  width="110px"
-                  className="profile-photo"
-                  style={{ cursor: "pointer" }}
-                  onClick={() => this.fileInput.click()}
-                />
+
+                {context.loadingUploadImg ? (
+                  <h4>Uploading...</h4>
+                ) : (
+                  <img
+                    src={
+                      context.considerPic
+                        ? context.userData[this.props.index].profilePic
+                        : context.uploadImg
+                    }
+                    alt="photo"
+                    title="upload image"
+                    height="110px"
+                    width="110px"
+                    className="profile-photo"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => this.fileInput.click()}
+                  />
+                )}
               </div>
               <div className="introduction">
                 <div
@@ -104,7 +98,9 @@ class Header extends React.Component {
 
                 <div
                   className={
-                    context.style.displaySummary ? "editableHeaderDiv" : "hideSection"
+                    context.style.displaySummary
+                      ? "editableHeaderDiv"
+                      : "hideSection"
                   }
                 >
                   <span

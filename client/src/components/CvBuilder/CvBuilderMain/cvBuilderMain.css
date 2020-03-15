@@ -252,6 +252,7 @@
   grid-template-rows: 1fr 1fr 1fr 1fr;
   align-items: center;
   color: #fff;
+  z-index: 1000;
 }
 
 .hideContactModal {

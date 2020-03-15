@@ -48,6 +48,9 @@ class ThemeContextProvider extends Component {
     loadingSaveCv: true,
     importing: false,
     importingMessage: false,
+    loadingUploadImg: false,
+    uploadImg: "",
+    considerPic: true,
     style: {
       color: "",
       font: "'Open Sans', sans-serif",
@@ -170,44 +173,154 @@ class ThemeContextProvider extends Component {
   componentDidUpdate() {
     let Pages = [...this.state.userData];
     // MAPPING THOURGH THE PAGES TO GET THE HEIGHTS OF SECTIONS AND GROUPS
-    Array.from(document.querySelectorAll(".A4")).forEach( (el, i) => {
-
+    Array.from(document.querySelectorAll(".A4")).forEach((el, i) => {
       // DECLARING DYNAMIC THE VARIABLE HEIGHTS OF SECTIONS
-      let headerHeight = document.querySelectorAll(".A4")[i].querySelector(".header-inner") === null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") === undefined ? 0: document.querySelectorAll(".A4")[i].querySelector(".header-inner").clientHeight;
-      let contactHeight = document.querySelectorAll(".A4")[i].querySelector(".contact") === null || document.querySelectorAll(".A4")[i].querySelector(".contact") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".contact").clientHeight;
-      let experienceHeight = document.querySelectorAll(".A4")[i].querySelector(".experience") === null || document.querySelectorAll(".A4")[i].querySelector(".experience") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".experience").clientHeight;
-      let educationHeight = document.querySelectorAll(".A4")[i].querySelector(".education") === null || document.querySelectorAll(".A4")[i].querySelector(".education") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".education").clientHeight;
-      let skillsHeight = document.querySelectorAll(".A4")[i].querySelector(".skills") === null || document.querySelectorAll(".A4")[i].querySelector(".skills") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".skills").clientHeight;
-      let projectsHeight = document.querySelectorAll(".A4")[i].querySelector(".projects") === null || document.querySelectorAll(".A4")[i].querySelector(".projects") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".projects").clientHeight;
-      let certificationsHeight = document.querySelectorAll(".A4")[i].querySelector(".certifications") === null || document.querySelectorAll(".A4")[i].querySelector(".certifications") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".certifications").clientHeight;
-      let achievementsHeight = document.querySelectorAll(".A4")[i].querySelector(".achievements") === null || document.querySelectorAll(".A4")[i].querySelector(".achievements") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".achievements").clientHeight;
-      let coursesHeight = document.querySelectorAll(".A4")[i].querySelector(".courses") === null || document.querySelectorAll(".A4")[i].querySelector(".courses") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".courses").clientHeight;
-      let languagesHeight = document.querySelectorAll(".A4")[i].querySelector(".languages") === null || document.querySelectorAll(".A4")[i].querySelector(".languages") ===  undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".languages").clientHeight;
-// GETTING TOTAL HEIGHTS FOR LEFT, RIGHT, AND ONEPAGE COLUMNS 
+      let headerHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".header-inner")
+              .clientHeight;
+      let contactHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".contact") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".contact") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".contact")
+              .clientHeight;
+      let experienceHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".experience") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".experience") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".experience")
+              .clientHeight;
+      let educationHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".education") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".education") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".education")
+              .clientHeight;
+      let skillsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".skills") === null ||
+        document.querySelectorAll(".A4")[i].querySelector(".skills") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".skills")
+              .clientHeight;
+      let projectsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".projects") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".projects") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".projects")
+              .clientHeight;
+      let certificationsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".certifications") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".certifications") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".certifications")
+              .clientHeight;
+      let achievementsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".achievements") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".achievements") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".achievements")
+              .clientHeight;
+      let coursesHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".courses") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".courses") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".courses")
+              .clientHeight;
+      let languagesHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".languages") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".languages") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".languages")
+              .clientHeight;
+      // GETTING TOTAL HEIGHTS FOR LEFT, RIGHT, AND ONEPAGE COLUMNS
 
-      let leftHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight);
-      let rightHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight);
-      let onePageHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight);
+      let leftHeight =
+        parseInt(headerHeight) +
+        parseInt(contactHeight) +
+        parseInt(experienceHeight) +
+        parseInt(educationHeight);
+      let rightHeight =
+        parseInt(headerHeight) +
+        parseInt(contactHeight) +
+        parseInt(skillsHeight) +
+        parseInt(projectsHeight) +
+        parseInt(certificationsHeight) +
+        parseInt(achievementsHeight) +
+        parseInt(coursesHeight) +
+        parseInt(languagesHeight);
+      let onePageHeight =
+        parseInt(headerHeight) +
+        parseInt(contactHeight) +
+        parseInt(experienceHeight) +
+        parseInt(educationHeight) +
+        parseInt(skillsHeight) +
+        parseInt(projectsHeight) +
+        parseInt(certificationsHeight) +
+        parseInt(achievementsHeight) +
+        parseInt(coursesHeight) +
+        parseInt(languagesHeight);
 
-// SITUATION 1 - IF THE CV STRUCTURE IS A 2 COLUMN STRUCTURE
+      // SITUATION 1 - IF THE CV STRUCTURE IS A 2 COLUMN STRUCTURE
       if (this.state.style.displayOneColumn === false) {
         if (leftHeight > 1122) {
-          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
-          Pages[i + 1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length - 1]);
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".left").lastChild.classList[0];
+          Pages[i + 1][lastItem].unshift(
+            Pages[i][lastItem][Pages[i][lastItem].length - 1]
+          );
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
         }
         if (rightHeight > 1100) {
-          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0];
-          Pages[i + 1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length - 1]);
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".right").lastChild.classList[0];
+          Pages[i + 1][lastItem].unshift(
+            Pages[i][lastItem][Pages[i][lastItem].length - 1]
+          );
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
         }
         if (document.querySelectorAll(".A4")[i + 1]) {
-          if (document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild == null) {} 
-          else {
-            if (leftHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.lastChild.firstChild.clientHeight) < 1115) {
-              let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.classList[0];
+          if (
+            document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+              .firstChild == null
+          ) {
+          } else {
+            if (
+              leftHeight +
+                parseInt(
+                  document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+                    .firstChild.lastChild.firstChild.clientHeight
+                ) <
+              1115
+            ) {
+              let Item = document
+                .querySelectorAll(".A4")
+                [i + 1].querySelector(".left").firstChild.classList[0];
               console.log(Item);
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
@@ -215,41 +328,82 @@ class ThemeContextProvider extends Component {
           }
         }
         if (document.querySelectorAll(".A4")[i + 1]) {
-          if (document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild == null || document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild == undefined) {
+          if (
+            document.querySelectorAll(".A4")[i + 1].querySelector(".right")
+              .firstChild == null ||
+            document.querySelectorAll(".A4")[i + 1].querySelector(".right")
+              .firstChild == undefined
+          ) {
           } else {
-
-            if(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.classList[0] === "skill-boxes"){
-              if (rightHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.firstChild.clientHeight) <1122) {
-                let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.classList[0];
-                    console.log(Item);
-                    Pages[i][Item].push(Pages[i + 1][Item][0]);
-                    Pages[i + 1][Item].shift();
-                    this.setState({ userData: Pages });
-                  }
+            if (
+              document.querySelectorAll(".A4")[i + 1].querySelector(".right")
+                .firstChild.lastChild.firstChild.classList[0] === "skill-boxes"
+            ) {
+              if (
+                rightHeight +
+                  parseInt(
+                    document
+                      .querySelectorAll(".A4")
+                      [i + 1].querySelector(".right").firstChild.lastChild
+                      .firstChild.firstChild.clientHeight
+                  ) <
+                1122
+              ) {
+                let Item = document
+                  .querySelectorAll(".A4")
+                  [i + 1].querySelector(".right").firstChild.classList[0];
+                console.log(Item);
+                Pages[i][Item].push(Pages[i + 1][Item][0]);
+                Pages[i + 1][Item].shift();
+                this.setState({ userData: Pages });
+              }
             } else {
-            if (rightHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.clientHeight) <1110) {
-              console.log(parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.clientHeight))
-              let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.classList[0];
-                  console.log(Item);
-                  Pages[i][Item].push(Pages[i + 1][Item][0]);
-                  Pages[i + 1][Item].shift();
-                  if(Item !== "languages"){this.setState({ userData: Pages })}
+              if (
+                rightHeight +
+                  parseInt(
+                    document
+                      .querySelectorAll(".A4")
+                      [i + 1].querySelector(".right").firstChild.lastChild
+                      .firstChild.clientHeight
+                  ) <
+                1110
+              ) {
+                console.log(
+                  parseInt(
+                    document
+                      .querySelectorAll(".A4")
+                      [i + 1].querySelector(".right").firstChild.lastChild
+                      .firstChild.clientHeight
+                  )
+                );
+                let Item = document
+                  .querySelectorAll(".A4")
+                  [i + 1].querySelector(".right").firstChild.classList[0];
+                console.log(Item);
+                Pages[i][Item].push(Pages[i + 1][Item][0]);
+                Pages[i + 1][Item].shift();
+                if (Item !== "languages") {
+                  this.setState({ userData: Pages });
                 }
-            }}
+              }
+            }
           }
         }
+      }
 
       if (this.state.style.displayOneColumn !== false) {
         if (onePageHeight > 1000) {
-          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".left").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(
             Pages[i][lastItem][Pages[i][lastItem].length - 1]
           );
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
-        // }
+          // }
         }
-      
+
         // if (rightHeight > 1100) {
         //   let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0];
         //   Pages[i + 1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length - 1]);
@@ -259,10 +413,21 @@ class ThemeContextProvider extends Component {
         // }
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
-            document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild == null) {
+            document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+              .firstChild == null
+          ) {
           } else {
-            if (onePageHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.lastChild.firstChild.clientHeight) < 1000) {
-              let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.classList[0];
+            if (
+              onePageHeight +
+                parseInt(
+                  document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+                    .firstChild.lastChild.firstChild.clientHeight
+                ) <
+              1000
+            ) {
+              let Item = document
+                .querySelectorAll(".A4")
+                [i + 1].querySelector(".left").firstChild.classList[0];
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
             }
@@ -273,7 +438,7 @@ class ThemeContextProvider extends Component {
   }
 
   async componentDidMount() {
-    console.log("diplay one column is =>" + this.state.style.displayOneColumn)
+    console.log("diplay one column is =>" + this.state.style.displayOneColumn);
     if (
       localStorage.getItem("currentCV") === null ||
       localStorage.getItem("currentCV") === ""
@@ -315,6 +480,7 @@ class ThemeContextProvider extends Component {
     e.preventDefault();
     console.log("i am calling linkedin data");
     this.setState({ importingMessage: true });
+    this.setState({ considerPic: true });
     if (status2 === false) {
       status2 = await true;
       e.preventDefault();
@@ -394,72 +560,74 @@ class ThemeContextProvider extends Component {
               : "";
             new_el.place = "";
             return new_el;
-          }
-        )
-      : [
-          {
-            position: "Position/Title",
-            company: "Workplace/Company",
-            startMonth: "MM",
-            startYear: "YYYY",
-            endMonth: "MM",
-            endYear: "YYYY",
-            place: "City, Country",
-            tasks: "Accomplishments/Responsibility/Tasks"
-          }
-        ];
-    newObject.userData[0].education = response.data.profileEducation
-      ? response.data.profileEducation.map(el => {
-          let new_el = {};
-          new_el.studyProgram = el.educationType ? el.educationType : "";
-          new_el.institution = el.educationInstitution
-            ? el.educationInstitution
-            : "";
-          new_el.startMonth = "";
-          new_el.startYear = el.educationPeriod
-            ? verify(el.educationPeriod.split(" ")[0])
-            : "";
-          new_el.endMonth = "";
-          new_el.endYear = el.educationPeriod
-            ? verify(el.educationPeriod.split(" ")[2])
-            : "";
-          new_el.place = "";
-          return new_el;
-        })
-      : [
-          {
-            studyProgram: "Study Program",
-            institution: "Institution / Place of Education",
-            startMonth: "MM",
-            startYear: "YYYY",
-            endMonth: "MM",
-            endYear: "YYYY",
-            place: "City, Country"
-          }
-        ];
-    newObject.userData[0].languages = response.data.languages
-      ? response.data.languages.map(el => {
-          return { language: el, level: "B1" };
-        })
-      : [{ language: "Language", level: "B1" }];
-    newObject.userData[0].courses = response.data.courses
-      ? response.data.courses.map(el => {
-          return { title: el, desc: "Description" };
-        })
-      : [{ title: "Course name", desc: "Short description" }];
-    newObject.userData[0].projects = ((response.data.projects) && (response.data.projects.length > 0)) ? response.data.projects : [{ title: "Project name", desc: "Description of achievements" }];
-      
-    newObject.userData[0].contact[0].value = response.data.Email
-      ? response.data.Email
-      : "Email";
-    newObject.userData[0].contact[6].value = response.data.Website
-      ? response.data.Website
-      : "Website";
-    newObject.userData[0].certifications = ["Certificate name"];
-    newObject.userData[0].achievements = ["Achievement name"];
-    newObject.id = this.state.id;
-    await this.setState(newObject);
-  console.log(this.state.userData[0].projects)
+          })
+        : [
+            {
+              position: "Position/Title",
+              company: "Workplace/Company",
+              startMonth: "MM",
+              startYear: "YYYY",
+              endMonth: "MM",
+              endYear: "YYYY",
+              place: "City, Country",
+              tasks: "Accomplishments/Responsibility/Tasks"
+            }
+          ];
+      newObject.userData[0].education = response.data.profileEducation
+        ? response.data.profileEducation.map(el => {
+            let new_el = {};
+            new_el.studyProgram = el.educationType ? el.educationType : "";
+            new_el.institution = el.educationInstitution
+              ? el.educationInstitution
+              : "";
+            new_el.startMonth = "";
+            new_el.startYear = el.educationPeriod
+              ? verify(el.educationPeriod.split(" ")[0])
+              : "";
+            new_el.endMonth = "";
+            new_el.endYear = el.educationPeriod
+              ? verify(el.educationPeriod.split(" ")[2])
+              : "";
+            new_el.place = "";
+            return new_el;
+          })
+        : [
+            {
+              studyProgram: "Study Program",
+              institution: "Institution / Place of Education",
+              startMonth: "MM",
+              startYear: "YYYY",
+              endMonth: "MM",
+              endYear: "YYYY",
+              place: "City, Country"
+            }
+          ];
+      newObject.userData[0].languages = response.data.languages
+        ? response.data.languages.map(el => {
+            return { language: el, level: "B1" };
+          })
+        : [{ language: "Language", level: "B1" }];
+      newObject.userData[0].courses = response.data.courses
+        ? response.data.courses.map(el => {
+            return { title: el, desc: "Description" };
+          })
+        : [{ title: "Course name", desc: "Short description" }];
+      newObject.userData[0].projects =
+        response.data.projects && response.data.projects.length > 0
+          ? response.data.projects
+          : [{ title: "Project name", desc: "Description of achievements" }];
+
+      newObject.userData[0].contact[0].value = response.data.Email
+        ? response.data.Email
+        : "Email";
+      newObject.userData[0].contact[6].value = response.data.Website
+        ? response.data.Website
+        : "Website";
+      newObject.userData[0].certifications = ["Certificate name"];
+      newObject.userData[0].achievements = ["Achievement name"];
+      newObject.id = this.state.id;
+      await this.setState(newObject);
+      console.log(this.state.userData[0].projects);
       // Need to add different responses for each different status
       if (response.status == 200) {
         this.setState({ importing: false });
@@ -981,7 +1149,7 @@ class ThemeContextProvider extends Component {
     this.setState({ userData: newObject });
   };
   setStructure = (arr1, arr2) => {
-   let newObj = { ...this.state };
+    let newObj = { ...this.state };
     let defaultArr = [
       { name: "experience", id: "card-1" },
       { name: "education", id: "card-2" },
@@ -995,37 +1163,35 @@ class ThemeContextProvider extends Component {
     // // console.log(arr1)
     // // console.log(arr2)
     if (arr1.length === 0 && arr2.length === 0) {
-    }
-    else{
+    } else {
       if (arr1.length > 0 || arr2.length > 0) {
         newObj.style.leftSide = arr1.map(el => {
-          return { name: el, id: (defaultArr.filter(x => x.name === el))[0].id };
+          return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
         });
         newObj.style.rightSide = arr2.map(el => {
-          return { name: el, id: (defaultArr.filter(x => x.name === el))[0].id };
+          return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
         });
         console.log(newObj.style.leftSide);
         console.log(newObj.style.rightSide);
         // this.setState(newObj);
-        this.updateState()
+        this.updateState();
         // this.setState(newObj);
       }
     }
-        // newObj.style.leftSide = [
-        //   { name: "experience", id: "card-1" },
-        //   { name: "education", id: "card-2" }
-        // ];
-        // newObj.style.rightSide = [
-        //   { name: "skills", id: "card-3" },
-        //   { name: "projects", id: "card-4" },
-        //   { name: "certifications", id: "card-5" },
-        //   { name: "achievements", id: "card-6" },
-        //   { name: "courses", id: "card-7" },
-        //   { name: "languages", id: "card-8" }
-        // ];
-        // this.setState(newObj);
-   
-  
+    // newObj.style.leftSide = [
+    //   { name: "experience", id: "card-1" },
+    //   { name: "education", id: "card-2" }
+    // ];
+    // newObj.style.rightSide = [
+    //   { name: "skills", id: "card-3" },
+    //   { name: "projects", id: "card-4" },
+    //   { name: "certifications", id: "card-5" },
+    //   { name: "achievements", id: "card-6" },
+    //   { name: "courses", id: "card-7" },
+    //   { name: "languages", id: "card-8" }
+    // ];
+    // this.setState(newObj);
+
     // if (this.state.style.displayOneColumn !== false) {
     //   if (arr1.length > 0 || arr2.length > 0) {
     //     const ObjArr1 = arr1.map(el => {
@@ -1059,6 +1225,26 @@ class ThemeContextProvider extends Component {
   handleContactIcon = () => {
     let element = document.getElementsByClassName("iconeColor");
     element.classList.add(this.state.userData.contact.icone);
+  };
+
+  // ############ UPLOAD PROFILE IMAGE FUNCTION ####################
+  uploadImage = async e => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "dogfather");
+    this.setState({ loadingUploadImg: true });
+    this.setState({ considerPic: false });
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dtox6ulq7/image/upload",
+      {
+        method: "POST",
+        body: data
+      }
+    );
+    const file = await res.json();
+    this.setState({ uploadImg: file.secure_url });
+    this.setState({ loadingUploadImg: false });
   };
 
   // ############ COUNTDOWN SPINNER FUNCTION ####################
@@ -1226,70 +1412,68 @@ class ThemeContextProvider extends Component {
     this.setState({ style: newObject });
   };
 
-updateState = () => {
-  let new1Object = []
-  // let new1Object = [ ...this.state.userData ];
-  new1Object = [
-    {
-      fullName: this.state.userData[0].fullName,
-      intro: this.state.userData[0].intro,
-      about: this.state.userData[0].about,
-      contact: this.state.userData[0].contact,
-      profilePic: this.state.userData[0].profilePic,
-      experience : this.state.userData.map(el => el.experience).flat(),
-      education : this.state.userData.map(el => el.education).flat(),
-      skills : this.state.userData.map(el => el.skills).flat(),
-      projects : this.state.userData.map(el => el.projects).flat(),
-      certifications : this.state.userData.map(el => el.certifications).flat(),
-      achievements : this.state.userData.map(el => el.achievements).flat(),
-      courses : this.state.userData.map(el => el.courses).flat(),
-      languages : this.state.userData.map(el => el.languages).flat()
-    },
-    {
-      experience: [],
-      education: [],
-      skills: [],
-      projects: [],
-      certifications: [],
-      achievements: [],
-      courses: [],
-      languages: []
-    },
-    {
-      experience: [],
-      education: [],
-      skills: [],
-      projects: [],
-      certifications: [],
-      achievements: [],
-      courses: [],
-      languages: []
-    },
-    {
-      experience: [],
-      education: [],
-      skills: [],
-      projects: [],
-      certifications: [],
-      achievements: [],
-      courses: [],
-      languages: []
-    }
-  ]
-  console.log(new1Object[0])
-   this.setState({ userData: new1Object });
-}
-
-
-  toggleOneColumn = async() => {
-    console.log("before toggles"+ this.state.style.displayOneColumn)
-    let newObject = { ...this.state.style };
-    newObject.displayOneColumn = await !this.state.style.displayOneColumn;
-  await this.setState({ style: newObject});
-  console.log("i toggles"+ this.state.style.displayOneColumn)
-    this.updateState()
+  updateState = () => {
+    let new1Object = [];
+    // let new1Object = [ ...this.state.userData ];
+    new1Object = [
+      {
+        fullName: this.state.userData[0].fullName,
+        intro: this.state.userData[0].intro,
+        about: this.state.userData[0].about,
+        contact: this.state.userData[0].contact,
+        profilePic: this.state.userData[0].profilePic,
+        experience: this.state.userData.map(el => el.experience).flat(),
+        education: this.state.userData.map(el => el.education).flat(),
+        skills: this.state.userData.map(el => el.skills).flat(),
+        projects: this.state.userData.map(el => el.projects).flat(),
+        certifications: this.state.userData.map(el => el.certifications).flat(),
+        achievements: this.state.userData.map(el => el.achievements).flat(),
+        courses: this.state.userData.map(el => el.courses).flat(),
+        languages: this.state.userData.map(el => el.languages).flat()
+      },
+      {
+        experience: [],
+        education: [],
+        skills: [],
+        projects: [],
+        certifications: [],
+        achievements: [],
+        courses: [],
+        languages: []
+      },
+      {
+        experience: [],
+        education: [],
+        skills: [],
+        projects: [],
+        certifications: [],
+        achievements: [],
+        courses: [],
+        languages: []
+      },
+      {
+        experience: [],
+        education: [],
+        skills: [],
+        projects: [],
+        certifications: [],
+        achievements: [],
+        courses: [],
+        languages: []
+      }
+    ];
+    console.log(new1Object[0]);
+    this.setState({ userData: new1Object });
   };
 
+  toggleOneColumn = async () => {
+    console.log("before toggles" + this.state.style.displayOneColumn);
+    let newObject = { ...this.state.style };
+    newObject.displayOneColumn = await !this.state.style.displayOneColumn;
+    await this.setState({ style: newObject });
+    console.log("i toggles" + this.state.style.displayOneColumn);
+    this.updateState();
+  };
 
   toggleFontWeight = () => {
     document.execCommand("bold", false, "");
@@ -1406,6 +1590,7 @@ updateState = () => {
           generatePDF: this.generatePDF,
           setStructure: this.setStructure,
           renderTime: this.renderTime,
+          uploadImage: this.uploadImage,
           getCurrentDate: this.getCurrentDate
         }}
       >
