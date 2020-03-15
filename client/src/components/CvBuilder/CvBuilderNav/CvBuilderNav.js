@@ -1,5 +1,5 @@
 import React from "react";
-import BuilderNav from "../../BuilderNav";
+import BuilderNav from "./BuilderNav";
 import LinkedInData from "./LinkedInData";
 
 const CvBuilderNav = () => {

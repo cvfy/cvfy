@@ -10,7 +10,7 @@
 
 #containerA4 {
   margin: 8rem 12rem 0 12rem;
-  background: #fff center center;
+  background: rgb(94, 141, 145) center center;
   height: 297mm;
   width: 210mm;
   /* pagination effect */
