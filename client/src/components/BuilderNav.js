@@ -96,7 +96,7 @@ const BuilderNav = () => {
       {loadingDownload ? (
         <div className="convertingPdfMessage">
           <p className="loadingText">
-            <Emoji text="Converting to pdf mode on :rocket:" />
+            <Emoji text="Converting to pdf :rocket:" />
           </p>
         </div>
       ) : null}

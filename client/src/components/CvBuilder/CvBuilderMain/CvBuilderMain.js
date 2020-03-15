@@ -36,7 +36,7 @@ class CvBuilderMain extends React.Component {
   onLocationChange = e => {
     this.setState({ locationValue: e.target.value });
   };
-  requestStepStoneData = async e => {
+  requestStepStoneData = async e => {    
     if(status === false){
       status = true;
     e.preventDefault();
@@ -228,12 +228,13 @@ class CvBuilderMain extends React.Component {
 
               </div>
             </div>
-            </div>  
+            </div>            
             // <div className="break-before">
 
             // </div>
           ));
           return (
+            <>
             <div style={{ display: "flex" }}>
               <div className="alignContainer">{pages}</div>
               <div className="bookmark">
@@ -327,6 +328,7 @@ class CvBuilderMain extends React.Component {
                 </div>
               </div>
             </div>
+            </>
           )
         }}
       </ThemeContext.Consumer>
