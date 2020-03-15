@@ -25,6 +25,7 @@ class LayoutSubMenu extends Component {
   }
 
   closeMenu(event) {
+    event.preventDefault();
     console.log(document.querySelectorAll("#leftCvSection div.dndSection"))
     console.log(document.querySelectorAll("#rightCvSection div.dndSection"))
     const leftSide = Array.from(document.querySelectorAll("#leftCvSection div.dndSection")).map(el => el.getAttribute("name"))
@@ -62,12 +63,13 @@ class LayoutSubMenu extends Component {
                 <span className="tool-desc">Layout</span>
               </div>
 
-              {this.state.showMenu ? (
+              
                 <div
                   className="layoutSubMenu"
                   ref={element => {
                     this.dropdownMenu = element;
                   }}
+                  style={{display: `${this.state.showMenu ? "block" : "none"}`}}
                 >
                   <div className="headerElements">
                     Show:
@@ -138,7 +140,6 @@ class LayoutSubMenu extends Component {
                    {/* <Draggable2D></Draggable2D> */}
                    {/* </div> */}
                 </div>
-              ) : null}
             </div>
           );
         }}

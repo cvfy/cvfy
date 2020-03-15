@@ -37,11 +37,11 @@ e.target.appendChild(card)
   return (
     <ThemeContext.Consumer>
       {context => {
-        const BigArr = [...context.style.leftSide, ... context.style.rightSide].map(x => x.name);
-        console.log(BigArr)
-        const defArr = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
-        const newArr = defArr.filter(el => !(BigArr.includes(el.name)))
-        console.log(newArr)
+        // const BigArr = [...context.style.leftSide, ... context.style.rightSide].map(x => x.name);
+        // console.log(BigArr)
+        // const defArr = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
+        // const newArr = defArr.filter(el => !(BigArr.includes(el.name)))
+        // console.log(newArr)
         //newArr.map((el) => el ? console.log(el): console.log("nothing to see here"))
         return (
           <>
@@ -56,7 +56,7 @@ e.target.appendChild(card)
             >
               <div id="leftCvSection">
               {props.children}
-                {context.style.leftSide.map(el => (
+                {/* {context.style.leftSide.map(el => (
   <Card
   id={el.id}
   className="dndSection"
@@ -65,11 +65,11 @@ e.target.appendChild(card)
 >
   <p className="dndSectionP">{el.name}</p>
 </Card>
-) )}
+) )} */}
                 </div>
               <div id="rightCvSection">
               {props.children}
-              {context.style.rightSide.map(el => (
+              {/* {context.style.rightSide.map(el => (
   <Card
   id={el.id}
   className="dndSection"
@@ -78,7 +78,7 @@ e.target.appendChild(card)
 >
   <p className="dndSectionP">{el.name}</p>
 </Card>
-) )}
+) )} */}
 </div>
             </div>
 
@@ -94,7 +94,7 @@ e.target.appendChild(card)
               onDragOver={(e) => dragOver(e)}
             >
                {props.children}
-{ newArr.map(el => (
+{/* { newArr.map(el => (
   <Card
   id={el.id}
   className="dndSection"
@@ -103,16 +103,16 @@ e.target.appendChild(card)
 >
   <p className="dndSectionP">{el.name}</p>
 </Card>
-))}
-               {/* <Card
+))} */}
+               <Card
                 id="card-1"
                 className="dndSection"
                 name="experience"
                 draggable="true"
               >
                 <p className="dndSectionP">Experience</p>
-              </Card> */}
-              {/*<Card
+              </Card>
+              <Card
                 id="card-2"
                 className="dndSection"
                 name="education"
@@ -167,7 +167,7 @@ e.target.appendChild(card)
                 draggable="true"
               >
                 <p className="dndSectionP">Languages</p>
-              </Card> */}
+              </Card>
 
             </div>
           </>

@@ -165,7 +165,7 @@ class ThemeContextProvider extends Component {
   componentDidUpdate() {
     let Pages = [...this.state.userData];
     // MAPPING THOURGH THE PAGES TO GET THE HEIGHTS OF SECTIONS AND GROUPS
-    Array.from(document.querySelectorAll(".A4")).forEach( async (el, i) => {
+    Array.from(document.querySelectorAll(".A4")).forEach( (el, i) => {
 
       // DECLARING DYNAMIC THE VARIABLE HEIGHTS OF SECTIONS
       let headerHeight = document.querySelectorAll(".A4")[i].querySelector(".header-inner") === null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") === undefined ? 0: document.querySelectorAll(".A4")[i].querySelector(".header-inner").clientHeight;
@@ -202,7 +202,7 @@ class ThemeContextProvider extends Component {
           if (document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild == null) {} 
           else {
             if (leftHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.lastChild.firstChild.clientHeight) < 1115) {
-              let Item = await document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.classList[0];
+              let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.classList[0];
               console.log(Item);
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
@@ -215,7 +215,7 @@ class ThemeContextProvider extends Component {
 
             if(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.classList[0] === "skill-boxes"){
               if (rightHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.firstChild.clientHeight) <1122) {
-                let Item = await document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.classList[0];
+                let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.classList[0];
                     console.log(Item);
                     Pages[i][Item].push(Pages[i + 1][Item][0]);
                     Pages[i + 1][Item].shift();
@@ -224,7 +224,7 @@ class ThemeContextProvider extends Component {
             } else {
             if (rightHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.clientHeight) <1110) {
               console.log(parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.clientHeight))
-              let Item = await document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.classList[0];
+              let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.classList[0];
                   console.log(Item);
                   Pages[i][Item].push(Pages[i + 1][Item][0]);
                   Pages[i + 1][Item].shift();
@@ -235,7 +235,7 @@ class ThemeContextProvider extends Component {
         }
 
       if (this.state.style.displayOneColumn !== false) {
-        if (onePageHeight > 1122) {
+        if (onePageHeight > 1000) {
           let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(
             Pages[i][lastItem][Pages[i][lastItem].length - 1]
@@ -256,8 +256,8 @@ class ThemeContextProvider extends Component {
           if (
             document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild == null) {
           } else {
-            if (onePageHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.lastChild.firstChild.clientHeight) < 1122) {
-              let Item = await document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.classList[0];
+            if (onePageHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.lastChild.firstChild.clientHeight) < 1000) {
+              let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.classList[0];
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
             }
@@ -268,6 +268,7 @@ class ThemeContextProvider extends Component {
   }
 
   async componentDidMount() {
+    console.log("diplay one column is =>" + this.state.style.displayOneColumn)
     if (
       localStorage.getItem("currentCV") === null ||
       localStorage.getItem("currentCV") === ""
@@ -975,7 +976,7 @@ class ThemeContextProvider extends Component {
     this.setState({ userData: newObject });
   };
   setStructure = (arr1, arr2) => {
-    let newObj = { ...this.state };
+   let newObj = { ...this.state };
     let defaultArr = [
       { name: "experience", id: "card-1" },
       { name: "education", id: "card-2" },
@@ -986,63 +987,67 @@ class ThemeContextProvider extends Component {
       { name: "courses", id: "card-7" },
       { name: "languages", id: "card-8" }
     ];
-    // console.log(arr1)
-    // console.log(arr2)
-    if (this.state.style.displayOneColumn === false) {
+    // // console.log(arr1)
+    // // console.log(arr2)
+    if (arr1.length === 0 && arr2.length === 0) {
+    }
+    else{
       if (arr1.length > 0 || arr2.length > 0) {
         newObj.style.leftSide = arr1.map(el => {
-          return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
+          return { name: el, id: (defaultArr.filter(x => x.name === el))[0].id };
         });
         newObj.style.rightSide = arr2.map(el => {
-          return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
+          return { name: el, id: (defaultArr.filter(x => x.name === el))[0].id };
         });
-        console.log(newObj.leftSide);
-        console.log(newObj.rightSide);
-        this.setState(newObj);
-      }
-      if (arr1.length === 0 && arr2.length === 0) {
-        newObj.style.leftSide = [
-          { name: "experience", id: "card-1" },
-          { name: "education", id: "card-2" }
-        ];
-        newObj.style.rightSide = [
-          { name: "skills", id: "card-3" },
-          { name: "projects", id: "card-4" },
-          { name: "certifications", id: "card-5" },
-          { name: "achievements", id: "card-6" },
-          { name: "courses", id: "card-7" },
-          { name: "languages", id: "card-8" }
-        ];
-        this.setState({ style: newObj });
+        console.log(newObj.style.leftSide);
+        console.log(newObj.style.rightSide);
+        // this.setState(newObj);
+        this.updateState()
+        // this.setState(newObj);
       }
     }
-    if (this.state.style.displayOneColumn !== false) {
-      if (arr1.length > 0 || arr2.length > 0) {
-        const ObjArr1 = arr1.map(el => {
-          return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
-        });
-        const ObjArr2 = arr2.map(el => {
-          return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
-        });
-        console.log(ObjArr1);
-        console.log(ObjArr2);
-        newObj.style.oneColumnArr = [...ObjArr1, ...ObjArr2];
+        // newObj.style.leftSide = [
+        //   { name: "experience", id: "card-1" },
+        //   { name: "education", id: "card-2" }
+        // ];
+        // newObj.style.rightSide = [
+        //   { name: "skills", id: "card-3" },
+        //   { name: "projects", id: "card-4" },
+        //   { name: "certifications", id: "card-5" },
+        //   { name: "achievements", id: "card-6" },
+        //   { name: "courses", id: "card-7" },
+        //   { name: "languages", id: "card-8" }
+        // ];
+        // this.setState(newObj);
+   
+  
+    // if (this.state.style.displayOneColumn !== false) {
+    //   if (arr1.length > 0 || arr2.length > 0) {
+    //     const ObjArr1 = arr1.map(el => {
+    //       return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
+    //     });
+    //     const ObjArr2 = arr2.map(el => {
+    //       return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
+    //     });
+    //     console.log(ObjArr1);
+    //     console.log(ObjArr2);
+    //     newObj.style.oneColumnArr = [...ObjArr1, ...ObjArr2];
 
-        this.setState(newObj);
-      } else {
-        newObj.style.oneColumnArr = [
-          { name: "experience", id: "card-1" },
-          { name: "education", id: "card-2" },
-          { name: "skills", id: "card-3" },
-          { name: "projects", id: "card-4" },
-          { name: "certifications", id: "card-5" },
-          { name: "achievements", id: "card-6" },
-          { name: "courses", id: "card-7" },
-          { name: "languages", id: "card-8" }
-        ];
-        this.setState(newObj);
-      }
-    }
+    //     this.setState(newObj);
+    //   } else {
+    //     newObj.style.oneColumnArr = [
+    //       { name: "experience", id: "card-1" },
+    //       { name: "education", id: "card-2" },
+    //       { name: "skills", id: "card-3" },
+    //       { name: "projects", id: "card-4" },
+    //       { name: "certifications", id: "card-5" },
+    //       { name: "achievements", id: "card-6" },
+    //       { name: "courses", id: "card-7" },
+    //       { name: "languages", id: "card-8" }
+    //     ];
+    //     this.setState(newObj);
+    //   }
+    // }
     // this.setState(newObj);
   };
   // ..............................................................
@@ -1217,8 +1222,8 @@ class ThemeContextProvider extends Component {
   };
 
 updateState = () => {
-  
-  let new1Object = [ ...this.state.userData ];
+  let new1Object = []
+  // let new1Object = [ ...this.state.userData ];
   new1Object = [
     {
       fullName: this.state.userData[0].fullName,
@@ -1226,14 +1231,14 @@ updateState = () => {
       about: this.state.userData[0].about,
       contact: this.state.userData[0].contact,
       profilePic: this.state.userData[0].profilePic,
-      experience : this.state.userData.map(el => el.experience).filter(el => el !== []).flat(),
-      education : this.state.userData.map(el => el.education).filter(el => el !== []).flat(),
-      skills : this.state.userData.map(el => el.skills).filter(el => el !== []).flat(),
-      projects : this.state.userData.map(el => el.projects).filter(el => el !== []).flat(),
-      certifications : this.state.userData.map(el => el.certifications).filter(el => el !== []).flat(),
-      achievements : this.state.userData.map(el => el.achievements).filter(el => el !== []).flat(),
-      courses : this.state.userData.map(el => el.courses).filter(el => el !== []).flat(),
-      languages : this.state.userData.map(el => el.languages).filter(el => el !== []).flat()
+      experience : this.state.userData.map(el => el.experience).flat(),
+      education : this.state.userData.map(el => el.education).flat(),
+      skills : this.state.userData.map(el => el.skills).flat(),
+      projects : this.state.userData.map(el => el.projects).flat(),
+      certifications : this.state.userData.map(el => el.certifications).flat(),
+      achievements : this.state.userData.map(el => el.achievements).flat(),
+      courses : this.state.userData.map(el => el.courses).flat(),
+      languages : this.state.userData.map(el => el.languages).flat()
     },
     {
       experience: [],
@@ -1271,10 +1276,12 @@ updateState = () => {
 }
 
 
-  toggleOneColumn = () => {
-    let newObject = { ...this.state };
-    newObject.style.displayOneColumn = !this.state.style.displayOneColumn;
-  this.setState({ newObject });
+  toggleOneColumn = async() => {
+    console.log("before toggles"+ this.state.style.displayOneColumn)
+    let newObject = { ...this.state.style };
+    newObject.displayOneColumn = await !this.state.style.displayOneColumn;
+  await this.setState({ style: newObject});
+  console.log("i toggles"+ this.state.style.displayOneColumn)
     this.updateState()
   };
 

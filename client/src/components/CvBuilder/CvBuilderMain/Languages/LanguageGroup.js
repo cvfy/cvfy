@@ -66,7 +66,7 @@ class LanguageGroup extends React.Component {
                 {/* ************************************************** */}
                 <div className="editableDiv language">
                   <span
-                    onBlur={e =>
+                    onBlur={(e) =>
                       modifyLanguages(this.props.index, 
                         "language",
                         this.props.dat,

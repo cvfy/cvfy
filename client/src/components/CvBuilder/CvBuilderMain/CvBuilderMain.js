@@ -153,7 +153,7 @@ class CvBuilderMain extends React.Component {
 
 
               </div>
-              <div style={{display: `${(context.style.displayOneColumn == false) ? "block" : "none"}`}} className="right">
+              <div style={{display: `${(context.style.displayOneColumn === false) ? "block" : "none"}`}} className="right">
               {(el.experience[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("experience") ) && <Experience index={i} />}
               {(el.education[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("education") ) && <Education index={i} />}
               {(el.skills[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("skills") ) && <Skills index={i} />}
