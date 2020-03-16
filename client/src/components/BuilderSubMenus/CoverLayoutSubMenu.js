@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ThemeContext } from "../../contexts/ThemeContext";
+import { CoverLetterContext } from "../../contexts/CoverLetterContext";
 import "../../styles/CoverBuilderNav.css";
 
 class CoverLayoutSubMenu extends Component {
@@ -39,7 +39,7 @@ class CoverLayoutSubMenu extends Component {
 
   render() {
     return (
-      <ThemeContext.Consumer>
+      <CoverLetterContext.Consumer>
         {context => {
           const { toggleCoverTitleClass, toggleCompanyClass } = context;
           return (
@@ -70,7 +70,7 @@ class CoverLayoutSubMenu extends Component {
                             ? "checkedCircle"
                             : "checkMark"
                         }
-                        onClick={toggleCoverTitleClass}
+                        onClick={() => toggleCoverTitleClass()}
                       ></span>
                     </label>
                     <label className="headerContainer coverLetterLabel">
@@ -86,7 +86,7 @@ class CoverLayoutSubMenu extends Component {
                             ? "checkedCircle"
                             : "checkMark"
                         }
-                        onClick={toggleCompanyClass}
+                        onClick={() => toggleCompanyClass()}
                       ></span>
                     </label>
                   </div>
@@ -95,7 +95,7 @@ class CoverLayoutSubMenu extends Component {
             </div>
           );
         }}
-      </ThemeContext.Consumer>
+      </CoverLetterContext.Consumer>
     );
   }
 }

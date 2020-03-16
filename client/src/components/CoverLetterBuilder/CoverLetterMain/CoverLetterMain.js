@@ -2,13 +2,13 @@ import React from "react";
 import "../../../styles/CoverLetterMain.css";
 import CoverLetterHeader from "./CoverLetterHeader";
 import CoverLetterBody from "./CoverLetterBody";
-import { ThemeContext } from "../../../contexts/ThemeContext";
+import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 
 class CoverLetterMain extends React.Component {
   render() {
     return (
-      <ThemeContext.Consumer>
-        {context => {
+      <CoverLetterContext.Consumer>
+        { context => {
           return (
             <div className="alignContainer">
               <div
@@ -23,7 +23,7 @@ class CoverLetterMain extends React.Component {
             </div>
           );
         }}
-      </ThemeContext.Consumer>
+      </CoverLetterContext.Consumer>
     );
   }
 }
