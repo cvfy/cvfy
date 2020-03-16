@@ -10,7 +10,7 @@
 
 #containerA4 {
   margin: 8rem 12rem 0 12rem;
-  background: rgb(94, 141, 145) center center;
+  background: #fff center center;
   height: 297mm;
   width: 210mm;
   /* pagination effect */
@@ -174,6 +174,10 @@
   display: none;
 }
 
+.editableHeaderDiv {
+  padding-right: 22px;
+}
+
 .summary {
   padding-top: 5px;
   font-size: 0.8rem;
@@ -284,11 +288,13 @@ input[type="text"]:focus {
 }
 
 .contact {
-  background-color: #d3d3d382;
+  background-color: #fff;
   padding-left: 37.5px;
   font-size: 12px;
   min-height: 70px;
   display: flex;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
 }
 
 .contact-row {
@@ -502,6 +508,8 @@ input[type="text"]:focus {
 
 .skill-boxes {
   display: flex;
+  /* align-items: center;
+  justify-content: center; */
   flex-wrap: wrap;
 }
 
