@@ -3,7 +3,6 @@ import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 import CoverLetterContact from "./CoverLetterContact";
 import store from "./../../../store.js";
 
-
 function aFunction() {
   var newState = store.getState();
   return newState.auth.user.name;
@@ -17,14 +16,16 @@ class CoverLetterHeader extends React.Component {
           return (
             <div className="header-wrap">
               <div className="header-inner">
-                <div className="introduction">
+                <div className="introductionCover">
                   <div
                     className="coverLetterName"
                     style={{
                       fontFamily: context.style.font,
                       color: context.style.color
                     }}
-        >{context.coverLetters[0].fullName}</div>
+                  >
+                    {context.coverLetters[0].fullName}
+                  </div>
 
                   <div
                     className={

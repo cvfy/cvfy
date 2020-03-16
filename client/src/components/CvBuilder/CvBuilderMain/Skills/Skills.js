@@ -12,8 +12,26 @@ class Skills extends React.Component {
           ));
 
           return (
-            <div className="skills" style={{padding: `${context.style.displayOneColumn === false ? "20px" : "20px 40px"}`}}>
-              <div className="sectionHeader" style={{justifyContent: `${context.style.displayOneColumn === false ? "space-between" : "center"}`}}>
+            <div
+              className="skills"
+              style={{
+                padding: `${
+                  context.style.displayOneColumn === false
+                    ? "20px 30px 0 30px"
+                    : "20px 40px"
+                }`
+              }}
+            >
+              <div
+                className="sectionHeader"
+                style={{
+                  justifyContent: `${
+                    context.style.displayOneColumn === false
+                      ? "space-between"
+                      : "center"
+                  }`
+                }}
+              >
                 <div
                   className="section-label"
                   style={{ color: context.style.color }}

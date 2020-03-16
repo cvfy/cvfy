@@ -8,23 +8,50 @@ class Education extends React.Component {
       <ThemeContext.Consumer>
         {context => {
           const { addEducationGroup } = context;
-          if(context.userData[this.props.index].education.length !== 0){
-          const group = context.userData[this.props.index].education.map((el, i) => (
-            <EducationGroup key={i} dat={i} index={this.props.index} data={el} />
-          ));
-          return (
-            <div className="education break-before"  style={{padding: `${context.style.displayOneColumn === false ? "20px" : "20px 40px"}`}}>
-              <div className="sectionHeader" style={{justifyContent: `${context.style.displayOneColumn === false ? "space-between" : "center"}`}}>
-                <div className="section-label" style={{ color: context.style.color }}>
-                  EDUCATION
+          if (context.userData[this.props.index].education.length !== 0) {
+            const group = context.userData[
+              this.props.index
+            ].education.map((el, i) => (
+              <EducationGroup
+                key={i}
+                dat={i}
+                index={this.props.index}
+                data={el}
+              />
+            ));
+            return (
+              <div
+                className="education break-before"
+                style={{
+                  padding: `${
+                    context.style.displayOneColumn === false
+                      ? "20px 30px 0 30px"
+                      : "20px 40px"
+                  }`
+                }}
+              >
+                <div
+                  className="sectionHeader"
+                  style={{
+                    justifyContent: `${
+                      context.style.displayOneColumn === false
+                        ? "space-between"
+                        : "center"
+                    }`
+                  }}
+                >
+                  <div
+                    className="section-label"
+                    style={{ color: context.style.color }}
+                  >
+                    EDUCATION
+                  </div>
                 </div>
+                <div className="education-body">{group}</div>
               </div>
-              <div className="education-body">{group}</div>
-            </div>
-          );
-          }
-          else {
-            return ""
+            );
+          } else {
+            return "";
           }
         }}
       </ThemeContext.Consumer>
