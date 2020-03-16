@@ -76,7 +76,8 @@ const MyAccount = () => {
           ></ScrollAnimation>
         </div>
       </div>
-      <Footer />
+      
+      <Footer></Footer>
     </>
   );
 };
