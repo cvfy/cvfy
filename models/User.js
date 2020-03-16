@@ -27,6 +27,12 @@ const UserSchema = new Schema({
             
                      
         }
+    ],
+    coverLetters: [
+        {
+            
+                     
+        }
     ]
 
     

@@ -1,18 +1,18 @@
 import React, { useContext, useState } from "react";
-import BuilderCollapseMenu from "./BuilderCollapseMenu";
-import "../styles/CoverBuilderNav.css";
-import FontSubMenu from "./BuilderSubMenus/FontSubMenu";
-import ColorSubMenu from "./BuilderSubMenus/ColorSubMenu";
-import FontSizeSubMenu from "./BuilderSubMenus/FontSizeSubMenu";
-import CoverLayoutSubMenu from "./BuilderSubMenus/CoverLayoutSubMenu";
-import TemplatesSubMenu from "./BuilderSubMenus/TemplatesSubMenu";
+import BuilderCollapseMenu from "../BuilderCollapseMenu"
+import "../../styles/CoverBuilderNav.css";
+import FontSubMenu from "./FontSubMenu";
+import ColorSubMenu from "./ColorSubMenu";
+import FontSizeSubMenu from "./FontSizeSubMenu";
+import CoverLayoutSubMenu from "../BuilderSubMenus/CoverLayoutSubMenu";
+import TemplatesSubMenu from "./TemplatesSubMenu";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
-import { ThemeContext } from "../contexts/ThemeContext";
-import BuilderBurgerMenu from "./BuilderBurgerMenu";
-import DownloadPdfCover from "./BuilderSubMenus/DownloadPdfCover";
+import { CoverLetterContext } from "../../contexts/CoverLetterContext";
+import BuilderBurgerMenu from "../BuilderBurgerMenu";
+import DownloadPdfCover from "../BuilderSubMenus/DownloadPdfCover";
 const CoverBuilderNav = () => {
-  const context = useContext(ThemeContext);
+  const context = useContext(CoverLetterContext);
 
   const [navbarState, setNavbarState] = useState(false);
   const [downloadCoverState, setDownloadCover] = useState(false);

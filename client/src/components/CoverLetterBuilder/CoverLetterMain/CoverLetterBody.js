@@ -1,10 +1,15 @@
-import React from "react";
-import { ThemeContext } from "../../../contexts/ThemeContext";
+import React, {getState} from "react";
+import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
+import store from "./../../../store.js";
 
+
+function aFunction() {
+  var newState = store.getState();
+  return newState.auth.user.name;}
 class CoverLetterBody extends React.Component {
   render() {
     return (
-      <ThemeContext.Consumer>
+      <CoverLetterContext.Consumer>
         {context => {
           return (
             <div className="cover-letter-body-wrapper">
@@ -39,14 +44,15 @@ class CoverLetterBody extends React.Component {
                   style={{
                     fontSize: context.style.size3
                   }}
-                ></span>
+                >{aFunction()}</span>
               </div>
             </div>
           );
         }}
-      </ThemeContext.Consumer>
+      </CoverLetterContext.Consumer>
     );
   }
 }
+store.subscribe(aFunction);
 
 export default CoverLetterBody;

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { ThemeContext } from "../../../contexts/ThemeContext";
+import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 import "../../../styles/BuilderNav.css";
 
 class ExtraToolsMenu extends Component {
   render() {
     return (
-      <ThemeContext.Consumer>
+      <CoverLetterContext.Consumer>
         {context => {
           const {
             toggleFontWeight,
@@ -155,7 +155,7 @@ class ExtraToolsMenu extends Component {
             </div>
           );
         }}
-      </ThemeContext.Consumer>
+      </CoverLetterContext.Consumer>
     );
   }
 }

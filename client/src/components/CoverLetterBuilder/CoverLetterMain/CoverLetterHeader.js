@@ -1,11 +1,17 @@
 import React from "react";
-import { ThemeContext } from "../../../contexts/ThemeContext";
+import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 import CoverLetterContact from "./CoverLetterContact";
+import store from "./../../../store.js";
 
+
+function aFunction() {
+  var newState = store.getState();
+  return newState.auth.user.name;
+}
 class CoverLetterHeader extends React.Component {
   render() {
     return (
-      <ThemeContext.Consumer>
+      <CoverLetterContext.Consumer>
         {context => {
           const { getCurrentDate } = context;
           return (
@@ -18,7 +24,7 @@ class CoverLetterHeader extends React.Component {
                       fontFamily: context.style.font,
                       color: context.style.color
                     }}
-                  ></div>
+        >{context.coverLetters[0].fullName}</div>
 
                   <div
                     className={
@@ -78,9 +84,9 @@ class CoverLetterHeader extends React.Component {
             </div>
           );
         }}
-      </ThemeContext.Consumer>
+      </CoverLetterContext.Consumer>
     );
   }
 }
-
+store.subscribe(aFunction);
 export default CoverLetterHeader;

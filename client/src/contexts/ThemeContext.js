@@ -49,7 +49,6 @@ class ThemeContextProvider extends Component {
     importing: false,
     importingMessage: false,
     loadingUploadImg: false,
-    uploadImg: "",
     considerPic: true,
     style: {
       color: "",
@@ -168,7 +167,7 @@ class ThemeContextProvider extends Component {
         courses: [],
         languages: []
       }
-    ]
+    ],
   };
   componentDidUpdate() {
     let Pages = [...this.state.userData];
@@ -1243,8 +1242,9 @@ class ThemeContextProvider extends Component {
       }
     );
     const file = await res.json();
-    this.setState({ uploadImg: file.secure_url });
-    this.setState({ loadingUploadImg: false });
+    const newArr = [...this.state.userData]
+    newArr[0].profilePic = file.secure_url;
+    this.setState({ userData: newArr, loadingUploadImg: false });
   };
 
   // ############ COUNTDOWN SPINNER FUNCTION ####################
