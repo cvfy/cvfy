@@ -26,6 +26,7 @@
     /* The third layer shadow */
     0 -20px 1px -9px rgba(0, 0, 0, 0.15);
   padding-top: 25px;
+  /* padding: 5px; */
 }
 
 /* #nextPage {
@@ -133,6 +134,7 @@
 }
 
 .photo {
+  /* margin: 19px 10px 0 20px; */
   margin: 0 10px 0 20px;
 }
 
@@ -144,10 +146,12 @@
 .introduction {
   width: 100%;
   margin-left: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+  /* margin-bottom: 5px; */
 }
 
 .name {
+  /* padding-top: 1.2rem; */
   padding-top: 0;
   font-size: 2rem;
 }
@@ -155,6 +159,7 @@
 .CvTitle {
   font-size: 1.3rem;
   color: #414242;
+  /* margin-top: 0.5rem; */
   margin-top: -0.2rem;
   margin-bottom: 5px;
 }
