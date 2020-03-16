@@ -12,7 +12,7 @@ class Skills extends React.Component {
           ));
 
           return (
-            <div className="skills" style={{padding: `${context.style.displayOneColumn === false ? "20px" : "20px 40px"}`}}>
+            <div className="skills" style={{padding: `${context.style.displayOneColumn === false ? "5px 25px" : "10px 40px"}`}}>
               <div className="sectionHeader" style={{justifyContent: `${context.style.displayOneColumn === false ? "space-between" : "center"}`}}>
                 <div
                   className="section-label"

@@ -67,6 +67,7 @@ class Header extends React.Component {
                       ? "editableHeaderDiv CvTitle"
                       : "hideSection"
                   }
+                  onBlur={() => this.setState({ borderBottom: "" })}
                 >
                   <span
                     onBlur={e =>
@@ -81,7 +82,7 @@ class Header extends React.Component {
                     onFocus={() =>
                       this.setState({ borderBottom: "1px solid blue" })
                     }
-                    onBlur={() => this.setState({ borderBottom: "" })}
+                    
                     onClick={() => this.focusByClassName("CvTitle")}
                     style={{
                       fontSize: context.style.size1,
@@ -98,6 +99,7 @@ class Header extends React.Component {
                       ? "editableHeaderDiv"
                       : "hideSection"
                   }
+                  onBlur={() => this.setState({ borderBottom: "" })}
                 >
                   <span
                     onBlur={e =>
@@ -112,20 +114,15 @@ class Header extends React.Component {
                     onFocus={() =>
                       this.setState({ borderBottom: "1px solid blue" })
                     }
-                    onBlur={() => this.setState({ borderBottom: "" })}
+                    
                     onClick={() => this.focusByClassName("summary")}
                     style={{
                       fontSize: context.style.size3,
                       borderBottom: borderBottom
                     }}
                   >
-                    {context.userData[this.props.index].about[0]}
-                    {context.userData[this.props.index].about[1]}
-                    {context.userData[this.props.index].about[2]}
-                    {context.userData[this.props.index].about[3]}
-                    {context.userData[this.props.index].about[4]}
-                    {context.userData[this.props.index].about[5]}
-                    {context.userData[this.props.index].about[6]}
+                    {context.userData[this.props.index].about}
+               }
                   </span>
                 </div>
               </div>

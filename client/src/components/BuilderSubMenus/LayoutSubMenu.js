@@ -26,12 +26,12 @@ class LayoutSubMenu extends Component {
 
   closeMenu(event) {
     event.preventDefault();
-    console.log(document.querySelectorAll("#leftCvSection div.dndSection"))
-    console.log(document.querySelectorAll("#rightCvSection div.dndSection"))
+    // console.log(document.querySelectorAll("#leftCvSection div.dndSection"))
+    // console.log(document.querySelectorAll("#rightCvSection div.dndSection"))
     const leftSide = Array.from(document.querySelectorAll("#leftCvSection div.dndSection")).map(el => el.getAttribute("name"))
     const rightSide = Array.from(document.querySelectorAll("#rightCvSection div.dndSection")).map(el => el.getAttribute("name"))
-    console.log(leftSide)
-    console.log(rightSide)
+    // console.log(leftSide)
+    // console.log(rightSide)
       this.props.setStructure(leftSide, rightSide);
     if (!this.dropdownMenu.contains(event.target)) {
       this.setState({ showMenu: false }, () => {
