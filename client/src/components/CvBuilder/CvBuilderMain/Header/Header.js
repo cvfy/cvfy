@@ -42,11 +42,7 @@ class Header extends React.Component {
                   <h4>Uploading...</h4>
                 ) : (
                   <img
-                    src={
-                      context.considerPic
-                        ? context.userData[this.props.index].profilePic
-                        : context.uploadImg
-                    }
+                    src={context.userData[this.props.index].profilePic}
                     alt="photo"
                     title="upload image"
                     height="110px"
