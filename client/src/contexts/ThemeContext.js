@@ -193,7 +193,7 @@ class ThemeContextProvider extends Component {
 
       // SITUATION 1 - IF THE CV STRUCTURE IS A 2 COLUMN STRUCTURE
       if (this.state.style.displayOneColumn === false) {
-        if (leftHeight > 1050) {
+        if (leftHeight > 1100) {
           let lastItem = document
             .querySelectorAll(".A4")
             [i].querySelector(".left").lastChild.classList[0];
@@ -203,7 +203,7 @@ class ThemeContextProvider extends Component {
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
         }
-        if (rightHeight > 1050) {
+        if (rightHeight > 1100) {
           let lastItem = document
             .querySelectorAll(".A4")
             [i].querySelector(".right").lastChild.classList[0];
