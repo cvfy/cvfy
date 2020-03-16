@@ -173,113 +173,23 @@ class ThemeContextProvider extends Component {
     let Pages = [...this.state.userData];
     // MAPPING THOURGH THE PAGES TO GET THE HEIGHTS OF SECTIONS AND GROUPS
     Array.from(document.querySelectorAll(".A4")).forEach((el, i) => {
-      // DECLARING DYNAMIC THE VARIABLE HEIGHTS OF SECTIONS
-      let headerHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ===
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ===
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".header-inner")
-              .clientHeight;
-      let contactHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".contact") ===
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".contact") ===
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".contact")
-              .clientHeight;
-      let experienceHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".experience") ===
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".experience") ===
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".experience")
-              .clientHeight;
-      let educationHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".education") ===
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".education") ===
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".education")
-              .clientHeight;
-      let skillsHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".skills") === null ||
-        document.querySelectorAll(".A4")[i].querySelector(".skills") ===
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".skills")
-              .clientHeight;
-      let projectsHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".projects") ===
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".projects") ===
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".projects")
-              .clientHeight;
-      let certificationsHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".certifications") ===
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".certifications") ===
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".certifications")
-              .clientHeight;
-      let achievementsHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".achievements") ===
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".achievements") ===
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".achievements")
-              .clientHeight;
-      let coursesHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".courses") ===
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".courses") ===
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".courses")
-              .clientHeight;
-      let languagesHeight =
-        document.querySelectorAll(".A4")[i].querySelector(".languages") ===
-          null ||
-        document.querySelectorAll(".A4")[i].querySelector(".languages") ===
-          undefined
-          ? 0
-          : document.querySelectorAll(".A4")[i].querySelector(".languages")
-              .clientHeight;
-      // GETTING TOTAL HEIGHTS FOR LEFT, RIGHT, AND ONEPAGE COLUMNS
+ // DECLARING DYNAMIC THE VARIABLE HEIGHTS OF SECTIONS
+ let headerHeight = document.querySelectorAll(".A4")[i].querySelector(".header-inner") === null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") === undefined ? 0: document.querySelectorAll(".A4")[i].querySelector(".header-inner").clientHeight;
+ console.log(headerHeight)
+ let contactHeight = document.querySelectorAll(".A4")[i].querySelector(".contact") === null || document.querySelectorAll(".A4")[i].querySelector(".contact") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".contact").clientHeight;
+ let experienceHeight = document.querySelectorAll(".A4")[i].querySelector(".experience") === null || document.querySelectorAll(".A4")[i].querySelector(".experience") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".experience").clientHeight;
+ let educationHeight = document.querySelectorAll(".A4")[i].querySelector(".education") === null || document.querySelectorAll(".A4")[i].querySelector(".education") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".education").clientHeight;
+ let skillsHeight = document.querySelectorAll(".A4")[i].querySelector(".skills") === null || document.querySelectorAll(".A4")[i].querySelector(".skills") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".skills").clientHeight;
+ let projectsHeight = document.querySelectorAll(".A4")[i].querySelector(".projects") === null || document.querySelectorAll(".A4")[i].querySelector(".projects") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".projects").clientHeight;
+ let certificationsHeight = document.querySelectorAll(".A4")[i].querySelector(".certifications") === null || document.querySelectorAll(".A4")[i].querySelector(".certifications") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".certifications").clientHeight;
+ let achievementsHeight = document.querySelectorAll(".A4")[i].querySelector(".achievements") === null || document.querySelectorAll(".A4")[i].querySelector(".achievements") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".achievements").clientHeight;
+ let coursesHeight = document.querySelectorAll(".A4")[i].querySelector(".courses") === null || document.querySelectorAll(".A4")[i].querySelector(".courses") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".courses").clientHeight;
+ let languagesHeight = document.querySelectorAll(".A4")[i].querySelector(".languages") === null || document.querySelectorAll(".A4")[i].querySelector(".languages") ===  undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".languages").clientHeight;
+// GETTING TOTAL HEIGHTS FOR LEFT, RIGHT, AND ONEPAGE COLUMNS 
 
-      let leftHeight =
-        parseInt(headerHeight) +
-        parseInt(contactHeight) +
-        parseInt(experienceHeight) +
-        parseInt(educationHeight);
-      let rightHeight =
-        parseInt(headerHeight) +
-        parseInt(contactHeight) +
-        parseInt(skillsHeight) +
-        parseInt(projectsHeight) +
-        parseInt(certificationsHeight) +
-        parseInt(achievementsHeight) +
-        parseInt(coursesHeight) +
-        parseInt(languagesHeight);
-      let onePageHeight =
-        parseInt(headerHeight) +
-        parseInt(contactHeight) +
-        parseInt(experienceHeight) +
-        parseInt(educationHeight) +
-        parseInt(skillsHeight) +
-        parseInt(projectsHeight) +
-        parseInt(certificationsHeight) +
-        parseInt(achievementsHeight) +
-        parseInt(coursesHeight) +
-        parseInt(languagesHeight);
+ let leftHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight);
+ let rightHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight);
+ let onePageHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight);
 
       // SITUATION 1 - IF THE CV STRUCTURE IS A 2 COLUMN STRUCTURE
       if (this.state.style.displayOneColumn === false) {
@@ -315,7 +225,7 @@ class ThemeContextProvider extends Component {
                   document.querySelectorAll(".A4")[i + 1].querySelector(".left")
                     .firstChild.lastChild.firstChild.clientHeight
                 ) <
-              1050
+              1100
             ) {
               let Item = document
                 .querySelectorAll(".A4")
@@ -346,7 +256,7 @@ class ThemeContextProvider extends Component {
                       [i + 1].querySelector(".right").firstChild.lastChild
                       .firstChild.firstChild.clientHeight
                   ) <
-                1050
+                1100
               ) {
                 let Item = document
                   .querySelectorAll(".A4")
@@ -364,7 +274,7 @@ class ThemeContextProvider extends Component {
                       .querySelectorAll(".A4")
                       [i + 1].querySelector(".right").firstChild.lastChild
                       .firstChild.clientHeight
-                  ) <
+                  ) <=
                 1050
               ) {
                 console.log(
@@ -381,9 +291,9 @@ class ThemeContextProvider extends Component {
                 console.log(Item);
                 Pages[i][Item].push(Pages[i + 1][Item][0]);
                 Pages[i + 1][Item].shift();
-                if (Item !== "languages") {
+                // if (Item !== "languages") {
                   this.setState({ userData: Pages });
-                }
+                // }
               }
             }
           }
@@ -391,7 +301,7 @@ class ThemeContextProvider extends Component {
       }
 
       if (this.state.style.displayOneColumn !== false) {
-        if (onePageHeight > 1000) {
+        if (onePageHeight > 1100) {
           let lastItem = document
             .querySelectorAll(".A4")
             [i].querySelector(".left").lastChild.classList[0];
@@ -421,8 +331,8 @@ class ThemeContextProvider extends Component {
                 parseInt(
                   document.querySelectorAll(".A4")[i + 1].querySelector(".left")
                     .firstChild.lastChild.firstChild.clientHeight
-                ) <
-              1000
+                ) <=
+              1100
             ) {
               let Item = document
                 .querySelectorAll(".A4")
