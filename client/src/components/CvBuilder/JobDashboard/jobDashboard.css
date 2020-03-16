@@ -1,0 +1,181 @@
+/* ==================================================== */
+/* ================== JOB DASHBOARD SECTION ================== */
+/* ==================================================== */
+.MainJobDashboard {
+    width: 90%;
+    height: 80vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 120px;
+    background-color: #fff;
+    padding: 5px;
+    margin-right: 10%;
+    border-radius: 40px;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+.JobDashboardForm {
+    width: 100%;
+    height: 190px;
+}
+
+.jobForm {
+    height: 90%;
+    width: 100%;
+    margin: 2px;
+    padding: 20px 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.jobForm label {
+    margin: 0;
+    width: 30%;
+    text-align: center;
+}
+
+.JobDashboardForm form .JobDashboardButton {
+    font-size: 16px;
+    border: 1px solid lightgray;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 7px;
+    padding: 8px;
+    height: 65%;
+    color: black;
+    width: 8vw;
+    margin-left: 10px;
+    background: #67eb9400;
+    margin-bottom: 4px;
+    border-radius: 20px;
+    width: 14vw;
+}
+
+.JobDashboardForm form .JobDashboardButton:hover {
+    background: #cecece17;
+}
+
+.JobDashboardForm form .JobAdInput {
+    margin: 5px;
+    padding: 5px;
+    background: rgb(232, 240, 254);
+    border: none;
+    color: black;
+    border-radius: 20px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+}
+
+.JobDashboardAds {
+    width: 95%;
+    height: 90%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 5px auto;
+}
+
+.panelImg {
+    background: url(../../../assets/job_board.svg) no-repeat center;
+    background-size: 300px 400px;
+}
+
+.JobAdContainer {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    text-align: center;
+    margin: 5px 0;
+    box-shadow: -1px -2px 0px 0px rgba(0.1, 0.1, 0.1, 0.1);
+}
+
+.jobAdTitle {
+    height: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jobAdCompanyName {
+    font-size: 12px;
+    height: 22px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jobAdClickforRequirements {
+    background-color: #e4f3e980;
+    font-size: 12px;
+    cursor: pointer;
+    color: blue;
+}
+
+.jobAdRequirements {
+    height: auto;
+    font-size: 10px;
+}
+
+.bookmark {
+    height: auto;
+    width: 50px;
+    background-color: #2b3a42;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.bookmark_link {
+    position: sticky;
+    top: 200px;
+    transform: rotate(-90deg);
+    width: 100px;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #82898d;
+    border-radius: 10px 10px 0 0;
+    background: #68ec94;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.bookmark_link:hover {
+    background-color: #19ee60;
+}
+
+.transitionDashboard {
+    width: 600px;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: #2b3a42;
+    /* transition-property: width display;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out; */
+}
+
+.hideTransitionDashboard {
+    width: 0;
+    display: none;
+}

@@ -1,18 +1,19 @@
 import React, { useContext, useState } from "react";
-import "../styles/BuilderNav.css";
-import FontSubMenu from "./BuilderSubMenus/FontSubMenu";
-import ColorSubMenu from "./BuilderSubMenus/ColorSubMenu";
-import FontSizeSubMenu from "./BuilderSubMenus/FontSizeSubMenu";
-import LayoutSubMenu from "./BuilderSubMenus/LayoutSubMenu";
-import TemplatesSubMenu from "./BuilderSubMenus/TemplatesSubMenu";
-import BuilderBurgerMenu from "./BuilderBurgerMenu";
-import BuilderCollapseMenu from "./BuilderCollapseMenu";
+import "../../../styles/BuilderNav.css";
+import FontSubMenu from "../../BuilderSubMenus/FontSubMenu";
+import ColorSubMenu from "../../BuilderSubMenus/ColorSubMenu";
+import FontSizeSubMenu from "../../BuilderSubMenus/FontSizeSubMenu";
+import LayoutSubMenu from "../../BuilderSubMenus/LayoutSubMenu";
+import TemplatesSubMenu from "../../BuilderSubMenus/TemplatesSubMenu";
+import BuilderBurgerMenu from "../../BuilderBurgerMenu";
+import BuilderCollapseMenu from "../../BuilderCollapseMenu";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 //import { content } from "html2canvas/dist/types/css/property-descriptors/content";
-import { ThemeContext } from "../contexts/ThemeContext";
-import DownloadPdf from "./BuilderSubMenus/DownloadPdf";
+import { ThemeContext } from "../../../contexts/ThemeContext";
+import DownloadPdf from "../../BuilderSubMenus/DownloadPdf";
 import Emoji from "react-emoji-render";
+// import { Beforeunload } from "react-beforeunload";
 
 const BuilderNav = () => {
   const context = useContext(ThemeContext);
@@ -48,6 +49,7 @@ const BuilderNav = () => {
     <>
       <div className="CvMenu">
         <NavLink style={{ textDecoration: "none" }} to="/">
+          {/* <Beforeunload onBeforeunload={() => "You'll lose your data!"} /> */}
           <span className="logo-template">CV|FY</span>
         </NavLink>
         <div className="design">
