@@ -82,7 +82,6 @@ class Header extends React.Component {
                     onFocus={() =>
                       this.setState({ borderBottom: "1px solid blue" })
                     }
-                    
                     onClick={() => this.focusByClassName("CvTitle")}
                     style={{
                       fontSize: context.style.size1,
@@ -114,7 +113,6 @@ class Header extends React.Component {
                     onFocus={() =>
                       this.setState({ borderBottom: "1px solid blue" })
                     }
-                    
                     onClick={() => this.focusByClassName("summary")}
                     style={{
                       fontSize: context.style.size3,
@@ -122,7 +120,6 @@ class Header extends React.Component {
                     }}
                   >
                     {context.userData[this.props.index].about}
-               }
                   </span>
                 </div>
               </div>
