@@ -49,32 +49,6 @@ const CvDashboard = () => {
           <p>ADD New CV</p>
         </div>
       </div>
-
-      {/* <ScrollAnimation
-        className="cvBox2"
-        animateIn="fadeIn"
-        animateOnce="true"
-        duration="0.5s"
-      >
-        <img src={CV2} />
-      </ScrollAnimation>
-      <ScrollAnimation
-        className="cvBox2"
-        animateIn="fadeIn"
-        animateOnce="true"
-        duration="0.5s"
-      >
-        <img src={CV3} />
-      </ScrollAnimation>
-      <ScrollAnimation
-        className="cvBox2"
-        animateIn="fadeIn"
-        animateOnce="true"
-        duration="0.5s"
-      >
-        <img src={CV4} />
-      </ScrollAnimation> */}
-
       {resume.map(el => (
         <div className="cvBox2">
           <img
