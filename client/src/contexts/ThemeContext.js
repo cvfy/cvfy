@@ -537,10 +537,15 @@ class ThemeContextProvider extends Component {
   };
   // Those 3 functions add array of strings, will try to DRY later
   modifyEd = (page, field, value, index) => {
+
     console.log("edmoidfy");
     let newObject = [...this.state.userData];
     if (field === "studyProgram") {
       newObject[page].education[index].studyProgram = value;
+      console.log(page)
+      console.log(field)
+      console.log(value)
+      console.log(index)
     }
     if (field === "institution") {
       newObject[page].education[index].institution = value;
