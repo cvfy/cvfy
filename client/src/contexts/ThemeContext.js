@@ -219,7 +219,7 @@ class ThemeContextProvider extends Component {
           Pages[i][lastItem] = []
           this.setState({ userData: Pages });
         }
-        if (leftHeight > 1100 && leftHeight < 2000) {
+        if (leftHeight > 1050 && leftHeight < 2000) {
           let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length - 1]);
           Pages[i][lastItem].pop();
@@ -231,7 +231,7 @@ class ThemeContextProvider extends Component {
           Pages[i][lastItem] = []
           this.setState({ userData: Pages });
         }
-        if(rightHeight > 1100 && rightHeight < 2000) {
+        if(rightHeight > 1050 && rightHeight < 2000) {
           let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length - 1]);
           Pages[i][lastItem].pop();
@@ -540,6 +540,7 @@ class ThemeContextProvider extends Component {
 
     console.log("edmoidfy");
     let newObject = [...this.state.userData];
+    if(newObject[page].education[index]){
     if (field === "studyProgram") {
       newObject[page].education[index].studyProgram = value;
       console.log(page)
@@ -567,9 +568,11 @@ class ThemeContextProvider extends Component {
     }
     this.setState({ userData: newObject });
     console.log(this.state.userData[page].education);
+  }
   };
   modifyEx = (page, field, value, index) => {
     let newObject = [...this.state.userData];
+    if(newObject[page].experience[index]){
     if (field === "position") {
       newObject[page].experience[index].position = value;
     }
@@ -596,11 +599,14 @@ class ThemeContextProvider extends Component {
     }
     this.setState({ userData: newObject });
     console.log(this.state.userData[page].experience);
+  }
   };
   modifySkill = (page, index, value) => {
     let newObject = [...this.state.userData];
+    if(newObject[page].skills[index]){
     newObject[page].skills[index] = value;
     this.setState({ userData: newObject });
+    }
   };
   modifyAbout = (page, field, value) => {
     console.log(page)
@@ -617,16 +623,21 @@ class ThemeContextProvider extends Component {
   };
   modifyAchievements = (page, index, value) => {
     let newObject = [...this.state.userData];
+    if(newObject[page].achievements[index]){
     newObject[page].achievements[index] = value;
     this.setState({ userData: newObject });
+    }
   };
   modifyCertifications = (page, index, value) => {
     let newObject = [...this.state.userData];
+    if(newObject[page].certifications[index]){
     newObject[page].certifications[index] = value;
     this.setState({ userData: newObject });
+    }
   };
   modifyProjects = (page, field, index, value) => {
     let newObject = [...this.state.userData];
+    if(newObject[page].projects[index]){
     if (field === "PTitle") {
       newObject[page].projects[index].title = value;
     }
@@ -634,9 +645,11 @@ class ThemeContextProvider extends Component {
       newObject[page].projects[index].desc = value;
     }
     this.setState({ userData: newObject });
+  }
   };
   modifyCourses = (page, field, index, value) => {
     let newObject = [...this.state.userData];
+    if(newObject[page].courses[index]){
     if (field === "CTitle") {
       newObject[page].courses[index].title = value;
     }
@@ -644,9 +657,11 @@ class ThemeContextProvider extends Component {
       newObject[page].courses[index].desc = value;
     }
     this.setState({ userData: newObject });
+  }
   };
   modifyLanguages = (page, field, index, value) => {
     let newObject = [...this.state.userData];
+    if(newObject[page].languages[index]){
     if (field === "language") {
       newObject[page].languages[index].language = value;
     }
@@ -654,6 +669,7 @@ class ThemeContextProvider extends Component {
       newObject[page].languages[index].level = value;
     }
     this.setState({ userData: newObject });
+  }
   };
   deleteGroup = (section, page, deleteIndex) => {
     let newObject = [...this.state.userData];
