@@ -24,7 +24,7 @@ class Achievements extends React.Component {
                 padding: `${
                   context.style.displayOneColumn === false
                     ? "20px 30px 0 30px"
-                    : "20px 40px"
+                    : "10px 40px"
                 }`
               }}
             >

@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer";
-import "../../styles/CV_Templates.css";
+import "../../styles/Templates.scss";
 import Cover1 from "../../assets/Cover1.png";
 import Cover2 from "../../assets/Cover2.png";
 import Cover3 from "../../assets/Cover3.png";
@@ -16,23 +16,53 @@ const CoverLetter_Templates = () => {
     <>
       <Navbar />
       <JumbotronCL />
-      <div className="CV_Templates_MainContainer">
-        <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-0s">
+      <div className="CLTemplates_Container">
+        <ScrollAnimation
+          className="cvBox"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
           <img src={Cover1} />
         </ScrollAnimation>
-        <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-1s">
+        <ScrollAnimation
+          className="cvBox"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
           <img src={Cover2} />
         </ScrollAnimation>
-        <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-2s">
+        <ScrollAnimation
+          className="cvBox"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
           <img src={Cover3} />
         </ScrollAnimation>
-        <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-0s">
+        <ScrollAnimation
+          className="cvBox"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
           <img src={Cover4} />
         </ScrollAnimation>
-        <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-1s">
+        <ScrollAnimation
+          className="cvBox"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
           <img src={Cover5} />
         </ScrollAnimation>
-        <ScrollAnimation className="cvBox" animateIn="fadeInUp delay-2s">
+        <ScrollAnimation
+          className="cvBox"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
           <img src={Cover6} />
         </ScrollAnimation>
       </div>

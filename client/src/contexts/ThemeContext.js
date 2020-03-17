@@ -94,7 +94,7 @@ class ThemeContextProvider extends Component {
       {
         fullName: BFunction(),
         intro: "Professional title",
-        about: ["Short and engaging pitch about yourself"],
+        about: "Short and engaging pitch about yourself",
         profilePic: "http://localhost:5000/static/default.png",
         contact: [
           { icon: "far fa-envelope", value: "Email" },
@@ -166,70 +166,82 @@ class ThemeContextProvider extends Component {
         achievements: [],
         courses: [],
         languages: []
+      },
+      {
+        experience: [],
+        education: [],
+        skills: [],
+        projects: [],
+        certifications: [],
+        achievements: [],
+        courses: [],
+        languages: []
+      },
+      {
+        experience: [],
+        education: [],
+        skills: [],
+        projects: [],
+        certifications: [],
+        achievements: [],
+        courses: [],
+        languages: []
       }
     ],
   };
   componentDidUpdate() {
     let Pages = [...this.state.userData];
     // MAPPING THOURGH THE PAGES TO GET THE HEIGHTS OF SECTIONS AND GROUPS
-    Array.from(document.querySelectorAll(".A4")).forEach((el, i) => {
- // DECLARING DYNAMIC THE VARIABLE HEIGHTS OF SECTIONS
- let headerHeight = document.querySelectorAll(".A4")[i].querySelector(".header-inner") === null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") === undefined ? 0: document.querySelectorAll(".A4")[i].querySelector(".header-inner").clientHeight;
- console.log(headerHeight)
- let contactHeight = document.querySelectorAll(".A4")[i].querySelector(".contact") === null || document.querySelectorAll(".A4")[i].querySelector(".contact") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".contact").clientHeight;
- let experienceHeight = document.querySelectorAll(".A4")[i].querySelector(".experience") === null || document.querySelectorAll(".A4")[i].querySelector(".experience") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".experience").clientHeight;
- let educationHeight = document.querySelectorAll(".A4")[i].querySelector(".education") === null || document.querySelectorAll(".A4")[i].querySelector(".education") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".education").clientHeight;
- let skillsHeight = document.querySelectorAll(".A4")[i].querySelector(".skills") === null || document.querySelectorAll(".A4")[i].querySelector(".skills") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".skills").clientHeight;
- let projectsHeight = document.querySelectorAll(".A4")[i].querySelector(".projects") === null || document.querySelectorAll(".A4")[i].querySelector(".projects") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".projects").clientHeight;
- let certificationsHeight = document.querySelectorAll(".A4")[i].querySelector(".certifications") === null || document.querySelectorAll(".A4")[i].querySelector(".certifications") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".certifications").clientHeight;
- let achievementsHeight = document.querySelectorAll(".A4")[i].querySelector(".achievements") === null || document.querySelectorAll(".A4")[i].querySelector(".achievements") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".achievements").clientHeight;
- let coursesHeight = document.querySelectorAll(".A4")[i].querySelector(".courses") === null || document.querySelectorAll(".A4")[i].querySelector(".courses") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".courses").clientHeight;
- let languagesHeight = document.querySelectorAll(".A4")[i].querySelector(".languages") === null || document.querySelectorAll(".A4")[i].querySelector(".languages") ===  undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".languages").clientHeight;
+    Array.from(document.querySelectorAll(".A4")).forEach( (el, i) => {
+
+      // DECLARING DYNAMIC THE VARIABLE HEIGHTS OF SECTIONS
+      let headerHeight = document.querySelectorAll(".A4")[i].querySelector(".header-inner") === null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") === undefined ? 0: document.querySelectorAll(".A4")[i].querySelector(".header-inner").clientHeight;
+      let contactHeight = document.querySelectorAll(".A4")[i].querySelector(".contact") === null || document.querySelectorAll(".A4")[i].querySelector(".contact") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".contact").clientHeight;
+      let experienceHeight = document.querySelectorAll(".A4")[i].querySelector(".experience") === null || document.querySelectorAll(".A4")[i].querySelector(".experience") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".experience").clientHeight;
+      let educationHeight = document.querySelectorAll(".A4")[i].querySelector(".education") === null || document.querySelectorAll(".A4")[i].querySelector(".education") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".education").clientHeight;
+      let skillsHeight = document.querySelectorAll(".A4")[i].querySelector(".skills") === null || document.querySelectorAll(".A4")[i].querySelector(".skills") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".skills").clientHeight;
+      let projectsHeight = document.querySelectorAll(".A4")[i].querySelector(".projects") === null || document.querySelectorAll(".A4")[i].querySelector(".projects") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".projects").clientHeight;
+      let certificationsHeight = document.querySelectorAll(".A4")[i].querySelector(".certifications") === null || document.querySelectorAll(".A4")[i].querySelector(".certifications") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".certifications").clientHeight;
+      let achievementsHeight = document.querySelectorAll(".A4")[i].querySelector(".achievements") === null || document.querySelectorAll(".A4")[i].querySelector(".achievements") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".achievements").clientHeight;
+      let coursesHeight = document.querySelectorAll(".A4")[i].querySelector(".courses") === null || document.querySelectorAll(".A4")[i].querySelector(".courses") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".courses").clientHeight;
+      let languagesHeight = document.querySelectorAll(".A4")[i].querySelector(".languages") === null || document.querySelectorAll(".A4")[i].querySelector(".languages") ===  undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".languages").clientHeight;
 // GETTING TOTAL HEIGHTS FOR LEFT, RIGHT, AND ONEPAGE COLUMNS 
 
- let leftHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight);
- let rightHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight);
- let onePageHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight);
+      let leftHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight);
+      let rightHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight);
+      let onePageHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight);
 
-      // SITUATION 1 - IF THE CV STRUCTURE IS A 2 COLUMN STRUCTURE
+// SITUATION 1 - IF THE CV STRUCTURE IS A 2 COLUMN STRUCTURE
       if (this.state.style.displayOneColumn === false) {
-        if (leftHeight > 1100) {
-          let lastItem = document
-            .querySelectorAll(".A4")
-            [i].querySelector(".left").lastChild.classList[0];
-          Pages[i + 1][lastItem].unshift(
-            Pages[i][lastItem][Pages[i][lastItem].length - 1]
-          );
+        if(leftHeight > 2000){
+          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
+          Pages[i + 1][lastItem] = Pages[i][lastItem]
+          Pages[i][lastItem] = []
+          this.setState({ userData: Pages });
+        }
+        if (leftHeight > 1100 && leftHeight < 2000) {
+          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
+          Pages[i + 1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length - 1]);
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
         }
-        if (rightHeight > 1100) {
-          let lastItem = document
-            .querySelectorAll(".A4")
-            [i].querySelector(".right").lastChild.classList[0];
-          Pages[i + 1][lastItem].unshift(
-            Pages[i][lastItem][Pages[i][lastItem].length - 1]
-          );
+        if(rightHeight > 2000){
+          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0];
+          Pages[i + 1][lastItem] = Pages[i][lastItem]
+          Pages[i][lastItem] = []
+          this.setState({ userData: Pages });
+        }
+        if(rightHeight > 1100 && rightHeight < 2000) {
+          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0];
+          Pages[i + 1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length - 1]);
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
         }
         if (document.querySelectorAll(".A4")[i + 1]) {
-          if (
-            document.querySelectorAll(".A4")[i + 1].querySelector(".left")
-              .firstChild == null
-          ) {
-          } else {
-            if (
-              leftHeight +
-                parseInt(
-                  document.querySelectorAll(".A4")[i + 1].querySelector(".left")
-                    .firstChild.lastChild.firstChild.clientHeight
-                ) <
-              1100
-            ) {
-              let Item = document
-                .querySelectorAll(".A4")
-                [i + 1].querySelector(".left").firstChild.classList[0];
+          if (document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild == null) {} 
+          else {
+            if (leftHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.lastChild.firstChild.clientHeight) < 1000) {
+              let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.classList[0];
               console.log(Item);
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
@@ -237,106 +249,52 @@ class ThemeContextProvider extends Component {
           }
         }
         if (document.querySelectorAll(".A4")[i + 1]) {
-          if (
-            document.querySelectorAll(".A4")[i + 1].querySelector(".right")
-              .firstChild == null ||
-            document.querySelectorAll(".A4")[i + 1].querySelector(".right")
-              .firstChild == undefined
-          ) {
+          if (document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild == null || document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild == undefined) {
           } else {
-            if (
-              document.querySelectorAll(".A4")[i + 1].querySelector(".right")
-                .firstChild.lastChild.firstChild.classList[0] === "skill-boxes"
-            ) {
-              if (
-                rightHeight +
-                  parseInt(
-                    document
-                      .querySelectorAll(".A4")
-                      [i + 1].querySelector(".right").firstChild.lastChild
-                      .firstChild.firstChild.clientHeight
-                  ) <
-                1100
-              ) {
-                let Item = document
-                  .querySelectorAll(".A4")
-                  [i + 1].querySelector(".right").firstChild.classList[0];
-                console.log(Item);
-                Pages[i][Item].push(Pages[i + 1][Item][0]);
-                Pages[i + 1][Item].shift();
-                this.setState({ userData: Pages });
-              }
+
+            if(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.classList[0] === "skill-boxes"){
+              if (rightHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.firstChild.clientHeight) <1000) {
+                let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.classList[0];
+                    console.log(Item);
+                    Pages[i][Item].push(Pages[i + 1][Item][0]);
+                    Pages[i + 1][Item].shift();
+                    this.setState({ userData: Pages });
+                  }
             } else {
-              if (
-                rightHeight +
-                  parseInt(
-                    document
-                      .querySelectorAll(".A4")
-                      [i + 1].querySelector(".right").firstChild.lastChild
-                      .firstChild.clientHeight
-                  ) <=
-                1050
-              ) {
-                console.log(
-                  parseInt(
-                    document
-                      .querySelectorAll(".A4")
-                      [i + 1].querySelector(".right").firstChild.lastChild
-                      .firstChild.clientHeight
-                  )
-                );
-                let Item = document
-                  .querySelectorAll(".A4")
-                  [i + 1].querySelector(".right").firstChild.classList[0];
-                console.log(Item);
-                Pages[i][Item].push(Pages[i + 1][Item][0]);
-                Pages[i + 1][Item].shift();
-                // if (Item !== "languages") {
-                  this.setState({ userData: Pages });
-                // }
-              }
-            }
+            if (rightHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.clientHeight) <1000) {
+              console.log(parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.clientHeight))
+              let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.classList[0];
+                  console.log(Item);
+                  Pages[i][Item].push(Pages[i + 1][Item][0]);
+                  Pages[i + 1][Item].shift();
+                  if(Item !== "languages"){this.setState({ userData: Pages })}
+                }
+            }}
           }
         }
-      }
 
       if (this.state.style.displayOneColumn !== false) {
-        if (onePageHeight > 1100) {
-          let lastItem = document
-            .querySelectorAll(".A4")
-            [i].querySelector(".left").lastChild.classList[0];
+        if(onePageHeight > 2000){
+          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
+          Pages[i + 1][lastItem] = Pages[i][lastItem]
+          Pages[i][lastItem] = []
+          this.setState({ userData: Pages });
+        }
+        if (onePageHeight > 1100 && onePageHeight < 2000) {
+          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(
             Pages[i][lastItem][Pages[i][lastItem].length - 1]
           );
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
-          // }
-        }
-
-        // if (rightHeight > 1100) {
-        //   let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0];
-        //   Pages[i + 1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length - 1]);
-        //   Pages[i][lastItem].pop();
-        //   this.setState({ userData: Pages });
-        //   i = 0
         // }
+        }
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
-            document.querySelectorAll(".A4")[i + 1].querySelector(".left")
-              .firstChild == null
-          ) {
+            document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild == null) {
           } else {
-            if (
-              onePageHeight +
-                parseInt(
-                  document.querySelectorAll(".A4")[i + 1].querySelector(".left")
-                    .firstChild.lastChild.firstChild.clientHeight
-                ) <=
-              1100
-            ) {
-              let Item = document
-                .querySelectorAll(".A4")
-                [i + 1].querySelector(".left").firstChild.classList[0];
+            if (onePageHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.lastChild.firstChild.clientHeight) < 1000) {
+              let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.classList[0];
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
             }
@@ -345,7 +303,6 @@ class ThemeContextProvider extends Component {
       }
     });
   }
-
   async componentDidMount() {
     console.log("diplay one column is =>" + this.state.style.displayOneColumn);
     if (
@@ -408,7 +365,7 @@ class ThemeContextProvider extends Component {
         ? response.data.profileHeadline
         : "Professional Title";
       newObject.userData[0].about = response.data.profileAbout
-        ? response.data.profileAbout
+        ? response.data.profileAbout.join(" ")
         : ["Short and engaging pitch about yourself"];
       newObject.userData[0].profilePic = `http://localhost:5000/static/${profile}.jpg`
         ? `http://localhost:5000/static/${profile}.jpg`
@@ -641,12 +598,15 @@ class ThemeContextProvider extends Component {
     this.setState({ userData: newObject });
   };
   modifyAbout = (page, field, value) => {
+    console.log(page)
+    console.log(field)
+    console.log(value)
     let newObject = [...this.state.userData];
     if (field === "intro") {
       newObject[page].intro = value;
     }
     if (field === "about") {
-      newObject[page].about = [...newObject[page].about, value];
+      newObject[page].about = value;
     }
     this.setState({ userData: newObject });
   };
@@ -1201,47 +1161,43 @@ class ThemeContextProvider extends Component {
 
   // These functions are regarding design tools of CvBuilder and CoverLetterBuilder
   changeColor = e => {
-    const newObj = { ...this.state.style };
-    newObj.color = e.target.name;
-    this.setState({ style: newObj });
+    const newObj = { ...this.state };
+    newObj.style.color = e.target.name;
+    this.setState(newObj);
   };
 
   changeFontFamily = e => {
-    const newObj = { ...this.state.style };
-    newObj.font = e.target.title;
-    this.setState({ style: newObj });
+    const newObj = { ...this.state };
+    newObj.style.font = e.target.title;
+    this.setState(newObj);
   };
 
   handleFontSize = e => {
     if (e.target.title === "small") {
-      const newObj = { ...this.state.style };
-      newObj.size1 = "1.2rem";
-      newObj.size2 = "0.9rem";
-      newObj.size3 = "0.7rem";
-      newObj.size4 = "0.6rem";
+      const newObj = { ...this.state };
+      newObj.style.size1 = "1.2rem";
+      newObj.style.size2 = "0.9rem";
+      newObj.style.size3 = "0.7rem";
+      newObj.style.size4 = "0.6rem";
       this.setState({
-        style: newObj
+        style: newObj.style
       });
     }
     if (e.target.title === "medium") {
-      const newObj = { ...this.state.style };
-      newObj.size1 = "";
-      newObj.size2 = "";
-      newObj.size3 = "";
-      newObj.size4 = "";
-      this.setState({
-        style: newObj
-      });
+      const newObj = { ...this.state };
+      newObj.style.size1 = "";
+      newObj.style.size2 = "";
+      newObj.style.size3 = "";
+      newObj.style.size4 = "";
+      this.setState(newObj);
     }
     if (e.target.title === "big") {
-      const newObj = { ...this.state.style };
-      newObj.size1 = "1.6rem";
-      newObj.size2 = "1.3rem";
-      newObj.size3 = "1.1rem";
-      newObj.size4 = "1.0rem";
-      this.setState({
-        style: newObj
-      });
+      const newObj = { ...this.state };
+      newObj.style.size1 = "1.6rem";
+      newObj.style.size2 = "1.3rem";
+      newObj.style.size3 = "1.1rem";
+      newObj.style.size4 = "1.0rem";
+      this.setState(newObj);
     }
   };
 
@@ -1340,6 +1296,26 @@ class ThemeContextProvider extends Component {
         achievements: this.state.userData.map(el => el.achievements).flat(),
         courses: this.state.userData.map(el => el.courses).flat(),
         languages: this.state.userData.map(el => el.languages).flat()
+      },
+      {
+        experience: [],
+        education: [],
+        skills: [],
+        projects: [],
+        certifications: [],
+        achievements: [],
+        courses: [],
+        languages: []
+      },
+      {
+        experience: [],
+        education: [],
+        skills: [],
+        projects: [],
+        certifications: [],
+        achievements: [],
+        courses: [],
+        languages: []
       },
       {
         experience: [],
