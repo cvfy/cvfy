@@ -18,11 +18,6 @@ class Achievements extends React.Component {
             />
           ));
           return (
-<<<<<<< HEAD
-            <div className="achievements" style={{padding: `${context.style.displayOneColumn === false ? "3px 25px" : "5px 40px"}`}}>
-              <div className="sectionHeader" style={{justifyContent: `${context.style.displayOneColumn === false ? "space-between" : "center"}`}} >
-                <div className="section-label" style={{ color: context.style.color }}>
-=======
             <div
               className="achievements"
               style={{
@@ -47,7 +42,6 @@ class Achievements extends React.Component {
                   className="section-label"
                   style={{ color: context.style.color }}
                 >
->>>>>>> 8b6e2b47ab66fe8aa9e15414730a856c9c652fc5
                   ACHIEVEMENTS
                 </div>
               </div>

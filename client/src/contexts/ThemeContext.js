@@ -219,7 +219,7 @@ class ThemeContextProvider extends Component {
           Pages[i][lastItem] = []
           this.setState({ userData: Pages });
         }
-        if (leftHeight > 1100 && leftHeight < 2000) {
+        if (leftHeight > 1050 && leftHeight < 2000) {
           let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length - 1]);
           Pages[i][lastItem].pop();
@@ -231,7 +231,7 @@ class ThemeContextProvider extends Component {
           Pages[i][lastItem] = []
           this.setState({ userData: Pages });
         }
-        if(rightHeight > 1100 && rightHeight < 2000) {
+        if(rightHeight > 1050 && rightHeight < 2000) {
           let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length - 1]);
           Pages[i][lastItem].pop();
