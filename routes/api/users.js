@@ -231,6 +231,49 @@ const getCVFromServer = (req, res, next) => {
 };
 router.get("/resume/cv/currentCV/:id", getCVFromServer);
 
+
+// DELETE CV FROM SERVER 
+const deleteCVFromServer = (req, res, next) => {
+  User.findByIdAndUpdate(
+    req.params.id1, { $pull: { "cv": { id: req.params.id2 } } }, { safe: true, upsert: true },
+    
+    function(err, success) {
+      if (err) {
+        console.log(err);
+      } else if (success) {
+        console.log(success.cv.map(el => el.id))
+        res.send(success.cv);
+      }
+    }
+  );
+};
+router.post("/resume/cv/delete/:id1/:id2", deleteCVFromServer);
+
+// DUPLICATE A CV ON SERVER
+
+const duplicateCVFromServer = async(req, res, next) => {
+  if (!req.params.id.includes("-")) {
+    //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
+            User.findOneAndUpdate(
+              { _id: req.params.id },
+              { $push: { cv: req.body } },
+              async function(error, success) {
+                if (error) {
+                  console.log(error);
+                } else {
+                  await giveMeScreenShot(req.body.id);
+                  console.log("New CV Created!!!!");
+                  res.send(success.cv);
+                }
+              }
+            );
+   
+    //  giveMeScreenShot(req.body.id)
+  } else {
+  }
+};
+router.post("/resume/cv/duplicate/:id", duplicateCVFromServer);
+
 const getALLCVFromServer = (req, res, next) => {
   User.findOne({ _id: req.params.id }, function(err, success) {
     if (err) {

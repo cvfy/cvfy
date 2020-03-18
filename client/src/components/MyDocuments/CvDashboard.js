@@ -5,6 +5,27 @@ import "../../styles/dashboard.css";
 import axios from "axios";
 import store from "./../../store.js";
 
+function guidGenerator() {
+  var S4 = function() {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  };
+  return (
+    S4() +
+    S4() +
+    "-" +
+    S4() +
+    "-" +
+    S4() +
+    "-" +
+    S4() +
+    "-" +
+    S4() +
+    S4() +
+    S4()
+  );
+}
+const idG = guidGenerator();
+
 class CvDashboard extends React.Component {
   constructor() {
     super();
@@ -35,7 +56,38 @@ class CvDashboard extends React.Component {
         } //this.setState(res.data)
       );
   }
+  componentDidUpdate() {
+    axios
+      .get(
+        `http://localhost:5000/api/users/resume/cv/allCV/${this.getUserId()}`
+      )
+      .then(
+        res => {
+          // res.data.cv[0].loadingSaveCv = true;
+          return this.setState({ resume: res.data });
+        } //this.setState(res.data)
+      );
+  }
 
+deleteCV = async id => {
+  const response = await axios
+  .post(
+    `http://localhost:5000/api/users/resume/cv/delete/${this.getUserId()}/${id}`
+  )
+  this.setState({resume: response.data})
+}
+  setLocalStorage = id => {
+    localStorage.setItem("currentCV", id);
+    window.location.href = "http://localhost:3000/create-cv";
+  };
+
+duplicateCV = async obj => {
+  obj.id = await idG;
+  const response = await axios
+  .post(
+    `http://localhost:5000/api/users/resume/cv/duplicate/${this.getUserId()}`, obj)
+  this.setState({resume: response.data})
+}
   setLocalStorage = id => {
     localStorage.setItem("currentCV", id);
     window.location.href = "http://localhost:3000/create-cv";
@@ -116,7 +168,7 @@ class CvDashboard extends React.Component {
         </div>
 
         {this.state.resume.map((el, i) => (
-          <div className="cvBox2">
+          <div className="cvBox2" key={i}>
             <img
               
               src={`http://localhost:5000/static/${el.id}.jpg`}
@@ -138,7 +190,6 @@ class CvDashboard extends React.Component {
 
               <div className="optionsMenuDiv" style={{ display: display }}>
                 <div
-                  onClick={() => this.setLocalStorage(el.id)}
                   className="optionInnerDiv gotBorder"
                   onClick={() => this.setLocalStorage(el.id)}
                 >
@@ -149,7 +200,7 @@ class CvDashboard extends React.Component {
                 <div
                   className="optionInnerDiv gotBorder"
                   data-id={el.id}
-                  onClick={this.cloneDocument}
+                  onClick={() => this.duplicateCV(el)}
                 >
                   <i className="far fa-clone cloneOption" title="clone"></i>
                   <span>Clone</span>
@@ -158,7 +209,7 @@ class CvDashboard extends React.Component {
                 <div
                   className="optionInnerDiv deleteDiv"
                   data-id={el.id}
-                  onClick={() => this.deleteDocument(el)}
+                  onClick={() => this.deleteCV(el.id)}
                 >
                   <i
                     className="deleteOption far fa-trash-alt"
@@ -174,5 +225,4 @@ class CvDashboard extends React.Component {
     );
   }
 }
-
 export default CvDashboard;
