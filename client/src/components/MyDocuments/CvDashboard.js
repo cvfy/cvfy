@@ -96,7 +96,7 @@ class CvDashboard extends React.Component {
         {this.state.resume.map(el => (
           <div className="cvBox2">
             <img
-              onClick={() => this.setLocalStorage(el.id)}
+              
               src={`http://localhost:5000/static/${el.id}.jpg`}
               alt={el.id}
             />
@@ -115,10 +115,12 @@ class CvDashboard extends React.Component {
 
               <div className="optionsMenuDiv" style={{ display: display }}>
                 <div
+                  onClick={() => this.setLocalStorage(el.id)}
                   className="optionInnerDiv gotBorder"
                   // onClick={() => editDocument(need to write this function)}
                 >
-                  <i className="far fa-edit editOption" title="edit"></i>
+                  <i  
+                  className="far fa-edit editOption" title="edit"></i>
                   <span>Edit</span>
                 </div>
                 <div
