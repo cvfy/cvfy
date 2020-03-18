@@ -101,12 +101,7 @@ class CvDashboard extends React.Component {
   render() {
     return (
       <div className="CV_Dashboard_MainContainer">
-        <div
-          className="cvBox2"
-          animateIn="fadeIn"
-          animateOnce="true"
-          duration="0.5s"
-        >
+        <div className="cvBox2">
           <div className="AddCV">
             <img
               onClick={() => this.setLocalStorage("")}

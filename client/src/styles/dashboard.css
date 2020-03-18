@@ -7,8 +7,7 @@
   margin-top: -10px;
   padding-top: 30px;
   background: linear-gradient(to right, #c7d7e6, #c7d7e633);
-  /* box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15); */
-  z-index: 7;
+  z-index: 0;
 }
 
 .CV_Dashboard_MainContainer {
@@ -19,7 +18,6 @@
   justify-content: center;
   padding: 30px 0;
   background: #2b3a42;
-  /* box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15); */
   z-index: 0;
   margin: 0;
 }
@@ -32,8 +30,7 @@
   justify-content: center;
   padding: 30px 0;
   background-color: #2b3a42;
-  /* box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15); */
-  z-index: 7;
+  z-index: 0;
   margin: 0;
 }
 
@@ -116,6 +113,22 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  color: rgb(25, 69, 112);
+  animation: pulse 1s 2;
+}
+
+@keyframes pulse {
+  0% {
+    color: rgb(25, 69, 112);
+  }
+
+  50% {
+    color: #59afb8;
+  }
+
+  100% {
+    color: rgb(25, 69, 112);
+  }
 }
 
 .icon3Dots:hover {
@@ -144,6 +157,7 @@
   right: -60px;
   color: #fff;
   display: none;
+  transition: all 1s ease;
 }
 
 .gotBorder {
