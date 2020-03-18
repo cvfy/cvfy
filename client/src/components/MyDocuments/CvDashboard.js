@@ -28,10 +28,7 @@ const idG = guidGenerator();
 class CvDashboard extends React.Component {
   constructor() {
     super();
-    this.state = {
-      display: "none",
-      resume: []
-    };
+    this.state = { resume: [] };
   }
 
   getUserId() {
@@ -47,19 +44,10 @@ class CvDashboard extends React.Component {
       .then(
         res => {
           // res.data.cv[0].loadingSaveCv = true;
-          return this.setState({ resume: res.data });
-        } //this.setState(res.data)
-      );
-  }
-  componentDidUpdate() {
-    axios
-      .get(
-        `http://localhost:5000/api/users/resume/cv/allCV/${this.getUserId()}`
-      )
-      .then(
-        res => {
-          // res.data.cv[0].loadingSaveCv = true;
-          return this.setState({ resume: res.data });
+          const newArr = res.data.map(el => {
+            return { obj: el, show: false };
+          });
+          return this.setState({ resume: newArr });
         } //this.setState(res.data)
       );
   }
@@ -68,7 +56,11 @@ class CvDashboard extends React.Component {
     const response = await axios.post(
       `http://localhost:5000/api/users/resume/cv/delete/${this.getUserId()}/${id}`
     );
-    this.setState({ resume: response.data });
+    const newArr = response.data.map(el => {
+      return { obj: el, show: false };
+    });
+    this.setState({ resume: newArr });
+    window.location.reload(false);
   };
   setLocalStorage = id => {
     localStorage.setItem("currentCV", id);
@@ -76,12 +68,12 @@ class CvDashboard extends React.Component {
   };
 
   duplicateCV = async obj => {
-    obj.id = await idG;
-    const response = await axios.post(
+    obj.id = idG;
+    await axios.post(
       `http://localhost:5000/api/users/resume/cv/duplicate/${this.getUserId()}`,
       obj
     );
-    this.setState({ resume: response.data });
+    window.location.reload(false);
   };
   setLocalStorage = id => {
     localStorage.setItem("currentCV", id);
@@ -107,7 +99,6 @@ class CvDashboard extends React.Component {
   };
 
   render() {
-    const { display } = this.state;
     return (
       <div className="CV_Dashboard_MainContainer">
         <div
@@ -129,8 +120,8 @@ class CvDashboard extends React.Component {
         {this.state.resume.map((el, i) => (
           <div className="cvBox2" key={i}>
             <img
-              src={`http://localhost:5000/static/${el.id}.jpg`}
-              alt={el.id}
+              src={`http://localhost:5000/static/${el.obj.id}.jpg`}
+              alt={el.obj.id}
             />
             <div
               className="MoreOptions"
@@ -140,18 +131,18 @@ class CvDashboard extends React.Component {
             >
               <i className="fas fa-ellipsis-h icon3Dots"></i>
 
-              <div className="optionsMenuDiv" style={{ display: display }}>
+              <div className="optionsMenuDiv">
                 <div
                   className="optionInnerDiv gotBorder"
-                  onClick={() => this.setLocalStorage(el.id)}
+                  onClick={() => this.setLocalStorage(el.obj.id)}
                 >
                   <i className="far fa-edit editOption" title="edit"></i>
                   <span>Edit</span>
                 </div>
                 <div
                   className="optionInnerDiv gotBorder"
-                  data-id={el.id}
-                  onClick={() => this.duplicateCV(el)}
+                  data-id={el.obj.id}
+                  onClick={() => this.duplicateCV(el.obj)}
                 >
                   <i className="far fa-clone cloneOption" title="clone"></i>
                   <span>Clone</span>
@@ -159,8 +150,8 @@ class CvDashboard extends React.Component {
 
                 <div
                   className="optionInnerDiv deleteDiv"
-                  data-id={el.id}
-                  onClick={() => this.deleteCV(el.id)}
+                  data-id={el.obj.id}
+                  onClick={() => this.deleteCV(el.obj.id)}
                 >
                   <i
                     className="deleteOption far fa-trash-alt"
