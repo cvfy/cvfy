@@ -4,7 +4,12 @@ import Footer from "./Footer";
 import ProfilePicture from "../assets/user.png";
 import ScrollAnimation from "react-animate-on-scroll";
 import "../styles/myAccount.css";
+import store from "./../store";
 
+function aFunction(type) {
+  var newState = store.getState();
+  return newState.auth.user[type];
+}
 const MyAccount = () => {
   return (
     <>
@@ -17,7 +22,7 @@ const MyAccount = () => {
             </div>
           </ScrollAnimation>
           <ScrollAnimation animateIn="fadeInUp delay-1s">
-            <h1>Michael Levinschi</h1>
+            <h1>{aFunction("name")}</h1>
           </ScrollAnimation>
         </div>
         <div className="ProfileData">
@@ -30,18 +35,18 @@ const MyAccount = () => {
             </ScrollAnimation>
             <div className="FieldRow">
               <ScrollAnimation className="field" animateIn="fadeInUp delay-1s">
-                <label>First Name</label>
-                <div className="FirstNameField">Michael</div>
+                <label>Full Name</label>
+                <div className="FirstNameField">{aFunction("name")}</div>
               </ScrollAnimation>
               <ScrollAnimation className="field" animateIn="fadeInUp delay-1s">
-                <label>Last Name</label>
-                <div className="LastNameField">Levitschi</div>
+                <label>Email</label>
+                <div className="EmailField">{aFunction("email")}</div>
               </ScrollAnimation>
             </div>
             <div className="FieldRow">
               <ScrollAnimation className="field" animateIn="fadeInUp delay-1s">
-                <label>Email</label>
-                <div className="EmailField">Levitschi@gmail.com</div>
+              <label>Password</label>
+                <div className="PasswordField">**********</div>
               </ScrollAnimation>
               <ScrollAnimation className="field" animateIn="fadeInUp delay-1s">
                 <label>Password</label>
@@ -81,5 +86,7 @@ const MyAccount = () => {
     </>
   );
 };
+
+store.subscribe(aFunction);
 
 export default MyAccount;
