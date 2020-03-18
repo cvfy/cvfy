@@ -52,29 +52,32 @@ class CvDashboard extends React.Component {
       .then(
         res => {
           // res.data.cv[0].loadingSaveCv = true;
-          return this.setState({ resume: res.data });
+          const newArr = res.data.map(el => { return {obj: el, show: false}})
+          return this.setState({ resume: newArr });
         } //this.setState(res.data)
       );
   }
-  componentDidUpdate() {
-    axios
-      .get(
-        `http://localhost:5000/api/users/resume/cv/allCV/${this.getUserId()}`
-      )
-      .then(
-        res => {
-          // res.data.cv[0].loadingSaveCv = true;
-          return this.setState({ resume: res.data });
-        } //this.setState(res.data)
-      );
-  }
+  // componentDidUpdate() {
+  //   axios
+  //     .get(
+  //       `http://localhost:5000/api/users/resume/cv/allCV/${this.getUserId()}`
+  //     )
+  //     .then(
+  //       res => {
+  //         const newArr = res.data.map(el => { return {obj: el, show: false}})
+  //         return this.setState({ resume: newArr });
+  //       } //this.setState(res.data)
+  //     );
+  // }
 
 deleteCV = async id => {
   const response = await axios
   .post(
     `http://localhost:5000/api/users/resume/cv/delete/${this.getUserId()}/${id}`
   )
-  this.setState({resume: response.data})
+  const newArr = response.data.map(el => { return {obj: el, show: false}})
+           this.setState({ resume: newArr });
+          window.location.reload(false)
 }
   setLocalStorage = id => {
     localStorage.setItem("currentCV", id);
@@ -82,17 +85,33 @@ deleteCV = async id => {
   };
 
 duplicateCV = async obj => {
-  obj.id = await idG;
-  const response = await axios
+  obj.id = idG;
+ await axios
   .post(
     `http://localhost:5000/api/users/resume/cv/duplicate/${this.getUserId()}`, obj)
-  this.setState({resume: response.data})
+    // const newArr = response.data.map(el => { return {obj: el, show: false}})
+    //        this.setState({ resume: newArr });
+          window.location.reload(false)
+
 }
   setLocalStorage = id => {
     localStorage.setItem("currentCV", id);
     window.location.href = "http://localhost:3000/create-cv";
   };
 
+  showMenu = id => {
+    console.log(id)
+    const newArr = [...this.state.resume]
+    newArr.map( el => { if(el.obj.id === id){ return el.show = true}})
+    this.setState({resume: newArr})
+    console.log(this.state.resume)
+  }
+  hideMenu = id => {
+    console.log(id)
+    const newArr = [...this.state.resume]
+    newArr.map( el => { if(el.obj.id === id) return el.show = false})
+    this.setState({resume: newArr})
+  }
   // cloneDocument = id => {
   //   const newEl = React.cloneElement(this.myRef, {});
   // }
@@ -171,27 +190,29 @@ duplicateCV = async obj => {
           <div className="cvBox2" key={i}>
             <img
               
-              src={`http://localhost:5000/static/${el.id}.jpg`}
-              alt={el.id}
+              src={`http://localhost:5000/static/${el.obj.id}.jpg`}
+              alt={el.obj.id}
             />
             <div
               className="MoreOptions"
               tabIndex="0"
-              data-id={el.id}
+              data-id={el.obj.id}
               ref={input => (this.my_refs["MoreOptions"] = input)}
               // ref={el => (this.myRef.current = el)}
-              onFocus={() => this.setState({ display: "" })}
-              onBlur={() => this.setState({ display: "none" })}
+              onFocus={() => this.showMenu(el.obj.id)}
+              onBlur={() => this.hideMenu(el.obj.id)}
               // onClick={this.focusByClassName}
               // onFocus={() => setDisplay("")}
               // onBlur={() => setDisplay("none")}
             >
               <i className="fas fa-ellipsis-h icon3Dots"></i>
 
-              <div className="optionsMenuDiv" style={{ display: display }}>
+              <div className="optionsMenuDiv"               
+              style={{display: `${this.state.resume.filter(x => x.obj.id === el.obj.id)[0].show === false ? "none" : ""}`}}
+>
                 <div
                   className="optionInnerDiv gotBorder"
-                  onClick={() => this.setLocalStorage(el.id)}
+                  onClick={() => this.setLocalStorage(el.obj.id)}
                 >
                   <i  
                   className="far fa-edit editOption" title="edit"></i>
@@ -199,8 +220,8 @@ duplicateCV = async obj => {
                 </div>
                 <div
                   className="optionInnerDiv gotBorder"
-                  data-id={el.id}
-                  onClick={() => this.duplicateCV(el)}
+                  data-id={el.obj.id}
+                  onClick={() => this.duplicateCV(el.obj)}
                 >
                   <i className="far fa-clone cloneOption" title="clone"></i>
                   <span>Clone</span>
@@ -208,8 +229,8 @@ duplicateCV = async obj => {
 
                 <div
                   className="optionInnerDiv deleteDiv"
-                  data-id={el.id}
-                  onClick={() => this.deleteCV(el.id)}
+                  data-id={el.obj.id}
+                  onClick={() => this.deleteCV(el.obj.id)}
                 >
                   <i
                     className="deleteOption far fa-trash-alt"
