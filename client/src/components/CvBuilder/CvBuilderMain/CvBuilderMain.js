@@ -13,9 +13,7 @@ import Courses from "./Courses/Courses";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 
 class CvBuilderMain extends React.Component {
-  componentWillUnmount(){
-  localStorage.setItem("currentCV", "")
-  }
+
   render() {
     return (
       <ThemeContext.Consumer>

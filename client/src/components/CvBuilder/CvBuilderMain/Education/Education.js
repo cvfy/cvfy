@@ -7,7 +7,6 @@ class Education extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { addEducationGroup } = context;
           if (context.userData[this.props.index].education.length !== 0) {
             const group = context.userData[
               this.props.index

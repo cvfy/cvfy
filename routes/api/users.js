@@ -322,9 +322,11 @@ const getCoverLetterFromServer = (req, res, next) => {
   );
 };
 router.get("/resume/cv/currentCover/:id", getCoverLetterFromServer);
-
+let statusDelete = false
 // DELETE CV FROM SERVER 
 const deleteCVFromServer = (req, res, next) => {
+  if(statusDelete === false){
+    statusDelete = true
   User.findByIdAndUpdate(
     req.params.id1, { $pull: { "cv": { id: req.params.id2 } } }, { safe: true, upsert: true },
     
@@ -333,15 +335,19 @@ const deleteCVFromServer = (req, res, next) => {
         console.log(err);
       } else if (success) {
         console.log(success.cv.map(el => el.id))
-        res.send(success.cv);
+        res.send(success.cv.filter(el => el.id !== req.params.id2));
       }
     }
   );
+  statusDelete = false
+  }
 };
 router.post("/resume/cv/delete/:id1/:id2", deleteCVFromServer);
 
 // DELETE SPECIFIC COVER LETTER FROM SERVER 
 const deleteCoverLetterFromServer = (req, res, next) => {
+  if(statusDelete === false){
+    statusDelete = true
   User.findByIdAndUpdate(
     req.params.id1, { $pull: { "coverLetters": { id: req.params.id2 } } }, { safe: true, upsert: true },
     
@@ -349,16 +355,20 @@ const deleteCoverLetterFromServer = (req, res, next) => {
       if (err) {
         console.log(err);
       } else if (success) {
-        res.send(success.coverLetters);
+        res.send(success.coverLetters.filter(el => el.id !== req.params.id2));
       }
     }
   );
+  statusDelete = false
+  }
 };
 router.post("/resume/cover/deleteCover/:id1/:id2", deleteCoverLetterFromServer);
 
 // DUPLICATE A CV ON SERVER
-
+let statusDuplicate = false
 const duplicateCVFromServer = async(req, res, next) => {
+  if(statusDuplicate === false){
+     statusDuplicate = true
   if (!req.params.id.includes("-")) {
     //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
             User.findOneAndUpdate(
@@ -370,20 +380,24 @@ const duplicateCVFromServer = async(req, res, next) => {
                 } else {
                   await giveMeScreenShot(req.body.id);
                   console.log("New CV Created!!!!");
-                  res.send(success.cv);
+                  res.send([...success.cv, req.body]);
                 }
               }
             );
-   
+   statusDuplicate = false
     //  giveMeScreenShot(req.body.id)
   } else {
   }
+}
+
 };
 router.post("/resume/cv/duplicate/:id", duplicateCVFromServer);
 
 // DUPLICATE A COVER LETTER ON SERVER
 
 const duplicateCoverLetterFromServer = async(req, res, next) => {
+  if(statusDuplicate === false){
+    statusDuplicate = true
   if (!req.params.id.includes("-")) {
     //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
             User.findOneAndUpdate(
@@ -393,16 +407,17 @@ const duplicateCoverLetterFromServer = async(req, res, next) => {
                 if (error) {
                   console.log(error);
                 } else {
-                  //await giveMeScreenShot(req.body.id);
+                  await giveMeScreenShotCover(req.body.id);
                   console.log("New CV Created!!!!");
-                  res.send(success.coverLetters);
+                  res.send([...success.coverLetters, req.body ]);
                 }
               }
             );
-   
+   statusDuplicate = false
     //  giveMeScreenShot(req.body.id)
   } else {
   }
+}
 };
 router.post("/resume/cover/duplicateCover/:id", duplicateCoverLetterFromServer);
 

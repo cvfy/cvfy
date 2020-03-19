@@ -3,7 +3,7 @@ import ADD2 from "../../assets/add.png";
 import "../../styles/dashboard.css";
 import axios from "axios";
 import store from "./../../store.js";
-
+let status = false
 function guidGenerator() {
   var S4 = function() {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
@@ -29,6 +29,8 @@ class CoverDashboard extends React.Component {
   constructor() {
     super();
     this.state = { covers: [] };
+    this.deleteCover = this.deleteCover.bind(this)
+    this.duplicateCover = this.duplicateCover.bind(this)
   }
 
   getUserId() {
@@ -46,13 +48,16 @@ class CoverDashboard extends React.Component {
       );
   }
 
-  deleteCV = async (e, id) => {
-    e.preventDefault()
+  deleteCover = async (e, id) => {
+    console.log("delete cover")
+    // e.preventDefault()
     const response = await axios.post(
-      `http://localhost:5000/api/users/resume/cover/deleteCover/${this.getUserId()}/${id}`
-    );
-    this.setState({ covers: response.data });
-    // window.location.reload(false);
+      `http://localhost:5000/api/users/resume/cover/deleteCover/${this.getUserId()}/${id}`)
+    // ).then(
+    //   res => this.setState({ covers: res.data }) //this.setState(res.data)
+    // );
+    
+    this.setState({covers: response.data})
   };
   setLocalStorage = id => {
     localStorage.setItem("currentCover", id);
@@ -60,16 +65,21 @@ class CoverDashboard extends React.Component {
   };
 
   duplicateCover = async obj => {
+    if(status === false){
+      status = true
+    console.log("duplicate cover")
     obj.id = idG;
-    await axios.post(
+    const response = await axios.post(
       `http://localhost:5000/api/users/resume/cover/duplicateCover/${this.getUserId()}`,
       obj
-    );
-    // window.location.reload(false);
+      ) //this.setState(res.data)
+      console.log(response.data)
+    await this.setState({covers: response.data})
+      console.log(this.state.covers)
+      status = false
+    }
+    else{}
   };
-  
-
-
   render() {
 
     return (
@@ -90,13 +100,12 @@ class CoverDashboard extends React.Component {
             />
             <div
               className="MoreOptions"
-              tabIndex="0"
-              onFocus={() => this.setState({ display: "" })}
-              onBlur={() => this.setState({ display: "none" })}
+              // tabIndex="0"
             >
               <i className="fas fa-ellipsis-h icon3Dots"></i>
 
-              <div className="optionsMenuDiv">
+              <div className="optionsMenuDiv"
+              >
                 <div
                   className="optionInnerDiv gotBorder"
                   onClick={() => this.setLocalStorage(el.id)}
@@ -106,8 +115,8 @@ class CoverDashboard extends React.Component {
                 </div>
                 <div
                   className="optionInnerDiv gotBorder"
+                  onClick={() => this.duplicateCover(el)}
                   data-id={el.id}
-                  onClick={() => this.duplicateCV(el)}
                 >
                   <i className="far fa-clone cloneOption" title="clone"></i>
                   <span>Clone</span>
@@ -116,7 +125,7 @@ class CoverDashboard extends React.Component {
                 <div
                   className="optionInnerDiv deleteDiv"
                   data-id={el.id}
-                  onClick={(e) => this.deleteCV(e, el.id)}
+                  onClick={(e) => this.deleteCover(e, el.id)}
                 >
                   <i
                     className="deleteOption far fa-trash-alt"
