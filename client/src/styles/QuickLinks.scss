@@ -179,22 +179,53 @@ $borderTextColor: #266678;
 }
 
 @media (max-width: 700px) {
-  .textDiv {
-    margin-top: 3.5em;
-  }
-
-  .diagram {
-    margin-top: 9em;
+  .AboutUsWrapper {
+    .topContainer {
+      .diagram {
+        .whatWeDo,
+        .ourMission,
+        .ourVision {
+          width: 150px;
+          height: 150px;
+          position: initial;
+        }
+        .diagramText {
+          font-size: 1.5rem;
+        }
+      }
+    }
   }
 }
-
 @media (max-width: 485px) {
-  .textDiv {
-    height: 50vh;
-    margin-top: 3.5em;
-  }
-
-  .diagram {
-    margin-top: 6em;
+  .AboutUsWrapper {
+    .topContainer {
+      .textDiv {
+        p {
+          font-size: 1rem;
+        }
+      }
+      .diagram {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        position: initial;
+        .diagramText {
+          font-size: 0.9rem;
+        }
+        .whatWeDo,
+        .ourMission,
+        .ourVision {
+          width: 100px;
+          height: 100px;
+          position: initial;
+        }
+      }
+    }
+    .teamWrapper .gang {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   }
 }
