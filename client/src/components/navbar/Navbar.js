@@ -11,7 +11,7 @@ import store from "./../../store.js";
 
 function aFunction() {
   var newState = store.getState();
-  return newState.auth.user.name;
+  return newState.auth.user.email;
 }
 const newState = aFunction();
 const Navbar = props => {
