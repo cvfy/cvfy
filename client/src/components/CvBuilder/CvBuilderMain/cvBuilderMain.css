@@ -426,10 +426,6 @@ input[type="text"]:focus {
   font-size: 0.8em;
 }
 
-.task::before {
-  content: "- ";
-}
-
 .task:empty {
   position: relative;
 }
