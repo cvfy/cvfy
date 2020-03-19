@@ -25,7 +25,7 @@ async function giveMePDF(resumeID) {
             // const localStorage = await page.evaluate(() =>  Object.assign({'CurrentCV': 'daca2eb2-5658-2e9f-17da-a503ee1cce7c'}, window.localStorage));
            await page.evaluate((resumeID) => {
                 // localStorage.removeItem('currentCV');
-                localStorage.setItem('jwtToken', "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNjQwNjM2NWQ5NWJjMGY5MTMwNmVjMiIsIm5hbWUiOiJBbGV4IiwiaWF0IjoxNTgzNjEzNTAxLCJleHAiOjE2MTUxNzA0Mjd9.mTDIio3Gz8YAtmbx-JqPCMr2_N8rza77xARgQs77zeQ");
+                localStorage.setItem('jwtToken', "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNTE1NzhlZTQ2MTM2MTYyYmM5YjZkYSIsIm5hbWUiOiJBbGV4IiwiZW1haWwiOiJhbGV4QGdtYWlsLmNvbSIsImlhdCI6MTU4NDU1MDIzOSwiZXhwIjoxNjE2MTA3MTY1fQ.PLlbsY7-c3M2riI1GeVyusl7XMZE5FncIhue__Gwb-c");
                 localStorage.setItem('currentCV', resumeID);
             }, resumeID);
             await page.goto('http://localhost:3000/create-cv',  { waitUntil: 'networkidle2' });

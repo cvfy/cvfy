@@ -7,6 +7,7 @@ const giveMeData = require("../../puppeteer_Data/Puppeteer.js");
 const giveMePDF = require("../../puppeteer_Data/GeneratePDF.js");
 const giveMeJobData = require("../../puppeteer_Data/StepStoneData");
 const giveMeScreenShot = require("../../puppeteer_Data/GenerateSreenShot");
+const giveMeScreenShotCover = require("../../puppeteer_Data/GenerateSreenShotCover");
 const fs = require("fs");
 
 // Load input validation
@@ -244,7 +245,7 @@ const saveCoverLettertoServer = async (req, res, next) => {
               },
               async function(err, success) {
                 if (success) {
-                  //await giveMeScreenShot(req.body.id);
+                  await giveMeScreenShotCover(req.body.id);
                   console.log("i updated the Cover Letter!!");
                   res.send("done");
                 } else {
@@ -261,7 +262,7 @@ const saveCoverLettertoServer = async (req, res, next) => {
                 if (error) {
                   console.log(error);
                 } else {
-                  //await giveMeScreenShot(req.body.id);
+                  await giveMeScreenShotCover(req.body.id);
                   console.log("New CoverLetter Created!!!!");
                   res.send("done");
                 }
@@ -353,7 +354,7 @@ const deleteCoverLetterFromServer = (req, res, next) => {
     }
   );
 };
-router.post("/resume/cv/deleteCover/:id1/:id2", deleteCoverLetterFromServer);
+router.post("/resume/cover/deleteCover/:id1/:id2", deleteCoverLetterFromServer);
 
 // DUPLICATE A CV ON SERVER
 
@@ -403,7 +404,7 @@ const duplicateCoverLetterFromServer = async(req, res, next) => {
   } else {
   }
 };
-router.post("/resume/cv/duplicateCover/:id", duplicateCoverLetterFromServer);
+router.post("/resume/cover/duplicateCover/:id", duplicateCoverLetterFromServer);
 
 // RETRIEVE ALL CVS FROM SERVER
 const getALLCVFromServer = (req, res, next) => {
@@ -427,7 +428,7 @@ const getALLCoverLettersFromServer = (req, res, next) => {
     }
   });
 };
-router.get("/resume/cv/allCovers/:id", getALLCoverLettersFromServer);
+router.get("/resume/cover/allCovers/:id", getALLCoverLettersFromServer);
 let status = false
 // StepStoneData
 const sendStepStoneData = async (req, res, next) => {

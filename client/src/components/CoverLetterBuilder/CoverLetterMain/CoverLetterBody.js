@@ -11,6 +11,7 @@ class CoverLetterBody extends React.Component {
     return (
       <CoverLetterContext.Consumer>
         {context => {
+          const { modifyCover } = context;
           return (
             <div className="cover-letter-body-wrapper">
               <div className="cover-letter-body">
@@ -18,12 +19,13 @@ class CoverLetterBody extends React.Component {
                   <span
                     className="coverLetterBody"
                     contentEditable="true"
+                    onBlur={e => modifyCover("text", e.target.innerText)}
                     suppressContentEditableWarning={true}
                     style={{
                       fontSize: context.style.size3
                     }}
                   >
-                    Dear Sir/Madam,
+                    {context.coverLetters[0].text}
                   </span>
                 </div>
               </div>
@@ -36,7 +38,7 @@ class CoverLetterBody extends React.Component {
                   style={{
                     fontSize: context.style.size3
                   }}
-                ></span>
+        ></span>
                 <span
                   className="coverLetterSignature"
                   contentEditable="true"
