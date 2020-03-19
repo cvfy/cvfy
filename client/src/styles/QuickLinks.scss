@@ -1,0 +1,200 @@
+$borderTextColor: #266678;
+
+.AboutUsWrapper {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin-top: 50px;
+  .topContainer {
+    height: 100%;
+    background: whitesmoke;
+    display: flex;
+    .textDiv {
+      display: flex;
+      width: 40%;
+      align-items: center;
+      p {
+        font-size: 1.5em;
+        box-shadow: -5px 0 20px 5px rgba(0, 0, 0, 0.5);
+        color: black;
+        border-radius: 30px;
+        text-align: center;
+        line-height: 1.7em;
+        padding: 20px;
+        margin: 50px 30px 50px 30px;
+      }
+    }
+
+    .diagram {
+      width: 60%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .diagramText {
+        font-size: 2rem;
+        display: contents;
+      }
+      .whatWeDo {
+        position: relative;
+        top: 7em;
+        left: 12em;
+      }
+      .ourMission {
+        position: relative;
+        top: -4em;
+        left: 1em;
+      }
+
+      .ourVision {
+        position: relative;
+        top: 3em;
+        left: -4em;
+      }
+      .whatWeDo,
+      .ourMission,
+      .ourVision {
+        width: 200px;
+        height: 200px;
+        border: 2px solid $borderTextColor;
+        color: $borderTextColor;
+        box-shadow: -5px 0 20px 5px rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: width 0.5s ease;
+        transition: height 0.5s ease;
+        background-color: whitesmoke;
+
+        &:hover {
+          background: $borderTextColor;
+          color: #fff;
+          cursor: pointer;
+          border: 2px solid #fff;
+          z-index: 2;
+        }
+      }
+    }
+  }
+  .teamWrapper {
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+    background: #f1f4f5;
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+    }
+    .gang {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      .memberDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top: 3em;
+
+        .memberImg {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          border: 8px solid $borderTextColor;
+        }
+
+        .memberName {
+          font-size: 2em;
+          padding-top: 0.4em;
+        }
+
+        .memberTitle {
+          font-size: 1.7em;
+          padding-top: 0.7em;
+        }
+        .memberContact {
+          padding: 0.7em;
+          line-height: 2em;
+          .portfolio,
+          .gitHub {
+            a {
+              text-decoration: none;
+              color: $borderTextColor;
+              &:hover {
+                font-weight: bold;
+                cursor: pointer;
+              }
+            }
+          }
+          .gitHub {
+            text-align: center;
+            .githubIcon {
+              font-size: 1.4em;
+              margin-right: 0.3em;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1015px) {
+  .AboutUsWrapper {
+    .topContainer {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      height: 100%;
+      .textDiv {
+        width: 100%;
+        position: initial;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p {
+          margin-top: 0;
+        }
+      }
+      .diagram {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        position: initial;
+
+        .whatWeDo,
+        .ourMission,
+        .ourVision {
+          position: initial;
+        }
+      }
+    }
+    .teamWrapper .gang {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .textDiv {
+    margin-top: 3.5em;
+  }
+
+  .diagram {
+    margin-top: 9em;
+  }
+}
+
+@media (max-width: 485px) {
+  .textDiv {
+    height: 50vh;
+    margin-top: 3.5em;
+  }
+
+  .diagram {
+    margin-top: 6em;
+  }
+}

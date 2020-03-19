@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer";
-import "../../styles/aboutUs.css";
-import Team from "./Team";
+import "../../styles/QuickLinks.scss";
+import Member from "../../assets/user.png";
 
 class AboutUs extends Component {
   state = {
@@ -19,7 +19,7 @@ class AboutUs extends Component {
     if (e.currentTarget.title === "mission") {
       this.setState({
         text:
-          "„Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Viva Forevis aptent taciti sociosqu ad litora torquent.  Atirei o pau no gatis, per gatis num morreus. Mé faiz elementum girarzis, nisi eros vermeio.”"
+          "„Mais vale um bebadis conhecidiss, zque um alcoolatra anonimis. Viva Forevis aptent taciti sociosqu ad litora torquent.  Atirei o pau no gatis, per gatis num morreus. Mé faiz elementum girarzis, nisi eros vermeio.”"
       });
     } else if (e.currentTarget.title === "vision") {
       return this.setState({
@@ -38,9 +38,11 @@ class AboutUs extends Component {
     return (
       <>
         <Navbar />
-        <div className="wrapper">
+        <div className="AboutUsWrapper">
           <div className="topContainer">
-            <div className="textDiv">{this.state.text}</div>
+            <div className="textDiv">
+              <p>{this.state.text}</p>
+            </div>
             <div className="diagram">
               <div className="whatWeDo" title="weDo" onClick={this.changeText}>
                 <p className="diagramText">What we do?</p>
@@ -61,13 +63,80 @@ class AboutUs extends Component {
               </div>
             </div>
           </div>
-          <div className="bottomContainer"></div>
 
-          <Team></Team>
+          <div className="teamWrapper">
+            <h2>Our team</h2>
 
-          <div className="contactUs">Contact us</div>
+            <div className="gang">
+              <div className="memberDiv">
+                <div className="memberPhoto">
+                  <img src={Member} className="memberImg" alt="member"></img>
+                </div>
+                <div className="memberName">ALBERT EDELMANN</div>
+                <div className="memberTitle">Frontend</div>
+                <div className="memberContact">
+                  <div className="portfolio">
+                    Portfolio:{" "}
+                    <a href="https://ajedelmann.github.io/portfolio/">
+                      https://ajedelmann.github.io/portfolio/
+                    </a>
+                  </div>
+                  <div className="gitHub">
+                    <a href="https://github.com/AJEdelmann">
+                      <i className="fab fa-github githubIcon"></i>
+                      https://github.com/AJEdelmann
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="memberDiv">
+                <div className="memberPhoto">
+                  <img src={Member} className="memberImg" alt="member"></img>
+                </div>
+                <div className="memberName">ALEXANDR MELNIC</div>
+                <div className="memberTitle">Backend</div>
+                <div className="memberContact">
+                  <div className="portfolio">
+                    Portfolio:{" "}
+                    <a href="https://ajedelmann.github.io/portfolio/">
+                      https://ajedelmann.github.io/portfolio/
+                    </a>
+                  </div>
+                  <div className="gitHub">
+                    <a href="https://github.com/AJEdelmann">
+                      <i className="fab fa-github githubIcon"></i>
+                      https://github.com/AlexandrMel
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="memberDiv">
+                <div className="memberPhoto">
+                  <img src={Member} className="memberImg" alt="member"></img>
+                </div>
+                <div className="memberName">VLAD HARAGEA</div>
+                <div className="memberTitle">Frontend</div>
+                <div className="memberContact">
+                  <div className="portfolio">
+                    Portfolio:{" "}
+                    <a href="https://ajedelmann.github.io/portfolio/">
+                      https://ajedelmann.github.io/portfolio/
+                    </a>
+                  </div>
+                  <div className="gitHub">
+                    <a href="https://github.com/AJEdelmann">
+                      <i className="fab fa-github githubIcon"></i>
+                      https://github.com/vladharagea
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <Footer />
         </div>
-        <Footer />
       </>
     );
   }
