@@ -17,12 +17,43 @@ class ExperienceGroup extends React.Component {
     }
   }
 
+  addNewTask = () => {
+    //     var myButton = document.querySelector('button.myB');
+    // var myh1 = document.getElementById('title');
+    // var input = document.getElementsByTagName('input')[0];
+    // var myUl = document.getElementsByTagName('ul')[0];
+
+    // myButton.addEventListener('click', function(){
+    //    var newLi = document.createElement('li');
+    //    newLi.textContent = input.value;
+    //    myUl.appendChild(newLi);
+    //    input.value = "";
+    //   });
+
+    // myUl.addEventListener('click', function(e){
+    //   e.target.style.textDecoration="line-through";
+    // });
+
+    const myUl = document.querySelector("task");
+    myUl.addEventListener("keyup", function(e) {
+      if (e.keyCode === 13) {
+        alert("hi");
+      }
+    });
+  };
+
   render() {
     const { display, borderBottom } = this.state;
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyEx, addGroup, deleteGroup, moveUpGroup, moveDownGroup } = context;
+          const {
+            modifyEx,
+            addGroup,
+            deleteGroup,
+            moveUpGroup,
+            moveDownGroup
+          } = context;
           return (
             <>
               <div
@@ -44,18 +75,41 @@ class ExperienceGroup extends React.Component {
                 <div className="sectionsMenuDiv" style={{ display: display }}>
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={() => addGroup("experience", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      addGroup("experience", this.props.index, this.props.dat)
+                    }
                     title="add group"
                   ></i>
-                  <i className="fas fa-angle-up angleIcon" title="move up"
-                  onClick={() => moveUpGroup("experience", this.props.index, this.props.dat)}></i>
+                  <i
+                    className="fas fa-angle-up angleIcon"
+                    title="move up"
+                    onClick={() =>
+                      moveUpGroup(
+                        "experience",
+                        this.props.index,
+                        this.props.dat
+                      )
+                    }
+                  ></i>
                   <i
                     className="fas fa-angle-down angleIcon"
                     title="move down"
-                    onClick={() => moveDownGroup("experience", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      moveDownGroup(
+                        "experience",
+                        this.props.index,
+                        this.props.dat
+                      )
+                    }
                   ></i>
                   <i
-                    onClick={() => deleteGroup("experience", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      deleteGroup(
+                        "experience",
+                        this.props.index,
+                        this.props.dat
+                      )
+                    }
                     className="deleteIcon far fa-trash-alt"
                     title="delete group"
                   ></i>
@@ -64,7 +118,12 @@ class ExperienceGroup extends React.Component {
                 <div className="editableDiv">
                   <span
                     onBlur={e =>
-                      modifyEx(this.props.index, "position", e.target.innerText, this.props.dat)
+                      modifyEx(
+                        this.props.index,
+                        "position",
+                        e.target.innerText,
+                        this.props.dat
+                      )
                     }
                     className="role"
                     contentEditable="true"
@@ -81,7 +140,15 @@ class ExperienceGroup extends React.Component {
                 <div className="editableDiv">
                   <span
                     onBlur={e =>
-                      setTimeout(modifyEx(this.props.index, "company", e.target.innerText, this.props.dat), 3000)
+                      setTimeout(
+                        modifyEx(
+                          this.props.index,
+                          "company",
+                          e.target.innerText,
+                          this.props.dat
+                        ),
+                        3000
+                      )
                     }
                     className="CvCompany"
                     contentEditable="true"
@@ -99,7 +166,8 @@ class ExperienceGroup extends React.Component {
                   <div className="period">
                     <span
                       onBlur={e =>
-                        modifyEx(this.props.index, 
+                        modifyEx(
+                          this.props.index,
                           "startMonth",
                           e.target.innerText,
                           this.props.dat
@@ -126,7 +194,8 @@ class ExperienceGroup extends React.Component {
                     </span>
                     <span
                       onBlur={e =>
-                        modifyEx(this.props.index, 
+                        modifyEx(
+                          this.props.index,
                           "startYear",
                           e.target.innerText,
                           this.props.dat
@@ -153,7 +222,8 @@ class ExperienceGroup extends React.Component {
                     </span>
                     <span
                       onBlur={e =>
-                        modifyEx(this.props.index, 
+                        modifyEx(
+                          this.props.index,
                           "endMonth",
                           e.target.innerText,
                           this.props.dat
@@ -180,7 +250,12 @@ class ExperienceGroup extends React.Component {
                     </span>
                     <span
                       onBlur={e =>
-                        modifyEx(this.props.index, "endYear", e.target.innerText, this.props.dat)
+                        modifyEx(
+                          this.props.index,
+                          "endYear",
+                          e.target.innerText,
+                          this.props.dat
+                        )
                       }
                       className="year"
                       style={{
@@ -197,7 +272,12 @@ class ExperienceGroup extends React.Component {
                   <div className="location">
                     <span
                       onBlur={e =>
-                        modifyEx(this.props.index, "place", e.target.innerText, this.props.dat)
+                        modifyEx(
+                          this.props.index,
+                          "place",
+                          e.target.innerText,
+                          this.props.dat
+                        )
                       }
                       className="place"
                       style={{
@@ -224,7 +304,31 @@ class ExperienceGroup extends React.Component {
                 </div>
                 <div>
                   <div className="editableDiv">
-                    <span
+                    <ul
+                      onBlur={e =>
+                        modifyEx(
+                          this.props.index,
+                          "tasks",
+                          e.target.innerText,
+                          this.props.dat
+                        )
+                      }
+                      className="task"
+                      contentEditable="true"
+                      suppressContentEditableWarning={true}
+                      style={{
+                        fontSize: context.style.size3,
+                        borderBottom: borderBottom,
+                        paddingInlineStart: 0
+                      }}
+                      // onClick={this.addNewTask}
+                    >
+                      <li style={{ listStyle: "circle" }}>
+                        {this.props.data.tasks}
+                      </li>
+                    </ul>
+
+                    {/* <span
                       onBlur={e => 
                         modifyEx(this.props.index, "tasks", e.target.innerText, this.props.dat)
                       }
@@ -237,7 +341,7 @@ class ExperienceGroup extends React.Component {
                       }}
                     >
                       {this.props.data.tasks}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               </div>

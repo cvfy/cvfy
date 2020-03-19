@@ -18,12 +18,14 @@ $BgColor: #266678;
   .dashboard {
     display: flex;
   }
+
   .MyDocumentsToggleSection {
-    padding: 85px 0 25px 0;
+    padding: 75px 0 15px 0;
     /* margin: 80px 0 40px 0; */
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid rgb(110, 109, 109);
+
     .MyDocumentsToggle {
       background: #2b3a42;
       height: 3rem;
@@ -38,6 +40,7 @@ $BgColor: #266678;
       font-weight: 700;
       border: 2px solid $BgColor;
     }
+
     .ToggleLeft {
       @include HoverBgColor;
       border-top-left-radius: 0.5rem;
@@ -49,6 +52,7 @@ $BgColor: #266678;
       border-top-right-radius: 0.5rem;
       border-bottom-right-radius: 0.5rem;
     }
+
     .ToggleActive {
       background: $BgColor;
     }

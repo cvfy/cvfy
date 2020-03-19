@@ -7,8 +7,7 @@
   margin-top: -10px;
   padding-top: 30px;
   background: linear-gradient(to right, #c7d7e6, #c7d7e633);
-  /* box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15); */
-  z-index: 7;
+  z-index: 0;
 }
 
 .CV_Dashboard_MainContainer {
@@ -19,8 +18,7 @@
   justify-content: center;
   padding: 30px 0;
   background: #2b3a42;
-  /* box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15); */
-  z-index: 7;
+  z-index: 0;
   margin: 0;
 }
 
@@ -32,8 +30,7 @@
   justify-content: center;
   padding: 30px 0;
   background-color: #2b3a42;
-  /* box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15); */
-  z-index: 7;
+  z-index: 0;
   margin: 0;
 }
 
@@ -54,7 +51,6 @@
   width: 250px;
   height: 320px;
   object-fit: contain;
-  /* box-shadow: 3px 3px 3px 3px rgba(34, 36, 38, 0.15); */
   margin: 0 20%;
 }
 
@@ -77,21 +73,21 @@
   width: 275px;
   height: 225px;
   object-fit: contain;
-  /* box-shadow: 3px 3px 3px 3px rgba(34, 36, 38, 0.15); */
   margin: 0 20%;
+  cursor: pointer;
 }
 
 .cvBox2 .AddCV {
   width: 275px;
   height: 225px;
   object-fit: contain;
-  /* box-shadow: 3px 3px 3px 3px rgba(34, 36, 38, 0.15); */
   margin: 0 20%;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .cvBox2 img.ADD {
@@ -107,17 +103,82 @@
   position: absolute;
   bottom: 15px;
   right: 70px;
-  height: 40px;
-  width: 40px;
-  border: 2px solid #266678;
+  height: 20px;
   border-radius: 7px;
 }
 
-.MoreOptions:hover {
-  cursor: pointer;
-  background: #266678;
-}
-.MoreOptions img {
-  height: 100%;
+.icon3Dots {
+  font-size: 25px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: rgb(25, 69, 112);
+  animation: pulse 1s 2;
+}
+
+@keyframes pulse {
+  0% {
+    color: rgb(25, 69, 112);
+  }
+
+  50% {
+    color: #59afb8;
+  }
+
+  100% {
+    color: rgb(25, 69, 112);
+  }
+}
+
+.icon3Dots:hover {
+  cursor: pointer;
+  color: #59afb8;
+}
+
+.icon3Dots:hover+.optionsMenuDiv,
+.optionsMenuDiv:hover {
+  display: grid;
+}
+
+.optionsMenuDiv {
+  background: #2b3a42;
+  width: 105px;
+  height: 88px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.7rem;
+  box-shadow: -2px 0 8px 3px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: center;
+  position: absolute;
+  top: -90px;
+  right: -60px;
+  color: #fff;
+  display: none;
+  transition: all 1s ease;
+}
+
+.gotBorder {
+  border-bottom: 1px solid rgb(110, 109, 109);
+}
+
+.MoreOptions>.optionsMenuDiv>.optionInnerDiv {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.gotBorder:hover {
+  background: #4c6674;
+  cursor: pointer;
+}
+
+.deleteDiv:hover {
+  background: rgb(218, 125, 125);
+  cursor: pointer;
 }

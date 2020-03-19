@@ -11,7 +11,7 @@ import store from "./../../store.js";
 
 function aFunction() {
   var newState = store.getState();
-  return newState.auth.user.name;
+  return newState.auth.user.email;
 }
 const newState = aFunction();
 const Navbar = props => {
@@ -76,7 +76,11 @@ const Navbar = props => {
               <DropdownMenu />
             </div>
             <div>
-              {localStorage.getItem("jwtToken") && <NavLink to="#" onClick={onLogoutClick}>Log Out</NavLink>}
+              {localStorage.getItem("jwtToken") && (
+                <NavLink to="#" onClick={onLogoutClick}>
+                  Log Out
+                </NavLink>
+              )}
             </div>
           </NavLinks>
           <div className="BurgerWrapper">
@@ -120,7 +124,7 @@ const NavLinks = styled(animated.ul)`
   & a {
     color: black;
     height: 100%;
-    font-size: 20px;
+    font-size: 17px;
     opacity: 0.8;
     text-shadow: 1px;
     font-weight: 600;
