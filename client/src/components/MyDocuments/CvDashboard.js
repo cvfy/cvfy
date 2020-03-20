@@ -41,18 +41,15 @@ class CvDashboard extends React.Component {
       .get(
         `http://localhost:5000/api/users/resume/cv/allCV/${this.getUserId()}`
       )
-      .then(
-        res => this.setState({ resume: res.data })
-      )
+      .then(res => this.setState({ resume: res.data }));
   }
 
   deleteCV = id => {
-    axios.post(
-      `http://localhost:5000/api/users/resume/cv/delete/${this.getUserId()}/${id}`
-    ).then(
-      res => this.setState({ resume: res.data })
-    )
-   
+    axios
+      .post(
+        `http://localhost:5000/api/users/resume/cv/delete/${this.getUserId()}/${id}`
+      )
+      .then(res => this.setState({ resume: res.data }));
   };
   setLocalStorage = id => {
     localStorage.setItem("currentCV", id);
@@ -61,12 +58,12 @@ class CvDashboard extends React.Component {
 
   duplicateCV = obj => {
     obj.id = idG;
-    axios.post(
-      `http://localhost:5000/api/users/resume/cv/duplicate/${this.getUserId()}`,
-      obj
-    ).then(
-      res => this.setState({ resume: res.data })
-    )
+    axios
+      .post(
+        `http://localhost:5000/api/users/resume/cv/duplicate/${this.getUserId()}`,
+        obj
+      )
+      .then(res => this.setState({ resume: res.data }));
   };
   setLocalStorage = id => {
     localStorage.setItem("currentCV", id);
@@ -92,6 +89,7 @@ class CvDashboard extends React.Component {
             <img
               src={`http://localhost:5000/static/${el.id}.jpg`}
               alt={el.id}
+              onClick={() => this.setLocalStorage(el.id)}
             />
             <div
               className="MoreOptions"

@@ -14,26 +14,25 @@
   height: 297mm;
   width: 210mm;
   /* pagination effect */
-  box-shadow:
-    /* The top layer shadow */
-    0 -1px 1px rgba(0, 0, 0, 0.15),
-    /* The second layer */
-    0 -10px 0 -5px #eee,
-    /* The second layer shadow */
-    0 -10px 1px -4px rgba(0, 0, 0, 0.15),
-    /* The third layer */
-    0 -20px 0 -10px #eee,
-    /* The third layer shadow */
-    0 -20px 1px -9px rgba(0, 0, 0, 0.15);
+  /* box-shadow: */
+  /* The top layer shadow */
+  /* 0 -1px 1px rgba(0, 0, 0, 0.15), */
+  /* The second layer */
+  /* 0 -10px 0 -5px #eee, */
+  /* The second layer shadow */
+  /* 0 -10px 1px -4px rgba(0, 0, 0, 0.15), */
+  /* The third layer */
+  /* 0 -20px 0 -10px #eee, */
+  /* The third layer shadow */
+  /* 0 -20px 1px -9px rgba(0, 0, 0, 0.15); */
   padding-top: 0;
 }
 
-/* #nextPage {
-  margin: 0 12rem 1rem 12rem;
-  background: #fff;
-  height: 297mm;
-  width: 210mm;
-} */
+.containerA41>.A4ContentWrap,
+.containerA42>.A4ContentWrap,
+.containerA43>.A4ContentWrap {
+  padding-top: 25px;
+}
 
 .A4ContentWrap {
   display: flex;
@@ -147,19 +146,15 @@
   margin-left: 10px;
   margin-right: 2rem;
   margin-bottom: 3px;
-  /* margin-bottom: 5px; */
 }
 
 .name {
-  /* padding-top: 1.2rem; */
   padding-top: 0;
   font-size: 2rem;
 }
 
 .CvTitle {
   font-size: 1.3rem;
-  color: #414242;
-  /* margin-top: 0.5rem; */
   margin-top: -0.2rem;
   margin-bottom: 5px;
 }

@@ -1,18 +1,18 @@
 import React from "react";
-import "./cvBuilderMain2.css";
-import Header from "../Header/Header";
-import Contacts from "../Contacts/Contacts";
-import Education from "../Education/Education";
-import Experience from "../Experience/Experience";
-import Skills from "../Skills/Skills";
-import Projects from "../Projects/Projects";
-import Certifications from "../Certifications/Certifications";
-import Achievements from "../Achievements/Achievements";
-import Languages from "../Languages/Languages";
-import Courses from "../Courses/Courses";
-import { ThemeContext } from "../../../../contexts/ThemeContext";
+import '../CvBuilderMain/cvBuilderMain.css';
+import HeaderModern from "../CvBuilderMain/Header/HeaderModern";
+import Contacts from "../CvBuilderMain/Contacts/Contacts";
+import Education from "../CvBuilderMain/Education/Education";
+import Experience from "../CvBuilderMain/Experience/Experience";
+import Skills from "../CvBuilderMain/Skills/Skills";
+import Projects from "../CvBuilderMain/Projects/Projects";
+import Certifications from "../CvBuilderMain/Certifications/Certifications";
+import Achievements from "../CvBuilderMain/Achievements/Achievements";
+import Languages from "../CvBuilderMain/Languages/Languages";
+import Courses from "../CvBuilderMain/Courses/Courses";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 
-class CvBuilderMain2 extends React.Component {
+class ModernTemplate extends React.Component {
   render() {
     return (
       <ThemeContext.Consumer>
@@ -25,7 +25,7 @@ class CvBuilderMain2 extends React.Component {
             style={{ fontFamily: context.style.font, fontSize: context.style.size3, display: `${!el.experience[0] && !el.education[0] && !el.skills[0] && !el.projects[0] && !el.certifications[0] && !el.achievements[0] && !el.courses[0] && !el.languages[0]? "none": "block"}` }}
             >
 
-              {el.about && <Header index={i} />}
+              {el.about && <HeaderModern index={i} />}
               {el.contact && <Contacts index={i} />}
               
               <div className="A4ContentWrap">
@@ -190,4 +190,4 @@ class CvBuilderMain2 extends React.Component {
       }
 }
 
-export default CvBuilderMain2;
+export default ModernTemplate;
