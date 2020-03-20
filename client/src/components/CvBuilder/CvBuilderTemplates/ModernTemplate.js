@@ -3,7 +3,7 @@ import '../CvBuilderMain/cvBuilderMain.css';
 import HeaderModern from "../CvBuilderMain/Header/HeaderModern";
 import Contacts from "../CvBuilderMain/Contacts/Contacts";
 import Education from "../CvBuilderMain/Education/Education";
-import Experience from "../CvBuilderMain/Experience/Experience";
+import ExperienceModern from "../CvBuilderMain/Experience/ExperienceModern";
 import Skills from "../CvBuilderMain/Skills/Skills";
 import Projects from "../CvBuilderMain/Projects/Projects";
 import Certifications from "../CvBuilderMain/Certifications/Certifications";
@@ -31,7 +31,7 @@ class ModernTemplate extends React.Component {
               <div className="A4ContentWrap">
             
                 <div className="left">      
-                  {(el.experience[0] && leftSideArr[0] && leftSideArr[0].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && leftSideArr[0] && leftSideArr[0].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && leftSideArr[0] && leftSideArr[0].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && leftSideArr[0] && leftSideArr[0].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && leftSideArr[0] && leftSideArr[0].name.includes("projects") ) && <Projects index={i} />}
@@ -40,7 +40,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && leftSideArr[0] && leftSideArr[0].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && leftSideArr[0] && leftSideArr[0].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && leftSideArr[1] && leftSideArr[1].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && leftSideArr[1] && leftSideArr[1].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && leftSideArr[1] && leftSideArr[1].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && leftSideArr[1] && leftSideArr[1].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && leftSideArr[1] && leftSideArr[1].name.includes("projects") ) && <Projects index={i} />}
@@ -49,7 +49,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && leftSideArr[1] && leftSideArr[1].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && leftSideArr[1] && leftSideArr[1].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && leftSideArr[2] && leftSideArr[2].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && leftSideArr[2] && leftSideArr[2].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && leftSideArr[2] && leftSideArr[2].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && leftSideArr[2] && leftSideArr[2].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && leftSideArr[2] && leftSideArr[2].name.includes("projects") ) && <Projects index={i} />}
@@ -58,7 +58,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && leftSideArr[2] && leftSideArr[2].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && leftSideArr[2] && leftSideArr[2].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && leftSideArr[3] && leftSideArr[3].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && leftSideArr[3] && leftSideArr[3].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && leftSideArr[3] && leftSideArr[3].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && leftSideArr[3] && leftSideArr[3].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && leftSideArr[3] && leftSideArr[3].name.includes("projects") ) && <Projects index={i} />}
@@ -67,7 +67,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && leftSideArr[3] && leftSideArr[3].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && leftSideArr[3] && leftSideArr[3].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && leftSideArr[4] && leftSideArr[4].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && leftSideArr[4] && leftSideArr[4].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && leftSideArr[4] && leftSideArr[4].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && leftSideArr[4] && leftSideArr[4].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && leftSideArr[4] && leftSideArr[4].name.includes("projects") ) && <Projects index={i} />}
@@ -76,7 +76,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && leftSideArr[4] && leftSideArr[4].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && leftSideArr[4] && leftSideArr[4].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && leftSideArr[5] && leftSideArr[5].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && leftSideArr[5] && leftSideArr[5].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && leftSideArr[5] && leftSideArr[5].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && leftSideArr[5] && leftSideArr[5].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && leftSideArr[5] && leftSideArr[5].name.includes("projects") ) && <Projects index={i} />}
@@ -85,7 +85,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && leftSideArr[5] && leftSideArr[5].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && leftSideArr[5] && leftSideArr[5].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && leftSideArr[6] && leftSideArr[6].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && leftSideArr[6] && leftSideArr[6].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && leftSideArr[6] && leftSideArr[6].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && leftSideArr[6] && leftSideArr[6].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && leftSideArr[6] && leftSideArr[6].name.includes("projects") ) && <Projects index={i} />}
@@ -94,7 +94,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && leftSideArr[6] && leftSideArr[6].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && leftSideArr[6] && leftSideArr[6].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && leftSideArr[7] && leftSideArr[7].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && leftSideArr[7] && leftSideArr[7].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && leftSideArr[7] && leftSideArr[7].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && leftSideArr[7] && leftSideArr[7].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && leftSideArr[7] && leftSideArr[7].name.includes("projects") ) && <Projects index={i} />}
@@ -105,7 +105,7 @@ class ModernTemplate extends React.Component {
                 </div>
 
                 <div style={{display: `${(context.style.displayOneColumn === false) ? "block" : "none"}`}} className="right">                  
-                  {(el.experience[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("projects") ) && <Projects index={i} />}
@@ -114,7 +114,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && context.style.rightSide[0] && context.style.rightSide[0].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && context.style.rightSide[1] && context.style.rightSide[1].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && context.style.rightSide[1] && context.style.rightSide[1].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && context.style.rightSide[1] && context.style.rightSide[1].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && context.style.rightSide[1] && context.style.rightSide[1].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && context.style.rightSide[1] && context.style.rightSide[1].name.includes("projects") ) && <Projects index={i} />}
@@ -123,7 +123,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && context.style.rightSide[1] && context.style.rightSide[1].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && context.style.rightSide[1] && context.style.rightSide[1].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && context.style.rightSide[2] && context.style.rightSide[2].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && context.style.rightSide[2] && context.style.rightSide[2].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && context.style.rightSide[2] && context.style.rightSide[2].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && context.style.rightSide[2] && context.style.rightSide[2].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && context.style.rightSide[2] && context.style.rightSide[2].name.includes("projects") ) && <Projects index={i} />}
@@ -132,7 +132,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && context.style.rightSide[2] && context.style.rightSide[2].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && context.style.rightSide[2] && context.style.rightSide[2].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && context.style.rightSide[3] && context.style.rightSide[3].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && context.style.rightSide[3] && context.style.rightSide[3].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && context.style.rightSide[3] && context.style.rightSide[3].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && context.style.rightSide[3] && context.style.rightSide[3].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && context.style.rightSide[3] && context.style.rightSide[3].name.includes("projects") ) && <Projects index={i} />}
@@ -141,7 +141,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && context.style.rightSide[3] && context.style.rightSide[3].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && context.style.rightSide[3] && context.style.rightSide[3].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && context.style.rightSide[4] && context.style.rightSide[4].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && context.style.rightSide[4] && context.style.rightSide[4].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && context.style.rightSide[4] && context.style.rightSide[4].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && context.style.rightSide[4] && context.style.rightSide[4].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && context.style.rightSide[4] && context.style.rightSide[4].name.includes("projects") ) && <Projects index={i} />}
@@ -150,7 +150,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && context.style.rightSide[4] && context.style.rightSide[4].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && context.style.rightSide[4] && context.style.rightSide[4].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && context.style.rightSide[5] && context.style.rightSide[5].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && context.style.rightSide[5] && context.style.rightSide[5].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && context.style.rightSide[5] && context.style.rightSide[5].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && context.style.rightSide[5] && context.style.rightSide[5].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && context.style.rightSide[5] && context.style.rightSide[5].name.includes("projects") ) && <Projects index={i} />}
@@ -159,7 +159,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && context.style.rightSide[5] && context.style.rightSide[5].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && context.style.rightSide[5] && context.style.rightSide[5].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && context.style.rightSide[6] && context.style.rightSide[6].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && context.style.rightSide[6] && context.style.rightSide[6].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && context.style.rightSide[6] && context.style.rightSide[6].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && context.style.rightSide[6] && context.style.rightSide[6].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && context.style.rightSide[6] && context.style.rightSide[6].name.includes("projects") ) && <Projects index={i} />}
@@ -168,7 +168,7 @@ class ModernTemplate extends React.Component {
                   {(el.courses[0] && context.style.rightSide[6] && context.style.rightSide[6].name.includes("courses") ) && <Courses index={i} />}
                   {(el.languages[0] && context.style.rightSide[6] && context.style.rightSide[6].name.includes("languages") ) && <Languages index={i} />}
 
-                  {(el.experience[0] && context.style.rightSide[7] && context.style.rightSide[7].name.includes("experience") ) && <Experience index={i} />}
+                  {(el.experience[0] && context.style.rightSide[7] && context.style.rightSide[7].name.includes("experience") ) && <ExperienceModern index={i} />}
                   {(el.education[0] && context.style.rightSide[7] && context.style.rightSide[7].name.includes("education") ) && <Education index={i} />}
                   {(el.skills[0] && context.style.rightSide[7] && context.style.rightSide[7].name.includes("skills") ) && <Skills index={i} />}
                   {(el.projects[0] && context.style.rightSide[7] && context.style.rightSide[7].name.includes("projects") ) && <Projects index={i} />}
