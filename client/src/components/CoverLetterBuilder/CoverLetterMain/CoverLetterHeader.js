@@ -12,7 +12,7 @@ class CoverLetterHeader extends React.Component {
     return (
       <CoverLetterContext.Consumer>
         {context => {
-          const { getCurrentDate } = context;
+          const { getCurrentDate, modifyCover } = context;
           return (
             <div className="header-wrap">
               <div className="header-inner">
@@ -37,10 +37,13 @@ class CoverLetterHeader extends React.Component {
                     <span
                       className="title"
                       contentEditable="true"
+                      onBlur={e => modifyCover("professionalTitle", e.target.innerText)}
                       style={{
                         fontSize: context.style.size1
                       }}
-                    ></span>
+                    >
+                      {context.coverLetters[0].professionalTitle}
+                    </span>
                   </div>
                   <div
                     className={
@@ -61,10 +64,12 @@ class CoverLetterHeader extends React.Component {
                       <span
                         className="company"
                         contentEditable="true"
+                        onBlur={e => modifyCover("companyDetails", e.target.innerText)}
+
                         style={{
                           fontSize: context.style.size1
                         }}
-                      ></span>
+        >{context.coverLetters[0].companyDetails}</span>
                     </div>
                   </div>
                   <div className="editableHeaderDiv">

@@ -304,6 +304,7 @@ class ThemeContextProvider extends Component {
     });
   }
   async componentDidMount() {
+
     console.log("diplay one column is =>" + this.state.style.displayOneColumn);
     if (
       localStorage.getItem("currentCV") === null ||
@@ -314,7 +315,7 @@ class ThemeContextProvider extends Component {
       await localStorage.setItem("currentCV", this.state.id);
       console.log(`the state id is - ${this.state.id}`);
       axios.post(
-        `http://localhost:5000/api/users/resume/cv/${this.state.id}`,
+        `http://localhost:5000/api/users/resume/cv/${aFunction()}`,
         this.state
       );
     }

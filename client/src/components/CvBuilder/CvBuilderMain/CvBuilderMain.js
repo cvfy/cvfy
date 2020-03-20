@@ -13,6 +13,7 @@ import Courses from "./Courses/Courses";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 
 class CvBuilderMain extends React.Component {
+
   render() {
     return (
       <ThemeContext.Consumer>

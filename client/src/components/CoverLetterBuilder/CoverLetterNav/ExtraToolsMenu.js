@@ -17,7 +17,7 @@ class ExtraToolsMenu extends Component {
             toggleInsertOrderedList,
             toggleUndo,
             toggleRedo,
-            saveCVDataToServer
+            saveCoverDataToServer
           } = context;
           return (
             <div className="cvExtraToolsDiv">
@@ -133,7 +133,7 @@ class ExtraToolsMenu extends Component {
               </div>
               <div className="buttonsDiv">
                 <button
-                  onClick={e => saveCVDataToServer(e)}
+                  onClick={e => saveCoverDataToServer(e)}
                   className="saveUpdateButton"
                 >
                   {!context.loadingSaveCv && (
