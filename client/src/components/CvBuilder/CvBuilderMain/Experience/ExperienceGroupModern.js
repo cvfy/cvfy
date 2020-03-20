@@ -279,7 +279,7 @@ class ExperienceGroup extends React.Component {
                 </div>
                 <div>
                   <div className="editableDiv">
-                    {/* <ul
+                    <ul
                       onBlur={e =>
                         modifyEx(
                           this.props.index,
@@ -298,12 +298,12 @@ class ExperienceGroup extends React.Component {
                       }}
                       // onClick={this.addNewTask}
                     >
-                      <li style={{ listStyle: "inside circle" }}>
+                      <li style={{ listStyle: "inside" }}>
                         {[this.props.data.tasks]}
                       </li>
-                    </ul> */}
+                    </ul>
 
-                    <span
+                    {/* <span
                       onBlur={e =>
                         modifyEx(
                           this.props.index,
@@ -321,7 +321,7 @@ class ExperienceGroup extends React.Component {
                       }}
                     >
                       {this.props.data.tasks}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               </div>

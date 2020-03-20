@@ -25,7 +25,13 @@ class ProjectGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyProjects, addGroup, deleteGroup, moveUpGroup, moveDownGroup } = context;
+          const {
+            modifyProjects,
+            addGroup,
+            deleteGroup,
+            moveUpGroup,
+            moveDownGroup
+          } = context;
           return (
             <>
               <div
@@ -47,18 +53,33 @@ class ProjectGroup extends React.Component {
                 <div className="sectionsMenuDiv" style={{ display: display }}>
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={() => addGroup("projects", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      addGroup("projects", this.props.index, this.props.dat)
+                    }
                     title="add group"
                   ></i>
-                  <i className="fas fa-angle-up angleIcon" title="move up"
-                  onClick={() => moveUpGroup("projects", this.props.index, this.props.dat)}></i>
+                  <i
+                    className="fas fa-angle-up angleIcon"
+                    title="move up"
+                    onClick={() =>
+                      moveUpGroup("projects", this.props.index, this.props.dat)
+                    }
+                  ></i>
                   <i
                     className="fas fa-angle-down angleIcon"
                     title="move down"
-                    onClick={() => moveDownGroup("projects", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      moveDownGroup(
+                        "projects",
+                        this.props.index,
+                        this.props.dat
+                      )
+                    }
                   ></i>
                   <i
-                    onClick={() => deleteGroup("projects", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      deleteGroup("projects", this.props.index, this.props.dat)
+                    }
                     className="deleteIcon far fa-trash-alt"
                     title="delete group"
                   ></i>
@@ -67,7 +88,8 @@ class ProjectGroup extends React.Component {
                 <div className="editableDiv">
                   <span
                     onBlur={e =>
-                      modifyProjects(this.props.index, 
+                      modifyProjects(
+                        this.props.index,
                         "PTitle",
                         this.props.dat,
                         e.target.innerText
@@ -87,7 +109,8 @@ class ProjectGroup extends React.Component {
                 <div className="editableDiv">
                   <span
                     onBlur={e =>
-                      modifyProjects(this.props.index, 
+                      modifyProjects(
+                        this.props.index,
                         "PDesc",
                         this.props.dat,
                         e.target.innerText
