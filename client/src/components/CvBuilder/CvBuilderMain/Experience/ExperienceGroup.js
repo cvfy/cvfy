@@ -17,31 +17,6 @@ class ExperienceGroup extends React.Component {
     }
   }
 
-  addNewTask = () => {
-    //     var myButton = document.querySelector('button.myB');
-    // var myh1 = document.getElementById('title');
-    // var input = document.getElementsByTagName('input')[0];
-    // var myUl = document.getElementsByTagName('ul')[0];
-
-    // myButton.addEventListener('click', function(){
-    //    var newLi = document.createElement('li');
-    //    newLi.textContent = input.value;
-    //    myUl.appendChild(newLi);
-    //    input.value = "";
-    //   });
-
-    // myUl.addEventListener('click', function(e){
-    //   e.target.style.textDecoration="line-through";
-    // });
-
-    const myUl = document.querySelector("task");
-    myUl.addEventListener("keyup", function(e) {
-      if (e.keyCode === 13) {
-        alert("hi");
-      }
-    });
-  };
-
   render() {
     const { display, borderBottom } = this.state;
     return (
@@ -304,7 +279,7 @@ class ExperienceGroup extends React.Component {
                 </div>
                 <div>
                   <div className="editableDiv">
-                    <ul
+                    {/* <ul
                       onBlur={e =>
                         modifyEx(
                           this.props.index,
@@ -323,14 +298,19 @@ class ExperienceGroup extends React.Component {
                       }}
                       // onClick={this.addNewTask}
                     >
-                      <li style={{ listStyle: "circle" }}>
-                        {this.props.data.tasks}
+                      <li style={{ listStyle: "inside circle" }}>
+                        {[this.props.data.tasks]}
                       </li>
-                    </ul>
+                    </ul> */}
 
-                    {/* <span
-                      onBlur={e => 
-                        modifyEx(this.props.index, "tasks", e.target.innerText, this.props.dat)
+                    <span
+                      onBlur={e =>
+                        modifyEx(
+                          this.props.index,
+                          "tasks",
+                          e.target.innerText,
+                          this.props.dat
+                        )
                       }
                       className="task"
                       contentEditable="true"
@@ -341,7 +321,7 @@ class ExperienceGroup extends React.Component {
                       }}
                     >
                       {this.props.data.tasks}
-                    </span> */}
+                    </span>
                   </div>
                 </div>
               </div>
