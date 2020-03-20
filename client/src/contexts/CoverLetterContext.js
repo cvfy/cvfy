@@ -62,15 +62,15 @@ class CoverLetterContextProvider extends Component {
         }
       },
       {
-        text: "Dear Sir/Madam,...",
+        text: "",
         signature: ""
       },
       {
-        text: "Dear Sir/Madam,...",
+        text: "",
         signature: ""
       },
       {
-        text: "Dear Sir/Madam,...",
+        text: "",
         signature: ""
       }
     ]
@@ -78,41 +78,53 @@ class CoverLetterContextProvider extends Component {
   };
 
   async componentDidMount() {
-
     //console.log("diplay one column is =>" + this.state.style.displayOneColumn);
     if (
       localStorage.getItem("currentCover") === null ||
       localStorage.getItem("currentCover") === ""
-    ) {
-      const idG = await guidGenerator();
-      await this.setState({ id: idG });
-      await localStorage.setItem("currentCover", this.state.id);
-      console.log(`the state id is - ${this.state.id}`);
-      axios.post(
-        `http://localhost:5000/api/users/resume/cover/${aFunction()}`,
-        this.state
-      );
-    }
-    if (
-      localStorage.getItem("currentCover") !== null ||
-      localStorage.getItem("currentCover") !== ""
-    ) {
-      console.log("i am trying to get the data");
-      axios
-        .get(
-          `http://localhost:5000/api/users/resume/cv/currentCover/${localStorage.getItem(
-            "currentCover"
-          )}`
-        )
-        .then(
-          res => {
-            res.data.coverLetters[0].loadingSaveCv = true;
-            return this.setState(res.data.coverLetters[0]);
-          } //this.setState(res.data)
-        );
-    }
-  }
-  saveCoverDataToServer = async e => {
+      ) {
+        const idG = await guidGenerator();
+        await this.setState({ id: idG });
+        await localStorage.setItem("currentCover", this.state.id);
+        console.log(`the state id is - ${this.state.id}`);
+        axios.post(
+          `http://localhost:5000/api/users/resume/cover/${aFunction()}`,
+          this.state
+          );
+        }
+        if (
+          localStorage.getItem("currentCover")
+          ) {
+            console.log("i am trying to get the data");
+            axios
+            .get(
+              `http://localhost:5000/api/users/resume/cv/currentCover/${localStorage.getItem(
+                "currentCover"
+                )}`
+                )
+                .then(
+                  res => {
+                    res.data.coverLetters[0].loadingSaveCv = true;
+                    return this.setState(res.data.coverLetters[0]);
+                  } //this.setState(res.data)
+                  );
+                }
+                console.log(this.state.coverLetters[0].contact.email)
+              }
+
+              componentDidUpdate(){
+                let newArr = [...this.state.coverLetters]
+                let textHeight = document.querySelector(".cover-letter-body").clientHeight;
+                console.log(textHeight)
+                if(textHeight > 300){
+                  newArr[1].text = newArr[0].text.split(" ")[(newArr[0].text.split(" ").length)-1] + newArr[1].text
+                  //let newly = newArr[0].text.split(" ").pop()
+                  //newArr[0].text = newly
+                  this.setState({coverLetters: newArr})
+                }
+
+              }
+              saveCoverDataToServer = async e => {
     if (status === false) {
       status = await true;
       if (e) {
@@ -125,7 +137,7 @@ class CoverLetterContextProvider extends Component {
       });
       console.log("Should be true ->", this.state.loadingSaveCv);
       const userID = await aFunction();
-      console.log(userID);
+      console.log(this.state.coverLetters[0].contact);
 
       //const data = JSON.stringify(this.state)
       await axios
@@ -246,37 +258,48 @@ class CoverLetterContextProvider extends Component {
     }
   };
   modifyCover = (field, value) => {
+    console.log(field)
+    console.log(value)
     let newObject = [...this.state.coverLetters];
-    if(newObject[0][field]){
     if (field === "professionalTitle") {
       newObject[0].professionalTitle = value;
+      this.setState({ coverLetters: newObject });
     }
     if (field === "companyDetails") {
       newObject[0].companyDetails = value;
+    this.setState({ coverLetters: newObject });
     }
-    if (field === "email") {
+    if (field == "email") {
+      console.log("i am hereeeeeeee")
       newObject[0].contact.email = value;
+      this.setState({ coverLetters: newObject });
+      console.log(this.state.coverLetters[0].contact.email)
     }
     if (field === "address") {
       newObject[0].contact.address = value;
+      this.setState({ coverLetters: newObject });
     }
     if (field === "skype") {
       newObject[0].contact.skype = value;
+      this.setState({ coverLetters: newObject });
     }
     if (field === "phone") {
       newObject[0].contact.phone = value;
+      this.setState({ coverLetters: newObject });
     }
     if (field === "website") {
       newObject[0].contact.website = value;
+      this.setState({ coverLetters: newObject });
     }
     if (field === "gitHub") {
       newObject[0].contact.gitHub = value;
+      this.setState({ coverLetters: newObject });
     }
     if (field === "text") {
+      console.log(value.split("\r\n"))
       newObject[0].text = value;
+      this.setState({ coverLetters: newObject });
     }
-    this.setState({ coverLetters: newObject });
-  }
   };
   render() {
     return (

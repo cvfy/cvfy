@@ -18,7 +18,8 @@ class CoverLetterContact extends React.Component {
                   <span
                     className="user-contact userEmail"
                     contentEditable="true"
-                    onBlur={e => modifyCover("email", e.target.innerText)}
+                    suppressContentEditableWarning={true}
+                    onBlur={(e) => modifyCover("email", e.target.innerText)}
           >{context.coverLetters[0].contact.email}</span>
                 </div>
               </div>
@@ -32,6 +33,7 @@ class CoverLetterContact extends React.Component {
                   <span
                     className="user-contact userAddress"
                     contentEditable="true"
+                    suppressContentEditableWarning={true}
                     onBlur={e => modifyCover("address", e.target.innerText)}
                   >{context.coverLetters[0].contact.address}</span>
                 </div>
@@ -46,6 +48,7 @@ class CoverLetterContact extends React.Component {
                   <span
                     className="user-contact userSkype"
                     contentEditable="true"
+                    suppressContentEditableWarning={true}
                     onBlur={e => modifyCover("skype", e.target.innerText)}
                   >{context.coverLetters[0].contact.skype}</span>
                 </div>
@@ -60,6 +63,7 @@ class CoverLetterContact extends React.Component {
                   <span
                     className="user-contact userPhone"
                     contentEditable="true"
+                    suppressContentEditableWarning={true}
                     onBlur={e => modifyCover("phone", e.target.innerText)}
                   >{context.coverLetters[0].contact.phone}</span>
                 </div>
@@ -74,6 +78,7 @@ class CoverLetterContact extends React.Component {
                   <span
                     className="user-contact userSite"
                     contentEditable="true"
+                    suppressContentEditableWarning={true}
                     onBlur={e => modifyCover("website", e.target.innerText)}
                   >{context.coverLetters[0].contact.website}</span>
                 </div>
@@ -88,6 +93,7 @@ class CoverLetterContact extends React.Component {
                   <span
                     className="user-contact userGitHub"
                     contentEditable="true"
+                    suppressContentEditableWarning={true}
                     onBlur={e => modifyCover("gitHub", e.target.innerText)}
                   >{context.coverLetters[0].contact.gitHub}</span>
                 </div>

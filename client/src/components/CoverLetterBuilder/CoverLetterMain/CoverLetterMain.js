@@ -9,17 +9,26 @@ class CoverLetterMain extends React.Component {
     return (
       <CoverLetterContext.Consumer>
         { context => {
+          const Pages = context.coverLetters.map((el, i) => { 
+            if(el.text !== ""){
+              return (
+            <div
+                            id="container"
+                            style={{ fontFamily: context.style.font, fontSize: context.style.size3 }}
+                          >
+                            {el.contact && <CoverLetterHeader data={el} index={i} />}
+                            <div className="wrap">
+                              <CoverLetterBody data={el}></CoverLetterBody>
+                            </div>
+                          </div>
+                        )}
+                        else {
+                          return ""
+          }})
           return (
+            
             <div className="alignContainer">
-              <div
-                id="container"
-                style={{ fontFamily: context.style.font, fontSize: context.style.size3 }}
-              >
-                <CoverLetterHeader></CoverLetterHeader>
-                <div className="wrap">
-                  <CoverLetterBody></CoverLetterBody>
-                </div>
-              </div>
+              {Pages}
             </div>
           );
         }}

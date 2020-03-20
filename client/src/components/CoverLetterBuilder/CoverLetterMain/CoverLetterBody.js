@@ -16,7 +16,7 @@ class CoverLetterBody extends React.Component {
             <div className="cover-letter-body-wrapper">
               <div className="cover-letter-body">
                 <div className="editableDiv bodyCoverDiv">
-                  <span
+                <span
                     className="coverLetterBody"
                     contentEditable="true"
                     onBlur={e => modifyCover("text", e.target.innerText)}
@@ -25,8 +25,8 @@ class CoverLetterBody extends React.Component {
                       fontSize: context.style.size3
                     }}
                   >
-                    {context.coverLetters[0].text}
-                  </span>
+                    {this.props.data.text}
+                    </span>
                 </div>
               </div>
 

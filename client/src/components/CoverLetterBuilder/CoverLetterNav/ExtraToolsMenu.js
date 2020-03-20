@@ -3,6 +3,10 @@ import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 import "../../../styles/BuilderNav.css";
 
 class ExtraToolsMenu extends Component {
+  setLocalStorage = id => {
+    localStorage.setItem("currentCover", id);
+    window.location.href = "http://localhost:3000/create-cover-letter";
+  };
   render() {
     return (
       <CoverLetterContext.Consumer>
@@ -146,7 +150,7 @@ class ExtraToolsMenu extends Component {
                   {context.loadingSaveCv && <span>Save</span>}
                 </button>
                 <button
-                  // onClick={e => saveCVDataToServer(e)}
+                onClick={() => this.setLocalStorage("")}
                   className="saveUpdateButton"
                 >
                   New doc
