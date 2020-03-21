@@ -187,61 +187,175 @@ class ThemeContextProvider extends Component {
         courses: [],
         languages: []
       }
-    ],
+    ]
   };
   componentDidUpdate() {
     let Pages = [...this.state.userData];
     // MAPPING THOURGH THE PAGES TO GET THE HEIGHTS OF SECTIONS AND GROUPS
-    Array.from(document.querySelectorAll(".A4")).forEach( (el, i) => {
-
+    Array.from(document.querySelectorAll(".A4")).forEach((el, i) => {
       // DECLARING DYNAMIC THE VARIABLE HEIGHTS OF SECTIONS
-      let headerHeight = document.querySelectorAll(".A4")[i].querySelector(".header-inner") === null || document.querySelectorAll(".A4")[i].querySelector(".header-inner") === undefined ? 0: document.querySelectorAll(".A4")[i].querySelector(".header-inner").clientHeight;
-      let contactHeight = document.querySelectorAll(".A4")[i].querySelector(".contact") === null || document.querySelectorAll(".A4")[i].querySelector(".contact") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".contact").clientHeight;
-      let experienceHeight = document.querySelectorAll(".A4")[i].querySelector(".experience") === null || document.querySelectorAll(".A4")[i].querySelector(".experience") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".experience").clientHeight;
-      let educationHeight = document.querySelectorAll(".A4")[i].querySelector(".education") === null || document.querySelectorAll(".A4")[i].querySelector(".education") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".education").clientHeight;
-      let skillsHeight = document.querySelectorAll(".A4")[i].querySelector(".skills") === null || document.querySelectorAll(".A4")[i].querySelector(".skills") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".skills").clientHeight;
-      let projectsHeight = document.querySelectorAll(".A4")[i].querySelector(".projects") === null || document.querySelectorAll(".A4")[i].querySelector(".projects") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".projects").clientHeight;
-      let certificationsHeight = document.querySelectorAll(".A4")[i].querySelector(".certifications") === null || document.querySelectorAll(".A4")[i].querySelector(".certifications") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".certifications").clientHeight;
-      let achievementsHeight = document.querySelectorAll(".A4")[i].querySelector(".achievements") === null || document.querySelectorAll(".A4")[i].querySelector(".achievements") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".achievements").clientHeight;
-      let coursesHeight = document.querySelectorAll(".A4")[i].querySelector(".courses") === null || document.querySelectorAll(".A4")[i].querySelector(".courses") === undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".courses").clientHeight;
-      let languagesHeight = document.querySelectorAll(".A4")[i].querySelector(".languages") === null || document.querySelectorAll(".A4")[i].querySelector(".languages") ===  undefined ? 0 : document.querySelectorAll(".A4")[i].querySelector(".languages").clientHeight;
-// GETTING TOTAL HEIGHTS FOR LEFT, RIGHT, AND ONEPAGE COLUMNS 
+      let headerHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".header-inner") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".header-inner")
+              .clientHeight;
+      let contactHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".contact") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".contact") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".contact")
+              .clientHeight;
+      let experienceHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".experience") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".experience") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".experience")
+              .clientHeight;
+      let educationHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".education") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".education") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".education")
+              .clientHeight;
+      let skillsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".skills") === null ||
+        document.querySelectorAll(".A4")[i].querySelector(".skills") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".skills")
+              .clientHeight;
+      let projectsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".projects") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".projects") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".projects")
+              .clientHeight;
+      let certificationsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".certifications") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".certifications") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".certifications")
+              .clientHeight;
+      let achievementsHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".achievements") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".achievements") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".achievements")
+              .clientHeight;
+      let coursesHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".courses") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".courses") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".courses")
+              .clientHeight;
+      let languagesHeight =
+        document.querySelectorAll(".A4")[i].querySelector(".languages") ===
+          null ||
+        document.querySelectorAll(".A4")[i].querySelector(".languages") ===
+          undefined
+          ? 0
+          : document.querySelectorAll(".A4")[i].querySelector(".languages")
+              .clientHeight;
+      // GETTING TOTAL HEIGHTS FOR LEFT, RIGHT, AND ONEPAGE COLUMNS
 
-      let leftHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight);
-      let rightHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight);
-      let onePageHeight = parseInt(headerHeight) + parseInt(contactHeight) + parseInt(experienceHeight) + parseInt(educationHeight) + parseInt(skillsHeight) + parseInt(projectsHeight) + parseInt(certificationsHeight) + parseInt(achievementsHeight) + parseInt(coursesHeight) + parseInt(languagesHeight);
+      let leftHeight =
+        parseInt(headerHeight) +
+        parseInt(contactHeight) +
+        parseInt(experienceHeight) +
+        parseInt(educationHeight);
+      let rightHeight =
+        parseInt(headerHeight) +
+        parseInt(contactHeight) +
+        parseInt(skillsHeight) +
+        parseInt(projectsHeight) +
+        parseInt(certificationsHeight) +
+        parseInt(achievementsHeight) +
+        parseInt(coursesHeight) +
+        parseInt(languagesHeight);
+      let onePageHeight =
+        parseInt(headerHeight) +
+        parseInt(contactHeight) +
+        parseInt(experienceHeight) +
+        parseInt(educationHeight) +
+        parseInt(skillsHeight) +
+        parseInt(projectsHeight) +
+        parseInt(certificationsHeight) +
+        parseInt(achievementsHeight) +
+        parseInt(coursesHeight) +
+        parseInt(languagesHeight);
 
-// SITUATION 1 - IF THE CV STRUCTURE IS A 2 COLUMN STRUCTURE
+      // SITUATION 1 - IF THE CV STRUCTURE IS A 2 COLUMN STRUCTURE
       if (this.state.style.displayOneColumn === false) {
-        if(leftHeight > 2000){
-          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
-          Pages[i + 1][lastItem] = Pages[i][lastItem]
-          Pages[i][lastItem] = []
+        if (leftHeight > 2000) {
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".left").lastChild.classList[0];
+          Pages[i + 1][lastItem] = Pages[i][lastItem];
+          Pages[i][lastItem] = [];
           this.setState({ userData: Pages });
         }
         if (leftHeight > 1050 && leftHeight < 2000) {
-          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
-          Pages[i + 1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length - 1]);
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".left").lastChild.classList[0];
+          Pages[i + 1][lastItem].unshift(
+            Pages[i][lastItem][Pages[i][lastItem].length - 1]
+          );
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
         }
-        if(rightHeight > 2000){
-          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0];
-          Pages[i + 1][lastItem] = Pages[i][lastItem]
-          Pages[i][lastItem] = []
+        if (rightHeight > 2000) {
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".right").lastChild.classList[0];
+          Pages[i + 1][lastItem] = Pages[i][lastItem];
+          Pages[i][lastItem] = [];
           this.setState({ userData: Pages });
         }
-        if(rightHeight > 1050 && rightHeight < 2000) {
-          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".right").lastChild.classList[0];
-          Pages[i + 1][lastItem].unshift(Pages[i][lastItem][Pages[i][lastItem].length - 1]);
+        if (rightHeight > 1050 && rightHeight < 2000) {
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".right").lastChild.classList[0];
+          Pages[i + 1][lastItem].unshift(
+            Pages[i][lastItem][Pages[i][lastItem].length - 1]
+          );
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
         }
         if (document.querySelectorAll(".A4")[i + 1]) {
-          if (document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild == null) {} 
-          else {
-            if (leftHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.lastChild.firstChild.clientHeight) < 1000) {
-              let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.classList[0];
+          if (
+            document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+              .firstChild == null
+          ) {
+          } else {
+            if (
+              leftHeight +
+                parseInt(
+                  document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+                    .firstChild.lastChild.firstChild.clientHeight
+                ) <
+              1000
+            ) {
+              let Item = document
+                .querySelectorAll(".A4")
+                [i + 1].querySelector(".left").firstChild.classList[0];
               console.log(Item);
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
@@ -249,52 +363,106 @@ class ThemeContextProvider extends Component {
           }
         }
         if (document.querySelectorAll(".A4")[i + 1]) {
-          if (document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild == null || document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild == undefined) {
+          if (
+            document.querySelectorAll(".A4")[i + 1].querySelector(".right")
+              .firstChild == null ||
+            document.querySelectorAll(".A4")[i + 1].querySelector(".right")
+              .firstChild == undefined
+          ) {
           } else {
-
-            if(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.classList[0] === "skill-boxes"){
-              if (rightHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.firstChild.clientHeight) <1000) {
-                let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.classList[0];
-                    console.log(Item);
-                    Pages[i][Item].push(Pages[i + 1][Item][0]);
-                    Pages[i + 1][Item].shift();
-                    this.setState({ userData: Pages });
-                  }
+            if (
+              document.querySelectorAll(".A4")[i + 1].querySelector(".right")
+                .firstChild.lastChild.firstChild.classList[0] === "skill-boxes"
+            ) {
+              if (
+                rightHeight +
+                  parseInt(
+                    document
+                      .querySelectorAll(".A4")
+                      [i + 1].querySelector(".right").firstChild.lastChild
+                      .firstChild.firstChild.clientHeight
+                  ) <
+                1000
+              ) {
+                let Item = document
+                  .querySelectorAll(".A4")
+                  [i + 1].querySelector(".right").firstChild.classList[0];
+                console.log(Item);
+                Pages[i][Item].push(Pages[i + 1][Item][0]);
+                Pages[i + 1][Item].shift();
+                this.setState({ userData: Pages });
+              }
             } else {
-            if (rightHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.clientHeight) <1000) {
-              console.log(parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.lastChild.firstChild.clientHeight))
-              let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".right").firstChild.classList[0];
-                  console.log(Item);
-                  Pages[i][Item].push(Pages[i + 1][Item][0]);
-                  Pages[i + 1][Item].shift();
-                  if(Item !== "languages"){this.setState({ userData: Pages })}
+              if (
+                rightHeight +
+                  parseInt(
+                    document
+                      .querySelectorAll(".A4")
+                      [i + 1].querySelector(".right").firstChild.lastChild
+                      .firstChild.clientHeight
+                  ) <
+                1000
+              ) {
+                console.log(
+                  parseInt(
+                    document
+                      .querySelectorAll(".A4")
+                      [i + 1].querySelector(".right").firstChild.lastChild
+                      .firstChild.clientHeight
+                  )
+                );
+                let Item = document
+                  .querySelectorAll(".A4")
+                  [i + 1].querySelector(".right").firstChild.classList[0];
+                console.log(Item);
+                Pages[i][Item].push(Pages[i + 1][Item][0]);
+                Pages[i + 1][Item].shift();
+                if (Item !== "languages") {
+                  this.setState({ userData: Pages });
                 }
-            }}
+              }
+            }
           }
         }
+      }
 
       if (this.state.style.displayOneColumn !== false) {
-        if(onePageHeight > 2000){
-          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
-          Pages[i + 1][lastItem] = Pages[i][lastItem]
-          Pages[i][lastItem] = []
+        if (onePageHeight > 2000) {
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".left").lastChild.classList[0];
+          Pages[i + 1][lastItem] = Pages[i][lastItem];
+          Pages[i][lastItem] = [];
           this.setState({ userData: Pages });
         }
         if (onePageHeight > 1100 && onePageHeight < 2000) {
-          let lastItem = document.querySelectorAll(".A4")[i].querySelector(".left").lastChild.classList[0];
+          let lastItem = document
+            .querySelectorAll(".A4")
+            [i].querySelector(".left").lastChild.classList[0];
           Pages[i + 1][lastItem].unshift(
             Pages[i][lastItem][Pages[i][lastItem].length - 1]
           );
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
-        // }
+          // }
         }
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
-            document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild == null) {
+            document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+              .firstChild == null
+          ) {
           } else {
-            if (onePageHeight + parseInt(document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.lastChild.firstChild.clientHeight) < 1000) {
-              let Item = document.querySelectorAll(".A4")[i + 1].querySelector(".left").firstChild.classList[0];
+            if (
+              onePageHeight +
+                parseInt(
+                  document.querySelectorAll(".A4")[i + 1].querySelector(".left")
+                    .firstChild.lastChild.firstChild.clientHeight
+                ) <
+              1000
+            ) {
+              let Item = document
+                .querySelectorAll(".A4")
+                [i + 1].querySelector(".left").firstChild.classList[0];
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
             }
@@ -304,7 +472,6 @@ class ThemeContextProvider extends Component {
     });
   }
   async componentDidMount() {
-
     console.log("diplay one column is =>" + this.state.style.displayOneColumn);
     if (
       localStorage.getItem("currentCV") === null ||
@@ -538,81 +705,80 @@ class ThemeContextProvider extends Component {
   };
   // Those 3 functions add array of strings, will try to DRY later
   modifyEd = (page, field, value, index) => {
-
     console.log("edmoidfy");
     let newObject = [...this.state.userData];
-    if(newObject[page].education[index]){
-    if (field === "studyProgram") {
-      newObject[page].education[index].studyProgram = value;
-      console.log(page)
-      console.log(field)
-      console.log(value)
-      console.log(index)
+    if (newObject[page].education[index]) {
+      if (field === "studyProgram") {
+        newObject[page].education[index].studyProgram = value;
+        console.log(page);
+        console.log(field);
+        console.log(value);
+        console.log(index);
+      }
+      if (field === "institution") {
+        newObject[page].education[index].institution = value;
+      }
+      if (field === "startMonth") {
+        newObject[page].education[index].startMonth = value;
+      }
+      if (field === "startYear") {
+        newObject[page].education[index].startYear = value;
+      }
+      if (field === "endMonth") {
+        newObject[page].education[index].endMonth = value;
+      }
+      if (field === "endYear") {
+        newObject[page].education[index].endYear = value;
+      }
+      if (field === "place") {
+        newObject[page].education[index].place = value;
+      }
+      this.setState({ userData: newObject });
+      console.log(this.state.userData[page].education);
     }
-    if (field === "institution") {
-      newObject[page].education[index].institution = value;
-    }
-    if (field === "startMonth") {
-      newObject[page].education[index].startMonth = value;
-    }
-    if (field === "startYear") {
-      newObject[page].education[index].startYear = value;
-    }
-    if (field === "endMonth") {
-      newObject[page].education[index].endMonth = value;
-    }
-    if (field === "endYear") {
-      newObject[page].education[index].endYear = value;
-    }
-    if (field === "place") {
-      newObject[page].education[index].place = value;
-    }
-    this.setState({ userData: newObject });
-    console.log(this.state.userData[page].education);
-  }
   };
   modifyEx = (page, field, value, index) => {
     let newObject = [...this.state.userData];
-    if(newObject[page].experience[index]){
-    if (field === "position") {
-      newObject[page].experience[index].position = value;
+    if (newObject[page].experience[index]) {
+      if (field === "position") {
+        newObject[page].experience[index].position = value;
+      }
+      if (field === "company") {
+        newObject[page].experience[index].company = value;
+      }
+      if (field === "startMonth") {
+        newObject[page].experience[index].startMonth = value;
+      }
+      if (field === "startYear") {
+        newObject[page].experience[index].startYear = value;
+      }
+      if (field === "endMonth") {
+        newObject[page].experience[index].endMonth = value;
+      }
+      if (field === "endYear") {
+        newObject[page].experience[index].endYear = value;
+      }
+      if (field === "place") {
+        newObject[page].experience[index].place = value;
+      }
+      if (field === "tasks") {
+        newObject[page].experience[index].tasks = value;
+      }
+      this.setState({ userData: newObject });
+      console.log(this.state.userData[page].experience);
     }
-    if (field === "company") {
-      newObject[page].experience[index].company = value;
-    }
-    if (field === "startMonth") {
-      newObject[page].experience[index].startMonth = value;
-    }
-    if (field === "startYear") {
-      newObject[page].experience[index].startYear = value;
-    }
-    if (field === "endMonth") {
-      newObject[page].experience[index].endMonth = value;
-    }
-    if (field === "endYear") {
-      newObject[page].experience[index].endYear = value;
-    }
-    if (field === "place") {
-      newObject[page].experience[index].place = value;
-    }
-    if (field === "tasks") {
-      newObject[page].experience[index].tasks = value;
-    }
-    this.setState({ userData: newObject });
-    console.log(this.state.userData[page].experience);
-  }
   };
   modifySkill = (page, index, value) => {
     let newObject = [...this.state.userData];
-    if(newObject[page].skills[index]){
-    newObject[page].skills[index] = value;
-    this.setState({ userData: newObject });
+    if (newObject[page].skills[index]) {
+      newObject[page].skills[index] = value;
+      this.setState({ userData: newObject });
     }
   };
   modifyAbout = (page, field, value) => {
-    console.log(page)
-    console.log(field)
-    console.log(value)
+    console.log(page);
+    console.log(field);
+    console.log(value);
     let newObject = [...this.state.userData];
     if (field === "intro") {
       newObject[page].intro = value;
@@ -624,53 +790,53 @@ class ThemeContextProvider extends Component {
   };
   modifyAchievements = (page, index, value) => {
     let newObject = [...this.state.userData];
-    if(newObject[page].achievements[index]){
-    newObject[page].achievements[index] = value;
-    this.setState({ userData: newObject });
+    if (newObject[page].achievements[index]) {
+      newObject[page].achievements[index] = value;
+      this.setState({ userData: newObject });
     }
   };
   modifyCertifications = (page, index, value) => {
     let newObject = [...this.state.userData];
-    if(newObject[page].certifications[index]){
-    newObject[page].certifications[index] = value;
-    this.setState({ userData: newObject });
+    if (newObject[page].certifications[index]) {
+      newObject[page].certifications[index] = value;
+      this.setState({ userData: newObject });
     }
   };
   modifyProjects = (page, field, index, value) => {
     let newObject = [...this.state.userData];
-    if(newObject[page].projects[index]){
-    if (field === "PTitle") {
-      newObject[page].projects[index].title = value;
+    if (newObject[page].projects[index]) {
+      if (field === "PTitle") {
+        newObject[page].projects[index].title = value;
+      }
+      if (field === "PDesc") {
+        newObject[page].projects[index].desc = value;
+      }
+      this.setState({ userData: newObject });
     }
-    if (field === "PDesc") {
-      newObject[page].projects[index].desc = value;
-    }
-    this.setState({ userData: newObject });
-  }
   };
   modifyCourses = (page, field, index, value) => {
     let newObject = [...this.state.userData];
-    if(newObject[page].courses[index]){
-    if (field === "CTitle") {
-      newObject[page].courses[index].title = value;
+    if (newObject[page].courses[index]) {
+      if (field === "CTitle") {
+        newObject[page].courses[index].title = value;
+      }
+      if (field === "CDesc") {
+        newObject[page].courses[index].desc = value;
+      }
+      this.setState({ userData: newObject });
     }
-    if (field === "CDesc") {
-      newObject[page].courses[index].desc = value;
-    }
-    this.setState({ userData: newObject });
-  }
   };
   modifyLanguages = (page, field, index, value) => {
     let newObject = [...this.state.userData];
-    if(newObject[page].languages[index]){
-    if (field === "language") {
-      newObject[page].languages[index].language = value;
+    if (newObject[page].languages[index]) {
+      if (field === "language") {
+        newObject[page].languages[index].language = value;
+      }
+      if (field === "level") {
+        newObject[page].languages[index].level = value;
+      }
+      this.setState({ userData: newObject });
     }
-    if (field === "level") {
-      newObject[page].languages[index].level = value;
-    }
-    this.setState({ userData: newObject });
-  }
   };
   deleteGroup = (section, page, deleteIndex) => {
     let newObject = [...this.state.userData];
@@ -1134,7 +1300,7 @@ class ThemeContextProvider extends Component {
       }
     );
     const file = await res.json();
-    const newArr = [...this.state.userData]
+    const newArr = [...this.state.userData];
     newArr[0].profilePic = file.secure_url;
     this.setState({ userData: newArr, loadingUploadImg: false });
   };

@@ -2,6 +2,7 @@ import React from "react";
 import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 import CoverLetterContact from "./CoverLetterContact";
 import store from "./../../../store.js";
+// import Contacts from "../../CvBuilder/CvBuilderMain/Contacts/Contacts";
 
 function aFunction() {
   var newState = store.getState();
@@ -37,7 +38,9 @@ class CoverLetterHeader extends React.Component {
                     <span
                       className="title"
                       contentEditable="true"
-                      onBlur={e => modifyCover("professionalTitle", e.target.innerText)}
+                      onBlur={e =>
+                        modifyCover("professionalTitle", e.target.innerText)
+                      }
                       style={{
                         fontSize: context.style.size1
                       }}
@@ -64,12 +67,15 @@ class CoverLetterHeader extends React.Component {
                       <span
                         className="company"
                         contentEditable="true"
-                        onBlur={e => modifyCover("companyDetails", e.target.innerText)}
-
+                        onBlur={e =>
+                          modifyCover("companyDetails", e.target.innerText)
+                        }
                         style={{
                           fontSize: context.style.size1
                         }}
-        >{context.coverLetters[0].companyDetails}</span>
+                      >
+                        {context.coverLetters[0].companyDetails}
+                      </span>
                     </div>
                   </div>
                   <div className="editableHeaderDiv">
@@ -85,7 +91,7 @@ class CoverLetterHeader extends React.Component {
                 </div>
               </div>
               <div className="contactWrapper">
-                <CoverLetterContact></CoverLetterContact>
+                <CoverLetterContact />
               </div>
             </div>
           );

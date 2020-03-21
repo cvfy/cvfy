@@ -140,11 +140,10 @@
     height: 100%;
 }
 
-.contactGroup {
+.contactCoverGroup {
     flex-grow: 1;
     flex: 0 50%;
     padding-bottom: 5px;
-    direction: rtl;
 }
 
 .iconeColor {
@@ -155,17 +154,17 @@
     margin-right: 10px;
 }
 
-.userEmail:empty:before {
-    content: 'E-mail';
+.userCoverEmail:empty:before {
+    content: 'whatdafuck';
     color: rgb(61, 58, 58);
 }
 
-.userEmail:empty:hover:before {
+/* .userEmail:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 5em;
-}
+} */
 
-.userSkype:empty:before {
+/* .userSkype:empty:before {
     content: 'Skype';
     color: rgb(61, 58, 58);
 }
@@ -173,9 +172,9 @@
 .userSkype:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 8em;
-}
+} */
 
-.userSite:empty:before {
+/* .userSite:empty:before {
     content: 'Website';
     color: rgb(61, 58, 58);
 }
@@ -183,29 +182,29 @@
 .userSite:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 8em;
-}
+} */
 
-.userAddress:empty:before {
+/* .userAddress:empty:before {
     content: 'Address';
     color: rgb(61, 58, 58);
-}
+} */
 
-.userAddress:empty:hover:before {
+/* .userAddress:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 8em;
-}
+} */
 
-.userPhone:empty:before {
+.userPhoneCover:empty:before {
     content: 'Phone';
     color: rgb(61, 58, 58);
 }
 
-.userPhone:empty:hover:before {
+/* .userPhoneCover:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 8em;
-}
+} */
 
-.userGitHub:empty:before {
+/* .userGitHub:empty:before {
     content: 'GitHub';
     color: rgb(61, 58, 58);
 }
@@ -213,7 +212,28 @@
 .userGithub:empty:hover:before {
     border-bottom: 1px solid blue;
     max-width: 8em;
+} */
+
+
+/* =========================================================== */
+/* ================== CONTACT MODAL SECTION ================== */
+/* =========================================================== */
+.showCoverModal {
+    position: absolute;
+    background: #2b3a42;
+    width: 710px;
+    height: 300px;
+    left: 110px;
+    border-radius: 22px;
+    box-shadow: -2px 0 8px 3px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    color: #fff;
+    z-index: 1000;
 }
+
 
 /* ==================================================== */
 /* ================== BODY SECTION ================== */
