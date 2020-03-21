@@ -25,7 +25,7 @@ class CoverLetterHeader extends React.Component {
                       color: context.style.color
                     }}
                   >
-                    {context.coverLetters[0].fullName}
+                    {this.props.data.fullName}
                   </div>
 
                   <div
@@ -45,7 +45,7 @@ class CoverLetterHeader extends React.Component {
                         fontSize: context.style.size1
                       }}
                     >
-                      {context.coverLetters[0].professionalTitle}
+                      {this.props.data.professionalTitle}
                     </span>
                   </div>
                   <div
@@ -74,7 +74,7 @@ class CoverLetterHeader extends React.Component {
                           fontSize: context.style.size1
                         }}
                       >
-                        {context.coverLetters[0].companyDetails}
+                        {this.props.data.companyDetails}
                       </span>
                     </div>
                   </div>

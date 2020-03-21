@@ -19,11 +19,6 @@ class CoverLetterContact extends React.Component {
     this.setState({ clicked: false });
   };
 
-  // myChangeFunction = input1 => {
-  //   let input2 = document.getElementById("emailInput");
-  //   input2.value = input1;
-  // };
-
   render() {
     const className = this.state.clicked
       ? "showCoverModal"
@@ -43,6 +38,10 @@ class CoverLetterContact extends React.Component {
           } = coverContext;
           return (
             <div className="coverLetterContact" onClick={this.displayModal}>
+              {/* ========================================================== 
+              ================= HERE STARTS CONTACT MODAL ==================
+              ==============================================================
+              */}
               <div className={className}>
                 <div className="contactModalTitle">Contacts</div>
                 <div className="contactModalSaveAndDiscard">
@@ -59,38 +58,18 @@ class CoverLetterContact extends React.Component {
                   </div>
                   <>
                     <input
-                      // id="emailInput"
                       type="email"
                       name="email"
                       placeholder="Email"
                       maxLength="150"
-                      // value={coverContext.coverLetters[0].contact[0].value}
-                      // onChange={e => updateUserEmail(e.target.value)}
-                      onClick={() =>
-                        console.log(coverContext.coverLetters[0].contact)
-                      }
+                      value={coverContext.coverLetters[0].contact[0].value}
+                      onChange={e => updateUserEmail(e.target.value)}
                     />
                   </>
                 </div>
 
-                <div className="contactCoverGroup">
-                  <div className="icone">
-                    <i
-                      className="far fa-envelope iconeColor"
-                      style={{ color: coverContext.style.color }}
-                    ></i>
-                    <span
-                      className="user-contact userCoverEmail"
-                      // contentEditable="true"
-                      // onBlur={e => modifyCover("email", e.target.innerText)}
-                    >
-                      {coverContext.coverLetters[0].contact.email}
-                    </span>
-                  </div>
-                </div>
-
                 {/* ############ Skype ############ */}
-                {/* <div className="contactBox">
+                <div className="contactBox">
                   <>
                     <i className="fab fa-skype modalContactIcon"></i>
                   </>
@@ -104,10 +83,10 @@ class CoverLetterContact extends React.Component {
                       onChange={e => updateUserSkype(e.target.value)}
                     />
                   </>
-                </div> */}
+                </div>
 
                 {/* ############ Phone ############ */}
-                {/* <div className="contactBox">
+                <div className="contactBox">
                   <>
                     <i className="fas fa-mobile-alt modalContactIcon"></i>
                   </>
@@ -121,9 +100,9 @@ class CoverLetterContact extends React.Component {
                       onChange={e => updateUserPhone(e.target.value)}
                     />
                   </>
-                </div> */}
+                </div>
                 {/* ############ Website ############ */}
-                {/* <div className="contactBox">
+                <div className="contactBox">
                   <>
                     <i className="fas fa-globe modalContactIcon"></i>
                   </>
@@ -137,9 +116,9 @@ class CoverLetterContact extends React.Component {
                       onChange={e => updateUserWebsite(e.target.value)}
                     />
                   </>
-                </div> */}
+                </div>
                 {/* ############ LinkedIn ############ */}
-                {/* <div className="contactBox">
+                <div className="contactBox">
                   <>
                     <i className="fab fa-linkedin modalContactIcon"></i>
                   </>
@@ -153,10 +132,10 @@ class CoverLetterContact extends React.Component {
                       onChange={e => updateUserLinkedIn(e.target.value)}
                     />
                   </>
-                </div> */}
+                </div>
 
                 {/* ############ GitHub ############ */}
-                {/* <div className="contactBox">
+                <div className="contactBox">
                   <>
                     <i className="fab fa-github modalContactIcon"></i>
                   </>
@@ -170,10 +149,14 @@ class CoverLetterContact extends React.Component {
                       onChange={e => updateUserGitHub(e.target.value)}
                     />
                   </>
-                </div> */}
+                </div>
               </div>
+              {/* ========================================================== 
+              ================= HERE ENDS CONTACT MODAL ==================
+              ==============================================================
+              */}
 
-              {/* <>
+              <>
                 {coverContext.coverLetters[0].contact.map(el => {
                   if (el.value.length !== 0) {
                     return (
@@ -183,117 +166,13 @@ class CoverLetterContact extends React.Component {
                             className={`${el.icon} iconeColor`}
                             style={{ color: coverContext.style.color }}
                           ></i>
-                          <span
-                            className="user-contact"
-                            // contentEditable="true"
-                            // suppressContentEditableWarning={true}
-                          >
-                            {el.value}
-                          </span>
+                          <span className="user-contact">{el.value}</span>
                         </div>
                       </div>
                     );
                   } else return null;
-                })} */}
-
-              {/* =============== PREVOUS THING ========================== */}
-              {/* <div className="contactCoverGroup">
-                  <div className="icone">
-                    <i
-                      className="far fa-envelope iconeColor"
-                      style={{ color: coverContext.style.color }}
-                    ></i>
-                    <span
-                      className="user-contact userCoverEmail"
-                      // contentEditable="true"
-                      // onBlur={e => modifyCover("email", e.target.innerText)}
-                    >
-                      {coverContext.coverLetters[0].contact.email}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="contactCoverGroup">
-                  <div className="icone">
-                    <i
-                      className="fab fa-linkedin iconeColor"
-                      style={{ color: coverContext.style.color }}
-                    ></i>
-                    <span
-                      className="user-contact userCoverAddress"
-                      // contentEditable="true"
-                      // onBlur={e => modifyCover("address", e.target.innerText)}
-                    >
-                      {coverContext.coverLetters[0].contact.linkedin}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="contactCoverGroup">
-                  <div className="icone">
-                    <i
-                      className="fab fa-skype iconeColor"
-                      style={{ color: coverContext.style.color }}
-                    ></i>
-                    <span
-                      className="user-contact userCoverSkype"
-                      // contentEditable="true"
-                      // onBlur={e => modifyCover("skype", e.target.innerText)}
-                    >
-                      {coverContext.coverLetters[0].contact.skype}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="contactCoverGroup">
-                  <div className="icone">
-                    <i
-                      className="fas fa-mobile-alt iconeColor"
-                      style={{ color: coverContext.style.color }}
-                    ></i>
-                    <span
-                      className="user-contact userCoverPhone"
-                      // contentEditable="true"
-                      // onBlur={e => modifyCover("phone", e.target.innerText)}
-                    >
-                      {coverContext.coverLetters[0].contact.phone}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="contactCoverGroup">
-                  <div className="icone">
-                    <i
-                      className="fas fa-globe iconeColor"
-                      style={{ color: coverContext.style.color }}
-                    ></i>
-                    <span
-                      className="user-contact userCoverSite"
-                      // contentEditable="true"
-                      // onBlur={e => modifyCover("website", e.target.innerText)}
-                    >
-                      {coverContext.coverLetters[0].contact.website}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="contactCoverGroup">
-                  <div className="icone">
-                    <i
-                      className="fab fa-github iconeColor"
-                      style={{ color: coverContext.style.color }}
-                    ></i>
-                    <span
-                      className="user-contact userCoverGitHub"
-                      // contentEditable="true"
-                      // onBlur={e => modifyCover("gitHub", e.target.innerText)}
-                    >
-                      {coverContext.coverLetters[0].contact.github}
-                    </span>
-                  </div>
-                </div> */}
-
-              {/* </> */}
+                })}
+              </>
             </div>
           );
         }}

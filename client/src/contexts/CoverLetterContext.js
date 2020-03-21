@@ -63,15 +63,15 @@ class CoverLetterContextProvider extends Component {
         ]
       },
       {
-        text: "Dear Sir/Madam,...",
+        text: "",
         signature: ""
       },
       {
-        text: "Dear Sir/Madam,...",
+        text: "",
         signature: ""
       },
       {
-        text: "Dear Sir/Madam,...",
+        text: "",
         signature: ""
       }
     ]
@@ -92,10 +92,7 @@ class CoverLetterContextProvider extends Component {
         this.state
       );
     }
-    if (
-      localStorage.getItem("currentCover") !== null ||
-      localStorage.getItem("currentCover") !== ""
-    ) {
+    if (localStorage.getItem("currentCover")) {
       console.log("i am trying to get the data");
       axios
         .get(
@@ -109,6 +106,21 @@ class CoverLetterContextProvider extends Component {
             return this.setState(res.data.coverLetters[0]);
           } //this.setState(res.data)
         );
+    }
+    console.log(this.state.coverLetters[0].contact.email);
+  }
+
+  componentDidUpdate() {
+    let newArr = [...this.state.coverLetters];
+    let textHeight = document.querySelector(".cover-letter-body").clientHeight;
+    console.log(textHeight);
+    if (textHeight > 300) {
+      newArr[1].text =
+        newArr[0].text.split(" ")[newArr[0].text.split(" ").length - 1] +
+        newArr[1].text;
+      //let newly = newArr[0].text.split(" ").pop()
+      //newArr[0].text = newly
+      this.setState({ coverLetters: newArr });
     }
   }
   saveCoverDataToServer = async e => {
@@ -124,7 +136,7 @@ class CoverLetterContextProvider extends Component {
       });
       console.log("Should be true ->", this.state.loadingSaveCv);
       const userID = await aFunction();
-      console.log(userID);
+      console.log(this.state.coverLetters[0].contact);
 
       //const data = JSON.stringify(this.state)
       await axios
@@ -245,77 +257,58 @@ class CoverLetterContextProvider extends Component {
       this.setState({ style: newObj });
     }
   };
+
   modifyCover = (field, value) => {
+    console.log(field);
+    console.log(value);
     let newObject = [...this.state.coverLetters];
     if (newObject[0][field]) {
       if (field === "professionalTitle") {
         newObject[0].professionalTitle = value;
+        this.setState({ coverLetters: newObject });
       }
       if (field === "companyDetails") {
         newObject[0].companyDetails = value;
+        this.setState({ coverLetters: newObject });
       }
-      // if (field === "email") {
-      //   newObject[0].contact.email = value;
-      // }
-      // if (field === "address") {
-      //   newObject[0].contact.address = value;
-      // }
-      // if (field === "skype") {
-      //   newObject[0].contact.skype = value;
-      // }
-      // if (field === "phone") {
-      //   newObject[0].contact.phone = value;
-      // }
-      // if (field === "website") {
-      //   newObject[0].contact.website = value;
-      // }
-      // if (field === "gitHub") {
-      //   newObject[0].contact.gitHub = value;
-      // }
       if (field === "text") {
         newObject[0].text = value;
+        this.setState({ coverLetters: newObject });
       }
-      this.setState({ coverLetters: newObject });
     }
   };
 
   updateUserSkype = input => {
-    // need to add s timeout to reduce logs at console
     let newObject = [...this.state.coverLetters];
     newObject[0].contact[3].value = input;
     this.setState({ userData: newObject });
   };
 
   updateUserPhone = input => {
-    // need to add s timeout to reduce logs at console
     let newObject = [...this.state.coverLetters];
     newObject[0].contact[1].value = input;
     this.setState({ userData: newObject });
   };
 
   updateUserEmail = input => {
-    // need to add s timeout to reduce logs at console
     let newObject = [...this.state.coverLetters];
     newObject[0].contact[0].value = input;
     this.setState({ coverLetters: newObject });
   };
 
   updateUserLinkedIn = input => {
-    // need to add s timeout to reduce logs at console
     let newObject = [...this.state.coverLetters];
     newObject[0].contact[2].value = input;
     this.setState({ coverLetters: newObject });
   };
 
   updateUserWebsite = input => {
-    // need to add s timeout to reduce logs at console
     let newObject = [...this.state.coverLetters];
     newObject[0].contact[5].value = input;
     this.setState({ coverLetters: newObject });
   };
 
   updateUserGitHub = input => {
-    // need to add s timeout to reduce logs at console
     let newObject = [...this.state.coverLetters];
     newObject[0].contact[6].value = input;
     this.setState({ coverLetters: newObject });

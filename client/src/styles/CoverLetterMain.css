@@ -9,7 +9,6 @@
     width: 892.5px;
     min-height: 1263px !important;
     background: #fff center center;
-    margin-bottom: 40rem;
     margin-right: auto;
     margin-left: auto;
     margin-top: 10rem;
@@ -27,7 +26,6 @@
 .coverLetterBody:empty:before {
     color: #808080;
     display: block;
-    /* border-bottom: 1px dotted #808080; */
     font-style: italic;
 }
 
@@ -40,7 +38,7 @@
 /* ==================================================== */
 .header-wrap {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
     margin-left: 15px;
 }
@@ -117,17 +115,6 @@
     color: #414242;
 }
 
-/* .editDate:empty:before {
-    content: "22 Januar, 2020";
-    border-bottom: none;
-    font-style: italic;
-} */
-
-/* .editDate:empty:hover:before {
-    border-bottom: 1px solid blue;
-    max-width: 17em;
-} */
-
 /* ==================================================== */
 /* ================== CONTACT SECTION ================== */
 /* ==================================================== */
@@ -138,6 +125,7 @@
     flex-direction: column;
     justify-content: space-around;
     height: 100%;
+    cursor: pointer;
 }
 
 .contactCoverGroup {
@@ -153,67 +141,6 @@
 .user-contact {
     margin-right: 10px;
 }
-
-.userCoverEmail:empty:before {
-    content: 'whatdafuck';
-    color: rgb(61, 58, 58);
-}
-
-/* .userEmail:empty:hover:before {
-    border-bottom: 1px solid blue;
-    max-width: 5em;
-} */
-
-/* .userSkype:empty:before {
-    content: 'Skype';
-    color: rgb(61, 58, 58);
-}
-
-.userSkype:empty:hover:before {
-    border-bottom: 1px solid blue;
-    max-width: 8em;
-} */
-
-/* .userSite:empty:before {
-    content: 'Website';
-    color: rgb(61, 58, 58);
-}
-
-.userSite:empty:hover:before {
-    border-bottom: 1px solid blue;
-    max-width: 8em;
-} */
-
-/* .userAddress:empty:before {
-    content: 'Address';
-    color: rgb(61, 58, 58);
-} */
-
-/* .userAddress:empty:hover:before {
-    border-bottom: 1px solid blue;
-    max-width: 8em;
-} */
-
-.userPhoneCover:empty:before {
-    content: 'Phone';
-    color: rgb(61, 58, 58);
-}
-
-/* .userPhoneCover:empty:hover:before {
-    border-bottom: 1px solid blue;
-    max-width: 8em;
-} */
-
-/* .userGitHub:empty:before {
-    content: 'GitHub';
-    color: rgb(61, 58, 58);
-}
-
-.userGithub:empty:hover:before {
-    border-bottom: 1px solid blue;
-    max-width: 8em;
-} */
-
 
 /* =========================================================== */
 /* ================== CONTACT MODAL SECTION ================== */
