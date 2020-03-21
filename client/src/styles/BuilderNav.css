@@ -560,13 +560,12 @@
 }
 
 .templatesSubMenuCarousel {
-  /* background: green; */
   display: grid;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 45px 45px 45px;
-  grid-gap: 6px;
+  grid-gap: 15px;
   justify-content: space-around;
-  padding-top: 5px;
+  padding: 5px 35px 0 35px;
 }
 
 .templatesSubMenuModels {
@@ -576,7 +575,6 @@
 }
 
 /* Here starts cv extra tools section */
-
 .CvMenuWrapper {
   display: flex;
   flex-direction: column;

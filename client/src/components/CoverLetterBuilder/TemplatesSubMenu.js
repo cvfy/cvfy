@@ -47,8 +47,9 @@ class FontSubMenu extends Component {
                     this.dropdownMenu = element;
                   }}
                 >
-                  <div className="templatesSubMenuTitle">Templates 1 / 3</div>
+                  <div className="templatesSubMenuTitle">Templates 1 / 4</div>
                   <div className="templatesSubMenuCarousel">
+                    <div className="templatesSubMenuModels"></div>
                     <div className="templatesSubMenuModels"></div>
                     <div className="templatesSubMenuModels"></div>
                     <div className="templatesSubMenuModels"></div>
