@@ -45,8 +45,6 @@
 
 .right {
   width: 100%;
-  /* padding-left: 37.5px;
-  padding-right: 27px; */
 }
 
 .editableDiv {
@@ -131,9 +129,29 @@
   padding: 20px;
 }
 
+.header-inner-professional {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 20px;
+}
+
+.header-inner-photo {
+  display: grid;
+  grid-template-columns: 1fr 0.6fr;
+  padding: 20px 0 20px 20px;
+}
+
+.header-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+}
+
 .photo {
-  /* margin: 19px 10px 0 20px; */
   margin: 0 10px 0 20px;
+}
+
+.photoProfessional {
+  text-align: end;
 }
 
 .profile-photo {
@@ -195,6 +213,22 @@
 /* ==================================================== */
 .showContactModal {
   position: absolute;
+  background: #2b3a42;
+  width: 710px;
+  height: 300px;
+  border-radius: 22px;
+  box-shadow: -2px 0 8px 3px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  color: #fff;
+  z-index: 1000;
+}
+
+.showContactModalProfessional {
+  position: absolute;
+  left: 120px;
   background: #2b3a42;
   width: 710px;
   height: 300px;
@@ -289,6 +323,7 @@ input[type="text"]:focus {
   font-size: 12px;
   min-height: 70px;
   display: flex;
+  cursor: pointer;
 }
 
 .contact-row {
@@ -300,8 +335,27 @@ input[type="text"]:focus {
   width: 100%;
 }
 
+/* for professional template */
+.contact-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-items: end;
+  width: 100%;
+  height: 34%;
+  padding-top: 25px;
+}
+
 .contactGroup {
   padding-top: 5px;
+}
+
+/* for professional template */
+.contactGroupProfessional {
+  flex-grow: 1;
+  flex: 0 1 50%;
+  padding: 5px 20px 5px 0;
 }
 
 .icone {
