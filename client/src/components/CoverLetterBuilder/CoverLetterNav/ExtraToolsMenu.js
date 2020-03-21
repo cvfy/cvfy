@@ -146,7 +146,8 @@ class ExtraToolsMenu extends Component {
                   {context.loadingSaveCv && <span>Save</span>}
                 </button>
                 <button
-                  // onClick={e => saveCVDataToServer(e)}
+                  // onClick={e => saveCVDataToServer(e)
+                  onClick={() => this.setLocalStorage("")}
                   className="saveUpdateButton"
                 >
                   New doc
