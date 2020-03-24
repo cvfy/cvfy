@@ -340,7 +340,8 @@ input[type="text"]:focus {
 
 .contact {
   background-color: #d3d3d382;
-  padding-left: 37.5px;
+  /* padding-left: 37.5px; */
+  padding-left: 0;
   font-size: 12px;
   min-height: 70px;
   display: flex;
@@ -369,7 +370,9 @@ input[type="text"]:focus {
 }
 
 .contactGroup {
-  padding-top: 5px;
+  /* padding-top: 5px; */
+  direction: rtl;
+  padding-left: 27px;
 }
 
 /* for professional template */
