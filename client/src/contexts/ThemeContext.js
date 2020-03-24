@@ -1405,18 +1405,6 @@ class ThemeContextProvider extends Component {
     await this.saveCVDataToServer();
   };
 
-  showExecutiveTemplate = async () => {
-    const newObj = { ...this.state };
-    newObj.style.displayExecutive = true;
-    newObj.style.displayBasic = false;
-    newObj.style.displayModern = false;
-    newObj.style.displayProfessional = false;
-    await this.setState({
-      style: newObj.style
-    });
-    await this.saveCVDataToServer();
-  };
-
   showModernTemplate = async () => {
     const newObj = { ...this.state };
     newObj.style.displayExecutive = false;
@@ -1441,6 +1429,17 @@ class ThemeContextProvider extends Component {
     await this.saveCVDataToServer();
   };
 
+  showExecutiveTemplate = async () => {
+    const newObj = { ...this.state };
+    newObj.style.displayExecutive = true;
+    newObj.style.displayBasic = false;
+    newObj.style.displayModern = false;
+    newObj.style.displayProfessional = false;
+    await this.setState({
+      style: newObj.style
+    });
+    await this.saveCVDataToServer();
+  };
   updateUserSkype = (page, input) => {
     // need to add s timeout to reduce logs at console
     let newObject = [...this.state.userData];

@@ -24,12 +24,12 @@ class CvBuilder extends React.Component {
                 <div style={{ display: "flex" }}>
                   {context.style.displayBasic ? (
                     <BasicTemplate />
-                  ) : context.style.displayExecutive ? (
-                    <CvBuilderMain />
-                  ) : context.style.displayModern ? (
-                    <ModernTemplate />
                   ) : context.style.displayProfessional ? (
                     <ProfessionalTemplate />
+                  ) : context.style.displayModern ? (
+                    <ModernTemplate />
+                  ) : context.style.displayExecutive ? (
+                    <CvBuilderMain />
                   ) : null}
                   <JobDashboard />
                 </div>

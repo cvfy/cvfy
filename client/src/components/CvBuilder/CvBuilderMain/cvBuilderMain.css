@@ -141,12 +141,14 @@
   display: grid;
   grid-template-columns: 1fr;
   padding: 20px;
+  border-bottom: 2px solid #3dbaf7;
 }
 
 .header-inner-photo {
   display: grid;
   grid-template-columns: 1fr 0.6fr;
   padding: 20px 0 20px 20px;
+  border-bottom: 2px solid #3dbaf7;
 }
 
 .header-grid {
@@ -165,6 +167,13 @@
 .profile-photo {
   border-radius: 50%;
   border: 1px solid gray;
+  cursor: pointer;
+}
+
+#profile-photo-professional {
+  border: 3px solid #3dbaf7;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .introduction {
@@ -183,6 +192,10 @@
   font-size: 1.3rem;
   margin-top: -0.2rem;
   margin-bottom: 5px;
+}
+
+.CvTitleProfessional {
+  color: #3dbaf7;
 }
 
 .CvTitle:empty:before {
