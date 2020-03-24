@@ -33,6 +33,12 @@ class FontSubMenu extends Component {
     return (
       <ThemeContext.Consumer>
         {context => {
+          const {
+            showBasicTemplate,
+            showExecutiveTemplate,
+            showModernTemplate,
+            showProfessionalTemplate
+          } = context;
           return (
             <div>
               <div className="template-btn" onClick={this.showMenu}>
@@ -47,11 +53,32 @@ class FontSubMenu extends Component {
                     this.dropdownMenu = element;
                   }}
                 >
-                  <div className="templatesSubMenuTitle">Templates 1 / 3</div>
+                  <div className="templatesSubMenuTitle">Templates 1 / 4</div>
                   <div className="templatesSubMenuCarousel">
-                    <div className="templatesSubMenuModels"></div>
-                    <div className="templatesSubMenuModels"></div>
-                    <div className="templatesSubMenuModels"></div>
+                    <div
+                      className="templatesSubMenuModels"
+                      title="Executive"
+                      onClick={showExecutiveTemplate}
+                    ></div>
+                    <div
+                      className="templatesSubMenuModels"
+                      title="Professional"
+                      onClick={showProfessionalTemplate}
+                    ></div>
+                    <div
+                      className="templatesSubMenuModels"
+                      title="Modern"
+                      onClick={showModernTemplate}
+                    ></div>
+                    <div
+                      className="templatesSubMenuModels"
+                      title="Basic"
+                      onClick={showBasicTemplate}
+                    ></div>
+                    <div>Executive</div>
+                    <div>Professional</div>
+                    <div>Modern</div>
+                    <div>Basic</div>
                   </div>
                 </div>
               ) : null}

@@ -1,6 +1,5 @@
 import React from "react";
 import '../CvBuilderMain/cvBuilderMain.css';
-// import '../CvBuilderMain/cvBuilderMainProfessional.css';
 import HeaderProfessional from "../CvBuilderMain/Header/HeaderProfessional";
 import ContactsProfessional from "../CvBuilderMain/Contacts/ContactsProfessional";
 import Education from "../CvBuilderMain/Education/Education";

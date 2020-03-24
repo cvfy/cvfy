@@ -1,5 +1,5 @@
 import React, { Component, createContext } from "react";
-import axios from 'axios'
+import axios from "axios";
 import store from "./../store.js";
 
 let status = false;
@@ -33,33 +33,34 @@ class CoverLetterContextProvider extends Component {
     id: "",
     loadingSaveCv: true,
     style: {
-        color: "",
-        font: "'Open Sans', sans-serif",
-        size1: "",
-        size2: "",
-        size3: "",
-        size4: "",
-        tasksHistory: [],
-        tasksOutput: [],
-        value: "",
-        displayCoverTitle: true,
-        displayCompany: true
+      color: "",
+      font: "'Open Sans', sans-serif",
+      size1: "",
+      size2: "",
+      size3: "",
+      size4: "",
+      tasksHistory: [],
+      tasksOutput: [],
+      value: "",
+      displayCoverTitle: true,
+      displayCompany: true
     },
-    coverLetters:[
+    coverLetters: [
       {
         fullName: "Full Name",
         professionalTitle: "Professional Title",
         companyDetails: "Company Details",
         text: "Dear Sir/Madam,...AAA",
         signature: "",
-        contact: {
-           email: "Email",
-           address: "Address",
-           skype: "Skype",
-           phone: "Phone",
-           website: "Website",
-           gitHub: "Github"
-        }
+        contact: [
+          { icon: "far fa-envelope", value: "Email" },
+          { icon: "fas fa-mobile-alt", value: "Phone number" },
+          { icon: "fab fa-linkedin", value: "" },
+          { icon: "fab fa-skype", value: "" },
+          { icon: "fas fa-map-marker-alt", value: "" },
+          { icon: "fas fa-globe", value: "" },
+          { icon: "fab fa-github", value: "" }
+        ]
       },
       {
         text: "",
@@ -74,7 +75,6 @@ class CoverLetterContextProvider extends Component {
         signature: ""
       }
     ]
-    
   };
 
   async componentDidMount() {
@@ -154,7 +154,10 @@ console.log("i passed the error")
 
       //const data = JSON.stringify(this.state)
       await axios
-        .post(`http://localhost:5000/api/users/resume/cover/${userID}`, this.state)
+        .post(
+          `http://localhost:5000/api/users/resume/cover/${userID}`,
+          this.state
+        )
         .then(res => {
           console.log(res.data);
           if (res.data == "done") return this.setState({ loadingSaveCv: true });
@@ -234,55 +237,82 @@ console.log("i passed the error")
   };
 
   changeColor = e => {
-    let newObj = {...this.state.style}
-    newObj.color = e.target.name
+    let newObj = { ...this.state.style };
+    newObj.color = e.target.name;
     this.setState({ style: newObj });
   };
 
-  changeFontFamily = (font) => {
-    let newObj = {...this.state.style}
-    newObj.font = font
+  changeFontFamily = font => {
+    let newObj = { ...this.state.style };
+    newObj.font = font;
 
     this.setState({ style: newObj });
   };
 
-  handleFontSize = (name) => {
-    let newObj = {...this.state.style}
+  handleFontSize = name => {
+    let newObj = { ...this.state.style };
     if (name === "small") {
-     
-        newObj.size1 = "1.2rem";
-        newObj.size2 = "0.9rem";
-        newObj.size3 = "0.7rem";
-        newObj.size4 = "0.6rem";
-        this.setState({ style: newObj });
-        
-      } else if (name === "medium") {
-        newObj.size1 = "";
-        newObj.size2 = "";
-        newObj.size3 = "";
-        newObj.size4 = "";
-        this.setState({ style: newObj });
-      } else {
-        newObj.size1 = "1.6rem";
-        newObj.size2 = "1.3rem";
-        newObj.size3 = "1.1rem";
-        newObj.size4 = "1.0rem";
-        this.setState({ style: newObj });
+      newObj.size1 = "1.2rem";
+      newObj.size2 = "0.9rem";
+      newObj.size3 = "0.7rem";
+      newObj.size4 = "0.6rem";
+      this.setState({ style: newObj });
+    } else if (name === "medium") {
+      newObj.size1 = "";
+      newObj.size2 = "";
+      newObj.size3 = "";
+      newObj.size4 = "";
+      this.setState({ style: newObj });
+    } else {
+      newObj.size1 = "1.6rem";
+      newObj.size2 = "1.3rem";
+      newObj.size3 = "1.1rem";
+      newObj.size4 = "1.0rem";
+      this.setState({ style: newObj });
     }
   };
   modifyCover = (page, field, value) => {
     console.log(field)
     console.log(value)
     let newObject = [...this.state.coverLetters];
-    if (field === "professionalTitle") {
-      newObject[0].professionalTitle = value;
-      this.setState({ coverLetters: newObject });
+    if (newObject[0][field]) {
+      if (field === "professionalTitle") {
+        newObject[0].professionalTitle = value;
+        this.setState({ coverLetters: newObject });
+      }
+      if (field === "companyDetails") {
+        newObject[0].companyDetails = value;
+        this.setState({ coverLetters: newObject });
+      }
+      if (field === "text") {
+        newObject[0].text = value;
+        this.setState({ coverLetters: newObject });
+      }
     }
-    if (field === "companyDetails") {
-      newObject[0].companyDetails = value;
+  };
+
+  updateUserSkype = input => {
+    let newObject = [...this.state.coverLetters];
+    newObject[0].contact[3].value = input;
+    this.setState({ userData: newObject });
+  };
+
+  updateUserPhone = input => {
+    let newObject = [...this.state.coverLetters];
+    newObject[0].contact[1].value = input;
+    this.setState({ userData: newObject });
+  };
+
+  updateUserEmail = input => {
+    let newObject = [...this.state.coverLetters];
+    newObject[0].contact[0].value = input;
     this.setState({ coverLetters: newObject });
     }
-    if (field == "email") {
+
+
+    jumpTo2Page = (page, field, value) =>{
+      let newObject = [...this.state.coverLetters]
+    if (field === "email") {
       console.log("i am hereeeeeeee")
       newObject[0].contact.email = value;
       this.setState({ coverLetters: newObject });
@@ -314,6 +344,25 @@ console.log("i passed the error")
       this.setState({ coverLetters: newObject });
     }
   };
+
+  updateUserLinkedIn = input => {
+    let newObject = [...this.state.coverLetters];
+    newObject[0].contact[2].value = input;
+    this.setState({ coverLetters: newObject });
+  };
+
+  updateUserWebsite = input => {
+    let newObject = [...this.state.coverLetters];
+    newObject[0].contact[5].value = input;
+    this.setState({ coverLetters: newObject });
+  };
+
+  updateUserGitHub = input => {
+    let newObject = [...this.state.coverLetters];
+    newObject[0].contact[6].value = input;
+    this.setState({ coverLetters: newObject });
+  };
+
   render() {
     return (
       <CoverLetterContext.Provider
@@ -328,10 +377,14 @@ console.log("i passed the error")
           toggleCompanyClass: this.toggleCompanyClass,
           modifyCover: this.modifyCover,
           saveCoverDataToServer: this.saveCoverDataToServer,
+          updateUserSkype: this.updateUserSkype,
+          updateUserEmail: this.updateUserEmail,
+          updateUserLinkedIn: this.updateUserLinkedIn,
+          updateUserWebsite: this.updateUserWebsite,
+          updateUserGitHub: this.updateUserGitHub,
           jumpTo2Page: this.jumpTo2Page
         }}
       >
-        {this.props.children}
       </CoverLetterContext.Provider>
     );
   }

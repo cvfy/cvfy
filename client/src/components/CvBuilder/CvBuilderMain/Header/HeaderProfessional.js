@@ -54,7 +54,7 @@ class HeaderProfessional extends React.Component {
                     onBlur={e =>
                       modifyAbout(this.props.index, "intro", e.target.innerText)
                     }
-                    className="CvTitle"
+                    className="CvTitle CvTitleProfessional"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     tabIndex="0"
@@ -67,7 +67,8 @@ class HeaderProfessional extends React.Component {
                     style={{
                       fontSize: context.style.size1,
                       borderBottom: borderBottom,
-                      fontWeight: "600"
+                      fontWeight: "600",
+                      color: context.style.color
                     }}
                   >
                     {context.userData[this.props.index].intro}
@@ -130,9 +131,8 @@ class HeaderProfessional extends React.Component {
                     title="upload image"
                     height="130px"
                     width="130px"
-                    className="profile-photo"
+                    id="profile-photo-professional"
                     style={{
-                      cursor: "pointer",
                       border: `3px solid ${context.style.color}`
                     }}
                     onClick={() => this.fileInput.click()}
