@@ -24,12 +24,6 @@ const Navbar = props => {
     from: { transform: "translate3d(0, -10rem, 0)" },
     to: { transform: "translate3d(0, 0, 0)" }
   });
-  // const linkAnimation = useSpring({
-  //   from: { transform: "translate3d(0, 30px, 0)", opacity: 0 },
-  //   to: { transform: "translate3d(0, 0, 0)", opacity: 1 },
-  //   delay: 800,
-  //   config: config.wobbly
-  // });
 
   const toggleSidebar = e => {
     const sidebar = document.querySelector("#sidebar");

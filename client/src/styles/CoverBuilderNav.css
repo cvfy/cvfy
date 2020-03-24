@@ -475,7 +475,7 @@ ul.minMenu {
 .templatesSubMenuCarousel {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 45px 45px 45px;
+  grid-template-rows: 1fr 0.2fr;
   grid-gap: 15px;
   justify-content: space-around;
   padding: 5px 35px 0 35px;
@@ -485,6 +485,7 @@ ul.minMenu {
   background: #fff;
   height: 120px;
   margin-top: 12px;
+  cursor: pointer;
 }
 
 /* Here starts cv extra tools section */

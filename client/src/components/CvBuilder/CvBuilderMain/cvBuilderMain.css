@@ -129,6 +129,14 @@
   padding: 20px;
 }
 
+.header-inner-modern {
+  display: flex;
+  padding: 20px;
+  background: #3dbaf7;
+  font-weight: 600;
+  color: #fff;
+}
+
 .header-inner-professional {
   display: grid;
   grid-template-columns: 1fr;

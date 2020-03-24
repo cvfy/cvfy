@@ -60,6 +60,10 @@ class ThemeContextProvider extends Component {
       tasksHistory: [],
       tasksOutput: [],
       value: "",
+      displayBasic: false,
+      displayExecutive: true,
+      displayModern: false,
+      displayProfessional: false,
       displayPhoto: true,
       displayTitle: true,
       displayCoverTitle: true,
@@ -1389,6 +1393,54 @@ class ThemeContextProvider extends Component {
     }
   };
 
+  showBasicTemplate = async () => {
+    const newObj = { ...this.state };
+    newObj.style.displayExecutive = false;
+    newObj.style.displayBasic = true;
+    newObj.style.displayModern = false;
+    newObj.style.displayProfessional = false;
+    await this.setState({
+      style: newObj.style
+    });
+    await this.saveCVDataToServer();
+  };
+
+  showExecutiveTemplate = async () => {
+    const newObj = { ...this.state };
+    newObj.style.displayExecutive = true;
+    newObj.style.displayBasic = false;
+    newObj.style.displayModern = false;
+    newObj.style.displayProfessional = false;
+    await this.setState({
+      style: newObj.style
+    });
+    await this.saveCVDataToServer();
+  };
+
+  showModernTemplate = async () => {
+    const newObj = { ...this.state };
+    newObj.style.displayExecutive = false;
+    newObj.style.displayBasic = false;
+    newObj.style.displayModern = true;
+    newObj.style.displayProfessional = false;
+    await this.setState({
+      style: newObj.style
+    });
+    await this.saveCVDataToServer();
+  };
+
+  showProfessionalTemplate = async () => {
+    const newObj = { ...this.state };
+    newObj.style.displayExecutive = false;
+    newObj.style.displayBasic = false;
+    newObj.style.displayModern = false;
+    newObj.style.displayProfessional = true;
+    await this.setState({
+      style: newObj.style
+    });
+    await this.saveCVDataToServer();
+  };
+
   updateUserSkype = (page, input) => {
     // need to add s timeout to reduce logs at console
     let newObject = [...this.state.userData];
@@ -1632,6 +1684,10 @@ class ThemeContextProvider extends Component {
           updateUserLinkedIn: this.updateUserLinkedIn,
           updateUserWebsite: this.updateUserWebsite,
           updateUserGitHub: this.updateUserGitHub,
+          showBasicTemplate: this.showBasicTemplate,
+          showExecutiveTemplate: this.showExecutiveTemplate,
+          showModernTemplate: this.showModernTemplate,
+          showProfessionalTemplate: this.showProfessionalTemplate,
           togglePhotoClass: this.togglePhotoClass,
           toggleTitleClass: this.toggleTitleClass,
           toggleCoverTitleClass: this.toggleCoverTitleClass,

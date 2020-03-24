@@ -15,7 +15,6 @@ class LinkedInData extends Component {
     super(props);
     this.state = { value: "", displayError: false };
 
-    
     this.handleChange = this.handleChange.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
   }
@@ -45,8 +44,8 @@ class LinkedInData extends Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-        let hi = `Hi ${aFunction()}! :hand: `
-        let hi2 = `Hi ${aFunction()}!`
+          let hi = `Hi ${aFunction()}! :hand: `;
+          let hi2 = `Hi ${aFunction()}!`;
           const {
             importData,
             saveCVDataToServer,
@@ -193,7 +192,7 @@ class LinkedInData extends Component {
                   >
                     {context.importing && (
                       <i
-                        class="fas fa-spinner fa-spin"
+                        class="fas fa-circle-notch fa-spin"
                         style={{ marginRight: 5 }}
                       ></i>
                       // <CountdownCircleTimer
@@ -214,7 +213,7 @@ class LinkedInData extends Component {
                   >
                     {!context.loadingSaveCv && (
                       <i
-                        class="fas fa-spinner fa-spin"
+                        class="fas fa-circle-notch fa-spin"
                         style={{ marginRight: 5 }}
                       ></i>
 
@@ -252,7 +251,7 @@ class LinkedInData extends Component {
               ) : null}
               {context.importingMessage ? (
                 <div className="importingLinkedIn">
-        <h2 className="loadingH2">{hi2}</h2>
+                  <h2 className="loadingH2">{hi2}</h2>
                   <p className="loadingText">
                     <Emoji
                       text="We are creating your CV, hope you enjoy it! You can

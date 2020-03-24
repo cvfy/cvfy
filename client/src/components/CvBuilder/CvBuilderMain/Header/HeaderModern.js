@@ -26,11 +26,9 @@ class HeaderModern extends React.Component {
           const { modifyAbout, uploadImage } = context;
           return (
             <div
-              className="header-inner"
+              className="header-inner-modern"
               style={{
-                background: context.style.color,
-                fontWeight: "600",
-                color: "#fff"
+                background: context.style.color
               }}
             >
               <div
