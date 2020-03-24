@@ -10,7 +10,7 @@ class CoverLetterMain extends React.Component {
       <CoverLetterContext.Consumer>
         { context => {
           const Pages = context.coverLetters.map((el, i) => { 
-            if(el.text !== ""){
+            if(el.text.length > 0){
               return (
             <div
                             id="container"
@@ -18,7 +18,7 @@ class CoverLetterMain extends React.Component {
                           >
                             {el.contact && <CoverLetterHeader data={el} index={i} />}
                             <div className="wrap">
-                              <CoverLetterBody data={el}></CoverLetterBody>
+                              <CoverLetterBody cont={context} index={i} data={el}></CoverLetterBody>
                             </div>
                           </div>
                         )}
