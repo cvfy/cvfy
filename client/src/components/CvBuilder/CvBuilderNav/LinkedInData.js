@@ -195,14 +195,6 @@ class LinkedInData extends Component {
                         class="fas fa-circle-notch fa-spin"
                         style={{ marginRight: 5 }}
                       ></i>
-                      // <CountdownCircleTimer
-                      //   isPlaying
-                      //   durationSeconds={16}
-                      //   colors={[["black", 1]]}
-                      //   size={20}
-                      //   renderTime={renderTime}
-                      //   onComplete={() => [true, 1000]}
-                      // />
                     )}
                     {context.importing && <span>Importing</span>}
                     {!context.importing && <span>Import</span>}

@@ -66,7 +66,7 @@ class FontSubMenu extends Component {
                       // onClick={showProfessionalTemplate}
                     ></div>
                     <div
-                      className="templatesSubMenuModels"
+                      className="templatesSubMenuModels modernTemplate"
                       title="Modern"
                       // onClick={showModernTemplate}
                     ></div>
