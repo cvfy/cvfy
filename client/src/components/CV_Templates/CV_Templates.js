@@ -2,7 +2,10 @@ import React from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer";
 import CV1 from "../../assets/CV1.jpeg";
-import CV2 from "../../assets/CV2.png";
+import Basic from "../../assets/basic-template.jpg";
+import Modern from "../../assets/modern-template.jpg";
+import Professional from "../../assets/professional-template.jpg";
+import Executive from "../../assets/executive-template.jpg";
 import ScrollAnimation from "react-animate-on-scroll";
 import Jumbotron from "./Jumbotron";
 
@@ -18,23 +21,31 @@ const CV_Templates = () => {
           animateOnce="true"
           duration="0.5s"
         >
+          <img src={Executive} />
+        </ScrollAnimation>
+        <ScrollAnimation
+          className="cvBox"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
+          <img src={Modern} />
+        </ScrollAnimation>
+        <ScrollAnimation
+          className="cvBox"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
+          <img src={Professional} />
+        </ScrollAnimation>{" "}
+        <ScrollAnimation
+          className="cvBox"
+          animateIn="fadeIn"
+          animateOnce="true"
+          duration="0.5s"
+        >
           <img src={CV1} />
-        </ScrollAnimation>
-        <ScrollAnimation
-          className="cvBox"
-          animateIn="fadeIn"
-          animateOnce="true"
-          duration="0.5s"
-        >
-          <img src={CV2} />
-        </ScrollAnimation>
-        <ScrollAnimation
-          className="cvBox"
-          animateIn="fadeIn"
-          animateOnce="true"
-          duration="0.5s"
-        >
-          <img src={CV2} />
         </ScrollAnimation>{" "}
         <ScrollAnimation
           className="cvBox"
@@ -42,15 +53,7 @@ const CV_Templates = () => {
           animateOnce="true"
           duration="0.5s"
         >
-          <img src={CV2} />
-        </ScrollAnimation>{" "}
-        <ScrollAnimation
-          className="cvBox"
-          animateIn="fadeIn"
-          animateOnce="true"
-          duration="0.5s"
-        >
-          <img src={CV2} />
+          <img src={Basic} />
         </ScrollAnimation>
       </div>
       <Footer />
