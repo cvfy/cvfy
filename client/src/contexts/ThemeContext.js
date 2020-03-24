@@ -193,6 +193,7 @@ class ThemeContextProvider extends Component {
       }
     ]
   };
+
   componentDidUpdate() {
     let Pages = [...this.state.userData];
     // MAPPING THOURGH THE PAGES TO GET THE HEIGHTS OF SECTIONS AND GROUPS
@@ -475,6 +476,7 @@ class ThemeContextProvider extends Component {
       }
     });
   }
+
   async componentDidMount() {
     console.log("diplay one column is =>" + this.state.style.displayOneColumn);
     if (

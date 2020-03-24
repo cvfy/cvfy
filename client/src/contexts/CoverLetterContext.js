@@ -82,62 +82,61 @@ class CoverLetterContextProvider extends Component {
     if (
       localStorage.getItem("currentCover") === null ||
       localStorage.getItem("currentCover") === ""
-      ) {
-        const idG = await guidGenerator();
-        await this.setState({ id: idG });
-        await localStorage.setItem("currentCover", this.state.id);
-        console.log(`the state id is - ${this.state.id}`);
-        axios.post(
-          `http://localhost:5000/api/users/resume/cover/${aFunction()}`,
-          this.state
-          );
-        }
-        if (
-          localStorage.getItem("currentCover")
-          ) {
-            console.log("i am trying to get the data");
-            axios
-            .get(
-              `http://localhost:5000/api/users/resume/cv/currentCover/${localStorage.getItem(
-                "currentCover"
-                )}`
-                )
-                .then(
-                  res => {
-                    res.data.coverLetters[0].loadingSaveCv = true;
-                    return this.setState(res.data.coverLetters[0]);
-                  } //this.setState(res.data)
-                  );
-                }
-                console.log(this.state.coverLetters[0].contact.email)
-              }
+    ) {
+      const idG = await guidGenerator();
+      await this.setState({ id: idG });
+      await localStorage.setItem("currentCover", this.state.id);
+      console.log(`the state id is - ${this.state.id}`);
+      axios.post(
+        `http://localhost:5000/api/users/resume/cover/${aFunction()}`,
+        this.state
+      );
+    }
+    if (localStorage.getItem("currentCover")) {
+      console.log("i am trying to get the data");
+      axios
+        .get(
+          `http://localhost:5000/api/users/resume/cv/currentCover/${localStorage.getItem(
+            "currentCover"
+          )}`
+        )
+        .then(
+          res => {
+            res.data.coverLetters[0].loadingSaveCv = true;
+            return this.setState(res.data.coverLetters[0]);
+          } //this.setState(res.data)
+        );
+    }
+    console.log(this.state.coverLetters[0].contact.email);
+  }
 
-              componentDidUpdate(){
-                let newArr = [...this.state.coverLetters]
-                let textHeight = document.querySelector(".cover-letter-body").clientHeight;
-                let CharNr = document.querySelector(".cover-letter-body").innerHTML
-                console.log(CharNr)
-                // if(CharNr> 300){
-                  // newArr[1].text = newArr[0].text.split(" ")[(newArr[0].text.split(" ").length)-1] + newArr[1].text
-                  //let newly = newArr[0].text.split(" ").pop()
-                  //newArr[0].text = newly
-                  // this.setState({coverLetters: newArr})
-                // }
+  componentDidUpdate() {
+    let newArr = [...this.state.coverLetters];
+    let textHeight = document.querySelector(".cover-letter-body").clientHeight;
+    let CharNr = document.querySelector(".cover-letter-body").innerHTML;
+    console.log(CharNr);
+    // if(CharNr> 300){
+    // newArr[1].text = newArr[0].text.split(" ")[(newArr[0].text.split(" ").length)-1] + newArr[1].text
+    //let newly = newArr[0].text.split(" ").pop()
+    //newArr[0].text = newly
+    // this.setState({coverLetters: newArr})
+    // }
+  }
 
-              }
-              jumpTo2Page = (i,  data) => {
-                console.log("i am trying to jump")
-let cover = [...this.state.coverLetters]
-cover[0].text = data.slice(0, 300)
-cover[1].text = data.slice(300)
-console.log(cover[1].text)
-this.setState({coverLetters: cover})
-console.log(document.querySelectorAll(".coverLetterBody"))
-if(document.querySelectorAll(".coverLetterBody")[1]){ document.querySelectorAll(".coverLetterBody")[1].focus()}
-console.log("i passed the error")
-                
-}
-              saveCoverDataToServer = async e => {
+  jumpTo2Page = (i, data) => {
+    console.log("i am trying to jump");
+    let cover = [...this.state.coverLetters];
+    cover[0].text = data.slice(0, 300);
+    cover[1].text = data.slice(300);
+    console.log(cover[1].text);
+    this.setState({ coverLetters: cover });
+    console.log(document.querySelectorAll(".coverLetterBody"));
+    if (document.querySelectorAll(".coverLetterBody")[1]) {
+      document.querySelectorAll(".coverLetterBody")[1].focus();
+    }
+    console.log("i passed the error");
+  };
+  saveCoverDataToServer = async e => {
     if (status === false) {
       status = await true;
       if (e) {
@@ -272,8 +271,8 @@ console.log("i passed the error")
     }
   };
   modifyCover = (page, field, value) => {
-    console.log(field)
-    console.log(value)
+    console.log(field);
+    console.log(value);
     let newObject = [...this.state.coverLetters];
     if (newObject[0][field]) {
       if (field === "professionalTitle") {
@@ -307,16 +306,15 @@ console.log("i passed the error")
     let newObject = [...this.state.coverLetters];
     newObject[0].contact[0].value = input;
     this.setState({ coverLetters: newObject });
-    }
+  };
 
-
-    jumpTo2Page = (page, field, value) =>{
-      let newObject = [...this.state.coverLetters]
+  jumpTo2Page = (page, field, value) => {
+    let newObject = [...this.state.coverLetters];
     if (field === "email") {
-      console.log("i am hereeeeeeee")
+      console.log("i am hereeeeeeee");
       newObject[0].contact.email = value;
       this.setState({ coverLetters: newObject });
-      console.log(this.state.coverLetters[0].contact.email)
+      console.log(this.state.coverLetters[0].contact.email);
     }
     if (field === "address") {
       newObject[0].contact.address = value;
@@ -339,7 +337,7 @@ console.log("i passed the error")
       this.setState({ coverLetters: newObject });
     }
     if (field === "text") {
-      console.log(value.split("\r\n"))
+      console.log(value.split("\r\n"));
       newObject[page].text = value;
       this.setState({ coverLetters: newObject });
     }
@@ -384,8 +382,7 @@ console.log("i passed the error")
           updateUserGitHub: this.updateUserGitHub,
           jumpTo2Page: this.jumpTo2Page
         }}
-      >
-      </CoverLetterContext.Provider>
+      ></CoverLetterContext.Provider>
     );
   }
 }
