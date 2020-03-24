@@ -28,8 +28,8 @@ class HeaderProfessional extends React.Component {
             <div
               className={
                 context.style.displayPhoto
-                  ? "header-inner-photo"
-                  : "header-inner-professional"
+                  ? "header-inner header-inner-photo"
+                  : "header-inner header-inner-professional"
               }
               style={{ borderBottom: `2px solid ${context.style.color}` }}
             >

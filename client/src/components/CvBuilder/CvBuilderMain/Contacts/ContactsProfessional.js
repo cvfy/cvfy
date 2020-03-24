@@ -37,7 +37,7 @@ class ContactsProfessional extends React.Component {
           } = context;
           return (
             <div
-              className="contact"
+              className="contactP"
               style={{
                 background: "#fff",
                 padding: "0",
