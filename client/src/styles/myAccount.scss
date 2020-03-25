@@ -1,0 +1,141 @@
+.Jumbotron {
+  height: 500px;
+  width: 100%;
+  background: #a9bbca;
+  display: flex;
+  padding-top: 50px;
+  box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15);
+
+  .ProfilePicContainer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    h1 {
+      text-shadow: 2px 2px rgba(34, 36, 38, 0.15);
+    }
+    .ProfilePic {
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15);
+      height: 200px;
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+
+      &:hover {
+        border: 5px solid whitesmoke;
+      }
+
+      img {
+        height: 130px;
+      }
+    }
+  }
+  .ProfileData {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .FieldRow {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      .field {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        align-items: flex-start;
+        justify-items: flex-start;
+        margin-bottom: 10px;
+
+        .FirstNameField,
+        .LastNameField,
+        .EmailField,
+        .PasswordField {
+          width: 80%;
+          color: black;
+          height: 35px;
+          border: 2px solid white;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          padding-left: 5px;
+          border-radius: 12px;
+          /* background-color: white; */
+          box-shadow: 2px 2px 2px 2px rgba(34, 36, 38, 0.15);
+        }
+        label {
+          margin: 5px;
+          .linkField {
+            margin: 10px;
+            color: black;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .checkboxField {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h3 {
+        padding: 0;
+        margin: 10px;
+      }
+      input {
+        width: 20px;
+        height: 20px;
+        clip: unset;
+        position: unset;
+      }
+    }
+  }
+}
+@media (max-width: 1000px) {
+  .Jumbotron {
+    .ProfileData {
+      .checkboxField {
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .Jumbotron {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    .ProfilePicContainer {
+      width: 100%;
+    }
+    .ProfileData {
+      width: 100%;
+      .FieldRow {
+        .field {
+          label {
+            margin-left: 10px;
+          }
+          .FirstNameField,
+          .LastNameField,
+          .EmailField,
+          .PasswordField {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}
