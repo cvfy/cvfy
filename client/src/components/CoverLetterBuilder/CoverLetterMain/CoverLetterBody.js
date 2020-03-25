@@ -27,12 +27,12 @@ class CoverLetterBody extends React.Component {
             <div className="cover-letter-body-wrapper">
               <div className="cover-letter-body">
                 <div className="editableDiv bodyCoverDiv"
-                  onBlur={(e) => this.onchange(e)}
+                  //onBlur={(e) => this.onchange(e)}
                 
                 >
                 <span
-                onMouseEnter={(e) => this.onchange(e)}
-                    onInput={(e) => this.onchange(e)}
+                //onMouseEnter={(e) => this.onchange(e)}
+                    //onInput={(e) => this.onchange(e)}
                     className="coverLetterBody"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
@@ -51,7 +51,7 @@ class CoverLetterBody extends React.Component {
                 </div>
               </div>
 
-              <div className="editableDiv signatureDiv">
+              <div className="editableDiv signatureDiv" style={{display: `${(context.coverLetters.filter(el => el.text !== "").length-1) !== this.props.index ? "none" : "flex"}`}}>
                 <span
                   className="coverLetterRegards"
                   contentEditable="true"
