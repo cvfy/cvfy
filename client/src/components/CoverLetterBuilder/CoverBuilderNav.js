@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import BuilderCollapseMenu from "../BuilderCollapseMenu"
+import BuilderCollapseMenu from "../BuilderCollapseMenu";
 import "../../styles/CoverBuilderNav.css";
 import FontSubMenu from "./FontSubMenu";
 import ColorSubMenu from "./ColorSubMenu";
@@ -11,6 +11,8 @@ import axios from "axios";
 import { CoverLetterContext } from "../../contexts/CoverLetterContext";
 import BuilderBurgerMenu from "../BuilderBurgerMenu";
 import DownloadPdfCover from "../BuilderSubMenus/DownloadPdfCover";
+import { url } from "../../config";
+
 const CoverBuilderNav = () => {
   const context = useContext(CoverLetterContext);
 
@@ -26,15 +28,10 @@ const CoverBuilderNav = () => {
     if (status === false) {
       status = await true;
       e.preventDefault();
-      await axios
-        .get(`http://localhost:5000/api/users/data/pdf/${context.id}`)
-        .then(res => {
-          window.open(
-            `http://localhost:5000/static2/${res.data}.pdf`,
-            "_blank"
-          ); //this.setState(res.data)
-          if (res.data.length > 0) return setDownloadCover(false);
-        });
+      await axios.get(`${url}/api/users/data/pdf/${context.id}`).then(res => {
+        window.open(`${url}/static2/${res.data}.pdf`, "_blank"); //this.setState(res.data)
+        if (res.data.length > 0) return setDownloadCover(false);
+      });
       status = await false;
       setDownloadCover(false);
     } else {

@@ -1,6 +1,7 @@
 import React, { Component, createContext, useRef, useState } from "react";
 import axios from "axios";
 import store from "./../store.js";
+import { url, cloudinaryUrl } from "../config";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 //import uuid from 'uuid'
@@ -99,7 +100,7 @@ class ThemeContextProvider extends Component {
         fullName: BFunction(),
         intro: "Professional title",
         about: "Short and engaging pitch about yourself",
-        profilePic: "http://localhost:5000/static/default.png",
+        profilePic: `${url}/static/default.png`,
         contact: [
           { icon: "far fa-envelope", value: "Email" },
           { icon: "fas fa-mobile-alt", value: "Phone number" },
@@ -487,10 +488,7 @@ class ThemeContextProvider extends Component {
       await this.setState({ id: idG });
       await localStorage.setItem("currentCV", this.state.id);
       console.log(`the state id is - ${this.state.id}`);
-      axios.post(
-        `http://localhost:5000/api/users/resume/cv/${aFunction()}`,
-        this.state
-      );
+      axios.post(`${url}/api/users/resume/cv/${aFunction()}`, this.state);
     }
     if (
       localStorage.getItem("currentCV") !== null ||
@@ -499,7 +497,7 @@ class ThemeContextProvider extends Component {
       console.log("i am trying to get the data");
       axios
         .get(
-          `http://localhost:5000/api/users/resume/cv/currentCV/${localStorage.getItem(
+          `${url}/api/users/resume/cv/currentCV/${localStorage.getItem(
             "currentCV"
           )}`
         )
@@ -512,10 +510,6 @@ class ThemeContextProvider extends Component {
     }
   }
 
-  // closeMessageMenu() {
-  //   this.setState({ importingMessage: false });
-  // }
-
   importData = async (profile, e) => {
     e.preventDefault();
     console.log("i am calling linkedin data");
@@ -527,9 +521,7 @@ class ThemeContextProvider extends Component {
       console.log("i am calling linkedin data");
       console.log(profile);
       await this.setState({ importing: true });
-      const response = await axios.get(
-        `http://localhost:5000/api/users/data/link/${profile}`
-      );
+      const response = await axios.get(`${url}/api/users/data/link/${profile}`);
       console.log("should be 200", response.status);
       let newObject = { ...this.state };
       newObject.userData[0].fullName = response.data.profileFullName
@@ -541,9 +533,9 @@ class ThemeContextProvider extends Component {
       newObject.userData[0].about = response.data.profileAbout
         ? response.data.profileAbout.join(" ")
         : ["Short and engaging pitch about yourself"];
-      newObject.userData[0].profilePic = `http://localhost:5000/static/${profile}.jpg`
-        ? `http://localhost:5000/static/${profile}.jpg`
-        : "http://localhost:5000/static/default.png";
+      newObject.userData[0].profilePic = `${url}/static/${profile}.jpg`
+        ? `${url}/static/${profile}.jpg`
+        : `${url}/static/default.png`;
       newObject.userData[0].skills = response.data.skills
         ? response.data.skills
         : ["skill"];
@@ -696,7 +688,7 @@ class ThemeContextProvider extends Component {
 
       //const data = JSON.stringify(this.state)
       await axios
-        .post(`http://localhost:5000/api/users/resume/cv/${userID}`, this.state)
+        .post(`${url}/api/users/resume/cv/${userID}`, this.state)
         .then(res => {
           console.log(res.data);
           if (res.data == "done") return this.setState({ loadingSaveCv: true });
@@ -709,7 +701,7 @@ class ThemeContextProvider extends Component {
     } else {
     }
   };
-  // Those 3 functions add array of strings, will try to DRY later
+
   modifyEd = (page, field, value, index) => {
     console.log("edmoidfy");
     let newObject = [...this.state.userData];
@@ -743,6 +735,7 @@ class ThemeContextProvider extends Component {
       console.log(this.state.userData[page].education);
     }
   };
+
   modifyEx = (page, field, value, index) => {
     let newObject = [...this.state.userData];
     if (newObject[page].experience[index]) {
@@ -774,6 +767,7 @@ class ThemeContextProvider extends Component {
       console.log(this.state.userData[page].experience);
     }
   };
+
   modifySkill = (page, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].skills[index]) {
@@ -781,6 +775,7 @@ class ThemeContextProvider extends Component {
       this.setState({ userData: newObject });
     }
   };
+
   modifyAbout = (page, field, value) => {
     console.log(page);
     console.log(field);
@@ -794,6 +789,7 @@ class ThemeContextProvider extends Component {
     }
     this.setState({ userData: newObject });
   };
+
   modifyAchievements = (page, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].achievements[index]) {
@@ -801,6 +797,7 @@ class ThemeContextProvider extends Component {
       this.setState({ userData: newObject });
     }
   };
+
   modifyCertifications = (page, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].certifications[index]) {
@@ -808,6 +805,7 @@ class ThemeContextProvider extends Component {
       this.setState({ userData: newObject });
     }
   };
+
   modifyProjects = (page, field, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].projects[index]) {
@@ -820,6 +818,7 @@ class ThemeContextProvider extends Component {
       this.setState({ userData: newObject });
     }
   };
+
   modifyCourses = (page, field, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].courses[index]) {
@@ -832,6 +831,7 @@ class ThemeContextProvider extends Component {
       this.setState({ userData: newObject });
     }
   };
+
   modifyLanguages = (page, field, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].languages[index]) {
@@ -844,6 +844,7 @@ class ThemeContextProvider extends Component {
       this.setState({ userData: newObject });
     }
   };
+
   deleteGroup = (section, page, deleteIndex) => {
     let newObject = [...this.state.userData];
     if (section === "education") {
@@ -888,6 +889,7 @@ class ThemeContextProvider extends Component {
     }
     this.setState({ userData: newObject });
   };
+
   addGroup = (field, page, index) => {
     let newObject = [...this.state.userData];
     if (field === "experience") {
@@ -1298,13 +1300,10 @@ class ThemeContextProvider extends Component {
     data.append("upload_preset", "dogfather");
     this.setState({ loadingUploadImg: true });
     this.setState({ considerPic: false });
-    const res = await fetch(
-      "https://api.cloudinary.com/v1_1/dtox6ulq7/image/upload",
-      {
-        method: "POST",
-        body: data
-      }
-    );
+    const res = await fetch(cloudinaryUrl, {
+      method: "POST",
+      body: data
+    });
     const file = await res.json();
     const newArr = [...this.state.userData];
     newArr[0].profilePic = file.secure_url;
@@ -1442,6 +1441,7 @@ class ThemeContextProvider extends Component {
     });
     await this.saveCVDataToServer();
   };
+
   updateUserSkype = (page, input) => {
     // need to add s timeout to reduce logs at console
     let newObject = [...this.state.userData];

@@ -4,6 +4,7 @@ import { ThemeContext } from "../../../contexts/ThemeContext";
 // import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Emoji from "react-emoji-render";
 import store from "./../../../store.js";
+import { frontUrl } from "../../../config";
 
 function aFunction() {
   var newState = store.getState();
@@ -25,7 +26,7 @@ class LinkedInData extends Component {
 
   setLocalStorage = id => {
     localStorage.setItem("currentCV", id);
-    window.location.href = "http://localhost:3000/create-cv";
+    window.location.href = `${frontUrl}/create-cv`;
   };
 
   displayError = () => {

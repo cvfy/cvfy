@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 import "../../../styles/BuilderNav.css";
+import { frontUrl } from "../../../config";
 
 class ExtraToolsMenu extends Component {
   setLocalStorage = id => {
     localStorage.setItem("currentCover", id);
-    window.location.href = "http://localhost:3000/create-cover-letter";
+    window.location.href = `${frontUrl}/create-cover-letter`;
   };
   render() {
     return (

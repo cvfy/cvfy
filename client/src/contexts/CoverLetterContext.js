@@ -1,6 +1,7 @@
 import React, { Component, createContext } from "react";
 import axios from "axios";
 import store from "./../store.js";
+import { url } from "../config";
 
 let status = false;
 export const CoverLetterContext = createContext();
@@ -92,16 +93,13 @@ class CoverLetterContextProvider extends Component {
       await this.setState({ id: idG });
       await localStorage.setItem("currentCover", this.state.id);
       console.log(`the state id is - ${this.state.id}`);
-      axios.post(
-        `http://localhost:5000/api/users/resume/cover/${aFunction()}`,
-        this.state
-      );
+      axios.post(`${url}/api/users/resume/cover/${aFunction()}`, this.state);
     }
     if (localStorage.getItem("currentCover")) {
       console.log("i am trying to get the data");
       axios
         .get(
-          `http://localhost:5000/api/users/resume/cv/currentCover/${localStorage.getItem(
+          `${url}/api/users/resume/cv/currentCover/${localStorage.getItem(
             "currentCover"
           )}`
         )
@@ -165,10 +163,7 @@ this.setState({coverLetters: cover})
 
       //const data = JSON.stringify(this.state)
       await axios
-        .post(
-          `http://localhost:5000/api/users/resume/cover/${userID}`,
-          this.state
-        )
+        .post(`${url}/api/users/resume/cover/${userID}`, this.state)
         .then(res => {
           console.log(res.data);
           if (res.data == "done") return this.setState({ loadingSaveCv: true });
