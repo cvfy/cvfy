@@ -19,7 +19,10 @@ class CvBuilder extends React.Component {
               {/* <Beforeunload
             onBeforeunload={() => "Changes you made may not be saved"}
           /> */}
-              <div className="cvBuilderWrapper" style={{ fontSize: "16px" }}>
+              <div
+                className="cvBuilderWrapper"
+                style={{ fontSize: "16px", overflowX: "hidden" }}
+              >
                 <CvBuilderNav />
                 <div style={{ display: "flex" }}>
                   {context.style.displayBasic ? (
