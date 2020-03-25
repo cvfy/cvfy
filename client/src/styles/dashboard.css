@@ -36,7 +36,7 @@
 
 .cvBox {
   width: 300px;
-  height: 320px;
+  height: 337px;
   overflow: hidden;
   margin: 2%;
   display: flex;
@@ -44,13 +44,9 @@
   cursor: pointer;
 }
 
-/* .cvBox:hover {
-  scale: 0.97;
-} */
-
 .cvBox img {
-  width: 226px;
-  height: 320px;
+  width: 214px;
+  height: 303px;
   object-fit: contain;
   margin: 0 20%;
   border-radius: 15px;
@@ -58,7 +54,7 @@
 }
 
 .cvBox img:hover {
-  box-shadow: 1px 0 20px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 13px 20px 3px rgba(0, 0, 0.2, 0.3)
 }
 
 .cvBox2 {
