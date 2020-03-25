@@ -3,6 +3,7 @@ import ADD from "../../assets/add.png";
 import "../../styles/dashboard.css";
 import axios from "axios";
 import store from "./../../store.js";
+import { url, frontUrl } from "../../config";
 
 function guidGenerator() {
   var S4 = function() {
@@ -38,36 +39,25 @@ class CvDashboard extends React.Component {
 
   componentDidMount() {
     axios
-      .get(
-        `http://localhost:5000/api/users/resume/cv/allCV/${this.getUserId()}`
-      )
+      .get(`${url}/api/users/resume/cv/allCV/${this.getUserId()}`)
       .then(res => this.setState({ resume: res.data }));
   }
 
   deleteCV = id => {
     axios
-      .post(
-        `http://localhost:5000/api/users/resume/cv/delete/${this.getUserId()}/${id}`
-      )
+      .post(`${url}/api/users/resume/cv/delete/${this.getUserId()}/${id}`)
       .then(res => this.setState({ resume: res.data }));
   };
   setLocalStorage = id => {
     localStorage.setItem("currentCV", id);
-    window.location.href = "http://localhost:3000/create-cv";
+    window.location.href = `${frontUrl}/create-cv`;
   };
 
   duplicateCV = obj => {
     obj.id = idG;
     axios
-      .post(
-        `http://localhost:5000/api/users/resume/cv/duplicate/${this.getUserId()}`,
-        obj
-      )
+      .post(`${url}/api/users/resume/cv/duplicate/${this.getUserId()}`, obj)
       .then(res => this.setState({ resume: res.data }));
-  };
-  setLocalStorage = id => {
-    localStorage.setItem("currentCV", id);
-    window.location.href = "http://localhost:3000/create-cv";
   };
 
   render() {
@@ -87,7 +77,7 @@ class CvDashboard extends React.Component {
         {this.state.resume.map((el, i) => (
           <div className="cvBox2" key={i}>
             <img
-              src={`http://localhost:5000/static/${el.id}.jpg`}
+              src={`${url}/static/${el.id}.jpg`}
               alt={el.id}
               onClick={() => this.setLocalStorage(el.id)}
             />

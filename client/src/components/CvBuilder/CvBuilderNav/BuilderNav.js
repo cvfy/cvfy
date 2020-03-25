@@ -9,10 +9,10 @@ import BuilderBurgerMenu from "../../BuilderBurgerMenu";
 import BuilderCollapseMenu from "../../BuilderCollapseMenu";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
-//import { content } from "html2canvas/dist/types/css/property-descriptors/content";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 import DownloadPdf from "../../BuilderSubMenus/DownloadPdf";
 import Emoji from "react-emoji-render";
+import { url } from "../../../config";
 // import { Beforeunload } from "react-beforeunload";
 
 const BuilderNav = () => {
@@ -31,15 +31,10 @@ const BuilderNav = () => {
       status = await true;
       e.preventDefault();
       console.log("I should be TRUE ->", loadingDownload);
-      await axios
-        .get(`http://localhost:5000/api/users/data/pdf/${context.id}`)
-        .then(res => {
-          window.open(
-            `http://localhost:5000/static2/${res.data}.pdf`,
-            "_blank"
-          ); //this.setState(res.data)
-          if (res.data.length > 0) return setLoadingDownload(false);
-        });
+      await axios.get(`${url}/api/users/data/pdf/${context.id}`).then(res => {
+        window.open(`${url}/static2/${res.data}.pdf`, "_blank");
+        if (res.data.length > 0) return setLoadingDownload(false);
+      });
       status = await false;
       setLoadingDownload(false);
     } else {

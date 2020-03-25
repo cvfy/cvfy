@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./jobDashboard.css";
+import { url } from "../../../config";
 
 let status = false;
 
@@ -31,7 +32,7 @@ class JobDashboard extends Component {
       this.setState({ loadingJobs: true });
       console.log("I should be TRUE", this.state.loadingJobs);
       const response = await axios.get(
-        `http://localhost:5000/api/users/data/stepstone/position/${this.state.positionValue}/location/${this.state.locationValue}`
+        `${url}/api/users/data/stepstone/position/${this.state.positionValue}/location/${this.state.locationValue}`
       );
       this.setState({ jobAds: response.data, loadingJobs: false });
       console.log("I should be FALSE", this.state.loadingJobs);
@@ -51,8 +52,6 @@ class JobDashboard extends Component {
 
   render() {
     return (
-      //   <div style={{ display: "flex" }}>
-      //     <div className="alignContainer">{pages}</div>
       <>
         <div className="bookmark">
           <div
