@@ -56,29 +56,29 @@ class FontSubMenu extends Component {
                   <div className="templatesSubMenuTitle">Templates 1 / 4</div>
                   <div className="templatesSubMenuCarousel">
                     <div
-                      className="templatesSubMenuModels"
+                      className="cvTemplatesSubMenuModels executiveTemplate"
                       title="Executive"
                       onClick={showExecutiveTemplate}
                     ></div>
                     <div
-                      className="templatesSubMenuModels"
+                      className="cvTemplatesSubMenuModels professionalTemplate"
                       title="Professional"
                       onClick={showProfessionalTemplate}
                     ></div>
                     <div
-                      className="templatesSubMenuModels"
+                      className="cvTemplatesSubMenuModels modernTemplate"
                       title="Modern"
                       onClick={showModernTemplate}
                     ></div>
                     <div
-                      className="templatesSubMenuModels"
+                      className="cvTemplatesSubMenuModels basicTemplate"
                       title="Basic"
                       onClick={showBasicTemplate}
                     ></div>
-                    <div>Executive</div>
-                    <div>Professional</div>
-                    <div>Modern</div>
-                    <div>Basic</div>
+                    <div className="executiveTitle">Executive</div>
+                    <div className="professionalTitle">Professional</div>
+                    <div className="modernTitle">Modern</div>
+                    <div className="basicTitle">Basic</div>
                   </div>
                 </div>
               ) : null}

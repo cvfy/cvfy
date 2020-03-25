@@ -58,22 +58,22 @@ class FontSubMenu extends Component {
                     <div
                       className="templatesSubMenuModels"
                       title="Basic"
-                      onClick={showBasicTemplate}
+                      // onClick={showBasicTemplate}
                     ></div>
                     <div
                       className="templatesSubMenuModels"
                       title="Professional"
-                      onClick={showProfessionalTemplate}
+                      // onClick={showProfessionalTemplate}
                     ></div>
                     <div
-                      className="templatesSubMenuModels"
+                      className="templatesSubMenuModels modernTemplate"
                       title="Modern"
-                      onClick={showModernTemplate}
+                      // onClick={showModernTemplate}
                     ></div>
                     <div
                       className="templatesSubMenuModels"
                       title="Executive"
-                      onClick={showExecutiveTemplate}
+                      // onClick={showExecutiveTemplate}
                     ></div>
                     <div>Basic</div>
                     <div>Professional</div>

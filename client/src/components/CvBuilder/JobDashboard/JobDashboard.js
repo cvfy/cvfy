@@ -70,7 +70,6 @@ class JobDashboard extends Component {
               ? "transitionDashboard"
               : "hideTransitionDashboard"
           }
-          // style={{  transition: 'display 2s ease-in-out'}}
         >
           <div className="MainJobDashboard">
             <div className="JobDashboardForm">
@@ -97,7 +96,7 @@ class JobDashboard extends Component {
                 >
                   {this.state.loadingJobs && (
                     <i
-                      class="fas fa-spinner fa-spin"
+                      class="fas fa-circle-notch fa-spin"
                       style={{ marginRight: 5 }}
                     ></i>
                   )}
