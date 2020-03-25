@@ -110,19 +110,33 @@ class CoverLetterContextProvider extends Component {
     console.log(this.state.coverLetters[0].contact.email);
   }
 
-  componentDidUpdate() {
-    let newArr = [...this.state.coverLetters];
-    let textHeight = document.querySelector(".cover-letter-body").clientHeight;
-    console.log(textHeight);
-    if (textHeight > 300) {
-      newArr[1].text =
-        newArr[0].text.split(" ")[newArr[0].text.split(" ").length - 1] +
-        newArr[1].text;
-      //let newly = newArr[0].text.split(" ").pop()
-      //newArr[0].text = newly
-      this.setState({ coverLetters: newArr });
-    }
-  }
+  // componentDidUpdate() {
+  //   let newArr = [...this.state.coverLetters];
+  //   let textHeight = document.querySelector(".cover-letter-body").clientHeight;
+  //   console.log(textHeight);
+  //   if (textHeight > 300) {
+  //     newArr[1].text =
+  //       newArr[0].text.split(" ")[newArr[0].text.split(" ").length - 1] +
+  //       newArr[1].text;
+  //     //let newly = newArr[0].text.split(" ").pop()
+  //     //newArr[0].text = newly
+  //     this.setState({ coverLetters: newArr });
+  //   }
+  // }
+
+  jumpTo2Page = (i,  data) => {
+    console.log("i am trying to jump")
+let cover = [...this.state.coverLetters]
+cover[0].text = data.slice(0, 4000)
+cover[1].text = data.slice(4000)
+console.log(cover[1].text)
+this.setState({coverLetters: cover})
+console.log(document.querySelectorAll(".coverLetterBody"))
+if(document.querySelectorAll(".coverLetterBody")[1]){ document.querySelectorAll(".coverLetterBody")[1].focus()}
+console.log("i passed the error")
+    
+}
+
   saveCoverDataToServer = async e => {
     if (status === false) {
       status = await true;
@@ -333,7 +347,8 @@ class CoverLetterContextProvider extends Component {
           updateUserEmail: this.updateUserEmail,
           updateUserLinkedIn: this.updateUserLinkedIn,
           updateUserWebsite: this.updateUserWebsite,
-          updateUserGitHub: this.updateUserGitHub
+          updateUserGitHub: this.updateUserGitHub,
+          jumpTo2Page: this.jumpTo2Page
         }}
       >
         {this.props.children}
