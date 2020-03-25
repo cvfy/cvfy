@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const giveMeData = require("../../puppeteer_Data/Puppeteer.js");
 const giveMePDF = require("../../puppeteer_Data/GeneratePDF.js");
+const giveMePDFCover = require("../../puppeteer_Data/GeneratePDF_Cover.js");
 const giveMeJobData = require("../../puppeteer_Data/StepStoneData");
 const giveMeScreenShot = require("../../puppeteer_Data/GenerateSreenShot");
 const giveMeScreenShotCover = require("../../puppeteer_Data/GenerateSreenShotCover");
@@ -121,7 +122,30 @@ const sendData = async (req, res, next) => {
 };
 router.get("/data/link/:profile", sendData);
 
-// Generate PDF
+// Generate PDF Cover
+const sendPDFDataCover = async (req, res, next) => {
+  try {
+    //const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
+    const datas = await giveMePDFCover(req.params.id);
+    //const file = await `${__dirname}../../../profile_picture/${req.params.id}.pdf`;
+    res.status(200).send(datas);
+    // fs.unlink(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`, (err) => {
+    //     if (err) {
+    //       console.error(err)
+    //       return
+    //     }})
+    //
+    // setTimeout(function(){ fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`) }, 5000);
+    // fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`)
+    //res.status(200).sendFile(/profile_picture/combinedNew.pdf)
+  } catch (e) {
+    next(e);
+  }
+};
+router.get("/data/pdf/cover/:id", sendPDFDataCover);
+
+
+// Generate PDF COver
 const sendPDFData = async (req, res, next) => {
   try {
     //const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
