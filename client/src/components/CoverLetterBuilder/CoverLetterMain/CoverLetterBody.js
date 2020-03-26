@@ -39,7 +39,8 @@ class CoverLetterBody extends React.Component {
                     onBlur={e => modifyCover(this.props.index, "text", e.target.innerHTML)}
                     // value={this.props.data.text}
                     style={{
-                      fontSize: context.style.size3
+                      fontSize: context.style.size3,
+                      whiteSpace: "pre-line"
                     }}
                   >
                     {this.props.data.text}

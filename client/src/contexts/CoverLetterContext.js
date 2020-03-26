@@ -114,19 +114,19 @@ class CoverLetterContextProvider extends Component {
   }
 
   componentDidUpdate() {
-    if(this.state.coverLetters[0].text.length > 4000 ){
+    if(this.state.coverLetters[0].text.length > 3500 ){
     let cover = [...this.state.coverLetters]
-let data = cover[0].text
-cover[0].text = data.slice(0, 4000)
-cover[1].text = data.slice(4000) + cover[1].text
+let data = cover[0].text //.replace("<br>", "\n")
+cover[0].text = data.slice(0, 3500)
+cover[1].text = data.slice(3500) + cover[1].text
 console.log(cover[1].text)
 this.setState({coverLetters: cover})
     }
-    if(this.state.coverLetters[0].text.length < 3999 && this.state.coverLetters[1].text){
+    if(this.state.coverLetters[0].text.length < 3499 && this.state.coverLetters[1].text){
     let cover = [...this.state.coverLetters]
-let data = cover[0].text + cover[1].text;
-cover[0].text = data.slice(0, 4000)
-cover[1].text = data.slice(4000)
+let data = cover[0].text + cover[1].text.replace("<br>", "\n")
+cover[0].text = data.slice(0, 3500)
+cover[1].text = data.slice(3500)
 console.log(cover[1].text)
 this.setState({coverLetters: cover})
     }
@@ -292,8 +292,15 @@ this.setState({coverLetters: cover})
         this.setState({ coverLetters: newObject });
       }
       if (field === "text") {
-        newObject[index].text = value.replace("<br>", "\n");
+        let newVal = value.replace(/<br>/g, "\n")
+        // console.log(newVal)
+        newObject[index].text = newVal
         this.setState({ coverLetters: newObject });
+        // }
+        // else {
+          //   newObject[index].text = value
+          // this.setState({ coverLetters: newObject });
+          // }
       }
     }
   };
