@@ -36,10 +36,11 @@ class CoverLetterBody extends React.Component {
                     className="coverLetterBody"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
-                    onBlur={e => modifyCover(this.props.index, "text", e.target.innerHTML)}
+                    onBlur={e => modifyCover(this.props.index, "text", e.target.innerText)}
                     // value={this.props.data.text}
                     style={{
-                      fontSize: context.style.size3
+                      fontSize: context.style.size3,
+                      whiteSpace: "pre-line"
                     }}
                   >
                     {this.props.data.text}
