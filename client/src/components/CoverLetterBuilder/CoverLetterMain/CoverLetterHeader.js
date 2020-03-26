@@ -2,7 +2,6 @@ import React from "react";
 import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 import CoverLetterContact from "./CoverLetterContact";
 import store from "./../../../store.js";
-// import Contacts from "../../CvBuilder/CvBuilderMain/Contacts/Contacts";
 
 function aFunction() {
   var newState = store.getState();
@@ -90,7 +89,7 @@ class CoverLetterHeader extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="contactWrapper">
+              <div className="contactWrapper" style={{ alignSelf: "end" }}>
                 <CoverLetterContact />
               </div>
             </div>

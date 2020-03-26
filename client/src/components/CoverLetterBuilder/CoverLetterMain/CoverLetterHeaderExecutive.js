@@ -2,61 +2,59 @@ import React from "react";
 import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 import CoverLetterContact from "./CoverLetterContact";
 import store from "../../../store.js";
-// import Contacts from "../../CvBuilder/CvBuilderMain/Contacts/Contacts";
 
 function aFunction() {
   var newState = store.getState();
   return newState.auth.user.name;
 }
-class CoverLetterHeaderProfessional extends React.Component {
+class CoverLetterHeaderExecutive extends React.Component {
   render() {
     return (
       <CoverLetterContext.Consumer>
         {context => {
           const { getCurrentDate, modifyCover } = context;
           return (
-            <div className="header-wrap-prof">
-              <div className="header-inner-prof">
-                <div className="introductionCoverProf">
+            <div className="header-wrap-executive">
+              <div
+                className="colorBlock"
+                style={{ background: context.style.color }}
+              ></div>
+              <div className="header-inner-executive">
+                <div className="introductionCoverExecutive">
                   <div
-                    className="professionalStyling"
-                    style={{ background: context.style.color }}
+                    className="coverLetterName"
+                    style={{
+                      fontFamily: context.style.font,
+                      color: context.style.color
+                    }}
                   >
-                    <div
-                      className="coverLetterNameProf"
+                    {this.props.data.fullName}
+                  </div>
+
+                  <div
+                    className={
+                      context.style.displayCoverTitle
+                        ? "editableHeaderDiv title"
+                        : "hideSection"
+                    }
+                  >
+                    <span
+                      className="title"
+                      contentEditable="true"
+                      onBlur={e =>
+                        modifyCover("professionalTitle", e.target.innerText)
+                      }
                       style={{
-                        fontFamily: context.style.font
+                        fontSize: context.style.size1
                       }}
                     >
-                      {this.props.data.fullName}
-                    </div>
-
-                    <div
-                      className={
-                        context.style.displayCoverTitle
-                          ? "editableHeaderDiv titleProf"
-                          : "hideSection"
-                      }
-                    >
-                      <span
-                        className="titleProf"
-                        contentEditable="true"
-                        onBlur={e =>
-                          modifyCover("professionalTitle", e.target.innerText)
-                        }
-                        style={{
-                          fontSize: context.style.size1
-                        }}
-                      >
-                        {this.props.data.professionalTitle}
-                      </span>
-                    </div>
+                      {this.props.data.professionalTitle}
+                    </span>
                   </div>
                   <div
                     className={
                       context.style.displayCompany ? "" : "hideSection"
                     }
-                    style={{ paddingLeft: "3rem" }}
                   >
                     <div className="editableHeaderDiv">
                       <span
@@ -83,10 +81,7 @@ class CoverLetterHeaderProfessional extends React.Component {
                       </span>
                     </div>
                   </div>
-                  <div
-                    className="editableHeaderDiv"
-                    style={{ paddingLeft: "3rem" }}
-                  >
+                  <div className="editableHeaderDiv">
                     <span
                       className="editDate"
                       style={{
@@ -98,10 +93,7 @@ class CoverLetterHeaderProfessional extends React.Component {
                   </div>
                 </div>
               </div>
-              <div
-                className="contactWrapper"
-                style={{ alignSelf: "flex-start" }}
-              >
+              <div className="contactWrapper">
                 <CoverLetterContact />
               </div>
             </div>
@@ -112,4 +104,4 @@ class CoverLetterHeaderProfessional extends React.Component {
   }
 }
 store.subscribe(aFunction);
-export default CoverLetterHeaderProfessional;
+export default CoverLetterHeaderExecutive;

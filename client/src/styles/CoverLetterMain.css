@@ -50,21 +50,40 @@
     margin-left: 0;
 }
 
+.header-wrap-executive {
+    display: grid;
+    grid-template-columns: 1fr 9fr 9fr;
+}
+
+.colorBlock {
+    position: relative;
+    width: 45px;
+    height: 60px;
+    background: #3dbaf7;
+    top: 61px;
+    left: 0px;
+}
+
 .professionalStyling {
     background: #3dbaf7;
     color: #fff;
-    margin-top: 2.5rem;
+    margin-top: 3.5rem;
     padding-left: 3rem;
     padding-right: 2rem;
 }
 
 .header-inner {
     display: flex;
+    padding: 20px;
 }
 
 .header-inner-prof {
     display: flex;
+}
 
+.header-inner-executive {
+    display: flex;
+    padding: 20px 20px 20px 0;
 }
 
 .introductionCover {
@@ -76,6 +95,12 @@
 .introductionCoverProf {
     width: 100%;
     margin-left: 0;
+    margin-bottom: 3px;
+}
+
+.introductionCoverExecutive {
+    width: 100%;
+    margin-left: 1rem;
     margin-bottom: 3px;
 }
 
@@ -99,6 +124,10 @@
     font-size: 2rem;
 }
 
+.coverLetterNameProf {
+    padding-top: 1rem;
+    font-size: 2rem;
+}
 
 .title:empty:before {
     content: "Professional title";
@@ -159,6 +188,19 @@
     flex-direction: column;
     justify-content: space-around;
     height: 100%;
+    cursor: pointer;
+}
+
+.coverLetterContactExecutive {
+    height: 50px;
+    margin-top: 63px;
+    display: grid;
+    align-items: center;
+    justify-content: end;
+    grid-auto-flow: row;
+    padding-right: 37.5px;
+    font-size: 12px;
+    flex-direction: column;
     cursor: pointer;
 }
 

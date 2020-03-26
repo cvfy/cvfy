@@ -37,7 +37,10 @@ class CoverLetterContact extends React.Component {
             updateUserWebsite
           } = coverContext;
           return (
-            <div className="coverLetterContact" onClick={this.displayModal}>
+            <div
+              className="coverLetterContactExecutive"
+              onClick={this.displayModal}
+            >
               {/* ========================================================== 
               ================= HERE STARTS CONTACT MODAL ==================
               ==============================================================
