@@ -49,7 +49,7 @@ class App extends Component {
             <div className="MainPage">
               {window.location.href.includes("create-cv") ||
               window.location.href.includes("create-cover-letter")
-                ? ``
+                ? null
                 : `${(<Navbar />)}`}
               <Switch>
                 <Route exact path="/" component={Home} />
