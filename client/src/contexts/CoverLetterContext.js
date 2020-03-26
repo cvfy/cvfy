@@ -114,47 +114,39 @@ class CoverLetterContextProvider extends Component {
   }
 
   componentDidUpdate() {
-    if(this.state.coverLetters[0].text.length > 3500 ){
-    let cover = [...this.state.coverLetters]
-let data = cover[0].text //.replace("<br>", "\n")
-<<<<<<< HEAD
-cover[0].text = data.slice(0, 4000)
-cover[1].text = data.slice(4000) + cover[1].text
-=======
-cover[0].text = data.slice(0, 3500)
-cover[1].text = data.slice(3500) + cover[1].text
->>>>>>> deployment
-console.log(cover[1].text)
-this.setState({coverLetters: cover})
+    if (this.state.coverLetters[0].text.length > 3500) {
+      let cover = [...this.state.coverLetters];
+      let data = cover[0].text; //.replace("<br>", "\n")
+      cover[0].text = data.slice(0, 3500);
+      cover[1].text = data.slice(3500) + cover[1].text;
+      console.log(cover[1].text);
+      this.setState({ coverLetters: cover });
     }
-    if(this.state.coverLetters[0].text.length < 3499 && this.state.coverLetters[1].text){
-    let cover = [...this.state.coverLetters]
-let data = cover[0].text + cover[1].text.replace("<br>", "\n")
-<<<<<<< HEAD
-cover[0].text = data.slice(0, 4000)
-cover[1].text = data.slice(4000)
-=======
-cover[0].text = data.slice(0, 3500)
-cover[1].text = data.slice(3500)
->>>>>>> deployment
-console.log(cover[1].text)
-this.setState({coverLetters: cover})
+    if (
+      this.state.coverLetters[0].text.length < 3499 &&
+      this.state.coverLetters[1].text
+    ) {
+      let cover = [...this.state.coverLetters];
+      let data = cover[0].text + cover[1].text.replace("<br>", "\n");
+      cover[0].text = data.slice(0, 3500);
+      cover[1].text = data.slice(3500);
+      console.log(cover[1].text);
+      this.setState({ coverLetters: cover });
     }
-    
   }
 
-//   jumpTo2Page = (i,  data) => {
-//     console.log("i am trying to jump")
-// let cover = [...this.state.coverLetters]
-// cover[0].text = data.slice(0, 4000)
-// cover[1].text = data.slice(4000)
-// console.log(cover[1].text)
-// this.setState({coverLetters: cover})
-// console.log(document.querySelectorAll(".coverLetterBody"))
-// if(document.querySelectorAll(".coverLetterBody")[1]){ document.querySelectorAll(".coverLetterBody")[1].focus()}
-// console.log("i passed the error")
-    
-// }
+  //   jumpTo2Page = (i,  data) => {
+  //     console.log("i am trying to jump")
+  // let cover = [...this.state.coverLetters]
+  // cover[0].text = data.slice(0, 4000)
+  // cover[1].text = data.slice(4000)
+  // console.log(cover[1].text)
+  // this.setState({coverLetters: cover})
+  // console.log(document.querySelectorAll(".coverLetterBody"))
+  // if(document.querySelectorAll(".coverLetterBody")[1]){ document.querySelectorAll(".coverLetterBody")[1].focus()}
+  // console.log("i passed the error")
+
+  // }
 
   saveCoverDataToServer = async e => {
     if (status === false) {
@@ -302,19 +294,15 @@ this.setState({coverLetters: cover})
         this.setState({ coverLetters: newObject });
       }
       if (field === "text") {
-<<<<<<< HEAD
-        let newVal = value //.replace(/<br>/g, "\n")
-=======
-        let newVal = value.replace(/<br>/g, "\n")
->>>>>>> deployment
+        let newVal = value.replace(/<br>/g, "\n");
         // console.log(newVal)
-        newObject[index].text = newVal
+        newObject[index].text = newVal;
         this.setState({ coverLetters: newObject });
         // }
         // else {
-          //   newObject[index].text = value
-          // this.setState({ coverLetters: newObject });
-          // }
+        //   newObject[index].text = value
+        // this.setState({ coverLetters: newObject });
+        // }
       }
     }
   };

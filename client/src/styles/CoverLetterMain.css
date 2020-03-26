@@ -43,6 +43,14 @@
     margin-left: 15px;
 }
 
+.header-wrapModern {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-left: 15px;
+    background: #d4d3d3;
+}
+
 .header-wrap-prof {
     display: flex;
     align-items: baseline;
@@ -72,18 +80,19 @@
     padding-right: 2rem;
 }
 
-.header-inner {
+.header-inner,
+.header-inner-executive {
     display: flex;
-    padding: 20px;
+    padding: 20px 20px 20px 0;
 }
 
 .header-inner-prof {
     display: flex;
 }
 
-.header-inner-executive {
+.header-innerModern {
     display: flex;
-    padding: 20px 20px 20px 0;
+    padding: 20px;
 }
 
 .introductionCover {
@@ -111,7 +120,8 @@
     margin-top: 5px;
 }
 
-.titleProf {
+.titleProf,
+.titleModern {
     font-size: 1.3rem;
     color: #fff;
     margin-bottom: 0.5rem;
@@ -122,6 +132,7 @@
 .coverLetterName {
     padding-top: 2rem;
     font-size: 2rem;
+    color: #3dbaf7;
 }
 
 .coverLetterNameProf {
@@ -146,7 +157,15 @@
     font-style: italic;
 }
 
-.to:empty:before {
+.toModern {
+    padding-top: 5px;
+    font-size: 0.8rem;
+    max-width: inherit;
+    font-style: italic;
+}
+
+.to:empty:before,
+.toModern:empty:before {
     content: "To";
     border-bottom: none;
     font-style: none;
@@ -176,6 +195,14 @@
     max-width: inherit;
     font-style: italic;
     color: #414242;
+}
+
+.editDateModern {
+    padding-top: 5px;
+    font-size: 1.3rem;
+    max-width: inherit;
+    font-style: italic;
+    color: #fff;
 }
 
 /* ==================================================== */
