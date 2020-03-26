@@ -43,8 +43,28 @@
     margin-left: 15px;
 }
 
+.header-wrap-prof {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-left: 0;
+}
+
+.professionalStyling {
+    background: #3dbaf7;
+    color: #fff;
+    margin-top: 2.5rem;
+    padding-left: 3rem;
+    padding-right: 2rem;
+}
+
 .header-inner {
     display: flex;
+}
+
+.header-inner-prof {
+    display: flex;
+
 }
 
 .introductionCover {
@@ -53,10 +73,24 @@
     margin-bottom: 3px;
 }
 
+.introductionCoverProf {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 3px;
+}
+
 .title {
     font-size: 1.3rem;
     color: #414242;
     margin-bottom: 1.5rem;
+    margin-top: 5px;
+}
+
+.titleProf {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    padding-bottom: 1rem;
     margin-top: 5px;
 }
 
