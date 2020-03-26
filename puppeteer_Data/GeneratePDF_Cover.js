@@ -16,9 +16,12 @@ async function giveMePDF(resumeID) {
           width: 1600,
           height: 4600
         });
-        await page.goto("http://localhost:3000/create-cover-letter", {
-          waitUntil: "networkidle2"
-        });
+        await page.goto(
+          "http://ec2-18-191-117-123.us-east-2.compute.amazonaws.com/create-cover-letter",
+          {
+            waitUntil: "networkidle2"
+          }
+        );
         // const localStorage = await page.evaluate(() =>  Object.assign({'CurrentCV': 'daca2eb2-5658-2e9f-17da-a503ee1cce7c'}, window.localStorage));
         await page.evaluate(resumeID => {
           // localStorage.removeItem('currentCV');
@@ -28,9 +31,12 @@ async function giveMePDF(resumeID) {
           );
           localStorage.setItem("currentCover", resumeID);
         }, resumeID);
-        await page.goto("http://localhost:3000/create-cover-letter", {
-          waitUntil: "networkidle2"
-        });
+        await page.goto(
+          "http://ec2-18-191-117-123.us-east-2.compute.amazonaws.com/create-cover-letter",
+          {
+            waitUntil: "networkidle2"
+          }
+        );
 
         await autoScroll(page);
 

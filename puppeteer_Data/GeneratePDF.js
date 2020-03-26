@@ -16,21 +16,25 @@ async function giveMePDF(resumeID) {
           width: 1600,
           height: 4600
         });
-        await page.goto("http://localhost:3000/create-cv", {
-          waitUntil: "networkidle2"
-        });
-        // const localStorage = await page.evaluate(() =>  Object.assign({'CurrentCV': 'daca2eb2-5658-2e9f-17da-a503ee1cce7c'}, window.localStorage));
+        await page.goto(
+          "http://ec2-18-191-117-123.us-east-2.compute.amazonaws.com/create-cv",
+          {
+            waitUntil: "networkidle2"
+          }
+        );
         await page.evaluate(resumeID => {
-          // localStorage.removeItem('currentCV');
           localStorage.setItem(
             "jwtToken",
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNTE1NzhlZTQ2MTM2MTYyYmM5YjZkYSIsIm5hbWUiOiJBbGV4IiwiZW1haWwiOiJhbGV4QGdtYWlsLmNvbSIsImlhdCI6MTU4NDU1MDIzOSwiZXhwIjoxNjE2MTA3MTY1fQ.PLlbsY7-c3M2riI1GeVyusl7XMZE5FncIhue__Gwb-c"
           );
           localStorage.setItem("currentCV", resumeID);
         }, resumeID);
-        await page.goto("http://localhost:3000/create-cv", {
-          waitUntil: "networkidle2"
-        });
+        await page.goto(
+          "http://ec2-18-191-117-123.us-east-2.compute.amazonaws.com/create-cv",
+          {
+            waitUntil: "networkidle2"
+          }
+        );
 
         await autoScroll(page);
 

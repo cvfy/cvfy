@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://ec2-18-191-117-123.us-east-2.compute.amazonaws.com"],
     credentials: true
   })
 );

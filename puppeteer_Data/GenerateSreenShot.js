@@ -17,9 +17,12 @@ async function giveMeScreenShot(resumeID) {
           height: 1400
         });
 
-        await page.goto("http://localhost:3000/create-cv", {
-          waitUntil: "networkidle2"
-        });
+        await page.goto(
+          "http://ec2-18-191-117-123.us-east-2.compute.amazonaws.com/create-cv",
+          {
+            waitUntil: "networkidle2"
+          }
+        );
         await page.evaluate(resumeID => {
           localStorage.setItem(
             "jwtToken",
@@ -27,9 +30,12 @@ async function giveMeScreenShot(resumeID) {
           );
           localStorage.setItem("currentCV", resumeID);
         }, resumeID);
-        await page.goto("http://localhost:3000/create-cv", {
-          waitUntil: "networkidle2"
-        });
+        await page.goto(
+          "http://ec2-18-191-117-123.us-east-2.compute.amazonaws.com/create-cv",
+          {
+            waitUntil: "networkidle2"
+          }
+        );
         await page.waitFor(1000);
         const pic = await page.$(".A4");
         await pic.screenshot({

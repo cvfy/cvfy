@@ -279,30 +279,6 @@ class ExperienceGroup extends React.Component {
                 </div>
                 <div>
                   <div className="editableDiv">
-                    {/* <ul
-                      onBlur={e =>
-                        modifyEx(
-                          this.props.index,
-                          "tasks",
-                          e.target.innerText,
-                          this.props.dat
-                        )
-                      }
-                      className="task"
-                      contentEditable="true"
-                      suppressContentEditableWarning={true}
-                      style={{
-                        fontSize: context.style.size3,
-                        borderBottom: borderBottom,
-                        paddingInlineStart: 0
-                      }}
-                      // onClick={this.addNewTask}
-                    >
-                      <li style={{ listStyle: "inside circle" }}>
-                        {[this.props.data.tasks]}
-                      </li>
-                    </ul> */}
-
                     <span
                       onBlur={e =>
                         modifyEx(
