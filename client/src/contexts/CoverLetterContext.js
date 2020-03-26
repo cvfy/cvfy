@@ -117,8 +117,10 @@ class CoverLetterContextProvider extends Component {
     if(this.state.coverLetters[0].text.length > 3500 ){
     let cover = [...this.state.coverLetters]
 let data = cover[0].text //.replace("<br>", "\n")
+
 cover[0].text = data.slice(0, 3500)
 cover[1].text = data.slice(3500) + cover[1].text
+
 console.log(cover[1].text)
 this.setState({coverLetters: cover})
     }
@@ -127,6 +129,7 @@ this.setState({coverLetters: cover})
 let data = cover[0].text + cover[1].text.replace("<br>", "\n")
 cover[0].text = data.slice(0, 3500)
 cover[1].text = data.slice(3500)
+
 console.log(cover[1].text)
 this.setState({coverLetters: cover})
     }
@@ -292,7 +295,9 @@ this.setState({coverLetters: cover})
         this.setState({ coverLetters: newObject });
       }
       if (field === "text") {
+
         let newVal = value.replace(/<br>/g, "\n")
+
         // console.log(newVal)
         newObject[index].text = newVal
         this.setState({ coverLetters: newObject });
