@@ -292,7 +292,7 @@ this.setState({coverLetters: cover})
         this.setState({ coverLetters: newObject });
       }
       if (field === "text") {
-        newObject[index].text = value;
+        newObject[index].text = value.replace("<br>", "\n");
         this.setState({ coverLetters: newObject });
       }
     }
