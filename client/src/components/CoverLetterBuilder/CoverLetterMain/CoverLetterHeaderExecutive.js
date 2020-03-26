@@ -1,22 +1,26 @@
 import React from "react";
 import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 import CoverLetterContact from "./CoverLetterContact";
-import store from "./../../../store.js";
+import store from "../../../store.js";
 
 function aFunction() {
   var newState = store.getState();
   return newState.auth.user.name;
 }
-class CoverLetterHeader extends React.Component {
+class CoverLetterHeaderExecutive extends React.Component {
   render() {
     return (
       <CoverLetterContext.Consumer>
         {context => {
           const { getCurrentDate, modifyCover } = context;
           return (
-            <div className="header-wrap">
-              <div className="header-inner">
-                <div className="introductionCover">
+            <div className="header-wrap-executive">
+              <div
+                className="colorBlock"
+                style={{ background: context.style.color }}
+              ></div>
+              <div className="header-inner-executive">
+                <div className="introductionCoverExecutive">
                   <div
                     className="coverLetterName"
                     style={{
@@ -89,7 +93,7 @@ class CoverLetterHeader extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="contactWrapper" style={{ alignSelf: "end" }}>
+              <div className="contactWrapper">
                 <CoverLetterContact />
               </div>
             </div>
@@ -100,4 +104,4 @@ class CoverLetterHeader extends React.Component {
   }
 }
 store.subscribe(aFunction);
-export default CoverLetterHeader;
+export default CoverLetterHeaderExecutive;

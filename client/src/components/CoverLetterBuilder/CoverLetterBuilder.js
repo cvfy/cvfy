@@ -1,7 +1,9 @@
 import React from "react";
 import CoverLetterNav from "./CoverLetterNav/CoverLetterNav";
-import CoverLetterMain from "./CoverLetterMain/CoverLetterMain";
 import CoverLetterContextProvider from "../../contexts/CoverLetterContext";
+import CoverLetterMain from "./CoverLetterMain/CoverLetterMain";
+// import CoverLetterProfessional from "./CoverLetterMain/CoverLetterProfessional";
+// import CoverLetterExecutive from "./CoverLetterMain/CoverLetterExecutive";
 
 class CoverLetterBuilder extends React.Component {
   render() {
@@ -9,7 +11,9 @@ class CoverLetterBuilder extends React.Component {
       <CoverLetterContextProvider>
         <div className="App">
           <CoverLetterNav></CoverLetterNav>
-          <CoverLetterMain></CoverLetterMain>
+          <CoverLetterMain />
+          {/* <CoverLetterProfessional /> */}
+          {/* <CoverLetterExecutive /> */}
         </div>
       </CoverLetterContextProvider>
     );
