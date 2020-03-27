@@ -1,7 +1,7 @@
 import React, { Component, createContext, useRef, useState } from "react";
 import axios from "axios";
 import store from "./../store.js";
-import { url, cloudinaryUrl } from "../config";
+import { url, cloudinaryUrl, frontUrl } from "../config";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 //import uuid from 'uuid'
@@ -1442,6 +1442,30 @@ class ThemeContextProvider extends Component {
     await this.saveCVDataToServer();
   };
 
+  directToBasicTemplate = id => {
+    localStorage.setItem("currentCV", id);
+    window.location.href = `${frontUrl}/create-cv`;
+    this.showBasicTemplate();
+  };
+
+  directToModernTemplate = id => {
+    localStorage.setItem("currentCV", id);
+    window.location.href = `${frontUrl}/create-cv`;
+    this.showModernTemplate();
+  };
+
+  directToProfessionalTemplate = id => {
+    localStorage.setItem("currentCV", id);
+    window.location.href = `${frontUrl}/create-cv`;
+    this.showProfessionalTemplate();
+  };
+
+  directToExecutiveTemplate = id => {
+    localStorage.setItem("currentCV", id);
+    window.location.href = `${frontUrl}/create-cv`;
+    this.showExecutiveTemplate();
+  };
+
   updateUserSkype = (page, input) => {
     // need to add s timeout to reduce logs at console
     let newObject = [...this.state.userData];
@@ -1689,6 +1713,10 @@ class ThemeContextProvider extends Component {
           showExecutiveTemplate: this.showExecutiveTemplate,
           showModernTemplate: this.showModernTemplate,
           showProfessionalTemplate: this.showProfessionalTemplate,
+          directToBasicTemplate: this.directToBasicTemplate,
+          directToModernTemplate: this.directToModernTemplate,
+          directToProfessionalTemplate: this.directToProfessionalTemplate,
+          directToExecutiveTemplate: this.directToExecutiveTemplate,
           togglePhotoClass: this.togglePhotoClass,
           toggleTitleClass: this.toggleTitleClass,
           toggleCoverTitleClass: this.toggleCoverTitleClass,

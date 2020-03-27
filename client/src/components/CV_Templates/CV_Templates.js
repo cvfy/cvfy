@@ -9,62 +9,78 @@ import Executive from "../../assets/executive-template.jpg";
 import ScrollAnimation from "react-animate-on-scroll";
 import Jumbotron from "./Jumbotron";
 import { frontUrl } from "../../config";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 class CV_Templates extends Component {
-  setLocalStorage = id => {
-    localStorage.setItem("currentCV", id);
-    window.location.href = `${frontUrl}/create-cv`;
-  };
+  // setLocalStorage = id => {
+  //   localStorage.setItem("currentCV", id);
+  //   window.location.href = `${frontUrl}/create-cv`;
+  // };
 
   render() {
     return (
-      <>
-        <Navbar />
-        <Jumbotron />
-        <div className="CVTemplates_Container">
-          <ScrollAnimation
-            className="cvBox"
-            animateIn="fadeIn"
-            animateOnce="true"
-            duration="0.5s"
-          >
-            <img src={Executive} onClick={() => this.setLocalStorage("")} />
-          </ScrollAnimation>
-          <ScrollAnimation
-            className="cvBox"
-            animateIn="fadeIn"
-            animateOnce="true"
-            duration="0.5s"
-          >
-            <img src={Modern} onClick={() => this.setLocalStorage("")} />
-          </ScrollAnimation>
-          <ScrollAnimation
-            className="cvBox"
-            animateIn="fadeIn"
-            animateOnce="true"
-            duration="0.5s"
-          >
-            <img src={Professional} onClick={() => this.setLocalStorage("")} />
-          </ScrollAnimation>{" "}
-          <ScrollAnimation
-            className="cvBox"
-            animateIn="fadeIn"
-            animateOnce="true"
-            duration="0.5s"
-          >
-            <img src={CV1} />
-          </ScrollAnimation>{" "}
-          <ScrollAnimation
-            className="cvBox"
-            animateIn="fadeIn"
-            animateOnce="true"
-            duration="0.5s"
-          >
-            <img src={Basic} onClick={() => this.setLocalStorage("")} />
-          </ScrollAnimation>
-        </div>
-        <Footer />
-      </>
+      <ThemeContext.Consumer>
+        {context => {
+          const {
+            directToBasicTemplate,
+            directToModernTemplate,
+            directToProfessionalTemplate,
+            directToExecutiveTemplate
+          } = context;
+          return (
+            <>
+              <Navbar />
+              <Jumbotron />
+              <div className="CVTemplates_Container">
+                <ScrollAnimation
+                  className="cvBox"
+                  animateIn="fadeIn"
+                  animateOnce="true"
+                  duration="0.5s"
+                >
+                  <img src={Executive} onClick={directToExecutiveTemplate} />
+                </ScrollAnimation>
+                <ScrollAnimation
+                  className="cvBox"
+                  animateIn="fadeIn"
+                  animateOnce="true"
+                  duration="0.5s"
+                >
+                  <img src={Modern} onClick={directToModernTemplate} />
+                </ScrollAnimation>
+                <ScrollAnimation
+                  className="cvBox"
+                  animateIn="fadeIn"
+                  animateOnce="true"
+                  duration="0.5s"
+                >
+                  <img
+                    src={Professional}
+                    onClick={directToProfessionalTemplate}
+                  />
+                </ScrollAnimation>{" "}
+                <ScrollAnimation
+                  className="cvBox"
+                  animateIn="fadeIn"
+                  animateOnce="true"
+                  duration="0.5s"
+                >
+                  <img src={CV1} />
+                </ScrollAnimation>{" "}
+                <ScrollAnimation
+                  className="cvBox"
+                  animateIn="fadeIn"
+                  animateOnce="true"
+                  duration="0.5s"
+                >
+                  <img src={Basic} onClick={directToBasicTemplate} />
+                </ScrollAnimation>
+              </div>
+              <Footer />
+            </>
+          );
+        }}
+      </ThemeContext.Consumer>
     );
   }
 }
