@@ -8,15 +8,9 @@ import Professional from "../../assets/professional-template.jpg";
 import Executive from "../../assets/executive-template.jpg";
 import ScrollAnimation from "react-animate-on-scroll";
 import Jumbotron from "./Jumbotron";
-import { frontUrl } from "../../config";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 class CV_Templates extends Component {
-  // setLocalStorage = id => {
-  //   localStorage.setItem("currentCV", id);
-  //   window.location.href = `${frontUrl}/create-cv`;
-  // };
-
   render() {
     return (
       <ThemeContext.Consumer>
