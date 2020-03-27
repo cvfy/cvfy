@@ -65,21 +65,18 @@
   box-sizing: border-box;
   padding: 2%;
   position: relative;
-  z-index: 1;
-  -webkit-transform-origin: 50% 0%;
+  z-index: 0;
   transform-origin: 50% 0%;
-  -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
-  -webkit-transition: none;
   transition: none;
-  -webkit-animation: expand 0.8s 0.6s ease-out forwards;
   animation: expand 0.8s 0.6s ease-out forwards;
   opacity: 0;
   display: flex;
-  width: 70%;
+  width: 75%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 73vh;
 }
 
 /* h2 {
@@ -99,6 +96,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.autoRegistrationLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
 }
 
 .googleSignUpDiv {
@@ -127,7 +131,7 @@
 .googleText {
   color: #fff;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1em;
   padding-left: 0.5em;
 }
 
@@ -143,18 +147,17 @@ hr {
 }
 
 .orText {
-  margin: 3rem;
+  margin: 1rem 2rem;
   color: rgb(190, 182, 182);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .title_container {
   text-align: center;
-  padding-bottom: 0.9rem;
 }
 
 label {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .input_field {
@@ -165,7 +168,7 @@ label {
   font-size: 1rem;
 }
 
-.input_field > span {
+.input_field>span {
   position: absolute;
   left: 0.5em;
   top: 0;
@@ -175,11 +178,11 @@ label {
   width: 1rem;
 }
 
-.input_field > i {
+.input_field>i {
   padding-top: 0.6rem;
 }
 
-.textarea_field > span > i {
+.textarea_field>span>i {
   padding-top: 0.6rem;
 }
 
@@ -222,11 +225,19 @@ input[type="password"]:focus {
   justify-content: center;
 }
 
+.submitDivLogin {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
 input[type="submit"] {
   background: blue;
   height: 2.2rem;
   line-height: 2.2rem;
-  width: 10vw;
+  width: 15vw;
   padding: 1em;
   display: flex;
   align-items: center;
@@ -279,6 +290,7 @@ input[type="radio"] {
 
 .form_container {
   width: 100%;
+  height: 100%;
 }
 
 .form_container .row .col_half.last {
@@ -287,14 +299,16 @@ input[type="radio"] {
 
 .checkbox_option label {
   margin-right: 1em;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .checkbox_option label:before {
   content: "";
   display: inline-block;
-  width: 1.2em;
-  height: 1.2em;
+  width: 0.6em;
+  height: 0.6em;
   border-radius: 50%;
   margin-right: 0.5em;
   vertical-align: -2px;
@@ -319,15 +333,15 @@ input[type="radio"] {
   display: none;
 }
 
-input:hover + label:before {
+input:hover+label:before {
   border-color: black;
 }
 
-input:checked + label:before {
+input:checked+label:before {
   border-color: black;
 }
 
-input:checked + label:before:after {
+input:checked+label:before:after {
   -moz-animation: check 0.8s ease 0s running;
   -webkit-animation: check 0.8s ease 0s running;
   animation: check 0.8s ease 0s running;
@@ -356,11 +370,11 @@ input:checked + label:before:after {
   transition: all 0.2s ease;
 }
 
-input:hover + label:before {
+input:hover+label:before {
   border-color: black;
 }
 
-input:checked + label:before {
+input:checked+label:before {
   background-color: black;
   border-color: black;
 }
@@ -410,18 +424,20 @@ select:focus {
   border-color: #7b7b7b transparent transparent transparent;
 }
 
-.select_option select:hover + .select_arrow,
-.select_option select:focus + .select_arrow {
+.select_option select:hover+.select_arrow,
+.select_option select:focus+.select_arrow {
   border-top-color: black;
 }
 
 .alreadyMember {
   font-size: 1.1em;
   margin-top: 1rem;
+  display: none;
 }
 
 .addLink {
   color: blue;
+  padding-left: 4px;
 }
 
 /* ====== added for login ====== */
@@ -591,6 +607,17 @@ select:focus {
   }
 }
 
+@media (max-width: 935px) {
+  .googleSignUpDiv {
+    width: 30vw;
+  }
+
+  input[type="submit"] {
+    width: 25vw;
+  }
+}
+
+
 @media (max-width: 850px) {
   .googleSignUpDiv {
     width: 40vw;
@@ -602,12 +629,16 @@ select:focus {
   }
 
   input[type="submit"] {
-    width: 30vw;
+    width: 40vw;
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 468px) {
   .googleSignUpDiv {
+    width: 80vw;
+  }
+
+  input[type="submit"] {
     width: 80vw;
   }
 

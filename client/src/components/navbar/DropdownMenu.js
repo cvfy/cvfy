@@ -38,7 +38,6 @@ const DropdownMenu = () => {
 
   const onClick = () => {
     SetState({ OpenMenu: !State.OpenMenu });
-    console.log(State.OpenMenu);
   };
   const DropdownItems = DropdownItemsList.map(el => (
     <div

@@ -96,6 +96,10 @@ class Register extends Component {
                             className={classnames("", {
                               invalid: errors.name
                             })}
+                            style={{
+                              color: "black",
+                              padding: "0.5rem 0.7rem 0.6rem 2.2rem"
+                            }}
                           />
                           <label htmlFor="name">Name</label>
                           <div className="red-text">{errors.name}</div>
@@ -117,6 +121,10 @@ class Register extends Component {
                             className={classnames("", {
                               invalid: errors.email
                             })}
+                            style={{
+                              color: "black",
+                              padding: "0.5rem 0.7rem 0.6rem 2.2rem"
+                            }}
                           />
                           <label htmlFor="email">Email</label>
                           <div className="red-text">{errors.email}</div>
