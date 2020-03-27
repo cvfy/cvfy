@@ -127,7 +127,6 @@ class JobDashboard extends Component {
                     className="jobAdRequirements"
                   >
                     <ul>
-                      $
                       {el.JobRequirements.map(el => (
                         <li>{el}</li>
                       ))}

@@ -109,10 +109,10 @@ router.post("/login", (req, res) => {
 const sendData = async (req, res, next) => {
   try {
     console.log(req.params.id)
-    // const datas = await giveMeData(
-    //   `https://www.linkedin.com/in/${req.params.profile}`
-    // );
-    //const datas = await giveMePDF();
+    const datas = await giveMeData(
+      `https://www.linkedin.com/in/${req.params.profile}`
+    );
+    // const datas = await giveMePDF();
     console.log(req.params.profile);
 
     res.status(200).send(datas);

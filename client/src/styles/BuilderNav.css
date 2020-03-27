@@ -675,14 +675,13 @@
 
 .linkedInButton,
 .saveUpdateButton {
-  margin: 0;
-  padding: 0;
+  margin: 0!important;
   height: 65%;
   color: black;
   width: 8vw;
   margin-left: 10px;
   background: #68ec94ba;
-  margin-bottom: 4px;
+  /* margin-bottom: 4px; */
   border: none;
   border-radius: 20px;
   display: flex;
@@ -697,6 +696,8 @@
 .saveUpdateButton {
   background: #68ec94ba;
   color: black;
+  margin: 0;
+  padding: 0;
 }
 
 .saveUpdateButton:hover {
