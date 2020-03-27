@@ -15,7 +15,7 @@ class CoverLetterHeader extends React.Component {
           const { getCurrentDate, modifyCover } = context;
           return (
             <div className="header-wrap">
-              <div className="header-inner">
+              <div className="header-inner-basic">
                 <div className="introductionCover">
                   <div
                     className="coverLetterName"

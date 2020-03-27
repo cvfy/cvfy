@@ -1,6 +1,5 @@
 import React from "react";
 import CvBuilderNav from "./CvBuilderNav/CvBuilderNav";
-// import ThemeContextProvider from "../../contexts/ThemeContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 // import { Beforeunload } from "react-beforeunload";
 import JobDashboard from "./JobDashboard/JobDashboard";

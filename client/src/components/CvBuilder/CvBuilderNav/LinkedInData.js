@@ -197,7 +197,8 @@ class LinkedInData extends Component {
                         style={{ marginRight: 5 }}
                       ></i>
                     )}
-                    {context.importing && <span>Importing</span>}
+                    {context.importing && null}
+                    {/* {context.importing && <span>Importing</span>} */}
                     {!context.importing && <span>Import</span>}
                   </button>
                   <button

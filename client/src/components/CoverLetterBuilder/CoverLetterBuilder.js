@@ -1,38 +1,45 @@
 import React from "react";
 import CoverLetterNav from "./CoverLetterNav/CoverLetterNav";
-import CoverLetterContextProvider from "../../contexts/CoverLetterContext";
+// import CoverLetterContextProvider from "../../contexts/CoverLetterContext";
 import CoverLetterBasic from "./CoverLetterMain/CoverLetterBasic";
 import CoverLetterProfessional from "./CoverLetterMain/CoverLetterProfessional";
 import CoverLetterExecutive from "./CoverLetterMain/CoverLetterExecutive";
 import CoverLetterModern from "./CoverLetterMain/CoverLetterModern";
+import { CoverLetterContext } from "../../contexts/CoverLetterContext";
 
 class CoverLetterBuilder extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      displayBasic: false,
-      displayProfessional: false,
-      displayModern: false,
-      displayExecutive: true
-    };
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     displayBasic: true,
+  //     displayProfessional: false,
+  //     displayModern: false,
+  //     displayExecutive: false
+  //   };
+  // }
 
   render() {
     return (
-      <CoverLetterContextProvider>
-        <div className="App">
-          <CoverLetterNav></CoverLetterNav>
-          {this.state.displayBasic ? (
-            <CoverLetterBasic />
-          ) : this.state.displayProfessional ? (
-            <CoverLetterProfessional />
-          ) : this.state.displayModern ? (
-            <CoverLetterModern />
-          ) : this.state.displayExecutive ? (
-            <CoverLetterExecutive />
-          ) : null}
-        </div>
-      </CoverLetterContextProvider>
+      <CoverLetterContext.Consumer>
+        {context => {
+          return (
+            // <CoverLetterContextProvider>
+            <div className="AppCover">
+              <CoverLetterNav></CoverLetterNav>
+              {context.style.displayBasicTemplate ? (
+                <CoverLetterBasic />
+              ) : context.style.displayProfessionalTemplate ? (
+                <CoverLetterProfessional />
+              ) : context.style.displayModernTemplate ? (
+                <CoverLetterModern />
+              ) : context.style.displayExecutiveTemplate ? (
+                <CoverLetterExecutive />
+              ) : null}
+            </div>
+            // </CoverLetterContextProvider>
+          );
+        }}
+      </CoverLetterContext.Consumer>
     );
   }
 }

@@ -23,6 +23,7 @@ import CvBuilder from "./components/CvBuilder/CvBuilder";
 import CoverLetterBuilder from "./components/CoverLetterBuilder/CoverLetterBuilder";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import ThemeContextProvider from "./contexts/ThemeContext";
+import CoverLetterContextProvider from "./contexts/CoverLetterContext";
 
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -44,49 +45,63 @@ class App extends Component {
   render() {
     return (
       <ThemeContextProvider>
-        <Provider store={store}>
-          <Router>
-            <div className="MainPage">
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/cv-templates" component={CV_Templates} />
-                <Route
-                  exact
-                  path="/cover_letter-templates"
-                  component={CoverLetter_Templates}
-                />
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/about-us" component={AboutUs} />
-                <Route exact path="/contact-us" component={ContactUs} />
-                <Route exact path="/privacy-policy" component={PrivacyPolicy} />
-                <Route exact path="/cookies-policy" component={CookiesPolicy} />
-                <Route
-                  exact
-                  path="/terms-and-conditions"
-                  component={TermsAndConditions}
-                />
-                <PrivateRoute
-                  exact
-                  path="/create-cover-letter"
-                  component={CoverLetterBuilder}
-                />
-                <PrivateRoute exact path="/create-cv" component={CvBuilder} />
-                <PrivateRoute exact path="/my-account" component={MyAccount} />
-                <PrivateRoute
-                  exact
-                  path="/create-cover-letter"
-                  component={CoverLetterBuilder}
-                />
-                <PrivateRoute
-                  exact
-                  path="/my-documents"
-                  component={MyDocuments}
-                />
-              </Switch>
-            </div>
-          </Router>
-        </Provider>
+        <CoverLetterContextProvider>
+          <Provider store={store}>
+            <Router>
+              <div className="MainPage">
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/cv-templates" component={CV_Templates} />
+                  <Route
+                    exact
+                    path="/cover_letter-templates"
+                    component={CoverLetter_Templates}
+                  />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
+                  <Route exact path="/about-us" component={AboutUs} />
+                  <Route exact path="/contact-us" component={ContactUs} />
+                  <Route
+                    exact
+                    path="/privacy-policy"
+                    component={PrivacyPolicy}
+                  />
+                  <Route
+                    exact
+                    path="/cookies-policy"
+                    component={CookiesPolicy}
+                  />
+                  <Route
+                    exact
+                    path="/terms-and-conditions"
+                    component={TermsAndConditions}
+                  />
+                  <PrivateRoute
+                    exact
+                    path="/create-cover-letter"
+                    component={CoverLetterBuilder}
+                  />
+                  <PrivateRoute exact path="/create-cv" component={CvBuilder} />
+                  <PrivateRoute
+                    exact
+                    path="/my-account"
+                    component={MyAccount}
+                  />
+                  <PrivateRoute
+                    exact
+                    path="/create-cover-letter"
+                    component={CoverLetterBuilder}
+                  />
+                  <PrivateRoute
+                    exact
+                    path="/my-documents"
+                    component={MyDocuments}
+                  />
+                </Switch>
+              </div>
+            </Router>
+          </Provider>
+        </CoverLetterContextProvider>
       </ThemeContextProvider>
     );
   }

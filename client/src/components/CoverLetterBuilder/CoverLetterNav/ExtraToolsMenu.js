@@ -143,7 +143,7 @@ class ExtraToolsMenu extends Component {
                 >
                   {!context.loadingSaveCv && (
                     <i
-                      class="fas fa-spinner fa-spin"
+                      class="fas fa-circle-notch fa-spin"
                       style={{ marginRight: 5 }}
                     ></i>
                   )}

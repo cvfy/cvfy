@@ -34,10 +34,10 @@ class FontSubMenu extends Component {
       <CoverLetterContext.Consumer>
         {context => {
           const {
-            showBasicTemplate,
-            showExecutiveTemplate,
-            showModernTemplate,
-            showProfessionalTemplate
+            showBasicCoverTemplate,
+            showExecutiveCoverTemplate,
+            showModernCoverTemplate,
+            showProfessionalCoverTemplate
           } = context;
           return (
             <div>
@@ -56,29 +56,29 @@ class FontSubMenu extends Component {
                   <div className="templatesSubMenuTitle">Templates 1 / 4</div>
                   <div className="templatesSubMenuCarousel">
                     <div
-                      className="templatesSubMenuModels"
-                      title="Basic"
-                      // onClick={showBasicTemplate}
+                      className="templatesSubMenuModels executiveTemplate"
+                      title="Executive"
+                      onClick={showExecutiveCoverTemplate}
                     ></div>
                     <div
-                      className="templatesSubMenuModels"
+                      className="templatesSubMenuModels professionalTemplate"
                       title="Professional"
-                      // onClick={showProfessionalTemplate}
+                      onClick={showProfessionalCoverTemplate}
                     ></div>
                     <div
                       className="templatesSubMenuModels modernTemplate"
                       title="Modern"
-                      // onClick={showModernTemplate}
+                      onClick={showModernCoverTemplate}
                     ></div>
                     <div
-                      className="templatesSubMenuModels"
-                      title="Executive"
-                      // onClick={showExecutiveTemplate}
+                      className="templatesSubMenuModels basicTemplate"
+                      title="Basic"
+                      onClick={showBasicCoverTemplate}
                     ></div>
-                    <div>Basic</div>
-                    <div>Professional</div>
-                    <div>Modern</div>
-                    <div>Executive</div>
+                    <div className="executiveTitle">Executive</div>
+                    <div className="professionalTitle">Professional</div>
+                    <div className="modernTitle">Modern</div>
+                    <div className="basicTitle">Basic</div>
                   </div>
                 </div>
               ) : null}

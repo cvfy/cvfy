@@ -49,7 +49,11 @@ class CoverLetterContextProvider extends Component {
       tasksOutput: [],
       value: "",
       displayCoverTitle: true,
-      displayCompany: true
+      displayCompany: true,
+      displayBasicTemplate: false,
+      displayModernTemplate: false,
+      displayExecutiveTemplate: true,
+      displayProfessionalTemplate: false
     },
     coverLetters: [
       {
@@ -178,6 +182,7 @@ class CoverLetterContextProvider extends Component {
     } else {
     }
   };
+
   getCurrentDate = () => {
     const today = new Date();
     const months = [
@@ -202,6 +207,7 @@ class CoverLetterContextProvider extends Component {
       today.getFullYear()
     );
   };
+
   // renderTasksOutput = () => {
   //   return this.state.tasksOutput
   //     .map(t => <div style={{ display: "flex" }}>{t}</div>)
@@ -233,11 +239,61 @@ class CoverLetterContextProvider extends Component {
   //     console.log(this.state.tasksHistory);
   //   }
   // }
+
+  showBasicCoverTemplate = async () => {
+    const newObj = { ...this.state };
+    newObj.style.displayExecutiveTemplate = false;
+    newObj.style.displayBasicTemplate = true;
+    newObj.style.displayModernTemplate = false;
+    newObj.style.displayProfessionalTemplate = false;
+    await this.setState({
+      style: newObj.style
+    });
+    await this.saveCoverDataToServer();
+  };
+
+  showExecutiveCoverTemplate = async () => {
+    const newObj = { ...this.state };
+    newObj.style.displayExecutiveTemplate = true;
+    newObj.style.displayBasicTemplate = false;
+    newObj.style.displayModernTemplate = false;
+    newObj.style.displayProfessionalTemplate = false;
+    await this.setState({
+      style: newObj.style
+    });
+    await this.saveCoverDataToServer();
+  };
+
+  showModernCoverTemplate = async () => {
+    const newObj = { ...this.state };
+    newObj.style.displayExecutiveTemplate = false;
+    newObj.style.displayBasicTemplate = false;
+    newObj.style.displayModernTemplate = true;
+    newObj.style.displayProfessionalTemplate = false;
+    await this.setState({
+      style: newObj.style
+    });
+    await this.saveCoverDataToServer();
+  };
+
+  showProfessionalCoverTemplate = async () => {
+    const newObj = { ...this.state };
+    newObj.style.displayExecutiveTemplate = false;
+    newObj.style.displayBasicTemplate = false;
+    newObj.style.displayModernTemplate = false;
+    newObj.style.displayProfessionalTemplate = true;
+    await this.setState({
+      style: newObj.style
+    });
+    await this.saveCoverDataToServer();
+  };
+
   toggleCoverTitleClass = () => {
     let newObject = { ...this.state.style };
     newObject.displayCoverTitle = !this.state.style.displayCoverTitle;
     this.setState({ style: newObject });
   };
+
   toggleCompanyClass = () => {
     let newObject = { ...this.state.style };
     newObject.displayCompany = !this.state.style.displayCompany;
@@ -357,6 +413,10 @@ class CoverLetterContextProvider extends Component {
           toggleCompanyClass: this.toggleCompanyClass,
           modifyCover: this.modifyCover,
           saveCoverDataToServer: this.saveCoverDataToServer,
+          showBasicCoverTemplate: this.showBasicCoverTemplate,
+          showExecutiveCoverTemplate: this.showExecutiveCoverTemplate,
+          showProfessionalCoverTemplate: this.showProfessionalCoverTemplate,
+          showModernCoverTemplate: this.showModernCoverTemplate,
           updateUserSkype: this.updateUserSkype,
           updateUserPhone: this.updateUserPhone,
           updateUserEmail: this.updateUserEmail,
