@@ -108,9 +108,10 @@ router.post("/login", (req, res) => {
 // THE PUPPETEER FUNCTION THAT GET THE LINKEDIN DATA
 const sendData = async (req, res, next) => {
   try {
-    const datas = await giveMeData(
-      `https://www.linkedin.com/in/${req.params.profile}`
-    );
+    console.log(req.params.id)
+    // const datas = await giveMeData(
+    //   `https://www.linkedin.com/in/${req.params.profile}`
+    // );
     //const datas = await giveMePDF();
     console.log(req.params.profile);
 
@@ -125,6 +126,7 @@ router.get("/data/link/:profile", sendData);
 // Generate PDF Cover
 const sendPDFDataCover = async (req, res, next) => {
   try {
+    console.log(req.params.id)
     //const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
     const datas = await giveMePDFCover(req.params.id);
     //const file = await `${__dirname}../../../profile_picture/${req.params.id}.pdf`;
@@ -235,7 +237,7 @@ const saveCVtoServer = async (req, res, next) => {
   }
 };
 
-router.post("/resume/cv/:id", saveCVtoServer);
+router.post("/resume/cv/save/:id", saveCVtoServer);
 // SAVE COVER LETTER TO SERVER
 
 const saveCoverLettertoServer = async (req, res, next) => {
@@ -302,7 +304,7 @@ console.log("user id -" + req.params.id);
      }
 };
 
-router.post("/resume/cover/:id", saveCoverLettertoServer);
+router.post("/resume/cover/save/:id", saveCoverLettertoServer);
 
 // RETRIEVE A SPECIFIC CV FROM SERVER
 const getCVFromServer = (req, res, next) => {

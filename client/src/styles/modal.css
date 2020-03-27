@@ -168,7 +168,7 @@ label {
   font-size: 1rem;
 }
 
-.input_field>span {
+.input_field > span {
   position: absolute;
   left: 0.5em;
   top: 0;
@@ -178,11 +178,11 @@ label {
   width: 1rem;
 }
 
-.input_field>i {
+.input_field > i {
   padding-top: 0.6rem;
 }
 
-.textarea_field>span>i {
+.textarea_field > span > i {
   padding-top: 0.6rem;
 }
 
@@ -261,7 +261,6 @@ input[type="submit"]:hover {
 input[value="Register"],
 input[value="Login"] {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-weight: bold;
@@ -333,15 +332,15 @@ input[type="radio"] {
   display: none;
 }
 
-input:hover+label:before {
+input:hover + label:before {
   border-color: black;
 }
 
-input:checked+label:before {
+input:checked + label:before {
   border-color: black;
 }
 
-input:checked+label:before:after {
+input:checked + label:before:after {
   -moz-animation: check 0.8s ease 0s running;
   -webkit-animation: check 0.8s ease 0s running;
   animation: check 0.8s ease 0s running;
@@ -370,11 +369,11 @@ input:checked+label:before:after {
   transition: all 0.2s ease;
 }
 
-input:hover+label:before {
+input:hover + label:before {
   border-color: black;
 }
 
-input:checked+label:before {
+input:checked + label:before {
   background-color: black;
   border-color: black;
 }
@@ -424,8 +423,8 @@ select:focus {
   border-color: #7b7b7b transparent transparent transparent;
 }
 
-.select_option select:hover+.select_arrow,
-.select_option select:focus+.select_arrow {
+.select_option select:hover + .select_arrow,
+.select_option select:focus + .select_arrow {
   border-top-color: black;
 }
 
@@ -616,7 +615,6 @@ select:focus {
     width: 25vw;
   }
 }
-
 
 @media (max-width: 850px) {
   .googleSignUpDiv {

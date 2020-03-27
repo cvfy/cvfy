@@ -688,7 +688,7 @@ class ThemeContextProvider extends Component {
 
       //const data = JSON.stringify(this.state)
       await axios
-        .post(`${url}/api/users/resume/cv/${userID}`, this.state)
+        .post(`${url}/api/users/resume/cv/save/${userID}`, this.state)
         .then(res => {
           console.log(res.data);
           if (res.data == "done") return this.setState({ loadingSaveCv: true });
