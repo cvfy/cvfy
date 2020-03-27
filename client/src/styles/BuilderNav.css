@@ -675,7 +675,7 @@
 
 .linkedInButton,
 .saveUpdateButton {
-  margin: 0!important;
+  margin: 0 !important;
   height: 65%;
   color: black;
   width: 8vw;

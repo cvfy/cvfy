@@ -470,6 +470,7 @@ ul.minMenu {
 
 .templatesSubMenuTitle {
   padding-top: 5px;
+  color: #d3d3d3b0;
 }
 
 .templatesSubMenuCarousel {
@@ -479,13 +480,52 @@ ul.minMenu {
   grid-gap: 15px;
   justify-content: space-around;
   padding: 5px 35px 0 35px;
+  color: #d3d3d3b0;
 }
 
-.templatesSubMenuModels {
-  background: #fff;
+.coverTemplatesSubMenuModels {
   height: 120px;
   margin-top: 12px;
   cursor: pointer;
+}
+
+.modernCoverTemplate,
+.basicCoverTemplate,
+.professionalCoverTemplate,
+.executiveCoverTemplate {
+  background-size: 170px 270px, cover;
+  border-radius: 5px;
+  transition: box-shadow 0.4s;
+}
+
+.modernCoverTemplate:hover,
+.basicCoverTemplate:hover,
+.professionalCoverTemplate:hover,
+.executiveCoverTemplate:hover {
+  box-shadow: 1px 0 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+.modernCoverTemplate {
+  background-image: url(../assets/modern-cover-template.jpg);
+}
+
+.basicCoverTemplate {
+  background-image: url(../assets/basic-cover-template.jpg);
+}
+
+.professionalCoverTemplate {
+  background-image: url(../assets/professional-cover-template.jpg);
+}
+
+.executiveCoverTemplate {
+  background-image: url(../assets/executive-cover-template.jpg);
+}
+
+.basicCoverTemplate:hover~.basicTitle,
+.modernCoverTemplate:hover~.modernTitle,
+.professionalCoverTemplate:hover~.professionalTitle,
+.executiveCoverTemplate:hover~.executiveTitle {
+  color: rgb(0, 195, 255);
 }
 
 /* Here starts cv extra tools section */
@@ -532,7 +572,7 @@ ul.minMenu {
 }
 
 .saveUpdateButton {
-  margin: 0!important;
+  margin: 0 !important;
   padding: 0;
   height: 65%;
   color: black;

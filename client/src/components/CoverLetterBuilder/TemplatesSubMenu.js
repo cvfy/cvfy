@@ -56,22 +56,22 @@ class FontSubMenu extends Component {
                   <div className="templatesSubMenuTitle">Templates 1 / 4</div>
                   <div className="templatesSubMenuCarousel">
                     <div
-                      className="templatesSubMenuModels executiveTemplate"
+                      className="coverTemplatesSubMenuModels executiveCoverTemplate"
                       title="Executive"
                       onClick={showExecutiveCoverTemplate}
                     ></div>
                     <div
-                      className="templatesSubMenuModels professionalTemplate"
+                      className="coverTemplatesSubMenuModels professionalCoverTemplate"
                       title="Professional"
                       onClick={showProfessionalCoverTemplate}
                     ></div>
                     <div
-                      className="templatesSubMenuModels modernTemplate"
+                      className="coverTemplatesSubMenuModels modernCoverTemplate"
                       title="Modern"
                       onClick={showModernCoverTemplate}
                     ></div>
                     <div
-                      className="templatesSubMenuModels basicTemplate"
+                      className="coverTemplatesSubMenuModels basicCoverTemplate"
                       title="Basic"
                       onClick={showBasicCoverTemplate}
                     ></div>
