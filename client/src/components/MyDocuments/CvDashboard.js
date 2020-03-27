@@ -47,6 +47,7 @@ class CvDashboard extends React.Component {
     axios
       .post(`${url}/api/users/resume/cv/delete/${this.getUserId()}/${id}`)
       .then(res => this.setState({ resume: res.data }));
+      console.log(this.state.resume)
   };
   setLocalStorage = id => {
     localStorage.setItem("currentCV", id);

@@ -97,7 +97,7 @@ class CoverLetterContextProvider extends Component {
       await this.setState({ id: idG });
       await localStorage.setItem("currentCover", this.state.id);
       console.log(`the state id is - ${this.state.id}`);
-      axios.post(`${url}/api/users/resume/cover/${aFunction()}`, this.state);
+      //axios.post(`${url}/api/users/resume/cover/${aFunction()}`, this.state);
     }
     if (localStorage.getItem("currentCover")) {
       console.log("i am trying to get the data");
@@ -154,35 +154,36 @@ class CoverLetterContextProvider extends Component {
 
   saveCoverDataToServer = async e => {
     if (status === false) {
-      status = await true;
-      if (e) {
-        e.preventDefault();
-      }
+      status = true;
+      // if (e) {
+      //   e.preventDefault();
+      // }
       console.log("Should be false ->", this.state.loadingSaveCv);
       await this.setState({
         loadingSaveCv: false,
         id: localStorage.getItem("currentCover")
       });
       console.log("Should be true ->", this.state.loadingSaveCv);
-      const userID = await aFunction();
+      const userID = aFunction();
+      // console.log(`this is user userID ${userID}`)
       console.log(this.state.coverLetters[0].contact);
-
+      
       //const data = JSON.stringify(this.state)
       await axios
-        .post(`${url}/api/users/resume/cover/${userID}`, this.state)
-        .then(res => {
-          console.log(res.data);
-          if (res.data == "done") return this.setState({ loadingSaveCv: true });
-        });
-
+      .post(`${url}/api/users/resume/cover/5e51578ee46136162bc9b6da`, this.state)
+      .then(res => {
+        console.log(res.data);
+        if (res.data == "done") return this.setState({ loadingSaveCv: true });
+      });
+      
       // await this.setState({ loadingSaveCv: false });
       // if (res.data == "done") this.setState({ loadingSaveCv: false });
       console.log("Should be false again ->", this.state.loadingSaveCv);
-      status = await false;
+      status = false;
     } else {
     }
   };
-
+  
   getCurrentDate = () => {
     const today = new Date();
     const months = [
