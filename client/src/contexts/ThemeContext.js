@@ -100,7 +100,7 @@ class ThemeContextProvider extends Component {
         fullName: BFunction(),
         intro: "Professional title",
         about: "Short and engaging pitch about yourself",
-        profilePic: `${url}/static/default.png`,
+        profilePic: `${url}/static/profile_default.gif`,
         contact: [
           { icon: "far fa-envelope", value: "Email" },
           { icon: "fas fa-mobile-alt", value: "Phone number" },
