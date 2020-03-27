@@ -1,5 +1,6 @@
 import React from "react";
 import wallpaper from "../../assets/mainPagePic.svg";
+import { NavLink } from "react-router-dom";
 
 const Desktop = () => {
   return (
@@ -13,7 +14,14 @@ const Desktop = () => {
           felis,
         </p>
         <div className="GroupButtons">
-          <button className="signUpButton">Sign Up</button>
+          <button className="signUpButton" style={{ cursor: "pointer" }}>
+            <NavLink
+              to="/register"
+              style={{ color: "#fff", textDecoration: "none" }}
+            >
+              Sign Up
+            </NavLink>
+          </button>
           <button className="learnMoreButton">Learn More</button>
         </div>
       </div>

@@ -62,7 +62,7 @@ class Login extends Component {
                     </span>
                   </div>
 
-                  <div className="autoRegistration">
+                  <div className="autoRegistrationLogin">
                     <div className="googleSignUpDiv">
                       <img
                         src={google}
@@ -82,7 +82,10 @@ class Login extends Component {
                   <div className="row clearfix">
                     <div className="">
                       <form noValidate onSubmit={this.onSubmit}>
-                        <div className="input-field col s12">
+                        <div
+                          className="input-field col s12"
+                          style={{ marginTop: "1rem" }}
+                        >
                           <input
                             onChange={this.onChange}
                             value={this.state.email}
@@ -92,6 +95,10 @@ class Login extends Component {
                             className={classnames("", {
                               invalid: errors.email || errors.emailnotfound
                             })}
+                            style={{
+                              color: "black",
+                              padding: "0.5rem 0.7rem 0.6rem 2.2rem"
+                            }}
                           />
                           <label htmlFor="email">Email</label>
                           <span className="red-text">
@@ -99,7 +106,10 @@ class Login extends Component {
                             {errors.emailnotfound}
                           </span>
                         </div>
-                        <div className="input-field col s12">
+                        <div
+                          className="input-field col s12"
+                          style={{ marginTop: "1rem" }}
+                        >
                           <input
                             onChange={this.onChange}
                             value={this.state.password}
@@ -127,7 +137,7 @@ class Login extends Component {
                        </div>
                      </div> */}
 
-                        <div className="submitDiv">
+                        <div className="submitDivLogin">
                           <input
                             className="button"
                             type="submit"
