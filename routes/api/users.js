@@ -108,10 +108,11 @@ router.post("/login", (req, res) => {
 // THE PUPPETEER FUNCTION THAT GET THE LINKEDIN DATA
 const sendData = async (req, res, next) => {
   try {
+    console.log(req.params.id)
     const datas = await giveMeData(
       `https://www.linkedin.com/in/${req.params.profile}`
     );
-    //const datas = await giveMePDF();
+    // const datas = await giveMePDF();
     console.log(req.params.profile);
 
     res.status(200).send(datas);
@@ -125,6 +126,7 @@ router.get("/data/link/:profile", sendData);
 // Generate PDF Cover
 const sendPDFDataCover = async (req, res, next) => {
   try {
+    console.log(req.params.id)
     //const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
     const datas = await giveMePDFCover(req.params.id);
     //const file = await `${__dirname}../../../profile_picture/${req.params.id}.pdf`;
@@ -203,7 +205,7 @@ const saveCVtoServer = async (req, res, next) => {
               },
               async function(err, success) {
                 if (success) {
-                  await giveMeScreenShot(req.body.id);
+                  giveMeScreenShot(req.body.id);
                   console.log("i updated the obj!!");
                   res.send("done");
                 } else {
@@ -220,7 +222,7 @@ const saveCVtoServer = async (req, res, next) => {
                 if (error) {
                   console.log(error);
                 } else {
-                  await giveMeScreenShot(req.body.id);
+                  giveMeScreenShot(req.body.id);
                   console.log("New CV Created!!!!");
                   res.send("done");
                 }
@@ -235,13 +237,13 @@ const saveCVtoServer = async (req, res, next) => {
   }
 };
 
-router.post("/resume/cv/:id", saveCVtoServer);
+router.post("/resume/cv/save/:id", saveCVtoServer);
 // SAVE COVER LETTER TO SERVER
+
 const saveCoverLettertoServer = async (req, res, next) => {
   if (!req.params.id.includes("-")) {
-    
-    console.log("user id -" + req.params.id);
-    console.log("cv id -" + req.body.id);
+console.log("user id -" + req.params.id);
+ console.log("cv id -" + req.body.id);
     console.log("its updating");
     //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
     await User.findOne(
@@ -264,12 +266,13 @@ const saveCoverLettertoServer = async (req, res, next) => {
               {
                 $set: {
                   "coverLetters.$.style": req.body.style,
+                  "coverLetters.$.loadingSaveCv": req.body.loadingSaveCv,
                   "coverLetters.$.coverLetters": req.body.coverLetters
                 }
               },
               async function(err, success) {
                 if (success) {
-                  await giveMeScreenShotCover(req.body.id);
+                  giveMeScreenShotCover(req.body.id);
                   console.log("i updated the Cover Letter!!");
                   res.send("done");
                 } else {
@@ -286,7 +289,7 @@ const saveCoverLettertoServer = async (req, res, next) => {
                 if (error) {
                   console.log(error);
                 } else {
-                  await giveMeScreenShotCover(req.body.id);
+                  giveMeScreenShotCover(req.body.id);
                   console.log("New CoverLetter Created!!!!");
                   res.send("done");
                 }
@@ -298,10 +301,10 @@ const saveCoverLettertoServer = async (req, res, next) => {
     );
     //  giveMeScreenShot(req.body.id)
   } else {
-  }
+     }
 };
 
-router.post("/resume/cover/:id", saveCoverLettertoServer);
+router.post("/resume/cover/save/:id", saveCoverLettertoServer);
 
 // RETRIEVE A SPECIFIC CV FROM SERVER
 const getCVFromServer = (req, res, next) => {
@@ -346,32 +349,24 @@ const getCoverLetterFromServer = (req, res, next) => {
   );
 };
 router.get("/resume/cv/currentCover/:id", getCoverLetterFromServer);
-let statusDelete = false
 // DELETE CV FROM SERVER 
 const deleteCVFromServer = (req, res, next) => {
-  if(statusDelete === false){
-    statusDelete = true
   User.findByIdAndUpdate(
     req.params.id1, { $pull: { "cv": { id: req.params.id2 } } }, { safe: true, upsert: true },
-    
     function(err, success) {
       if (err) {
         console.log(err);
       } else if (success) {
-        console.log(success.cv.map(el => el.id))
+        // console.log(success.cv.map(el => el.id))
         res.send(success.cv.filter(el => el.id !== req.params.id2));
       }
     }
   );
-  statusDelete = false
-  }
 };
 router.post("/resume/cv/delete/:id1/:id2", deleteCVFromServer);
 
 // DELETE SPECIFIC COVER LETTER FROM SERVER 
 const deleteCoverLetterFromServer = (req, res, next) => {
-  if(statusDelete === false){
-    statusDelete = true
   User.findByIdAndUpdate(
     req.params.id1, { $pull: { "coverLetters": { id: req.params.id2 } } }, { safe: true, upsert: true },
     
@@ -379,12 +374,11 @@ const deleteCoverLetterFromServer = (req, res, next) => {
       if (err) {
         console.log(err);
       } else if (success) {
+        // console.log(success.coverLetters.filter(el => el.id !== req.params.id2))
         res.send(success.coverLetters.filter(el => el.id !== req.params.id2));
       }
     }
   );
-  statusDelete = false
-  }
 };
 router.post("/resume/cover/deleteCover/:id1/:id2", deleteCoverLetterFromServer);
 
@@ -474,9 +468,11 @@ const sendStepStoneData = async (req, res, next) => {
   try {
     if(status === false){
       status = true
+      console.log(req.params)
     const datas = await giveMeJobData(
       req.params.position,
-      req.params.location
+      req.params.location,
+      req.params.pages
     );
     //const datas = await giveMePDF();
     console.log("stepStone is calling");
@@ -490,7 +486,7 @@ const sendStepStoneData = async (req, res, next) => {
   }
 };
 router.get(
-  "/data/stepstone/position/:position/location/:location",
+  "/data/stepstone/position/:position/location/:location/pages/:pages",
   sendStepStoneData
 );
 module.exports = router;

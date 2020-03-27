@@ -97,7 +97,8 @@ class CoverDashboard extends React.Component {
 
         {this.state.covers.map((el, i) => (
           <div className="cvBox2" key={i}>
-            <img src={`${url}/static/${el.id}.jpg`} alt={el.id} />
+            <img src={`${url}/static/${el.id}.jpg`} alt={el.id}
+            onClick={() => this.setLocalStorage(el.id)} />
             <div
               className="MoreOptions"
               // tabIndex="0"

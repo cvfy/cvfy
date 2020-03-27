@@ -13,6 +13,7 @@ class JobDashboard extends Component {
       openJobDashboard: false,
       positionValue: "",
       locationValue: "",
+      pages: 4,
       loadingJobs: false,
       jobAds: []
     };
@@ -25,14 +26,15 @@ class JobDashboard extends Component {
     this.setState({ locationValue: e.target.value });
   };
 
-  requestStepStoneData = async e => {
+  requestStepStoneData = async (e, nr) => {
     if (status === false) {
       status = true;
       e.preventDefault();
-      this.setState({ loadingJobs: true });
+      this.setState({ loadingJobs: true,
+      pages: (this.state.pages+nr) });
       console.log("I should be TRUE", this.state.loadingJobs);
       const response = await axios.get(
-        `${url}/api/users/data/stepstone/position/${this.state.positionValue}/location/${this.state.locationValue}`
+        `${url}/api/users/data/stepstone/position/${this.state.positionValue}/location/${this.state.locationValue}/pages/${this.state.pages}`
       );
       this.setState({ jobAds: response.data, loadingJobs: false });
       console.log("I should be FALSE", this.state.loadingJobs);
@@ -90,7 +92,7 @@ class JobDashboard extends Component {
                   id="location"
                 ></input>
                 <button
-                  onClick={e => this.requestStepStoneData(e)}
+                  onClick={e => this.requestStepStoneData(e, 0)}
                   className="JobDashboardButton"
                 >
                   {this.state.loadingJobs && (
@@ -105,14 +107,15 @@ class JobDashboard extends Component {
               </form>
             </div>
             <div
+            
               className={
                 this.state.jobAds.length == 0 ? "panelImg" : "JobDashboardAds"
               }
             >
-              {this.state.jobAds.map((el, i) => (
+              {this.state.jobAds ? this.state.jobAds.map((el, i) => (
                 <div className="JobAdContainer">
                   <div className="jobAdTitle">{el.JobPosition}</div>
-                  <div className="jobAdCompanyName">{el.CompanyName}</div>
+                  <div className="jobAdCompanyName"><a href={el.Link} target="_blank">{el.CompanyName}</a></div>
                   <div
                     style={{
                       display: `${
@@ -124,7 +127,6 @@ class JobDashboard extends Component {
                     className="jobAdRequirements"
                   >
                     <ul>
-                      $
                       {el.JobRequirements.map(el => (
                         <li>{el}</li>
                       ))}
@@ -139,7 +141,12 @@ class JobDashboard extends Component {
                       : "Hide Job Requirements"}
                   </div>
                 </div>
-              ))}
+              )): ""}
+              <button
+              style={{display: `${this.state.jobAds.length == 0 ? "none" : ""}`}}
+                  onClick={e => this.requestStepStoneData(e, 4)}
+                  className="boardButton"
+                >See next 4 Job Ads</button>
             </div>
           </div>
         </div>

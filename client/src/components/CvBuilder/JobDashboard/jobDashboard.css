@@ -38,7 +38,8 @@
     text-align: center;
 }
 
-.JobDashboardForm form .JobDashboardButton {
+
+.JobDashboardForm form .JobDashboardButton{
     font-size: 16px;
     border: 1px solid lightgray;
     justify-content: center;
@@ -55,7 +56,24 @@
     border-radius: 20px;
     width: 14vw;
 }
+.boardButton{
+    font-size: 16px;
+    border: 1px solid lightgray;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 
+    margin: 7px;
+    padding: 8px;
+    height: 10%;
+    color: black;
+    width: 8vw;
+    margin-left: 10px;
+    background: #67eb9400;
+    margin-bottom: 4px;
+    border-radius: 20px;
+    width: 14vw;
+}
 .JobDashboardForm form .JobDashboardButton:hover {
     background: #cecece17;
 }
@@ -65,7 +83,7 @@
     padding: 5px;
     background: rgb(232, 240, 254);
     border: none;
-    color: black;
+    color: black!important;
     border-radius: 20px;
     height: 35px;
     display: flex;
@@ -90,6 +108,8 @@
 .panelImg {
     background: url(../../../assets/job_board.svg) no-repeat center;
     background-size: 300px 400px;
+    display: flex;
+    justify-content: center;
 }
 
 .JobAdContainer {
@@ -130,6 +150,7 @@
 .jobAdRequirements {
     height: auto;
     font-size: 10px;
+    text-align: left;
 }
 
 .bookmark {

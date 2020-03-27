@@ -100,7 +100,7 @@ class ThemeContextProvider extends Component {
         fullName: BFunction(),
         intro: "Professional title",
         about: "Short and engaging pitch about yourself",
-        profilePic: `${url}/static/default.png`,
+        profilePic: `${url}/static/profile_default.gif`,
         contact: [
           { icon: "far fa-envelope", value: "Email" },
           { icon: "fas fa-mobile-alt", value: "Phone number" },
@@ -688,7 +688,7 @@ class ThemeContextProvider extends Component {
 
       //const data = JSON.stringify(this.state)
       await axios
-        .post(`${url}/api/users/resume/cv/${userID}`, this.state)
+        .post(`${url}/api/users/resume/cv/save/${userID}`, this.state)
         .then(res => {
           console.log(res.data);
           if (res.data == "done") return this.setState({ loadingSaveCv: true });

@@ -16,19 +16,15 @@ async function giveMeScreenShot(resumeID) {
           width: 1000,
           height: 1400
         });
-        await page.goto("http://localhost:3000/create-cover-letter", {
-          waitUntil: "networkidle2"
-        });
-        await page.evaluate(resumeID => {
+        await page.goto("http://localhost:3000/create-cover-letter");
+        await page.evaluate((resumeID) => {
           localStorage.setItem(
             "jwtToken",
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNTE1NzhlZTQ2MTM2MTYyYmM5YjZkYSIsIm5hbWUiOiJBbGV4IiwiZW1haWwiOiJhbGV4QGdtYWlsLmNvbSIsImlhdCI6MTU4NDU1MDIzOSwiZXhwIjoxNjE2MTA3MTY1fQ.PLlbsY7-c3M2riI1GeVyusl7XMZE5FncIhue__Gwb-c"
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNTE1NzhlZTQ2MTM2MTYyYmM5YjZkYSIsIm5hbWUiOiJBbGV4IiwiZW1haWwiOiJhbGV4QGdtYWlsLmNvbSIsImlhdCI6MTU4NTIyMjY1MCwiZXhwIjoxNjE2Nzc5NTc2fQ.gNAOrDj09Ys7J74BtEKF1XbLH3nUoMXxJsMYhBgWbrk"
           );
           localStorage.setItem("currentCover", resumeID);
         }, resumeID);
-        await page.goto("http://localhost:3000/create-cover-letter", {
-          waitUntil: "networkidle2"
-        });
+        await page.goto("http://localhost:3000/create-cover-letter");
         await page.waitFor(1000);
         const pic = await page.$("#container");
         await pic.screenshot({

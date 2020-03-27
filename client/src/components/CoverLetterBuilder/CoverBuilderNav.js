@@ -12,6 +12,7 @@ import { CoverLetterContext } from "../../contexts/CoverLetterContext";
 import BuilderBurgerMenu from "../BuilderBurgerMenu";
 import DownloadPdfCover from "../BuilderSubMenus/DownloadPdfCover";
 import { url } from "../../config";
+import Emoji from "react-emoji-render";
 
 const CoverBuilderNav = () => {
   const context = useContext(CoverLetterContext);
@@ -25,9 +26,9 @@ const CoverBuilderNav = () => {
   let status = false;
   const downloadPdfCover = async e => {
     setDownloadCover(true);
+    e.preventDefault();
     if (status === false) {
       status = await true;
-      e.preventDefault();
       await axios.get(`${url}/api/users/data/pdf/cover/${context.id}`).then(res => {
         window.open(`${url}/static2/${res.data}.pdf`, "_blank"); //this.setState(res.data)
         if (res.data.length > 0) return setDownloadCover(false);
@@ -84,6 +85,13 @@ const CoverBuilderNav = () => {
         navbarState={navbarState}
         handleNavbar={handleNavbar}
       />
+        {downloadCoverState? (
+        <div className="convertingPdfMessage">
+          <p className="loadingText">
+            <Emoji text="Converting to pdf :rocket:" />
+          </p>
+        </div>
+      ) : null}
     </>
   );
 };
