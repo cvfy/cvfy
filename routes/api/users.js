@@ -468,9 +468,11 @@ const sendStepStoneData = async (req, res, next) => {
   try {
     if(status === false){
       status = true
+      console.log(req.params)
     const datas = await giveMeJobData(
       req.params.position,
-      req.params.location
+      req.params.location,
+      req.params.pages
     );
     //const datas = await giveMePDF();
     console.log("stepStone is calling");
@@ -484,7 +486,7 @@ const sendStepStoneData = async (req, res, next) => {
   }
 };
 router.get(
-  "/data/stepstone/position/:position/location/:location",
+  "/data/stepstone/position/:position/location/:location/pages/:pages",
   sendStepStoneData
 );
 module.exports = router;

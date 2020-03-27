@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer-extra');
 const pluginStealth = require("puppeteer-extra-plugin-stealth")
 puppeteer.use(pluginStealth())
-async function giveMeJobData(position, location) {
+async function giveMeJobData(position, location, pages) {
 
     const result = await puppeteer.launch({
         headless: true
@@ -23,14 +23,16 @@ async function giveMeJobData(position, location) {
                 return links
             })
             let jobsArray = []
-            for(i=0; i<4; i++){           
+            let start = 0 + parseInt(pages)
+            let end = 4 + parseInt(pages)
+            for(i=start; i<end; i++){           
             await page.goto(`https://www.stepstone.de${jobData[i]}`);
             let Data = await page.evaluate((jobData) => {
                 function verify(data) {
                     return (data !== undefined && data !== null) ? data : ""
                 }
                 let jobObj = {}
-                jobObj.Link = `https://www.stepstone.de${jobData[i]}`
+                jobObj.Link = location.href
                 jobObj.CompanyName = verify(document.querySelector(".at-listing-nav-company-name-link").innerText)
                 jobObj.JobPosition = verify(document.querySelector(".at-listing-nav-listing-title").innerText)
                 jobObj.JobRequirements = verify(Array.from(document.querySelectorAll(".at-section-text-profile-content ul li")).map(el => el.innerText))
