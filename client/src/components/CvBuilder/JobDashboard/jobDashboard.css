@@ -13,6 +13,7 @@
     border-radius: 40px;
     display: grid;
     grid-template-rows: 1fr 2fr;
+    transition: width 0.4s ease-in-out;
 }
 
 .JobDashboardForm {
@@ -196,4 +197,7 @@
 
 .hideTransitionDashboard {
     width: 0;
+    transition: width 0.4s ease-in-out;
+
+
 }

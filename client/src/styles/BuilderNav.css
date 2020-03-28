@@ -172,6 +172,8 @@
 .builderNavBurger {
   background: #f0f8ff00;
   text-align: -webkit-center;
+  justify-self: flex-end;
+  width: 100px;
 }
 
 /* .builderNavBurger .builderNavSpanBar {
