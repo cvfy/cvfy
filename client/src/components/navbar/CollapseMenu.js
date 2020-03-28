@@ -5,6 +5,12 @@ import { useSpring, animated } from "react-spring";
 import DropdownMenu from "./DropdownMenu";
 
 const CollapseMenu = props => {
+
+  const onLogoutClick = e => {
+    e.preventDefault();
+    localStorage.removeItem("jwtToken");
+    window.location.reload();
+  };
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
 
   if (props.navbarState === true) {
@@ -46,7 +52,7 @@ const CollapseMenu = props => {
             </a>
           </li>
           <li key="6">
-            <a href="/" onClick={props.handleNavbar}>
+            <a href="/#" onClick={onLogoutClick}>
               Log Out
             </a>
           </li>
