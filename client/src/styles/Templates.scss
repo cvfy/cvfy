@@ -103,6 +103,37 @@ footer {
   .JumbotronCVTemplates {
     height: initial;
     flex-direction: column-reverse;
+    padding-top: 100px;;
+    .JumboRight {
+      width: 80%;
+      padding: 0 30px 10px 30px;
+      img {
+        width: 100%;
+      }
+    }
+    .JumboLeft {
+      width: 100%;
+      padding: 0 30px 30px 30px;
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+  footer {
+    padding: 30px;
+    .FooterRow {
+      flex-direction: column;
+      .columns {
+        width: 100%;
+      }
+    }
+  }
+}
+@media (max-width: 1000px) {
+  .JumbotronCoverLetterTemplates {
+    height: initial;
+    flex-direction: column-reverse;
+    padding-top: 100px;;
     .JumboRight {
       width: 80%;
       padding: 0 30px 10px 30px;
