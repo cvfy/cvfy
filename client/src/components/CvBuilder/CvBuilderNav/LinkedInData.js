@@ -225,7 +225,7 @@ class LinkedInData extends Component {
                     onClick={() => this.setLocalStorage("")}
                     className="saveUpdateButton"
                   >
-                    New CV
+                    <span>New CV</span>
                   </button>
                 </div>
               </div>

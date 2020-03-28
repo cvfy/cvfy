@@ -6,7 +6,7 @@ const DownloadPdfCover = props => {
       <div className="downloadDiv">
         {props.downloadCoverState && null}
         {!props.downloadCoverState && (
-          <span className="tool-icon first-icon">⤓</span>
+          <span className="tool-icon first-icon"><img src="https://img.icons8.com/officel/30/000000/open-resume.png"/></span>
         )}
         <span className="tool-desc tool-download">
           {props.downloadCoverState && (
@@ -15,8 +15,8 @@ const DownloadPdfCover = props => {
               style={{ marginRight: 5 }}
             ></i>
           )}
-          {props.downloadCoverState && <span>Downloading</span>}
-          {!props.downloadCoverState && <span>Download</span>}
+          {props.downloadCoverState && <span className="Down">Downloading</span>}
+          {!props.downloadCoverState && <span className="Down">Download</span>}
         </span>
       </div>
     </div>

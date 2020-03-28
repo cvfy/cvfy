@@ -3,6 +3,7 @@ body,
 #root,
 .MainPage {
   height: 100%;
+
 }
 html,
 body {
@@ -36,4 +37,89 @@ html::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #2b3a42;
+  
+}
+@media (max-width: 1000px) {
+  #containerA4 {
+      scale: 0.9;
+  }
+  #container {
+      scale: 0.9;
+  }
+}
+@media (max-width: 800px) {
+  #containerA4 {
+      scale: 0.7;
+      padding-top: 0;
+      margin: 0!important;
+  }
+  #container {
+      scale: 0.7;
+      padding-top: 0;
+      margin: 0!important;
+  }
+}
+@media (max-width: 700px) {
+  #containerA4 {
+      scale: 0.6;
+      padding-top: 0;
+      margin-top: 0!important;
+      align-self: center;
+  }
+  .Down {
+    display: none;
+  }
+  #container {
+      scale: 0.6;
+      padding-top: 0;
+      margin-top: 0!important;
+      align-self: center;
+  }
+  .Down {
+    display: none;
+  }
+}
+@media (max-width: 550px) {
+  .alignContainer {
+    min-width: none;
+  }
+  .Down {
+    display: none;
+  }
+  .cvBuilder-extra-tools{
+    margin: 0px!important;
+  }
+  .extra-tools-btn{
+    padding: 0px!important;
+  }
+  .buttonsDiv span{
+    font-size: 10px!important;
+  }
+  /* button.saveUpdateButton span {
+    font-size: 10px!important;
+  } */
+  .MyDocs {
+    display: none;
+  }
+  .layout-btn, .theme-btn, .template-btn, .coverLayout-btn  {
+    margin: 0px!important;
+  }
+  .logo-template {
+    font-size: 25px;
+  }
+  #containerA4 {
+      scale: 0.3;
+      padding: 0;
+      margin-top: 0!important;
+      /* align-self: center; */
+  }
+  #container {
+      scale: 0.3;
+      padding: 0;
+      margin-top: 0!important;
+      /* align-self: center; */
+  }
+  .builderNavBurger{
+    scale: 0.8;
+  }
 }

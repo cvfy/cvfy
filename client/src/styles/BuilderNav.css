@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
   align-items: center;
-  padding-left: 20px;
+  /* padding-left: 20px; */
   color: #fff;
 }
 
@@ -36,6 +36,7 @@
 .tools {
   display: flex;
   text-align: right;
+  padding: 0 10px;
 }
 
 .first-icon {
@@ -45,6 +46,7 @@
 
 .tool-icon {
   font-size: 1.1rem;
+  padding: 0 5px;
 }
 
 .template-icon {
@@ -149,6 +151,10 @@
 .tool-mydoc {
   font-size: 0.9rem;
   font-weight: bold;
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
 }
 
 .temp-menu {
@@ -413,7 +419,7 @@
 }
 
 /* On mouse-over, add a grey background color */
-.headerContainer:hover input~.checkMark {
+.headerContainer:hover input ~ .checkMark {
   background-color: #ccc;
 }
 
@@ -472,6 +478,8 @@
 .layoutToggle .active {
   background-color: blue;
   color: #fff;
+  text-align: center;
+  padding: 0 10px;
 }
 
 .layoutCV {
@@ -610,10 +618,10 @@
   background-image: url(../assets/executive-template.jpg);
 }
 
-.basicTemplate:hover~.basicTitle,
-.modernTemplate:hover~.modernTitle,
-.professionalTemplate:hover~.professionalTitle,
-.executiveTemplate:hover~.executiveTitle {
+.basicTemplate:hover ~ .basicTitle,
+.modernTemplate:hover ~ .modernTitle,
+.professionalTemplate:hover ~ .professionalTitle,
+.executiveTemplate:hover ~ .executiveTitle {
   color: rgb(0, 195, 255);
 }
 

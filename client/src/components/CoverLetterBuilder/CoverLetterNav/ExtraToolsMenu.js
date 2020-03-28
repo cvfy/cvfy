@@ -154,7 +154,7 @@ class ExtraToolsMenu extends Component {
                   onClick={() => this.setLocalStorage("")}
                   className="saveUpdateButton"
                 >
-                  New doc
+                  <span>New doc</span>
                 </button>
               </div>
             </div>

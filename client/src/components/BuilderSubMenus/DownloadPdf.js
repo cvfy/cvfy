@@ -6,7 +6,7 @@ const DownloadPdf = props => {
       <div className="downloadDiv">
         {props.loadingDownload && null}
         {!props.loadingDownload && (
-          <span className="tool-icon first-icon">⤓</span>
+          <span className="tool-icon first-icon"><img src="https://img.icons8.com/officel/30/000000/open-resume.png"/></span>
         )}
         <span className="tool-desc tool-download">
           {props.loadingDownload && (
@@ -15,8 +15,8 @@ const DownloadPdf = props => {
               style={{ marginRight: 5 }}
             ></i>
           )}
-          {props.loadingDownload && <span>Downloading</span>}
-          {!props.loadingDownload && <span>Download</span>}
+          {props.loadingDownload && <span className="Down">Downloading</span>}
+          {!props.loadingDownload && <span className="Down">Download</span>}
         </span>
       </div>
     </div>
