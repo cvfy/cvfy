@@ -1,9 +1,7 @@
-import React, { Component, createContext, useRef, useState } from "react";
+import React, { Component, createContext, useRef } from "react";
 import axios from "axios";
 import store from "./../store.js";
 import { url, cloudinaryUrl } from "../config";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 //import uuid from 'uuid'
 let status = false;
 let status2 = false;
@@ -34,12 +32,12 @@ function guidGenerator() {
 export const ThemeContext = createContext();
 function aFunction() {
   var newState = store.getState();
-  console.log(newState.auth.user.name);
+  // console.log(newState.auth.user.name);
   return newState.auth.user.id;
 }
 function BFunction() {
   var newState = store.getState();
-  console.log(newState.auth.user.name);
+  // console.log(newState.auth.user.name);
   return newState.auth.user.name;
 }
 
@@ -348,7 +346,7 @@ class ThemeContextProvider extends Component {
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
             document.querySelectorAll(".A4")[i + 1].querySelector(".left")
-              .firstChild == null
+              .firstChild === null
           ) {
           } else {
             if (
@@ -362,7 +360,7 @@ class ThemeContextProvider extends Component {
               let Item = document
                 .querySelectorAll(".A4")
                 [i + 1].querySelector(".left").firstChild.classList[0];
-              console.log(Item);
+              // console.log(Item);
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
             }
@@ -371,9 +369,9 @@ class ThemeContextProvider extends Component {
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
             document.querySelectorAll(".A4")[i + 1].querySelector(".right")
-              .firstChild == null ||
+              .firstChild === null ||
             document.querySelectorAll(".A4")[i + 1].querySelector(".right")
-              .firstChild == undefined
+              .firstChild === undefined
           ) {
           } else {
             if (
@@ -393,7 +391,7 @@ class ThemeContextProvider extends Component {
                 let Item = document
                   .querySelectorAll(".A4")
                   [i + 1].querySelector(".right").firstChild.classList[0];
-                console.log(Item);
+                // console.log(Item);
                 Pages[i][Item].push(Pages[i + 1][Item][0]);
                 Pages[i + 1][Item].shift();
                 this.setState({ userData: Pages });
@@ -420,7 +418,7 @@ class ThemeContextProvider extends Component {
                 let Item = document
                   .querySelectorAll(".A4")
                   [i + 1].querySelector(".right").firstChild.classList[0];
-                console.log(Item);
+                // console.log(Item);
                 Pages[i][Item].push(Pages[i + 1][Item][0]);
                 Pages[i + 1][Item].shift();
                 if (Item !== "languages") {
@@ -455,7 +453,7 @@ class ThemeContextProvider extends Component {
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
             document.querySelectorAll(".A4")[i + 1].querySelector(".left")
-              .firstChild == null
+              .firstChild === null
           ) {
           } else {
             if (
@@ -479,7 +477,7 @@ class ThemeContextProvider extends Component {
   }
 
   async componentDidMount() {
-    console.log("diplay one column is =>" + this.state.style.displayOneColumn);
+    // console.log("diplay one column is =>" + this.state.style.displayOneColumn);
     if (
       localStorage.getItem("currentCV") === null ||
       localStorage.getItem("currentCV") === ""
@@ -487,14 +485,14 @@ class ThemeContextProvider extends Component {
       const idG = await guidGenerator();
       await this.setState({ id: idG });
       await localStorage.setItem("currentCV", this.state.id);
-      console.log(`the state id is - ${this.state.id}`);
+      // console.log(`the state id is - ${this.state.id}`);
       axios.post(`${url}/api/users/resume/cv/${aFunction()}`, this.state);
     }
     if (
       localStorage.getItem("currentCV") !== null ||
       localStorage.getItem("currentCV") !== ""
     ) {
-      console.log("i am trying to get the data");
+      // console.log("i am trying to get the data");
       axios
         .get(
           `${url}/api/users/resume/cv/currentCV/${localStorage.getItem(
@@ -512,17 +510,17 @@ class ThemeContextProvider extends Component {
 
   importData = async (profile, e) => {
     e.preventDefault();
-    console.log("i am calling linkedin data");
+    // console.log("i am calling linkedin data");
     this.setState({ importingMessage: true });
     this.setState({ considerPic: true });
     if (status2 === false) {
       status2 = await true;
       e.preventDefault();
-      console.log("i am calling linkedin data");
-      console.log(profile);
+      // console.log("i am calling linkedin data");
+      // console.log(profile);
       await this.setState({ importing: true });
       const response = await axios.get(`${url}/api/users/data/link/${profile}`);
-      console.log("should be 200", response.status);
+      // console.log("should be 200", response.status);
       let newObject = { ...this.state };
       newObject.userData[0].fullName = response.data.profileFullName
         ? response.data.profileFullName
@@ -541,7 +539,7 @@ class ThemeContextProvider extends Component {
         : ["skill"];
       newObject.userData[0].experience = response.data.profileExperience
         ? response.data.profileExperience.map(el => {
-            if (el.jobsDesc) {
+            if (el.jobsDesc) { return ""
             } else {
               let new_el = {};
               new_el.position = el.jobTitle ? el.jobTitle : "";
@@ -659,9 +657,9 @@ class ThemeContextProvider extends Component {
       newObject.userData[0].achievements = ["Achievement name"];
       newObject.id = this.state.id;
       await this.setState(newObject);
-      console.log(this.state.userData[0].projects);
+      // console.log(this.state.userData[0].projects);
       // Need to add different responses for each different status
-      if (response.status == 200) {
+      if (response.status === 200) {
         this.setState({ importing: false });
         this.setState({ importingMessage: false });
         await this.saveCVDataToServer();
@@ -677,41 +675,41 @@ class ThemeContextProvider extends Component {
       if (e) {
         e.preventDefault();
       }
-      console.log("Should be false ->", this.state.loadingSaveCv);
+      // console.log("Should be false ->", this.state.loadingSaveCv);
       await this.setState({
         loadingSaveCv: false,
         id: localStorage.getItem("currentCV")
       });
-      console.log("Should be true ->", this.state.loadingSaveCv);
+      // console.log("Should be true ->", this.state.loadingSaveCv);
       const userID = await aFunction();
-      console.log(userID);
+      // console.log(userID);
 
       //const data = JSON.stringify(this.state)
       await axios
         .post(`${url}/api/users/resume/cv/save/${userID}`, this.state)
         .then(res => {
-          console.log(res.data);
-          if (res.data == "done") return this.setState({ loadingSaveCv: true });
+          // console.log(res.data);
+          if (res.data === "done") return this.setState({ loadingSaveCv: true });
         });
 
       // await this.setState({ loadingSaveCv: false });
       // if (res.data == "done") this.setState({ loadingSaveCv: false });
-      console.log("Should be false again ->", this.state.loadingSaveCv);
+      // console.log("Should be false again ->", this.state.loadingSaveCv);
       status = await false;
     } else {
     }
   };
 
   modifyEd = (page, field, value, index) => {
-    console.log("edmoidfy");
+    // console.log("edmoidfy");
     let newObject = [...this.state.userData];
     if (newObject[page].education[index]) {
       if (field === "studyProgram") {
         newObject[page].education[index].studyProgram = value;
-        console.log(page);
-        console.log(field);
-        console.log(value);
-        console.log(index);
+        // console.log(page);
+        // console.log(field);
+        // console.log(value);
+        // console.log(index);
       }
       if (field === "institution") {
         newObject[page].education[index].institution = value;
@@ -732,7 +730,7 @@ class ThemeContextProvider extends Component {
         newObject[page].education[index].place = value;
       }
       this.setState({ userData: newObject });
-      console.log(this.state.userData[page].education);
+      // console.log(this.state.userData[page].education);
     }
   };
 
@@ -764,7 +762,7 @@ class ThemeContextProvider extends Component {
         newObject[page].experience[index].tasks = value;
       }
       this.setState({ userData: newObject });
-      console.log(this.state.userData[page].experience);
+      // console.log(this.state.userData[page].experience);
     }
   };
 
@@ -777,9 +775,9 @@ class ThemeContextProvider extends Component {
   };
 
   modifyAbout = (page, field, value) => {
-    console.log(page);
-    console.log(field);
-    console.log(value);
+    // console.log(page);
+    // console.log(field);
+    // console.log(value);
     let newObject = [...this.state.userData];
     if (field === "intro") {
       newObject[page].intro = value;
@@ -1236,8 +1234,8 @@ class ThemeContextProvider extends Component {
         newObj.style.rightSide = arr2.map(el => {
           return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
         });
-        console.log(newObj.style.leftSide);
-        console.log(newObj.style.rightSide);
+        // console.log(newObj.style.leftSide);
+        // console.log(newObj.style.rightSide);
         // this.setState(newObj);
         this.updateState();
         // this.setState(newObj);
@@ -1315,7 +1313,7 @@ class ThemeContextProvider extends Component {
     const currentTime = useRef(time);
     const prevTime = useRef(null);
     const isNewTimeFirstTick = useRef(false);
-    const [_, setOneLastRerender] = useState(0);
+    //const [_, setOneLastRerender] = useState(0);
 
     if (currentTime.current !== time) {
       isNewTimeFirstTick.current = true;
@@ -1589,16 +1587,16 @@ class ThemeContextProvider extends Component {
         languages: []
       }
     ];
-    console.log(new1Object[0]);
+    // console.log(new1Object[0]);
     this.setState({ userData: new1Object });
   };
 
   toggleOneColumn = async () => {
-    console.log("before toggles" + this.state.style.displayOneColumn);
+    // console.log("before toggles" + this.state.style.displayOneColumn);
     let newObject = { ...this.state.style };
     newObject.displayOneColumn = await !this.state.style.displayOneColumn;
     await this.setState({ style: newObject });
-    console.log("i toggles" + this.state.style.displayOneColumn);
+    // console.log("i toggles" + this.state.style.displayOneColumn);
     this.updateState();
   };
 

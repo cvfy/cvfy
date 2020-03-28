@@ -57,17 +57,17 @@ class CookiesPolicy extends React.Component {
           <section>
             <h2>Table Of Content:</h2>
             <ul>
-              <li>
+              <li key="1">
                 <button onClick={() => scrollToComponent(this.whatIsACookie)}>
                   What is a cookie
                 </button>
               </li>
-              <li>
+              <li key="2">
                 <button onClick={() => scrollToComponent(this.useOfCookies)}>
                   Use of cookies and web storage(browsing data) by CVFY
                 </button>
               </li>
-              <li>
+              <li key="3">
                 <button
                   onClick={() => scrollToComponent(this.enablingDisabling)}
                 >

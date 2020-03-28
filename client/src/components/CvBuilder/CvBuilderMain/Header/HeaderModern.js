@@ -47,7 +47,7 @@ class HeaderModern extends React.Component {
                 ) : (
                   <img
                     src={context.userData[this.props.index].profilePic}
-                    alt="photo"
+                    alt="profilePic"
                     title="upload image"
                     height="110px"
                     width="110px"

@@ -1,8 +1,8 @@
 import React from "react";
 
 const handleClick = id => {
-  console.log(id);
-  let el = document.getElementById(id.target);
+  // console.log(id);
+  // let el = document.getElementById(id.target);
 };
 
 const TableOfContent = () => {
@@ -11,37 +11,37 @@ const TableOfContent = () => {
       <section>
         <h2>Table Of Content:</h2>
         <ul>
-          <li>
+          <li key="1">
             <button onClick={handleClick}>The CVFY Privacy Policy</button>
           </li>
-          <li>
+          <li key="2">
             <button onClick={handleClick}>Acceptable Use</button>
           </li>
-          <li>
+          <li key="3">
             <button onClick={handleClick}>Security</button>
           </li>
-          <li>
+          <li key="4">
             <button onClick={handleClick}>
               Links to Other Software/Websites/Services
             </button>
           </li>
-          <li>
+          <li key="5">
             <button onClick={handleClick}>
               Warranty, Refunds and Premium Account
             </button>
           </li>
-          <li>
+          <li key="6">
             <button onClick={handleClick}>Governing Law</button>
           </li>
-          <li>
+          <li key="7">
             <button onClick={handleClick}>Changes</button>
           </li>
-          <li>
+          <li key="8">
             <button onClick={handleClick}>
               Breaches of these terms of use
             </button>
           </li>
-          <li>
+          <li key="9">
             <button onClick={handleClick}>Termination</button>
           </li>
         </ul>

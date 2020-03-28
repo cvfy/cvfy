@@ -28,7 +28,7 @@ class CoverLetterContact extends React.Component {
       <CoverLetterContext.Consumer>
         {coverContext => {
           const {
-            modifyCover,
+            // modifyCover,
             updateUserSkype,
             updateUserPhone,
             updateUserLinkedIn,

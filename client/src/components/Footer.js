@@ -11,8 +11,8 @@ import { NavLink } from "react-router-dom";
 // import twitterIcon from "../assets/Animated-Icons/twitter.json";
 
 class Footer extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
     // this.state = {
     //   facebook: { playingState: "stopped" },
     //   instagram: { playingState: "stopped" },
@@ -23,7 +23,7 @@ class Footer extends React.Component {
     // this.instagramHover = this.instagramHover.bind(this);
     // this.linkedinHover = this.linkedinHover.bind(this);
     // this.twitterHover = this.twitterHover.bind(this);
-  }
+  // }
 
   // facebookHover() {
   //   this.setState({ facebook: { playingState: "playing" } });
@@ -90,29 +90,29 @@ class Footer extends React.Component {
           <div className="columns">
             <h3>QUICK LINKS</h3>
             <ul>
-              <li>
+              <li key="1">
                 <NavLink to="/about-us">About Us</NavLink>
               </li>
-              <li>
+              <li key="2">
                 <NavLink to="/contact-us">Contact Us</NavLink>
               </li>
-              <li>
+              <li key="3">
                 <a href="http://scanfcode.com/contribute-at-scanfcode/">
                   Contribute
                 </a>
               </li>
-              <li>
+              <li key="4">
                 <NavLink to="/privacy-policy">Privacy Policy</NavLink>
               </li>
-              <li>
+              <li key="5">
                 <NavLink to="/cookies-policy">Cookies Policy</NavLink>
               </li>
-              <li>
+              <li key="6">
                 <NavLink to="/terms-and-conditions">
                   Terms and Conditions
                 </NavLink>
               </li>
-              <li>
+              <li key="7">
                 <a href="http://scanfcode.com/sitemap/">Sitemap</a>
               </li>
             </ul>
@@ -121,14 +121,14 @@ class Footer extends React.Component {
         <div className="FooterRow FooterSpace">
           <div className="Copyright">
             <p className="copyright-text">
-              Copyright &copy; 2020 All Rights Reserved by <a href="#">CV|FY</a>
+              Copyright &copy; 2020 All Rights Reserved by <a href="/#">CV|FY</a>
               .
             </p>
           </div>
           <ul className="social-icons">
             <li onMouseEnter={this.facebookHover}>
-              <a href="#">
-                <img className="IconImage" src={Facebook} />
+              <a href="/#">
+                <img alt='iconImage' className="IconImage" src={Facebook} />
               </a>
               {/*<Lottie
                 config={facebookOptions}
@@ -146,8 +146,8 @@ class Footer extends React.Component {
               />  */}
             </li>
             <li onMouseEnter={this.instagramHover}>
-              <a href="#">
-                <img className="IconImage" src={Linkedin} />
+              <a href="/#">
+                <img alt="iconImage" className="IconImage" src={Linkedin} />
               </a>
               {/* <Lottie
                 config={instagramOptions}
@@ -165,8 +165,8 @@ class Footer extends React.Component {
               />  */}
             </li>
             <li onMouseEnter={this.linkedinHover}>
-              <a href="#">
-                <img className="IconImage" src={Instagram} />
+              <a href="/#">
+                <img alt="iconImage" className="IconImage" src={Instagram} />
               </a>
               {/* <Lottie
                 config={linkedinOptions}
@@ -184,8 +184,8 @@ class Footer extends React.Component {
               />  */}
             </li>
             <li onMouseEnter={this.twitterHover}>
-              <a href="#">
-                <img className="IconImage" src={Twitter} />
+              <a href="/#">
+                <img alt="iconImage" className="IconImage" src={Twitter} />
               </a>
               {/* <Lottie
                 config={twitterOptions}

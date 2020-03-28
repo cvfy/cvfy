@@ -63,7 +63,7 @@ const CoverBuilderNav = () => {
         </div>
         <div className="my-documents">
           <div className="my-docs-btn">
-            <div className="docsDiv">
+            <div className="docsDiv" style={{display: "flex"}}>
               <span className="tool-icon tool-mydoc">
                 <NavLink
                   to="/my-documents"

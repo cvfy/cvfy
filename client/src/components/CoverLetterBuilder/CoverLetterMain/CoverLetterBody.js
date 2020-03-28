@@ -1,4 +1,4 @@
-import React, {getState} from "react";
+import React from "react";
 import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
 import store from "./../../../store.js";
 
@@ -12,7 +12,7 @@ class CoverLetterBody extends React.Component {
     e.preventDefault()
     this.setState({ text: e.target.innerText})
    if(this.state.text.length > 300){
-     console.log("Jump to next page")
+    //  console.log("Jump to next page")
      this.props.cont.jumpTo2Page(this.props.index, this.state.text)
      this.setState({text: ""})
    }

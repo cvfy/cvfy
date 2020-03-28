@@ -3,7 +3,7 @@
   background-color: white;
   position: relative;
   padding-right: 0.7rem;
-  padding-top: 0.7rem !important;
+  /* padding-top: 0.7rem !important; */
   display: block !important;
   box-shadow: none !important;
   cursor: pointer;

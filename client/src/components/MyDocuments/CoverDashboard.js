@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import ADD2 from "../../assets/add.png";
 import "../../styles/dashboard.css";
 import axios from "axios";
@@ -49,7 +49,7 @@ class CoverDashboard extends React.Component {
   }
 
   deleteCover = async (e, id) => {
-    console.log("delete cover");
+    // console.log("delete cover");
     // e.preventDefault()
     const response = await axios.post(
       `${url}/api/users/resume/cover/deleteCover/${this.getUserId()}/${id}`
@@ -68,15 +68,15 @@ class CoverDashboard extends React.Component {
   duplicateCover = async obj => {
     if (status === false) {
       status = true;
-      console.log("duplicate cover");
+      // console.log("duplicate cover");
       obj.id = idG;
       const response = await axios.post(
         `${url}/api/users/resume/cover/duplicateCover/${this.getUserId()}`,
         obj
       ); //this.setState(res.data)
-      console.log(response.data);
+      // console.log(response.data);
       await this.setState({ covers: response.data });
-      console.log(this.state.covers);
+      // console.log(this.state.covers);
       status = false;
     } else {
     }
@@ -90,6 +90,7 @@ class CoverDashboard extends React.Component {
               className="ADD"
               src={ADD2}
               onClick={() => this.setLocalStorage("")}
+              alt="addCover_pic"
             />
             <p style={{ textAlign: "center" }}>ADD New Cover Letter</p>
           </div>

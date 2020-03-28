@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
-import axios from "axios";
+// import axios from "axios";
 
 class Header extends React.Component {
   constructor() {
@@ -43,7 +43,7 @@ class Header extends React.Component {
                 ) : (
                   <img
                     src={context.userData[this.props.index].profilePic}
-                    alt="photo"
+                    alt="Profilephoto"
                     title="upload image"
                     height="110px"
                     width="110px"

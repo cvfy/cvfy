@@ -30,7 +30,7 @@ const BuilderNav = () => {
     if (status === false) {
       status = await true;
       e.preventDefault();
-      console.log("I should be TRUE ->", loadingDownload);
+      // console.log("I should be TRUE ->", loadingDownload);
       await axios.get(`${url}/api/users/data/pdf/${context.id}`).then(res => {
         window.open(`${url}/static2/${res.data}.pdf`, "_blank");
         if (res.data.length > 0) return setLoadingDownload(false);
@@ -69,11 +69,12 @@ const BuilderNav = () => {
         </div>
         <div className="my-documents">
           <div className="my-docs-btn">
-            <div className="docsDiv">
-              <span className="tool-icon tool-mydoc">
+            <div className="docsDiv" style={{display: "flex"}}>
+              <span className="tool-icon tool-mydoc" >
                 <NavLink
                   to="/my-documents"
                   style={{ color: "#fff", textDecoration: "none" }}
+                  
                 >
                   MyDocuments
                 </NavLink>

@@ -64,7 +64,7 @@ async function giveMePDF(resumeID) {
         await browser.close();
       }
     });
-  console.log(result);
+  // console.log(result);
   return resumeID;
 }
 
@@ -72,11 +72,11 @@ const mergeMultiplePDF = pdfFiles => {
   return new Promise((resolve, reject) => {
     merge(pdfFiles, "samplefinal.pdf", function(err) {
       if (err) {
-        console.log(err);
+        // console.log(err);
         reject(err);
       }
 
-      console.log("Success");
+      // console.log("Success");
       resolve();
     });
   });

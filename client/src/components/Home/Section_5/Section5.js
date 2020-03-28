@@ -1,10 +1,10 @@
 import React from "react";
-import ScrollAnimation from "react-animate-on-scroll";
 
 const Section5 = () => {
   return (
     <div className="LPContainer BlueTintBg VideoContainer">
       <iframe
+      title="wistaFrame"
         className="IframeContainer"
         src="https://fast.wistia.net/embed/iframe/lcu5575a21"
       />

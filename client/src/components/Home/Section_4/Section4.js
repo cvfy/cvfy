@@ -16,7 +16,7 @@ const Section4 = () => {
         </p>
       </div>
       <div className="PictureSide">
-        <img src={Image} alt="image" />
+        <img src={Image} alt="sec4_image" />
       </div>
     </div>
   );

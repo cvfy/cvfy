@@ -23,7 +23,7 @@ const CoverLetter_Templates = () => {
           animateOnce="true"
           duration="0.5s"
         >
-          <img src={Cover1} />
+          <img alt="cover1_pic" src={Cover1} />
         </ScrollAnimation>
         <ScrollAnimation
           className="cvBox"
@@ -31,7 +31,7 @@ const CoverLetter_Templates = () => {
           animateOnce="true"
           duration="0.5s"
         >
-          <img src={Cover2} />
+          <img alt="cover2_pic" src={Cover2} />
         </ScrollAnimation>
         <ScrollAnimation
           className="cvBox"
@@ -39,7 +39,7 @@ const CoverLetter_Templates = () => {
           animateOnce="true"
           duration="0.5s"
         >
-          <img src={Cover3} />
+          <img alt="cover3_pic" src={Cover3} />
         </ScrollAnimation>
         <ScrollAnimation
           className="cvBox"
@@ -47,7 +47,7 @@ const CoverLetter_Templates = () => {
           animateOnce="true"
           duration="0.5s"
         >
-          <img src={Cover4} />
+          <img alt="cover4_pic" src={Cover4} />
         </ScrollAnimation>
         <ScrollAnimation
           className="cvBox"
@@ -55,7 +55,7 @@ const CoverLetter_Templates = () => {
           animateOnce="true"
           duration="0.5s"
         >
-          <img src={Cover5} />
+          <img alt="cover5_pic" src={Cover5} />
         </ScrollAnimation>
         <ScrollAnimation
           className="cvBox"
@@ -63,7 +63,7 @@ const CoverLetter_Templates = () => {
           animateOnce="true"
           duration="0.5s"
         >
-          <img src={Cover6} />
+          <img alt="cover6_pic" src={Cover6} />
         </ScrollAnimation>
       </div>
       <Footer />

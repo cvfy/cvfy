@@ -20,37 +20,37 @@ const CollapseMenu = props => {
         }}
       >
         <ul className="minMenu">
-          <li>
+          <li key="1">
             <a href="/create-cv" onClick={props.handleNavbar}>
               Create CV
             </a>
           </li>
-          <li>
+          <li key="2">
             <a href="/create-cover-letter" onClick={props.handleNavbar}>
               Create Cover Letter
             </a>
           </li>
-          <li>
+          <li key="3">
             <a href="/cv-templates" onClick={props.handleNavbar}>
               CV Templates
             </a>
           </li>
-          <li>
+          <li key="4">
             <a href="/cover_letter-templates" onClick={props.handleNavbar}>
               Cover Letter Templates
             </a>
           </li>
-          <li>
+          <li key="5">
             <a href="/my-documents" onClick={props.handleNavbar}>
               My Documents
             </a>
           </li>
-          <li>
+          <li key="6">
             <a href="/" onClick={props.handleNavbar}>
               Log Out
             </a>
           </li>
-          <li>
+          <li key="7">
             <div>
               <DropdownMenu />
             </div>

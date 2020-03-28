@@ -5,7 +5,7 @@ import store from "./../../store.js";
 
 function aFunction() {
   var newState = store.getState();
-  console.log(newState.auth.user.name);
+  // console.log(newState.auth.user.name);
   return newState.auth.user.name;
 }
 
@@ -30,6 +30,7 @@ const DropdownMenu = () => {
         <img
           className={State.OpenMenu ? "userImg scaling" : "userImg"}
           src={Image}
+          alt="userImg"
         />
         <h6 style={{ color: "black", marginLeft: "5px" }}>{aFunction()}</h6>
       </div>
@@ -39,8 +40,9 @@ const DropdownMenu = () => {
   const onClick = () => {
     SetState({ OpenMenu: !State.OpenMenu });
   };
-  const DropdownItems = DropdownItemsList.map(el => (
+  const DropdownItems = DropdownItemsList.map((el, i) => (
     <div
+    key={i}
       className={
         State.OpenMenu ? "DropdownItemOpen fadeIn" : "DropdownItemClosed"
       }

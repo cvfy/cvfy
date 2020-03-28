@@ -7,12 +7,12 @@ let status = false;
 export const CoverLetterContext = createContext();
 function aFunction() {
   var newState = store.getState();
-  console.log(newState.auth.user.name);
+  // console.log(newState.auth.user.name);
   return newState.auth.user.id;
 }
 function nameFunction() {
   var newState = store.getState();
-  console.log(newState.auth.user.name);
+  // console.log(newState.auth.user.name);
   return newState.auth.user.name;
 }
 function guidGenerator() {
@@ -96,11 +96,11 @@ class CoverLetterContextProvider extends Component {
       const idG = await guidGenerator();
       await this.setState({ id: idG });
       await localStorage.setItem("currentCover", this.state.id);
-      console.log(`the state id is - ${this.state.id}`);
+      // console.log(`the state id is - ${this.state.id}`);
       //axios.post(`${url}/api/users/resume/cover/${aFunction()}`, this.state);
     }
     if (localStorage.getItem("currentCover")) {
-      console.log("i am trying to get the data");
+      // console.log("i am trying to get the data");
       axios
         .get(
           `${url}/api/users/resume/cv/currentCover/${localStorage.getItem(
@@ -114,7 +114,7 @@ class CoverLetterContextProvider extends Component {
           } //this.setState(res.data)
         );
     }
-    console.log(this.state.coverLetters[0].contact.email);
+    // console.log(this.state.coverLetters[0].contact.email);
   }
 
   componentDidUpdate() {
@@ -123,7 +123,7 @@ class CoverLetterContextProvider extends Component {
       let data = cover[0].text; //.replace("<br>", "\n")
       cover[0].text = data.slice(0, 3500);
       cover[1].text = data.slice(3500) + cover[1].text;
-      console.log(cover[1].text);
+      // console.log(cover[1].text);
       this.setState({ coverLetters: cover });
     }
     if (
@@ -134,7 +134,7 @@ class CoverLetterContextProvider extends Component {
       let data = cover[0].text + cover[1].text.replace("<br>", "\n");
       cover[0].text = data.slice(0, 3500);
       cover[1].text = data.slice(3500);
-      console.log(cover[1].text);
+      // console.log(cover[1].text);
       this.setState({ coverLetters: cover });
     }
   }
@@ -158,27 +158,27 @@ class CoverLetterContextProvider extends Component {
       // if (e) {
       //   e.preventDefault();
       // }
-      console.log("Should be false ->", this.state.loadingSaveCv);
+      // console.log("Should be false ->", this.state.loadingSaveCv);
       await this.setState({
         loadingSaveCv: false,
         id: localStorage.getItem("currentCover")
       });
-      console.log("Should be true ->", this.state.loadingSaveCv);
+      // console.log("Should be true ->", this.state.loadingSaveCv);
       const userID = aFunction();
       // console.log(`this is user userID ${userID}`)
-      console.log(this.state.coverLetters[0].contact);
+      // console.log(this.state.coverLetters[0].contact);
       
       //const data = JSON.stringify(this.state)
       await axios
       .post(`${url}/api/users/resume/cover/save/${userID}`, this.state)
       .then(res => {
-        console.log(res.data);
-        if (res.data == "done") return this.setState({ loadingSaveCv: true });
+        // console.log(res.data);
+        if (res.data === "done") return this.setState({ loadingSaveCv: true });
       });
       
       // await this.setState({ loadingSaveCv: false });
       // if (res.data == "done") this.setState({ loadingSaveCv: false });
-      console.log("Should be false again ->", this.state.loadingSaveCv);
+      // console.log("Should be false again ->", this.state.loadingSaveCv);
       status = false;
     } else {
     }
@@ -338,8 +338,8 @@ class CoverLetterContextProvider extends Component {
   };
 
   modifyCover = (index, field, value) => {
-    console.log(field);
-    console.log(value);
+    // console.log(field);
+    // console.log(value);
     let newObject = [...this.state.coverLetters];
     if (newObject[0][field]) {
       if (field === "professionalTitle") {

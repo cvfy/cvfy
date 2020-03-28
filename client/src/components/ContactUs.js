@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/ContactUs.scss";
 import Navbar from "./navbar/Navbar";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 class ContactUs extends React.Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class ContactUs extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   render() {

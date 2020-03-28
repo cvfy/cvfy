@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useSpring, animated, config } from "react-spring";
+import { useSpring, animated } from "react-spring";
 import DropdownMenu from "./DropdownMenu";
 import "../../styles/Navbar.css";
 import BurgerMenu from "./BurgerMenu";
 import CollapseMenu from "./CollapseMenu";
 import { NavLink } from "react-router-dom";
-import { logoutUser } from "../../actions/authActions";
+// import { logoutUser } from "../../actions/authActions";
 import store from "./../../store.js";
 
 function aFunction() {
   var newState = store.getState();
   return newState.auth.user.email;
 }
-const newState = aFunction();
+// const newState = aFunction();
 const Navbar = props => {
   // console.log(window.location.href);
   const [navbarState, setNavbarState] = useState(false);
@@ -25,14 +25,14 @@ const Navbar = props => {
     to: { transform: "translate3d(0, 0, 0)" }
   });
 
-  const toggleSidebar = e => {
-    const sidebar = document.querySelector("#sidebar");
-    sidebar.classList.toggle("slide-right");
-  };
+  // const toggleSidebar = e => {
+  //   const sidebar = document.querySelector("#sidebar");
+  //   sidebar.classList.toggle("slide-right");
+  // };
 
-  const active = {
-    color: "#6bc774"
-  };
+  // const active = {
+  //   color: "#6bc774"
+  // };
   const onLogoutClick = e => {
     e.preventDefault();
     localStorage.removeItem("jwtToken");

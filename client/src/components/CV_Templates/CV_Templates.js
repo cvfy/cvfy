@@ -28,7 +28,7 @@ class CV_Templates extends Component {
             animateOnce="true"
             duration="0.5s"
           >
-            <img src={Executive} onClick={() => this.setLocalStorage("")} />
+            <img alt="executiveCV_pic" src={Executive} onClick={() => this.setLocalStorage("")} />
           </ScrollAnimation>
           <ScrollAnimation
             className="cvBox"
@@ -36,7 +36,7 @@ class CV_Templates extends Component {
             animateOnce="true"
             duration="0.5s"
           >
-            <img src={Modern} onClick={() => this.setLocalStorage("")} />
+            <img alt="modernCV_pic" src={Modern} onClick={() => this.setLocalStorage("")} />
           </ScrollAnimation>
           <ScrollAnimation
             className="cvBox"
@@ -44,7 +44,7 @@ class CV_Templates extends Component {
             animateOnce="true"
             duration="0.5s"
           >
-            <img src={Professional} onClick={() => this.setLocalStorage("")} />
+            <img alt="professionalCV_pic" src={Professional} onClick={() => this.setLocalStorage("")} />
           </ScrollAnimation>{" "}
           <ScrollAnimation
             className="cvBox"
@@ -52,7 +52,7 @@ class CV_Templates extends Component {
             animateOnce="true"
             duration="0.5s"
           >
-            <img src={CV1} />
+            <img alt="CV_pic" src={CV1} />
           </ScrollAnimation>{" "}
           <ScrollAnimation
             className="cvBox"
@@ -60,7 +60,7 @@ class CV_Templates extends Component {
             animateOnce="true"
             duration="0.5s"
           >
-            <img src={Basic} onClick={() => this.setLocalStorage("")} />
+            <img alt="BasicCV_pic" src={Basic} onClick={() => this.setLocalStorage("")} />
           </ScrollAnimation>
         </div>
         <Footer />

@@ -16,7 +16,7 @@ const MyAccount = () => {
       <div className="Jumbotron">
         <div className="ProfilePicContainer">
           <div className="ProfilePic">
-            <img src={ProfilePicture} />
+            <img  alt="profilePicture" src={ProfilePicture} />
           </div>
           <h1>{aFunction("name")}</h1>
         </div>
@@ -47,12 +47,12 @@ const MyAccount = () => {
             </div>
             <div>
               <div className="field">
-                <a className="linkField" href="#">
+                <a className="linkField" href="/#">
                   View my stored Personal Data
                 </a>
               </div>
               <div className="field">
-                <a className="linkField" href="#">
+                <a className="linkField" href="/#">
                   Delete my Account
                 </a>
               </div>

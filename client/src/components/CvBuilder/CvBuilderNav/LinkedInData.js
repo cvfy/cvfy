@@ -1,4 +1,4 @@
-import React, { Component, getState } from "react";
+import React, { Component } from "react";
 import "../../../styles/BuilderNav.css";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 // import { CountdownCircleTimer } from "react-countdown-circle-timer";
@@ -8,7 +8,7 @@ import { frontUrl } from "../../../config";
 
 function aFunction() {
   var newState = store.getState();
-  console.log(newState.auth.user.name);
+  // console.log(newState.auth.user.name);
   return newState.auth.user.name;
 }
 class LinkedInData extends Component {
@@ -50,7 +50,6 @@ class LinkedInData extends Component {
           const {
             importData,
             saveCVDataToServer,
-            generatePDF,
             toggleFontWeight,
             toggleFontStyle,
             toggleTextDecoration,
@@ -60,7 +59,6 @@ class LinkedInData extends Component {
             toggleInsertOrderedList,
             toggleUndo,
             toggleRedo,
-            renderTime
           } = context;
           return (
             <>
@@ -159,7 +157,7 @@ class LinkedInData extends Component {
                         onClick={toggleUndo}
                         title="undo"
                       >
-                        <i class="fas fa-undo-alt"></i>
+                        <i className="fas fa-undo-alt"></i>
                       </span>
                     </div>
                   </div>
@@ -171,7 +169,7 @@ class LinkedInData extends Component {
                         onClick={toggleRedo}
                         title="redo"
                       >
-                        <i class="fas fa-redo-alt"></i>
+                        <i className="fas fa-redo-alt"></i>
                       </span>
                     </div>
                   </div>
@@ -180,7 +178,7 @@ class LinkedInData extends Component {
                 <div className="buttonsDiv">
                   <button
                     onClick={e =>
-                      context.userData[0].contact[2].value == ""
+                      context.userData[0].contact[2].value === ""
                         ? this.displayError()
                         : importData(
                             context.userData[0].contact[2].value
@@ -193,7 +191,7 @@ class LinkedInData extends Component {
                   >
                     {context.importing && (
                       <i
-                        class="fas fa-circle-notch fa-spin"
+                        className="fas fa-circle-notch fa-spin"
                         style={{ marginRight: 5 }}
                       ></i>
                     )}
@@ -207,7 +205,7 @@ class LinkedInData extends Component {
                   >
                     {!context.loadingSaveCv && (
                       <i
-                        class="fas fa-circle-notch fa-spin"
+                        className="fas fa-circle-notch fa-spin"
                         style={{ marginRight: 5 }}
                       ></i>
 

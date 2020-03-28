@@ -15,7 +15,7 @@ class AboutUs extends Component {
   }
 
   changeText = e => {
-    console.log(e.currentTarget.title);
+    // console.log(e.currentTarget.title);
     if (e.currentTarget.title === "mission") {
       this.setState({
         text:

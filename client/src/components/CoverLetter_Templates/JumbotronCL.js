@@ -17,7 +17,7 @@ const JumbotronCL = () => {
         </p>
       </div>
       <div className="JumboRight">
-        <img className="animated fadeIn" src={JumboPic} />
+        <img alt="jumboPic" className="animated fadeIn" src={JumboPic} />
       </div>
     </div>
   );

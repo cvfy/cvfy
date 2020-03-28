@@ -47,9 +47,9 @@ e.target.appendChild(card)
           <>
             <div
               id="board-1"
-              className="board"
+              // className="board"
               className={
-                context.style.displayOneColumn ? "layoutOneColumn" : "layoutCV"
+                context.style.displayOneColumn ? "layoutOneColumn board" : "layoutCV board"
               }
               onDrop={(e) => drop(e)}
               onDragOver={(e) => dragOver(e)}
@@ -88,8 +88,8 @@ e.target.appendChild(card)
 
             <div
               id="board-2"
-              className="board"
-              className="dndContainer"
+              // className="board"
+              className="dndContainer board"
               onDrop={(e) => drop(e)}
               onDragOver={(e) => dragOver(e)}
             >

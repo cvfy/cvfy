@@ -93,7 +93,7 @@ return contacts
                 obj.profileEducation = [];
                 Array.from(document.querySelectorAll("section.experience-section button")).forEach(el => el.click())
                 const ExpLength = Array.from(document.querySelectorAll("section.experience-section ul li.pv-entity__position-group-pager")).length
-                console.log(ExpLength)
+                // console.log(ExpLength)
 
                 for (let i = 0; i < ExpLength; i++) {
                     if ((document.querySelectorAll("section.experience-section ul li.pv-entity__position-group-pager")[i]).querySelector("p.pv-entity__secondary-title")) {
@@ -131,7 +131,7 @@ return contacts
                     }
                 }
                 const eduLength = Array.from(document.querySelectorAll("section.education-section ul li")).length
-                console.log(eduLength)
+                // console.log(eduLength)
 
                 for (let j = 0; j < eduLength; j++) {
                     //let jobLocationD = verify(document.querySelectorAll("section.experience-section ul li h4.pv-entity__location span + span")[i])
@@ -172,7 +172,7 @@ return contacts
             //console.log(cvData.accomplishments[2].accomplishmentList)
             // cvData.contacts  = contactData;
             contactData.forEach(el => cvData[el.Type] = el.contact)
-            console.log(cvData.contacts)
+            // console.log(cvData.contacts)
             return cvData
         } catch (err) {
             console.error(err.message);
@@ -182,7 +182,7 @@ return contacts
             await browser.close();
         }
     });
-    console.log(result)
+    // console.log(result)
     return result
 }
 async function autoScroll(page) {

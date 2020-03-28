@@ -54,22 +54,22 @@ class TermsAndConditions extends React.Component {
           <section>
             <h2>Table Of Content:</h2>
             <ul>
-              <li>
+              <li key="1">
                 <button onClick={() => scrollToComponent(this.CvfyContent)}>
                   The CVFY Content
                 </button>
               </li>
-              <li>
+              <li key="2">
                 <button onClick={() => scrollToComponent(this.AcceptableUse)}>
                   Acceptable Use
                 </button>
               </li>
-              <li>
+              <li key="3">
                 <button onClick={() => scrollToComponent(this.Security)}>
                   Security
                 </button>
               </li>
-              <li>
+              <li key="4">
                 <button
                   onClick={() =>
                     scrollToComponent(this.SoftwareWebsitesServices)
@@ -78,29 +78,29 @@ class TermsAndConditions extends React.Component {
                   Links to Other Software/Websites/Services
                 </button>
               </li>
-              <li>
+              <li key="5">
                 <button
                   onClick={() => scrollToComponent(this.WarrantyRefundsPremium)}
                 >
                   Warranty, Refunds and Premium Account
                 </button>
               </li>
-              <li>
+              <li key="6">
                 <button onClick={() => scrollToComponent(this.GoverningLaw)}>
                   Governing Law
                 </button>
               </li>
-              <li>
+              <li key="7">
                 <button onClick={() => scrollToComponent(this.Changes)}>
                   Changes
                 </button>
               </li>
-              <li>
+              <li key="8">
                 <button onClick={() => scrollToComponent(this.Breaches)}>
                   Breaches of these terms of use
                 </button>
               </li>
-              <li>
+              <li key="9">
                 <button onClick={() => scrollToComponent(this.Termination)}>
                   Termination
                 </button>

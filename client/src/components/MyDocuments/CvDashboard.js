@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import ADD from "../../assets/add.png";
 import "../../styles/dashboard.css";
 import axios from "axios";
@@ -47,7 +47,7 @@ class CvDashboard extends React.Component {
     axios
       .post(`${url}/api/users/resume/cv/delete/${this.getUserId()}/${id}`)
       .then(res => this.setState({ resume: res.data }));
-      console.log(this.state.resume)
+      // console.log(this.state.resume)
   };
   setLocalStorage = id => {
     localStorage.setItem("currentCV", id);
@@ -70,6 +70,7 @@ class CvDashboard extends React.Component {
               onClick={() => this.setLocalStorage("")}
               className="ADD"
               src={ADD}
+              alt="newCV_pic"
             />
             <p>ADD New CV</p>
           </div>

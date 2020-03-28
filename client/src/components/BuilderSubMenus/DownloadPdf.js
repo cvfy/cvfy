@@ -11,7 +11,7 @@ const DownloadPdf = props => {
         <span className="tool-desc tool-download">
           {props.loadingDownload && (
             <i
-              class="fas fa-circle-notch fa-spin"
+              className="fas fa-circle-notch fa-spin"
               style={{ marginRight: 5 }}
             ></i>
           )}

@@ -32,12 +32,12 @@ class JobDashboard extends Component {
       e.preventDefault();
       this.setState({ loadingJobs: true,
       pages: (this.state.pages+nr) });
-      console.log("I should be TRUE", this.state.loadingJobs);
+      // console.log("I should be TRUE", this.state.loadingJobs);
       const response = await axios.get(
         `${url}/api/users/data/stepstone/position/${this.state.positionValue}/location/${this.state.locationValue}/pages/${this.state.pages}`
       );
       this.setState({ jobAds: response.data, loadingJobs: false });
-      console.log("I should be FALSE", this.state.loadingJobs);
+      // console.log("I should be FALSE", this.state.loadingJobs);
       status = false;
     }
   };
@@ -49,7 +49,7 @@ class JobDashboard extends Component {
     newArr[i] = !this.state.openRequirements[i];
 
     this.setState({ openRequirements: newArr });
-    console.log(this.state.openRequirements);
+    // console.log(this.state.openRequirements);
   };
 
   render() {
@@ -97,7 +97,7 @@ class JobDashboard extends Component {
                 >
                   {this.state.loadingJobs && (
                     <i
-                      class="fas fa-circle-notch fa-spin"
+                      className="fas fa-circle-notch fa-spin"
                       style={{ marginRight: 5 }}
                     ></i>
                   )}
@@ -109,13 +109,13 @@ class JobDashboard extends Component {
             <div
             
               className={
-                this.state.jobAds.length == 0 ? "panelImg" : "JobDashboardAds"
+                this.state.jobAds.length === 0 ? "panelImg" : "JobDashboardAds"
               }
             >
               {this.state.jobAds ? this.state.jobAds.map((el, i) => (
                 <div className="JobAdContainer">
                   <div className="jobAdTitle">{el.JobPosition}</div>
-                  <div className="jobAdCompanyName"><a href={el.Link} target="_blank">{el.CompanyName}</a></div>
+                  <div className="jobAdCompanyName"><a href={el.Link} target="_blank" rel="noopener noreferrer">{el.CompanyName}</a></div>
                   <div
                     style={{
                       display: `${
@@ -127,8 +127,8 @@ class JobDashboard extends Component {
                     className="jobAdRequirements"
                   >
                     <ul>
-                      {el.JobRequirements.map(el => (
-                        <li>{el}</li>
+                      {el.JobRequirements.map((el, i) => (
+                        <li key={i} >{el}</li>
                       ))}
                     </ul>
                   </div>
@@ -143,7 +143,7 @@ class JobDashboard extends Component {
                 </div>
               )): ""}
               <button
-              style={{display: `${this.state.jobAds.length == 0 ? "none" : ""}`}}
+              style={{display: `${this.state.jobAds.length === 0 ? "none" : ""}`}}
                   onClick={e => this.requestStepStoneData(e, 4)}
                   className="boardButton"
                 >See next 4 Job Ads</button>

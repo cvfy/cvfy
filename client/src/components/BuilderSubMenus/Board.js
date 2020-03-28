@@ -10,7 +10,7 @@ const Board = props => {
     card.style.opacity = "1";
     card.style.display = "flex";
     let target = e.target;
-    console.log(target.id);
+    // console.log(target.id);
     // if (target.id !== "board-1") {
     //   target.style.height = "50%";
     // }

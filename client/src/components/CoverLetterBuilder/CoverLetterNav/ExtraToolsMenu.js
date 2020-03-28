@@ -119,7 +119,7 @@ class ExtraToolsMenu extends Component {
                       onClick={toggleUndo}
                       title="undo"
                     >
-                      <i class="fas fa-undo-alt"></i>
+                      <i className="fas fa-undo-alt"></i>
                     </span>
                   </div>
                 </div>
@@ -131,7 +131,7 @@ class ExtraToolsMenu extends Component {
                       onClick={toggleRedo}
                       title="redo"
                     >
-                      <i class="fas fa-redo-alt"></i>
+                      <i className="fas fa-redo-alt"></i>
                     </span>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ class ExtraToolsMenu extends Component {
                 >
                   {!context.loadingSaveCv && (
                     <i
-                      class="fas fa-circle-notch fa-spin"
+                      className="fas fa-circle-notch fa-spin"
                       style={{ marginRight: 5 }}
                     ></i>
                   )}

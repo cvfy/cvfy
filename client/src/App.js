@@ -7,7 +7,6 @@ import "./styles/animate.css";
 import { Provider } from "react-redux";
 import store from "./store";
 import Home from "./components/Home/Home";
-import Navbar from "./components/navbar/Navbar";
 import CV_Templates from "./components/CV_Templates/CV_Templates";
 import CoverLetter_Templates from "./components/CoverLetter_Templates/CoverLetter_Templates";
 import MyDocuments from "./components/MyDocuments/MyDocuments";

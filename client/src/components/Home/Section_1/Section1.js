@@ -31,7 +31,7 @@ const Section1 = () => {
           duration="0.5s"
         >
           <div className="S1_Card_Icon">
-            <img src="https://img.icons8.com/color/48/000000/add.png" />
+            <img alt="s1_card_icon" src="https://img.icons8.com/color/48/000000/add.png" />
           </div>
           <h2>Title</h2>
           <p>
@@ -46,7 +46,7 @@ const Section1 = () => {
           duration="0.5s"
         >
           <div className="S1_Card_Icon">
-            <img src="https://img.icons8.com/color/48/000000/connectdevelop.png" />
+            <img alt="s1_card_icon" src="https://img.icons8.com/color/48/000000/connectdevelop.png" />
           </div>
           <h2>Title</h2>
           <p>
@@ -61,7 +61,7 @@ const Section1 = () => {
           duration="0.5s"
         >
           <div className="S1_Card_Icon">
-            <img src="https://img.icons8.com/nolan/64/combo-chart.png" />
+            <img alt="s1_card_icon" src="https://img.icons8.com/nolan/64/combo-chart.png" />
           </div>
           <h2>Title</h2>
           <p>
