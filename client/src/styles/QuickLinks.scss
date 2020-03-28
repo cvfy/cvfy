@@ -139,6 +139,54 @@ $borderTextColor: #266678;
   }
 }
 
+.policyWrapper {
+  scroll-behavior: smooth;
+  margin-top: 80px;
+  width: 100%;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .intro {
+    width: 80%;
+    h1 {
+      text-align: center;
+    }
+  }
+  .table-of-content {
+    width: 80%;
+    section {
+      ul {
+        li {
+          margin: 5px;
+          list-style: none;
+          button {
+            outline: none;
+            border: 2px solid #266678;
+            background: #266678;
+            padding: 13px 31px;
+            color: white;
+            margin-right: 10px;
+            border-radius: 7px;
+            font-size: 0.8rem;
+            font-weight: 600;
+
+            &:hover {
+              cursor: pointer;
+              background: none;
+              border: 2px solid #266678;
+              color: #266678;
+            }
+          }
+        }
+      }
+      .termsParagraphs {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
 @media (max-width: 1015px) {
   .AboutUsWrapper {
     .topContainer {

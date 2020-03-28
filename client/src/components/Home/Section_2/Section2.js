@@ -1,18 +1,17 @@
 import React from "react";
-import Image from "../../../assets/undraw_resume.png";
+import Image from "../../../assets/signin.svg";
 
 const Section2 = () => {
   return (
     <div className="LPContainer ReversedRow">
       <div className="DescriptionSide">
-        <h2>Long long long Title....</h2>
+        <h2>How does it work?</h2>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining
+          All you need to do is register an account. After you access your
+          account, you will import your Linkedin data using our very easy to use
+          system. Using one of the vast amount of Templates that we offer you
+          can, drag, drop, shorten, trim, slash, lop, clip, chop, put in a
+          nutshell oooor lengthen, expand, enlarge, increase and amplify!
         </p>
       </div>
       <div className="PictureSide">

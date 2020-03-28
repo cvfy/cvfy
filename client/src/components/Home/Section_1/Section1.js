@@ -4,7 +4,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 const Section1 = () => {
   return (
     <div className="LPContainer CardsContainer">
-      <h1>Babadi bubudy bop</h1>
+      <h1>Benefits of using CVFY</h1>
       <div className="Cards">
         <ScrollAnimation
           className="Section_1_Card Card1_color"
@@ -18,10 +18,10 @@ const Section1 = () => {
               alt="icon"
             />
           </div>
-          <h2>Title</h2>
+          <h2>Draggable Layout</h2>
           <p>
-            here should be some nice description that would be interesting and
-            cool
+            Our powerful layout optimizer will make sure that your content is
+            perfectly aligned.
           </p>
         </ScrollAnimation>
         <ScrollAnimation
@@ -33,10 +33,10 @@ const Section1 = () => {
           <div className="S1_Card_Icon">
             <img alt="s1_card_icon" src="https://img.icons8.com/color/48/000000/add.png" />
           </div>
-          <h2>Title</h2>
+          <h2>Templates</h2>
           <p>
-            here should be some nice description that would be interesting and
-            cool
+            Choose from a wide variety of modern and edgy templates that fit
+            your needs.
           </p>
         </ScrollAnimation>
         <ScrollAnimation
@@ -48,10 +48,10 @@ const Section1 = () => {
           <div className="S1_Card_Icon">
             <img alt="s1_card_icon" src="https://img.icons8.com/color/48/000000/connectdevelop.png" />
           </div>
-          <h2>Title</h2>
+          <h2>Import data</h2>
           <p>
-            here should be some nice description that would be interesting and
-            cool
+            Import your Linkedin profile and edit the data to have a perfect
+            resume in a mather of seconds!
           </p>
         </ScrollAnimation>
         <ScrollAnimation
@@ -63,10 +63,10 @@ const Section1 = () => {
           <div className="S1_Card_Icon">
             <img alt="s1_card_icon" src="https://img.icons8.com/nolan/64/combo-chart.png" />
           </div>
-          <h2>Title</h2>
+          <h2>PDF Format</h2>
           <p>
-            here should be some nice description that would be interesting and
-            cool
+            Finished your edits? Download the Template in PDF format to have it
+            always on hand.
           </p>
         </ScrollAnimation>
       </div>

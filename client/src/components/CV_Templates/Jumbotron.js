@@ -6,14 +6,11 @@ const Jumbotron = () => {
   return (
     <div className="JumbotronCVTemplates">
       <div className="JumboLeft">
-        <h1>Here will be a Cool Title</h1>
+        <h1>Be Bold and use our Job-winning CV Templates</h1>
         <p>
-          Your CV is the first point of contact between you and your next
-          potential employer. It is important that it is succinct and presented
-          in an easy to read format using a simple font, minimal styling and the
-          use of bullet points to break down information. To ensure your CV
-          stands out in your next job application follow our recommended
-          structure and tips below:
+          Each template is expertly designed and follows the exact “resume
+          rules” hiring managers look for. Stand out and get hired faster with
+          field-tested resume templates.
         </p>
       </div>
       <div className="JumboRight">

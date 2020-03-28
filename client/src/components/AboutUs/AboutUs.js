@@ -39,7 +39,7 @@ class AboutUs extends Component {
       <>
         <Navbar />
         <div className="AboutUsWrapper">
-          <div className="topCont ainer">
+          <div className="topContainer">
             <div className="textDiv">
               <p>{this.state.text}</p>
             </div>

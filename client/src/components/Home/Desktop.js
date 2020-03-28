@@ -6,12 +6,10 @@ const Desktop = () => {
   return (
     <div className="LPContainer">
       <div className="DesktopLeft">
-        <h1>Here will be a very very cool Title!</h1>
+        <h1>The smart, flexible CV builder you'll love!</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis,
+          Creating a Professional Resume and Cover-Letter has never been so{" "}
+          <b>simple</b>!
         </p>
         <div className="GroupButtons">
           <button className="signUpButton" style={{ cursor: "pointer" }}>

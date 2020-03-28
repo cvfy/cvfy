@@ -15,7 +15,7 @@ import Login from "./components/Login";
 import MyAccount from "./components/MyAccount";
 import AboutUs from "./components/AboutUs/AboutUs";
 import ContactUs from "./components/ContactUs";
-import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 import CookiesPolicy from "./components/CookiesPolicy";
 import TermsAndConditions from "./components/TermsAndConditions";
 import CvBuilder from "./components/CvBuilder/CvBuilder";

@@ -1,7 +1,7 @@
 import React, { Component, createContext } from "react";
 import axios from "axios";
 import store from "./../store.js";
-import { url } from "../config";
+import { url, frontUrl } from "../config";
 
 let status = false;
 export const CoverLetterContext = createContext();
@@ -166,6 +166,7 @@ class CoverLetterContextProvider extends Component {
       // console.log("Should be true ->", this.state.loadingSaveCv);
       const userID = aFunction();
       // console.log(`this is user userID ${userID}`)
+<<<<<<< HEAD
       // console.log(this.state.coverLetters[0].contact);
       
       //const data = JSON.stringify(this.state)
@@ -176,6 +177,18 @@ class CoverLetterContextProvider extends Component {
         if (res.data === "done") return this.setState({ loadingSaveCv: true });
       });
       
+=======
+      console.log(this.state.coverLetters[0].contact);
+
+      //const data = JSON.stringify(this.state)
+      await axios
+        .post(`${url}/api/users/resume/cover/save/${userID}`, this.state)
+        .then(res => {
+          console.log(res.data);
+          if (res.data == "done") return this.setState({ loadingSaveCv: true });
+        });
+
+>>>>>>> 1387b86cb7ad5866ebbde7d9fec53bf767114017
       // await this.setState({ loadingSaveCv: false });
       // if (res.data == "done") this.setState({ loadingSaveCv: false });
       // console.log("Should be false again ->", this.state.loadingSaveCv);
@@ -183,7 +196,7 @@ class CoverLetterContextProvider extends Component {
     } else {
     }
   };
-  
+
   getCurrentDate = () => {
     const today = new Date();
     const months = [
@@ -287,6 +300,30 @@ class CoverLetterContextProvider extends Component {
       style: newObj.style
     });
     await this.saveCoverDataToServer();
+  };
+
+  goToBasicCoverTemplate = id => {
+    localStorage.setItem("currentCover", id);
+    window.location.href = `${frontUrl}/create-cover-letter`;
+    this.showBasicCoverTemplate();
+  };
+
+  goToModernCoverTemplate = id => {
+    localStorage.setItem("currentCover", id);
+    window.location.href = `${frontUrl}/create-cover-letter`;
+    this.showModernCoverTemplate();
+  };
+
+  goToProfessionalCoverTemplate = id => {
+    localStorage.setItem("currentCover", id);
+    window.location.href = `${frontUrl}/create-cover-letter`;
+    this.showProfessionalCoverTemplate();
+  };
+
+  goToExecutiveCoverTemplate = id => {
+    localStorage.setItem("currentCover", id);
+    window.location.href = `${frontUrl}/create-cover-letter`;
+    this.showExecutiveCoverTemplate();
   };
 
   toggleCoverTitleClass = () => {
@@ -418,6 +455,10 @@ class CoverLetterContextProvider extends Component {
           showExecutiveCoverTemplate: this.showExecutiveCoverTemplate,
           showProfessionalCoverTemplate: this.showProfessionalCoverTemplate,
           showModernCoverTemplate: this.showModernCoverTemplate,
+          goToProfessionalCoverTemplate: this.goToProfessionalCoverTemplate,
+          goToBasicCoverTemplate: this.goToBasicCoverTemplate,
+          goToModernCoverTemplate: this.goToModernCoverTemplate,
+          goToExecutiveCoverTemplate: this.goToExecutiveCoverTemplate,
           updateUserSkype: this.updateUserSkype,
           updateUserPhone: this.updateUserPhone,
           updateUserEmail: this.updateUserEmail,
