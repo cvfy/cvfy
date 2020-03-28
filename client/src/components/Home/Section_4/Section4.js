@@ -1,18 +1,16 @@
 import React from "react";
-import Image from "../../../assets/undraw_resume.png";
+import Image from "../../../assets/workinprogress.svg";
 
 const Section4 = () => {
   return (
     <div className="LPContainer ReversedRow">
       <div className="DescriptionSide">
-        <h2>Long long long Title....</h2>
+        <h2>Job-winning content</h2>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining
+          We give you expert resume writing tips from start to finish. No more
+          worrying about missing jobs or wasting time with the wrong resume
+          content. When you finish, your Resumes and Cover Letters will be
+          mesmerizing.
         </p>
       </div>
       <div className="PictureSide">

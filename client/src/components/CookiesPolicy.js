@@ -1,7 +1,6 @@
 import React from "react";
-import "../styles/CookiesPolicy.css";
+import "../styles/QuickLinks.scss";
 import Navbar from "./navbar/Navbar";
-import "../styles/Navbar.css";
 import Footer from "./Footer";
 import scrollToComponent from "react-scroll-to-component";
 
@@ -16,7 +15,7 @@ class CookiesPolicy extends React.Component {
 
   render() {
     return (
-      <div className="mainContainer">
+      <div className="policyWrapper">
         <Navbar />
         <div className="intro">
           <h1>
