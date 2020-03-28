@@ -166,9 +166,8 @@ class CoverLetterContextProvider extends Component {
       // console.log("Should be true ->", this.state.loadingSaveCv);
       const userID = aFunction();
       // console.log(`this is user userID ${userID}`)
-<<<<<<< HEAD
       // console.log(this.state.coverLetters[0].contact);
-      
+    
       //const data = JSON.stringify(this.state)
       await axios
       .post(`${url}/api/users/resume/cover/save/${userID}`, this.state)
@@ -177,18 +176,6 @@ class CoverLetterContextProvider extends Component {
         if (res.data === "done") return this.setState({ loadingSaveCv: true });
       });
       
-=======
-      console.log(this.state.coverLetters[0].contact);
-
-      //const data = JSON.stringify(this.state)
-      await axios
-        .post(`${url}/api/users/resume/cover/save/${userID}`, this.state)
-        .then(res => {
-          console.log(res.data);
-          if (res.data == "done") return this.setState({ loadingSaveCv: true });
-        });
-
->>>>>>> 1387b86cb7ad5866ebbde7d9fec53bf767114017
       // await this.setState({ loadingSaveCv: false });
       // if (res.data == "done") this.setState({ loadingSaveCv: false });
       // console.log("Should be false again ->", this.state.loadingSaveCv);

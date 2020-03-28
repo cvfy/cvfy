@@ -1,13 +1,7 @@
 import React, { Component, createContext, useRef } from "react";
 import axios from "axios";
 import store from "./../store.js";
-<<<<<<< HEAD
-import { url, cloudinaryUrl } from "../config";
-=======
 import { url, cloudinaryUrl, frontUrl } from "../config";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
->>>>>>> 1387b86cb7ad5866ebbde7d9fec53bf767114017
 //import uuid from 'uuid'
 let status = false;
 let status2 = false;

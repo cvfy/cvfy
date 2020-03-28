@@ -9,8 +9,8 @@ const Section1 = () => {
         <ScrollAnimation
           className="Section_1_Card Card1_color"
           animateIn="fadeIn"
-          animateOnce="true"
-          duration="0.5s"
+          animateOnce={true}
+          duration={0.5}
         >
           <div className="S1_Card_Icon">
             <img
@@ -27,8 +27,8 @@ const Section1 = () => {
         <ScrollAnimation
           className="Section_1_Card Card2_color"
           animateIn="fadeIn"
-          animateOnce="true"
-          duration="0.5s"
+          animateOnce={true}
+          duration={0.5}
         >
           <div className="S1_Card_Icon">
             <img alt="s1_card_icon" src="https://img.icons8.com/color/48/000000/add.png" />
@@ -42,8 +42,8 @@ const Section1 = () => {
         <ScrollAnimation
           className="Section_1_Card Card3_color"
           animateIn="fadeIn"
-          animateOnce="true"
-          duration="0.5s"
+          animateOnce={true}
+          duration={0.5}
         >
           <div className="S1_Card_Icon">
             <img alt="s1_card_icon" src="https://img.icons8.com/color/48/000000/connectdevelop.png" />
@@ -57,8 +57,8 @@ const Section1 = () => {
         <ScrollAnimation
           className="Section_1_Card Card4_color"
           animateIn="fadeIn"
-          animateOnce="true"
-          duration="0.5s"
+          animateOnce={true}
+          duration={0.5}
         >
           <div className="S1_Card_Icon">
             <img alt="s1_card_icon" src="https://img.icons8.com/nolan/64/combo-chart.png" />
