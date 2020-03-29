@@ -65,11 +65,11 @@ const CoverBuilderNav = () => {
           <div className="my-docs-btn">
             <div className="docsDiv" style={{display: "flex"}}>
             <span className="tool-icon tool-mydoc" >
-              <img style={{padding: "7px"}} src="https://img.icons8.com/officel/30/000000/documents.png"/>
                 <NavLink
                   to="/my-documents"
                   style={{ color: "#fff", textDecoration: "none" }}
                   >
+              <img style={{padding: "7px"}} src="https://img.icons8.com/officel/30/000000/documents.png"/>
                   <span className="MyDocs">My Docs</span>
                 </NavLink>
               </span>

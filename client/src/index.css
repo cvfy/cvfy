@@ -82,6 +82,17 @@ html::-webkit-scrollbar-thumb {
 @media (max-width: 550px) {
   .alignContainer {
     min-width: none;
+    display: flex!important;
+    flex-direction: column!important;
+    justify-items: flex-start!important;
+  }
+  .layoutSubMenu{
+    scale: 0.4;
+    left: -250px!important;
+  }
+  .templatesSubMenu{
+    scale: 0.4;
+    left: -220px!important;
   }
   .Down {
     display: none;
