@@ -130,6 +130,7 @@ const sendPDFDataCover = async (req, res, next) => {
     //const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
     const datas = await giveMePDFCover(req.params.id);
     //const file = await `${__dirname}../../../profile_picture/${req.params.id}.pdf`;
+    console.log(datas)
     res.status(200).send(datas);
     // fs.unlink(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`, (err) => {
     //     if (err) {

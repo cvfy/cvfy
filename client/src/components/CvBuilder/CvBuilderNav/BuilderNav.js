@@ -31,7 +31,7 @@ const BuilderNav = () => {
       status = await true;
       e.preventDefault();
       // console.log("I should be TRUE ->", loadingDownload);
-      await axios.get(`${url}/api/users/data/pdf/${context.id}`).then(res => {
+      await axios.get(`${url}/api/users/data/pdf/${localStorage.getItem("currentCV")}`).then(res => {
         window.open(`${url}/static2/${res.data}.pdf`, "_blank");
         if (res.data.length > 0) return setLoadingDownload(false);
       });
@@ -71,11 +71,11 @@ const BuilderNav = () => {
           <div className="my-docs-btn">
             <div className="docsDiv" style={{display: "flex"}}>
               <span className="tool-icon tool-mydoc" >
-              <img style={{padding: "7px"}} src="https://img.icons8.com/officel/30/000000/documents.png"/>
                 <NavLink
                   to="/my-documents"
                   style={{ color: "#fff", textDecoration: "none" }}
                   >
+              <img style={{padding: "7px"}} src="https://img.icons8.com/officel/30/000000/documents.png"/>
                   <span className="MyDocs">My Docs</span>
                 </NavLink>
               </span>

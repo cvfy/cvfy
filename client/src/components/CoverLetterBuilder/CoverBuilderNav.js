@@ -29,7 +29,8 @@ const CoverBuilderNav = () => {
     e.preventDefault();
     if (status === false) {
       status = await true;
-      await axios.get(`${url}/api/users/data/pdf/cover/${context.id}`).then(res => {
+      console.log(context.id)
+      await axios.get(`${url}/api/users/data/pdf/cover/${localStorage.getItem("currentCover")}`).then(res => { console.log(res.data)
         window.open(`${url}/static2/${res.data}.pdf`, "_blank"); //this.setState(res.data)
         if (res.data.length > 0) return setDownloadCover(false);
       });
@@ -65,11 +66,11 @@ const CoverBuilderNav = () => {
           <div className="my-docs-btn">
             <div className="docsDiv" style={{display: "flex"}}>
             <span className="tool-icon tool-mydoc" >
-              <img style={{padding: "7px"}} src="https://img.icons8.com/officel/30/000000/documents.png"/>
                 <NavLink
                   to="/my-documents"
                   style={{ color: "#fff", textDecoration: "none" }}
                   >
+              <img style={{padding: "7px"}} src="https://img.icons8.com/officel/30/000000/documents.png"/>
                   <span className="MyDocs">My Docs</span>
                 </NavLink>
               </span>

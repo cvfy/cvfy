@@ -4,7 +4,7 @@ puppeteer.use(pluginStealth());
 const merge = require("easy-pdf-merge");
 const imagesToPdf = require("images-to-pdf");
 
-async function giveMePDF(resumeID) {
+async function giveMePDFCover(resumeID) {
   const result = await puppeteer
     .launch({
       headless: true
@@ -16,9 +16,7 @@ async function giveMePDF(resumeID) {
           width: 1600,
           height: 4600
         });
-        await page.goto("http://localhost:3000/create-cover-letter", {
-          waitUntil: "networkidle2"
-        });
+        await page.goto("http://localhost:3000/create-cover-letter");
         // const localStorage = await page.evaluate(() =>  Object.assign({'CurrentCV': 'daca2eb2-5658-2e9f-17da-a503ee1cce7c'}, window.localStorage));
         await page.evaluate(resumeID => {
           // localStorage.removeItem('currentCV');
@@ -28,9 +26,7 @@ async function giveMePDF(resumeID) {
           );
           localStorage.setItem("currentCover", resumeID);
         }, resumeID);
-        await page.goto("http://localhost:3000/create-cover-letter", {
-          waitUntil: "networkidle2"
-        });
+        await page.goto("http://localhost:3000/create-cover-letter");
 
         await autoScroll(page);
 
@@ -100,4 +96,4 @@ async function autoScroll(page) {
     });
   });
 }
-module.exports = giveMePDF;
+module.exports = giveMePDFCover;
