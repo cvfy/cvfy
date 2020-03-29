@@ -7,7 +7,7 @@ const imagesToPdf = require("images-to-pdf");
 async function giveMePDF(resumeID) {
   const result = await puppeteer
     .launch({
-      headless: false
+      headless: true
     })
     .then(async browser => {
       try {
