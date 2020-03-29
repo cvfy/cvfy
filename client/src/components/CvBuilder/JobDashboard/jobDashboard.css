@@ -40,7 +40,7 @@
 }
 
 
-.JobDashboardForm form .JobDashboardButton{
+.JobDashboardForm form .JobDashboardButton {
     font-size: 16px;
     border: 1px solid lightgray;
     justify-content: center;
@@ -57,7 +57,8 @@
     border-radius: 20px;
     width: 14vw;
 }
-.boardButton{
+
+.boardButton {
     font-size: 16px;
     border: 1px solid lightgray;
     justify-content: center;
@@ -75,6 +76,7 @@
     border-radius: 20px;
     width: 14vw;
 }
+
 .JobDashboardForm form .JobDashboardButton:hover {
     background: #cecece17;
 }
@@ -84,7 +86,7 @@
     padding: 5px;
     background: rgb(232, 240, 254);
     border: none;
-    color: black!important;
+    color: black !important;
     border-radius: 20px;
     height: 35px;
     display: flex;
@@ -197,7 +199,4 @@
 
 .hideTransitionDashboard {
     width: 0;
-    transition: width 0.4s ease-in-out;
-
-
 }
