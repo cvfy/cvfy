@@ -29,7 +29,8 @@ const CoverBuilderNav = () => {
     e.preventDefault();
     if (status === false) {
       status = await true;
-      await axios.get(`${url}/api/users/data/pdf/cover/${context.id}`).then(res => {
+      console.log(context.id)
+      await axios.get(`${url}/api/users/data/pdf/cover/${context.id}`).then(res => { console.log(res.data)
         window.open(`${url}/static2/${res.data}.pdf`, "_blank"); //this.setState(res.data)
         if (res.data.length > 0) return setDownloadCover(false);
       });

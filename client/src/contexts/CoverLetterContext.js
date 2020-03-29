@@ -97,7 +97,8 @@ class CoverLetterContextProvider extends Component {
       await this.setState({ id: idG });
       await localStorage.setItem("currentCover", this.state.id);
       // console.log(`the state id is - ${this.state.id}`);
-      //axios.post(`${url}/api/users/resume/cover/${aFunction()}`, this.state);
+      axios.post(`${url}/api/users/resume/cover/save/${aFunction()}`, this.state);
+
     }
     if (localStorage.getItem("currentCover")) {
       // console.log("i am trying to get the data");
@@ -115,6 +116,7 @@ class CoverLetterContextProvider extends Component {
         );
     }
     // console.log(this.state.coverLetters[0].contact.email);
+   
   }
 
   componentDidUpdate() {

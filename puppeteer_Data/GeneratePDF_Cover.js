@@ -4,7 +4,7 @@ puppeteer.use(pluginStealth());
 const merge = require("easy-pdf-merge");
 const imagesToPdf = require("images-to-pdf");
 
-async function giveMePDF(resumeID) {
+async function giveMePDFCover(resumeID) {
   const result = await puppeteer
     .launch({
       headless: true
@@ -100,4 +100,4 @@ async function autoScroll(page) {
     });
   });
 }
-module.exports = giveMePDF;
+module.exports = giveMePDFCover;
