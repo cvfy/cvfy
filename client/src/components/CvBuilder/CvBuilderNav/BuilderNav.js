@@ -31,10 +31,12 @@ const BuilderNav = () => {
       status = await true;
       e.preventDefault();
       // console.log("I should be TRUE ->", loadingDownload);
-      await axios.get(`${url}/api/users/data/pdf/${localStorage.getItem("currentCV")}`).then(res => {
-        window.open(`${url}/static2/${res.data}.pdf`, "_blank");
-        if (res.data.length > 0) return setLoadingDownload(false);
-      });
+      await axios
+        .get(`${url}/api/users/data/pdf/${localStorage.getItem("currentCV")}`)
+        .then(res => {
+          window.open(`${url}/static2/${res.data}.pdf`, "_blank");
+          if (res.data.length > 0) return setLoadingDownload(false);
+        });
       status = await false;
       setLoadingDownload(false);
     } else {
@@ -42,8 +44,8 @@ const BuilderNav = () => {
   };
   return (
     <>
-      <div className="CvMenu">
-        <NavLink style={{ textDecoration: "none" }} to="/">
+      <div className="CoverMenu">
+        <NavLink style={{ textDecoration: "none", paddingLeft: "20px" }} to="/">
           {/* <Beforeunload onBeforeunload={() => "You'll lose your data!"} /> */}
           <span className="logo-template">CV|FY</span>
         </NavLink>
@@ -69,13 +71,16 @@ const BuilderNav = () => {
         </div>
         <div className="my-documents">
           <div className="my-docs-btn">
-            <div className="docsDiv" style={{display: "flex"}}>
-              <span className="tool-icon tool-mydoc" >
+            <div className="docsDiv" style={{ display: "flex" }}>
+              <span className="tool-icon tool-mydoc">
                 <NavLink
                   to="/my-documents"
                   style={{ color: "#fff", textDecoration: "none" }}
-                  >
-              <img style={{padding: "7px"}} src="https://img.icons8.com/officel/30/000000/documents.png"/>
+                >
+                  <img
+                    style={{ padding: "0 7px" }}
+                    src="https://img.icons8.com/officel/20/000000/documents.png"
+                  />
                   <span className="MyDocs">My Docs</span>
                 </NavLink>
               </span>

@@ -13,7 +13,7 @@
   background: linear-gradient(to left, #3dbaf7, #1d3b8b);
   font-size: 28px;
   display: grid;
-  grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 3.5fr 1fr 1fr 1fr;
   align-items: center;
   /* padding-left: 20px; */
   color: #fff;
@@ -98,10 +98,11 @@
 
 .download {
   text-align: center;
+  height: 100%;
 }
 
 .download-btn {
-  height: 60px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -419,7 +420,7 @@
 }
 
 /* On mouse-over, add a grey background color */
-.headerContainer:hover input ~ .checkMark {
+.headerContainer:hover input~.checkMark {
   background-color: #ccc;
 }
 
@@ -618,10 +619,10 @@
   background-image: url(../assets/executive-template.jpg);
 }
 
-.basicTemplate:hover ~ .basicTitle,
-.modernTemplate:hover ~ .modernTitle,
-.professionalTemplate:hover ~ .professionalTitle,
-.executiveTemplate:hover ~ .executiveTitle {
+.basicTemplate:hover~.basicTitle,
+.modernTemplate:hover~.modernTitle,
+.professionalTemplate:hover~.professionalTitle,
+.executiveTemplate:hover~.executiveTitle {
   color: rgb(0, 195, 255);
 }
 
