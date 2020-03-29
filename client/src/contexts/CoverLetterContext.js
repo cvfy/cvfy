@@ -130,7 +130,7 @@ class CoverLetterContextProvider extends Component {
     }
     if (
       this.state.coverLetters[0].text.length < 3499 &&
-      this.state.coverLetters[1].text
+      this.state.coverLetters[1].text.length > 0
     ) {
       let cover = [...this.state.coverLetters];
       let data = cover[0].text + cover[1].text.replace("<br>", "\n");
@@ -292,25 +292,25 @@ class CoverLetterContextProvider extends Component {
   };
 
   goToBasicCoverTemplate = id => {
-    localStorage.setItem("currentCover", id);
+    localStorage.setItem("currentCover", guidGenerator());
     window.location.href = `${frontUrl}/create-cover-letter`;
     this.showBasicCoverTemplate();
   };
 
   goToModernCoverTemplate = id => {
-    localStorage.setItem("currentCover", id);
+    localStorage.setItem("currentCover", guidGenerator());
     window.location.href = `${frontUrl}/create-cover-letter`;
     this.showModernCoverTemplate();
   };
 
   goToProfessionalCoverTemplate = id => {
-    localStorage.setItem("currentCover", id);
+    localStorage.setItem("currentCover", guidGenerator());
     window.location.href = `${frontUrl}/create-cover-letter`;
     this.showProfessionalCoverTemplate();
   };
 
   goToExecutiveCoverTemplate = id => {
-    localStorage.setItem("currentCover", id);
+    localStorage.setItem("currentCover", guidGenerator());
     window.location.href = `${frontUrl}/create-cover-letter`;
     this.showExecutiveCoverTemplate();
   };
@@ -377,9 +377,54 @@ class CoverLetterContextProvider extends Component {
         this.setState({ coverLetters: newObject });
       }
       if (field === "text") {
-        let newVal = value.replace(/<br>/g, "\n");
+        if(value.includes("<br>") || value.includes("&nbsp;")){
+        // let newVal = value.replace(/<br>/g, "\n");
+        value = value.replace(/&amp;/gi, '&');
+
+    // Replace spaces.
+    value = value.replace(/&nbsp;/gi, ' ');
+    value = value.replace(/\s+/g, ' ');
+
+    // Remove "<b>".
+    value = value.replace(/<b>/gi, '');
+    value = value.replace(/<\/b>/gi, '');
+
+    // Remove "<strong>".
+    value = value.replace(/<strong>/gi, '');
+    value = value.replace(/<\/strong>/gi, '');
+
+    // Remove "<i>".
+    value = value.replace(/<i>/gi, '');
+    value = value.replace(/<\/i>/gi, '');
+
+    // Remove "<em>".
+    value = value.replace(/<em>/gi, '');
+    value = value.replace(/<\/em>/gi, '');
+    // Remove "<u>".
+    value = value.replace(/<u>/gi, '');
+    value = value.replace(/<\/u>/gi, '');
+
+    // Tighten up "<" and ">".
+    value = value.replace(/>\s+/g, '>');
+    value = value.replace(/\s+</g, '<');
+
+    // Replace "<br>".
+    value = value.replace(/<br>/gi, '\n');
+
+    // Replace "<div>" (from Chrome).
+    value = value.replace(/<div>/gi, '\n');
+    value = value.replace(/<\/div>/gi, '');
+
+    // Replace "<p>" (from IE).
+    value = value.replace(/<p>/gi, '\n');
+    value = value.replace(/<\/p>/gi, '');
+
+    // No more than 2x newline, per "paragraph".
+    // value = value.replace(/\n\n+/g, '\n\n');
+        }
+    // Whitespace before/after.
         // console.log(newVal)
-        newObject[index].text = newVal;
+        newObject[index].text = value;
         this.setState({ coverLetters: newObject });
         // }
         // else {

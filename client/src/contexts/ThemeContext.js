@@ -478,10 +478,12 @@ class ThemeContextProvider extends Component {
   }
 
   async componentDidMount() {
+    console.log(this.state.id)
     // console.log("diplay one column is =>" + this.state.style.displayOneColumn);
     if (
       localStorage.getItem("currentCV") === null ||
       localStorage.getItem("currentCV") === ""
+      // localStorage.getItem("currentCV") === "[object Object]"
     ) {
       const idG = await guidGenerator();
       await this.setState({ id: idG });
@@ -1442,25 +1444,25 @@ class ThemeContextProvider extends Component {
   };
 
   directToBasicTemplate = id => {
-    localStorage.setItem("currentCV", id);
+    localStorage.setItem("currentCV", guidGenerator());
     window.location.href = `${frontUrl}/create-cv`;
     this.showBasicTemplate();
   };
 
   directToModernTemplate = id => {
-    localStorage.setItem("currentCV", id);
+    localStorage.setItem("currentCV", guidGenerator());
     window.location.href = `${frontUrl}/create-cv`;
     this.showModernTemplate();
   };
 
   directToProfessionalTemplate = id => {
-    localStorage.setItem("currentCV", id);
+    localStorage.setItem("currentCV", guidGenerator());
     window.location.href = `${frontUrl}/create-cv`;
     this.showProfessionalTemplate();
   };
 
   directToExecutiveTemplate = id => {
-    localStorage.setItem("currentCV", id);
+    localStorage.setItem("currentCV", guidGenerator());
     window.location.href = `${frontUrl}/create-cv`;
     this.showExecutiveTemplate();
   };
