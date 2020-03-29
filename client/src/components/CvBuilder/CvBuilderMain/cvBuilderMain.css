@@ -347,6 +347,7 @@ input[type="text"]:focus {
   display: flex;
   cursor: pointer;
 }
+
 .contactP {
   background-color: #d3d3d382;
   /* padding-left: 37.5px; */
@@ -700,4 +701,23 @@ input[type="text"]:focus {
   content: "Level";
   display: block;
   font-style: italic;
+}
+
+
+@media (max-width: 800px) {
+  .cvBuilderWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #containerA4 {
+    margin: -2rem;
+  }
+}
+
+@media (max-width: 550px) {
+  #containerA4 {
+    margin: -12rem;
+  }
 }

@@ -81,6 +81,7 @@
   margin-left: 20px;
 }
 
+.my-docs-btn:hover,
 .font-btn:hover,
 .theme-btn:hover,
 .coverLayout-btn:hover,
@@ -119,11 +120,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.my-docs-btn:hover {
-  border-bottom: 1px solid #fff;
-  cursor: pointer;
 }
 
 .template-menu-btn:hover {
@@ -591,7 +587,11 @@ ul.minMenu {
   background: #19ee60;
 }
 
-@media (max-width: 1015px) {
+@media (max-width: 1096px) {
+  .CoverMenu {
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  }
+
   .tool-desc {
     display: none;
   }
@@ -606,6 +606,20 @@ ul.minMenu {
 
   .saveUpdateButton {
     width: 10vw;
+  }
+}
+
+@media (max-width: 700px) {
+  .tool-label {
+    display: none;
+  }
+
+  .wrapper {
+    padding-right: 0;
+  }
+
+  .extra-tool {
+    font-size: 0.8rem;
   }
 }
 
