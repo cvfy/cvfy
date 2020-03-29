@@ -14,9 +14,9 @@ import { ThemeContext } from "../../../contexts/ThemeContext";
 
 class CvBuilderMain extends React.Component {
 
-  componentWillUnmount(){
-    localStorage.setItem("currentCV", "")
-  }
+  // componentWillUnmount(){
+  //   localStorage.setItem("currentCV", "")
+  // }
   render() {
     return (
       <ThemeContext.Consumer>

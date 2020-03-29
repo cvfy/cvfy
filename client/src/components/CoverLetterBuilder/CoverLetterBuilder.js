@@ -8,9 +8,9 @@ import CoverLetterModern from "./CoverLetterMain/CoverLetterModern";
 import { CoverLetterContext } from "../../contexts/CoverLetterContext";
 
 class CoverLetterBuilder extends React.Component {
-  componentWillUnmount(){
-    localStorage.setItem("currentCover", "")
-  }
+  // componentWillUnmount(){
+  //   localStorage.setItem("currentCover", "")
+  // }
   // constructor() {
   //   super();
   //   this.state = {

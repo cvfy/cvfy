@@ -194,6 +194,7 @@ class ThemeContextProvider extends Component {
   };
 
   componentDidUpdate() {
+    console.log(this.state.style.displayModern)
     let Pages = [...this.state.userData];
     // MAPPING THOURGH THE PAGES TO GET THE HEIGHTS OF SECTIONS AND GROUPS
     Array.from(document.querySelectorAll(".A4")).forEach((el, i) => {
@@ -683,7 +684,7 @@ class ThemeContextProvider extends Component {
       // console.log("Should be true ->", this.state.loadingSaveCv);
       const userID = await aFunction();
       // console.log(userID);
-
+      console.log(this.state.style.displayModern)
       //const data = JSON.stringify(this.state)
       await axios
         .post(`${url}/api/users/resume/cv/save/${userID}`, this.state)
