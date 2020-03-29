@@ -31,7 +31,7 @@ const BuilderNav = () => {
       status = await true;
       e.preventDefault();
       // console.log("I should be TRUE ->", loadingDownload);
-      await axios.get(`${url}/api/users/data/pdf/${context.id}`).then(res => {
+      await axios.get(`${url}/api/users/data/pdf/${localStorage.getItem("currentCV")}`).then(res => {
         window.open(`${url}/static2/${res.data}.pdf`, "_blank");
         if (res.data.length > 0) return setLoadingDownload(false);
       });

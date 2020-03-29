@@ -7,7 +7,7 @@ const imagesToPdf = require("images-to-pdf");
 async function giveMePDF(resumeID) {
   const result = await puppeteer
     .launch({
-      headless: true
+      headless: false
     })
     .then(async browser => {
       try {
@@ -16,9 +16,7 @@ async function giveMePDF(resumeID) {
           width: 1600,
           height: 4600
         });
-        await page.goto("http://localhost:3000/create-cv", {
-          waitUntil: "networkidle2"
-        });
+        await page.goto("http://localhost:3000/create-cv");
         await page.evaluate(resumeID => {
           localStorage.setItem(
             "jwtToken",
@@ -26,9 +24,7 @@ async function giveMePDF(resumeID) {
           );
           localStorage.setItem("currentCV", resumeID);
         }, resumeID);
-        await page.goto("http://localhost:3000/create-cv", {
-          waitUntil: "networkidle2"
-        });
+        await page.goto("http://localhost:3000/create-cv");
 
         await autoScroll(page);
 

@@ -16,9 +16,7 @@ async function giveMePDFCover(resumeID) {
           width: 1600,
           height: 4600
         });
-        await page.goto("http://localhost:3000/create-cover-letter", {
-          waitUntil: "networkidle2"
-        });
+        await page.goto("http://localhost:3000/create-cover-letter");
         // const localStorage = await page.evaluate(() =>  Object.assign({'CurrentCV': 'daca2eb2-5658-2e9f-17da-a503ee1cce7c'}, window.localStorage));
         await page.evaluate(resumeID => {
           // localStorage.removeItem('currentCV');
@@ -28,9 +26,7 @@ async function giveMePDFCover(resumeID) {
           );
           localStorage.setItem("currentCover", resumeID);
         }, resumeID);
-        await page.goto("http://localhost:3000/create-cover-letter", {
-          waitUntil: "networkidle2"
-        });
+        await page.goto("http://localhost:3000/create-cover-letter");
 
         await autoScroll(page);
 
