@@ -37,6 +37,7 @@
   display: flex;
   text-align: right;
   padding: 0 10px;
+  align-items: center;
 }
 
 .first-icon {
@@ -865,6 +866,21 @@
   }
 }
 
+@media (max-width: 750px) {
+  .menuBottomBarDiv {
+    height: 4.2rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .CvMenuWrapper div .layout-btn,
+  .CvMenuWrapper div .theme-btn,
+  .CvMenuWrapper div .template-btn,
+  .CvMenuWrapper div .coverLayout-btn {
+    margin: 5px;
+  }
+}
+
 @media (max-width: 500px) {
   #linkedInInput {
     font-size: 12px;
@@ -877,5 +893,12 @@
   .linkedInButton,
   .saveUpdateButton {
     font-size: 12px;
+  }
+
+  .CvMenuWrapper div .layout-btn,
+  .CvMenuWrapper div .theme-btn,
+  .CvMenuWrapper div .template-btn,
+  .CvMenuWrapper div .coverLayout-btn {
+    margin: 0;
   }
 }

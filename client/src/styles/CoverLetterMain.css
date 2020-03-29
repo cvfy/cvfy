@@ -9,8 +9,8 @@
     width: 892.5px;
     min-height: 1263px !important;
     background: #fff center center;
-    margin-right: auto;
-    margin-left: auto;
+    /* margin-right: auto;
+    margin-left: auto; */
     margin-top: 10rem;
 }
 
@@ -353,4 +353,26 @@
 
 .hideSection {
     display: none;
+}
+
+
+
+@media (max-width: 1000px) {
+    #container {
+        margin-top: 5rem;
+    }
+}
+
+@media (max-width: 870px) {
+    .alignContainer #container {
+        transform: scale(0.7);
+        margin-top: -3rem;
+    }
+}
+
+@media (max-width: 750px) {
+    .alignContainer #container {
+        transform: scale(0.6);
+        margin-top: -8rem;
+    }
 }

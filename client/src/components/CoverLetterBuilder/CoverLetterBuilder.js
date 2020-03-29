@@ -27,7 +27,7 @@ class CoverLetterBuilder extends React.Component {
         {context => {
           return (
             // <CoverLetterContextProvider>
-            <div className="AppCover">
+            <div className="AppCover" style={{ overflowX: "hidden" }}>
               <CoverLetterNav></CoverLetterNav>
               {context.style.displayBasicTemplate ? (
                 <CoverLetterBasic />

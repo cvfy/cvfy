@@ -29,11 +29,18 @@ const CoverBuilderNav = () => {
     e.preventDefault();
     if (status === false) {
       status = await true;
-      console.log(context.id)
-      await axios.get(`${url}/api/users/data/pdf/cover/${localStorage.getItem("currentCover")}`).then(res => { console.log(res.data)
-        window.open(`${url}/static2/${res.data}.pdf`, "_blank"); //this.setState(res.data)
-        if (res.data.length > 0) return setDownloadCover(false);
-      });
+      console.log(context.id);
+      await axios
+        .get(
+          `${url}/api/users/data/pdf/cover/${localStorage.getItem(
+            "currentCover"
+          )}`
+        )
+        .then(res => {
+          console.log(res.data);
+          window.open(`${url}/static2/${res.data}.pdf`, "_blank"); //this.setState(res.data)
+          if (res.data.length > 0) return setDownloadCover(false);
+        });
       status = await false;
       setDownloadCover(false);
     } else {
@@ -43,7 +50,7 @@ const CoverBuilderNav = () => {
   return (
     <>
       <div className="CvMenu">
-        <NavLink style={{ textDecoration: "none" }} to="/">
+        <NavLink style={{ textDecoration: "none", paddingLeft: "20px" }} to="/">
           <span className="logo-template">CV|FY</span>
         </NavLink>
         <div className="design">
@@ -64,13 +71,17 @@ const CoverBuilderNav = () => {
         </div>
         <div className="my-documents">
           <div className="my-docs-btn">
-            <div className="docsDiv" style={{display: "flex"}}>
-            <span className="tool-icon tool-mydoc" >
+            <div className="docsDiv" style={{ display: "flex" }}>
+              <span className="tool-icon tool-mydoc">
                 <NavLink
                   to="/my-documents"
                   style={{ color: "#fff", textDecoration: "none" }}
-                  >
-              <img style={{padding: "7px"}} src="https://img.icons8.com/officel/30/000000/documents.png"/>
+                  onHover={{ color: "red" }}
+                >
+                  <img
+                    style={{ padding: "0 7px" }}
+                    src="https://img.icons8.com/officel/20/000000/documents.png"
+                  />
                   <span className="MyDocs">My Docs</span>
                 </NavLink>
               </span>
@@ -87,7 +98,7 @@ const CoverBuilderNav = () => {
         navbarState={navbarState}
         handleNavbar={handleNavbar}
       />
-        {downloadCoverState? (
+      {downloadCoverState ? (
         <div className="convertingPdfMessage">
           <p className="loadingText">
             <Emoji text="Converting to pdf :rocket:" />
