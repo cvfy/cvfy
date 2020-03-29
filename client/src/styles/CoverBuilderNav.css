@@ -588,7 +588,7 @@ ul.minMenu {
   background: #19ee60;
 }
 
-@media (max-width: 1096px) {
+@media (max-width: 1108px) {
   .CoverMenu {
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
   }
@@ -610,9 +610,22 @@ ul.minMenu {
   }
 }
 
-@media (max-width: 700px) {
+/* @media (max-width: 800px) {
+  .extra-tool {
+    font-size: 0.8rem;
+  }
+} */
+
+@media (max-width: 750px) {
   .tool-label {
     display: none;
+  }
+
+  .cvExtraToolsDiv {
+    height: 3.2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr 1fr;
   }
 
   .wrapper {
@@ -622,14 +635,18 @@ ul.minMenu {
   .extra-tool {
     font-size: 0.8rem;
   }
+
+  .saveUpdateButton {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 500px) {
   ::placeholder {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .saveUpdateButton {
-    font-size: 12px;
+    font-size: 8px;
   }
 }

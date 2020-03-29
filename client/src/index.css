@@ -41,6 +41,10 @@ html::-webkit-scrollbar-thumb {
 
 }
 
+button::-moz-focus-inner {
+  border: 0;
+}
+
 @media screen and (max-width: 1000px) {
   .alignContainer #containerA4 {
     transform: scale(0.9);
@@ -162,10 +166,6 @@ html::-webkit-scrollbar-thumb {
 
   .CvMenuWrapper div .extra-tools-btn {
     padding: 0px;
-  }
-
-  .CvMenuWrapper div .buttonsDiv span {
-    font-size: 10px;
   }
 
   .MyDocs {

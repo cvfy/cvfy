@@ -60,7 +60,7 @@ class CoverLetterContextProvider extends Component {
         fullName: nameFunction(),
         professionalTitle: "Professional Title",
         companyDetails: "Company Details",
-        text: "Dear Sir/Madam,...AAA",
+        text: "Dear Recruiter Manager,",
         signature: "",
         contact: [
           { icon: "far fa-envelope", value: "Email" },
@@ -97,8 +97,10 @@ class CoverLetterContextProvider extends Component {
       await this.setState({ id: idG });
       await localStorage.setItem("currentCover", this.state.id);
       // console.log(`the state id is - ${this.state.id}`);
-      axios.post(`${url}/api/users/resume/cover/save/${aFunction()}`, this.state);
-
+      axios.post(
+        `${url}/api/users/resume/cover/save/${aFunction()}`,
+        this.state
+      );
     }
     if (localStorage.getItem("currentCover")) {
       // console.log("i am trying to get the data");
@@ -116,7 +118,6 @@ class CoverLetterContextProvider extends Component {
         );
     }
     // console.log(this.state.coverLetters[0].contact.email);
-   
   }
 
   componentDidUpdate() {
@@ -169,15 +170,16 @@ class CoverLetterContextProvider extends Component {
       const userID = aFunction();
       // console.log(`this is user userID ${userID}`)
       // console.log(this.state.coverLetters[0].contact);
-    
+
       //const data = JSON.stringify(this.state)
       await axios
-      .post(`${url}/api/users/resume/cover/save/${userID}`, this.state)
-      .then(res => {
-        // console.log(res.data);
-        if (res.data === "done") return this.setState({ loadingSaveCv: true });
-      });
-      
+        .post(`${url}/api/users/resume/cover/save/${userID}`, this.state)
+        .then(res => {
+          // console.log(res.data);
+          if (res.data === "done")
+            return this.setState({ loadingSaveCv: true });
+        });
+
       // await this.setState({ loadingSaveCv: false });
       // if (res.data == "done") this.setState({ loadingSaveCv: false });
       // console.log("Should be false again ->", this.state.loadingSaveCv);
@@ -377,52 +379,52 @@ class CoverLetterContextProvider extends Component {
         this.setState({ coverLetters: newObject });
       }
       if (field === "text") {
-        if(value.includes("<br>") || value.includes("&nbsp;")){
-        // let newVal = value.replace(/<br>/g, "\n");
-        value = value.replace(/&amp;/gi, '&');
+        if (value.includes("<br>") || value.includes("&nbsp;")) {
+          // let newVal = value.replace(/<br>/g, "\n");
+          value = value.replace(/&amp;/gi, "&");
 
-    // Replace spaces.
-    value = value.replace(/&nbsp;/gi, ' ');
-    value = value.replace(/\s+/g, ' ');
+          // Replace spaces.
+          value = value.replace(/&nbsp;/gi, " ");
+          value = value.replace(/\s+/g, " ");
 
-    // Remove "<b>".
-    value = value.replace(/<b>/gi, '');
-    value = value.replace(/<\/b>/gi, '');
+          // Remove "<b>".
+          value = value.replace(/<b>/gi, "");
+          value = value.replace(/<\/b>/gi, "");
 
-    // Remove "<strong>".
-    value = value.replace(/<strong>/gi, '');
-    value = value.replace(/<\/strong>/gi, '');
+          // Remove "<strong>".
+          value = value.replace(/<strong>/gi, "");
+          value = value.replace(/<\/strong>/gi, "");
 
-    // Remove "<i>".
-    value = value.replace(/<i>/gi, '');
-    value = value.replace(/<\/i>/gi, '');
+          // Remove "<i>".
+          value = value.replace(/<i>/gi, "");
+          value = value.replace(/<\/i>/gi, "");
 
-    // Remove "<em>".
-    value = value.replace(/<em>/gi, '');
-    value = value.replace(/<\/em>/gi, '');
-    // Remove "<u>".
-    value = value.replace(/<u>/gi, '');
-    value = value.replace(/<\/u>/gi, '');
+          // Remove "<em>".
+          value = value.replace(/<em>/gi, "");
+          value = value.replace(/<\/em>/gi, "");
+          // Remove "<u>".
+          value = value.replace(/<u>/gi, "");
+          value = value.replace(/<\/u>/gi, "");
 
-    // Tighten up "<" and ">".
-    value = value.replace(/>\s+/g, '>');
-    value = value.replace(/\s+</g, '<');
+          // Tighten up "<" and ">".
+          value = value.replace(/>\s+/g, ">");
+          value = value.replace(/\s+</g, "<");
 
-    // Replace "<br>".
-    value = value.replace(/<br>/gi, '\n');
+          // Replace "<br>".
+          value = value.replace(/<br>/gi, "\n");
 
-    // Replace "<div>" (from Chrome).
-    value = value.replace(/<div>/gi, '\n');
-    value = value.replace(/<\/div>/gi, '');
+          // Replace "<div>" (from Chrome).
+          value = value.replace(/<div>/gi, "\n");
+          value = value.replace(/<\/div>/gi, "");
 
-    // Replace "<p>" (from IE).
-    value = value.replace(/<p>/gi, '\n');
-    value = value.replace(/<\/p>/gi, '');
+          // Replace "<p>" (from IE).
+          value = value.replace(/<p>/gi, "\n");
+          value = value.replace(/<\/p>/gi, "");
 
-    // No more than 2x newline, per "paragraph".
-    // value = value.replace(/\n\n+/g, '\n\n');
+          // No more than 2x newline, per "paragraph".
+          // value = value.replace(/\n\n+/g, '\n\n');
         }
-    // Whitespace before/after.
+        // Whitespace before/after.
         // console.log(newVal)
         newObject[index].text = value;
         this.setState({ coverLetters: newObject });
