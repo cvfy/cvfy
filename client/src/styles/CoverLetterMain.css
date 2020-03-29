@@ -246,6 +246,16 @@
     margin-right: 10px;
 }
 
+.contactWrapper {
+    align-self: end;
+}
+
+@-moz-document url-prefix() {
+    .contactWrapper {
+        align-self: auto;
+    }
+}
+
 /* =========================================================== */
 /* ================== CONTACT MODAL SECTION ================== */
 /* =========================================================== */

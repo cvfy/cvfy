@@ -92,7 +92,10 @@ class CoverLetterHeader extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="contactWrapper" style={{ alignSelf: "end" }}>
+              <div
+                className="contactWrapper"
+                // style={{ alignSelf: "end", msAlignSelf: "auto" }}
+              >
                 <CoverLetterContact />
               </div>
             </div>
