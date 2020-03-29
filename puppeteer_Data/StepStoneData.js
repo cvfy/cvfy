@@ -40,6 +40,7 @@ async function giveMeJobData(position, location, pages) {
                 jobObj.JobPosition = verify(document.querySelector(".at-listing-nav-listing-title").innerText)
                 jobObj.JobRequirements = verify(Array.from(document.querySelectorAll(".at-section-text-profile-content ul li")).map(el => el.innerText))
                 return jobObj
+                window.stop()
             }, jobData)
             jobsArray.push(Data)
             }
