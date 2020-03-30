@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "../../../assets/signin.svg";
+import { NavLink } from "react-router-dom";
 
 const Section2 = () => {
   return (
@@ -13,6 +14,14 @@ const Section2 = () => {
           can, drag, drop, shorten, trim, slash, lop, clip, chop, put in a
           nutshell oooor lengthen, expand, enlarge, increase and amplify!
         </p>
+        <button className="signUpButton" style={{ cursor: "pointer" }}>
+          <NavLink
+            to="/register"
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
+            Sign Up
+          </NavLink>
+        </button>
       </div>
       <div className="PictureSide">
         <img src={Image} alt="sec2_image" />
