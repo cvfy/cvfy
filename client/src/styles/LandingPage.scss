@@ -29,6 +29,44 @@ $CardsBgColor: #a9bbca;
       padding: 50px;
     }
 
+    .DescriptionSide {
+      p {
+        line-height: 1.8rem;
+      }
+      .signUpButton {
+        outline: none;
+        border: 0;
+        background: $ButtonColor;
+        padding: 13px 31px;
+        color: white;
+        margin-right: 10px;
+        border-radius: 7px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .GroupButtons {
+        .CVTbutton,
+        .CLTbutton {
+          outline: none;
+          border: 0;
+          background: $ButtonColor;
+          padding: 13px 31px;
+          color: white;
+          margin-right: 10px;
+          border-radius: 7px;
+          font-size: 1rem;
+          font-weight: 700;
+          cursor: pointer;
+          margin: 10px;
+          a {
+            color: whitesmoke;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
     .DesktopLeft {
       text-align: left;
 
@@ -217,6 +255,20 @@ $CardsBgColor: #a9bbca;
           display: block;
 
           button {
+            width: 100%;
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      .DescriptionSide {
+        .signUpButton {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        .GroupButtons {
+          .CVTbutton,
+          .CLTbutton {
             width: 100%;
             margin-bottom: 10px;
           }
