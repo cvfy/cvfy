@@ -8,7 +8,7 @@ const Desktop = () => {
       <div className="DesktopLeft">
         <h1>The smart, flexible CV builder you'll love!</h1>
         <p>
-          Creating a Professional Resume and Cover-Letter has never been so{" "}
+          Creating a Professional Resume and Cover Letter has never been so{" "}
           <b>simple</b>!
         </p>
         <div className="GroupButtons">
