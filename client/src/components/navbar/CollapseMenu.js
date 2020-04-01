@@ -9,6 +9,8 @@ const CollapseMenu = props => {
   const onLogoutClick = e => {
     e.preventDefault();
     localStorage.removeItem("jwtToken");
+    localStorage.removeItem("currentCV");
+    localStorage.removeItem("currentCover");
     window.location.reload();
   };
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
