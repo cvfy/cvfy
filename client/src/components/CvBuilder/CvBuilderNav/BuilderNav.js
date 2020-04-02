@@ -23,7 +23,10 @@ const BuilderNav = () => {
 
   const handleNavbar = () => setNavbarState(!navbarState);
   const handleDownload = () => setLoadingDownload(!loadingDownload);
-
+const LogOutCurrentCV_Cover = () => {
+  localStorage.setItem("currentCV", "")
+  localStorage.setItem("currentCover", "")
+}
   let status = false;
   const downloadPdf = async e => {
     setLoadingDownload(true);
@@ -47,7 +50,7 @@ const BuilderNav = () => {
       <div className="CoverMenu">
         <NavLink style={{ textDecoration: "none", paddingLeft: "20px" }} to="/">
           {/* <Beforeunload onBeforeunload={() => "You'll lose your data!"} /> */}
-          <span className="logo-template">CV|FY</span>
+          <span onClick={() => LogOutCurrentCV_Cover()} className="logo-template">CV|FY</span>
         </NavLink>
         <div className="design">
           <div className="tool-label">Design</div>
@@ -76,6 +79,7 @@ const BuilderNav = () => {
                 <NavLink
                   to="/my-documents"
                   style={{ color: "#fff", textDecoration: "none" }}
+                  onClick={() => LogOutCurrentCV_Cover()}
                 >
                   <img
                     style={{ padding: "0 7px" }}

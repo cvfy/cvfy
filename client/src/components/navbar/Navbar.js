@@ -40,6 +40,12 @@ const Navbar = props => {
     localStorage.removeItem("currentCover");
     window.location.reload();
   };
+  const onLClick = e => {
+    e.preventDefault();
+    localStorage.removeItem("currentCV");
+    localStorage.removeItem("currentCover");
+    // window.location.reload();
+  };
 
   return (
     <>

@@ -22,8 +22,11 @@ const CoverBuilderNav = () => {
 
   const handleNavbar = () => setNavbarState(!navbarState);
   const handleCoverDownload = () => setDownloadCover(!downloadCoverState);
-
   let status = false;
+  const LogOutCurrentCV_Cover = () => {
+    localStorage.removeItem("currentCV")
+    localStorage.removeItem("currentCover")
+  }
   const downloadPdfCover = async e => {
     setDownloadCover(true);
     e.preventDefault();
@@ -50,7 +53,7 @@ const CoverBuilderNav = () => {
   return (
     <>
       <div className="CvMenu">
-        <NavLink style={{ textDecoration: "none", paddingLeft: "20px" }} to="/">
+        <NavLink style={{ textDecoration: "none", paddingLeft: "20px" }} to="/" onClick={() => LogOutCurrentCV_Cover()}>
           <span className="logo-template">CV|FY</span>
         </NavLink>
         <div className="design">
@@ -77,6 +80,7 @@ const CoverBuilderNav = () => {
                   to="/my-documents"
                   style={{ color: "#fff", textDecoration: "none" }}
                   onHover={{ color: "red" }}
+                  onClick={() => LogOutCurrentCV_Cover()}
                 >
                   <img
                     style={{ padding: "0 7px" }}

@@ -9,7 +9,7 @@ class JobDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      openRequirements: [true, false, false, false],
+      openRequirements: [false, false, false, false],
       openJobDashboard: false,
       positionValue: "",
       locationValue: "",
