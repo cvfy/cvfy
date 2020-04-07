@@ -33,7 +33,7 @@ const CollapseMenu = props => {
             .interpolate(openValue => `translate3d(0, ${openValue}px, 0`)
         }}
       >
-        <ul className="minMenu"  >
+        <ul className="minMenu">
           <li key="1" >
             <a href="/create-cv" onClick={props.handleNavbar}>
               Create CV

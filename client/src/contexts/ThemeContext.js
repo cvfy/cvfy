@@ -2,6 +2,7 @@ import React, { Component, createContext, useRef } from "react";
 import axios from "axios";
 import store from "./../store.js";
 import { url, cloudinaryUrl, frontUrl } from "../config";
+import { response } from "express";
 //import uuid from 'uuid'
 let status = false;
 let status2 = false;
@@ -489,7 +490,7 @@ class ThemeContextProvider extends Component {
       await this.setState({ id: idG });
       await localStorage.setItem("currentCV", this.state.id);
       // console.log(`the state id is - ${this.state.id}`);
-      axios.post(`${url}/api/users/resume/cv/${aFunction()}`, this.state);
+      //axios.post(`${url}/api/users/resume/cv/${aFunction()}`, this.state);
     }
     if (
       localStorage.getItem("currentCV") !== null ||
