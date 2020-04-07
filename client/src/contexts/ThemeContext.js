@@ -98,7 +98,7 @@ class ThemeContextProvider extends Component {
         fullName: BFunction(),
         intro: "Professional title",
         about: "Short and engaging pitch about yourself",
-        profilePic: `${url}/static/profile_default.gif`,
+        profilePic: `${url}/static/profile-logo-anonym.jpg`,
         contact: [
           { icon: "far fa-envelope", value: "Email" },
           { icon: "fas fa-mobile-alt", value: "Phone number" },
@@ -194,7 +194,7 @@ class ThemeContextProvider extends Component {
   };
 
   componentDidUpdate() {
-    console.log(this.state.style.displayModern)
+    console.log(this.state.style.displayModern);
     let Pages = [...this.state.userData];
     // MAPPING THOURGH THE PAGES TO GET THE HEIGHTS OF SECTIONS AND GROUPS
     Array.from(document.querySelectorAll(".A4")).forEach((el, i) => {
@@ -478,7 +478,7 @@ class ThemeContextProvider extends Component {
   }
 
   async componentDidMount() {
-    console.log(this.state.id)
+    console.log(this.state.id);
     // console.log("diplay one column is =>" + this.state.style.displayOneColumn);
     if (
       localStorage.getItem("currentCV") === null ||
@@ -542,7 +542,8 @@ class ThemeContextProvider extends Component {
         : ["skill"];
       newObject.userData[0].experience = response.data.profileExperience
         ? response.data.profileExperience.map(el => {
-            if (el.jobsDesc) { return ""
+            if (el.jobsDesc) {
+              return "";
             } else {
               let new_el = {};
               new_el.position = el.jobTitle ? el.jobTitle : "";
@@ -686,13 +687,14 @@ class ThemeContextProvider extends Component {
       // console.log("Should be true ->", this.state.loadingSaveCv);
       const userID = await aFunction();
       // console.log(userID);
-      console.log(this.state.style.displayModern)
+      console.log(this.state.style.displayModern);
       //const data = JSON.stringify(this.state)
       await axios
         .post(`${url}/api/users/resume/cv/save/${userID}`, this.state)
         .then(res => {
           // console.log(res.data);
-          if (res.data === "done") return this.setState({ loadingSaveCv: true });
+          if (res.data === "done")
+            return this.setState({ loadingSaveCv: true });
         });
 
       // await this.setState({ loadingSaveCv: false });
