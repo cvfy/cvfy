@@ -2,7 +2,7 @@
 
 CVFY is a platform that provides CV and Cover Letter templates as well as a dynamic text editor with many features to import data, customize them and convert them to pdf.
 
-Watch our [presentation video] (https://drive.google.com/file/d/1R9wHCFCQSp9yK05-WXK-kGYK8ApSohHp/view) in order to know more about CVFY project and our team.
+Watch our [presentation video](https://drive.google.com/file/d/1R9wHCFCQSp9yK05-WXK-kGYK8ApSohHp/view) in order to know more about CVFY project and our team.
 
 ## Built with
 
