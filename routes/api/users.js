@@ -10,11 +10,11 @@ const jwt = require("jsonwebtoken");
 // IMPORT KEYS
 const keys = require("../../config/keys");
 // IMPORT MIDDLEWARE FUNCTIONS
-const giveMeData = require("../../puppeteer_Data/Puppeteer.js");
-const giveMePDF = require("../../puppeteer_Data/GeneratePDF.js");
+const giveMeData = require("../../puppeteer_Data/Puppeteer_LinkedinData.js");
+const giveMePDF = require("../../puppeteer_Data/GeneratePDF_CV.js");
 const giveMePDFCover = require("../../puppeteer_Data/GeneratePDF_Cover.js");
 const giveMeJobData = require("../../puppeteer_Data/StepStoneData");
-const giveMeScreenShot = require("../../puppeteer_Data/GenerateSreenShot");
+const giveMeScreenShot = require("../../puppeteer_Data/GenerateSreenShotCV");
 const giveMeScreenShotCover = require("../../puppeteer_Data/GenerateSreenShotCover");
 
 // IMPORT VALIDATION FUNCTIONS FOR REGISTER AND LOGIN ROUTE

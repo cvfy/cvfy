@@ -1,8 +1,11 @@
+// IMPORTED PACKAGES
 const puppeteer = require('puppeteer-extra');
 const pluginStealth = require("puppeteer-extra-plugin-stealth")
 puppeteer.use(pluginStealth())
-async function giveMeData(profile) {
 
+// FUNCTION THAT TAKES AS ARGUMENT LINKEDING PROFILE LINK AND WILL SCRAPE IT GETTING ALL THE NECESSARY INFOMATION FOR FILLING UP THE CV
+async function giveMeData(profile) {
+// LUNCHING PUPPETEER
     const result = await puppeteer.launch({
         headless: true
     }).then(async browser => {
@@ -12,26 +15,26 @@ async function giveMeData(profile) {
                 width: 1000,
                 height: 1200
             })
+// LOGINING IN
             await page.goto("https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin");
             await page.type("[id=username]", "saneacool@yahoo.com");
             await page.type("[id=password]", "Griskevici1988");
-            // await page.type("[id=username]", "melnic.alexandr88@gmail.com");
-            // await page.type("[id=password]", "Strechii1989");
             await page.click("[type=submit]")
             await page.waitFor(1000);
             await page.goto(profile);
             
-            //Login form
+//GET PROFILE PHOTO
             const shortProfile = profile.split("in/")[1];
             const pic = await page.$('.EntityPhoto-circle-9')
             await page.waitFor(1000);
             await pic.screenshot({
                 path: `profile_picture/${shortProfile}.jpg`
             });
+// OPEN CONTACT INFO MODAL
             if ((await page.$('a[data-control-name="contact_see_more"]')) !== null) {
                 await page.click('a[data-control-name="contact_see_more"]')
             }
-            await page.waitFor(1000);
+// GET CONTACT DATA 
             const contactData = await page.evaluate(() => {
                 function verify(data) {
                     return (data !== undefined && data !== null) ? data : ""
@@ -48,9 +51,8 @@ async function giveMeData(profile) {
 return contacts
             })
             await page.keyboard.press('Escape')
-            // await page.waitFor(2000);
             await autoScroll(page)
-            //await page.click('section.experience-section button')
+// OPEN SECTIONS WITH SHOW MORE BUTTONS
 
             if ((await page.$('section.education-section button.pv-profile-section__see-more-inline')) !== null) {
                 await page.click('section.education-section button.pv-profile-section__see-more-inline')
@@ -75,12 +77,14 @@ return contacts
                 await page.click('section.pv-about-section a')
             }
             await page.waitFor(1000);
+// PROFILE INFO SCAN
             const cvData = await page.evaluate(() => {
                 let obj = {};
 
                 function verify(data) {
                     return (data !== undefined && data !== null) ? data : ""
                 }
+// HEADER INFO SCRAPING
                 obj.profileImage = verify(document.querySelectorAll("img.pv-top-card-section__photo")[0]).src
                 obj.profileFullName = verify(document.querySelectorAll("li.t-24")[0]).innerText
                 obj.profileHeadline = verify(document.querySelectorAll("h2.t-18")[0]).innerText
@@ -91,13 +95,12 @@ return contacts
                 })
                 obj.profileExperience = [];
                 obj.profileEducation = [];
+// EXPERIENCE SECTION SCRAPING
                 Array.from(document.querySelectorAll("section.experience-section button")).forEach(el => el.click())
                 const ExpLength = Array.from(document.querySelectorAll("section.experience-section ul li.pv-entity__position-group-pager")).length
-                // console.log(ExpLength)
 
                 for (let i = 0; i < ExpLength; i++) {
                     if ((document.querySelectorAll("section.experience-section ul li.pv-entity__position-group-pager")[i]).querySelector("p.pv-entity__secondary-title")) {
-                        //let jobLocationD = verify(document.querySelectorAll("section.experience-section ul li h4.pv-entity__location span + span")[i])
                         var detailedExp = {
                             jobTitle: verify(document.querySelectorAll("section.experience-section ul li h3")[i]).innerText,
                             jobEmployer: verify(document.querySelectorAll("section.experience-section ul li")[i].querySelector("p.pv-entity__secondary-title")).innerText,
@@ -111,10 +114,6 @@ return contacts
                         
                         let jobsDescr = [];
                         let Employer = verify(document.querySelectorAll("section.experience-section ul li.pv-entity__position-group-pager")[i].querySelector("h3 span + span")).innerText;
-                        // var detailedExp = {
-                            // jobEmployer: verify(document.querySelectorAll("section.experience-section ul li.pv-entity__position-group-pager")[i].querySelector("h3 span + span")).innerText,
-                            
-                        // }
                         document.querySelectorAll("section.experience-section ul li.pv-entity__position-group-pager")[i].querySelectorAll("ul li").forEach((item) => {
                             jobsDescr.
                             push({
@@ -130,11 +129,9 @@ return contacts
                             
                     }
                 }
+// EDUCATION SECTION SCRAPING
                 const eduLength = Array.from(document.querySelectorAll("section.education-section ul li")).length
-                // console.log(eduLength)
-
                 for (let j = 0; j < eduLength; j++) {
-                    //let jobLocationD = verify(document.querySelectorAll("section.experience-section ul li h4.pv-entity__location span + span")[i])
                     var detailedEdu = {
                         educationInstitution: verify(document.querySelectorAll("section.education-section ul li h3.pv-entity__school-name")[j]).innerText,
                         educationType: [],
@@ -147,10 +144,10 @@ return contacts
                     })
                     obj.profileEducation.push(detailedEdu)
                 }
+// SKILLS, LANGUAGES, COURSES, PROJECTS SECTIONS SCRAPING
                 obj.skills = verify(Array.from(document.querySelectorAll("span.pv-skill-category-entity__name-text")).map(el => el.innerText))
                 obj.languages = verify(Array.from(document.querySelectorAll("div#languages-expandable-content li")).map(el => el.innerText))
                 obj.courses = verify(Array.from(document.querySelectorAll("div#courses-expandable-content li")).map(el => el.innerText))
-                //obj.projects = verify(Array.from(document.querySelectorAll("div#projects-expandable-content li")).map(el => el.innerText))
                 obj.projects = []
 
                 Array.from(document.querySelectorAll("div#projects-expandable-content ul li.pv-accomplishment-entity--expanded")).forEach(el => {
@@ -164,27 +161,20 @@ return contacts
 
                 return obj
             });
-            //console.log(cvData)
-            //console.log(cvData.profileExperience[1].jobsDesc)
-            //console.log(cvData.profileEducation[0].educationType)
-            //console.log(cvData.accomplishments[0].accomplishmentList)
-            //console.log(cvData.accomplishments[1].accomplishmentList)
-            //console.log(cvData.accomplishments[2].accomplishmentList)
-            // cvData.contacts  = contactData;
+
             contactData.forEach(el => cvData[el.Type] = el.contact)
-            // console.log(cvData.contacts)
             return cvData
         } catch (err) {
             console.error(err.message);
         } finally {
-            // await page.waitFor(4000);
 
             await browser.close();
         }
     });
-    // console.log(result)
+// RETURN A BIG OBJECT WITH ALL INFO FROM PROFILE(NO DATA SECTIONS ARE LEFT EMPTY STRINGS)
     return result
 }
+// HELPING FUNCTION TO IMPLEMENT AUTOSCROLL AGAINST LAZY LOADING...
 async function autoScroll(page) {
     await page.evaluate(async () => {
         await new Promise((resolve, reject) => {
@@ -203,5 +193,5 @@ async function autoScroll(page) {
         });
     });
 }
-
+// EXPORT MAIN FUNCTION
 module.exports = giveMeData
