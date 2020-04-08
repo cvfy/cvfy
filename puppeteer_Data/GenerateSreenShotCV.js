@@ -3,9 +3,8 @@ const puppeteer = require("puppeteer-extra");
 const pluginStealth = require("puppeteer-extra-plugin-stealth");
 puppeteer.use(pluginStealth());
 
-// FUNTCTION THAT GOES TO OUR WEBSITE, RETRIEVES THE CV WITH REQUESTED ID AND MAKES A SCREENSHOT OF THE CURRENT SAVED VERSION OF THIS CV
+// FUNCTION THAT GOES TO OUR WEBSITE, RETRIEVES THE CV WITH REQUESTED ID AND MAKES A SCREENSHOT OF THE CURRENT SAVED VERSION OF THIS CV
 async function giveMeScreenShot(resumeID) {
-
 // LUNCH PUPPETEER
   const result = await puppeteer
     .launch({
