@@ -3,7 +3,6 @@
 const puppeteer = require("puppeteer-extra");
 const pluginStealth = require("puppeteer-extra-plugin-stealth");
 puppeteer.use(pluginStealth());
-// const merge = require("easy-pdf-merge");
 const imagesToPdf = require("images-to-pdf");
 
 // FUNCTION THAT GOES TO OUR WEBSITE, RETRIEVES THE CV WITH REQUESTED ID AND MAKES A PDF FILE OF THE CURRENT SAVED VERSION OF THIS CV
