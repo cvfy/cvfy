@@ -15,9 +15,11 @@ Watch our [presentation video](https://drive.google.com/file/d/1R9wHCFCQSp9yK05-
 
 `Backend`
 - Node.js - for backend environment
-- Express.js - for Routing and Middleware functions
+- Express.js - for Routing, Middleware functions and Static server file sharing
 - MongoDB - Database for storing flexible content of CV and Cover Letter
 - Mongoose - for queries and User Schema
+- Puppeteer - for scraping data
+- Passport JS - for Authentification
 
 ### Deployment
 
