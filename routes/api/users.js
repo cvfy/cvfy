@@ -1,30 +1,39 @@
+
+// IMPORTED PACKAGES
+// IMPORT EXPRESS ROUTER
 const express = require("express");
 const router = express.Router();
+// PACKAGE FOR PASSWORD HASHING
 const bcrypt = require("bcryptjs");
+// JASON WEB TOKEN STRATEGY
 const jwt = require("jsonwebtoken");
+// IMPORT KEYS
 const keys = require("../../config/keys");
+// IMPORT MIDDLEWARE FUNCTIONS
 const giveMeData = require("../../puppeteer_Data/Puppeteer.js");
 const giveMePDF = require("../../puppeteer_Data/GeneratePDF.js");
 const giveMePDFCover = require("../../puppeteer_Data/GeneratePDF_Cover.js");
 const giveMeJobData = require("../../puppeteer_Data/StepStoneData");
 const giveMeScreenShot = require("../../puppeteer_Data/GenerateSreenShot");
 const giveMeScreenShotCover = require("../../puppeteer_Data/GenerateSreenShotCover");
-const fs = require("fs");
 
-// Load input validation
+// IMPORT VALIDATION FUNCTIONS FOR REGISTER AND LOGIN ROUTE
 const validateRegisterInput = require("../../validation/register");
-const validateLoginInput = require("../../validation/login"); // Load User model
-const User = require("../../models/User");
+const validateLoginInput = require("../../validation/login"); 
 
-// @route POST api/users/register
-// @desc Register user
-// @access Public
+// LOAD USER MODEL
+const User = require("../../models/User");
+// #############################################################################################################################
+// @route POST api/users/register (PUBLIC ROUTE, REGISTER NEW USER)
 router.post("/register", (req, res) => {
-  // Form validation
-  const { errors, isValid } = validateRegisterInput(req.body); // Check validation
+
+// FORM VALIDATION
+  const { errors, isValid } = validateRegisterInput(req.body); // VALIDATION RESULTS DESTRUCTURED
   if (!isValid) {
     return res.status(400).json(errors);
   }
+
+// CHECK DATABASE IF EMAIL ALREADY EXISTS
   User.findOne({
     email: req.body.email
   }).then(user => {
@@ -33,11 +42,15 @@ router.post("/register", (req, res) => {
         email: "Email already exists"
       });
     } else {
+
+// SAVE NEW USER
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
-      }); // Hash password before saving in database
+      }); 
+
+// HASH PASSSWORD BEFORE SAVING TO DATABASE
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
           if (err) throw err;
@@ -51,36 +64,41 @@ router.post("/register", (req, res) => {
     }
   });
 });
+// #############################################################################################################################
 
-// @route POST api/users/login
-// @desc Login user and return JWT token
-// @access Public
+// @route POST api/users/login ( PUBLIC LOGIN USER ROUTE AND RETURN JWT TOKEN)
 router.post("/login", (req, res) => {
-  // Form validation
-  const { errors, isValid } = validateLoginInput(req.body); // Check validation
+
+// FORM VALIDATION
+  const { errors, isValid } = validateLoginInput(req.body); // VALIDATION RESULTS DESTRUCTURED
   if (!isValid) {
     return res.status(400).json(errors);
   }
   const email = req.body.email;
-  const password = req.body.password; // Find user by email
+  const password = req.body.password; 
+// FIND USER BY EMAIL
   User.findOne({
     email
   }).then(user => {
-    // Check if user exists
+// CHECK IF THE USER EXISTS
     if (!user) {
       return res.status(404).json({
         emailnotfound: "Email not found"
       });
-    } // Check password
+    } 
+// CHECK IF PASSWORD IS CORRECT
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        // User matched
-        // Create JWT Payload
+
+// IF USER MATCHED
+// CREATE JWT PAYLOAD
         const payload = {
           id: user.id,
           name: user.name,
           email: user.email
-        }; // Sign token
+        }; 
+
+// SIGN TOKEN
         jwt.sign(
           payload,
           keys.secretOrKey,
@@ -95,6 +113,8 @@ router.post("/login", (req, res) => {
           }
         );
       } else {
+
+// IF PASSWORD DID NOT MATCH
         return res.status(400).json({
           passwordincorrect: "Password incorrect"
         });
@@ -103,82 +123,64 @@ router.post("/login", (req, res) => {
   });
 });
 
-//ROUTE  TO GET LINKEDIN USER DATA
+// #############################################################################################################################
 
-// THE PUPPETEER FUNCTION THAT GET THE LINKEDIN DATA
+// ROUTE TO GET LINKEDIN USER DATA USING PUPPETEER
+// MIDDLEWARE FUNCTION
 const sendData = async (req, res, next) => {
   try {
     console.log(req.params.id)
-    const datas = await giveMeData(
-      `https://www.linkedin.com/in/${req.params.profile}`
-    );
-    // const datas = await giveMePDF();
+    const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
     console.log(req.params.profile);
-
     res.status(200).send(datas);
   } catch (e) {
     next(e);
     res.status(404).send("something went wrong");
   }
 };
-router.get("/data/link/:profile", sendData);
+// ROUTE PATH
 
-// Generate PDF Cover
+router.get("/data/link/:profile", sendData);
+// #############################################################################################################################
+
+// ROUTE TO GENERATE PDF VERSION OF CURRENT SAVED COVER LETTER USING PUPPETEER
+// MIDDLEWARE FUNCTION
 const sendPDFDataCover = async (req, res, next) => {
   try {
-    console.log(req.params.id)
-    //const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
     const datas = await giveMePDFCover(req.params.id);
-    //const file = await `${__dirname}../../../profile_picture/${req.params.id}.pdf`;
-    console.log(datas)
     res.status(200).send(datas);
-    // fs.unlink(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`, (err) => {
-    //     if (err) {
-    //       console.error(err)
-    //       return
-    //     }})
-    //
-    // setTimeout(function(){ fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`) }, 5000);
-    // fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`)
-    //res.status(200).sendFile(/profile_picture/combinedNew.pdf)
   } catch (e) {
     next(e);
   }
 };
+
+// ROUTE PATH
 router.get("/data/pdf/cover/:id", sendPDFDataCover);
+// #############################################################################################################################
 
-
-// Generate PDF COver
+// ROUTE TO GENERATE PDF VERSION OF CURRENT SAVED COVER LETTER USING PUPPETEER
+// MIDDLEWARE FUNCTION
 const sendPDFData = async (req, res, next) => {
   try {
-    //const datas = await giveMeData(`https://www.linkedin.com/in/${req.params.profile}`);
     const datas = await giveMePDF(req.params.id);
-    //const file = await `${__dirname}../../../profile_picture/${req.params.id}.pdf`;
     res.status(200).send(datas);
-    // fs.unlink(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`, (err) => {
-    //     if (err) {
-    //       console.error(err)
-    //       return
-    //     }})
-    //
-    // setTimeout(function(){ fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`) }, 5000);
-    // fs.unlinkSync(`/home/dci-l144/Exercise/CVFY/cvfy/profile_picture/${req.params.id}.pdf`)
-    //res.status(200).sendFile(/profile_picture/combinedNew.pdf)
   } catch (e) {
     next(e);
   }
 };
-router.get("/data/pdf/:id", sendPDFData);
-/////////////////////////////////////////////////////
-// SAVE CV TO SERVER ROUTE
 
+// ROUTE PATH
+router.get("/data/pdf/:id", sendPDFData);
+// #############################################################################################################################
+
+// ROUTE TO SAVE CURRENT CV TO DATABASE
+// MIDDLEWARE FUNCTION
 const saveCVtoServer = async (req, res, next) => {
   if (!req.params.id.includes("-")) {
-    
     console.log("user id -" + req.params.id);
     console.log("cv id -" + req.body.id);
     console.log("its updating");
-    //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
+// FIND CV BY ID
     await User.findOne(
       { "cv.id": req.body.id },
       {
@@ -192,6 +194,7 @@ const saveCVtoServer = async (req, res, next) => {
         if (err) {
           console.log(err);
         } else {
+// IF CV WITH THIS ID FOUND IN DATABASE UPDATE IT
           if (success) {
             console.log("This is the obj+++++++++" + success);
             User.updateOne(
@@ -205,6 +208,7 @@ const saveCVtoServer = async (req, res, next) => {
                 }
               },
               async function(err, success) {
+// WHEN CV IS ALREADY SAVED TO DATABASE GENERATE SCREENSHOT OF THIS CV FOR MY DOCUMENTS PAGE
                 if (success) {
                   giveMeScreenShot(req.body.id);
                   console.log("i updated the obj!!");
@@ -216,6 +220,7 @@ const saveCVtoServer = async (req, res, next) => {
             );
           }
           if (!success) {
+// IF THERE IS NO CV WITH THIS ID IN DATABASE, SAVE THE CV AS NEW CV
             User.findOneAndUpdate(
               { _id: req.params.id },
               { $push: { cv: req.body } },
@@ -223,6 +228,7 @@ const saveCVtoServer = async (req, res, next) => {
                 if (error) {
                   console.log(error);
                 } else {
+// WHEN NEW CV SAVED IN DATABASE GENERATE SCREENSHOT FOR MY DOCUMENTS PAGE
                   giveMeScreenShot(req.body.id);
                   console.log("New CV Created!!!!");
                   res.send("done");
@@ -233,20 +239,22 @@ const saveCVtoServer = async (req, res, next) => {
         }
       }
     );
-    //  giveMeScreenShot(req.body.id)
   } else {
   }
 };
 
+// ROUTE PATH
 router.post("/resume/cv/save/:id", saveCVtoServer);
-// SAVE COVER LETTER TO SERVER
+// #############################################################################################################################
 
+// ROUTE TO SAVE CURRENT COVER LETTER TO DATABASE
+// MIDDLEWARE FUNCTION
 const saveCoverLettertoServer = async (req, res, next) => {
   if (!req.params.id.includes("-")) {
 console.log("user id -" + req.params.id);
  console.log("cv id -" + req.body.id);
     console.log("its updating");
-    //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
+// FIND COVER LETTER BY ID
     await User.findOne(
       { "coverLetters.id": req.body.id },
       {
@@ -261,6 +269,7 @@ console.log("user id -" + req.params.id);
           console.log(err);
         } else {
           if (success) {
+// IF COVER LETTER WITH THIS ID FOUND IN DATABASE UPDATE IT
             console.log("This is the obj+++++++++" + success);
             User.updateOne(
               { _id: req.params.id, "coverLetters.id": req.body.id },
@@ -272,6 +281,7 @@ console.log("user id -" + req.params.id);
                 }
               },
               async function(err, success) {
+// WHEN COVER LETTER IS ALREADY SAVED TO DATABASE GENERATE SCREENSHOT OF THIS CV FOR MY DOCUMENTS PAGE
                 if (success) {
                   giveMeScreenShotCover(req.body.id);
                   console.log("i updated the Cover Letter!!");
@@ -283,6 +293,7 @@ console.log("user id -" + req.params.id);
             );
           }
           if (!success) {
+// IF THERE IS NO COVER LETTER WITH THIS ID IN DATABASE, SAVE THE CV AS NEW CV
             User.findOneAndUpdate(
               { _id: req.params.id },
               { $push: { coverLetters: req.body } },
@@ -290,6 +301,7 @@ console.log("user id -" + req.params.id);
                 if (error) {
                   console.log(error);
                 } else {
+// WHEN NEW COVER LETTER SAVED IN DATABASE GENERATE SCREENSHOT FOR MY DOCUMENTS PAGE
                   giveMeScreenShotCover(req.body.id);
                   console.log("New CoverLetter Created!!!!");
                   res.send("done");
@@ -300,14 +312,15 @@ console.log("user id -" + req.params.id);
         }
       }
     );
-    //  giveMeScreenShot(req.body.id)
   } else {
      }
 };
-
+// ROUTE PATH
 router.post("/resume/cover/save/:id", saveCoverLettertoServer);
+// #############################################################################################################################
 
-// RETRIEVE A SPECIFIC CV FROM SERVER
+// ROUTE TO RETRIEVE A SPECIFIC CV FROM DATABASE
+// MIDDLEWARE FUNCTION
 const getCVFromServer = (req, res, next) => {
   User.findOne(
     { "cv.id": req.params.id },
@@ -327,9 +340,13 @@ const getCVFromServer = (req, res, next) => {
     }
   );
 };
-router.get("/resume/cv/currentCV/:id", getCVFromServer);
 
-// RETRIEVE A SPECIFIC COVER LETTER FROM SERVER
+// ROUTE PATH
+router.get("/resume/cv/currentCV/:id", getCVFromServer);
+// #############################################################################################################################
+
+// ROUTE TO RETRIEVE A SPECIFIC COVER LETTER FROM DATABASE
+// MIDDLEWARE FUNCTION
 const getCoverLetterFromServer = (req, res, next) => {
   User.findOne(
     { "coverLetters.id": req.params.id },
@@ -349,8 +366,13 @@ const getCoverLetterFromServer = (req, res, next) => {
     }
   );
 };
+
+// ROUTE PATH
 router.get("/resume/cv/currentCover/:id", getCoverLetterFromServer);
-// DELETE CV FROM SERVER 
+// #############################################################################################################################
+
+// DELETE A SPECIFIC CV FROM DATABASE
+// MIDDLEWARE FUNCTION
 const deleteCVFromServer = (req, res, next) => {
   User.findByIdAndUpdate(
     req.params.id1, { $pull: { "cv": { id: req.params.id2 } } }, { safe: true, upsert: true },
@@ -364,9 +386,14 @@ const deleteCVFromServer = (req, res, next) => {
     }
   );
 };
-router.post("/resume/cv/delete/:id1/:id2", deleteCVFromServer);
 
-// DELETE SPECIFIC COVER LETTER FROM SERVER 
+// ROUTE PATH
+router.post("/resume/cv/delete/:id1/:id2", deleteCVFromServer);
+// #############################################################################################################################
+
+
+// DELETE A SPECIFIC COVER LETTER FROM DATABASE 
+// MIDDLEWARE FUNCTION
 const deleteCoverLetterFromServer = (req, res, next) => {
   User.findByIdAndUpdate(
     req.params.id1, { $pull: { "coverLetters": { id: req.params.id2 } } }, { safe: true, upsert: true },
@@ -382,14 +409,16 @@ const deleteCoverLetterFromServer = (req, res, next) => {
   );
 };
 router.post("/resume/cover/deleteCover/:id1/:id2", deleteCoverLetterFromServer);
+// #############################################################################################################################
 
-// DUPLICATE A CV ON SERVER
+
+// DUPLICATE A SPECIFIC CV IN DATABASE
+// MIDDLEWARE FUNCTION
 let statusDuplicate = false
 const duplicateCVFromServer = async(req, res, next) => {
   if(statusDuplicate === false){
      statusDuplicate = true
   if (!req.params.id.includes("-")) {
-    //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
             User.findOneAndUpdate(
               { _id: req.params.id },
               { $push: { cv: req.body } },
@@ -404,21 +433,21 @@ const duplicateCVFromServer = async(req, res, next) => {
               }
             );
    statusDuplicate = false
-    //  giveMeScreenShot(req.body.id)
   } else {
   }
 }
-
 };
+
+// ROUTE PATH
 router.post("/resume/cv/duplicate/:id", duplicateCVFromServer);
+// #############################################################################################################################
 
-// DUPLICATE A COVER LETTER ON SERVER
-
+// DUPLICATE A SPECIFIC COVER LETTER IN DATABASE
+// MIDDLEWARE FUNCTION
 const duplicateCoverLetterFromServer = async(req, res, next) => {
   if(statusDuplicate === false){
     statusDuplicate = true
   if (!req.params.id.includes("-")) {
-    //User.findOne({"cv.id$": parseInt(req.body.id)}, function(success){ if(success){console.log(true)}else{console.log(false)}})
             User.findOneAndUpdate(
               { _id: req.params.id },
               { $push: { coverLetters: req.body } },
@@ -433,14 +462,18 @@ const duplicateCoverLetterFromServer = async(req, res, next) => {
               }
             );
    statusDuplicate = false
-    //  giveMeScreenShot(req.body.id)
   } else {
   }
 }
 };
-router.post("/resume/cover/duplicateCover/:id", duplicateCoverLetterFromServer);
 
-// RETRIEVE ALL CVS FROM SERVER
+// ROUTE PATH
+router.post("/resume/cover/duplicateCover/:id", duplicateCoverLetterFromServer);
+// #############################################################################################################################
+
+
+// RETRIEVE ALL CV'S OF A USER FROM DATABASE
+// MIDDLEWARE FUNCTION
 const getALLCVFromServer = (req, res, next) => {
   User.findOne({ _id: req.params.id }, function(err, success) {
     if (err) {
@@ -450,9 +483,13 @@ const getALLCVFromServer = (req, res, next) => {
     }
   });
 };
-router.get("/resume/cv/allCV/:id", getALLCVFromServer);
 
-// RETRIEVE ALL COVER LETTERS FROM SERVER
+// ROUTE PATH
+router.get("/resume/cv/allCV/:id", getALLCVFromServer);
+// #############################################################################################################################
+
+// RETRIEVE ALL COVER LETTERS OF A USER FROM DATABASE
+// MIDDLEWARE FUNCTION
 const getALLCoverLettersFromServer = (req, res, next) => {
   User.findOne({ _id: req.params.id }, function(err, success) {
     if (err) {
@@ -462,9 +499,14 @@ const getALLCoverLettersFromServer = (req, res, next) => {
     }
   });
 };
+
+// ROUTE PATH
 router.get("/resume/cover/allCovers/:id", getALLCoverLettersFromServer);
+// #############################################################################################################################
+
+// ROUTE TO RETRIEVE JOB ADS DATA REQUIRED FOR JOB DASHBOARD DONE WITH PUPPETEER SCRAPING
+// MIDDLEWARE FUNCTION
 let status = false
-// StepStoneData
 const sendStepStoneData = async (req, res, next) => {
   try {
     if(status === false){
@@ -475,7 +517,6 @@ const sendStepStoneData = async (req, res, next) => {
       req.params.location,
       req.params.pages
     );
-    //const datas = await giveMePDF();
     console.log("stepStone is calling");
 
     await res.status(200).send(datas);
@@ -486,8 +527,12 @@ const sendStepStoneData = async (req, res, next) => {
     res.status(404).send("something went wrong");
   }
 };
+
+// ROUTE PATH
 router.get(
   "/data/stepstone/position/:position/location/:location/pages/:pages",
   sendStepStoneData
 );
+// #############################################################################################################################
+// EXPORT USERS ROUTES
 module.exports = router;
