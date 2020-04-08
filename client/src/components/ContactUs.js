@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/ContactUs.scss";
 import Navbar from "./navbar/Navbar";
-// import Footer from "./Footer";
 
 class ContactUs extends React.Component {
   constructor(props) {

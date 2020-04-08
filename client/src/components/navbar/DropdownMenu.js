@@ -5,7 +5,6 @@ import store from "./../../store.js";
 
 function aFunction() {
   var newState = store.getState();
-  // console.log(newState.auth.user.name);
   return newState.auth.user.name;
 }
 
@@ -13,7 +12,7 @@ const DropdownMenu = () => {
   //Here we can set Dropdown Menu to Open or closed
   const [State, SetState] = useState({ OpenMenu: false });
 
-  // Here ypu can modify the Array to change the items from te dropdown menu
+  // Here you can modify the Array to change the items from te dropdown menu
   const [DropdownItemsList, SetDropdownItemsList] = useState(
     aFunction()
       ? [{ Title: "My Account", Path: "/my-account" }]
@@ -42,7 +41,7 @@ const DropdownMenu = () => {
   };
   const DropdownItems = DropdownItemsList.map((el, i) => (
     <div
-    key={i}
+      key={i}
       className={
         State.OpenMenu ? "DropdownItemOpen fadeIn" : "DropdownItemClosed"
       }

@@ -5,7 +5,6 @@ import { useSpring, animated } from "react-spring";
 import DropdownMenu from "./DropdownMenu";
 
 const CollapseMenu = props => {
-
   const onLogoutClick = e => {
     e.preventDefault();
     localStorage.removeItem("jwtToken");
@@ -13,12 +12,13 @@ const CollapseMenu = props => {
     localStorage.removeItem("currentCover");
     window.location.reload();
   };
+
   const onLClick = e => {
     e.preventDefault();
     localStorage.removeItem("currentCV");
     localStorage.removeItem("currentCover");
-    // window.location.reload();
   };
+
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
 
   if (props.navbarState === true) {
@@ -33,8 +33,8 @@ const CollapseMenu = props => {
             .interpolate(openValue => `translate3d(0, ${openValue}px, 0`)
         }}
       >
-        <ul className="minMenu"  >
-          <li key="1" >
+        <ul className="minMenu">
+          <li key="1">
             <a href="/create-cv" onClick={props.handleNavbar}>
               Create CV
             </a>

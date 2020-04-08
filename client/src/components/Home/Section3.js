@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
-import Image from "../../../assets/researching.svg";
+import Image from "../../assets/researching.svg";
 
 const Section3 = () => {
   return (

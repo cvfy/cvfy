@@ -4,7 +4,6 @@ import { CoverLetterContext } from "../../contexts/CoverLetterContext";
 class FontSizeSubMenu extends Component {
   constructor() {
     super();
-
     this.state = {
       showMenu: false
     };

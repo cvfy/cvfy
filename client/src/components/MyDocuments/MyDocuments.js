@@ -10,9 +10,7 @@ class MyDocuments extends Component {
     this.state = {
       show: true
     };
-    //this.toggleDashboard = this.toggleDashboard.bind(this);
   }
-
 
   render() {
     return (

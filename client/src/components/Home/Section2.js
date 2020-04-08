@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "../../../assets/signin.svg";
+import Image from "../../assets/signin.svg";
 import { NavLink } from "react-router-dom";
 
 const Section2 = () => {

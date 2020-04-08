@@ -16,9 +16,8 @@ const BuilderCollapseMenu = props => {
     e.preventDefault();
     localStorage.removeItem("currentCV");
     localStorage.removeItem("currentCover");
-    // window.location.reload();
   };
-  
+
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
 
   if (props.navbarState === true) {
@@ -33,8 +32,8 @@ const BuilderCollapseMenu = props => {
             .interpolate(openValue => `translate3d(0, ${openValue}px, 0`)
         }}
       >
-        <ul className="minMenu" onClick={(e) => onLClick(e)}>
-          <li key="1" >
+        <ul className="minMenu" onClick={e => onLClick(e)}>
+          <li key="1">
             <a href="/create-cv" onClick={props.handleNavbar}>
               Create CV
             </a>

@@ -8,25 +8,9 @@ function Draggable(props) {
     const card_id = e.dataTransfer.getData("card_id");
 
     const card = document.getElementById(card_id);
-e.target.appendChild(card)
-    // card.style.opacity = "1";
-    // card.style.display = "flex";
-
+    e.target.appendChild(card);
     let target = e.target;
     console.log(target.id);
-
-    // if (target.nodeName.includes("DIV")) {
-    //   target.style.backgroundColor = "";
-    // } else target.style.backgroundColor = "red";
-    // console.log(target.id);
-    // if (target.id !== "board-1") {
-    //   target.style.height = "50%";
-    // }
-    // not perfect, need to improve this solution, maybe a promise
-    // setTimeout(() => {
-    //   target.appendChild(card);
-    // }, 200);
-
     target.appendChild(card);
   };
 
@@ -37,49 +21,20 @@ e.target.appendChild(card)
   return (
     <ThemeContext.Consumer>
       {context => {
-        // const BigArr = [...context.style.leftSide, ... context.style.rightSide].map(x => x.name);
-        // console.log(BigArr)
-        // const defArr = [{name: "experience", id: "card-1"}, {name: "education", id: "card-2"}, {name: "skills", id: "card-3"}, {name: "projects", id: "card-4"}, {name: "certifications", id: "card-5"}, {name: "achievements", id: "card-6"}, {name: "courses", id: "card-7"}, {name: "languages", id: "card-8"}]
-        // const newArr = defArr.filter(el => !(BigArr.includes(el.name)))
-        // console.log(newArr)
-        //newArr.map((el) => el ? console.log(el): console.log("nothing to see here"))
         return (
           <>
             <div
               id="board-1"
-              // className="board"
               className={
-                context.style.displayOneColumn ? "layoutOneColumn board" : "layoutCV board"
+                context.style.displayOneColumn
+                  ? "layoutOneColumn board"
+                  : "layoutCV board"
               }
-              onDrop={(e) => drop(e)}
-              onDragOver={(e) => dragOver(e)}
+              onDrop={e => drop(e)}
+              onDragOver={e => dragOver(e)}
             >
-              <div id="leftCvSection">
-              {props.children}
-                {/* {context.style.leftSide.map(el => (
-  <Card
-  id={el.id}
-  className="dndSection"
-  name={el.name}
-  draggable="true"
->
-  <p className="dndSectionP">{el.name}</p>
-</Card>
-) )} */}
-                </div>
-              <div id="rightCvSection">
-              {props.children}
-              {/* {context.style.rightSide.map(el => (
-  <Card
-  id={el.id}
-  className="dndSection"
-  name={el.name}
-  draggable="true"
->
-  <p className="dndSectionP">{el.name}</p>
-</Card>
-) )} */}
-</div>
+              <div id="leftCvSection">{props.children}</div>
+              <div id="rightCvSection">{props.children}</div>
             </div>
 
             <div className="dndText">
@@ -88,23 +43,13 @@ e.target.appendChild(card)
 
             <div
               id="board-2"
-              // className="board"
               className="dndContainer board"
-              onDrop={(e) => drop(e)}
-              onDragOver={(e) => dragOver(e)}
+              onDrop={e => drop(e)}
+              onDragOver={e => dragOver(e)}
             >
-               {props.children}
-{/* { newArr.map(el => (
-  <Card
-  id={el.id}
-  className="dndSection"
-  name={el.name}
-  draggable="true"
->
-  <p className="dndSectionP">{el.name}</p>
-</Card>
-))} */}
-               <Card
+              {props.children}
+
+              <Card
                 id="card-1"
                 className="dndSection"
                 name="experience"
@@ -168,7 +113,6 @@ e.target.appendChild(card)
               >
                 <p className="dndSectionP">Languages</p>
               </Card>
-
             </div>
           </>
         );

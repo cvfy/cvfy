@@ -49,17 +49,12 @@ class CoverDashboard extends React.Component {
   }
 
   deleteCover = async (e, id) => {
-    // console.log("delete cover");
-    // e.preventDefault()
     const response = await axios.post(
       `${url}/api/users/resume/cover/deleteCover/${this.getUserId()}/${id}`
     );
-    // ).then(
-    //   res => this.setState({ covers: res.data }) //this.setState(res.data)
-    // );
-
     this.setState({ covers: response.data });
   };
+
   setLocalStorage = id => {
     localStorage.setItem("currentCover", id);
     window.location.href = `${frontUrl}/create-cover-letter`;
@@ -68,19 +63,17 @@ class CoverDashboard extends React.Component {
   duplicateCover = async obj => {
     if (status === false) {
       status = true;
-      // console.log("duplicate cover");
       obj.id = idG;
       const response = await axios.post(
         `${url}/api/users/resume/cover/duplicateCover/${this.getUserId()}`,
         obj
       ); //this.setState(res.data)
-      // console.log(response.data);
       await this.setState({ covers: response.data });
-      // console.log(this.state.covers);
       status = false;
     } else {
     }
   };
+
   render() {
     return (
       <div className="Cover_Dashboard_MainContainer">
@@ -98,12 +91,12 @@ class CoverDashboard extends React.Component {
 
         {this.state.covers.map((el, i) => (
           <div className="cvBox2" key={i}>
-            <img src={`${url}/static/${el.id}.jpg`} alt={el.id}
-            onClick={() => this.setLocalStorage(el.id)} />
-            <div
-              className="MoreOptions"
-              // tabIndex="0"
-            >
+            <img
+              src={`${url}/static/${el.id}.jpg`}
+              alt={el.id}
+              onClick={() => this.setLocalStorage(el.id)}
+            />
+            <div className="MoreOptions">
               <i className="fas fa-ellipsis-h icon3Dots"></i>
 
               <div className="optionsMenuDiv">

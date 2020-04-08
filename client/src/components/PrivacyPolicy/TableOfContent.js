@@ -1,9 +1,6 @@
 import React from "react";
 
-const handleClick = id => {
-  // console.log(id);
-  // let el = document.getElementById(id.target);
-};
+const handleClick = id => {};
 
 const TableOfContent = () => {
   return (

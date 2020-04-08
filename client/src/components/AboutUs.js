@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Navbar from "../navbar/Navbar";
-import Footer from "../Footer";
-import "../../styles/QuickLinks.scss";
-import Member from "../../assets/user.png";
+import Navbar from "./navbar/Navbar";
+import Footer from "./Footer";
+import "../styles/QuickLinks.scss";
+import Member from "../assets/user.png";
 
 class AboutUs extends Component {
   state = {
@@ -15,7 +15,6 @@ class AboutUs extends Component {
   }
 
   changeText = e => {
-    // console.log(e.currentTarget.title);
     if (e.currentTarget.title === "mission") {
       this.setState({
         text:

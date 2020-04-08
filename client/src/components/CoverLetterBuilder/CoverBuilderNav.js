@@ -24,15 +24,14 @@ const CoverBuilderNav = () => {
   const handleCoverDownload = () => setDownloadCover(!downloadCoverState);
   let status = false;
   const LogOutCurrentCV_Cover = () => {
-    localStorage.removeItem("currentCV")
-    localStorage.removeItem("currentCover")
-  }
+    localStorage.removeItem("currentCV");
+    localStorage.removeItem("currentCover");
+  };
   const downloadPdfCover = async e => {
     setDownloadCover(true);
     e.preventDefault();
     if (status === false) {
       status = await true;
-      console.log(context.id);
       await axios
         .get(
           `${url}/api/users/data/pdf/cover/${localStorage.getItem(
@@ -40,7 +39,6 @@ const CoverBuilderNav = () => {
           )}`
         )
         .then(res => {
-          console.log(res.data);
           window.open(`${url}/static2/${res.data}.pdf`, "_blank"); //this.setState(res.data)
           if (res.data.length > 0) return setDownloadCover(false);
         });
@@ -53,7 +51,11 @@ const CoverBuilderNav = () => {
   return (
     <>
       <div className="CvMenu">
-        <NavLink style={{ textDecoration: "none", paddingLeft: "20px" }} to="/" onClick={() => LogOutCurrentCV_Cover()}>
+        <NavLink
+          style={{ textDecoration: "none", paddingLeft: "20px" }}
+          to="/"
+          onClick={() => LogOutCurrentCV_Cover()}
+        >
           <span className="logo-template">CV|FY</span>
         </NavLink>
         <div className="design">

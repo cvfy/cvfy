@@ -2,7 +2,6 @@ import React, { Component, createContext, useRef } from "react";
 import axios from "axios";
 import store from "./../store.js";
 import { url, cloudinaryUrl, frontUrl } from "../config";
-//import uuid from 'uuid'
 let status = false;
 let status2 = false;
 
@@ -32,12 +31,11 @@ function guidGenerator() {
 export const ThemeContext = createContext();
 function aFunction() {
   var newState = store.getState();
-  // console.log(newState.auth.user.name);
   return newState.auth.user.id;
 }
+
 function BFunction() {
   var newState = store.getState();
-  // console.log(newState.auth.user.name);
   return newState.auth.user.name;
 }
 
@@ -48,7 +46,6 @@ class ThemeContextProvider extends Component {
     importing: false,
     importingMessage: false,
     loadingUploadImg: false,
-    considerPic: true,
     style: {
       color: "",
       font: "'Open Sans', sans-serif",
@@ -194,7 +191,6 @@ class ThemeContextProvider extends Component {
   };
 
   componentDidUpdate() {
-    console.log(this.state.style.displayModern)
     let Pages = [...this.state.userData];
     // MAPPING THOURGH THE PAGES TO GET THE HEIGHTS OF SECTIONS AND GROUPS
     Array.from(document.querySelectorAll(".A4")).forEach((el, i) => {
@@ -361,7 +357,6 @@ class ThemeContextProvider extends Component {
               let Item = document
                 .querySelectorAll(".A4")
                 [i + 1].querySelector(".left").firstChild.classList[0];
-              // console.log(Item);
               Pages[i][Item].push(Pages[i + 1][Item][0]);
               Pages[i + 1][Item].shift();
             }
@@ -392,7 +387,6 @@ class ThemeContextProvider extends Component {
                 let Item = document
                   .querySelectorAll(".A4")
                   [i + 1].querySelector(".right").firstChild.classList[0];
-                // console.log(Item);
                 Pages[i][Item].push(Pages[i + 1][Item][0]);
                 Pages[i + 1][Item].shift();
                 this.setState({ userData: Pages });
@@ -408,18 +402,9 @@ class ThemeContextProvider extends Component {
                   ) <
                 1000
               ) {
-                console.log(
-                  parseInt(
-                    document
-                      .querySelectorAll(".A4")
-                      [i + 1].querySelector(".right").firstChild.lastChild
-                      .firstChild.clientHeight
-                  )
-                );
                 let Item = document
                   .querySelectorAll(".A4")
                   [i + 1].querySelector(".right").firstChild.classList[0];
-                // console.log(Item);
                 Pages[i][Item].push(Pages[i + 1][Item][0]);
                 Pages[i + 1][Item].shift();
                 if (Item !== "languages") {
@@ -449,7 +434,6 @@ class ThemeContextProvider extends Component {
           );
           Pages[i][lastItem].pop();
           this.setState({ userData: Pages });
-          // }
         }
         if (document.querySelectorAll(".A4")[i + 1]) {
           if (
@@ -478,52 +462,41 @@ class ThemeContextProvider extends Component {
   }
 
   async componentDidMount() {
-    console.log(this.state.id)
-    // console.log("diplay one column is =>" + this.state.style.displayOneColumn);
     if (
       localStorage.getItem("currentCV") === null ||
       localStorage.getItem("currentCV") === ""
-      // localStorage.getItem("currentCV") === "[object Object]"
     ) {
       const idG = await guidGenerator();
       await this.setState({ id: idG });
       await localStorage.setItem("currentCV", this.state.id);
-      // console.log(`the state id is - ${this.state.id}`);
       axios.post(`${url}/api/users/resume/cv/${aFunction()}`, this.state);
     }
     if (
       localStorage.getItem("currentCV") !== null ||
       localStorage.getItem("currentCV") !== ""
     ) {
-      // console.log("i am trying to get the data");
       axios
         .get(
           `${url}/api/users/resume/cv/currentCV/${localStorage.getItem(
             "currentCV"
           )}`
         )
-        .then(
-          res => {
-            res.data.cv[0].loadingSaveCv = true;
-            return this.setState(res.data.cv[0]);
-          } //this.setState(res.data)
-        );
+        .then(res => {
+          res.data.cv[0].loadingSaveCv = true;
+          return this.setState(res.data.cv[0]);
+        });
     }
   }
 
   importData = async (profile, e) => {
     e.preventDefault();
-    // console.log("i am calling linkedin data");
     this.setState({ importingMessage: true });
     this.setState({ considerPic: true });
     if (status2 === false) {
       status2 = await true;
       e.preventDefault();
-      // console.log("i am calling linkedin data");
-      // console.log(profile);
       await this.setState({ importing: true });
       const response = await axios.get(`${url}/api/users/data/link/${profile}`);
-      // console.log("should be 200", response.status);
       let newObject = { ...this.state };
       newObject.userData[0].fullName = response.data.profileFullName
         ? response.data.profileFullName
@@ -542,7 +515,8 @@ class ThemeContextProvider extends Component {
         : ["skill"];
       newObject.userData[0].experience = response.data.profileExperience
         ? response.data.profileExperience.map(el => {
-            if (el.jobsDesc) { return ""
+            if (el.jobsDesc) {
+              return "";
             } else {
               let new_el = {};
               new_el.position = el.jobTitle ? el.jobTitle : "";
@@ -660,7 +634,7 @@ class ThemeContextProvider extends Component {
       newObject.userData[0].achievements = ["Achievement name"];
       newObject.id = this.state.id;
       await this.setState(newObject);
-      // console.log(this.state.userData[0].projects);
+
       // Need to add different responses for each different status
       if (response.status === 200) {
         this.setState({ importing: false });
@@ -678,41 +652,27 @@ class ThemeContextProvider extends Component {
       if (e) {
         e.preventDefault();
       }
-      // console.log("Should be false ->", this.state.loadingSaveCv);
       await this.setState({
         loadingSaveCv: false,
         id: localStorage.getItem("currentCV")
       });
-      // console.log("Should be true ->", this.state.loadingSaveCv);
       const userID = await aFunction();
-      // console.log(userID);
-      console.log(this.state.style.displayModern)
-      //const data = JSON.stringify(this.state)
       await axios
         .post(`${url}/api/users/resume/cv/save/${userID}`, this.state)
         .then(res => {
-          // console.log(res.data);
-          if (res.data === "done") return this.setState({ loadingSaveCv: true });
+          if (res.data === "done")
+            return this.setState({ loadingSaveCv: true });
         });
-
-      // await this.setState({ loadingSaveCv: false });
-      // if (res.data == "done") this.setState({ loadingSaveCv: false });
-      // console.log("Should be false again ->", this.state.loadingSaveCv);
       status = await false;
     } else {
     }
   };
 
   modifyEd = (page, field, value, index) => {
-    // console.log("edmoidfy");
     let newObject = [...this.state.userData];
     if (newObject[page].education[index]) {
       if (field === "studyProgram") {
         newObject[page].education[index].studyProgram = value;
-        // console.log(page);
-        // console.log(field);
-        // console.log(value);
-        // console.log(index);
       }
       if (field === "institution") {
         newObject[page].education[index].institution = value;
@@ -733,7 +693,6 @@ class ThemeContextProvider extends Component {
         newObject[page].education[index].place = value;
       }
       this.setState({ userData: newObject });
-      // console.log(this.state.userData[page].education);
     }
   };
 
@@ -765,7 +724,6 @@ class ThemeContextProvider extends Component {
         newObject[page].experience[index].tasks = value;
       }
       this.setState({ userData: newObject });
-      // console.log(this.state.userData[page].experience);
     }
   };
 
@@ -778,9 +736,6 @@ class ThemeContextProvider extends Component {
   };
 
   modifyAbout = (page, field, value) => {
-    // console.log(page);
-    // console.log(field);
-    // console.log(value);
     let newObject = [...this.state.userData];
     if (field === "intro") {
       newObject[page].intro = value;
@@ -1226,8 +1181,6 @@ class ThemeContextProvider extends Component {
       { name: "courses", id: "card-7" },
       { name: "languages", id: "card-8" }
     ];
-    // // console.log(arr1)
-    // // console.log(arr2)
     if (arr1.length === 0 && arr2.length === 0) {
     } else {
       if (arr1.length > 0 || arr2.length > 0) {
@@ -1237,56 +1190,11 @@ class ThemeContextProvider extends Component {
         newObj.style.rightSide = arr2.map(el => {
           return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
         });
-        // console.log(newObj.style.leftSide);
-        // console.log(newObj.style.rightSide);
-        // this.setState(newObj);
         this.updateState();
-        // this.setState(newObj);
       }
     }
-    // newObj.style.leftSide = [
-    //   { name: "experience", id: "card-1" },
-    //   { name: "education", id: "card-2" }
-    // ];
-    // newObj.style.rightSide = [
-    //   { name: "skills", id: "card-3" },
-    //   { name: "projects", id: "card-4" },
-    //   { name: "certifications", id: "card-5" },
-    //   { name: "achievements", id: "card-6" },
-    //   { name: "courses", id: "card-7" },
-    //   { name: "languages", id: "card-8" }
-    // ];
-    // this.setState(newObj);
-
-    // if (this.state.style.displayOneColumn !== false) {
-    //   if (arr1.length > 0 || arr2.length > 0) {
-    //     const ObjArr1 = arr1.map(el => {
-    //       return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
-    //     });
-    //     const ObjArr2 = arr2.map(el => {
-    //       return { name: el, id: defaultArr.filter(x => x.name === el)[0].id };
-    //     });
-    //     console.log(ObjArr1);
-    //     console.log(ObjArr2);
-    //     newObj.style.oneColumnArr = [...ObjArr1, ...ObjArr2];
-
-    //     this.setState(newObj);
-    //   } else {
-    //     newObj.style.oneColumnArr = [
-    //       { name: "experience", id: "card-1" },
-    //       { name: "education", id: "card-2" },
-    //       { name: "skills", id: "card-3" },
-    //       { name: "projects", id: "card-4" },
-    //       { name: "certifications", id: "card-5" },
-    //       { name: "achievements", id: "card-6" },
-    //       { name: "courses", id: "card-7" },
-    //       { name: "languages", id: "card-8" }
-    //     ];
-    //     this.setState(newObj);
-    //   }
-    // }
-    // this.setState(newObj);
   };
+
   // ..............................................................
   handleContactIcon = () => {
     let element = document.getElementsByClassName("iconeColor");
@@ -1309,48 +1217,6 @@ class ThemeContextProvider extends Component {
     const newArr = [...this.state.userData];
     newArr[0].profilePic = file.secure_url;
     this.setState({ userData: newArr, loadingUploadImg: false });
-  };
-
-  // ############ COUNTDOWN SPINNER FUNCTION ####################
-  renderTime = time => {
-    const currentTime = useRef(time);
-    const prevTime = useRef(null);
-    const isNewTimeFirstTick = useRef(false);
-    //const [_, setOneLastRerender] = useState(0);
-
-    if (currentTime.current !== time) {
-      isNewTimeFirstTick.current = true;
-      prevTime.current = currentTime.current;
-      currentTime.current = time;
-    } else {
-      isNewTimeFirstTick.current = false;
-    }
-
-    // force one last re-render when the time is over to trigger the last animation
-    if (time === 0) {
-      // setTimeout(() => {
-      //   setOneLastRerender(val => val + 1);
-      // }, 20);
-      return;
-    }
-
-    const isTimeUp = isNewTimeFirstTick.current;
-
-    return (
-      <div className="time-wrapper">
-        <div key={time} className={`time ${isTimeUp ? "up" : ""}`}>
-          {time}
-        </div>
-        {prevTime.current !== null && (
-          <div
-            key={prevTime.current}
-            className={`time ${!isTimeUp ? "down" : ""}`}
-          >
-            {prevTime.current}
-          </div>
-        )}
-      </div>
-    );
   };
 
   // These functions are regarding design tools of CvBuilder and CoverLetterBuilder
@@ -1468,42 +1334,36 @@ class ThemeContextProvider extends Component {
   };
 
   updateUserSkype = (page, input) => {
-    // need to add s timeout to reduce logs at console
     let newObject = [...this.state.userData];
     newObject[page].contact[3].value = input;
     this.setState({ userData: newObject });
   };
 
   updateUserPhone = (page, input) => {
-    // need to add s timeout to reduce logs at console
     let newObject = [...this.state.userData];
     newObject[page].contact[1].value = input;
     this.setState({ userData: newObject });
   };
 
   updateUserEmail = (page, input) => {
-    // need to add s timeout to reduce logs at console
     let newObject = [...this.state.userData];
     newObject[page].contact[0].value = input;
     this.setState({ userData: newObject });
   };
 
   updateUserLinkedIn = (page, input) => {
-    // need to add s timeout to reduce logs at console
     let newObject = [...this.state.userData];
     newObject[page].contact[2].value = input;
     this.setState({ userData: newObject });
   };
 
   updateUserWebsite = (page, input) => {
-    // need to add s timeout to reduce logs at console
     let newObject = [...this.state.userData];
     newObject[0].contact[5].value = input;
     this.setState({ userData: newObject });
   };
 
   updateUserGitHub = (page, input) => {
-    // need to add s timeout to reduce logs at console
     let newObject = [...this.state.userData];
     newObject[page].contact[6].value = input;
     this.setState({ userData: newObject });
@@ -1546,7 +1406,6 @@ class ThemeContextProvider extends Component {
 
   updateState = () => {
     let new1Object = [];
-    // let new1Object = [ ...this.state.userData ];
     new1Object = [
       {
         fullName: this.state.userData[0].fullName,
@@ -1614,16 +1473,13 @@ class ThemeContextProvider extends Component {
         languages: []
       }
     ];
-    // console.log(new1Object[0]);
     this.setState({ userData: new1Object });
   };
 
   toggleOneColumn = async () => {
-    // console.log("before toggles" + this.state.style.displayOneColumn);
     let newObject = { ...this.state.style };
     newObject.displayOneColumn = await !this.state.style.displayOneColumn;
     await this.setState({ style: newObject });
-    // console.log("i toggles" + this.state.style.displayOneColumn);
     this.updateState();
   };
 
@@ -1749,7 +1605,6 @@ class ThemeContextProvider extends Component {
           moveDownGroup: this.moveDownGroup,
           generatePDF: this.generatePDF,
           setStructure: this.setStructure,
-          renderTime: this.renderTime,
           uploadImage: this.uploadImage,
           getCurrentDate: this.getCurrentDate
         }}

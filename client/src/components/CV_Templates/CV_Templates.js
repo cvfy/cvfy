@@ -10,74 +10,84 @@ import ScrollAnimation from "react-animate-on-scroll";
 import Jumbotron from "./Jumbotron";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
-class CV_Templates extends Component {
-  render() {
-    return (
-      <ThemeContext.Consumer>
-        {context => {
-          const {
-            directToBasicTemplate,
-            directToModernTemplate,
-            directToProfessionalTemplate,
-            directToExecutiveTemplate
-          } = context;
-          return (
-            <>
-              <Navbar />
-              <Jumbotron />
-              <div className="CVTemplates_Container">
-                <ScrollAnimation
-                  className="cvBox"
-                  animateIn="fadeIn"
-                  animateOnce="true"
-                  duration="0.5s"
-                >
-                  <img alt="executiveCV_pic" src={Executive} onClick={directToExecutiveTemplate} />
-                </ScrollAnimation>
-                <ScrollAnimation
-                  className="cvBox"
-                  animateIn="fadeIn"
-                  animateOnce="true"
-                  duration="0.5s"
-                >
-                  <img alt="modernCV_pic" src={Modern} onClick={directToModernTemplate} />
-                </ScrollAnimation>
-                <ScrollAnimation
-                  className="cvBox"
-                  animateIn="fadeIn"
-                  animateOnce="true"
-                  duration="0.5s"
-                >
-                  <img
+const CV_Templates = () => {
+  return (
+    <ThemeContext.Consumer>
+      {context => {
+        const {
+          directToBasicTemplate,
+          directToModernTemplate,
+          directToProfessionalTemplate,
+          directToExecutiveTemplate
+        } = context;
+        return (
+          <>
+            <Navbar />
+            <Jumbotron />
+            <div className="CVTemplates_Container">
+              <ScrollAnimation
+                className="cvBox"
+                animateIn="fadeIn"
+                animateOnce="true"
+                duration="0.5s"
+              >
+                <img
+                  alt="executiveCV_pic"
+                  src={Executive}
+                  onClick={directToExecutiveTemplate}
+                />
+              </ScrollAnimation>
+              <ScrollAnimation
+                className="cvBox"
+                animateIn="fadeIn"
+                animateOnce="true"
+                duration="0.5s"
+              >
+                <img
+                  alt="modernCV_pic"
+                  src={Modern}
+                  onClick={directToModernTemplate}
+                />
+              </ScrollAnimation>
+              <ScrollAnimation
+                className="cvBox"
+                animateIn="fadeIn"
+                animateOnce="true"
+                duration="0.5s"
+              >
+                <img
                   alt="professionalCV_pic"
-                    src={Professional}
-                    onClick={directToProfessionalTemplate}
-                  />
-                </ScrollAnimation>{" "}
-                <ScrollAnimation
-                  className="cvBox"
-                  animateIn="fadeIn"
-                  animateOnce="true"
-                  duration="0.5s"
-                >
-                  <img alt="cv1_pic" src={CV1} />
-                </ScrollAnimation>{" "}
-                <ScrollAnimation
-                  className="cvBox"
-                  animateIn="fadeIn"
-                  animateOnce="true"
-                  duration="0.5s"
-                >
-                  <img alt="basicCV_pic" src={Basic} onClick={directToBasicTemplate} />
-                </ScrollAnimation>
-              </div>
-              <Footer />
-            </>
-          );
-        }}
-      </ThemeContext.Consumer>
-    );
-  }
-}
+                  src={Professional}
+                  onClick={directToProfessionalTemplate}
+                />
+              </ScrollAnimation>{" "}
+              <ScrollAnimation
+                className="cvBox"
+                animateIn="fadeIn"
+                animateOnce="true"
+                duration="0.5s"
+              >
+                <img alt="cv1_pic" src={CV1} />
+              </ScrollAnimation>{" "}
+              <ScrollAnimation
+                className="cvBox"
+                animateIn="fadeIn"
+                animateOnce="true"
+                duration="0.5s"
+              >
+                <img
+                  alt="basicCV_pic"
+                  src={Basic}
+                  onClick={directToBasicTemplate}
+                />
+              </ScrollAnimation>
+            </div>
+            <Footer />
+          </>
+        );
+      }}
+    </ThemeContext.Consumer>
+  );
+};
 
 export default CV_Templates;
