@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import "../../../styles/BuilderNav.css";
 import { ThemeContext } from "../../../contexts/ThemeContext";
-// import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Emoji from "react-emoji-render";
 import store from "./../../../store.js";
 import { frontUrl } from "../../../config";
 
 function aFunction() {
   var newState = store.getState();
-  // console.log(newState.auth.user.name);
   return newState.auth.user.name;
 }
 class LinkedInData extends Component {
@@ -58,7 +56,7 @@ class LinkedInData extends Component {
             toggleJustifyRight,
             toggleInsertOrderedList,
             toggleUndo,
-            toggleRedo,
+            toggleRedo
           } = context;
           return (
             <>
@@ -196,7 +194,6 @@ class LinkedInData extends Component {
                       ></i>
                     )}
                     {context.importing && null}
-                    {/* {context.importing && <span>Importing</span>} */}
                     {!context.importing && <span>Import</span>}
                   </button>
                   <button
@@ -208,15 +205,6 @@ class LinkedInData extends Component {
                         className="fas fa-circle-notch fa-spin"
                         style={{ marginRight: 5 }}
                       ></i>
-
-                      // <CountdownCircleTimer
-                      //   isPlaying
-                      //   durationSeconds={5}
-                      //   colors={[["black", 1]]}
-                      //   size={20}
-                      //   renderTime={renderTime}
-                      //   onComplete={() => [true, 1000]}
-                      // />
                     )}
                     {!context.loadingSaveCv && <span>Saving</span>}
                     {context.loadingSaveCv && <span>Save</span>}

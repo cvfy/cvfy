@@ -13,7 +13,6 @@ import { ThemeContext } from "../../../contexts/ThemeContext";
 import DownloadPdf from "../../BuilderSubMenus/DownloadPdf";
 import Emoji from "react-emoji-render";
 import { url } from "../../../config";
-// import { Beforeunload } from "react-beforeunload";
 
 const BuilderNav = () => {
   const context = useContext(ThemeContext);
@@ -23,17 +22,16 @@ const BuilderNav = () => {
 
   const handleNavbar = () => setNavbarState(!navbarState);
   const handleDownload = () => setLoadingDownload(!loadingDownload);
-const LogOutCurrentCV_Cover = () => {
-  localStorage.setItem("currentCV", "")
-  localStorage.setItem("currentCover", "")
-}
+  const LogOutCurrentCV_Cover = () => {
+    localStorage.setItem("currentCV", "");
+    localStorage.setItem("currentCover", "");
+  };
   let status = false;
   const downloadPdf = async e => {
     setLoadingDownload(true);
     if (status === false) {
       status = await true;
       e.preventDefault();
-      // console.log("I should be TRUE ->", loadingDownload);
       await axios
         .get(`${url}/api/users/data/pdf/${localStorage.getItem("currentCV")}`)
         .then(res => {
@@ -49,8 +47,12 @@ const LogOutCurrentCV_Cover = () => {
     <>
       <div className="CoverMenu">
         <NavLink style={{ textDecoration: "none", paddingLeft: "20px" }} to="/">
-          {/* <Beforeunload onBeforeunload={() => "You'll lose your data!"} /> */}
-          <span onClick={() => LogOutCurrentCV_Cover()} className="logo-template">CV|FY</span>
+          <span
+            onClick={() => LogOutCurrentCV_Cover()}
+            className="logo-template"
+          >
+            CV|FY
+          </span>
         </NavLink>
         <div className="design">
           <div className="tool-label">Design</div>
