@@ -1,10 +1,14 @@
+
+// IMPORTED PACKAGES
 const puppeteer = require("puppeteer-extra");
 const pluginStealth = require("puppeteer-extra-plugin-stealth");
 puppeteer.use(pluginStealth());
-const merge = require("easy-pdf-merge");
+// const merge = require("easy-pdf-merge");
 const imagesToPdf = require("images-to-pdf");
 
+// FUNCTION THAT GOES TO OUR WEBSITE, RETRIEVES THE CV WITH REQUESTED ID AND MAKES A PDF FILE OF THE CURRENT SAVED VERSION OF THIS CV
 async function giveMePDF(resumeID) {
+// LUNCH PUPPETEER
   const result = await puppeteer
     .launch({
       headless: true
@@ -16,6 +20,7 @@ async function giveMePDF(resumeID) {
           width: 1600,
           height: 4600
         });
+// GOT TO CREATE CV PAGE AND SET IN LOCAL STORAGE AS CURRENT CV THE ID GIVEN AS ARGUMENT TO THE MAIN FUNCTION
         await page.goto("http://localhost:3000/create-cv");
         await page.evaluate(resumeID => {
           localStorage.setItem(
@@ -24,6 +29,7 @@ async function giveMePDF(resumeID) {
           );
           localStorage.setItem("currentCV", resumeID);
         }, resumeID);
+// ONCE THE NECESSARY CV IS SET AS CURRENT IT MAKES A PDF FILE OF THIS CV
         await page.goto("http://localhost:3000/create-cv");
 
         await autoScroll(page);
@@ -58,24 +64,11 @@ async function giveMePDF(resumeID) {
         await browser.close();
       }
     });
-  // console.log(result);
+// RETURN CV ID WHEN FINISHED (IT WILL BE USED TO ACCES THE PDF FILE FROM THE STATIC EXPRESS FILE SHRING WITH IMPLEMENTED IN SERVER.JS)
   return resumeID;
 }
 
-const mergeMultiplePDF = pdfFiles => {
-  return new Promise((resolve, reject) => {
-    merge(pdfFiles, "samplefinal.pdf", function(err) {
-      if (err) {
-        // console.log(err);
-        reject(err);
-      }
-
-      // console.log("Success");
-      resolve();
-    });
-  });
-};
-
+// HELPING FUNCTION TO IMPLEMENT AUTOSCROLL
 async function autoScroll(page) {
   await page.evaluate(async () => {
     await new Promise((resolve, reject) => {
@@ -94,4 +87,6 @@ async function autoScroll(page) {
     });
   });
 }
+
+// EXPORT MAIN FUNCTION
 module.exports = giveMePDF;
