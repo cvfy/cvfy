@@ -13,18 +13,6 @@
   background: #fff center center;
   height: 297mm;
   width: 210mm;
-  /* pagination effect */
-  /* box-shadow: */
-  /* The top layer shadow */
-  /* 0 -1px 1px rgba(0, 0, 0, 0.15), */
-  /* The second layer */
-  /* 0 -10px 0 -5px #eee, */
-  /* The second layer shadow */
-  /* 0 -10px 1px -4px rgba(0, 0, 0, 0.15), */
-  /* The third layer */
-  /* 0 -20px 0 -10px #eee, */
-  /* The third layer shadow */
-  /* 0 -20px 1px -9px rgba(0, 0, 0, 0.15); */
   padding-top: 0;
 }
 
@@ -68,7 +56,7 @@
 }
 
 /* ==================================================== */
-/* ================== SECTION MENU ================== */
+/* ================== SECTION MENU ==================== */
 /* ==================================================== */
 .sectionsMenuDiv {
   background: #2b3a42;
@@ -229,9 +217,9 @@
   max-width: 17em;
 }
 
-/* ==================================================== */
+/* ===================================================== */
 /* ================== CONTACT SECTION ================== */
-/* ==================================================== */
+/* ===================================================== */
 .showContactModal {
   position: absolute;
   background: #2b3a42;
@@ -332,15 +320,12 @@ input[type="text"]:focus {
 
 .contactBox>input[type="email"]::placeholder,
 .contactBox>input[type="text"]::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: gray;
   opacity: 1;
-  /* Firefox */
 }
 
 .contact {
   background-color: #d3d3d382;
-  /* padding-left: 37.5px; */
   padding-left: 0;
   font-size: 12px;
   min-height: 70px;
@@ -350,7 +335,6 @@ input[type="text"]:focus {
 
 .contactP {
   background-color: #d3d3d382;
-  /* padding-left: 37.5px; */
   padding-left: 0;
   font-size: 12px;
   min-height: 70px;
@@ -379,17 +363,16 @@ input[type="text"]:focus {
   padding-top: 25px;
 }
 
-.contactGroup {
-  /* padding-top: 5px; */
-  direction: rtl;
-  padding-left: 27px;
-}
-
 /* for professional template */
 .contactGroupProfessional {
   flex-grow: 1;
   flex: 0 1 50%;
   padding: 5px 20px 5px 0;
+}
+
+.contactGroup {
+  direction: rtl;
+  padding-left: 27px;
 }
 
 .icone {
@@ -462,10 +445,9 @@ input[type="text"]:focus {
   max-width: 8em;
 }
 
-/* ==================================================== */
+/* ======================================================= */
 /* ================== EDUCATION SECTION ================== */
-/* ==================================================== */
-
+/* ======================================================= */
 .education-group,
 .experience-group,
 .project-group,
@@ -493,10 +475,9 @@ input[type="text"]:focus {
   justify-content: space-between;
 }
 
-/* ==================================================== */
+/* ======================================================== */
 /* ================== EXPERIENCE SECTION ================== */
-/* ==================================================== */
-
+/* ======================================================== */
 .achiev-task {
   color: grey;
   font-style: italic;
@@ -535,9 +516,9 @@ input[type="text"]:focus {
   font-style: italic;
 }
 
-/* ==================================================== */
+/* ====================================================== */
 /* ================== TIME-LOC SECTION ================== */
-/* ==================================================== */
+/* ====================================================== */
 .time-loc {
   display: flex;
   justify-content: space-between;
@@ -576,8 +557,6 @@ input[type="text"]:focus {
 /* ==================================================== */
 /* ================== SKILLS SECTION ================== */
 /* ==================================================== */
-
-
 .skills-label {
   margin-bottom: 5px;
   color: #3dbaf7;
@@ -606,10 +585,9 @@ input[type="text"]:focus {
   content: "Skill";
 }
 
-/* ==================================================== */
+/* ====================================================== */
 /* ================== PROJECTS SECTION ================== */
-/* ==================================================== */
-
+/* ====================================================== */
 .projectTitle {
   font-size: 0.9rem;
   font-weight: bold;
@@ -628,10 +606,9 @@ input[type="text"]:focus {
   content: "Short description of the project";
 }
 
-/* ==================================================== */
+/* =========================================================== */
 /* ================== CERTIFICATION SECTION ================== */
-/* ==================================================== */
-
+/* =========================================================== */
 .cert-group {
   font-size: 0.8rem;
 }
@@ -644,10 +621,9 @@ input[type="text"]:focus {
   content: "Certification title";
 }
 
-/* ==================================================== */
+/* ========================================================== */
 /* ================== ACHIEVEMENTS SECTION ================== */
-/* ==================================================== */
-
+/* ========================================================== */
 .achiev-group {
   font-size: 0.8rem;
 }
@@ -656,10 +632,9 @@ input[type="text"]:focus {
   content: "Achievement description";
 }
 
-/* ==================================================== */
+/* ======================================================= */
 /* ================== LANGUAGES SECTION ================== */
-/* ==================================================== */
-
+/* ======================================================= */
 .lang {
   margin-bottom: 15px;
 }
@@ -703,7 +678,9 @@ input[type="text"]:focus {
   font-style: italic;
 }
 
-
+/* ======================================================= */
+/* ================== RESPONSIVE DESIGN ================== */
+/* ======================================================= */
 @media (max-width: 800px) {
   .cvBuilderWrapper {
     display: flex;

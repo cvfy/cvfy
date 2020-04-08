@@ -12,8 +12,7 @@ import Languages from "../CvBuilderMain/Languages/Languages";
 import Courses from "../CvBuilderMain/Courses/Courses";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 
-class ModernTemplate extends React.Component {
-  render() {
+const ModernTemplate = () => {
     return (
       <ThemeContext.Consumer>
         {context => {
@@ -187,7 +186,6 @@ class ModernTemplate extends React.Component {
         }}
       </ThemeContext.Consumer>
         );
-      }
 }
 
 export default ModernTemplate;

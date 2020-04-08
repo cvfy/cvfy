@@ -30,14 +30,11 @@ class JobDashboard extends Component {
     if (status === false) {
       status = true;
       e.preventDefault();
-      this.setState({ loadingJobs: true,
-      pages: (this.state.pages+nr) });
-      // console.log("I should be TRUE", this.state.loadingJobs);
+      this.setState({ loadingJobs: true, pages: this.state.pages + nr });
       const response = await axios.get(
         `${url}/api/users/data/stepstone/position/${this.state.positionValue}/location/${this.state.locationValue}/pages/${this.state.pages}`
       );
       this.setState({ jobAds: response.data, loadingJobs: false });
-      // console.log("I should be FALSE", this.state.loadingJobs);
       status = false;
     }
   };
@@ -49,7 +46,6 @@ class JobDashboard extends Component {
     newArr[i] = !this.state.openRequirements[i];
 
     this.setState({ openRequirements: newArr });
-    // console.log(this.state.openRequirements);
   };
 
   render() {
@@ -107,46 +103,59 @@ class JobDashboard extends Component {
               </form>
             </div>
             <div
-            
               className={
                 this.state.jobAds.length === 0 ? "panelImg" : "JobDashboardAds"
               }
             >
-              {this.state.jobAds ? this.state.jobAds.map((el, i) => (
-                <div className="JobAdContainer">
-                  <div className="jobAdTitle">{el.JobPosition}</div>
-                  <div className="jobAdCompanyName"><a href={el.Link} target="_blank" rel="noopener noreferrer">{el.CompanyName}</a></div>
-                  <div
-                    style={{
-                      display: `${
-                        this.state.openRequirements[i] === false
-                          ? "none"
-                          : "block"
-                      }`
-                    }}
-                    className="jobAdRequirements"
-                  >
-                    <ul>
-                      {el.JobRequirements.map((el, i) => (
-                        <li key={i} >{el}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div
-                    onClick={() => this.openRequirements(i)}
-                    className="jobAdClickforRequirements"
-                  >
-                    {this.state.openRequirements[i] === false
-                      ? "Show Job Requirements"
-                      : "Hide Job Requirements"}
-                  </div>
-                </div>
-              )): ""}
+              {this.state.jobAds
+                ? this.state.jobAds.map((el, i) => (
+                    <div className="JobAdContainer">
+                      <div className="jobAdTitle">{el.JobPosition}</div>
+                      <div className="jobAdCompanyName">
+                        <a
+                          href={el.Link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {el.CompanyName}
+                        </a>
+                      </div>
+                      <div
+                        style={{
+                          display: `${
+                            this.state.openRequirements[i] === false
+                              ? "none"
+                              : "block"
+                          }`
+                        }}
+                        className="jobAdRequirements"
+                      >
+                        <ul>
+                          {el.JobRequirements.map((el, i) => (
+                            <li key={i}>{el}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div
+                        onClick={() => this.openRequirements(i)}
+                        className="jobAdClickforRequirements"
+                      >
+                        {this.state.openRequirements[i] === false
+                          ? "Show Job Requirements"
+                          : "Hide Job Requirements"}
+                      </div>
+                    </div>
+                  ))
+                : ""}
               <button
-              style={{display: `${this.state.jobAds.length === 0 ? "none" : ""}`}}
-                  onClick={e => this.requestStepStoneData(e, 4)}
-                  className="boardButton"
-                >See next 4 Job Ads</button>
+                style={{
+                  display: `${this.state.jobAds.length === 0 ? "none" : ""}`
+                }}
+                onClick={e => this.requestStepStoneData(e, 4)}
+                className="boardButton"
+              >
+                See next 4 Job Ads
+              </button>
             </div>
           </div>
         </div>

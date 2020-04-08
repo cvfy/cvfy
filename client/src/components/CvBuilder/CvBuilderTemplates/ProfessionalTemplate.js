@@ -12,8 +12,7 @@ import Languages from "../CvBuilderMain/Languages/Languages";
 import Courses from "../CvBuilderMain/Courses/Courses";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 
-class ProfessionalTemplate extends React.Component {
-  render() {
+const ProfessionalTemplate = () => {
     return (
       <ThemeContext.Consumer>
         {context => {
@@ -188,7 +187,6 @@ class ProfessionalTemplate extends React.Component {
         }}
       </ThemeContext.Consumer>
         );
-      }
 }
 
 export default ProfessionalTemplate;

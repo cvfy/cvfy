@@ -1,5 +1,4 @@
 import React from "react";
-// import "./basicTemplate.css";
 import '../CvBuilderMain/cvBuilderMain.css';
 import Header from "../CvBuilderMain/Header/Header";
 import ContactsBasic from "../CvBuilderMain/Contacts/ContactsBasic";
@@ -13,8 +12,7 @@ import Languages from "../CvBuilderMain/Languages/Languages";
 import Courses from "../CvBuilderMain/Courses/Courses";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 
-class BasicTemplate extends React.Component {
-  render() {
+const BasicTemplate = () => {
     return (
       <ThemeContext.Consumer>
         {context => {
@@ -187,7 +185,6 @@ class BasicTemplate extends React.Component {
         }}
       </ThemeContext.Consumer>
         );
-      }
 }
 
 export default BasicTemplate;
