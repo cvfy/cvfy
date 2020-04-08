@@ -1,10 +1,12 @@
+// IMPORTED PACKAGES
 const puppeteer = require("puppeteer-extra");
 const pluginStealth = require("puppeteer-extra-plugin-stealth");
 puppeteer.use(pluginStealth());
-const merge = require("easy-pdf-merge");
-const imagesToPdf = require("images-to-pdf");
 
+// FUNTCTION THAT GOES TO OUR WEBSITE, RETRIEVES THE CV WITH REQUESTED ID AND MAKES A SCREENSHOT OF THE CURRENT SAVED VERSION OF THIS CV
 async function giveMeScreenShot(resumeID) {
+
+// LUNCH PUPPETEER
   const result = await puppeteer
     .launch({
       headless: true
@@ -16,7 +18,7 @@ async function giveMeScreenShot(resumeID) {
           width: 1000,
           height: 1400
         });
-
+// GOT TO CREATE CV PAGE AND SET IN LOCAL STORAGE AS CURRENT CV THE ID GIVEN AS ARGUMENT TO THE MAIN FUNCTION
         await page.goto("http://localhost:3000/create-cv");
         await page.evaluate(resumeID => {
           localStorage.setItem(
@@ -25,6 +27,7 @@ async function giveMeScreenShot(resumeID) {
           );
           localStorage.setItem("currentCV", resumeID);
         }, resumeID);
+// ONCE THE NECESSARY CV IS SET AS CURRENT IT MAKES A SCREENSHOT OF FIRST PAGE OF THIS CV
         await page.goto("http://localhost:3000/create-cv");
         await page.waitFor(1000);
         const pic = await page.$(".A4");
@@ -33,21 +36,14 @@ async function giveMeScreenShot(resumeID) {
           type: "jpeg",
           quality: 100
         });
-        e.emulateMedia("screen");
-        f({
-          path: pdfFileName,
-          landscape: false,
-          format: "A4",
-          scale: 0.9,
-          printBackground: true
-        });
       } catch (err) {
         console.error(err.message);
       } finally {
         await browser.close();
       }
     });
+// RETURN CV ID WHEN FINISHED (IT WILL BE USED TO ACCES THE SCREENSHOT FROM THE STATIC EXPRESS FILE SHRING WITH IMPLEMENTED IN SERVER.JS)
   return resumeID;
 }
-
+// EXPORT MAIN FUNCTION
 module.exports = giveMeScreenShot;
