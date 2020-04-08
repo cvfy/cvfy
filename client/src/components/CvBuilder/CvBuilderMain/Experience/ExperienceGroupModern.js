@@ -32,7 +32,6 @@ class ExperienceGroup extends React.Component {
           return (
             <>
               <div
-                // contentEditable="true"
                 suppressContentEditableWarning={true}
                 type="text"
                 tabIndex="0"
@@ -44,7 +43,6 @@ class ExperienceGroup extends React.Component {
                 onBlur={() =>
                   this.setState({ display: "none", borderBottom: "" })
                 }
-                // onClick={() => this.focusByClassName("experience-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
                 <div className="sectionsMenuDiv" style={{ display: display }}>
@@ -296,32 +294,11 @@ class ExperienceGroup extends React.Component {
                         borderBottom: borderBottom,
                         paddingInlineStart: 0
                       }}
-                      // onClick={this.addNewTask}
                     >
                       <li style={{ listStyle: "inside" }}>
                         {[this.props.data.tasks]}
                       </li>
                     </ul>
-
-                    {/* <span
-                      onBlur={e =>
-                        modifyEx(
-                          this.props.index,
-                          "tasks",
-                          e.target.innerText,
-                          this.props.dat
-                        )
-                      }
-                      className="task"
-                      contentEditable="true"
-                      suppressContentEditableWarning={true}
-                      style={{
-                        fontSize: context.style.size3,
-                        borderBottom: borderBottom
-                      }}
-                    >
-                      {this.props.data.tasks}
-                    </span> */}
                   </div>
                 </div>
               </div>

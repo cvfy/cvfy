@@ -32,7 +32,6 @@ class ExperienceGroup extends React.Component {
           return (
             <>
               <div
-                // contentEditable="true"
                 suppressContentEditableWarning={true}
                 type="text"
                 tabIndex="0"
@@ -44,7 +43,6 @@ class ExperienceGroup extends React.Component {
                 onBlur={() =>
                   this.setState({ display: "none", borderBottom: "" })
                 }
-                // onClick={() => this.focusByClassName("experience-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
                 <div className="sectionsMenuDiv" style={{ display: display }}>

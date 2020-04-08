@@ -2,56 +2,47 @@ import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
 import ExperienceGroup from "./ExperienceGroup";
 
-class Experience extends React.Component {
-  render() {
-    return (
-      <ThemeContext.Consumer>
-        {context => {
-          const group = context.userData[
-            this.props.index
-          ].experience.map((el, i) => (
-            <ExperienceGroup
-              key={i}
-              dat={i}
-              index={this.props.index}
-              data={el}
-            />
-          ));
-          return (
+const Experience = props => {
+  return (
+    <ThemeContext.Consumer>
+      {context => {
+        const group = context.userData[props.index].experience.map((el, i) => (
+          <ExperienceGroup key={i} dat={i} index={props.index} data={el} />
+        ));
+        return (
+          <div
+            className="experience exp1page"
+            style={{
+              padding: `${
+                context.style.displayOneColumn === false
+                  ? "20px 30px 0 30px"
+                  : "10px 40px"
+              }`
+            }}
+          >
             <div
-              className="experience exp1page"
+              className="sectionHeader"
               style={{
-                padding: `${
+                justifyContent: `${
                   context.style.displayOneColumn === false
-                    ? "20px 30px 0 30px"
-                    : "10px 40px"
+                    ? "space-between"
+                    : "center"
                 }`
               }}
             >
               <div
-                className="sectionHeader"
-                style={{
-                  justifyContent: `${
-                    context.style.displayOneColumn === false
-                      ? "space-between"
-                      : "center"
-                  }`
-                }}
+                className="section-label"
+                style={{ color: context.style.color }}
               >
-                <div
-                  className="section-label"
-                  style={{ color: context.style.color }}
-                >
-                  WORK EXPERIENCE
-                </div>
+                WORK EXPERIENCE
               </div>
-              <div className="experience-body">{group}</div>
             </div>
-          );
-        }}
-      </ThemeContext.Consumer>
-    );
-  }
-}
+            <div className="experience-body">{group}</div>
+          </div>
+        );
+      }}
+    </ThemeContext.Consumer>
+  );
+};
 
 export default Experience;

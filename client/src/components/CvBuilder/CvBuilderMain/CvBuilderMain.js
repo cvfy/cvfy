@@ -12,12 +12,7 @@ import Languages from "./Languages/Languages";
 import Courses from "./Courses/Courses";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 
-class CvBuilderMain extends React.Component {
-
-  // componentWillUnmount(){
-  //   localStorage.setItem("currentCV", "")
-  // }
-  render() {
+  const CvBuilderMain = () => {
     return (
       <ThemeContext.Consumer>
         {context => {
@@ -189,7 +184,6 @@ class CvBuilderMain extends React.Component {
         }}
       </ThemeContext.Consumer>
         );
-      }
 }
 
 export default CvBuilderMain;

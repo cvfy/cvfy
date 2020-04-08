@@ -22,14 +22,19 @@ class EducationGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyEd, addGroup, deleteGroup, moveUpGroup, moveDownGroup } = context;
+          const {
+            modifyEd,
+            addGroup,
+            deleteGroup,
+            moveUpGroup,
+            moveDownGroup
+          } = context;
           return (
             <>
               <div
                 tabIndex="0"
-                // contentEditable="true"
-                    suppressContentEditableWarning={true}
-                    type="text"
+                suppressContentEditableWarning={true}
+                type="text"
                 className="education-group"
                 ref={input => (this.my_refs["education-group"] = input)}
                 onFocus={() =>
@@ -38,24 +43,38 @@ class EducationGroup extends React.Component {
                 onBlur={() =>
                   this.setState({ display: "none", borderBottom: "" })
                 }
-                // onClick={() => this.focusByClassName("education-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
                 <div className="sectionsMenuDiv" style={{ display: display }}>
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={() => addGroup("education", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      addGroup("education", this.props.index, this.props.dat)
+                    }
                     title="add group"
                   ></i>
-                  <i className="fas fa-angle-up angleIcon" title="move up"
-                  onClick={() => moveUpGroup("education", this.props.index, this.props.dat)}></i>
+                  <i
+                    className="fas fa-angle-up angleIcon"
+                    title="move up"
+                    onClick={() =>
+                      moveUpGroup("education", this.props.index, this.props.dat)
+                    }
+                  ></i>
                   <i
                     className="fas fa-angle-down angleIcon"
                     title="move down"
-                    onClick={() => moveDownGroup("education", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      moveDownGroup(
+                        "education",
+                        this.props.index,
+                        this.props.dat
+                      )
+                    }
                   ></i>
                   <i
-                    onClick={() => deleteGroup("education", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      deleteGroup("education", this.props.index, this.props.dat)
+                    }
                     className="deleteIcon far fa-trash-alt"
                     title="delete group"
                   ></i>
@@ -63,7 +82,14 @@ class EducationGroup extends React.Component {
                 {/* ************************************************** */}
                 <div className="editableDiv">
                   <span
-                  onBlur={e => modifyEd(this.props.index, "studyProgram", e.target.innerText, this.props.dat)}
+                    onBlur={e =>
+                      modifyEd(
+                        this.props.index,
+                        "studyProgram",
+                        e.target.innerText,
+                        this.props.dat
+                      )
+                    }
                     contentEditable="true"
                     suppressContentEditableWarning={true}
                     type="text"
@@ -81,13 +107,13 @@ class EducationGroup extends React.Component {
                 <div className="editableDiv">
                   <span
                     onBlur={e =>
-                      modifyEd(this.props.index, 
+                      modifyEd(
+                        this.props.index,
                         "institution",
                         e.target.innerText,
                         this.props.dat
                       )
                     }
-                    // onInput={(e) => {modifyEd(e.target.innerText, this.props.dat)}}
                     className="institution"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
@@ -105,7 +131,8 @@ class EducationGroup extends React.Component {
                     <span
                       className="month"
                       onBlur={e =>
-                        modifyEd(this.props.index, 
+                        modifyEd(
+                          this.props.index,
                           "startMonth",
                           e.target.innerText,
                           this.props.dat
@@ -131,7 +158,8 @@ class EducationGroup extends React.Component {
                     </span>
                     <span
                       onBlur={e =>
-                        modifyEd(this.props.index, 
+                        modifyEd(
+                          this.props.index,
                           "startYear",
                           e.target.innerText,
                           this.props.dat
@@ -158,7 +186,8 @@ class EducationGroup extends React.Component {
                     </span>
                     <span
                       onBlur={e =>
-                        modifyEd(this.props.index, 
+                        modifyEd(
+                          this.props.index,
                           "endMonth",
                           e.target.innerText,
                           this.props.dat
@@ -185,7 +214,12 @@ class EducationGroup extends React.Component {
                     </span>
                     <span
                       onBlur={e =>
-                        modifyEd(this.props.index, "endYear", e.target.innerText, this.props.dat)
+                        modifyEd(
+                          this.props.index,
+                          "endYear",
+                          e.target.innerText,
+                          this.props.dat
+                        )
                       }
                       className="year"
                       style={{
@@ -202,7 +236,12 @@ class EducationGroup extends React.Component {
                   <div className="location">
                     <span
                       onBlur={e =>
-                        modifyEd(this.props.index, "place", e.target.innerText, this.props.dat)
+                        modifyEd(
+                          this.props.index,
+                          "place",
+                          e.target.innerText,
+                          this.props.dat
+                        )
                       }
                       className="place"
                       style={{

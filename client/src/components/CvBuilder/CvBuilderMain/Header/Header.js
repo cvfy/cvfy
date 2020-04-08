@@ -1,6 +1,5 @@
 import React from "react";
 import { ThemeContext } from "../../../../contexts/ThemeContext";
-// import axios from "axios";
 
 class Header extends React.Component {
   constructor() {

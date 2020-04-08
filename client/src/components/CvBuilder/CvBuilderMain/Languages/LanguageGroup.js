@@ -22,12 +22,17 @@ class LanguageGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyLanguages, addGroup, deleteGroup, moveUpGroup, moveDownGroup } = context;
+          const {
+            modifyLanguages,
+            addGroup,
+            deleteGroup,
+            moveUpGroup,
+            moveDownGroup
+          } = context;
           return (
             <>
               <div
                 tabIndex="0"
-                // contentEditable="true"
                 suppressContentEditableWarning={true}
                 type="text"
                 className="lang-group"
@@ -38,8 +43,7 @@ class LanguageGroup extends React.Component {
                 onBlur={() =>
                   this.setState({ display: "none", borderBottom: "" })
                 }
-                // onClick={() => this.focusByClassName("lang-group")}
-                style={{position: "relative"}}
+                style={{ position: "relative" }}
               >
                 {/* ********************SECTION MENUS*************** */}
                 <div
@@ -48,18 +52,33 @@ class LanguageGroup extends React.Component {
                 >
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={() => addGroup("languages", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      addGroup("languages", this.props.index, this.props.dat)
+                    }
                     title="add group"
                   ></i>
-                  <i className="fas fa-angle-up angleIcon" title="move up"
-                  onClick={() => moveUpGroup("languages", this.props.index, this.props.dat)}></i>
+                  <i
+                    className="fas fa-angle-up angleIcon"
+                    title="move up"
+                    onClick={() =>
+                      moveUpGroup("languages", this.props.index, this.props.dat)
+                    }
+                  ></i>
                   <i
                     className="fas fa-angle-down angleIcon"
                     title="move down"
-                    onClick={() => moveDownGroup("languages", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      moveDownGroup(
+                        "languages",
+                        this.props.index,
+                        this.props.dat
+                      )
+                    }
                   ></i>
                   <i
-                    onClick={() => deleteGroup("languages", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      deleteGroup("languages", this.props.index, this.props.dat)
+                    }
                     className="deleteIcon far fa-trash-alt"
                     title="delete group"
                   ></i>
@@ -67,8 +86,9 @@ class LanguageGroup extends React.Component {
                 {/* ************************************************** */}
                 <div className="editableDiv language">
                   <span
-                    onBlur={(e) =>
-                      modifyLanguages(this.props.index, 
+                    onBlur={e =>
+                      modifyLanguages(
+                        this.props.index,
                         "language",
                         this.props.dat,
                         e.target.innerText
@@ -86,7 +106,8 @@ class LanguageGroup extends React.Component {
                   </span>
                   <span
                     onBlur={e =>
-                      modifyLanguages(this.props.index, 
+                      modifyLanguages(
+                        this.props.index,
                         "level",
                         this.props.dat,
                         e.target.innerText

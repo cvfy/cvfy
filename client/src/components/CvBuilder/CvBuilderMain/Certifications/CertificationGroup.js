@@ -36,7 +36,6 @@ class CertificationGroup extends React.Component {
             <>
               <div
                 tabIndex="0"
-                // contentEditable="true"
                 suppressContentEditableWarning={true}
                 type="text"
                 className="cert-group"
@@ -47,24 +46,50 @@ class CertificationGroup extends React.Component {
                 onBlur={() =>
                   this.setState({ display: "none", borderBottom: "" })
                 }
-                // onClick={() => this.focusByClassName("cert-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
                 <div className="sectionsMenuDiv" style={{ display: display }}>
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={() => addGroup("certifications", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      addGroup(
+                        "certifications",
+                        this.props.index,
+                        this.props.dat
+                      )
+                    }
                     title="add group"
                   ></i>
-                  <i className="fas fa-angle-up angleIcon" title="move up"
-                  onClick={() => moveUpGroup("certifications", this.props.index, this.props.dat)}></i>
+                  <i
+                    className="fas fa-angle-up angleIcon"
+                    title="move up"
+                    onClick={() =>
+                      moveUpGroup(
+                        "certifications",
+                        this.props.index,
+                        this.props.dat
+                      )
+                    }
+                  ></i>
                   <i
                     className="fas fa-angle-down angleIcon"
                     title="move down"
-                    onClick={() => moveDownGroup("certifications", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      moveDownGroup(
+                        "certifications",
+                        this.props.index,
+                        this.props.dat
+                      )
+                    }
                   ></i>
                   <i
-                    onClick={() => deleteGroup("certifications", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      deleteGroup(
+                        "certifications",
+                        this.props.index,
+                        this.props.dat
+                      )
+                    }
                     className="deleteIcon far fa-trash-alt"
                     title="delete group"
                   ></i>
@@ -73,7 +98,11 @@ class CertificationGroup extends React.Component {
                 <div className="editableDiv">
                   <span
                     onBlur={e =>
-                      modifyCertifications(this.props.index, this.props.dat, e.target.innerText)
+                      modifyCertifications(
+                        this.props.index,
+                        this.props.dat,
+                        e.target.innerText
+                      )
                     }
                     className="certificationTitle"
                     contentEditable="true"

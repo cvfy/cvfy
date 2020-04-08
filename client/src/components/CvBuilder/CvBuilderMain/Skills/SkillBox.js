@@ -34,13 +34,11 @@ class SkillBox extends React.Component {
               <div
                 className="skill-box"
                 tabIndex="0"
-                // contentEditable="true"
                 suppressContentEditableWarning={true}
                 type="text"
                 ref={input => (this.my_refs["skill-box"] = input)}
                 onFocus={() => this.setState({ display: "" })}
                 onBlur={() => this.setState({ display: "none" })}
-                // onClick={() => this.focusByClassName("skill-box")}
                 style={{
                   background: context.style.color,
                   fontSize: context.style.size3,

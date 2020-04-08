@@ -37,7 +37,6 @@ class ProjectGroup extends React.Component {
               <div
                 tabIndex="0"
                 className="project-group"
-                // contentEditable="true"
                 suppressContentEditableWarning={true}
                 type="text"
                 ref={input => (this.my_refs["project-group"] = input)}
@@ -47,7 +46,6 @@ class ProjectGroup extends React.Component {
                 onBlur={() =>
                   this.setState({ display: "none", borderBottom: "" })
                 }
-                // onClick={() => this.focusByClassName("project-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
                 <div className="sectionsMenuDiv" style={{ display: display }}>

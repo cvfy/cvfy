@@ -22,7 +22,13 @@ class CourseGroup extends React.Component {
     return (
       <ThemeContext.Consumer>
         {context => {
-          const { modifyCourses, addGroup, deleteGroup, moveUpGroup, moveDownGroup } = context;
+          const {
+            modifyCourses,
+            addGroup,
+            deleteGroup,
+            moveUpGroup,
+            moveDownGroup
+          } = context;
           return (
             <>
               <div
@@ -38,24 +44,34 @@ class CourseGroup extends React.Component {
                 onBlur={() =>
                   this.setState({ display: "none", borderBottom: "" })
                 }
-                // onClick={() => this.focusByClassName("project-group")}
               >
                 {/* ********************SECTION MENUS*************** */}
                 <div className="sectionsMenuDiv" style={{ display: display }}>
                   <i
                     className="fas fa-plus-circle addIcon"
-                    onClick={() => addGroup("courses", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      addGroup("courses", this.props.index, this.props.dat)
+                    }
                     title="add group"
                   ></i>
-                  <i className="fas fa-angle-up angleIcon" title="move up"
-                  onClick={() => moveUpGroup("courses", this.props.index, this.props.dat)}></i>
+                  <i
+                    className="fas fa-angle-up angleIcon"
+                    title="move up"
+                    onClick={() =>
+                      moveUpGroup("courses", this.props.index, this.props.dat)
+                    }
+                  ></i>
                   <i
                     className="fas fa-angle-down angleIcon"
                     title="move down"
-                    onClick={() => moveDownGroup("courses", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      moveDownGroup("courses", this.props.index, this.props.dat)
+                    }
                   ></i>
                   <i
-                    onClick={() => deleteGroup("courses", this.props.index, this.props.dat)}
+                    onClick={() =>
+                      deleteGroup("courses", this.props.index, this.props.dat)
+                    }
                     className="deleteIcon far fa-trash-alt"
                     title="delete group"
                   ></i>
@@ -64,7 +80,8 @@ class CourseGroup extends React.Component {
                 <div className="editableDiv">
                   <span
                     onBlur={e =>
-                      modifyCourses(this.props.index,
+                      modifyCourses(
+                        this.props.index,
                         "CTitle",
                         this.props.dat,
                         e.target.innerText
@@ -85,7 +102,8 @@ class CourseGroup extends React.Component {
                 <div className="editableDiv">
                   <span
                     onBlur={e =>
-                      modifyCourses(this.props.index, 
+                      modifyCourses(
+                        this.props.index,
                         "CDesc",
                         this.props.dat,
                         e.target.innerText
