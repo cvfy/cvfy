@@ -5,19 +5,7 @@ class CertificationGroup extends React.Component {
   constructor() {
     super();
     this.my_refs = {};
-    this.state = {
-      display: "none",
-      borderBottom: ""
-    };
-
-    this.focusByClassName.bind(this);
-  }
-
-  focusByClassName(className) {
-    let myRef = this.my_refs[className];
-    if (myRef) {
-      myRef.focus();
-    }
+    this.state = { display: "none", borderBottom: "" };
   }
 
   render() {

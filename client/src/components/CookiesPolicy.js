@@ -5,10 +5,12 @@ import Footer from "./Footer";
 import scrollToComponent from "react-scroll-to-component";
 
 class CookiesPolicy extends React.Component {
+  // This function make sure we scroll the page view to top when we enter the page
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
+  // This function scroll to the required class section
   handleClick() {
     scrollToComponent(this.className);
   }

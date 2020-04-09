@@ -9,12 +9,14 @@ class CoverLetterContact extends React.Component {
     };
   }
 
+  // This function open the contact modal
   displayModal = () => {
     if (!this.state.clicked) {
       this.setState({ clicked: true });
     }
   };
 
+  // This function close the contact modal when save button is pressed
   saveContacts = () => {
     this.setState({ clicked: false });
   };

@@ -9,12 +9,14 @@ class ContactsProfessional extends React.Component {
     };
   }
 
+  // This function opens the contact modal
   displayModal = () => {
     if (!this.state.clicked) {
       this.setState({ clicked: true });
     }
   };
 
+  // This function closes the contact modal by pressing save button
   saveContacts = () => {
     this.setState({ clicked: false });
   };

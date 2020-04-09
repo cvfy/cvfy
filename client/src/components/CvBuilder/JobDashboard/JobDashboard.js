@@ -22,6 +22,7 @@ class JobDashboard extends Component {
   onPositionChange = e => {
     this.setState({ positionValue: e.target.value });
   };
+
   onLocationChange = e => {
     this.setState({ locationValue: e.target.value });
   };
@@ -38,9 +39,11 @@ class JobDashboard extends Component {
       status = false;
     }
   };
+
   displayDashboard = () => {
     this.setState({ openJobDashboard: !this.state.openJobDashboard });
   };
+
   openRequirements = i => {
     let newArr = [...this.state.openRequirements];
     newArr[i] = !this.state.openRequirements[i];

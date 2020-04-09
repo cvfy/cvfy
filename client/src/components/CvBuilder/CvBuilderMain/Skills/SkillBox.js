@@ -6,15 +6,6 @@ class SkillBox extends React.Component {
     super();
     this.my_refs = {};
     this.state = { display: "none" };
-
-    this.focusByClassName.bind(this);
-  }
-
-  focusByClassName(className) {
-    let myRef = this.my_refs[className];
-    if (myRef) {
-      myRef.focus();
-    }
   }
 
   render() {

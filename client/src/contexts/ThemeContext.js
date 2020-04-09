@@ -53,6 +53,7 @@ class ThemeContextProvider extends Component {
       size2: "",
       size3: "",
       size4: "",
+      showMenu: false,
       tasksHistory: [],
       tasksOutput: [],
       value: "",
@@ -1035,6 +1036,7 @@ class ThemeContextProvider extends Component {
     }
     this.setState({ userData: newObject });
   };
+
   moveDownGroup = (field, page, index) => {
     let newObject = [...this.state.userData];
     if (field === "experience") {
@@ -1169,6 +1171,7 @@ class ThemeContextProvider extends Component {
 
     this.setState({ userData: newObject });
   };
+
   setStructure = (arr1, arr2) => {
     let newObj = { ...this.state };
     let defaultArr = [

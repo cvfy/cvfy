@@ -1,16 +1,21 @@
-import React, { Component } from "react";
-import Navbar from "../navbar/Navbar";
-import Footer from "../Footer";
-import CV1 from "../../assets/CV1.jpeg";
-import Basic from "../../assets/basic-template.jpg";
-import Modern from "../../assets/modern-template.jpg";
-import Professional from "../../assets/professional-template.jpg";
-import Executive from "../../assets/executive-template.jpg";
+import React, { useEffect } from "react";
+import Navbar from "./navbar/Navbar";
+import Footer from "./Footer";
+import JumboPic from "../assets/JumboPic2.png";
+import CV1 from "../assets/CV1.jpeg";
+import Basic from "../assets/basic-template.jpg";
+import Modern from "../assets/modern-template.jpg";
+import Professional from "../assets/professional-template.jpg";
+import Executive from "../assets/executive-template.jpg";
 import ScrollAnimation from "react-animate-on-scroll";
-import Jumbotron from "./Jumbotron";
-import { ThemeContext } from "../../contexts/ThemeContext";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 const CV_Templates = () => {
+  // This function make sure we scroll the page view to top when we enter the page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <ThemeContext.Consumer>
       {context => {
@@ -23,7 +28,26 @@ const CV_Templates = () => {
         return (
           <>
             <Navbar />
-            <Jumbotron />
+            {/*  Here starts Jumbotron section*/}
+            <div className="JumbotronCVTemplates">
+              <div className="JumboLeft">
+                <h1>Be Bold and use our Job-winning CV Templates</h1>
+                <p>
+                  Each template is expertly designed and follows the exact
+                  “resume rules” hiring managers look for. Stand out and get
+                  hired faster with field-tested resume templates.
+                </p>
+              </div>
+              <div className="JumboRight">
+                <img
+                  alt="jumboPic"
+                  className="animated fadeIn"
+                  src={JumboPic}
+                />
+              </div>
+            </div>
+            {/*  Here ends Jumbotron section*/}
+
             <div className="CVTemplates_Container">
               <ScrollAnimation
                 className="cvBox"

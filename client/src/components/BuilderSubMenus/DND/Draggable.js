@@ -1,8 +1,9 @@
 import React from "react";
 import Card from "./Card";
-import { ThemeContext } from "../../contexts/ThemeContext";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 
 function Draggable(props) {
+  // To drop inside the board
   const drop = e => {
     e.preventDefault();
     const card_id = e.dataTransfer.getData("card_id");
@@ -14,6 +15,7 @@ function Draggable(props) {
     target.appendChild(card);
   };
 
+  // To drag over the board
   const dragOver = e => {
     e.preventDefault();
   };

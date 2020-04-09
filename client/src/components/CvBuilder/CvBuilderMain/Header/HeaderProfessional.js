@@ -5,17 +5,7 @@ class HeaderProfessional extends React.Component {
   constructor() {
     super();
     this.my_refs = {};
-    this.state = {
-      borderBottom: ""
-    };
-    this.focusByClassName.bind(this);
-  }
-
-  focusByClassName(className) {
-    let myRef = this.my_refs[className];
-    if (myRef) {
-      myRef.focus();
-    }
+    this.state = { borderBottom: "" };
   }
 
   render() {
@@ -63,7 +53,6 @@ class HeaderProfessional extends React.Component {
                     onFocus={() =>
                       this.setState({ borderBottom: "1px solid blue" })
                     }
-                    onClick={() => this.focusByClassName("CvTitle")}
                     style={{
                       fontSize: context.style.size1,
                       borderBottom: borderBottom,
@@ -96,7 +85,6 @@ class HeaderProfessional extends React.Component {
                     onFocus={() =>
                       this.setState({ borderBottom: "1px solid blue" })
                     }
-                    onClick={() => this.focusByClassName("summary")}
                     style={{
                       fontSize: context.style.size3,
                       borderBottom: borderBottom

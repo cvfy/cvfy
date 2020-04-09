@@ -4,7 +4,6 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 class ColorSubMenu extends Component {
   constructor() {
     super();
-
     this.state = {
       showMenu: false
     };
@@ -13,14 +12,15 @@ class ColorSubMenu extends Component {
     this.closeMenu = this.closeMenu.bind(this);
   }
 
+  // This function opens submenu onclick and add closemenu function
   showMenu(event) {
     event.preventDefault();
-
     this.setState({ showMenu: true }, () => {
       document.addEventListener("click", this.closeMenu);
     });
   }
 
+  // This function close submenu onclick outside the target and remove closemenu function
   closeMenu(event) {
     if (!this.dropdownMenu.contains(event.target)) {
       this.setState({ showMenu: false }, () => {

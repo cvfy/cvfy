@@ -7,9 +7,12 @@ import CoverDashboard from "./CoverDashboard";
 class MyDocuments extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      show: true
-    };
+    this.state = { show: true };
+  }
+
+  // This function make sure we scroll the page view to top when we enter the page
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   render() {

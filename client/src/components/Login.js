@@ -17,6 +17,9 @@ class Login extends Component {
     };
   }
   componentDidMount() {
+    // This method make sure we scroll the page view to top when we enter the page
+    window.scrollTo(0, 0);
+
     // If logged in and user navigates to Register page, should redirect them to create-cv
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/create-cv");

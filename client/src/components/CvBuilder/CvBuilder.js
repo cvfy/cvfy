@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CvBuilderNav from "./CvBuilderNav/CvBuilderNav";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import JobDashboard from "./JobDashboard/JobDashboard";
@@ -8,6 +8,11 @@ import ProfessionalTemplate from "./CvBuilderTemplates/ProfessionalTemplate";
 import ModernTemplate from "./CvBuilderTemplates/ModernTemplate";
 
 const CvBuilder = () => {
+  // This function make sure we scroll the page view to top when we enter the page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <ThemeContext.Consumer>
       {context => {

@@ -4,10 +4,12 @@ import "../../../styles/BuilderNav.css";
 import { frontUrl } from "../../../config";
 
 class ExtraToolsMenu extends Component {
+  // This function creates a new Cover Letter
   setLocalStorage = id => {
     localStorage.setItem("currentCover", id);
     window.location.href = `${frontUrl}/create-cover-letter`;
   };
+
   render() {
     return (
       <CoverLetterContext.Consumer>

@@ -5,7 +5,6 @@ import "../../styles/CoverBuilderNav.css";
 class CoverLayoutSubMenu extends Component {
   constructor() {
     super();
-
     this.state = {
       userId: "user-1",
       showMenu: false
@@ -16,14 +15,15 @@ class CoverLayoutSubMenu extends Component {
     this.handleUserChange = this.handleUserChange.bind(this);
   }
 
+  // This function opens sub menu onclick and add close menu function
   showMenu(event) {
     event.preventDefault();
-
     this.setState({ showMenu: true }, () => {
       document.addEventListener("click", this.closeMenu);
     });
   }
 
+  // This function close sub menu onclick outside the target and remove close menu function
   closeMenu(event) {
     if (!this.dropdownMenu.contains(event.target)) {
       this.setState({ showMenu: false }, () => {

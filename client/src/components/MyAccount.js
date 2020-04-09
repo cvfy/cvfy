@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./navbar/Navbar";
 import Footer from "./Footer";
 import ProfilePicture from "../assets/user.png";
@@ -10,13 +10,18 @@ function aFunction(type) {
   return newState.auth.user[type];
 }
 const MyAccount = () => {
+  // This function make sure we scroll the page view to top when we enter the page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Navbar />
       <div className="Jumbotron">
         <div className="ProfilePicContainer">
           <div className="ProfilePic">
-            <img  alt="profilePicture" src={ProfilePicture} />
+            <img alt="profilePicture" src={ProfilePicture} />
           </div>
           <h1>{aFunction("name")}</h1>
         </div>

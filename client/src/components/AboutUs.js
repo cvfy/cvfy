@@ -10,10 +10,12 @@ class AboutUs extends Component {
       "„Casamentiss faiz malandris se pirulitá. Atirei o pau no gatis, per gatis num morreus. Manduma pindureta quium dia nois paga. Aenean aliquam molestie leo, vitae iaculis nisl.”"
   };
 
+  // This function make sure we scroll the page view to top when we enter the page
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
+  // This function change the text of textDiv onClick
   changeText = e => {
     if (e.currentTarget.title === "mission") {
       this.setState({

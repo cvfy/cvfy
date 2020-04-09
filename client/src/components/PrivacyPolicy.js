@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/QuickLinks.scss";
 import Navbar from "./navbar/Navbar";
 import Footer from "./Footer";
 
 const PrivacyPolicy = () => {
+  // This function make sure we scroll the page view to top when we enter the page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="policyWrapper">
       <Navbar />
