@@ -21,6 +21,14 @@ Watch our [presentation video](https://drive.google.com/file/d/1R9wHCFCQSp9yK05-
 - Puppeteer - for scraping data
 - Passport JS - for Authentification
 
+## Installation
+
+Run:
+
+`npm i`
+
+`ǹpm run dev - Runs the app in the development mode.`
+
 ### Deployment
 
 Although CVFY is deployed on AWS, we decided not to share the link yet because we want to be more careful on data protection first.
