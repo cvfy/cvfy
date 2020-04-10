@@ -29,7 +29,7 @@ Run:
 
 `ǹpm run dev - Runs the app in the development mode.`
 
-### Deployment
+## Deployment
 
 Although CVFY is deployed on AWS, we decided not to share the link yet because we want to be more careful on data protection first.
 
