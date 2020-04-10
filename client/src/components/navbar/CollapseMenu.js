@@ -13,11 +13,6 @@ const CollapseMenu = props => {
     window.location.reload();
   };
 
-  const onLClick = e => {
-    e.preventDefault();
-    localStorage.removeItem("currentCV");
-    localStorage.removeItem("currentCover");
-  };
 
   const { open } = useSpring({ open: props.navbarState ? 0 : 1 });
 
