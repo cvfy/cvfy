@@ -1,34 +1,41 @@
+// IMPORTED PACKAGES
 import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
+
+// IMPORT CONSTANTS
 import {
   GET_ERRORS,
   SET_CURRENT_USER,
   USER_LOADING
-} from "./types";// Register User
+} from "./types";
+
+// REGISTER A USER
 export const registerUser = (userData, history) => dispatch => {
   axios
     .post("/api/users/register", userData)
     .then(res => history.push("/login")) // re-direct to login on successful register
     .catch(err =>
       dispatch({
+        // GETTING ERRORS FROM VALIDATORS DONE ON SERVER
         type: GET_ERRORS,
         payload: err.response.data
       })
     );
-};// Login - get user token
+};
+// LOGIN -GET USER TOKEN
 export const loginUser = userData => dispatch => {
   axios
     .post("/api/users/login", userData)
     .then(res => {
-      // Save to localStorage// Set token to localStorage
+      // SET TOKEN TO LOCAL STORAGE
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
-      // Set token to Auth header
+      // SET TOKEN TO AUTH HEADER
       setAuthToken(token);
-      // Decode token to get user data
+      // DECODE TOKEN TO GET USER DATA
       const decoded = jwt_decode(token);
-      // Set current user
+      // SET CURRENT USER
       dispatch(setCurrentUser(decoded));
     })
     .catch(err =>
@@ -37,23 +44,26 @@ export const loginUser = userData => dispatch => {
         payload: err.response.data
       })
     );
-};// Set logged in user
+};
+// SET LOGGED IN USER
 export const setCurrentUser = decoded => {
   return {
     type: SET_CURRENT_USER,
     payload: decoded
   };
-};// User loading
+};
+// USER LOADING
 export const setUserLoading = () => {
   return {
     type: USER_LOADING
   };
-};// Log user out
+};
+// LOG USER OUT
 export const logoutUser = () => dispatch => {
-  // Remove token from local storage
+// REMOVE TOKEN FROM LOCAL STORAGE
   localStorage.removeItem("jwtToken");
-  // Remove auth header for future requests
+// REMOVE AUTH HEADER FROM FUTURE REQUESTS
   setAuthToken(false);
-  // Set current user to empty object {} which will set isAuthenticated to false
+// SET CURRENT USER TO EMPTY  OBJECT {}  WHICH WILL SET ISAUTHENTICATED TO FALSE 
   dispatch(setCurrentUser({}));
 };

@@ -5,16 +5,16 @@ import { url, frontUrl } from "../config";
 
 let status = false;
 export const CoverLetterContext = createContext();
+// FUNCTION THAT HAS ACCESS TO THE REDUX STORE AND GET THE CURRENT USER DATA
 function aFunction() {
   var newState = store.getState();
   return newState.auth.user.id;
 }
-
 function nameFunction() {
   var newState = store.getState();
   return newState.auth.user.name;
 }
-
+// ID GENERATOR
 function guidGenerator() {
   var S4 = function() {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
@@ -88,6 +88,9 @@ class CoverLetterContextProvider extends Component {
   };
 
   async componentDidMount() {
+    // VERIFY IF THERE IS SET A CURRENT COVER LETTER ID IN THE LOCAL STORAGE
+// IF THERE IS NO CURRENT COVER LETTER SET, GENERATE NEW ID AND SET IT AS CURRENT COVER LETTER AND SAVE CURRENT COVER LETTER TO DATABASE
+
     if (
       localStorage.getItem("currentCover") === null ||
       localStorage.getItem("currentCover") === ""
@@ -100,6 +103,7 @@ class CoverLetterContextProvider extends Component {
         this.state
       );
     }
+    // IF THERE IS A CURRENT COVER LETTER SET IN LOCAL STORAGE, MAKE A CALL TO DATABASE THROUGH OUR API AND GET THE DATA OF THIS CURRENT COVER LETTER ID
     if (localStorage.getItem("currentCover")) {
       axios
         .get(
@@ -115,6 +119,7 @@ class CoverLetterContextProvider extends Component {
   }
 
   componentDidUpdate() {
+    // PAGE BREAK ON COVER LETTER BASED ON NUMBER OF CHARACTERS
     if (this.state.coverLetters[0].text.length > 3500) {
       let cover = [...this.state.coverLetters];
       let data = cover[0].text; //.replace("<br>", "\n")
@@ -134,6 +139,7 @@ class CoverLetterContextProvider extends Component {
     }
   }
 
+// METHOD THAT SENDS AND SAVE'S THE CURRENT COVER LETTER STATE TO DATABASE THROUGH A CALL TO OUR BACKEND API
   saveCoverDataToServer = async e => {
     if (status === false) {
       status = true;

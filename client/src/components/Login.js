@@ -27,7 +27,7 @@ class Login extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/create-cv"); // push user to create-cv when they login
+      this.props.history.push("/create-cv"); // REDIRECT USER TO CREATE-CV PAGE WHEN THEY LOGIN IN
     }
     if (nextProps.errors) {
       this.setState({
