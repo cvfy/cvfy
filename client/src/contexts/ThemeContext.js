@@ -418,7 +418,7 @@ class ThemeContextProvider extends Component {
           }
         }
       }
-
+      // SITUATION 2 - IF THE CV STRUCTURE IS A 1 COLUMN STRUCTURE
       if (this.state.style.displayOneColumn !== false) {
         if (onePageHeight > 2000) {
           let lastItem = document
@@ -465,6 +465,8 @@ class ThemeContextProvider extends Component {
   }
 
   async componentDidMount() {
+// VERIFY IF THERE IS SET A CURRENT CV ID IN THE LOCAL STORAGE
+// IF THERE IS NO CURRENT CV SET, GENERATE NEW ID AND SET IT AS CURRENT CV AND SAVE CURRENT CV TO DATABASE
     if (
       localStorage.getItem("currentCV") === null ||
       localStorage.getItem("currentCV") === ""
@@ -474,6 +476,7 @@ class ThemeContextProvider extends Component {
       await localStorage.setItem("currentCV", this.state.id);
       axios.post(`${url}/api/users/resume/cv/${aFunction()}`, this.state);
     }
+// IF THERE IS A CURRENT CV SET IN LOCAL STORAGE, MAKE A CALL TO DATABASE THROUGH OUR API AND GET THE DATA OF THIS CURRENT CV ID
     if (
       localStorage.getItem("currentCV") !== null ||
       localStorage.getItem("currentCV") !== ""
@@ -491,6 +494,7 @@ class ThemeContextProvider extends Component {
     }
   }
 
+// METHOD THAT MAKES AND API CALL TO OUR SERVER TO GET THE LINKEDIN PROFILE DATA USING PUPPETEER
   importData = async (profile, e) => {
     e.preventDefault();
     this.setState({ importingMessage: true });
@@ -649,6 +653,7 @@ class ThemeContextProvider extends Component {
     }
   };
 
+// METHOD THAT SENDS AND SAVE'S THE CURRENT CV STATE TO DATABASE THROUGH A CALL TO OUR BACKEND API
   saveCVDataToServer = async e => {
     if (status === false) {
       status = await true;
@@ -671,65 +676,25 @@ class ThemeContextProvider extends Component {
     }
   };
 
+// METHOD MODIFY EDUCATION SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyEd = (page, field, value, index) => {
     let newObject = [...this.state.userData];
     if (newObject[page].education[index]) {
-      if (field === "studyProgram") {
-        newObject[page].education[index].studyProgram = value;
-      }
-      if (field === "institution") {
-        newObject[page].education[index].institution = value;
-      }
-      if (field === "startMonth") {
-        newObject[page].education[index].startMonth = value;
-      }
-      if (field === "startYear") {
-        newObject[page].education[index].startYear = value;
-      }
-      if (field === "endMonth") {
-        newObject[page].education[index].endMonth = value;
-      }
-      if (field === "endYear") {
-        newObject[page].education[index].endYear = value;
-      }
-      if (field === "place") {
-        newObject[page].education[index].place = value;
-      }
+        newObject[page].education[index][field] = value;
       this.setState({ userData: newObject });
     }
   };
 
+// METHOD MODIFY'S EXPERIENCE SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyEx = (page, field, value, index) => {
     let newObject = [...this.state.userData];
     if (newObject[page].experience[index]) {
-      if (field === "position") {
-        newObject[page].experience[index].position = value;
-      }
-      if (field === "company") {
-        newObject[page].experience[index].company = value;
-      }
-      if (field === "startMonth") {
-        newObject[page].experience[index].startMonth = value;
-      }
-      if (field === "startYear") {
-        newObject[page].experience[index].startYear = value;
-      }
-      if (field === "endMonth") {
-        newObject[page].experience[index].endMonth = value;
-      }
-      if (field === "endYear") {
-        newObject[page].experience[index].endYear = value;
-      }
-      if (field === "place") {
-        newObject[page].experience[index].place = value;
-      }
-      if (field === "tasks") {
-        newObject[page].experience[index].tasks = value;
-      }
+        newObject[page].experience[index][field] = value;
       this.setState({ userData: newObject });
     }
   };
 
+// METHOD MODIFY'S SKILLS SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifySkill = (page, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].skills[index]) {
@@ -738,6 +703,7 @@ class ThemeContextProvider extends Component {
     }
   };
 
+  // METHOD MODIFY'S ABOUT SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyAbout = (page, field, value) => {
     let newObject = [...this.state.userData];
     if (field === "intro") {
@@ -749,6 +715,7 @@ class ThemeContextProvider extends Component {
     this.setState({ userData: newObject });
   };
 
+  // METHOD MODIFY'S ACHIEVEMENTS SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyAchievements = (page, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].achievements[index]) {
@@ -757,6 +724,7 @@ class ThemeContextProvider extends Component {
     }
   };
 
+// METHOD MODIFY'S CERTIFICATIONS SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyCertifications = (page, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].certifications[index]) {
@@ -765,6 +733,7 @@ class ThemeContextProvider extends Component {
     }
   };
 
+// METHOD MODIFY'S PROJECTS SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyProjects = (page, field, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].projects[index]) {
@@ -778,6 +747,7 @@ class ThemeContextProvider extends Component {
     }
   };
 
+  // METHOD MODIFY'S COURSES SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyCourses = (page, field, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].courses[index]) {
@@ -791,6 +761,7 @@ class ThemeContextProvider extends Component {
     }
   };
 
+// METHOD MODIFY'S LANGUAGES SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyLanguages = (page, field, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].languages[index]) {
@@ -804,52 +775,16 @@ class ThemeContextProvider extends Component {
     }
   };
 
-  deleteGroup = (section, page, deleteIndex) => {
+// METHOD THAT DELETES A GROUP IN ANY SECTION OF THE CV BASED ON THE SET PARAMETERS(DYNAMIC)
+deleteGroup = (section, page, deleteIndex) => {
     let newObject = [...this.state.userData];
-    if (section === "education") {
-      newObject[page].education = [
-        ...newObject[page].education.filter((el, i) => i !== deleteIndex)
+      newObject[page][section] = [
+        ...newObject[page][section].filter((el, i) => i !== deleteIndex)
       ];
-    }
-    if (section === "experience") {
-      newObject[page].experience = [
-        ...newObject[page].experience.filter((el, i) => i !== deleteIndex)
-      ];
-    }
-    if (section === "skills") {
-      newObject[page].skills = [
-        ...newObject[page].skills.filter((el, i) => i !== deleteIndex)
-      ];
-    }
-    if (section === "projects") {
-      newObject[page].projects = [
-        ...newObject[page].projects.filter((el, i) => i !== deleteIndex)
-      ];
-    }
-    if (section === "certifications") {
-      newObject[page].certifications = [
-        ...newObject[page].certifications.filter((el, i) => i !== deleteIndex)
-      ];
-    }
-    if (section === "achievements") {
-      newObject[page].achievements = [
-        ...newObject[page].achievements.filter((el, i) => i !== deleteIndex)
-      ];
-    }
-    if (section === "courses") {
-      newObject[page].courses = [
-        ...newObject[page].courses.filter((el, i) => i !== deleteIndex)
-      ];
-    }
-    if (section === "languages") {
-      newObject[page].languages = [
-        ...newObject[page].languages.filter((el, i) => i !== deleteIndex)
-      ];
-    }
     this.setState({ userData: newObject });
   };
-
-  addGroup = (field, page, index) => {
+// METHOD THAT ADDS A NEW GROUP IN ANY SECTION OF THE CV BASED ON THE SET PARAMETERS(DYNAMIC)
+addGroup = (field, page, index) => {
     let newObject = [...this.state.userData];
     if (field === "experience") {
       let newExperience = {
@@ -910,270 +845,49 @@ class ThemeContextProvider extends Component {
     this.setState({ userData: newObject });
   };
 
-  // ............................................
-
+  // METHOD THAT WHEN CALLED, BASED ON THE PARAMETERS PASSED MOVE'S THE CURRENT GROUP A POSITION UP
   moveUpGroup = (field, page, index) => {
     let newObject = [...this.state.userData];
-    if (field === "experience") {
+    // if (field === "experience") {
       if (index === 0 && newObject[page - 1]) {
         let newObj =
-          newObject[page - 1].experience[
-            newObject[page - 1].experience.length - 1
+          newObject[page - 1][field][
+            newObject[page - 1][field].length - 1
           ];
-        newObject[page - 1].experience[
-          newObject[page - 1].experience.length - 1
-        ] = newObject[page].experience[index];
-        newObject[page].experience[index] = newObj;
+        newObject[page - 1][field][
+          newObject[page - 1][field].length - 1
+        ] = newObject[page][field][index];
+        newObject[page][field][index] = newObj;
       } else {
-        let newObj = newObject[page].experience[index - 1];
-        newObject[page].experience[index - 1] =
-          newObject[page].experience[index];
-        newObject[page].experience[index] = newObj;
+        let newObj = newObject[page][field][index - 1];
+        newObject[page][field][index - 1] =
+          newObject[page][field][index];
+        newObject[page][field][index] = newObj;
       }
-    }
-    if (field === "education") {
-      if (index === 0 && newObject[page - 1]) {
-        let newObj =
-          newObject[page - 1].education[
-            newObject[page - 1].education.length - 1
-          ];
-        newObject[page - 1].education[
-          newObject[page - 1].education.length - 1
-        ] = newObject[page].education[index];
-        newObject[page].education[index] = newObj;
-      } else {
-        let newObj = newObject[page].education[index - 1];
-        newObject[page].education[index - 1] = newObject[page].education[index];
-        newObject[page].education[index] = newObj;
-      }
-    }
-    if (field === "skills") {
-      if (index === 0 && newObject[page - 1]) {
-        let newObj =
-          newObject[page - 1].skills[newObject[page - 1].skills.length - 1];
-        newObject[page - 1].skills[newObject[page - 1].skills.length - 1] =
-          newObject[page].skills[index];
-        newObject[page].skills[index] = newObj;
-      } else {
-        let newObj = newObject[page].skills[index - 1];
-        newObject[page].skills[index - 1] = newObject[page].skills[index];
-        newObject[page].skills[index] = newObj;
-      }
-    }
-    if (field === "projects") {
-      if (index === 0 && newObject[page - 1]) {
-        let newObj =
-          newObject[page - 1].projects[newObject[page - 1].projects.length - 1];
-        newObject[page - 1].projects[newObject[page - 1].projects.length - 1] =
-          newObject[page].projects[index];
-        newObject[page].projects[index] = newObj;
-      } else {
-        let newObj = newObject[page].projects[index - 1];
-        newObject[page].projects[index - 1] = newObject[page].projects[index];
-        newObject[page].projects[index] = newObj;
-      }
-    }
-    if (field === "certifications") {
-      if (index === 0 && newObject[page - 1]) {
-        let newObj =
-          newObject[page - 1].certifications[
-            newObject[page - 1].certifications.length - 1
-          ];
-        newObject[page - 1].certifications[
-          newObject[page - 1].certifications.length - 1
-        ] = newObject[page].certifications[index];
-        newObject[page].certifications[index] = newObj;
-      } else {
-        let newObj = newObject[page].certifications[index - 1];
-        newObject[page].certifications[index - 1] =
-          newObject[page].certifications[index];
-        newObject[page].certifications[index] = newObj;
-      }
-    }
-    if (field === "achievements") {
-      if (index === 0 && newObject[page - 1]) {
-        let newObj =
-          newObject[page - 1].achievements[
-            newObject[page - 1].achievements.length - 1
-          ];
-        newObject[page - 1].achievements[
-          newObject[page - 1].achievements.length - 1
-        ] = newObject[page].achievements[index];
-        newObject[page].achievements[index] = newObj;
-      } else {
-        let newObj = newObject[page].achievements[index - 1];
-        newObject[page].achievements[index - 1] =
-          newObject[page].achievements[index];
-        newObject[page].achievements[index] = newObj;
-      }
-    }
-    if (field === "courses") {
-      if (index === 0 && newObject[page - 1]) {
-        let newObj =
-          newObject[page - 1].courses[newObject[page - 1].courses.length - 1];
-        newObject[page - 1].courses[newObject[page - 1].courses.length - 1] =
-          newObject[page].courses[index];
-        newObject[page].courses[index] = newObj;
-      } else {
-        let newObj = newObject[page].courses[index - 1];
-        newObject[page].courses[index - 1] = newObject[page].courses[index];
-        newObject[page].courses[index] = newObj;
-      }
-    }
-    if (field === "languages") {
-      if (index === 0 && newObject[page - 1]) {
-        let newObj =
-          newObject[page - 1].languages[
-            newObject[page - 1].languages.length - 1
-          ];
-        newObject[page - 1].languages[
-          newObject[page - 1].languages.length - 1
-        ] = newObject[page].languages[index];
-        newObject[page].languages[index] = newObj;
-      } else {
-        let newObj = newObject[page].languages[index - 1];
-        newObject[page].languages[index - 1] = newObject[page].languages[index];
-        newObject[page].languages[index] = newObj;
-      }
-    }
     this.setState({ userData: newObject });
   };
-
+  // METHOD THAT WHEN CALLED, BASED ON THE PARAMETERS PASSED MOVE'S THE CURRENT GROUP A POSITION DOWN
   moveDownGroup = (field, page, index) => {
     let newObject = [...this.state.userData];
-    if (field === "experience") {
       if (
-        index === newObject[page].experience.length - 1 &&
+        index === newObject[page][field].length - 1 &&
         newObject[page + 1]
       ) {
-        let newObj = newObject[page + 1].experience[0];
-        newObject[page + 1].experience[0] =
-          newObject[page].experience[newObject[page].experience.length - 1];
-        newObject[page].experience[
-          newObject[page].experience.length - 1
+        let newObj = newObject[page + 1][field][0];
+        newObject[page + 1][field][0] =
+          newObject[page][field][newObject[page][field].length - 1];
+        newObject[page][field][
+          newObject[page][field].length - 1
         ] = newObj;
       } else {
-        let newObj = newObject[page].experience[index + 1];
-        newObject[page].experience[index + 1] =
-          newObject[page].experience[index];
-        newObject[page].experience[index] = newObj;
+        let newObj = newObject[page][field][index + 1];
+        newObject[page][field][index + 1] =
+          newObject[page][field][index];
+        newObject[page][field][index] = newObj;
       }
-    }
-    if (field === "education") {
-      if (
-        index === newObject[page].education.length - 1 &&
-        newObject[page + 1]
-      ) {
-        let newObj = newObject[page + 1].education[0];
-        newObject[page + 1].education[0] =
-          newObject[page].education[newObject[page].education.length - 1];
-        newObject[page].education[
-          newObject[page].education.length - 1
-        ] = newObj;
-      } else {
-        let newObj = newObject[page].education[index + 1];
-        newObject[page].education[index + 1] = newObject[page].education[index];
-        newObject[page].education[index] = newObj;
-      }
-    }
-    if (field === "skills") {
-      if (index === newObject[page].skills.length - 1 && newObject[page + 1]) {
-        let newObj = newObject[page + 1].skills[0];
-        newObject[page + 1].skills[0] =
-          newObject[page].skills[newObject[page].skills.length - 1];
-        newObject[page].skills[newObject[page].skills.length - 1] = newObj;
-      } else {
-        let newObj = newObject[page].skills[index + 1];
-        newObject[page].skills[index + 1] = newObject[page].skills[index];
-        newObject[page].skills[index] = newObj;
-      }
-    }
-    if (field === "projects") {
-      if (
-        index === newObject[page].projects.length - 1 &&
-        newObject[page + 1]
-      ) {
-        let newObj = newObject[page + 1].projects[0];
-        newObject[page + 1].projects[0] =
-          newObject[page].projects[newObject[page].projects.length - 1];
-        newObject[page].projects[newObject[page].projects.length - 1] = newObj;
-      } else {
-        let newObj = newObject[page].projects[index + 1];
-        newObject[page].projects[index + 1] = newObject[page].projects[index];
-        newObject[page].projects[index] = newObj;
-      }
-    }
-    if (field === "certifications") {
-      if (
-        index === newObject[page].certifications.length - 1 &&
-        newObject[page + 1]
-      ) {
-        let newObj = newObject[page + 1].certifications[0];
-        newObject[page + 1].certifications[0] =
-          newObject[page].certifications[
-            newObject[page].certifications.length - 1
-          ];
-        newObject[page].certifications[
-          newObject[page].certifications.length - 1
-        ] = newObj;
-      } else {
-        let newObj = newObject[page].certifications[index + 1];
-        newObject[page].certifications[index + 1] =
-          newObject[page].certifications[index];
-        newObject[page].certifications[index] = newObj;
-      }
-    }
-    if (field === "achievements") {
-      if (
-        index === newObject[page].achievements.length - 1 &&
-        newObject[page + 1]
-      ) {
-        let newObj = newObject[page + 1].achievements[0];
-        newObject[page + 1].achievements[0] =
-          newObject[page].achievements[newObject[page].achievements.length - 1];
-        newObject[page].achievements[
-          newObject[page].achievements.length - 1
-        ] = newObj;
-      } else {
-        let newObj = newObject[page].achievements[index + 1];
-        newObject[page].achievements[index + 1] =
-          newObject[page].achievements[index];
-        newObject[page].achievements[index] = newObj;
-      }
-    }
-    if (field === "courses") {
-      if (index === newObject[page].courses.length - 1 && newObject[page + 1]) {
-        let newObj = newObject[page + 1].courses[0];
-        newObject[page + 1].courses[0] =
-          newObject[page].courses[newObject[page].courses.length - 1];
-        newObject[page].courses[newObject[page].courses.length - 1] = newObj;
-      } else {
-        let newObj = newObject[page].courses[index + 1];
-        newObject[page].courses[index + 1] = newObject[page].courses[index];
-        newObject[page].courses[index] = newObj;
-      }
-    }
-    if (field === "languages") {
-      if (
-        index === newObject[page].languages.length - 1 &&
-        newObject[page + 1]
-      ) {
-        let newObj = newObject[page + 1].languages[0];
-        newObject[page + 1].languages[0] =
-          newObject[page].languages[newObject[page].languages.length - 1];
-        newObject[page].languages[
-          newObject[page].languages.length - 1
-        ] = newObj;
-      } else {
-        let newObj = newObject[page].languages[index + 1];
-        newObject[page].languages[index + 1] = newObject[page].languages[index];
-        newObject[page].languages[index] = newObj;
-      }
-    }
-
     this.setState({ userData: newObject });
   };
-
+// METHOD THAT IMPLEMENTS THE DRAG AND DROP STRUCTURE TO THE CV
   setStructure = (arr1, arr2) => {
     let newObj = { ...this.state };
     let defaultArr = [
@@ -1206,7 +920,7 @@ class ThemeContextProvider extends Component {
     element.classList.add(this.state.userData.contact.icone);
   };
 
-  // ############ UPLOAD PROFILE IMAGE FUNCTION ####################
+  // ############ UPLOAD PROFILE IMAGE METHOD DONE WITH CLOUDINARY API ####################
   uploadImage = async e => {
     const files = e.target.files;
     const data = new FormData();
@@ -1409,6 +1123,7 @@ class ThemeContextProvider extends Component {
     this.setState({ style: newObject });
   };
 
+// HELPING METHOD THAT GROUPS BACK THE DATA FROM ALL PAGES OF CV AND SETS IT AS NEW STATE SO THAT THE NEW STRUCTURE MADE BY DRAG AND DROP MENU IS IMPLEMENTED CORRECT
   updateState = () => {
     let new1Object = [];
     new1Object = [
