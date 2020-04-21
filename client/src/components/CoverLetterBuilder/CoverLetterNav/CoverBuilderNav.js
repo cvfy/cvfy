@@ -1,18 +1,18 @@
 import React, { useContext, useState } from "react";
-import BuilderCollapseMenu from "../BuilderCollapseMenu";
-import "../../styles/CoverBuilderNav.css";
-import FontSubMenu from "./FontSubMenu";
-import ColorSubMenu from "./ColorSubMenu";
-import FontSizeSubMenu from "./FontSizeSubMenu";
-import CoverLayoutSubMenu from "../BuilderSubMenus/CoverLayoutSubMenu";
-import TemplatesSubMenu from "./TemplatesSubMenu";
+import BuilderCollapseMenu from "../../BuilderCollapseMenu";
+import "../../../styles/CoverBuilderNav.css";
+import FontSubMenu from "../FontSubMenu";
+import ColorSubMenu from "../ColorSubMenu";
+import FontSizeSubMenu from "../FontSizeSubMenu";
+import CoverLayoutSubMenu from "../../BuilderSubMenus/CoverLayoutSubMenu";
+import TemplatesSubMenu from "../TemplatesSubMenu";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
-import { CoverLetterContext } from "../../contexts/CoverLetterContext";
-import BuilderBurgerMenu from "../BuilderBurgerMenu";
-import DownloadPdfCover from "../BuilderSubMenus/DownloadPdfCover";
-import { url } from "../../config";
+import { CoverLetterContext } from "../../../contexts/CoverLetterContext";
+import BuilderBurgerMenu from "../../BuilderBurgerMenu";
+import DownloadPdfCover from "../../BuilderSubMenus/DownloadPdfCover";
 import Emoji from "react-emoji-render";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 const CoverBuilderNav = () => {
   const context = useContext(CoverLetterContext);
@@ -27,24 +27,30 @@ const CoverBuilderNav = () => {
     localStorage.removeItem("currentCV");
     localStorage.removeItem("currentCover");
   };
+
   const downloadPdfCover = async e => {
     setDownloadCover(true);
     e.preventDefault();
+
+    // initialize jsPDF
+    const doc = new jsPDF("p", "mm", "a4");
     if (status === false) {
       status = await true;
-      await axios
-        .get(
-          `${url}/api/users/data/pdf/cover/${localStorage.getItem(
-            "currentCover"
-          )}`
-        )
-        .then(res => {
-          window.open(`${url}/static2/${res.data}.pdf`, "_blank"); //this.setState(res.data)
-          if (res.data.length > 0) return setDownloadCover(false);
-        });
-      status = await false;
+      const page = document.querySelector("#container");
+      await html2canvas(page, { scale: 1 }).then(function(canvas) {
+        doc.addImage(
+          canvas.toDataURL("image/png"),
+          "JPEG",
+          -1.5, // side margins
+          0, // margin top
+          215, // width
+          290 // height
+        );
+      });
+
+      // download the pdf with all the pages
+      doc.save("cover_letter_" + Date.now() + ".pdf");
       setDownloadCover(false);
-    } else {
     }
   };
 

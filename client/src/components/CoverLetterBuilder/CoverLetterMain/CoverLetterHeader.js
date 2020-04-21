@@ -8,7 +8,7 @@ function aFunction() {
   return newState.auth.user.name;
 }
 
-const CoverLetterHeader = () => {
+const CoverLetterHeader = props => {
   return (
     <CoverLetterContext.Consumer>
       {context => {
@@ -24,7 +24,7 @@ const CoverLetterHeader = () => {
                     color: context.style.color
                   }}
                 >
-                  {this.props.data.fullName}
+                  {props.data.fullName}
                 </div>
 
                 <div
@@ -44,7 +44,7 @@ const CoverLetterHeader = () => {
                       fontSize: context.style.size1
                     }}
                   >
-                    {this.props.data.professionalTitle}
+                    {props.data.professionalTitle}
                   </span>
                 </div>
                 <div
@@ -71,7 +71,7 @@ const CoverLetterHeader = () => {
                         fontSize: context.style.size1
                       }}
                     >
-                      {this.props.data.companyDetails}
+                      {props.data.companyDetails}
                     </span>
                   </div>
                 </div>

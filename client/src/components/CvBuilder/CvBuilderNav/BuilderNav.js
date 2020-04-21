@@ -8,11 +8,11 @@ import TemplatesSubMenu from "../../BuilderSubMenus/TemplatesSubMenu";
 import BuilderBurgerMenu from "../../BuilderBurgerMenu";
 import BuilderCollapseMenu from "../../BuilderCollapseMenu";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 import DownloadPdf from "../../BuilderSubMenus/DownloadPdf";
 import Emoji from "react-emoji-render";
-import { url } from "../../../config";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 const BuilderNav = () => {
   const context = useContext(ThemeContext);
@@ -26,23 +26,43 @@ const BuilderNav = () => {
     localStorage.setItem("currentCV", "");
     localStorage.setItem("currentCover", "");
   };
+
   let status = false;
+
   const downloadPdf = async e => {
     setLoadingDownload(true);
+
+    // initialize jsPDF
+    const doc = new jsPDF("p", "mm", "a4");
     if (status === false) {
       status = await true;
       e.preventDefault();
-      await axios
-        .get(`${url}/api/users/data/pdf/${localStorage.getItem("currentCV")}`)
-        .then(res => {
-          window.open(`${url}/static2/${res.data}.pdf`, "_blank");
-          if (res.data.length > 0) return setLoadingDownload(false);
+      const pages = document.querySelectorAll(".A4");
+      const numberOfPages = pages.length;
+      for (let i = 0; i < numberOfPages; i++) {
+        const page = document.querySelector(".containerA4" + [i]);
+        await html2canvas(page, { scale: 1 }).then(function(canvas) {
+          doc.addImage(
+            canvas.toDataURL("image/png"),
+            "JPEG",
+            -1.5, // side margins
+            0, // margin top
+            215, // width
+            290 // height
+          );
+
+          // Add new page at each iteration
+          if (i < numberOfPages - 1) {
+            doc.addPage();
+          }
         });
-      status = await false;
+      }
+      // download the pdf with all the pages
+      doc.save("resume_" + Date.now() + ".pdf");
       setLoadingDownload(false);
-    } else {
     }
   };
+
   return (
     <>
       <div className="CoverMenu">

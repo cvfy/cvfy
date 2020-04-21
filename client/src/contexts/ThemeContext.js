@@ -2,6 +2,8 @@ import React, { Component, createContext, useRef } from "react";
 import axios from "axios";
 import store from "./../store.js";
 import { url, cloudinaryUrl, frontUrl } from "../config";
+import ProfilePic from "../assets/profile-logo-anonym.jpg";
+
 let status = false;
 let status2 = false;
 
@@ -96,7 +98,7 @@ class ThemeContextProvider extends Component {
         fullName: BFunction(),
         intro: "Professional title",
         about: "Short and engaging pitch about yourself",
-        profilePic: `${url}/static/profile_default.gif`,
+        profilePic: ProfilePic,
         contact: [
           { icon: "far fa-envelope", value: "Email" },
           { icon: "fas fa-mobile-alt", value: "Phone number" },
