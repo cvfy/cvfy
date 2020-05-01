@@ -30,7 +30,6 @@
     "easy-pdf-merge": "^0.2.2",
     "express": "^4.17.1",
     "html2canvas": "^1.0.0-rc.5",
-    "images-to-pdf": "^1.0.3",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "jspdf": "^1.5.3",

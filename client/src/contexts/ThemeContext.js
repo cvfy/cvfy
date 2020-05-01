@@ -465,8 +465,8 @@ class ThemeContextProvider extends Component {
   }
 
   async componentDidMount() {
-// VERIFY IF THERE IS SET A CURRENT CV ID IN THE LOCAL STORAGE
-// IF THERE IS NO CURRENT CV SET, GENERATE NEW ID AND SET IT AS CURRENT CV AND SAVE CURRENT CV TO DATABASE
+    // VERIFY IF THERE IS SET A CURRENT CV ID IN THE LOCAL STORAGE
+    // IF THERE IS NO CURRENT CV SET, GENERATE NEW ID AND SET IT AS CURRENT CV AND SAVE CURRENT CV TO DATABASE
     if (
       localStorage.getItem("currentCV") === null ||
       localStorage.getItem("currentCV") === ""
@@ -476,7 +476,7 @@ class ThemeContextProvider extends Component {
       await localStorage.setItem("currentCV", this.state.id);
       axios.post(`${url}/api/users/resume/cv/${aFunction()}`, this.state);
     }
-// IF THERE IS A CURRENT CV SET IN LOCAL STORAGE, MAKE A CALL TO DATABASE THROUGH OUR API AND GET THE DATA OF THIS CURRENT CV ID
+    // IF THERE IS A CURRENT CV SET IN LOCAL STORAGE, MAKE A CALL TO DATABASE THROUGH OUR API AND GET THE DATA OF THIS CURRENT CV ID
     if (
       localStorage.getItem("currentCV") !== null ||
       localStorage.getItem("currentCV") !== ""
@@ -494,7 +494,7 @@ class ThemeContextProvider extends Component {
     }
   }
 
-// METHOD THAT MAKES AND API CALL TO OUR SERVER TO GET THE LINKEDIN PROFILE DATA USING PUPPETEER
+  // METHOD THAT MAKES AND API CALL TO OUR SERVER TO GET THE LINKEDIN PROFILE DATA USING PUPPETEER
   importData = async (profile, e) => {
     e.preventDefault();
     this.setState({ importingMessage: true });
@@ -653,7 +653,7 @@ class ThemeContextProvider extends Component {
     }
   };
 
-// METHOD THAT SENDS AND SAVE'S THE CURRENT CV STATE TO DATABASE THROUGH A CALL TO OUR BACKEND API
+  // METHOD THAT SENDS AND SAVE'S THE CURRENT CV STATE TO DATABASE THROUGH A CALL TO OUR BACKEND API
   saveCVDataToServer = async e => {
     if (status === false) {
       status = await true;
@@ -676,25 +676,25 @@ class ThemeContextProvider extends Component {
     }
   };
 
-// METHOD MODIFY EDUCATION SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
+  // METHOD MODIFY EDUCATION SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyEd = (page, field, value, index) => {
     let newObject = [...this.state.userData];
     if (newObject[page].education[index]) {
-        newObject[page].education[index][field] = value;
+      newObject[page].education[index][field] = value;
       this.setState({ userData: newObject });
     }
   };
 
-// METHOD MODIFY'S EXPERIENCE SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
+  // METHOD MODIFY'S EXPERIENCE SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyEx = (page, field, value, index) => {
     let newObject = [...this.state.userData];
     if (newObject[page].experience[index]) {
-        newObject[page].experience[index][field] = value;
+      newObject[page].experience[index][field] = value;
       this.setState({ userData: newObject });
     }
   };
 
-// METHOD MODIFY'S SKILLS SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
+  // METHOD MODIFY'S SKILLS SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifySkill = (page, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].skills[index]) {
@@ -724,7 +724,7 @@ class ThemeContextProvider extends Component {
     }
   };
 
-// METHOD MODIFY'S CERTIFICATIONS SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
+  // METHOD MODIFY'S CERTIFICATIONS SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyCertifications = (page, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].certifications[index]) {
@@ -733,7 +733,7 @@ class ThemeContextProvider extends Component {
     }
   };
 
-// METHOD MODIFY'S PROJECTS SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
+  // METHOD MODIFY'S PROJECTS SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyProjects = (page, field, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].projects[index]) {
@@ -761,7 +761,7 @@ class ThemeContextProvider extends Component {
     }
   };
 
-// METHOD MODIFY'S LANGUAGES SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
+  // METHOD MODIFY'S LANGUAGES SECTION IN CV, THAT BASED ON THE 4 PARAMETERS DECIDES WHAT SPECIFIC FIELD IN STATE NEEDS TO BE CHANGED
   modifyLanguages = (page, field, index, value) => {
     let newObject = [...this.state.userData];
     if (newObject[page].languages[index]) {
@@ -775,16 +775,16 @@ class ThemeContextProvider extends Component {
     }
   };
 
-// METHOD THAT DELETES A GROUP IN ANY SECTION OF THE CV BASED ON THE SET PARAMETERS(DYNAMIC)
-deleteGroup = (section, page, deleteIndex) => {
+  // METHOD THAT DELETES A GROUP IN ANY SECTION OF THE CV BASED ON THE SET PARAMETERS(DYNAMIC)
+  deleteGroup = (section, page, deleteIndex) => {
     let newObject = [...this.state.userData];
-      newObject[page][section] = [
-        ...newObject[page][section].filter((el, i) => i !== deleteIndex)
-      ];
+    newObject[page][section] = [
+      ...newObject[page][section].filter((el, i) => i !== deleteIndex)
+    ];
     this.setState({ userData: newObject });
   };
-// METHOD THAT ADDS A NEW GROUP IN ANY SECTION OF THE CV BASED ON THE SET PARAMETERS(DYNAMIC)
-addGroup = (field, page, index) => {
+  // METHOD THAT ADDS A NEW GROUP IN ANY SECTION OF THE CV BASED ON THE SET PARAMETERS(DYNAMIC)
+  addGroup = (field, page, index) => {
     let newObject = [...this.state.userData];
     if (field === "experience") {
       let newExperience = {
@@ -849,45 +849,35 @@ addGroup = (field, page, index) => {
   moveUpGroup = (field, page, index) => {
     let newObject = [...this.state.userData];
     // if (field === "experience") {
-      if (index === 0 && newObject[page - 1]) {
-        let newObj =
-          newObject[page - 1][field][
-            newObject[page - 1][field].length - 1
-          ];
-        newObject[page - 1][field][
-          newObject[page - 1][field].length - 1
-        ] = newObject[page][field][index];
-        newObject[page][field][index] = newObj;
-      } else {
-        let newObj = newObject[page][field][index - 1];
-        newObject[page][field][index - 1] =
-          newObject[page][field][index];
-        newObject[page][field][index] = newObj;
-      }
+    if (index === 0 && newObject[page - 1]) {
+      let newObj =
+        newObject[page - 1][field][newObject[page - 1][field].length - 1];
+      newObject[page - 1][field][newObject[page - 1][field].length - 1] =
+        newObject[page][field][index];
+      newObject[page][field][index] = newObj;
+    } else {
+      let newObj = newObject[page][field][index - 1];
+      newObject[page][field][index - 1] = newObject[page][field][index];
+      newObject[page][field][index] = newObj;
+    }
     this.setState({ userData: newObject });
   };
   // METHOD THAT WHEN CALLED, BASED ON THE PARAMETERS PASSED MOVE'S THE CURRENT GROUP A POSITION DOWN
   moveDownGroup = (field, page, index) => {
     let newObject = [...this.state.userData];
-      if (
-        index === newObject[page][field].length - 1 &&
-        newObject[page + 1]
-      ) {
-        let newObj = newObject[page + 1][field][0];
-        newObject[page + 1][field][0] =
-          newObject[page][field][newObject[page][field].length - 1];
-        newObject[page][field][
-          newObject[page][field].length - 1
-        ] = newObj;
-      } else {
-        let newObj = newObject[page][field][index + 1];
-        newObject[page][field][index + 1] =
-          newObject[page][field][index];
-        newObject[page][field][index] = newObj;
-      }
+    if (index === newObject[page][field].length - 1 && newObject[page + 1]) {
+      let newObj = newObject[page + 1][field][0];
+      newObject[page + 1][field][0] =
+        newObject[page][field][newObject[page][field].length - 1];
+      newObject[page][field][newObject[page][field].length - 1] = newObj;
+    } else {
+      let newObj = newObject[page][field][index + 1];
+      newObject[page][field][index + 1] = newObject[page][field][index];
+      newObject[page][field][index] = newObj;
+    }
     this.setState({ userData: newObject });
   };
-// METHOD THAT IMPLEMENTS THE DRAG AND DROP STRUCTURE TO THE CV
+  // METHOD THAT IMPLEMENTS THE DRAG AND DROP STRUCTURE TO THE CV
   setStructure = (arr1, arr2) => {
     let newObj = { ...this.state };
     let defaultArr = [
@@ -1123,7 +1113,7 @@ addGroup = (field, page, index) => {
     this.setState({ style: newObject });
   };
 
-// HELPING METHOD THAT GROUPS BACK THE DATA FROM ALL PAGES OF CV AND SETS IT AS NEW STATE SO THAT THE NEW STRUCTURE MADE BY DRAG AND DROP MENU IS IMPLEMENTED CORRECT
+  // HELPING METHOD THAT GROUPS BACK THE DATA FROM ALL PAGES OF CV AND SETS IT AS NEW STATE SO THAT THE NEW STRUCTURE MADE BY DRAG AND DROP MENU IS IMPLEMENTED CORRECT
   updateState = () => {
     let new1Object = [];
     new1Object = [
