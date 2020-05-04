@@ -29,6 +29,26 @@ function guidGenerator() {
     S4()
   );
 }
+
+// ###### This function solve the profile photo conversion to PDF #######
+function getDataUri(url, callback) {
+  var image = new Image();
+  // this line is needed due to CORS
+  image.crossOrigin = "Anonymous";
+
+  image.onload = function() {
+    var canvas = document.createElement("canvas");
+    canvas.width = this.naturalWidth;
+    canvas.height = this.naturalHeight;
+
+    canvas.getContext("2d").drawImage(this, 0, 0);
+
+    callback(canvas.toDataURL("image/png"));
+  };
+
+  image.src = url;
+}
+
 // import { response } from "express";
 export const ThemeContext = createContext();
 function aFunction() {
@@ -514,6 +534,7 @@ class ThemeContextProvider extends Component {
       newObject.userData[0].about = response.data.profileAbout
         ? response.data.profileAbout.join(" ")
         : ["Short and engaging pitch about yourself"];
+
       newObject.userData[0].profilePic = `${url}/static/${profile}.jpg`
         ? `${url}/static/${profile}.jpg`
         : `${url}/static/default.png`;
@@ -923,9 +944,12 @@ class ThemeContextProvider extends Component {
       body: data
     });
     const file = await res.json();
-    const newArr = [...this.state.userData];
-    newArr[0].profilePic = file.secure_url;
-    this.setState({ userData: newArr, loadingUploadImg: false });
+
+    getDataUri(file.secure_url, uri => {
+      const newArr = [...this.state.userData];
+      newArr[0].profilePic = uri;
+      this.setState({ userData: newArr, loadingUploadImg: false });
+    });
   };
 
   // These functions are regarding design tools of CvBuilder and CoverLetterBuilder
