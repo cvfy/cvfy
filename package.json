@@ -32,7 +32,7 @@
     "html2canvas": "^1.0.0-rc.5",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "minimist": "^1.2.5",
     "mongodb": "^3.5.3",
     "mongoose": "^5.8.4",
