@@ -33,7 +33,7 @@
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "jspdf": "^1.5.3",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "mongodb": "^3.5.3",
     "mongoose": "^5.8.4",
     "passport": "^0.4.1",
